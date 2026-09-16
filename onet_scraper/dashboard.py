@@ -170,6 +170,9 @@ def build_dashboard(
     meta: dict[str, Any],
     soc: Sequence[dict[str, Any]] | None = None,
     employment: dict[str, Any] | None = None,
+    benchmarks: Sequence[dict[str, Any]] | None = None,
+    net_edges: Sequence[dict[str, Any]] | None = None,
+    dimensions: Sequence[dict[str, Any]] | None = None,
 ) -> Path:
     occ = [
         {
@@ -214,8 +217,36 @@ def build_dashboard(
         }
         for r in (soc or []) if r.get("total_employment")
     ]
+    val = [
+        {"c": b["onet_soc_code"], "t": b["title"], "s": _f(b, "our_susceptibility"),
+         "hg": _f(b, "human_gamma", -1), "hb": _f(b, "human_beta", -1),
+         "fo": _f(b, "frey_osborne", -1)}
+        for b in (benchmarks or [])
+        if b.get("our_susceptibility") not in (None, "")
+    ]
+    # A top-3-neighbours-per-node backbone: all 4,656 edges render as a hairball.
+    keep: set[tuple[str, str]] = set()
+    per_node: dict[str, list[tuple[float, str]]] = {}
+    for e in (net_edges or []):
+        c = _f(e, "cosine")
+        per_node.setdefault(e["source"], []).append((c, e["target"]))
+        per_node.setdefault(e["target"], []).append((c, e["source"]))
+    for node, lst in per_node.items():
+        for c, other in sorted(lst, reverse=True)[:3]:
+            keep.add(tuple(sorted((node, other))))
+    net = [{"s": a, "t": b} for a, b in sorted(keep)]
+
+    DIMS = ("automation_feasibility_today", "llm_exposure", "physical_embodiment_required",
+            "interpersonal_demand", "judgment_under_uncertainty",
+            "accountability_requirement", "error_cost")
+    dims = {d["onet_soc_code"]: [_f(d, k) for k in DIMS] for d in (dimensions or [])}
+
     payload = {"occ": occ, "task": tsk, "sub": sub, "splits": splits, "meta": meta,
-               "soc": soc_rows, "emp": employment or {}}
+               "soc": soc_rows, "emp": employment or {}, "val": val, "net": net,
+               "dims": dims, "dimNames": [
+                   "Automatable today", "LLM exposure", "Physical embodiment",
+                   "Interpersonal demand", "Judgment under uncertainty",
+                   "Accountability required", "Error cost"]}
 
     subtitle = (
         f"{len(occ)} STEM occupations &middot; {len(tsk):,} tasks &middot; {len(sub)} distinct subtasks. "
@@ -228,7 +259,7 @@ def build_dashboard(
     html = (TEMPLATE_HEAD.replace("__SUBTITLE__", subtitle)
             + _BODY
             + TEMPLATE_TAIL.replace("__DATA__", json.dumps(payload, separators=(",", ":")))
-                           .replace("__SCRIPTS__", _SCRIPTS + _EMP_SCRIPT))
+                           .replace("__SCRIPTS__", _SCRIPTS + _EMP_SCRIPT + _VIZ2_SCRIPT))
     path.write_text(html, encoding="utf-8")
     log.info("wrote %-28s %.1f MB", path.name, path.stat().st_size / 1e6)
     return path
@@ -266,6 +297,47 @@ _BODY = """
     <span><span class="sw" style="background:var(--div-high)"></span>Higher susceptibility</span>
   </div>
   <div id="scatter"></div>
+</div>
+
+<div class="card" id="val-card" style="display:none">
+  <h2>Does this agree with anyone else?</h2>
+  <p class="note" id="val-note"></p>
+  <div class="grid2">
+    <div>
+      <h2 style="font-size:13px;margin-bottom:6px">vs. human expert ratings</h2>
+      <div id="val-human"></div>
+    </div>
+    <div>
+      <h2 style="font-size:13px;margin-bottom:6px">vs. Frey &amp; Osborne (2013)</h2>
+      <div id="val-frey"></div>
+    </div>
+  </div>
+  <p class="note">Left: agreement with human annotators is the evidence the index measures
+  what it claims. Right: the pre-LLM measure disagrees, and should &mdash; Frey &amp; Osborne
+  scored the routine/manual gradient, while LLMs land hardest on non-routine cognitive work
+  they called safe. A tight line on the right would have been the warning sign.</p>
+</div>
+
+<div class="card">
+  <h2>The occupation network</h2>
+  <p class="note">Occupations linked to their three most similar peers by shared subtasks
+  (575 of 4,656 edges &mdash; the full graph is a hairball). Position is force-directed, so
+  clusters are groups of occupations that do the same kind of work. Colour is
+  susceptibility. Drag a node to pull the layout apart; click to load its tasks.</p>
+  <div class="legend">
+    <span><span class="sw" style="background:var(--div-low)"></span>Lower susceptibility</span>
+    <span><span class="sw" style="background:var(--div-high)"></span>Higher susceptibility</span>
+    <span style="color:var(--text-muted)">Dot size = tasks scored</span>
+  </div>
+  <div id="network"></div>
+</div>
+
+<div class="card">
+  <h2>Which subtasks have the most leverage</h2>
+  <p class="note">A susceptible subtask used by 50 occupations matters far more than one used
+  by a single job. Up and to the right = automatable <em>and</em> widespread &mdash; the
+  activities whose automation would touch the most of STEM work.</p>
+  <div id="leverage"></div>
 </div>
 
 <div class="grid2">
@@ -330,6 +402,9 @@ _BODY = """
   <h2 id="task-title">Tasks &mdash; click an occupation above</h2>
   <p class="note">Task-level scores, inherited from the subtasks each task maps to.
   Sorted by susceptibility.</p>
+  <div id="profile" style="margin-bottom:14px"></div>
+  <p class="note" style="margin-top:0;margin-bottom:12px">Bars are this occupation's seven
+  rated dimensions; the vertical tick is the median across all 268 STEM occupations.</p>
   <div class="scroll"><table id="t-task"></table></div>
 </div>
 """
@@ -560,6 +635,7 @@ function renderSub() {
 
 function renderTasks() {
   const t = $('#t-task'); t.innerHTML = '';
+  if (typeof renderProfile === 'function') renderProfile();
   if (!SEL) { $('#task-title').innerHTML = 'Tasks &mdash; click an occupation above'; return; }
   $('#task-title').textContent = `Tasks: ${SEL.t}`;
   const rows = sortRows(DATA.task.filter(x => x.c === SEL.c), TASKSORT);
@@ -580,7 +656,8 @@ function renderTasks() {
 }
 
 function renderAll() { renderKpis(); renderScatter(); renderBars(); renderDumbbell();
-                       renderEmployment(); renderSub(); renderTasks(); }
+                       renderEmployment(); renderValidation(); renderNetwork();
+                       renderLeverage(); renderSub(); renderTasks(); }
 
 const types = [...new Set(DATA.occ.map(o => o.ty).filter(Boolean))].sort();
 $('#f-type').innerHTML = '<option value="">All</option>' +
@@ -685,5 +762,277 @@ function renderEmployment() {
     svg2.appendChild(g);
   });
   host2.appendChild(svg2);
+}
+"""
+
+
+_VIZ2_SCRIPT = """
+function pearsonJS(a, b) {
+  const ma = a.reduce((s,x)=>s+x,0)/a.length, mb = b.reduce((s,x)=>s+x,0)/b.length;
+  let n=0, da=0, db=0;
+  for (let i=0;i<a.length;i++){ n+=(a[i]-ma)*(b[i]-mb); da+=(a[i]-ma)**2; db+=(b[i]-mb)**2; }
+  return da && db ? n/Math.sqrt(da*db) : 0;
+}
+
+/* One series against one benchmark: emphasis, not categorical. Single hue, a
+   fitted line, and direct labels on the points that carry the story. */
+function scatterVs(hostId, pts, yKey, yLabel, highlight) {
+  const host = $(hostId); host.innerHTML = '';
+  const data = pts.filter(p => p[yKey] >= 0);
+  if (!data.length) return;
+  const W = host.clientWidth || 440, H = 330, m = {t: 14, r: 18, b: 44, l: 54};
+  const iw = W-m.l-m.r, ih = H-m.t-m.b;
+  const ys_ = data.map(d => d[yKey]);
+  const yMin = Math.min(...ys_), yMax = Math.max(...ys_);
+  const xs = v => m.l + (v-10)/80*iw;
+  const ys = v => m.t + ih - (v-yMin)/((yMax-yMin)||1)*ih;
+  const svg = el('svg', {width: W, height: H, role: 'img',
+    'aria-label': `Susceptibility index against ${yLabel}`});
+
+  for (let v=20; v<=90; v+=20) {
+    svg.appendChild(el('line', {x1:xs(v),x2:xs(v),y1:m.t,y2:m.t+ih,
+      stroke:css('--grid'),'stroke-width':1}));
+    const t = el('text', {x:xs(v),y:H-26,'text-anchor':'middle',
+      fill:css('--text-muted'),'font-size':11}); t.textContent=v; svg.appendChild(t);
+  }
+  for (let i=0;i<=4;i++) {
+    const v = yMin + (yMax-yMin)*i/4;
+    svg.appendChild(el('line', {x1:m.l,x2:m.l+iw,y1:ys(v),y2:ys(v),
+      stroke:css('--grid'),'stroke-width':1}));
+    const t = el('text', {x:m.l-8,y:ys(v)+4,'text-anchor':'end',
+      fill:css('--text-muted'),'font-size':11});
+    t.textContent = (yMax<=1 ? v.toFixed(2) : v.toFixed(0)); svg.appendChild(t);
+  }
+
+  const X = data.map(d=>d.s), Y = data.map(d=>d[yKey]);
+  const r = pearsonJS(X, Y);
+  const mx = X.reduce((s,x)=>s+x,0)/X.length, my = Y.reduce((s,x)=>s+x,0)/Y.length;
+  let num=0, den=0;
+  for (let i=0;i<X.length;i++){ num+=(X[i]-mx)*(Y[i]-my); den+=(X[i]-mx)**2; }
+  const slope = den ? num/den : 0;
+  svg.appendChild(el('line', {x1: xs(15), y1: ys(my + slope*(15-mx)),
+    x2: xs(88), y2: ys(my + slope*(88-mx)),
+    stroke: css('--text-muted'), 'stroke-width': 2, 'stroke-dasharray': '6 4'}));
+
+  for (const d of data) {
+    const c = el('circle', {cx: xs(d.s), cy: ys(d[yKey]), r: 4.5,
+      fill: css('--series-1'), opacity: .55, stroke: css('--surface-1'),
+      'stroke-width': 1.5, cursor: 'pointer'});
+    c.addEventListener('mousemove', e => showTip(e, `<b>${esc(d.t)}</b>` +
+      row('Our index', d.s) + row(yLabel, d[yKey])));
+    c.addEventListener('mouseleave', hideTip);
+    svg.appendChild(c);
+  }
+  for (const name of (highlight||[])) {
+    const d = data.find(p => p.t.startsWith(name));
+    if (!d) continue;
+    svg.appendChild(el('circle', {cx: xs(d.s), cy: ys(d[yKey]), r: 6,
+      fill: css('--div-high'), stroke: css('--surface-1'), 'stroke-width': 2}));
+    const ly = Math.max(m.t + 11, ys(d[yKey]) - 11);
+    const lx = Math.min(Math.max(xs(d.s), m.l + 40), m.l + iw - 40);
+    const t = el('text', {x: lx, y: ly, 'text-anchor':'middle',
+      fill: css('--text-primary'), 'font-size': 11, 'font-weight': 600});
+    t.textContent = d.t.length>22 ? d.t.slice(0,21)+'\\u2026' : d.t;
+    svg.appendChild(t);
+  }
+  const rt = el('text', {x: m.l+8, y: m.t+16, fill: css('--text-primary'),
+    'font-size': 13, 'font-weight': 650});
+  rt.textContent = `r = ${r.toFixed(3)}`; svg.appendChild(rt);
+  const ax = el('text', {x: m.l+iw/2, y: H-6, 'text-anchor':'middle',
+    fill: css('--text-secondary'), 'font-size': 12});
+  ax.textContent = 'Our susceptibility index \\u2192'; svg.appendChild(ax);
+  const ay = el('text', {x: 13, y: m.t+ih/2, 'text-anchor':'middle',
+    fill: css('--text-secondary'), 'font-size': 12,
+    transform: `rotate(-90 13 ${m.t+ih/2})`});
+  ay.textContent = yLabel; svg.appendChild(ay);
+  host.appendChild(svg);
+}
+
+function renderValidation() {
+  if (!DATA.val || !DATA.val.length) return;
+  $('#val-card').style.display = '';
+  $('#val-note').innerHTML =
+    'Both panels plot the same 268 occupations. Benchmarks from Eloundou, Manning, ' +
+    'Mishkin &amp; Rock (2023) and Frey &amp; Osborne (2017). Dashed line is the ' +
+    'least-squares fit.';
+  scatterVs('#val-human', DATA.val, 'hg', 'Human expert rating (gamma)',
+            ['Mathematicians']);
+  scatterVs('#val-frey', DATA.val, 'fo', 'Frey & Osborne P(computerisation)',
+            ['Mathematicians']);
+}
+
+/* --- force-directed occupation network ------------------------------------ */
+let NETPOS = null;
+function layoutNetwork(nodes, edges, W, H, iters) {
+  const idx = new Map(nodes.map((n,i) => [n.c, i]));
+  // Deterministic PRNG so the layout is identical on every render and reload.
+  let seed = 20260916;
+  const rnd = () => (seed = (seed*1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
+  const P = nodes.map(() => ({x: rnd()*W, y: rnd()*H, dx: 0, dy: 0}));
+  const E = edges.map(e => [idx.get(e.s), idx.get(e.t)])
+                 .filter(([a,b]) => a !== undefined && b !== undefined);
+  const area = W*H, k = Math.sqrt(area/nodes.length);
+  let temp = W*0.04;
+  const cool = temp/(iters+1);
+
+  for (let it=0; it<iters; it++) {
+    for (const p of P) { p.dx = 0; p.dy = 0; }
+    for (let i=0;i<P.length;i++) {
+      for (let j=i+1;j<P.length;j++) {
+        let dx = P[i].x-P[j].x, dy = P[i].y-P[j].y;
+        let d = Math.hypot(dx, dy) || 0.01;
+        const rep = (k*k)/d;
+        const ux = dx/d*rep, uy = dy/d*rep;
+        P[i].dx += ux; P[i].dy += uy; P[j].dx -= ux; P[j].dy -= uy;
+      }
+    }
+    for (const [a,b] of E) {
+      const dx = P[a].x-P[b].x, dy = P[a].y-P[b].y;
+      const d = Math.hypot(dx, dy) || 0.01;
+      const att = (d*d)/k;
+      const ux = dx/d*att, uy = dy/d*att;
+      P[a].dx -= ux; P[a].dy -= uy; P[b].dx += ux; P[b].dy += uy;
+    }
+    for (const p of P) {
+      // Pull to centre instead of clamping at the edges. A hard wall makes nodes
+      // pile onto the border and then hold each other there; gravity keeps the
+      // drawing bounded while letting clusters separate. Final fit is by rescale.
+      p.dx += (W/2 - p.x)*0.09; p.dy += (H/2 - p.y)*0.09;
+      const d = Math.hypot(p.dx, p.dy) || 0.01;
+      const step = Math.min(d, temp);
+      p.x += p.dx/d*step; p.y += p.dy/d*step;
+    }
+    temp -= cool;   // anneal: large rearrangements early, fine settling late
+  }
+  return P;
+}
+
+function renderNetwork() {
+  const host = $('#network'); if (!DATA.net || !DATA.net.length) return;
+  host.innerHTML = '';
+  const W = host.clientWidth || 900, H = 620;
+  const nodes = DATA.occ;
+  if (!NETPOS || NETPOS.w !== W) NETPOS = {w: W, p: layoutNetwork(nodes, DATA.net, W, H, 400)};
+  const P = NETPOS.p;
+  const idx = new Map(nodes.map((n,i) => [n.c, i]));
+  const xs = P.map(p=>p.x), yss = P.map(p=>p.y);
+  const pad = 26;
+  const sx = v => pad + (v-Math.min(...xs))/((Math.max(...xs)-Math.min(...xs))||1)*(W-2*pad);
+  const sy = v => pad + (v-Math.min(...yss))/((Math.max(...yss)-Math.min(...yss))||1)*(H-2*pad);
+  const svg = el('svg', {width: W, height: H, role: 'img',
+    'aria-label': 'Force-directed network of STEM occupations linked by shared subtasks'});
+
+  for (const e of DATA.net) {
+    const a = idx.get(e.s), b = idx.get(e.t);
+    if (a === undefined || b === undefined) continue;
+    svg.appendChild(el('line', {x1: sx(P[a].x), y1: sy(P[a].y),
+      x2: sx(P[b].x), y2: sy(P[b].y), stroke: css('--grid'), 'stroke-width': 1.2}));
+  }
+  nodes.forEach((n, i) => {
+    const c = el('circle', {cx: sx(P[i].x), cy: sy(P[i].y),
+      r: Math.max(4, Math.sqrt(n.n)*1.0), fill: divergingColor(n.s),
+      stroke: css('--surface-1'), 'stroke-width': 1.6, cursor: 'pointer'});
+    c.addEventListener('mousemove', e => showTip(e, `<b>${esc(n.t)}</b>` +
+      row('Susceptibility', n.s) + row('Exposure', n.e) + row('Anchoring', n.a) +
+      row('Quadrant', n.q)));
+    c.addEventListener('mouseleave', hideTip);
+    c.addEventListener('click', () => { SEL = n; hideTip(); renderTasks();
+      $('#task-title').scrollIntoView({behavior:'smooth', block:'center'}); });
+    svg.appendChild(c);
+  });
+  host.appendChild(svg);
+}
+
+function renderLeverage() {
+  const host = $('#leverage'); if (!DATA.sub || !DATA.sub.length) return;
+  host.innerHTML = '';
+  const W = host.clientWidth || 900, H = 420, m = {t: 16, r: 22, b: 46, l: 56};
+  const iw = W-m.l-m.r, ih = H-m.t-m.b;
+  const maxN = Math.max(...DATA.sub.map(d => d.no));
+  const xs = v => m.l + Math.sqrt(v/maxN)*iw;          // sqrt: reach is long-tailed
+  const ys = v => m.t + ih - (v-10)/85*ih;
+  const svg = el('svg', {width: W, height: H, role: 'img',
+    'aria-label': 'Subtask susceptibility against how many occupations use it'});
+  for (const v of [1,2,5,10,20,40,60]) {
+    if (v > maxN) continue;
+    svg.appendChild(el('line', {x1:xs(v),x2:xs(v),y1:m.t,y2:m.t+ih,
+      stroke:css('--grid'),'stroke-width':1}));
+    const t=el('text',{x:xs(v),y:H-26,'text-anchor':'middle',
+      fill:css('--text-muted'),'font-size':11}); t.textContent=v; svg.appendChild(t);
+  }
+  for (let v=20; v<=90; v+=10) {
+    svg.appendChild(el('line', {x1:m.l,x2:m.l+iw,y1:ys(v),y2:ys(v),
+      stroke:css('--grid'),'stroke-width':1}));
+    const t=el('text',{x:m.l-8,y:ys(v)+4,'text-anchor':'end',
+      fill:css('--text-muted'),'font-size':11}); t.textContent=v; svg.appendChild(t);
+  }
+  // Reach is an integer count, so points stack into hard columns; a small
+  // deterministic jitter makes density readable without moving anything far.
+  const jit = d => ((d.d.charCodeAt(d.d.length-1) % 11) - 5) * 1.6;
+  for (const d of DATA.sub) {
+    const c = el('circle', {cx: xs(d.no) + jit(d), cy: ys(d.s), r: 4.5,
+      fill: divergingColor(d.s), opacity: .8, stroke: css('--surface-1'),
+      'stroke-width': 1.4});
+    c.addEventListener('mousemove', e => showTip(e, `<b>${esc(d.t)}</b>` +
+      row('Susceptibility', d.s) + row('Used by', d.no + ' occupations') +
+      row('Tasks', d.nt) + row('Verdict', d.v.replace(/_/g,' '))));
+    c.addEventListener('mouseleave', hideTip);
+    svg.appendChild(c);
+  }
+  // Label the genuinely high-leverage corner: susceptible AND widespread.
+  const lev = [...DATA.sub].filter(d => d.no >= 8)
+      .sort((a,b) => (b.s*Math.sqrt(b.no)) - (a.s*Math.sqrt(a.no))).slice(0,5);
+  const used = [];
+  for (const d of lev) {
+    let y = Math.max(m.t + 10, ys(d.s) - 10);
+    while (used.some(u => Math.abs(u-y) < 13)) y += 13;   // push DOWN from the clamp
+    used.push(y);
+    const near = xs(d.no) > m.l + iw - 150;
+    const t = el('text', {x: near ? m.l+iw : xs(d.no),
+      y, 'text-anchor': near ? 'end' : 'middle',
+      fill: css('--text-primary'), 'font-size': 10.5, 'font-weight': 600});
+    t.textContent = d.t.length>40 ? d.t.slice(0,39)+'\\u2026' : d.t;
+    svg.appendChild(t);
+  }
+  const ax=el('text',{x:m.l+iw/2,y:H-6,'text-anchor':'middle',
+    fill:css('--text-secondary'),'font-size':12});
+  ax.textContent='Occupations using this subtask (square-root scale) \\u2192';
+  svg.appendChild(ax);
+  const ay=el('text',{x:13,y:m.t+ih/2,'text-anchor':'middle',
+    fill:css('--text-secondary'),'font-size':12,transform:`rotate(-90 13 ${m.t+ih/2})`});
+  ay.textContent='Susceptibility \\u2192'; svg.appendChild(ay);
+  host.appendChild(svg);
+}
+
+/* Dimension profile for the selected occupation, against the STEM median. */
+function renderProfile() {
+  const host = $('#profile'); if (!host) return;
+  host.innerHTML = '';
+  if (!SEL || !DATA.dims || !DATA.dims[SEL.c]) return;
+  const vals = DATA.dims[SEL.c], names = DATA.dimNames;
+  const all = Object.values(DATA.dims);
+  const med = names.map((_, i) => {
+    const col = all.map(v => v[i]).sort((a,b)=>a-b);
+    return col[Math.floor(col.length/2)];
+  });
+  const W = host.clientWidth || 520, rowH = 27, m = {t: 6, r: 42, b: 6, l: 176};
+  const iw = W-m.l-m.r;
+  const svg = el('svg', {width: W, height: m.t + names.length*rowH + m.b, role:'img'});
+  names.forEach((n, i) => {
+    const y = m.t + i*rowH;
+    svg.appendChild(el('rect', {x:m.l, y:y+4, width:iw, height:rowH-11, rx:4,
+      fill: css('--surface-3')}));
+    svg.appendChild(el('rect', {x:m.l, y:y+4, width:Math.max(2, vals[i]/100*iw),
+      height:rowH-11, rx:4, fill: css('--seq-4')}));
+    // median reference tick: the number only means something in context
+    svg.appendChild(el('line', {x1:m.l+med[i]/100*iw, x2:m.l+med[i]/100*iw,
+      y1:y+1, y2:y+rowH-8, stroke:css('--text-primary'), 'stroke-width':2}));
+    const lt = el('text', {x:m.l-9, y:y+rowH/2+3, 'text-anchor':'end',
+      fill:css('--text-primary'), 'font-size':11.5}); lt.textContent = n;
+    svg.appendChild(lt);
+    const vt = el('text', {x:m.l+iw+7, y:y+rowH/2+3, fill:css('--text-secondary'),
+      'font-size':11.5}); vt.textContent = vals[i].toFixed(0); svg.appendChild(vt);
+  });
+  host.appendChild(svg);
 }
 """

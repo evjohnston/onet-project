@@ -198,6 +198,9 @@ def run_report(settings: Settings) -> dict[str, Any]:
          "rubric_version": scoring_meta.get("rubric_version", "")},
         soc=soc_rows,
         employment=employment_meta,
+        benchmarks=read_table(settings.out_dir, "external_benchmarks"),
+        net_edges=read_table(settings.out_dir, "network_occupation_edges"),
+        dimensions=read_table(settings.out_dir, "occupation_automation_scores"),
     )
 
     report = {"splits": splits, "convergent_validity": validity,
