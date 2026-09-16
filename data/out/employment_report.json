@@ -1,0 +1,45 @@
+{
+  "oews_release": "May 2025",
+  "join": {
+    "onet_occupations_in": 268,
+    "soc_codes_out": 195,
+    "collapsed_socs": 37,
+    "unmatched_onet_codes": [],
+    "employment_covered": 21523100.0
+  },
+  "headline": {
+    "soc_codes": 195,
+    "total_employment": 21523100.0,
+    "employment_weighted_susceptibility": 58.7,
+    "unweighted_susceptibility": 58.2,
+    "weighting_shifts_result_by": 0.5,
+    "employment_weighted_exposure": 64.3,
+    "employment_weighted_anchoring": 47.0,
+    "workers_in_high_susceptibility_occupations": 2441240.0,
+    "share_workers_high_susceptibility": 0.1134,
+    "workers_in_low_susceptibility_occupations": 6717190.0,
+    "annual_wage_bill_usd": 2479221723300,
+    "by_quadrant": {
+      "Human-anchored": {
+        "employment": 8913280.0,
+        "wage_bill_usd": 921991084000,
+        "share_of_employment": 0.4141
+      },
+      "Displaceable": {
+        "employment": 9208420.0,
+        "wage_bill_usd": 1140179539600,
+        "share_of_employment": 0.4278
+      },
+      "Insulated": {
+        "employment": 1256310.0,
+        "wage_bill_usd": 79141471200,
+        "share_of_employment": 0.0584
+      },
+      "Contested": {
+        "employment": 2145090.0,
+        "wage_bill_usd": 337909628500,
+        "share_of_employment": 0.0997
+      }
+    }
+  }
+}

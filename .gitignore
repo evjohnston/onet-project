@@ -1,0 +1,23 @@
+# Scraped pages and upstream bulk files - large, and re-fetched on demand.
+data/cache/
+data/raw/
+
+# Regenerable outputs. Everything here is rebuilt from the committed CSVs:
+#   python -m onet_scraper report      -> sqlite tables, dashboard
+#   python -m onet_scraper network     -> graphml
+data/out/onet_stem.sqlite
+data/out/*.graphml
+data/out/occupations.json
+
+# Filtered mirrors of O*NET descriptor files - large, and reproduced by
+#   python -m onet_scraper fetch-descriptors && ... build
+data/out/occupation_work_context.csv
+data/out/occupation_work_activities.csv
+data/out/occupation_abilities.csv
+data/out/occupation_essential_skills.csv
+
+# Local environment
+.venv/
+__pycache__/
+*.pyc
+.DS_Store

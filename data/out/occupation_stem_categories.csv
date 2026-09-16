@@ -1,0 +1,574 @@
+onet_soc_code,stem_category_id,stem_category_name,parent_category_name
+11-3021.00,4,Managerial,
+11-9041.00,4,Managerial,
+11-9041.01,4,Managerial,
+11-9111.00,4,Managerial,
+11-9121.00,4,Managerial,
+11-9121.01,4,Managerial,
+11-9121.02,4,Managerial,
+15-1211.00,1,"Research, Development, Design, and Practitioners",
+15-1211.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1211.01,1,"Research, Development, Design, and Practitioners",
+15-1211.01,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1212.00,1,"Research, Development, Design, and Practitioners",
+15-1212.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1221.00,1,"Research, Development, Design, and Practitioners",
+15-1221.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1231.00,2,Technologists and Technicians,
+15-1231.00,2-2,Computer and Mathematical,Technologists and Technicians
+15-1232.00,2,Technologists and Technicians,
+15-1232.00,2-2,Computer and Mathematical,Technologists and Technicians
+15-1241.00,1,"Research, Development, Design, and Practitioners",
+15-1241.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1241.01,1,"Research, Development, Design, and Practitioners",
+15-1241.01,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1242.00,1,"Research, Development, Design, and Practitioners",
+15-1242.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1243.00,1,"Research, Development, Design, and Practitioners",
+15-1243.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1243.01,1,"Research, Development, Design, and Practitioners",
+15-1243.01,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1244.00,1,"Research, Development, Design, and Practitioners",
+15-1244.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1251.00,1,"Research, Development, Design, and Practitioners",
+15-1251.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1252.00,1,"Research, Development, Design, and Practitioners",
+15-1252.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1253.00,1,"Research, Development, Design, and Practitioners",
+15-1253.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1254.00,1,"Research, Development, Design, and Practitioners",
+15-1254.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1255.00,1,"Research, Development, Design, and Practitioners",
+15-1255.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1255.01,1,"Research, Development, Design, and Practitioners",
+15-1255.01,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1299.00,1,"Research, Development, Design, and Practitioners",
+15-1299.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1299.00,2,Technologists and Technicians,
+15-1299.00,2-2,Computer and Mathematical,Technologists and Technicians
+15-1299.01,1,"Research, Development, Design, and Practitioners",
+15-1299.01,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1299.01,2,Technologists and Technicians,
+15-1299.01,2-2,Computer and Mathematical,Technologists and Technicians
+15-1299.02,1,"Research, Development, Design, and Practitioners",
+15-1299.02,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1299.02,2,Technologists and Technicians,
+15-1299.02,2-2,Computer and Mathematical,Technologists and Technicians
+15-1299.03,1,"Research, Development, Design, and Practitioners",
+15-1299.03,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1299.03,2,Technologists and Technicians,
+15-1299.03,2-2,Computer and Mathematical,Technologists and Technicians
+15-1299.04,1,"Research, Development, Design, and Practitioners",
+15-1299.04,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1299.04,2,Technologists and Technicians,
+15-1299.04,2-2,Computer and Mathematical,Technologists and Technicians
+15-1299.05,1,"Research, Development, Design, and Practitioners",
+15-1299.05,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1299.05,2,Technologists and Technicians,
+15-1299.05,2-2,Computer and Mathematical,Technologists and Technicians
+15-1299.06,1,"Research, Development, Design, and Practitioners",
+15-1299.06,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1299.06,2,Technologists and Technicians,
+15-1299.06,2-2,Computer and Mathematical,Technologists and Technicians
+15-1299.07,1,"Research, Development, Design, and Practitioners",
+15-1299.07,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1299.07,2,Technologists and Technicians,
+15-1299.07,2-2,Computer and Mathematical,Technologists and Technicians
+15-1299.08,1,"Research, Development, Design, and Practitioners",
+15-1299.08,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1299.08,2,Technologists and Technicians,
+15-1299.08,2-2,Computer and Mathematical,Technologists and Technicians
+15-1299.09,1,"Research, Development, Design, and Practitioners",
+15-1299.09,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-1299.09,2,Technologists and Technicians,
+15-1299.09,2-2,Computer and Mathematical,Technologists and Technicians
+15-2011.00,1,"Research, Development, Design, and Practitioners",
+15-2011.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-2021.00,1,"Research, Development, Design, and Practitioners",
+15-2021.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-2031.00,1,"Research, Development, Design, and Practitioners",
+15-2031.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-2041.00,1,"Research, Development, Design, and Practitioners",
+15-2041.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-2041.01,1,"Research, Development, Design, and Practitioners",
+15-2041.01,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-2051.00,1,"Research, Development, Design, and Practitioners",
+15-2051.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-2051.01,1,"Research, Development, Design, and Practitioners",
+15-2051.01,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-2051.02,1,"Research, Development, Design, and Practitioners",
+15-2051.02,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-2099.00,1,"Research, Development, Design, and Practitioners",
+15-2099.00,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-2099.00,2,Technologists and Technicians,
+15-2099.00,2-2,Computer and Mathematical,Technologists and Technicians
+15-2099.01,1,"Research, Development, Design, and Practitioners",
+15-2099.01,1-2,Computer and Mathematical,"Research, Development, Design, and Practitioners"
+15-2099.01,2,Technologists and Technicians,
+15-2099.01,2-2,Computer and Mathematical,Technologists and Technicians
+17-1011.00,1,"Research, Development, Design, and Practitioners",
+17-1011.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-1012.00,1,"Research, Development, Design, and Practitioners",
+17-1012.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-1021.00,2,Technologists and Technicians,
+17-1021.00,2-1,Architecture and Engineering,Technologists and Technicians
+17-1022.00,2,Technologists and Technicians,
+17-1022.00,2-1,Architecture and Engineering,Technologists and Technicians
+17-1022.01,2,Technologists and Technicians,
+17-1022.01,2-1,Architecture and Engineering,Technologists and Technicians
+17-2011.00,1,"Research, Development, Design, and Practitioners",
+17-2011.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2021.00,1,"Research, Development, Design, and Practitioners",
+17-2021.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2031.00,1,"Research, Development, Design, and Practitioners",
+17-2031.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2041.00,1,"Research, Development, Design, and Practitioners",
+17-2041.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2051.00,1,"Research, Development, Design, and Practitioners",
+17-2051.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2051.01,1,"Research, Development, Design, and Practitioners",
+17-2051.01,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2051.02,1,"Research, Development, Design, and Practitioners",
+17-2051.02,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2061.00,1,"Research, Development, Design, and Practitioners",
+17-2061.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2071.00,1,"Research, Development, Design, and Practitioners",
+17-2071.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2072.00,1,"Research, Development, Design, and Practitioners",
+17-2072.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2072.01,1,"Research, Development, Design, and Practitioners",
+17-2072.01,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2081.00,1,"Research, Development, Design, and Practitioners",
+17-2081.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2111.00,1,"Research, Development, Design, and Practitioners",
+17-2111.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2111.02,1,"Research, Development, Design, and Practitioners",
+17-2111.02,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2112.00,1,"Research, Development, Design, and Practitioners",
+17-2112.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2112.01,1,"Research, Development, Design, and Practitioners",
+17-2112.01,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2112.02,1,"Research, Development, Design, and Practitioners",
+17-2112.02,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2112.03,1,"Research, Development, Design, and Practitioners",
+17-2112.03,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2121.00,1,"Research, Development, Design, and Practitioners",
+17-2121.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2131.00,1,"Research, Development, Design, and Practitioners",
+17-2131.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2141.00,1,"Research, Development, Design, and Practitioners",
+17-2141.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2141.01,1,"Research, Development, Design, and Practitioners",
+17-2141.01,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2141.02,1,"Research, Development, Design, and Practitioners",
+17-2141.02,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2151.00,1,"Research, Development, Design, and Practitioners",
+17-2151.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2161.00,1,"Research, Development, Design, and Practitioners",
+17-2161.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2171.00,1,"Research, Development, Design, and Practitioners",
+17-2171.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2199.00,1,"Research, Development, Design, and Practitioners",
+17-2199.00,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2199.03,1,"Research, Development, Design, and Practitioners",
+17-2199.03,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2199.05,1,"Research, Development, Design, and Practitioners",
+17-2199.05,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2199.06,1,"Research, Development, Design, and Practitioners",
+17-2199.06,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2199.07,1,"Research, Development, Design, and Practitioners",
+17-2199.07,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2199.08,1,"Research, Development, Design, and Practitioners",
+17-2199.08,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2199.09,1,"Research, Development, Design, and Practitioners",
+17-2199.09,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2199.10,1,"Research, Development, Design, and Practitioners",
+17-2199.10,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-2199.11,1,"Research, Development, Design, and Practitioners",
+17-2199.11,1-1,Architecture and Engineering,"Research, Development, Design, and Practitioners"
+17-3011.00,2,Technologists and Technicians,
+17-3011.00,2-1,Architecture and Engineering,Technologists and Technicians
+17-3012.00,2,Technologists and Technicians,
+17-3012.00,2-1,Architecture and Engineering,Technologists and Technicians
+17-3013.00,2,Technologists and Technicians,
+17-3013.00,2-1,Architecture and Engineering,Technologists and Technicians
+17-3019.00,2,Technologists and Technicians,
+17-3019.00,2-1,Architecture and Engineering,Technologists and Technicians
+17-3021.00,2,Technologists and Technicians,
+17-3021.00,2-1,Architecture and Engineering,Technologists and Technicians
+17-3022.00,2,Technologists and Technicians,
+17-3022.00,2-1,Architecture and Engineering,Technologists and Technicians
+17-3023.00,2,Technologists and Technicians,
+17-3023.00,2-1,Architecture and Engineering,Technologists and Technicians
+17-3024.00,2,Technologists and Technicians,
+17-3024.00,2-1,Architecture and Engineering,Technologists and Technicians
+17-3024.01,2,Technologists and Technicians,
+17-3024.01,2-1,Architecture and Engineering,Technologists and Technicians
+17-3025.00,2,Technologists and Technicians,
+17-3025.00,2-1,Architecture and Engineering,Technologists and Technicians
+17-3026.00,2,Technologists and Technicians,
+17-3026.00,2-1,Architecture and Engineering,Technologists and Technicians
+17-3026.01,2,Technologists and Technicians,
+17-3026.01,2-1,Architecture and Engineering,Technologists and Technicians
+17-3027.00,2,Technologists and Technicians,
+17-3027.00,2-1,Architecture and Engineering,Technologists and Technicians
+17-3027.01,2,Technologists and Technicians,
+17-3027.01,2-1,Architecture and Engineering,Technologists and Technicians
+17-3028.00,2,Technologists and Technicians,
+17-3028.00,2-1,Architecture and Engineering,Technologists and Technicians
+17-3029.00,2,Technologists and Technicians,
+17-3029.00,2-1,Architecture and Engineering,Technologists and Technicians
+17-3029.01,2,Technologists and Technicians,
+17-3029.01,2-1,Architecture and Engineering,Technologists and Technicians
+17-3029.08,2,Technologists and Technicians,
+17-3029.08,2-1,Architecture and Engineering,Technologists and Technicians
+17-3031.00,2,Technologists and Technicians,
+17-3031.00,2-1,Architecture and Engineering,Technologists and Technicians
+19-1011.00,1,"Research, Development, Design, and Practitioners",
+19-1011.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1012.00,1,"Research, Development, Design, and Practitioners",
+19-1012.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1013.00,1,"Research, Development, Design, and Practitioners",
+19-1013.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1021.00,1,"Research, Development, Design, and Practitioners",
+19-1021.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1022.00,1,"Research, Development, Design, and Practitioners",
+19-1022.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1023.00,1,"Research, Development, Design, and Practitioners",
+19-1023.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1029.00,1,"Research, Development, Design, and Practitioners",
+19-1029.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1029.01,1,"Research, Development, Design, and Practitioners",
+19-1029.01,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1029.02,1,"Research, Development, Design, and Practitioners",
+19-1029.02,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1029.03,1,"Research, Development, Design, and Practitioners",
+19-1029.03,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1029.04,1,"Research, Development, Design, and Practitioners",
+19-1029.04,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1031.00,1,"Research, Development, Design, and Practitioners",
+19-1031.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1031.02,1,"Research, Development, Design, and Practitioners",
+19-1031.02,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1031.03,1,"Research, Development, Design, and Practitioners",
+19-1031.03,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1032.00,1,"Research, Development, Design, and Practitioners",
+19-1032.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1041.00,1,"Research, Development, Design, and Practitioners",
+19-1041.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1042.00,1,"Research, Development, Design, and Practitioners",
+19-1042.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-1099.00,1,"Research, Development, Design, and Practitioners",
+19-1099.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-2011.00,1,"Research, Development, Design, and Practitioners",
+19-2011.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-2012.00,1,"Research, Development, Design, and Practitioners",
+19-2012.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-2021.00,1,"Research, Development, Design, and Practitioners",
+19-2021.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-2031.00,1,"Research, Development, Design, and Practitioners",
+19-2031.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-2032.00,1,"Research, Development, Design, and Practitioners",
+19-2032.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-2041.00,1,"Research, Development, Design, and Practitioners",
+19-2041.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-2041.01,1,"Research, Development, Design, and Practitioners",
+19-2041.01,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-2041.02,1,"Research, Development, Design, and Practitioners",
+19-2041.02,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-2041.03,1,"Research, Development, Design, and Practitioners",
+19-2041.03,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-2042.00,1,"Research, Development, Design, and Practitioners",
+19-2042.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-2043.00,1,"Research, Development, Design, and Practitioners",
+19-2043.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-2099.00,1,"Research, Development, Design, and Practitioners",
+19-2099.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-2099.01,1,"Research, Development, Design, and Practitioners",
+19-2099.01,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3011.00,1,"Research, Development, Design, and Practitioners",
+19-3011.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3011.01,1,"Research, Development, Design, and Practitioners",
+19-3011.01,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3022.00,1,"Research, Development, Design, and Practitioners",
+19-3022.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3032.00,1,"Research, Development, Design, and Practitioners",
+19-3032.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3033.00,1,"Research, Development, Design, and Practitioners",
+19-3033.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3034.00,1,"Research, Development, Design, and Practitioners",
+19-3034.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3039.00,1,"Research, Development, Design, and Practitioners",
+19-3039.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3039.02,1,"Research, Development, Design, and Practitioners",
+19-3039.02,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3039.03,1,"Research, Development, Design, and Practitioners",
+19-3039.03,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3041.00,1,"Research, Development, Design, and Practitioners",
+19-3041.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3051.00,1,"Research, Development, Design, and Practitioners",
+19-3051.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3091.00,1,"Research, Development, Design, and Practitioners",
+19-3091.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3092.00,1,"Research, Development, Design, and Practitioners",
+19-3092.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3094.00,1,"Research, Development, Design, and Practitioners",
+19-3094.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3099.00,1,"Research, Development, Design, and Practitioners",
+19-3099.00,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-3099.01,1,"Research, Development, Design, and Practitioners",
+19-3099.01,1-4,"Life, Physical, and Social Science","Research, Development, Design, and Practitioners"
+19-4012.00,2,Technologists and Technicians,
+19-4012.00,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+19-4012.01,2,Technologists and Technicians,
+19-4012.01,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+19-4013.00,2,Technologists and Technicians,
+19-4013.00,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+19-4021.00,2,Technologists and Technicians,
+19-4021.00,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+19-4031.00,2,Technologists and Technicians,
+19-4031.00,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+19-4042.00,2,Technologists and Technicians,
+19-4042.00,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+19-4043.00,2,Technologists and Technicians,
+19-4043.00,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+19-4044.00,2,Technologists and Technicians,
+19-4044.00,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+19-4051.00,2,Technologists and Technicians,
+19-4051.00,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+19-4051.02,2,Technologists and Technicians,
+19-4051.02,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+19-4061.00,2,Technologists and Technicians,
+19-4061.00,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+19-4071.00,2,Technologists and Technicians,
+19-4071.00,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+19-4092.00,2,Technologists and Technicians,
+19-4092.00,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+19-4099.00,2,Technologists and Technicians,
+19-4099.00,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+19-4099.01,2,Technologists and Technicians,
+19-4099.01,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+19-4099.03,2,Technologists and Technicians,
+19-4099.03,2-4,"Life, Physical, and Social Science",Technologists and Technicians
+25-1021.00,3,Postsecondary Teaching,
+25-1022.00,3,Postsecondary Teaching,
+25-1031.00,3,Postsecondary Teaching,
+25-1032.00,3,Postsecondary Teaching,
+25-1041.00,3,Postsecondary Teaching,
+25-1042.00,3,Postsecondary Teaching,
+25-1043.00,3,Postsecondary Teaching,
+25-1051.00,3,Postsecondary Teaching,
+25-1052.00,3,Postsecondary Teaching,
+25-1053.00,3,Postsecondary Teaching,
+25-1054.00,3,Postsecondary Teaching,
+25-1061.00,3,Postsecondary Teaching,
+25-1062.00,3,Postsecondary Teaching,
+25-1063.00,3,Postsecondary Teaching,
+25-1064.00,3,Postsecondary Teaching,
+25-1065.00,3,Postsecondary Teaching,
+25-1066.00,3,Postsecondary Teaching,
+25-1067.00,3,Postsecondary Teaching,
+25-1069.00,3,Postsecondary Teaching,
+25-1071.00,3,Postsecondary Teaching,
+25-1072.00,3,Postsecondary Teaching,
+29-1011.00,1,"Research, Development, Design, and Practitioners",
+29-1011.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1021.00,1,"Research, Development, Design, and Practitioners",
+29-1021.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1022.00,1,"Research, Development, Design, and Practitioners",
+29-1022.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1023.00,1,"Research, Development, Design, and Practitioners",
+29-1023.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1024.00,1,"Research, Development, Design, and Practitioners",
+29-1024.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1029.00,1,"Research, Development, Design, and Practitioners",
+29-1029.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1031.00,1,"Research, Development, Design, and Practitioners",
+29-1031.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1041.00,1,"Research, Development, Design, and Practitioners",
+29-1041.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1051.00,1,"Research, Development, Design, and Practitioners",
+29-1051.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1071.00,1,"Research, Development, Design, and Practitioners",
+29-1071.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1071.01,1,"Research, Development, Design, and Practitioners",
+29-1071.01,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1081.00,1,"Research, Development, Design, and Practitioners",
+29-1081.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1122.00,1,"Research, Development, Design, and Practitioners",
+29-1122.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1122.01,1,"Research, Development, Design, and Practitioners",
+29-1122.01,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1123.00,1,"Research, Development, Design, and Practitioners",
+29-1123.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1124.00,1,"Research, Development, Design, and Practitioners",
+29-1124.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1125.00,1,"Research, Development, Design, and Practitioners",
+29-1125.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1126.00,1,"Research, Development, Design, and Practitioners",
+29-1126.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1127.00,1,"Research, Development, Design, and Practitioners",
+29-1127.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1128.00,1,"Research, Development, Design, and Practitioners",
+29-1128.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1129.00,1,"Research, Development, Design, and Practitioners",
+29-1129.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1129.01,1,"Research, Development, Design, and Practitioners",
+29-1129.01,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1129.02,1,"Research, Development, Design, and Practitioners",
+29-1129.02,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1131.00,1,"Research, Development, Design, and Practitioners",
+29-1131.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1141.00,1,"Research, Development, Design, and Practitioners",
+29-1141.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1141.01,1,"Research, Development, Design, and Practitioners",
+29-1141.01,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1141.02,1,"Research, Development, Design, and Practitioners",
+29-1141.02,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1141.03,1,"Research, Development, Design, and Practitioners",
+29-1141.03,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1141.04,1,"Research, Development, Design, and Practitioners",
+29-1141.04,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1151.00,1,"Research, Development, Design, and Practitioners",
+29-1151.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1161.00,1,"Research, Development, Design, and Practitioners",
+29-1161.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1171.00,1,"Research, Development, Design, and Practitioners",
+29-1171.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1181.00,1,"Research, Development, Design, and Practitioners",
+29-1181.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1211.00,1,"Research, Development, Design, and Practitioners",
+29-1211.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1212.00,1,"Research, Development, Design, and Practitioners",
+29-1212.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1213.00,1,"Research, Development, Design, and Practitioners",
+29-1213.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1214.00,1,"Research, Development, Design, and Practitioners",
+29-1214.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1215.00,1,"Research, Development, Design, and Practitioners",
+29-1215.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1216.00,1,"Research, Development, Design, and Practitioners",
+29-1216.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1217.00,1,"Research, Development, Design, and Practitioners",
+29-1217.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1218.00,1,"Research, Development, Design, and Practitioners",
+29-1218.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1221.00,1,"Research, Development, Design, and Practitioners",
+29-1221.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1222.00,1,"Research, Development, Design, and Practitioners",
+29-1222.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1223.00,1,"Research, Development, Design, and Practitioners",
+29-1223.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1224.00,1,"Research, Development, Design, and Practitioners",
+29-1224.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1229.00,1,"Research, Development, Design, and Practitioners",
+29-1229.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1229.01,1,"Research, Development, Design, and Practitioners",
+29-1229.01,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1229.02,1,"Research, Development, Design, and Practitioners",
+29-1229.02,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1229.03,1,"Research, Development, Design, and Practitioners",
+29-1229.03,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1229.04,1,"Research, Development, Design, and Practitioners",
+29-1229.04,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1229.05,1,"Research, Development, Design, and Practitioners",
+29-1229.05,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1229.06,1,"Research, Development, Design, and Practitioners",
+29-1229.06,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1241.00,1,"Research, Development, Design, and Practitioners",
+29-1241.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1242.00,1,"Research, Development, Design, and Practitioners",
+29-1242.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1243.00,1,"Research, Development, Design, and Practitioners",
+29-1243.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1249.00,1,"Research, Development, Design, and Practitioners",
+29-1249.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1291.00,1,"Research, Development, Design, and Practitioners",
+29-1291.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1292.00,1,"Research, Development, Design, and Practitioners",
+29-1292.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1299.00,1,"Research, Development, Design, and Practitioners",
+29-1299.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1299.01,1,"Research, Development, Design, and Practitioners",
+29-1299.01,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-1299.02,1,"Research, Development, Design, and Practitioners",
+29-1299.02,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-2011.00,2,Technologists and Technicians,
+29-2011.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2011.01,2,Technologists and Technicians,
+29-2011.01,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2011.02,2,Technologists and Technicians,
+29-2011.02,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2011.04,2,Technologists and Technicians,
+29-2011.04,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2012.00,2,Technologists and Technicians,
+29-2012.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2012.01,2,Technologists and Technicians,
+29-2012.01,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2031.00,2,Technologists and Technicians,
+29-2031.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2032.00,2,Technologists and Technicians,
+29-2032.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2033.00,2,Technologists and Technicians,
+29-2033.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2034.00,2,Technologists and Technicians,
+29-2034.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2035.00,2,Technologists and Technicians,
+29-2035.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2036.00,2,Technologists and Technicians,
+29-2036.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2042.00,2,Technologists and Technicians,
+29-2042.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2043.00,2,Technologists and Technicians,
+29-2043.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2051.00,2,Technologists and Technicians,
+29-2051.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2052.00,2,Technologists and Technicians,
+29-2052.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2053.00,2,Technologists and Technicians,
+29-2053.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2055.00,2,Technologists and Technicians,
+29-2055.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2056.00,2,Technologists and Technicians,
+29-2056.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2057.00,2,Technologists and Technicians,
+29-2057.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2061.00,2,Technologists and Technicians,
+29-2061.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2072.00,2,Technologists and Technicians,
+29-2072.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2081.00,2,Technologists and Technicians,
+29-2081.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2091.00,2,Technologists and Technicians,
+29-2091.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2092.00,2,Technologists and Technicians,
+29-2092.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2099.00,2,Technologists and Technicians,
+29-2099.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2099.01,2,Technologists and Technicians,
+29-2099.01,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2099.05,2,Technologists and Technicians,
+29-2099.05,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-2099.08,2,Technologists and Technicians,
+29-2099.08,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-9021.00,1,"Research, Development, Design, and Practitioners",
+29-9021.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-9021.00,2,Technologists and Technicians,
+29-9021.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-9091.00,1,"Research, Development, Design, and Practitioners",
+29-9091.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-9092.00,1,"Research, Development, Design, and Practitioners",
+29-9092.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-9093.00,1,"Research, Development, Design, and Practitioners",
+29-9093.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-9099.00,1,"Research, Development, Design, and Practitioners",
+29-9099.00,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-9099.00,2,Technologists and Technicians,
+29-9099.00,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+29-9099.01,1,"Research, Development, Design, and Practitioners",
+29-9099.01,1-3,Healthcare Practitioners and Technical,"Research, Development, Design, and Practitioners"
+29-9099.01,2,Technologists and Technicians,
+29-9099.01,2-3,Healthcare Practitioners and Technical,Technologists and Technicians
+41-4011.00,5,Sales,
+41-4011.07,5,Sales,
+41-9031.00,5,Sales,

@@ -1,0 +1,19 @@
+{
+  "splits": {
+    "x_split": 65.3,
+    "y_split": 43.5
+  },
+  "convergent_validity": {
+    "largely_automatable": 74.9,
+    "augmentable": 65.9,
+    "resistant": 43.6,
+    "human_anchored": 40.3,
+    "monotonic": true
+  },
+  "rows": {
+    "subtask_susceptibility": 963,
+    "task_susceptibility": 5612,
+    "occupation_susceptibility": 268
+  },
+  "dashboard": "data/out/dashboard.html"
+}

@@ -1,0 +1,964 @@
+dwa_id,dwa_title,iwa_title,gwa_title,n_occupations,n_tasks,degree
+4.A.1.a.1.b.10,Review work orders or schedules to determine operations or procedures.,Read documents or materials to inform work processes.,Getting Information,1,1,0
+4.A.1.a.1.b.12,Evaluate reports or designs to determine work needs.,Read documents or materials to inform work processes.,Getting Information,1,1,0
+4.A.1.a.1.b.15,Review details of technical drawings or specifications.,Read documents or materials to inform work processes.,Getting Information,1,1,0
+4.A.1.a.1.b.7,Read documents to gather technical information.,Read documents or materials to inform work processes.,Getting Information,6,8,1
+4.A.1.a.1.b.8,Review technical documents to plan work.,Read documents or materials to inform work processes.,Getting Information,15,21,12
+4.A.1.a.1.b.9,Review blueprints or specifications to determine work requirements.,Read documents or materials to inform work processes.,Getting Information,1,1,0
+4.A.1.a.1.c.1,Collect evidence for legal proceedings.,Investigate criminal or legal matters.,Getting Information,1,2,0
+4.A.1.a.1.c.2,Examine crime scenes to obtain evidence.,Investigate criminal or legal matters.,Getting Information,1,3,0
+4.A.1.a.1.c.5,Examine records or other types of data to investigate criminal activities.,Investigate criminal or legal matters.,Getting Information,2,5,0
+4.A.1.a.1.c.7,Investigate illegal or suspicious activities.,Investigate criminal or legal matters.,Getting Information,2,2,0
+4.A.1.a.1.d.1,Obtain property information.,Gather information from physical or electronic sources.,Getting Information,1,1,0
+4.A.1.a.1.d.5,Retrieve information from electronic sources.,Gather information from physical or electronic sources.,Getting Information,1,3,0
+4.A.1.a.1.d.7,"Search files, databases or reference materials to obtain needed information.",Gather information from physical or electronic sources.,Getting Information,3,3,0
+4.A.1.a.1.d.8,Collect archival data.,Gather information from physical or electronic sources.,Getting Information,6,7,0
+4.A.1.a.1.f.1,Gather organizational performance information.,Gather data about operational or development activities.,Getting Information,1,1,0
+4.A.1.a.1.f.3,Gather physical survey data.,Gather data about operational or development activities.,Getting Information,4,9,0
+4.A.1.a.1.f.4,Collect data about project sites.,Gather data about operational or development activities.,Getting Information,7,8,0
+4.A.1.a.1.h.1,Research hydrologic features or processes.,Research issues related to earth sciences.,Getting Information,4,7,0
+4.A.1.a.1.h.2,Research geological features or processes.,Research issues related to earth sciences.,Getting Information,3,5,0
+4.A.1.a.1.h.3,Conduct climatological research.,Research issues related to earth sciences.,Getting Information,5,9,0
+4.A.1.a.1.i.2,Research industrial processes or operations.,"Research organizational behavior, processes, or performance.",Getting Information,5,5,0
+4.A.1.a.1.i.3,Conduct scientific research of organizational behavior or processes.,"Research organizational behavior, processes, or performance.",Getting Information,3,6,0
+4.A.1.a.1.j.1,Research impacts of environmental conservation initiatives.,Investigate the environmental impact of industrial or development activities.,Getting Information,8,11,6
+4.A.1.a.1.j.3,Investigate the environmental impact of projects.,Investigate the environmental impact of industrial or development activities.,Getting Information,13,19,8
+4.A.1.a.1.j.4,Monitor environmental impacts of production or development activities.,Investigate the environmental impact of industrial or development activities.,Getting Information,4,6,0
+4.A.1.a.1.j.5,Research environmental impact of industrial or development activities.,Investigate the environmental impact of industrial or development activities.,Getting Information,10,23,4
+4.A.1.a.1.j.6,Identify environmental concerns.,Investigate the environmental impact of industrial or development activities.,Getting Information,3,3,0
+4.A.1.a.1.j.7,Evaluate environmental impact of operational or development activities.,Investigate the environmental impact of industrial or development activities.,Getting Information,3,3,0
+4.A.1.a.1.l.1,Gather medical information from patient histories.,Collect information about patients or clients.,Getting Information,15,15,13
+4.A.1.a.1.l.2,"Collect medical information from patients, family members, or other medical professionals.",Collect information about patients or clients.,Getting Information,33,35,46
+4.A.1.a.1.l.3,"Collect information from people through observation, interviews, or surveys.",Collect information about patients or clients.,Getting Information,14,20,8
+4.A.1.a.1.l.4,Collect information about clients.,Collect information about patients or clients.,Getting Information,2,2,0
+4.A.1.a.1.m.1,Research livestock management methods.,Research agricultural processes or practices.,Getting Information,3,8,0
+4.A.1.a.1.m.2,Research crop management methods.,Research agricultural processes or practices.,Getting Information,6,7,0
+4.A.1.a.1.m.3,Research sustainable agricultural processes or practices.,Research agricultural processes or practices.,Getting Information,3,6,0
+4.A.1.a.1.n.2,Gather customer or product information to determine customer needs.,Collect data about consumer needs or opinions.,Getting Information,4,4,0
+4.A.1.a.1.n.5,Collect data about customer needs.,Collect data about consumer needs or opinions.,Getting Information,6,6,0
+4.A.1.a.1.o.1,Observe individuals' activities to gather information or compile evidence.,"Investigate individuals' background, behavior, or activities.",Getting Information,1,1,0
+4.A.1.a.1.p.1,Research genetic characteristics or expression.,Research biological or ecological phenomena.,Getting Information,5,12,1
+4.A.1.a.1.p.2,Research diseases or parasites.,Research biological or ecological phenomena.,Getting Information,10,13,5
+4.A.1.a.1.p.3,Conduct research of processes in natural or industrial ecosystems.,Research biological or ecological phenomena.,Getting Information,7,10,0
+4.A.1.a.1.p.4,Research microbiological or chemical processes or structures.,Research biological or ecological phenomena.,Getting Information,5,12,0
+4.A.1.a.1.p.5,Classify organisms based on their characteristics or behavior.,Research biological or ecological phenomena.,Getting Information,4,4,0
+4.A.1.a.1.p.6,Examine characteristics or behavior of living organisms.,Research biological or ecological phenomena.,Getting Information,6,8,1
+4.A.1.a.1.q.3,Obtain written authorization to perform activities.,Obtain formal documentation or authorization.,Getting Information,2,2,0
+4.A.1.a.1.r.1,Conduct anthropological or archaeological research.,Research historical or social issues.,Getting Information,3,9,0
+4.A.1.a.1.r.2,Conduct historical research.,Research historical or social issues.,Getting Information,2,2,0
+4.A.1.a.1.r.3,Conduct research on social issues.,Research historical or social issues.,Getting Information,7,9,2
+4.A.1.a.1.s.1,Conduct research to increase knowledge about medical issues.,Research healthcare issues.,Getting Information,35,38,44
+4.A.1.a.1.s.2,Collect information about community health needs.,Research healthcare issues.,Getting Information,1,1,0
+4.A.1.a.1.t.1,Research engineering aspects of biological or chemical processes.,Research technology designs or applications.,Getting Information,4,10,0
+4.A.1.a.1.t.10,Research methods to improve food products.,Research technology designs or applications.,Getting Information,3,6,0
+4.A.1.a.1.t.2,Research engineering applications of emerging technologies.,Research technology designs or applications.,Getting Information,4,5,0
+4.A.1.a.1.t.3,Research design or application of green technologies.,Research technology designs or applications.,Getting Information,4,5,0
+4.A.1.a.1.t.4,Conduct research to gain information about products or processes.,Research technology designs or applications.,Getting Information,16,19,16
+4.A.1.a.1.t.5,Research advanced engineering designs or applications.,Research technology designs or applications.,Getting Information,7,10,2
+4.A.1.a.1.t.6,"Research energy production, use, or conservation.",Research technology designs or applications.,Getting Information,4,5,0
+4.A.1.a.1.t.7,Research human performance or health factors related to engineering or design activities.,Research technology designs or applications.,Getting Information,3,9,0
+4.A.1.a.1.t.8,Research new technologies.,Research technology designs or applications.,Getting Information,1,1,0
+4.A.1.a.1.t.9,Research product safety.,Research technology designs or applications.,Getting Information,1,3,0
+4.A.1.a.1.u.2,Examine debris to obtain information about causes of fires.,Investigate incidents or accidents.,Getting Information,1,1,0
+4.A.1.a.1.v.1,"Investigate system, equipment, or product failures.",Investigate organizational or operational problems.,Getting Information,6,6,0
+4.A.1.a.1.v.3,Investigate safety of work environment.,Investigate organizational or operational problems.,Getting Information,4,7,0
+4.A.1.a.1.w.1,"Interview employees, customers, or others to collect information.",Interview people to obtain information.,Getting Information,2,4,0
+4.A.1.a.2.a.12,Monitor video displays of medical equipment to ensure proper functioning.,Monitor equipment operation.,"Monitoring Processes, Materials, or Surroundings",2,3,0
+4.A.1.a.2.a.9,Assess equipment functioning.,Monitor equipment operation.,"Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.b.1,Monitor industrial energy consumption or management.,Monitor operations to ensure adequate performance.,"Monitoring Processes, Materials, or Surroundings",2,3,0
+4.A.1.a.2.b.15,Monitor the productivity or efficiency of industrial operations.,Monitor operations to ensure adequate performance.,"Monitoring Processes, Materials, or Surroundings",9,10,7
+4.A.1.a.2.b.16,Monitor operational procedures in technical environments to ensure conformance to standards.,Monitor operations to ensure adequate performance.,"Monitoring Processes, Materials, or Surroundings",8,11,0
+4.A.1.a.2.b.19,Monitor the handling of hazardous materials or medical wastes.,Monitor operations to ensure adequate performance.,"Monitoring Processes, Materials, or Surroundings",2,2,0
+4.A.1.a.2.b.2,Monitor facilities or operational systems.,Monitor operations to ensure adequate performance.,"Monitoring Processes, Materials, or Surroundings",2,2,0
+4.A.1.a.2.b.3,Monitor operational quality or safety.,Monitor operations to ensure adequate performance.,"Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.b.6,Monitor construction operations.,Monitor operations to ensure adequate performance.,"Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.b.9,Inspect operational processes.,Monitor operations to ensure adequate performance.,"Monitoring Processes, Materials, or Surroundings",4,4,0
+4.A.1.a.2.c.1,Monitor financial information.,Monitor financial data or activities.,"Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.c.3,Monitor sales activities.,Monitor financial data or activities.,"Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.e.1,Monitor patient progress or responses to treatments.,Monitor health conditions of humans or animals.,"Monitoring Processes, Materials, or Surroundings",28,29,42
+4.A.1.a.2.e.2,Monitor clients to evaluate treatment progress.,Monitor health conditions of humans or animals.,"Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.e.3,Monitor patients following surgeries or other treatments.,Monitor health conditions of humans or animals.,"Monitoring Processes, Materials, or Surroundings",10,10,7
+4.A.1.a.2.e.4,Monitor animal behavior or condition.,Monitor health conditions of humans or animals.,"Monitoring Processes, Materials, or Surroundings",2,2,0
+4.A.1.a.2.e.5,Monitor health or behavior of people or animals.,Monitor health conditions of humans or animals.,"Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.e.7,"Monitor patient conditions during treatments, procedures, or activities.",Monitor health conditions of humans or animals.,"Monitoring Processes, Materials, or Surroundings",23,34,48
+4.A.1.a.2.e.8,Monitor nutrition related activities of individuals or groups.,Monitor health conditions of humans or animals.,"Monitoring Processes, Materials, or Surroundings",3,5,0
+4.A.1.a.2.f.1,Monitor performance of organizational members or partners.,Monitor individual behavior or performance.,"Monitoring Processes, Materials, or Surroundings",3,3,0
+4.A.1.a.2.f.3,Monitor student performance.,Monitor individual behavior or performance.,"Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.f.6,Monitor activities of individuals to ensure safety or compliance with rules.,Monitor individual behavior or performance.,"Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.g.12,Patrol natural areas to ensure safety or enforce regulations.,"Monitor safety or security of work areas, facilities, or properties.","Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.g.13,Monitor work environment to ensure safety or adherence to specifications.,"Monitor safety or security of work areas, facilities, or properties.","Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.g.5,Patrol properties to maintain safety.,"Monitor safety or security of work areas, facilities, or properties.","Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.g.8,Monitor alarm systems.,"Monitor safety or security of work areas, facilities, or properties.","Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.h.1,Monitor market conditions or trends.,"Monitor external affairs, trends, or events.","Monitoring Processes, Materials, or Surroundings",3,3,0
+4.A.1.a.2.h.3,Monitor external affairs or events affecting business operations.,"Monitor external affairs, trends, or events.","Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.i.2,Monitor environmental conditions to detect hazards.,Monitor environmental conditions.,"Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.i.3,Measure environmental characteristics.,Monitor environmental conditions.,"Monitoring Processes, Materials, or Surroundings",8,10,1
+4.A.1.a.2.i.4,Monitor activities affecting environmental quality.,Monitor environmental conditions.,"Monitoring Processes, Materials, or Surroundings",3,3,0
+4.A.1.a.2.i.6,Inspect condition of natural environments.,Monitor environmental conditions.,"Monitoring Processes, Materials, or Surroundings",6,7,1
+4.A.1.a.2.j.1,Monitor the security of digital information.,Monitor operation of computer or information technologies.,"Monitoring Processes, Materials, or Surroundings",5,5,0
+4.A.1.a.2.j.2,Monitor the performance of computer networks.,Monitor operation of computer or information technologies.,"Monitoring Processes, Materials, or Surroundings",5,7,0
+4.A.1.a.2.j.3,Monitor computer system performance to ensure proper operation.,Monitor operation of computer or information technologies.,"Monitoring Processes, Materials, or Surroundings",5,6,1
+4.A.1.a.2.k.10,Determine operational compliance with regulations or standards.,Monitor operations to ensure compliance with regulations or standards.,"Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.k.11,Monitor medical facility activities to ensure adherence to standards or regulations.,Monitor operations to ensure compliance with regulations or standards.,"Monitoring Processes, Materials, or Surroundings",4,5,0
+4.A.1.a.2.k.2,Inspect products or operations to ensure that standards are met.,Monitor operations to ensure compliance with regulations or standards.,"Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.k.3,Monitor operations to ensure compliance with safety or security policies or regulations.,Monitor operations to ensure compliance with regulations or standards.,"Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.a.2.k.4,Monitor organizational compliance with regulations.,Monitor operations to ensure compliance with regulations or standards.,"Monitoring Processes, Materials, or Surroundings",2,2,0
+4.A.1.a.2.k.5,Verify that medical activities or operations meet standards.,Monitor operations to ensure compliance with regulations or standards.,"Monitoring Processes, Materials, or Surroundings",4,5,0
+4.A.1.a.2.k.6,Monitor processes for compliance with standards.,Monitor operations to ensure compliance with regulations or standards.,"Monitoring Processes, Materials, or Surroundings",11,14,3
+4.A.1.a.2.k.8,Monitor operational activities to ensure compliance with regulations or standard operating procedures.,Monitor operations to ensure compliance with regulations or standards.,"Monitoring Processes, Materials, or Surroundings",3,3,0
+4.A.1.a.2.k.9,Evaluate construction projects to determine compliance with external standards or regulations.,Monitor operations to ensure compliance with regulations or standards.,"Monitoring Processes, Materials, or Surroundings",1,1,0
+4.A.1.b.1.a.3,Mark materials or objects for identification.,Mark materials or objects for identification.,"Identifying Objects, Actions, and Events",1,1,0
+4.A.1.b.1.b.1,Identify opportunities for green initiatives.,Identify business or organizational opportunities.,"Identifying Objects, Actions, and Events",1,2,0
+4.A.1.b.1.b.2,Identify potential customers.,Identify business or organizational opportunities.,"Identifying Objects, Actions, and Events",3,4,0
+4.A.1.b.1.b.5,Identify new applications for existing technologies.,Identify business or organizational opportunities.,"Identifying Objects, Actions, and Events",3,4,0
+4.A.1.b.1.b.6,Identify opportunities to improve operational efficiency.,Identify business or organizational opportunities.,"Identifying Objects, Actions, and Events",1,1,0
+4.A.1.b.1.b.7,Identify sustainable business practices.,Identify business or organizational opportunities.,"Identifying Objects, Actions, and Events",4,5,0
+4.A.1.b.2.a.1,Test patient heart or lung functioning.,Administer diagnostic tests to assess patient health.,"Inspecting Equipment, Structures, or Materials",6,11,3
+4.A.1.b.2.a.2,Administer screening tests to determine abilities or treatment needs.,Administer diagnostic tests to assess patient health.,"Inspecting Equipment, Structures, or Materials",1,1,0
+4.A.1.b.2.a.3,Test patient hearing.,Administer diagnostic tests to assess patient health.,"Inspecting Equipment, Structures, or Materials",3,5,0
+4.A.1.b.2.a.4,Test patient vision.,Administer diagnostic tests to assess patient health.,"Inspecting Equipment, Structures, or Materials",5,24,0
+4.A.1.b.2.a.5,Conduct diagnostic tests to determine patient health.,Administer diagnostic tests to assess patient health.,"Inspecting Equipment, Structures, or Materials",4,4,0
+4.A.1.b.2.a.7,Test patient nervous system functioning.,Administer diagnostic tests to assess patient health.,"Inspecting Equipment, Structures, or Materials",4,7,0
+4.A.1.b.2.a.8,Test biological specimens to gather information about patient conditions.,Administer diagnostic tests to assess patient health.,"Inspecting Equipment, Structures, or Materials",10,10,7
+4.A.1.b.2.b.1,Test green technologies or processes.,Evaluate green technologies or processes.,"Inspecting Equipment, Structures, or Materials",6,12,0
+4.A.1.b.2.c.1,"Test materials, solutions, or samples.",Test characteristics of materials or products.,"Inspecting Equipment, Structures, or Materials",1,1,0
+4.A.1.b.2.c.2,Test products for functionality or quality.,Test characteristics of materials or products.,"Inspecting Equipment, Structures, or Materials",6,7,0
+4.A.1.b.2.c.3,Analyze test results.,Test characteristics of materials or products.,"Inspecting Equipment, Structures, or Materials",3,3,0
+4.A.1.b.2.c.4,Test characteristics of materials or structures.,Test characteristics of materials or products.,"Inspecting Equipment, Structures, or Materials",9,10,2
+4.A.1.b.2.c.6,Test fluids to identify contamination or other problems.,Test characteristics of materials or products.,"Inspecting Equipment, Structures, or Materials",1,1,0
+4.A.1.b.2.c.7,Test quality of materials or finished products.,Test characteristics of materials or products.,"Inspecting Equipment, Structures, or Materials",8,11,0
+4.A.1.b.2.e.12,Inspect facilities or sites to determine if they meet specifications or standards.,Inspect facilities or equipment.,"Inspecting Equipment, Structures, or Materials",13,17,6
+4.A.1.b.2.e.14,Inspect facilities for cleanliness.,Inspect facilities or equipment.,"Inspecting Equipment, Structures, or Materials",1,1,0
+4.A.1.b.2.e.15,Inspect condition or functioning of facilities or equipment.,Inspect facilities or equipment.,"Inspecting Equipment, Structures, or Materials",2,2,0
+4.A.1.b.2.e.2,Inspect work sites to identify potential environmental or safety hazards.,Inspect facilities or equipment.,"Inspecting Equipment, Structures, or Materials",2,2,0
+4.A.1.b.2.e.5,Inspect work environments to ensure safety.,Inspect facilities or equipment.,"Inspecting Equipment, Structures, or Materials",3,3,0
+4.A.1.b.2.e.9,Inspect areas for compliance with sanitation standards.,Inspect facilities or equipment.,"Inspecting Equipment, Structures, or Materials",3,3,0
+4.A.1.b.2.f.1,Verify alignment of structures or equipment.,Inspect completed work or finished products.,"Inspecting Equipment, Structures, or Materials",1,1,0
+4.A.1.b.2.f.8,Inspect finished products to locate flaws.,Inspect completed work or finished products.,"Inspecting Equipment, Structures, or Materials",8,9,0
+4.A.1.b.2.g.11,Inspect equipment or systems.,"Inspect commercial, industrial, or production systems or equipment.","Inspecting Equipment, Structures, or Materials",7,7,1
+4.A.1.b.2.g.14,Inspect equipment to ensure safety or proper functioning.,"Inspect commercial, industrial, or production systems or equipment.","Inspecting Equipment, Structures, or Materials",1,1,0
+4.A.1.b.2.g.18,Inspect equipment to ensure proper functioning.,"Inspect commercial, industrial, or production systems or equipment.","Inspecting Equipment, Structures, or Materials",5,5,0
+4.A.1.b.2.g.2,Inspect safety equipment to ensure proper functioning.,"Inspect commercial, industrial, or production systems or equipment.","Inspecting Equipment, Structures, or Materials",1,1,0
+4.A.1.b.2.g.21,Examine medical instruments or equipment to ensure proper operation.,"Inspect commercial, industrial, or production systems or equipment.","Inspecting Equipment, Structures, or Materials",12,12,23
+4.A.1.b.2.g.9,Conduct validation tests of equipment or processes.,"Inspect commercial, industrial, or production systems or equipment.","Inspecting Equipment, Structures, or Materials",6,9,0
+4.A.1.b.2.h.1,Test computer hardware performance.,Test performance of computer or information systems.,"Inspecting Equipment, Structures, or Materials",7,7,7
+4.A.1.b.2.h.2,Test computer system operations to ensure proper functioning.,Test performance of computer or information systems.,"Inspecting Equipment, Structures, or Materials",12,18,9
+4.A.1.b.2.h.3,Test software performance.,Test performance of computer or information systems.,"Inspecting Equipment, Structures, or Materials",14,22,25
+4.A.1.b.2.i.1,Check physical condition of people or animals.,Examine people or animals to assess health conditions or physical characteristics.,"Inspecting Equipment, Structures, or Materials",3,3,0
+4.A.1.b.2.i.3,Examine patients to assess general physical condition.,Examine people or animals to assess health conditions or physical characteristics.,"Inspecting Equipment, Structures, or Materials",28,39,37
+4.A.1.b.2.i.4,"Examine mouth, teeth, gums, or related facial structures.",Examine people or animals to assess health conditions or physical characteristics.,"Inspecting Equipment, Structures, or Materials",4,6,0
+4.A.1.b.2.i.5,Measure the physical or physiological attributes of patients.,Examine people or animals to assess health conditions or physical characteristics.,"Inspecting Equipment, Structures, or Materials",11,15,6
+4.A.1.b.2.j.6,Evaluate characteristics of archival or historical objects.,Inspect characteristics or conditions of materials or products.,"Inspecting Equipment, Structures, or Materials",1,1,0
+4.A.1.b.2.j.7,Examine condition of property or products.,Inspect characteristics or conditions of materials or products.,"Inspecting Equipment, Structures, or Materials",1,1,0
+4.A.1.b.2.k.2,Test facilities for environmental hazards.,Test sites or materials for environmental hazards.,"Inspecting Equipment, Structures, or Materials",1,1,0
+4.A.1.b.2.l.2,"Test performance of electrical, electronic, mechanical, or integrated systems or equipment.",Test performance of equipment or systems.,"Inspecting Equipment, Structures, or Materials",27,43,44
+4.A.1.b.2.l.7,Test mechanical systems to ensure proper functioning.,Test performance of equipment or systems.,"Inspecting Equipment, Structures, or Materials",1,1,0
+4.A.1.b.3.a.10,Measure ingredients or substances to be used in production processes.,"Measure physical characteristics of materials, products, or equipment.","Estimating the Quantifiable Characteristics of Products, Events, or Information",1,1,0
+4.A.1.b.3.a.17,Measure the level or depth of water or other liquids.,"Measure physical characteristics of materials, products, or equipment.","Estimating the Quantifiable Characteristics of Products, Events, or Information",1,1,0
+4.A.1.b.3.a.3,Measure physical or chemical properties of materials or objects.,"Measure physical characteristics of materials, products, or equipment.","Estimating the Quantifiable Characteristics of Products, Events, or Information",6,11,0
+4.A.1.b.3.a.5,Measure radiation levels.,"Measure physical characteristics of materials, products, or equipment.","Estimating the Quantifiable Characteristics of Products, Events, or Information",3,6,0
+4.A.1.b.3.a.6,Measure distances or dimensions.,"Measure physical characteristics of materials, products, or equipment.","Estimating the Quantifiable Characteristics of Products, Events, or Information",1,1,0
+4.A.1.b.3.a.8,"Calculate weights, volumes or other characteristics of materials.","Measure physical characteristics of materials, products, or equipment.","Estimating the Quantifiable Characteristics of Products, Events, or Information",2,2,0
+4.A.1.b.3.a.9,Measure ingredients.,"Measure physical characteristics of materials, products, or equipment.","Estimating the Quantifiable Characteristics of Products, Events, or Information",1,1,0
+4.A.1.b.3.b.1,Estimate time or monetary resources needed to complete projects.,Estimate project development or operational costs.,"Estimating the Quantifiable Characteristics of Products, Events, or Information",4,4,0
+4.A.1.b.3.b.4,Estimate operational costs.,Estimate project development or operational costs.,"Estimating the Quantifiable Characteristics of Products, Events, or Information",18,22,24
+4.A.1.b.3.b.5,Estimate green project costs.,Estimate project development or operational costs.,"Estimating the Quantifiable Characteristics of Products, Events, or Information",1,1,0
+4.A.1.b.3.b.6,Estimate costs for projects or productions.,Estimate project development or operational costs.,"Estimating the Quantifiable Characteristics of Products, Events, or Information",1,1,0
+4.A.1.b.3.d.1,Survey land or properties.,Assess characteristics of land or property.,"Estimating the Quantifiable Characteristics of Products, Events, or Information",4,6,0
+4.A.1.b.3.d.3,Calculate geographic positions from survey data.,Assess characteristics of land or property.,"Estimating the Quantifiable Characteristics of Products, Events, or Information",4,10,0
+4.A.1.b.3.d.4,Survey land or bodies of water to measure or determine features.,Assess characteristics of land or property.,"Estimating the Quantifiable Characteristics of Products, Events, or Information",8,16,1
+4.A.1.b.3.d.5,Assess locations for potential green technology installations.,Assess characteristics of land or property.,"Estimating the Quantifiable Characteristics of Products, Events, or Information",1,1,0
+4.A.2.a.1.a.2,"Assess patient work, living, or social environments.","Assess living, work, or social needs or status of individuals or communities.","Judging the Qualities of Objects, Services, or People",3,3,0
+4.A.2.a.1.b.1,Evaluate program effectiveness.,"Evaluate programs, practices, or processes.","Judging the Qualities of Objects, Services, or People",1,1,0
+4.A.2.a.1.b.2,Evaluate the effectiveness of counseling or educational programs.,"Evaluate programs, practices, or processes.","Judging the Qualities of Objects, Services, or People",1,1,0
+4.A.2.a.1.b.4,Evaluate effectiveness of personnel policies or practices.,"Evaluate programs, practices, or processes.","Judging the Qualities of Objects, Services, or People",1,1,0
+4.A.2.a.1.b.5,Evaluate effectiveness of educational programs.,"Evaluate programs, practices, or processes.","Judging the Qualities of Objects, Services, or People",20,20,27
+4.A.2.a.1.b.7,Evaluate civic projects or public policies.,"Evaluate programs, practices, or processes.","Judging the Qualities of Objects, Services, or People",4,5,0
+4.A.2.a.1.c.1,Assess educational needs of students.,"Assess student capabilities, needs, or performance.","Judging the Qualities of Objects, Services, or People",2,2,0
+4.A.2.a.1.c.2,Administer tests to assess educational needs or progress.,"Assess student capabilities, needs, or performance.","Judging the Qualities of Objects, Services, or People",20,20,27
+4.A.2.a.1.c.3,Prepare tests.,"Assess student capabilities, needs, or performance.","Judging the Qualities of Objects, Services, or People",20,20,27
+4.A.2.a.1.c.4,Evaluate student work.,"Assess student capabilities, needs, or performance.","Judging the Qualities of Objects, Services, or People",20,44,27
+4.A.2.a.1.d.1,Evaluate performance of educational staff.,Evaluate personnel capabilities or performance.,"Judging the Qualities of Objects, Services, or People",2,2,0
+4.A.2.a.1.d.4,Evaluate employee performance.,Evaluate personnel capabilities or performance.,"Judging the Qualities of Objects, Services, or People",5,5,0
+4.A.2.a.1.d.5,Evaluate capabilities or training needs.,Evaluate personnel capabilities or performance.,"Judging the Qualities of Objects, Services, or People",1,1,0
+4.A.2.a.1.d.6,"Evaluate performance of applicants, trainees, or employees.",Evaluate personnel capabilities or performance.,"Judging the Qualities of Objects, Services, or People",1,1,0
+4.A.2.a.1.e.3,Evaluate quality of materials or products.,Evaluate production inputs or outputs.,"Judging the Qualities of Objects, Services, or People",5,6,0
+4.A.2.a.1.f.1,Assess physical conditions of patients to aid in diagnosis or treatment.,Evaluate patient or client condition or treatment options.,"Judging the Qualities of Objects, Services, or People",3,3,0
+4.A.2.a.1.f.2,"Evaluate patient functioning, capabilities, or health.",Evaluate patient or client condition or treatment options.,"Judging the Qualities of Objects, Services, or People",17,19,20
+4.A.2.a.1.f.3,Evaluate patient outcomes to determine effectiveness of treatments.,Evaluate patient or client condition or treatment options.,"Judging the Qualities of Objects, Services, or People",6,7,1
+4.A.2.a.1.f.4,Evaluate treatment options to guide medical decisions.,Evaluate patient or client condition or treatment options.,"Judging the Qualities of Objects, Services, or People",8,8,3
+4.A.2.a.1.f.5,Assess skin or hair conditions.,Evaluate patient or client condition or treatment options.,"Judging the Qualities of Objects, Services, or People",1,1,0
+4.A.2.a.1.g.1,"Assess the cost effectiveness of products, projects, or services.","Evaluate the characteristics, usefulness, or performance of products or technologies.","Judging the Qualities of Objects, Services, or People",1,1,0
+4.A.2.a.1.g.2,Evaluate new technologies or methods.,"Evaluate the characteristics, usefulness, or performance of products or technologies.","Judging the Qualities of Objects, Services, or People",7,7,0
+4.A.2.a.1.g.3,"Evaluate potential of products, technologies, or resources.","Evaluate the characteristics, usefulness, or performance of products or technologies.","Judging the Qualities of Objects, Services, or People",2,2,0
+4.A.2.a.1.g.4,Evaluate the characteristics of green technologies.,"Evaluate the characteristics, usefulness, or performance of products or technologies.","Judging the Qualities of Objects, Services, or People",2,2,0
+4.A.2.a.1.g.5,Assess product or process usefulness.,"Evaluate the characteristics, usefulness, or performance of products or technologies.","Judging the Qualities of Objects, Services, or People",5,5,0
+4.A.2.a.1.g.6,Assess database performance.,"Evaluate the characteristics, usefulness, or performance of products or technologies.","Judging the Qualities of Objects, Services, or People",5,7,0
+4.A.2.a.1.g.7,Evaluate characteristics of equipment or systems.,"Evaluate the characteristics, usefulness, or performance of products or technologies.","Judging the Qualities of Objects, Services, or People",13,16,8
+4.A.2.a.1.g.8,Evaluate utility of software or hardware technologies.,"Evaluate the characteristics, usefulness, or performance of products or technologies.","Judging the Qualities of Objects, Services, or People",13,17,19
+4.A.2.a.1.g.9,Evaluate characteristics of products.,"Evaluate the characteristics, usefulness, or performance of products or technologies.","Judging the Qualities of Objects, Services, or People",2,2,0
+4.A.2.a.1.h.1,Evaluate scholarly materials.,Evaluate scholarly work.,"Judging the Qualities of Objects, Services, or People",7,7,25
+4.A.2.a.1.j.1,Evaluate project designs to determine adequacy or feasibility.,Evaluate project feasibility.,"Judging the Qualities of Objects, Services, or People",6,6,0
+4.A.2.a.1.j.2,Analyze data to determine project feasibility.,Evaluate project feasibility.,"Judging the Qualities of Objects, Services, or People",3,4,0
+4.A.2.a.2.a.1,Verify accuracy of records.,Evaluate the quality or accuracy of data.,Processing Information,1,1,0
+4.A.2.a.2.a.10,Verify mathematical calculations.,Evaluate the quality or accuracy of data.,Processing Information,6,6,0
+4.A.2.a.2.a.11,Check quality of diagnostic images.,Evaluate the quality or accuracy of data.,Processing Information,3,4,0
+4.A.2.a.2.a.2,Verify information or specifications.,Evaluate the quality or accuracy of data.,Processing Information,1,1,0
+4.A.2.a.2.a.3,Verify customer credit information.,Evaluate the quality or accuracy of data.,Processing Information,1,1,0
+4.A.2.a.2.a.6,Evaluate data quality.,Evaluate the quality or accuracy of data.,Processing Information,9,12,0
+4.A.2.a.2.a.7,Verify accuracy of data.,Evaluate the quality or accuracy of data.,Processing Information,4,4,0
+4.A.2.a.2.a.8,Check data for recording errors.,Evaluate the quality or accuracy of data.,Processing Information,1,1,0
+4.A.2.a.2.c.1,Compile operational data.,"Compile records, documentation, or other data.",Processing Information,1,2,0
+4.A.2.a.2.c.2,Compile technical information or documentation.,"Compile records, documentation, or other data.",Processing Information,3,3,0
+4.A.2.a.2.c.3,Compile data or documentation.,"Compile records, documentation, or other data.",Processing Information,1,1,0
+4.A.2.a.2.c.4,Compile specialized bibliographies or lists of materials.,"Compile records, documentation, or other data.",Processing Information,20,20,27
+4.A.2.a.2.c.5,Compile environmental or climatological data.,"Compile records, documentation, or other data.",Processing Information,5,5,0
+4.A.2.a.2.c.6,Compile geographic or related data.,"Compile records, documentation, or other data.",Processing Information,7,7,1
+4.A.2.a.2.e.4,Verify accuracy of patient information.,Verify personal information.,Processing Information,7,7,0
+4.A.2.a.3.a.2,Examine documents to verify adherence to requirements.,Examine materials or documentation for accuracy or compliance.,Evaluating Information to Determine Compliance with Standards,1,1,0
+4.A.2.a.3.a.4,Review documents or materials for compliance with policies or regulations.,Examine materials or documentation for accuracy or compliance.,Evaluating Information to Determine Compliance with Standards,1,1,0
+4.A.2.a.3.a.7,"Review environmental permits, plans, or reports.",Examine materials or documentation for accuracy or compliance.,Evaluating Information to Determine Compliance with Standards,5,6,0
+4.A.2.a.3.a.8,"Proofread documents, records, or other files to ensure accuracy.",Examine materials or documentation for accuracy or compliance.,Evaluating Information to Determine Compliance with Standards,4,4,0
+4.A.2.a.3.a.9,Review plans or proposals for environmental conservation.,Examine materials or documentation for accuracy or compliance.,Evaluating Information to Determine Compliance with Standards,4,6,0
+4.A.2.a.3.b.1,Assess compliance with environmental laws.,Assess compliance with environmental standards or regulations.,Evaluating Information to Determine Compliance with Standards,7,8,2
+4.A.2.a.3.b.2,Evaluate green operations or programs for compliance with standards or regulations.,Assess compliance with environmental standards or regulations.,Evaluating Information to Determine Compliance with Standards,1,1,0
+4.A.2.a.3.b.4,Evaluate plans or specifications to determine technological or environmental implications.,Assess compliance with environmental standards or regulations.,Evaluating Information to Determine Compliance with Standards,6,7,1
+4.A.2.a.3.c.1,Conduct financial or regulatory audits.,"Examine financial activities, operations, or systems.",Evaluating Information to Determine Compliance with Standards,2,2,0
+4.A.2.a.3.c.4,Review customer insurance information.,"Examine financial activities, operations, or systems.",Evaluating Information to Determine Compliance with Standards,1,1,0
+4.A.2.a.3.d.1,Protect patients or staff members using safety equipment.,Follow standard healthcare safety procedures to protect patient and staff members.,Evaluating Information to Determine Compliance with Standards,5,5,0
+4.A.2.a.3.d.2,Follow protocols or regulations for healthcare activities.,Follow standard healthcare safety procedures to protect patient and staff members.,Evaluating Information to Determine Compliance with Standards,8,10,3
+4.A.2.a.4.a.1,Locate natural resources using geospatial or other environmental data.,Analyze environmental or geospatial data.,Analyzing Data or Information,2,7,0
+4.A.2.a.4.a.2,Determine geographic coordinates.,Analyze environmental or geospatial data.,Analyzing Data or Information,2,2,0
+4.A.2.a.4.a.3,Analyze geological samples.,Analyze environmental or geospatial data.,Analyzing Data or Information,3,4,0
+4.A.2.a.4.a.4,Analyze environmental data.,Analyze environmental or geospatial data.,Analyzing Data or Information,11,13,7
+4.A.2.a.4.a.5,Analyze geological or geographical data.,Analyze environmental or geospatial data.,Analyzing Data or Information,9,17,3
+4.A.2.a.4.a.6,Analyze Geographic Information Systems (GIS) data for use in green applications.,Analyze environmental or geospatial data.,Analyzing Data or Information,1,1,0
+4.A.2.a.4.a.7,"Analyze physical, survey, or geographic data.",Analyze environmental or geospatial data.,Analyzing Data or Information,8,8,0
+4.A.2.a.4.b.1,Estimate demand for products or services.,Analyze market or industry conditions.,Analyzing Data or Information,1,1,0
+4.A.2.a.4.b.3,"Forecast economic, political, or social trends.",Analyze market or industry conditions.,Analyzing Data or Information,3,4,0
+4.A.2.a.4.b.4,Analyze market conditions or trends.,Analyze market or industry conditions.,Analyzing Data or Information,1,1,0
+4.A.2.a.4.b.5,Analyze website or related online data to track trends or usage.,Analyze market or industry conditions.,Analyzing Data or Information,2,3,0
+4.A.2.a.4.b.6,Analyze market or customer related data.,Analyze market or industry conditions.,Analyzing Data or Information,4,9,0
+4.A.2.a.4.b.8,Analyze market research data.,Analyze market or industry conditions.,Analyzing Data or Information,1,1,0
+4.A.2.a.4.c.3,Analyze risks to minimize losses or damages.,Analyze business or financial risks.,Analyzing Data or Information,3,3,0
+4.A.2.a.4.d.1,Apply mathematical principles or statistical approaches to solve problems in scientific or applied fields.,Analyze scientific or applied data using mathematical principles.,Analyzing Data or Information,9,12,3
+4.A.2.a.4.d.2,Analyze data to identify trends or relationships among variables.,Analyze scientific or applied data using mathematical principles.,Analyzing Data or Information,18,26,13
+4.A.2.a.4.e.1,Evaluate technical data to determine effect on designs or plans.,"Evaluate designs, specifications, or other technical data.",Analyzing Data or Information,6,6,0
+4.A.2.a.4.e.2,Analyze design requirements for computer or electronics systems.,"Evaluate designs, specifications, or other technical data.",Analyzing Data or Information,5,9,0
+4.A.2.a.4.e.3,Evaluate designs or specifications to ensure quality.,"Evaluate designs, specifications, or other technical data.",Analyzing Data or Information,14,15,13
+4.A.2.a.4.e.4,Analyze green technology design requirements.,"Evaluate designs, specifications, or other technical data.",Analyzing Data or Information,3,3,0
+4.A.2.a.4.e.5,Analyze project data to determine specifications or requirements.,"Evaluate designs, specifications, or other technical data.",Analyzing Data or Information,9,12,0
+4.A.2.a.4.e.6,Analyze design or requirements information for mechanical equipment or systems.,"Evaluate designs, specifications, or other technical data.",Analyzing Data or Information,7,8,1
+4.A.2.a.4.e.7,Evaluate environmental or sustainability projects.,"Evaluate designs, specifications, or other technical data.",Analyzing Data or Information,1,1,0
+4.A.2.a.4.e.8,Analyze costs and benefits of proposed designs or projects.,"Evaluate designs, specifications, or other technical data.",Analyzing Data or Information,13,14,5
+4.A.2.a.4.f.1,Analyze health-related data.,Analyze health or medical data.,Analyzing Data or Information,8,13,0
+4.A.2.a.4.f.2,Analyze patient data to determine patient needs or treatment goals.,Analyze health or medical data.,Analyzing Data or Information,26,34,34
+4.A.2.a.4.f.3,Analyze test data or images to inform diagnosis or treatment.,Analyze health or medical data.,Analyzing Data or Information,37,45,50
+4.A.2.a.4.f.4,Analyze medical data to determine cause of death.,Analyze health or medical data.,Analyzing Data or Information,2,3,0
+4.A.2.a.4.f.5,Calculate numerical data for medical activities.,Analyze health or medical data.,Analyzing Data or Information,8,10,7
+4.A.2.a.4.f.6,Analyze quantitative data to determine effectiveness of treatments or therapies.,Analyze health or medical data.,Analyzing Data or Information,7,7,5
+4.A.2.a.4.g.12,Analyze data to inform operational decisions or activities.,Analyze data to improve operations.,Analyzing Data or Information,4,4,0
+4.A.2.a.4.g.14,Analyze data to identify or resolve operational problems.,Analyze data to improve operations.,Analyzing Data or Information,13,14,10
+4.A.2.a.4.g.16,Analyze traffic data.,Analyze data to improve operations.,Analyzing Data or Information,2,2,0
+4.A.2.a.4.g.17,Analyze energy usage data.,Analyze data to improve operations.,Analyzing Data or Information,1,2,0
+4.A.2.a.4.g.2,Analyze operational or research data.,Analyze data to improve operations.,Analyzing Data or Information,4,5,0
+4.A.2.a.4.g.3,"Analyze operational data to evaluate operations, processes or products.",Analyze data to improve operations.,Analyzing Data or Information,12,13,6
+4.A.2.a.4.g.4,Evaluate energy production data.,Analyze data to improve operations.,Analyzing Data or Information,2,2,0
+4.A.2.a.4.g.5,Interpret research or operational data.,Analyze data to improve operations.,Analyzing Data or Information,14,16,2
+4.A.2.a.4.g.6,Model operational processes.,Analyze data to improve operations.,Analyzing Data or Information,1,1,0
+4.A.2.a.4.i.1,Appraise environmental impact of regulations or policies.,Assess characteristics or impacts of regulations or policies.,Analyzing Data or Information,4,6,0
+4.A.2.a.4.i.2,Analyze environmental regulations to ensure organizational compliance.,Assess characteristics or impacts of regulations or policies.,Analyzing Data or Information,1,1,0
+4.A.2.a.4.i.3,Analyze impact of legal or regulatory changes.,Assess characteristics or impacts of regulations or policies.,Analyzing Data or Information,2,2,0
+4.A.2.a.4.i.4,Evaluate applicable laws and regulations to determine impact on organizational activities.,Assess characteristics or impacts of regulations or policies.,Analyzing Data or Information,2,2,0
+4.A.2.a.4.j.1,Analyze laboratory specimens to detect abnormalities or other problems.,Analyze biological or chemical substances or related data.,Analyzing Data or Information,6,16,7
+4.A.2.a.4.j.2,Analyze forensic evidence to solve crimes.,Analyze biological or chemical substances or related data.,Analyzing Data or Information,2,12,0
+4.A.2.a.4.j.3,Analyze crime scene evidence.,Analyze biological or chemical substances or related data.,Analyzing Data or Information,1,1,0
+4.A.2.a.4.j.4,Analyze laboratory findings.,Analyze biological or chemical substances or related data.,Analyzing Data or Information,5,5,1
+4.A.2.a.4.j.5,Analyze biological samples.,Analyze biological or chemical substances or related data.,Analyzing Data or Information,10,13,5
+4.A.2.a.4.j.6,Analyze chemical compounds or substances.,Analyze biological or chemical substances or related data.,Analyzing Data or Information,8,12,2
+4.A.2.a.4.k.2,Analyze financial information.,Analyze business or financial data.,Analyzing Data or Information,1,1,0
+4.A.2.a.4.k.4,Analyze business or financial data.,Analyze business or financial data.,Analyzing Data or Information,1,1,0
+4.A.2.a.4.l.1,Conduct quantitative failure analyses of operational data.,Analyze performance of systems or equipment.,Analyzing Data or Information,8,8,1
+4.A.2.a.4.l.2,"Analyze security of systems, network, or data.",Analyze performance of systems or equipment.,Analyzing Data or Information,9,10,2
+4.A.2.a.4.l.3,Interpret design or operational test results.,Analyze performance of systems or equipment.,Analyzing Data or Information,7,8,1
+4.A.2.a.4.l.4,Analyze test or validation data.,Analyze performance of systems or equipment.,Analyzing Data or Information,7,7,3
+4.A.2.a.4.l.5,Analyze test or performance data to assess equipment operation.,Analyze performance of systems or equipment.,Analyzing Data or Information,1,1,0
+4.A.2.b.1.a.3,Estimate costs or terms of sales.,Determine values or prices of goods or services.,Making Decisions and Solving Problems,1,2,0
+4.A.2.b.1.b.1,Determine causes of operational problems or failures.,Diagnose system or equipment problems.,Making Decisions and Solving Problems,5,7,0
+4.A.2.b.1.b.2,Troubleshoot equipment or systems operation problems.,Diagnose system or equipment problems.,Making Decisions and Solving Problems,1,1,0
+4.A.2.b.1.b.3,Diagnose equipment malfunctions.,Diagnose system or equipment problems.,Making Decisions and Solving Problems,1,1,0
+4.A.2.b.1.c.4,Approve expenditures.,Authorize business activities or transactions.,Making Decisions and Solving Problems,3,4,0
+4.A.2.b.1.d.10,Determine appropriate methods for data analysis.,Determine operational methods or procedures.,Making Decisions and Solving Problems,6,11,3
+4.A.2.b.1.d.11,Determine protocols for medical procedures.,Determine operational methods or procedures.,Making Decisions and Solving Problems,7,12,1
+4.A.2.b.1.d.3,Determine operational methods.,Determine operational methods or procedures.,Making Decisions and Solving Problems,13,15,14
+4.A.2.b.1.d.5,Determine methods to minimize environmental impact of activities.,Determine operational methods or procedures.,Making Decisions and Solving Problems,3,5,0
+4.A.2.b.1.f.1,Diagnose dental conditions.,Diagnose health conditions or disorders.,Making Decisions and Solving Problems,2,2,0
+4.A.2.b.1.f.2,Diagnose medical conditions.,Diagnose health conditions or disorders.,Making Decisions and Solving Problems,28,38,32
+4.A.2.b.1.f.3,Diagnose neural or psychological disorders.,Diagnose health conditions or disorders.,Making Decisions and Solving Problems,3,9,0
+4.A.2.b.1.g.1,Edit written materials.,Edit written materials or documents.,Making Decisions and Solving Problems,1,1,0
+4.A.2.b.1.g.2,Edit documents.,Edit written materials or documents.,Making Decisions and Solving Problems,1,1,0
+4.A.2.b.1.h.1,Estimate technical or resource requirements for development or production projects.,Determine resource needs of projects or operations.,Making Decisions and Solving Problems,13,16,11
+4.A.2.b.1.h.10,Estimate time requirements for development or production projects.,Determine resource needs of projects or operations.,Making Decisions and Solving Problems,3,3,0
+4.A.2.b.1.h.11,"Determine types of equipment, tools, or materials needed for jobs.",Determine resource needs of projects or operations.,Making Decisions and Solving Problems,1,1,0
+4.A.2.b.1.h.2,Identify information technology project resource requirements.,Determine resource needs of projects or operations.,Making Decisions and Solving Problems,7,8,0
+4.A.2.b.1.h.5,Determine resource needs.,Determine resource needs of projects or operations.,Making Decisions and Solving Problems,1,1,0
+4.A.2.b.1.h.7,"Estimate supplies, ingredients, or staff requirements for food preparation activities.",Determine resource needs of projects or operations.,Making Decisions and Solving Problems,1,1,0
+4.A.2.b.1.i.1,Implement organizational process or policy changes.,Implement procedures or processes.,Making Decisions and Solving Problems,5,8,0
+4.A.2.b.1.i.3,Apply new technologies to improve work processes.,Implement procedures or processes.,Making Decisions and Solving Problems,2,2,0
+4.A.2.b.1.i.4,Implement advertising or marketing initiatives.,Implement procedures or processes.,Making Decisions and Solving Problems,2,2,0
+4.A.2.b.1.i.6,Implement design or process improvements.,Implement procedures or processes.,Making Decisions and Solving Problems,12,12,7
+4.A.2.b.1.j.1,"Select tools, equipment, or technologies for use in operations or projects.",Select materials or equipment for operations or projects.,Making Decisions and Solving Problems,10,11,5
+4.A.2.b.1.j.10,Select educational materials or equipment.,Select materials or equipment for operations or projects.,Making Decisions and Solving Problems,20,20,27
+4.A.2.b.1.j.11,Select resources needed to accomplish tasks.,Select materials or equipment for operations or projects.,Making Decisions and Solving Problems,1,1,0
+4.A.2.b.1.j.2,Select project materials.,Select materials or equipment for operations or projects.,Making Decisions and Solving Problems,6,7,1
+4.A.2.b.1.j.5,Select production input materials.,Select materials or equipment for operations or projects.,Making Decisions and Solving Problems,1,1,0
+4.A.2.b.1.j.8,Select medical equipment for addressing patient needs.,Select materials or equipment for operations or projects.,Making Decisions and Solving Problems,4,4,0
+4.A.2.b.2.a.1,Develop treatment plans for patients or clients.,Develop patient or client care or treatment plans.,Thinking Creatively,1,4,0
+4.A.2.b.2.a.2,Develop medical treatment plans.,Develop patient or client care or treatment plans.,Thinking Creatively,24,29,33
+4.A.2.b.2.a.3,Develop exercise or conditioning programs.,Develop patient or client care or treatment plans.,Thinking Creatively,3,5,0
+4.A.2.b.2.a.5,Modify treatment plans to accommodate client needs.,Develop patient or client care or treatment plans.,Thinking Creatively,1,1,0
+4.A.2.b.2.a.6,Develop treatment plans that use non-medical therapies.,Develop patient or client care or treatment plans.,Thinking Creatively,9,21,6
+4.A.2.b.2.a.7,Establish treatment goals.,Develop patient or client care or treatment plans.,Thinking Creatively,3,3,0
+4.A.2.b.2.b.1,Develop software or computer applications.,Design computer or information systems or applications.,Thinking Creatively,10,11,4
+4.A.2.b.2.b.10,Design software applications.,Design computer or information systems or applications.,Thinking Creatively,7,10,0
+4.A.2.b.2.b.11,Design healthcare-related software applications.,Design computer or information systems or applications.,Thinking Creatively,1,3,0
+4.A.2.b.2.b.12,Apply information technology to solve business or other applied problems.,Design computer or information systems or applications.,Thinking Creatively,5,8,0
+4.A.2.b.2.b.2,Develop computer or information systems.,Design computer or information systems or applications.,Thinking Creatively,3,4,0
+4.A.2.b.2.b.3,Design computer modeling or simulation programs.,Design computer or information systems or applications.,Thinking Creatively,7,7,1
+4.A.2.b.2.b.4,Develop computer or online applications.,Design computer or information systems or applications.,Thinking Creatively,2,6,0
+4.A.2.b.2.b.5,Design integrated computer systems.,Design computer or information systems or applications.,Thinking Creatively,7,8,2
+4.A.2.b.2.b.6,Develop software or applications for scientific or technical use.,Design computer or information systems or applications.,Thinking Creatively,9,19,3
+4.A.2.b.2.b.7,Modify software programs to improve performance.,Design computer or information systems or applications.,Thinking Creatively,10,14,14
+4.A.2.b.2.b.8,Design websites or web applications.,Design computer or information systems or applications.,Thinking Creatively,5,10,0
+4.A.2.b.2.b.9,Design video game features or details.,Design computer or information systems or applications.,Thinking Creatively,1,6,0
+4.A.2.b.2.c.3,Develop marketing plans or strategies.,Develop business or marketing plans.,Thinking Creatively,2,2,0
+4.A.2.b.2.d.1,Create new recipes or food presentations.,Develop recipes or menus.,Thinking Creatively,1,1,0
+4.A.2.b.2.d.2,Plan menu options.,Develop recipes or menus.,Thinking Creatively,1,1,0
+4.A.2.b.2.e.1,Develop healthcare quality and safety procedures.,"Develop safety standards, policies, or procedures.",Thinking Creatively,4,5,0
+4.A.2.b.2.e.2,"Develop safety standards, policies, or procedures.","Develop safety standards, policies, or procedures.",Thinking Creatively,4,5,0
+4.A.2.b.2.e.3,Establish rules or policies governing student behavior.,"Develop safety standards, policies, or procedures.",Thinking Creatively,1,1,0
+4.A.2.b.2.e.4,Develop fire safety or prevention programs or plans.,"Develop safety standards, policies, or procedures.",Thinking Creatively,1,1,0
+4.A.2.b.2.f.1,Develop database parameters or specifications.,Design databases.,Thinking Creatively,2,6,0
+4.A.2.b.2.f.2,Develop technical or scientific databases.,Design databases.,Thinking Creatively,8,9,4
+4.A.2.b.2.f.4,Create databases to store electronic data.,Design databases.,Thinking Creatively,11,17,9
+4.A.2.b.2.g.1,Plan natural resources conservation or restoration programs.,Develop plans for managing or preserving natural resources.,Thinking Creatively,7,15,2
+4.A.2.b.2.g.2,Develop environmental remediation or protection plans.,Develop plans for managing or preserving natural resources.,Thinking Creatively,1,2,0
+4.A.2.b.2.g.3,Develop environmental sustainability plans or projects.,Develop plans for managing or preserving natural resources.,Thinking Creatively,8,12,1
+4.A.2.b.2.g.4,Develop plans to manage natural or renewable resources.,Develop plans for managing or preserving natural resources.,Thinking Creatively,8,11,3
+4.A.2.b.2.i.1,Develop health assessment methods or programs.,Develop health assessment methods or programs.,Thinking Creatively,6,6,3
+4.A.2.b.2.j.1,Develop promotional materials.,Develop marketing or promotional materials.,Thinking Creatively,2,2,0
+4.A.2.b.2.j.3,Develop content for sales presentations or other materials.,Develop marketing or promotional materials.,Thinking Creatively,3,3,0
+4.A.2.b.2.k.2,Design materials for industrial or commercial applications.,Design materials or devices.,Thinking Creatively,3,5,0
+4.A.2.b.2.k.3,"Design micro- or nano-scale materials, devices, or systems.",Design materials or devices.,Thinking Creatively,2,4,0
+4.A.2.b.2.k.4,Design medical devices or appliances.,Design materials or devices.,Thinking Creatively,6,7,0
+4.A.2.b.2.l.1,Establish work standards.,"Develop educational programs, plans, or procedures.",Thinking Creatively,1,1,0
+4.A.2.b.2.l.2,Design psychological or educational treatment procedures or programs.,"Develop educational programs, plans, or procedures.",Thinking Creatively,6,8,2
+4.A.2.b.2.l.3,Develop instructional objectives.,"Develop educational programs, plans, or procedures.",Thinking Creatively,20,20,27
+4.A.2.b.2.l.4,Plan experiential learning activities.,"Develop educational programs, plans, or procedures.",Thinking Creatively,2,2,0
+4.A.2.b.2.l.5,Establish operational policies.,"Develop educational programs, plans, or procedures.",Thinking Creatively,1,1,0
+4.A.2.b.2.l.7,Develop strategies or programs for students with special needs.,"Develop educational programs, plans, or procedures.",Thinking Creatively,1,2,0
+4.A.2.b.2.l.8,Develop educational programs.,"Develop educational programs, plans, or procedures.",Thinking Creatively,7,9,0
+4.A.2.b.2.l.9,Develop educational or training programs.,"Develop educational programs, plans, or procedures.",Thinking Creatively,1,1,0
+4.A.2.b.2.m.1,Design water conservation systems.,Develop systems or practices to mitigate or resolve environmental problems.,Thinking Creatively,3,3,0
+4.A.2.b.2.m.2,Apply knowledge or research findings to address environmental problems.,Develop systems or practices to mitigate or resolve environmental problems.,Thinking Creatively,8,10,2
+4.A.2.b.2.m.3,Protect wildlife or natural areas.,Develop systems or practices to mitigate or resolve environmental problems.,Thinking Creatively,1,1,0
+4.A.2.b.2.m.4,Design environmental control systems.,Develop systems or practices to mitigate or resolve environmental problems.,Thinking Creatively,4,4,0
+4.A.2.b.2.m.5,Design energy-efficient vehicles or vehicle components.,Develop systems or practices to mitigate or resolve environmental problems.,Thinking Creatively,2,4,0
+4.A.2.b.2.m.6,Design alternative energy systems.,Develop systems or practices to mitigate or resolve environmental problems.,Thinking Creatively,5,8,0
+4.A.2.b.2.m.7,Design systems to reduce harmful emissions.,Develop systems or practices to mitigate or resolve environmental problems.,Thinking Creatively,2,2,0
+4.A.2.b.2.m.8,Design energy-efficient equipment or systems.,Develop systems or practices to mitigate or resolve environmental problems.,Thinking Creatively,1,2,0
+4.A.2.b.2.n.2,Plan programs to address community health issues.,Develop public or community health programs.,Thinking Creatively,1,1,0
+4.A.2.b.2.n.3,Design public or employee health programs.,Develop public or community health programs.,Thinking Creatively,11,15,15
+4.A.2.b.2.o.1,Prepare drawings or diagrams of products or services.,Create visual designs or displays.,Thinking Creatively,2,2,0
+4.A.2.b.2.o.10,Create diagrams or blueprints for workpieces or products.,Create visual designs or displays.,Thinking Creatively,1,1,0
+4.A.2.b.2.o.11,Prepare maps.,Create visual designs or displays.,Thinking Creatively,7,11,0
+4.A.2.b.2.o.13,Develop diagrams or flow charts of system operation.,Create visual designs or displays.,Thinking Creatively,5,6,2
+4.A.2.b.2.o.14,Prepare graphics or other visual representations of information.,Create visual designs or displays.,Thinking Creatively,8,17,2
+4.A.2.b.2.o.15,Draw detailed or technical illustrations.,Create visual designs or displays.,Thinking Creatively,1,1,0
+4.A.2.b.2.o.16,Create graphical representations of structures or landscapes.,Create visual designs or displays.,Thinking Creatively,5,14,1
+4.A.2.b.2.o.18,Create graphical representations of mechanical equipment.,Create visual designs or displays.,Thinking Creatively,5,14,0
+4.A.2.b.2.o.19,Create maps.,Create visual designs or displays.,Thinking Creatively,9,16,1
+4.A.2.b.2.o.20,Create images or other visual displays.,Create visual designs or displays.,Thinking Creatively,9,11,1
+4.A.2.b.2.o.21,Create graphical representations of industrial production systems.,Create visual designs or displays.,Thinking Creatively,5,5,0
+4.A.2.b.2.o.3,Create graphical representations of civil structures.,Create visual designs or displays.,Thinking Creatively,4,6,0
+4.A.2.b.2.o.5,Create electrical schematics.,Create visual designs or displays.,Thinking Creatively,3,7,0
+4.A.2.b.2.o.6,Create graphical representations of energy production systems.,Create visual designs or displays.,Thinking Creatively,2,3,0
+4.A.2.b.2.o.8,Create schematic drawings for electronics.,Create visual designs or displays.,Thinking Creatively,6,7,0
+4.A.2.b.2.o.9,"Design layout of art or product exhibits, displays, or promotional materials.",Create visual designs or displays.,Thinking Creatively,2,2,0
+4.A.2.b.2.p.1,Develop emergency procedures.,Develop contingency or emergency response plans.,Thinking Creatively,1,1,0
+4.A.2.b.2.p.2,Maintain contingency plans for disaster recovery.,Develop contingency or emergency response plans.,Thinking Creatively,3,4,0
+4.A.2.b.2.q.1,"Develop operating strategies, plans, or procedures for green or sustainable operations.",Develop sustainable organizational or business policies or practices.,Thinking Creatively,1,1,0
+4.A.2.b.2.q.3,Develop sustainable organizational policies or practices.,Develop sustainable organizational or business policies or practices.,Thinking Creatively,2,2,0
+4.A.2.b.2.q.4,Develop sustainable industrial or development methods.,Develop sustainable organizational or business policies or practices.,Thinking Creatively,5,6,0
+4.A.2.b.2.q.5,Develop operational methods or processes that use green materials or emphasize sustainability.,Develop sustainable organizational or business policies or practices.,Thinking Creatively,7,9,1
+4.A.2.b.2.s.1,Devise research or testing protocols.,Develop research plans or methodologies.,Thinking Creatively,15,19,15
+4.A.2.b.2.s.2,Develop biological research methods.,Develop research plans or methodologies.,Thinking Creatively,3,4,0
+4.A.2.b.2.s.3,Develop methods of social or economic research.,Develop research plans or methodologies.,Thinking Creatively,5,6,1
+4.A.2.b.2.s.4,Design research studies to obtain scientific information.,Develop research plans or methodologies.,Thinking Creatively,6,10,0
+4.A.2.b.2.s.5,Plan biological research.,Develop research plans or methodologies.,Thinking Creatively,6,6,4
+4.A.2.b.2.s.6,Plan environmental research.,Develop research plans or methodologies.,Thinking Creatively,8,11,5
+4.A.2.b.2.s.7,Develop environmental research methods.,Develop research plans or methodologies.,Thinking Creatively,5,5,2
+4.A.2.b.2.s.8,Plan social sciences research.,Develop research plans or methodologies.,Thinking Creatively,6,8,3
+4.A.2.b.2.u.1,Develop theories or models of physical phenomena.,Develop scientific or mathematical theories or models.,Thinking Creatively,7,10,1
+4.A.2.b.2.u.2,Develop mathematical models of environmental conditions.,Develop scientific or mathematical theories or models.,Thinking Creatively,6,8,2
+4.A.2.b.2.u.3,Develop scientific or mathematical models.,Develop scientific or mathematical theories or models.,Thinking Creatively,5,6,1
+4.A.2.b.2.u.4,Develop theories or models of social phenomena.,Develop scientific or mathematical theories or models.,Thinking Creatively,1,1,0
+4.A.2.b.2.v.1,Develop program goals or plans.,Develop organizational or program goals or objectives.,Thinking Creatively,1,1,0
+4.A.2.b.2.v.2,Develop organizational goals or objectives.,Develop organizational or program goals or objectives.,Thinking Creatively,8,9,0
+4.A.2.b.3.a.1,Review professional literature to maintain professional knowledge.,Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,17,19,3
+4.A.2.b.3.a.10,Research topics in area of expertise.,Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,27,52,27
+4.A.2.b.3.a.12,Maintain medical or professional knowledge.,Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,31,37,40
+4.A.2.b.3.a.13,"Conduct research to inform art, designs, or other work.",Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,2,2,0
+4.A.2.b.3.a.15,Maintain knowledge of laws or regulations.,Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,1,1,0
+4.A.2.b.3.a.16,Maintain professional knowledge or certifications.,Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,1,1,0
+4.A.2.b.3.a.18,Attend training sessions or professional meetings to develop or maintain professional knowledge.,Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,21,21,27
+4.A.2.b.3.a.20,Update technical knowledge.,Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,16,16,11
+4.A.2.b.3.a.21,Update professional knowledge.,Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,1,1,0
+4.A.2.b.3.a.22,Study product information to acquire professional knowledge.,Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,1,1,0
+4.A.2.b.3.a.3,Stay informed about current developments in field of specialization.,Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,21,22,27
+4.A.2.b.3.a.4,Attend events to develop professional knowledge.,Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,2,3,0
+4.A.2.b.3.a.5,Maintain current knowledge related to work activities.,Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,3,4,0
+4.A.2.b.3.a.7,Update knowledge about emerging industry or technology trends.,Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,18,18,27
+4.A.2.b.3.a.8,Maintain knowledge of current developments in area of expertise.,Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,3,3,0
+4.A.2.b.3.a.9,Attend conferences or workshops to maintain professional knowledge.,Maintain current knowledge in area of expertise.,Updating and Using Relevant Knowledge,6,8,1
+4.A.2.b.4.a.1,Develop organizational policies or programs.,"Develop organizational policies, systems, or processes.",Developing Objectives and Strategies,5,5,0
+4.A.2.b.4.a.2,"Develop operating strategies, plans, or procedures.","Develop organizational policies, systems, or processes.",Developing Objectives and Strategies,5,7,0
+4.A.2.b.4.a.4,Develop organizational methods or procedures.,"Develop organizational policies, systems, or processes.",Developing Objectives and Strategies,3,4,0
+4.A.2.b.5.a.3,Schedule medical facility use.,Prepare schedules for services or facilities.,Scheduling Work and Activities,1,1,0
+4.A.2.b.5.a.4,Schedule activities or facility use.,Prepare schedules for services or facilities.,Scheduling Work and Activities,2,3,0
+4.A.2.b.5.b.3,Schedule instructional activities.,Schedule operational activities.,Scheduling Work and Activities,1,1,0
+4.A.2.b.5.b.7,Schedule operational activities.,Schedule operational activities.,Scheduling Work and Activities,8,10,3
+4.A.2.b.5.c.1,Schedule appointments.,Schedule appointments.,Scheduling Work and Activities,4,4,0
+4.A.2.b.5.c.2,Schedule patient procedures or appointments.,Schedule appointments.,Scheduling Work and Activities,16,16,26
+4.A.2.b.6.a.1,Plan special events.,Plan events or programs.,"Organizing, Planning, and Prioritizing Work",1,1,0
+4.A.2.b.6.a.4,Plan community programs or activities for the general public.,Plan events or programs.,"Organizing, Planning, and Prioritizing Work",21,21,27
+4.A.2.b.6.b.3,Plan work operations.,Plan work activities.,"Organizing, Planning, and Prioritizing Work",1,1,0
+4.A.2.b.6.b.7,Prepare detailed work plans.,Plan work activities.,"Organizing, Planning, and Prioritizing Work",24,26,32
+4.A.2.b.6.b.8,Develop detailed project plans.,Plan work activities.,"Organizing, Planning, and Prioritizing Work",7,9,1
+4.A.2.b.6.b.9,Plan production or operational procedures or sequences.,Plan work activities.,"Organizing, Planning, and Prioritizing Work",2,2,0
+4.A.3.a.1.a.7,Prepare medications or medical solutions.,Prepare mixtures or solutions.,Performing General Physical Activities,12,19,7
+4.A.3.a.1.b.2,Protect property from fire or water damage.,Protect people or property from threats such as fires or flooding.,Performing General Physical Activities,1,1,0
+4.A.3.a.1.c.10,Maintain clean work areas.,"Clean tools, equipment, facilities, or work areas.",Performing General Physical Activities,4,4,0
+4.A.3.a.1.c.16,"Clean equipment, parts, or tools to repair or maintain them in good working order.","Clean tools, equipment, facilities, or work areas.",Performing General Physical Activities,2,2,0
+4.A.3.a.1.c.17,Decontaminate equipment or sites to remove hazardous or toxic substances.,"Clean tools, equipment, facilities, or work areas.",Performing General Physical Activities,1,1,0
+4.A.3.a.1.c.6,Clean facilities or equipment.,"Clean tools, equipment, facilities, or work areas.",Performing General Physical Activities,1,1,0
+4.A.3.a.1.c.9,Clean facilities or work areas.,"Clean tools, equipment, facilities, or work areas.",Performing General Physical Activities,1,1,0
+4.A.3.a.1.e.2,Dispose of hazardous materials.,Dispose of waste or debris.,Performing General Physical Activities,2,3,0
+4.A.3.a.1.e.7,Dispose of trash or waste materials.,Dispose of waste or debris.,Performing General Physical Activities,1,1,0
+4.A.3.a.1.g.7,Assist skilled construction or extraction personnel.,Perform general construction or extraction activities.,Performing General Physical Activities,1,1,0
+4.A.3.a.1.h.6,Clean objects.,"Clean workpieces, finished products, or other objects.",Performing General Physical Activities,6,6,0
+4.A.3.a.1.i.1,Sterilize medical equipment or instruments.,Clean medical equipment or facilities.,Performing General Physical Activities,12,12,11
+4.A.3.a.1.i.3,Clean medical equipment or facilities.,Clean medical equipment or facilities.,Performing General Physical Activities,12,14,12
+4.A.3.a.1.j.5,Deliver items.,"Move materials, equipment, or supplies.",Performing General Physical Activities,1,1,0
+4.A.3.a.1.k.10,Enforce rules or regulations.,Maintain safety or security.,Performing General Physical Activities,1,1,0
+4.A.3.a.1.k.7,Maintain security.,Maintain safety or security.,Performing General Physical Activities,2,2,0
+4.A.3.a.1.l.2,Provide escort or transportation.,Escort others.,Performing General Physical Activities,1,1,0
+4.A.3.a.1.l.4,Accompany patients or clients on outings to provide assistance.,Escort others.,Performing General Physical Activities,1,2,0
+4.A.3.a.1.l.6,Accompany individuals or groups to activities.,Escort others.,Performing General Physical Activities,1,2,0
+4.A.3.a.1.m.2,Move patients to or from treatment areas.,Transport patients or clients.,Performing General Physical Activities,5,5,0
+4.A.3.a.1.p.3,Practice athletic or artistic skills.,"Perform athletic activities for fitness, competition, or artistic purposes.",Performing General Physical Activities,1,1,0
+4.A.3.a.1.q.7,Cultivate land.,Perform agricultural activities.,Performing General Physical Activities,3,6,0
+4.A.3.a.2.a.10,Install safety or support equipment.,Build structures.,Handling and Moving Objects,1,1,0
+4.A.3.a.2.aa.1,Fabricate devices or components.,Fabricate devices or components.,Handling and Moving Objects,6,6,2
+4.A.3.a.2.aa.3,Fabricate products or components using machine tools.,Fabricate devices or components.,Handling and Moving Objects,2,2,0
+4.A.3.a.2.ag.5,Apply chemical solutions to plants to protect against disease or insects or to enhance growth.,Apply protective solutions or coatings.,Handling and Moving Objects,1,1,0
+4.A.3.a.2.ak.1,Stock products or parts.,Stock supplies or products.,Handling and Moving Objects,1,1,0
+4.A.3.a.2.ak.2,Stock medical or patient care supplies.,Stock supplies or products.,Handling and Moving Objects,1,1,0
+4.A.3.a.2.al.1,Collect biological specimens from patients.,Collect environmental or biological samples.,Handling and Moving Objects,15,19,16
+4.A.3.a.2.al.2,Collect biological specimens.,Collect environmental or biological samples.,Handling and Moving Objects,5,5,0
+4.A.3.a.2.al.3,Collect geographical or geological field data.,Collect environmental or biological samples.,Handling and Moving Objects,7,11,1
+4.A.3.a.2.al.5,Collect environmental data or samples.,Collect environmental or biological samples.,Handling and Moving Objects,13,14,11
+4.A.3.a.2.ap.4,Package materials for transport.,Package objects.,Handling and Moving Objects,2,2,0
+4.A.3.a.2.ap.5,Package materials or products.,Package objects.,Handling and Moving Objects,1,1,0
+4.A.3.a.2.at.10,Set up laboratory or field equipment.,Set up equipment.,Handling and Moving Objects,9,9,5
+4.A.3.a.2.au.1,"Cultivate micro-organisms for study, testing, or medical preparations.",Prepare specimens or materials for testing.,Handling and Moving Objects,3,4,0
+4.A.3.a.2.au.2,Prepare biological specimens for laboratory analysis.,Prepare specimens or materials for testing.,Handling and Moving Objects,9,25,7
+4.A.3.a.2.au.3,Prepare biological samples for testing or analysis.,Prepare specimens or materials for testing.,Handling and Moving Objects,6,6,1
+4.A.3.a.2.au.4,Prepare compounds or solutions for products or testing.,Prepare specimens or materials for testing.,Handling and Moving Objects,6,7,2
+4.A.3.a.2.b.1,Collect samples for analysis or testing.,Collect samples of products or materials.,Handling and Moving Objects,3,3,0
+4.A.3.a.2.b.2,Collect samples of raw materials or finished products.,Collect samples of products or materials.,Handling and Moving Objects,3,3,0
+4.A.3.a.2.d.12,Assemble mechanical components or machine parts.,Assemble equipment or components.,Handling and Moving Objects,1,1,0
+4.A.3.a.2.d.13,Install gauges or controls.,Assemble equipment or components.,Handling and Moving Objects,1,1,0
+4.A.3.a.2.d.2,Assemble equipment or components.,Assemble equipment or components.,Handling and Moving Objects,8,13,3
+4.A.3.a.2.d.3,Reassemble equipment after repair.,Assemble equipment or components.,Handling and Moving Objects,1,1,0
+4.A.3.a.2.d.4,Assemble precision electronics or optical equipment.,Assemble equipment or components.,Handling and Moving Objects,2,5,0
+4.A.3.a.2.h.3,"Prepare materials for preservation, storage, or display.",Arrange displays or decorations.,Handling and Moving Objects,1,1,0
+4.A.3.a.2.i.1,Adjust tuning or functioning of musical instruments.,Adjust equipment to ensure adequate performance.,Handling and Moving Objects,1,1,0
+4.A.3.a.2.i.17,Adjust building climate control systems.,Adjust equipment to ensure adequate performance.,Handling and Moving Objects,1,1,0
+4.A.3.a.2.i.4,Calibrate scientific or technical equipment.,Adjust equipment to ensure adequate performance.,Handling and Moving Objects,20,24,14
+4.A.3.a.2.i.5,Adjust equipment to ensure optimal performance.,Adjust equipment to ensure adequate performance.,Handling and Moving Objects,1,1,0
+4.A.3.a.2.i.6,Calibrate equipment to specifications.,Adjust equipment to ensure adequate performance.,Handling and Moving Objects,1,1,0
+4.A.3.a.2.i.9,Adjust settings or positions of medical equipment.,Adjust equipment to ensure adequate performance.,Handling and Moving Objects,12,15,15
+4.A.3.a.2.k.1,Prepare medical supplies or equipment for use.,Prepare medical equipment or work areas for use.,Handling and Moving Objects,18,20,35
+4.A.3.a.2.m.9,Prepare materials for processing.,Prepare industrial materials for processing or use.,Handling and Moving Objects,3,3,0
+4.A.3.a.2.q.2,Make patient-assistive devices or device models.,Fabricate medical devices.,Handling and Moving Objects,1,1,0
+4.A.3.a.2.q.3,Fabricate medical devices.,Fabricate medical devices.,Handling and Moving Objects,11,18,4
+4.A.3.a.2.s.3,Disassemble equipment to inspect for deficiencies.,Disassemble equipment.,Handling and Moving Objects,1,1,0
+4.A.3.a.2.t.4,Install production equipment or systems.,Install commercial or production equipment.,Handling and Moving Objects,5,5,0
+4.A.3.a.2.t.5,Install instrumentation or electronic equipment or systems.,Install commercial or production equipment.,Handling and Moving Objects,5,5,1
+4.A.3.a.2.x.1,Adjust prostheses or other assistive devices.,Adjust medical equipment to ensure adequate performance.,Handling and Moving Objects,8,9,3
+4.A.3.a.2.x.2,Adjust dental devices or appliances to ensure fit.,Adjust medical equipment to ensure adequate performance.,Handling and Moving Objects,2,4,0
+4.A.3.a.3.d.1,Process x-rays or other medical images.,Operate medical equipment.,Controlling Machines and Processes,9,10,10
+4.A.3.a.3.d.2,Create advanced digital images of patients using computer imaging systems.,Operate medical equipment.,Controlling Machines and Processes,7,10,3
+4.A.3.a.3.d.3,Operate diagnostic or therapeutic medical instruments or equipment.,Operate medical equipment.,Controlling Machines and Processes,26,36,44
+4.A.3.a.3.d.4,Operate diagnostic imaging equipment.,Operate medical equipment.,Controlling Machines and Processes,19,30,33
+4.A.3.a.3.d.5,Operate medical equipment.,Operate medical equipment.,Controlling Machines and Processes,2,2,0
+4.A.3.a.3.f.10,Operate photographic developing or print production equipment.,Operate industrial processing or production equipment.,Controlling Machines and Processes,1,1,0
+4.A.3.a.3.f.13,Operate industrial equipment.,Operate industrial processing or production equipment.,Controlling Machines and Processes,8,8,3
+4.A.3.a.3.i.1,Operate laboratory or field equipment.,Operate laboratory or field equipment.,Controlling Machines and Processes,8,8,2
+4.A.3.a.3.i.2,Operate precision equipment to control microscopic or nanoscopic processes.,Operate laboratory or field equipment.,Controlling Machines and Processes,3,5,0
+4.A.3.a.3.i.3,Operate laboratory equipment to analyze medical samples.,Operate laboratory or field equipment.,Controlling Machines and Processes,7,8,6
+4.A.3.a.3.k.4,Operate farming equipment.,Operate agricultural or forestry equipment.,Controlling Machines and Processes,1,1,0
+4.A.3.a.4.a.3,Drive vehicles to transport individuals or equipment.,Operate transportation equipment or vehicles.,"Operating Vehicles, Mechanized Devices, or Equipment",1,1,0
+4.A.3.b.1.a.3,Write computer programming code.,Program computer systems or production equipment.,Working with Computers,15,19,12
+4.A.3.b.1.a.4,Program robotic equipment.,Program computer systems or production equipment.,Working with Computers,3,12,0
+4.A.3.b.1.b.1,Implement security measures for computer or information systems.,Implement security measures for computer or information systems.,Working with Computers,12,21,12
+4.A.3.b.1.b.2,Create electronic data backup to prevent loss of information.,Implement security measures for computer or information systems.,Working with Computers,8,8,3
+4.A.3.b.1.c.1,Install computer software.,"Set up computer systems, networks, or other information systems.",Working with Computers,13,16,21
+4.A.3.b.1.c.2,Install computer hardware.,"Set up computer systems, networks, or other information systems.",Working with Computers,8,12,14
+4.A.3.b.1.c.4,Configure computer networks.,"Set up computer systems, networks, or other information systems.",Working with Computers,5,7,0
+4.A.3.b.1.d.1,Resolve computer network problems.,Resolve computer problems.,Working with Computers,3,5,0
+4.A.3.b.1.d.2,Troubleshoot issues with computer applications or systems.,Resolve computer problems.,Working with Computers,13,13,11
+4.A.3.b.1.d.3,Resolve computer software problems.,Resolve computer problems.,Working with Computers,6,8,3
+4.A.3.b.1.e.1,Operate computers or computerized equipment.,Operate computer systems or computerized equipment.,Working with Computers,2,2,0
+4.A.3.b.1.e.2,Operate computer systems.,Operate computer systems or computerized equipment.,Working with Computers,9,10,3
+4.A.3.b.1.f.1,Load digital images onto computers or websites.,Process digital or online data.,Working with Computers,1,1,0
+4.A.3.b.1.f.10,Enter codes or other information into computers.,Process digital or online data.,Working with Computers,3,3,0
+4.A.3.b.1.f.12,"Format digital documents, data, or images.",Process digital or online data.,Working with Computers,1,1,0
+4.A.3.b.1.f.2,Operate digital imaging equipment.,Process digital or online data.,Working with Computers,1,2,0
+4.A.3.b.1.f.3,Enter patient or treatment data into computers.,Process digital or online data.,Working with Computers,9,11,2
+4.A.3.b.1.f.4,Update website content.,Process digital or online data.,Working with Computers,3,8,0
+4.A.3.b.1.f.5,Update computer database information.,Process digital or online data.,Working with Computers,3,5,0
+4.A.3.b.1.f.6,Enter information into databases or software programs.,Process digital or online data.,Working with Computers,2,2,0
+4.A.3.b.1.f.7,Prepare data for analysis.,Process digital or online data.,Working with Computers,8,12,0
+4.A.3.b.1.f.8,Code data or other information.,Process digital or online data.,Working with Computers,4,5,0
+4.A.3.b.2.a.1,Determine design criteria or specifications.,Develop technical specifications for products or operations.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",8,10,0
+4.A.3.b.2.a.2,Develop specifications for new products or processes.,Develop technical specifications for products or operations.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",4,4,0
+4.A.3.b.2.a.3,Develop specifications or procedures for website development or maintenance.,Develop technical specifications for products or operations.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",3,9,0
+4.A.3.b.2.a.4,Develop technical specifications for systems or equipment.,Develop technical specifications for products or operations.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",2,2,0
+4.A.3.b.2.a.5,Develop specifications for computer network operation.,Develop technical specifications for products or operations.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",2,3,0
+4.A.3.b.2.a.6,Determine operational criteria or specifications.,Develop technical specifications for products or operations.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",8,10,2
+4.A.3.b.2.a.7,Develop performance metrics or standards related to information technology.,Develop technical specifications for products or operations.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",10,10,10
+4.A.3.b.2.b.1,Plan facility layouts or designs.,Design structures or facilities.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",1,1,0
+4.A.3.b.2.b.2,Incorporate green features into the design of structures or facilities.,Design structures or facilities.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",4,8,0
+4.A.3.b.2.b.3,Design civil structures or systems.,Design structures or facilities.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",4,8,0
+4.A.3.b.2.b.4,Design structures or facilities.,Design structures or facilities.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",8,9,2
+4.A.3.b.2.c.1,Design industrial processing systems.,Design industrial systems or equipment.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",11,17,12
+4.A.3.b.2.c.3,Design industrial equipment.,Design industrial systems or equipment.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",8,12,2
+4.A.3.b.2.c.4,Design energy production or management equipment or systems.,Design industrial systems or equipment.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",4,5,0
+4.A.3.b.2.c.5,"Design tools, fixtures, or other devices for production equipment.",Design industrial systems or equipment.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",1,1,0
+4.A.3.b.2.c.6,Design control systems for mechanical or other equipment.,Design industrial systems or equipment.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",4,5,0
+4.A.3.b.2.d.1,Create models of engineering designs or methods.,"Develop models of systems, processes, or products.","Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",13,17,11
+4.A.3.b.2.d.2,Develop models of information or communications systems.,"Develop models of systems, processes, or products.","Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",11,15,13
+4.A.3.b.2.d.3,Create physical models or prototypes.,"Develop models of systems, processes, or products.","Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",8,9,4
+4.A.3.b.2.e.1,Design electromechanical equipment or systems.,Design electrical or electronic systems or equipment.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",9,17,4
+4.A.3.b.2.e.2,Design electrical equipment or systems.,Design electrical or electronic systems or equipment.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",4,5,0
+4.A.3.b.2.e.3,Design electronic or computer equipment or instrumentation.,Design electrical or electronic systems or equipment.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",10,21,4
+4.A.3.b.2.f.1,Develop procedures for data management.,Develop operational or technical procedures or standards.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",6,12,1
+4.A.3.b.2.f.10,Develop data analysis or data management procedures.,Develop operational or technical procedures or standards.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",1,2,0
+4.A.3.b.2.f.11,Develop technical processes to improve the efficiency of biofuel production.,Develop operational or technical procedures or standards.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",1,7,0
+4.A.3.b.2.f.12,Develop new or advanced products or production methods.,Develop operational or technical procedures or standards.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",6,8,2
+4.A.3.b.2.f.13,Develop procedures to evaluate organizational activities.,Develop operational or technical procedures or standards.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",4,4,0
+4.A.3.b.2.f.14,Develop technical methods or processes.,Develop operational or technical procedures or standards.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",21,25,29
+4.A.3.b.2.f.15,Develop testing routines or procedures.,Develop operational or technical procedures or standards.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",11,18,9
+4.A.3.b.2.f.16,Develop procedures for data entry or processing.,Develop operational or technical procedures or standards.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",2,4,0
+4.A.3.b.2.f.17,"Establish standards for products, processes, or procedures.",Develop operational or technical procedures or standards.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",7,7,1
+4.A.3.b.2.f.18,Develop agricultural methods.,Develop operational or technical procedures or standards.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",5,10,0
+4.A.3.b.2.f.2,Establish nursing policies or standards.,Develop operational or technical procedures or standards.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",5,7,2
+4.A.3.b.2.f.3,Develop information communication procedures.,Develop operational or technical procedures or standards.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",3,4,0
+4.A.3.b.2.f.7,Establish standards for medical care.,Develop operational or technical procedures or standards.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",5,5,1
+4.A.3.b.2.f.8,Develop guidelines for system implementation.,Develop operational or technical procedures or standards.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",4,4,0
+4.A.3.b.2.f.9,Develop computer or information security policies or procedures.,Develop operational or technical procedures or standards.,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment",10,10,7
+4.A.3.b.4.a.1,Maintain facilities.,Maintain facilities or equipment.,Repairing and Maintaining Mechanical Equipment,1,1,0
+4.A.3.b.4.a.4,Repair structural components.,Maintain facilities or equipment.,Repairing and Maintaining Mechanical Equipment,1,1,0
+4.A.3.b.4.b.3,Repair precision devices or workpieces.,Repair workpieces or products.,Repairing and Maintaining Mechanical Equipment,1,1,0
+4.A.3.b.4.c.1,Replace worn equipment components.,Repair tools or equipment.,Repairing and Maintaining Mechanical Equipment,1,1,0
+4.A.3.b.4.f.1,Maintain medical equipment or instruments.,Maintain medical equipment or instruments.,Repairing and Maintaining Mechanical Equipment,16,18,18
+4.A.3.b.4.f.2,Maintain medical laboratory equipment.,Maintain medical equipment or instruments.,Repairing and Maintaining Mechanical Equipment,7,8,6
+4.A.3.b.4.f.3,Repair medical or dental assistive devices.,Maintain medical equipment or instruments.,Repairing and Maintaining Mechanical Equipment,1,1,0
+4.A.3.b.4.f.4,Repair medical facility equipment.,Maintain medical equipment or instruments.,Repairing and Maintaining Mechanical Equipment,7,7,4
+4.A.3.b.5.a.1,Maintain mechanical equipment.,Maintain tools or equipment.,Repairing and Maintaining Electronic Equipment,1,1,0
+4.A.3.b.5.a.16,Maintain work equipment or machinery.,Maintain tools or equipment.,Repairing and Maintaining Electronic Equipment,1,1,0
+4.A.3.b.5.a.18,Maintain electromechanical equipment.,Maintain tools or equipment.,Repairing and Maintaining Electronic Equipment,2,6,0
+4.A.3.b.5.a.3,Maintain equipment or systems to ensure proper functioning.,Maintain tools or equipment.,Repairing and Maintaining Electronic Equipment,1,1,0
+4.A.3.b.5.b.3,Repair electronic equipment.,Repair electrical or electronic equipment.,Repairing and Maintaining Electronic Equipment,1,1,0
+4.A.3.b.5.c.1,Maintain computer hardware.,"Maintain electronic, computer, or other technical equipment.",Repairing and Maintaining Electronic Equipment,6,6,5
+4.A.3.b.5.c.2,Maintain computer networks to enhance performance and user access.,"Maintain electronic, computer, or other technical equipment.",Repairing and Maintaining Electronic Equipment,3,7,0
+4.A.3.b.5.c.4,Maintain electronic equipment.,"Maintain electronic, computer, or other technical equipment.",Repairing and Maintaining Electronic Equipment,6,10,1
+4.A.3.b.5.c.5,Maintain laboratory or technical equipment.,"Maintain electronic, computer, or other technical equipment.",Repairing and Maintaining Electronic Equipment,13,14,7
+4.A.3.b.5.c.6,Maintain computer equipment or software.,"Maintain electronic, computer, or other technical equipment.",Repairing and Maintaining Electronic Equipment,5,6,0
+4.A.3.b.5.c.7,Maintain test equipment.,"Maintain electronic, computer, or other technical equipment.",Repairing and Maintaining Electronic Equipment,5,6,0
+4.A.3.b.6.a.2,"Prepare financial documents, reports, or budgets.","Prepare financial documents, reports, or budgets.",Documenting/Recording Information,4,5,0
+4.A.3.b.6.c.1,Present research results to others.,Present research or technical information.,Documenting/Recording Information,9,12,3
+4.A.3.b.6.c.10,Present medical research reports.,Present research or technical information.,Documenting/Recording Information,12,13,9
+4.A.3.b.6.c.2,Prepare research or technical reports.,Present research or technical information.,Documenting/Recording Information,3,4,0
+4.A.3.b.6.c.4,Prepare scientific or technical reports or presentations.,Present research or technical information.,Documenting/Recording Information,40,53,49
+4.A.3.b.6.c.5,Prepare analytical reports.,Present research or technical information.,Documenting/Recording Information,10,12,2
+4.A.3.b.6.c.6,Write reports or evaluations.,Present research or technical information.,Documenting/Recording Information,12,16,0
+4.A.3.b.6.c.7,Prepare research or technical reports on environmental issues.,Present research or technical information.,Documenting/Recording Information,7,8,0
+4.A.3.b.6.c.8,Prepare technical or operational reports.,Present research or technical information.,Documenting/Recording Information,9,10,2
+4.A.3.b.6.c.9,Prepare technical reports for internal use.,Present research or technical information.,Documenting/Recording Information,9,10,5
+4.A.3.b.6.e.1,Record images needed to address work issues.,Record images with photographic or audiovisual equipment.,Documenting/Recording Information,2,2,0
+4.A.3.b.6.e.3,"Document events or evidence, using photographic or audiovisual equipment.",Record images with photographic or audiovisual equipment.,Documenting/Recording Information,4,4,0
+4.A.3.b.6.f.1,Prepare official health documents or records.,Prepare health or medical documents.,Documenting/Recording Information,10,10,12
+4.A.3.b.6.f.4,Prepare reports summarizing patient diagnostic or care activities.,Prepare health or medical documents.,Documenting/Recording Information,20,21,25
+4.A.3.b.6.g.1,Develop proposals for current or prospective customers.,Prepare proposals or grant applications.,Documenting/Recording Information,2,2,0
+4.A.3.b.6.g.2,Write grant proposals.,Prepare proposals or grant applications.,Documenting/Recording Information,32,32,31
+4.A.3.b.6.g.3,Prepare proposal documents.,Prepare proposals or grant applications.,Documenting/Recording Information,9,9,7
+4.A.3.b.6.g.4,Prepare proposals or grant applications to obtain project funding.,Prepare proposals or grant applications.,Documenting/Recording Information,12,13,4
+4.A.3.b.6.g.5,Prepare proposal documents or grant applications.,Prepare proposals or grant applications.,Documenting/Recording Information,4,5,0
+4.A.3.b.6.h.11,Document operational activities.,Maintain operational records.,Documenting/Recording Information,8,9,10
+4.A.3.b.6.h.12,Maintain student records.,Maintain operational records.,Documenting/Recording Information,20,20,27
+4.A.3.b.6.h.15,Maintain records of customer accounts.,Maintain operational records.,Documenting/Recording Information,1,1,0
+4.A.3.b.6.h.18,Record research or operational data.,Maintain operational records.,Documenting/Recording Information,21,31,14
+4.A.3.b.6.h.2,Document operational procedures.,Maintain operational records.,Documenting/Recording Information,7,10,1
+4.A.3.b.6.h.21,Maintain operational records or records systems.,Maintain operational records.,Documenting/Recording Information,17,22,19
+4.A.3.b.6.h.24,Maintain repair or maintenance records.,Maintain operational records.,Documenting/Recording Information,1,1,0
+4.A.3.b.6.h.5,Maintain operational records.,Maintain operational records.,Documenting/Recording Information,4,4,0
+4.A.3.b.6.h.8,Record agricultural or forestry inventory data.,Maintain operational records.,Documenting/Recording Information,1,1,0
+4.A.3.b.6.h.9,"Maintain records, documents, or other files.",Maintain operational records.,Documenting/Recording Information,2,2,0
+4.A.3.b.6.i.1,Prepare procedural documents.,"Document technical designs, procedures, or activities.",Documenting/Recording Information,15,16,16
+4.A.3.b.6.i.2,Document technical design details.,"Document technical designs, procedures, or activities.",Documenting/Recording Information,17,20,18
+4.A.3.b.6.i.3,Document network-related activities or tasks.,"Document technical designs, procedures, or activities.",Documenting/Recording Information,6,9,4
+4.A.3.b.6.i.4,Document technical specifications or requirements.,"Document technical designs, procedures, or activities.",Documenting/Recording Information,6,6,2
+4.A.3.b.6.i.5,Document design or development procedures.,"Document technical designs, procedures, or activities.",Documenting/Recording Information,8,11,8
+4.A.3.b.6.i.6,Document test results.,"Document technical designs, procedures, or activities.",Documenting/Recording Information,1,1,0
+4.A.3.b.6.i.7,Document design or operational test results.,"Document technical designs, procedures, or activities.",Documenting/Recording Information,13,15,8
+4.A.3.b.6.j.2,Maintain records of sales or other business transactions.,Maintain sales or financial records.,Documenting/Recording Information,2,2,0
+4.A.3.b.6.k.2,Maintain medical facility records.,Maintain health or medical records.,Documenting/Recording Information,16,19,17
+4.A.3.b.6.k.3,Record vital statistics or other health information.,Maintain health or medical records.,Documenting/Recording Information,1,1,0
+4.A.3.b.6.k.4,Record patient medical histories.,Maintain health or medical records.,Documenting/Recording Information,56,75,78
+4.A.3.b.6.k.5,Maintain medical records.,Maintain health or medical records.,Documenting/Recording Information,1,1,0
+4.A.3.b.6.l.10,Develop training materials.,Prepare informational or instructional materials.,Documenting/Recording Information,2,2,0
+4.A.3.b.6.l.3,Create technology-based learning materials.,Prepare informational or instructional materials.,Documenting/Recording Information,1,1,0
+4.A.3.b.6.l.6,Prepare healthcare training materials.,Prepare informational or instructional materials.,Documenting/Recording Information,7,7,1
+4.A.3.b.6.l.7,Prepare informational or reference materials.,Prepare informational or instructional materials.,Documenting/Recording Information,1,1,0
+4.A.3.b.6.l.8,Prepare instruction manuals.,Prepare informational or instructional materials.,Documenting/Recording Information,4,4,0
+4.A.3.b.6.l.9,Develop instructional materials.,Prepare informational or instructional materials.,Documenting/Recording Information,20,21,27
+4.A.3.b.6.m.1,Prepare sales or other contracts.,"Prepare documentation for contracts, applications, or permits.",Documenting/Recording Information,3,3,0
+4.A.3.b.6.m.3,Prepare documentation for permits or licenses.,"Prepare documentation for contracts, applications, or permits.",Documenting/Recording Information,4,4,0
+4.A.3.b.6.m.6,"Prepare contracts, disclosures, or applications.","Prepare documentation for contracts, applications, or permits.",Documenting/Recording Information,10,12,7
+4.A.3.b.6.n.4,Maintain regulatory or compliance documentation.,Prepare legal or regulatory documents.,Documenting/Recording Information,1,2,0
+4.A.3.b.6.n.6,Prepare information or documentation related to legal or regulatory matters.,Prepare legal or regulatory documents.,Documenting/Recording Information,7,8,0
+4.A.3.b.6.o.2,Prepare reports detailing student activities or performance.,Prepare reports of operational or procedural activities.,Documenting/Recording Information,1,1,0
+4.A.3.b.6.o.3,Prepare accident or incident reports.,Prepare reports of operational or procedural activities.,Documenting/Recording Information,1,1,0
+4.A.3.b.6.o.4,Prepare operational reports.,Prepare reports of operational or procedural activities.,Documenting/Recording Information,18,18,14
+4.A.3.b.6.o.6,Prepare operational progress or status reports.,Prepare reports of operational or procedural activities.,Documenting/Recording Information,4,4,0
+4.A.3.b.6.p.1,"Write articles, books or other original materials in area of expertise.",Write material for artistic or commercial purposes.,Documenting/Recording Information,24,24,27
+4.A.4.a.1.a.4,"Explain engineering drawings, specifications, or other technical information.",Explain technical details of products or services.,Interpreting the Meaning of Information for Others,7,7,0
+4.A.4.a.1.a.5,Explain technical product or service information to customers.,Explain technical details of products or services.,Interpreting the Meaning of Information for Others,3,6,0
+4.A.4.a.1.b.2,"Inform the public about policies, services or procedures.","Explain regulations, policies, or procedures.",Interpreting the Meaning of Information for Others,1,1,0
+4.A.4.a.1.b.4,"Explain regulations, policies, or procedures.","Explain regulations, policies, or procedures.",Interpreting the Meaning of Information for Others,2,2,0
+4.A.4.a.1.b.5,Communicate organizational information to customers or other stakeholders.,"Explain regulations, policies, or procedures.",Interpreting the Meaning of Information for Others,3,3,0
+4.A.4.a.1.c.1,Translate information for others.,"Interpret language, cultural, or religious information for others.",Interpreting the Meaning of Information for Others,1,1,0
+4.A.4.a.1.c.2,Interpret cultural or religious information for others.,"Interpret language, cultural, or religious information for others.",Interpreting the Meaning of Information for Others,1,1,0
+4.A.4.a.1.d.3,Explain financial information to customers.,Explain financial information.,Interpreting the Meaning of Information for Others,2,2,0
+4.A.4.a.1.e.1,Communicate detailed medical information to patients or family members.,Explain medical information to patients or family members.,Interpreting the Meaning of Information for Others,14,19,18
+4.A.4.a.1.e.2,Confer with family members to discuss client treatment plans or progress.,Explain medical information to patients or family members.,Interpreting the Meaning of Information for Others,2,2,0
+4.A.4.a.1.e.3,Confer with clients to discuss treatment plans or progress.,Explain medical information to patients or family members.,Interpreting the Meaning of Information for Others,3,3,0
+4.A.4.a.1.e.5,Explain medical procedures or test results to patients or family members.,Explain medical information to patients or family members.,Interpreting the Meaning of Information for Others,25,26,47
+4.A.4.a.2.a.1,Communicate with the public on environmental issues.,Communicate environmental or sustainability information.,"Communicating with Supervisors, Peers, or Subordinates",6,6,0
+4.A.4.a.2.a.2,Communicate green energy production information.,Communicate environmental or sustainability information.,"Communicating with Supervisors, Peers, or Subordinates",1,1,0
+4.A.4.a.2.a.3,Communicate results of environmental research.,Communicate environmental or sustainability information.,"Communicating with Supervisors, Peers, or Subordinates",8,8,4
+4.A.4.a.2.b.1,Collaborate on research activities with scientists or technical specialists.,"Assist scientists, scholars, or technical specialists with projects or research.","Communicating with Supervisors, Peers, or Subordinates",13,13,4
+4.A.4.a.2.b.3,Assist engineers or scientists with research.,"Assist scientists, scholars, or technical specialists with projects or research.","Communicating with Supervisors, Peers, or Subordinates",6,6,0
+4.A.4.a.2.c.1,Communicate with other workers to coordinate activities.,Communicate with others about operational plans or activities.,"Communicating with Supervisors, Peers, or Subordinates",2,2,0
+4.A.4.a.2.c.10,Report information to managers or other personnel.,Communicate with others about operational plans or activities.,"Communicating with Supervisors, Peers, or Subordinates",1,1,0
+4.A.4.a.2.c.14,Confer with organizational members to accomplish work activities.,Communicate with others about operational plans or activities.,"Communicating with Supervisors, Peers, or Subordinates",4,5,0
+4.A.4.a.2.c.15,Confer with coworkers to coordinate work activities.,Communicate with others about operational plans or activities.,"Communicating with Supervisors, Peers, or Subordinates",1,1,0
+4.A.4.a.2.c.18,Confer with others to conduct or arrange operational activities.,Communicate with others about operational plans or activities.,"Communicating with Supervisors, Peers, or Subordinates",2,2,0
+4.A.4.a.2.c.2,Provide information to coworkers.,Communicate with others about operational plans or activities.,"Communicating with Supervisors, Peers, or Subordinates",1,1,0
+4.A.4.a.2.c.20,Exchange information with colleagues.,Communicate with others about operational plans or activities.,"Communicating with Supervisors, Peers, or Subordinates",1,1,0
+4.A.4.a.2.c.21,Communicate safety or hazard information to others.,Communicate with others about operational plans or activities.,"Communicating with Supervisors, Peers, or Subordinates",2,3,0
+4.A.4.a.2.c.6,Communicate with others to coordinate vehicle movement.,Communicate with others about operational plans or activities.,"Communicating with Supervisors, Peers, or Subordinates",1,1,0
+4.A.4.a.2.c.9,Liaise between departments or other groups to improve function or communication.,Communicate with others about operational plans or activities.,"Communicating with Supervisors, Peers, or Subordinates",1,1,0
+4.A.4.a.2.d.1,Inform medical professionals regarding patient conditions and care.,Confer with healthcare or other professionals about patient care.,"Communicating with Supervisors, Peers, or Subordinates",19,24,27
+4.A.4.a.2.d.2,Confer with other professionals to plan patient care.,Confer with healthcare or other professionals about patient care.,"Communicating with Supervisors, Peers, or Subordinates",4,5,0
+4.A.4.a.2.d.3,Collaborate with other professionals to assess client needs or plan treatments.,Confer with healthcare or other professionals about patient care.,"Communicating with Supervisors, Peers, or Subordinates",3,3,0
+4.A.4.a.2.d.4,Communicate test or assessment results to medical professionals.,Confer with healthcare or other professionals about patient care.,"Communicating with Supervisors, Peers, or Subordinates",10,13,7
+4.A.4.a.2.d.5,Collaborate with healthcare professionals to plan or provide treatment.,Confer with healthcare or other professionals about patient care.,"Communicating with Supervisors, Peers, or Subordinates",51,63,74
+4.A.4.a.2.e.2,Collaborate with others to develop or implement marketing strategies.,Communicate with others about business strategies.,"Communicating with Supervisors, Peers, or Subordinates",4,4,0
+4.A.4.a.2.e.4,Share sales-related or market information with colleagues.,Communicate with others about business strategies.,"Communicating with Supervisors, Peers, or Subordinates",2,3,0
+4.A.4.a.2.f.2,Collaborate with other agencies and institutions to coordinate educational matters.,Collaborate in the development of educational programs.,"Communicating with Supervisors, Peers, or Subordinates",2,2,0
+4.A.4.a.2.g.8,Report maintenance or equipment problems to appropriate personnel.,Notify others of emergencies or problems.,"Communicating with Supervisors, Peers, or Subordinates",1,1,0
+4.A.4.a.2.h.3,Confer with technical personnel to prepare designs or operational plans.,Communicate with others about specifications or project details.,"Communicating with Supervisors, Peers, or Subordinates",21,27,28
+4.A.4.a.2.h.4,Collaborate with others to develop or refine designs.,Communicate with others about specifications or project details.,"Communicating with Supervisors, Peers, or Subordinates",2,2,0
+4.A.4.a.2.h.6,Discuss design or technical features of products or services with technical personnel.,Communicate with others about specifications or project details.,"Communicating with Supervisors, Peers, or Subordinates",8,11,0
+4.A.4.a.2.h.7,Collaborate with others to determine design specifications or details.,Communicate with others about specifications or project details.,"Communicating with Supervisors, Peers, or Subordinates",14,19,24
+4.A.4.a.2.h.8,Consult with others regarding safety or health equipment or facilities.,Communicate with others about specifications or project details.,"Communicating with Supervisors, Peers, or Subordinates",3,3,0
+4.A.4.a.2.h.9,Communicate project information to others.,Communicate with others about specifications or project details.,"Communicating with Supervisors, Peers, or Subordinates",8,13,1
+4.A.4.a.2.j.2,Confer with clients to exchange information.,Confer with clients to determine needs or order specifications.,"Communicating with Supervisors, Peers, or Subordinates",6,6,1
+4.A.4.a.2.j.6,Discuss designs or plans with clients.,Confer with clients to determine needs or order specifications.,"Communicating with Supervisors, Peers, or Subordinates",7,9,2
+4.A.4.a.3.a.1,Testify at legal or legislative proceedings.,Present information in legal proceedings.,Communicating with People Outside the Organization,8,10,0
+4.A.4.a.3.a.2,Represent the interests of clients in legal proceedings.,Present information in legal proceedings.,Communicating with People Outside the Organization,1,1,0
+4.A.4.a.3.b.1,Communicate health and wellness information to the public.,Provide information or assistance to the public.,Communicating with People Outside the Organization,11,12,14
+4.A.4.a.3.b.10,"Inform viewers, listeners, or audiences.",Provide information or assistance to the public.,Communicating with People Outside the Organization,1,1,0
+4.A.4.a.3.b.2,Present sustainable products or services information to the public.,Provide information or assistance to the public.,Communicating with People Outside the Organization,1,1,0
+4.A.4.a.3.b.3,Present information to the public.,Provide information or assistance to the public.,Communicating with People Outside the Organization,7,7,0
+4.A.4.a.3.b.4,Provide educational information to the public.,Provide information or assistance to the public.,Communicating with People Outside the Organization,1,1,0
+4.A.4.a.3.b.5,Provide technical information or assistance to public.,Provide information or assistance to the public.,Communicating with People Outside the Organization,9,15,2
+4.A.4.a.3.b.6,Explain project details to the general public.,Provide information or assistance to the public.,Communicating with People Outside the Organization,7,7,0
+4.A.4.a.3.b.8,Provide information to the general public.,Provide information or assistance to the public.,Communicating with People Outside the Organization,3,3,0
+4.A.4.a.3.c.11,Answer telephones to direct calls or provide information.,"Provide information to guests, clients, or customers.",Communicating with People Outside the Organization,1,1,0
+4.A.4.a.3.c.5,Provide customer service to clients or users.,"Provide information to guests, clients, or customers.",Communicating with People Outside the Organization,4,4,0
+4.A.4.a.3.c.8,Provide customers with general information or assistance.,"Provide information to guests, clients, or customers.",Communicating with People Outside the Organization,1,1,0
+4.A.4.a.3.c.9,"Provide basic information to guests, visitors, or clients.","Provide information to guests, clients, or customers.",Communicating with People Outside the Organization,1,1,0
+4.A.4.a.4.a.1,Develop collaborative relationships between departments or with external organizations.,Develop professional relationships or networks.,Establishing and Maintaining Interpersonal Relationships,3,3,0
+4.A.4.a.4.a.4,Establish interpersonal business relationships to facilitate work activities.,Develop professional relationships or networks.,Establishing and Maintaining Interpersonal Relationships,2,2,0
+4.A.4.a.5.a.1,Refer customers to appropriate personnel.,Assist others to access additional services or resources.,Assisting and Caring for Others,1,2,0
+4.A.4.a.5.a.2,Refer patients to other healthcare practitioners or health resources.,Assist others to access additional services or resources.,Assisting and Caring for Others,33,39,41
+4.A.4.a.5.b.1,Treat patients using psychological therapies.,Administer therapeutic treatments.,Assisting and Caring for Others,7,9,3
+4.A.4.a.5.b.2,Implement therapeutic programs to improve patient functioning.,Administer therapeutic treatments.,Assisting and Caring for Others,1,1,0
+4.A.4.a.5.b.5,Treat patients using physical therapy techniques.,Administer therapeutic treatments.,Assisting and Caring for Others,6,7,2
+4.A.4.a.5.c.10,Administer medical substances for imaging or other procedures.,Administer basic health care or medical treatments.,Assisting and Caring for Others,6,6,5
+4.A.4.a.5.c.11,"Apply bandages, dressings, or splints.",Administer basic health care or medical treatments.,Assisting and Caring for Others,7,8,4
+4.A.4.a.5.c.2,Administer basic health care or medical treatments.,Administer basic health care or medical treatments.,Assisting and Caring for Others,11,13,16
+4.A.4.a.5.c.3,Administer anesthetics or sedatives to control pain.,Administer basic health care or medical treatments.,Assisting and Caring for Others,10,12,10
+4.A.4.a.5.c.4,Care for women during pregnancy and childbirth.,Administer basic health care or medical treatments.,Assisting and Caring for Others,3,8,0
+4.A.4.a.5.c.5,Provide basic health care services.,Administer basic health care or medical treatments.,Assisting and Caring for Others,3,3,0
+4.A.4.a.5.c.6,Administer non-intravenous medications.,Administer basic health care or medical treatments.,Assisting and Caring for Others,14,15,22
+4.A.4.a.5.c.7,Immunize patients.,Administer basic health care or medical treatments.,Assisting and Caring for Others,8,8,10
+4.A.4.a.5.c.8,Administer intravenous medications.,Administer basic health care or medical treatments.,Assisting and Caring for Others,8,13,5
+4.A.4.a.5.c.9,Administer blood or other fluids intravenously.,Administer basic health care or medical treatments.,Assisting and Caring for Others,5,6,1
+4.A.4.a.5.d.1,Care for plants or animals.,Care for plants or animals.,Assisting and Caring for Others,3,3,0
+4.A.4.a.5.d.2,Care for animals.,Care for plants or animals.,Assisting and Caring for Others,2,2,0
+4.A.4.a.5.d.3,Perform animal breeding procedures.,Care for plants or animals.,Assisting and Caring for Others,1,1,0
+4.A.4.a.5.d.4,Provide care for animals.,Care for plants or animals.,Assisting and Caring for Others,1,1,0
+4.A.4.a.5.e.2,Respond to emergencies to provide assistance.,Intervene in crisis situations or emergencies.,Assisting and Caring for Others,1,1,0
+4.A.4.a.5.f.1,"Fit eyeglasses, contact lenses, or other vision aids.",Fit assistive devices to patients or clients.,Assisting and Caring for Others,3,4,0
+4.A.4.a.5.g.1,Provide first aid or rescue assistance in emergencies.,Administer emergency medical treatment.,Assisting and Caring for Others,1,1,0
+4.A.4.a.5.g.3,Treat medical emergencies.,Administer emergency medical treatment.,Assisting and Caring for Others,18,23,32
+4.A.4.a.5.g.4,Implement advanced life support techniques.,Administer emergency medical treatment.,Assisting and Caring for Others,7,11,6
+4.A.4.a.5.i.2,Assist patients with hygiene or daily living activities.,Assist individuals with special needs.,Assisting and Caring for Others,4,6,0
+4.A.4.a.5.i.3,Assist clients in handling details of daily life.,Assist individuals with special needs.,Assisting and Caring for Others,1,1,0
+4.A.4.a.5.i.5,Assist students with special educational needs.,Assist individuals with special needs.,Assisting and Caring for Others,1,2,0
+4.A.4.a.5.i.9,Assist patients with daily activities.,Assist individuals with special needs.,Assisting and Caring for Others,1,1,0
+4.A.4.a.5.j.3,Assist customers to ensure comfort or safety.,"Provide general assistance to others, such as customers, patrons, or motorists.",Assisting and Caring for Others,1,1,0
+4.A.4.a.5.k.4,Position patients for treatment or examination.,Assist healthcare practitioners during medical procedures.,Assisting and Caring for Others,13,14,20
+4.A.4.a.5.k.5,Assist healthcare practitioners during examinations or treatments.,Assist healthcare practitioners during medical procedures.,Assisting and Caring for Others,12,17,15
+4.A.4.a.5.k.6,Assist healthcare practitioners during surgery.,Assist healthcare practitioners during medical procedures.,Assisting and Caring for Others,10,15,10
+4.A.4.a.5.k.7,Prepare patients physically for medical procedures.,Assist healthcare practitioners during medical procedures.,Assisting and Caring for Others,9,11,12
+4.A.4.a.5.k.8,Maintain sterile operative fields.,Assist healthcare practitioners during medical procedures.,Assisting and Caring for Others,3,6,0
+4.A.4.a.5.l.1,Care for patients with mental illnesses.,"Treat injuries, illnesses, or diseases.",Assisting and Caring for Others,2,3,0
+4.A.4.a.5.l.2,"Treat acute illnesses, infections, or injuries.","Treat injuries, illnesses, or diseases.",Assisting and Caring for Others,15,18,22
+4.A.4.a.5.l.3,Operate on patients to treat conditions.,"Treat injuries, illnesses, or diseases.",Assisting and Caring for Others,18,31,25
+4.A.4.a.5.l.4,Treat dental problems or diseases.,"Treat injuries, illnesses, or diseases.",Assisting and Caring for Others,5,17,0
+4.A.4.a.5.l.5,Treat animal injuries or illnesses.,"Treat injuries, illnesses, or diseases.",Assisting and Caring for Others,1,1,0
+4.A.4.a.5.l.6,Administer cancer treatments.,"Treat injuries, illnesses, or diseases.",Assisting and Caring for Others,2,3,0
+4.A.4.a.5.l.7,Treat chronic diseases or disorders.,"Treat injuries, illnesses, or diseases.",Assisting and Caring for Others,20,34,23
+4.A.4.a.5.l.8,Treat patients using alternative medical procedures.,"Treat injuries, illnesses, or diseases.",Assisting and Caring for Others,5,9,0
+4.A.4.a.6.a.1,Advocate for individual or community needs.,Advocate for individual or community needs.,Selling or Influencing Others,2,2,0
+4.A.4.a.6.b.1,Merchandise healthcare products or services.,Sell products or services.,Selling or Influencing Others,5,7,0
+4.A.4.a.6.b.5,Sell products or services.,Sell products or services.,Selling or Influencing Others,2,4,0
+4.A.4.a.6.b.6,Customize energy products or services to meet customer needs.,Sell products or services.,Selling or Influencing Others,1,2,0
+4.A.4.a.6.c.1,Perform marketing activities.,"Promote products, services, or programs.",Selling or Influencing Others,4,4,0
+4.A.4.a.6.c.12,"Promote products, services, or programs.","Promote products, services, or programs.",Selling or Influencing Others,2,2,0
+4.A.4.a.6.c.2,Demonstrate products to consumers.,"Promote products, services, or programs.",Selling or Influencing Others,3,3,0
+4.A.4.a.6.c.3,Promote environmental sustainability or conservation initiatives.,"Promote products, services, or programs.",Selling or Influencing Others,4,5,0
+4.A.4.a.6.c.4,"Market products, services, or events.","Promote products, services, or programs.",Selling or Influencing Others,1,1,0
+4.A.4.a.6.c.5,Contact current or potential customers to promote products or services.,"Promote products, services, or programs.",Selling or Influencing Others,2,4,0
+4.A.4.a.6.c.6,Promote educational institutions or programs.,"Promote products, services, or programs.",Selling or Influencing Others,21,21,27
+4.A.4.a.6.c.7,Deliver promotional presentations to current or prospective customers.,"Promote products, services, or programs.",Selling or Influencing Others,2,2,0
+4.A.4.a.6.c.9,Distribute promotional literature or samples to customers.,"Promote products, services, or programs.",Selling or Influencing Others,1,1,0
+4.A.4.a.7.a.3,Mediate disputes.,Mediate disputes.,Resolving Conflicts and Negotiating with Others,4,4,0
+4.A.4.a.7.b.1,Negotiate sales or lease agreements for products or services.,Negotiate contracts or agreements.,Resolving Conflicts and Negotiating with Others,1,1,0
+4.A.4.a.7.b.10,Negotiate contracts with clients or service providers.,Negotiate contracts or agreements.,Resolving Conflicts and Negotiating with Others,3,3,0
+4.A.4.a.7.b.11,Negotiate project specifications.,Negotiate contracts or agreements.,Resolving Conflicts and Negotiating with Others,1,1,0
+4.A.4.a.7.b.4,"Negotiate contracts for transportation, distribution, or logistics services.",Negotiate contracts or agreements.,Resolving Conflicts and Negotiating with Others,1,1,0
+4.A.4.a.7.b.7,Negotiate prices or other sales terms.,Negotiate contracts or agreements.,Resolving Conflicts and Negotiating with Others,2,2,0
+4.A.4.a.7.b.8,"Negotiate contracts for environmental remediation, green energy, or renewable resources.",Negotiate contracts or agreements.,Resolving Conflicts and Negotiating with Others,2,2,0
+4.A.4.a.7.c.1,Resolve employee or contractor problems.,Resolve personnel or operational problems.,Resolving Conflicts and Negotiating with Others,1,1,0
+4.A.4.a.7.c.2,Resolve operational performance problems.,Resolve personnel or operational problems.,Resolving Conflicts and Negotiating with Others,7,7,2
+4.A.4.a.8.a.3,Perform music for the public.,Present arts or entertainment performances.,Performing for or Working Directly with the Public,1,1,0
+4.A.4.a.8.c.1,Respond to customer problems or complaints.,Respond to customer problems or inquiries.,Performing for or Working Directly with the Public,2,2,0
+4.A.4.a.8.c.3,Answer customer questions about goods or services.,Respond to customer problems or inquiries.,Performing for or Working Directly with the Public,1,1,0
+4.A.4.a.8.c.6,Correspond with customers to answer questions or resolve complaints.,Respond to customer problems or inquiries.,Performing for or Working Directly with the Public,1,1,0
+4.A.4.b.1.a.2,Confer with other personnel to resolve design or operational problems.,Coordinate with others to resolve problems.,Coordinating the Work and Activities of Others,9,10,6
+4.A.4.b.1.a.3,Collaborate with others to resolve information technology issues.,Coordinate with others to resolve problems.,Coordinating the Work and Activities of Others,14,22,21
+4.A.4.b.1.a.4,Communicate with management or other staff to resolve problems.,Coordinate with others to resolve problems.,Coordinating the Work and Activities of Others,2,2,0
+4.A.4.b.1.a.5,Collaborate with technical specialists to resolve design or development problems.,Coordinate with others to resolve problems.,Coordinating the Work and Activities of Others,8,10,1
+4.A.4.b.1.c.1,Communicate with government agencies.,"Coordinate activities with clients, agencies, or organizations.",Coordinating the Work and Activities of Others,8,9,0
+4.A.4.b.1.c.2,"Communicate technical information to suppliers, contractors, or regulatory agencies.","Coordinate activities with clients, agencies, or organizations.",Coordinating the Work and Activities of Others,7,8,2
+4.A.4.b.1.c.3,Collaborate with outside groups to develop programs or projects.,"Coordinate activities with clients, agencies, or organizations.",Coordinating the Work and Activities of Others,1,1,0
+4.A.4.b.1.c.4,Coordinate with external parties to exchange information.,"Coordinate activities with clients, agencies, or organizations.",Coordinating the Work and Activities of Others,2,3,0
+4.A.4.b.1.c.5,Collaborate with law enforcement or security agencies to share information.,"Coordinate activities with clients, agencies, or organizations.",Coordinating the Work and Activities of Others,1,1,0
+4.A.4.b.1.c.6,Coordinate operational activities with external stakeholders.,"Coordinate activities with clients, agencies, or organizations.",Coordinating the Work and Activities of Others,4,7,0
+4.A.4.b.1.c.7,"Coordinate activities with suppliers, contractors, clients, or other departments.","Coordinate activities with clients, agencies, or organizations.",Coordinating the Work and Activities of Others,6,6,0
+4.A.4.b.1.c.9,Represent the organization in external relations.,"Coordinate activities with clients, agencies, or organizations.",Coordinating the Work and Activities of Others,1,1,0
+4.A.4.b.1.d.5,Coordinate artistic activities.,Coordinate artistic or entertainment activities.,Coordinating the Work and Activities of Others,1,1,0
+4.A.4.b.1.f.2,Prepare staff schedules or work assignments.,Assign work to others.,Coordinating the Work and Activities of Others,2,2,0
+4.A.4.b.1.f.3,Prepare activity or work schedules.,Assign work to others.,Coordinating the Work and Activities of Others,1,1,0
+4.A.4.b.1.f.6,Assign duties or work schedules to employees.,Assign work to others.,Coordinating the Work and Activities of Others,5,5,0
+4.A.4.b.1.g.2,Coordinate safety or regulatory compliance activities.,Coordinate regulatory compliance activities.,Coordinating the Work and Activities of Others,8,8,0
+4.A.4.b.1.g.3,Manage documentation to ensure organization or accuracy.,Coordinate regulatory compliance activities.,Coordinating the Work and Activities of Others,5,5,0
+4.A.4.b.2.a.2,Visit individuals in their homes to provide support or information.,Provide support or encouragement to others.,Developing and Building Teams,1,1,0
+4.A.4.b.2.a.4,Interact with patients to build rapport or provide emotional support.,Provide support or encouragement to others.,Developing and Building Teams,8,8,7
+4.A.4.b.2.a.5,Support the professional development of others.,Provide support or encouragement to others.,Developing and Building Teams,3,3,0
+4.A.4.b.2.a.6,Encourage patients or clients to develop life skills.,Provide support or encouragement to others.,Developing and Building Teams,3,3,0
+4.A.4.b.3.a.1,Teach basic living or other adaptive skills to patients or caregivers.,Teach life skills.,Training and Teaching Others,1,1,0
+4.A.4.b.3.a.2,Teach life skills or strategies to clients or their families.,Teach life skills.,Training and Teaching Others,1,1,0
+4.A.4.b.3.b.10,Tutor students who need extra assistance.,Teach academic or vocational subjects.,Training and Teaching Others,1,1,0
+4.A.4.b.3.b.11,Teach humanities courses at the college level.,Teach academic or vocational subjects.,Training and Teaching Others,2,2,0
+4.A.4.b.3.b.12,Teach physical science or mathematics courses at the college level.,Teach academic or vocational subjects.,Training and Teaching Others,13,14,25
+4.A.4.b.3.b.2,Teach classes in area of specialization.,Teach academic or vocational subjects.,Training and Teaching Others,7,7,0
+4.A.4.b.3.b.3,Teach social science courses at the college level.,Teach academic or vocational subjects.,Training and Teaching Others,7,7,24
+4.A.4.b.3.b.4,Lead classes or community events.,Teach academic or vocational subjects.,Training and Teaching Others,2,2,0
+4.A.4.b.3.b.5,Guide class discussions.,Teach academic or vocational subjects.,Training and Teaching Others,20,20,27
+4.A.4.b.3.b.8,Instruct college students in social sciences or humanities disciplines.,Teach academic or vocational subjects.,Training and Teaching Others,7,7,1
+4.A.4.b.3.b.9,Instruct college students in physical or life sciences.,Teach academic or vocational subjects.,Training and Teaching Others,11,11,7
+4.A.4.b.3.c.2,Teach safety standards or environmental compliance methods.,Teach safety procedures or standards to others.,Training and Teaching Others,3,3,0
+4.A.4.b.3.d.1,Train personnel to enhance job skills.,Train others on operational or work procedures.,Training and Teaching Others,1,1,0
+4.A.4.b.3.d.15,Train personnel in technical or scientific procedures.,Train others on operational or work procedures.,Training and Teaching Others,17,18,4
+4.A.4.b.3.d.16,Conduct employee training programs.,Train others on operational or work procedures.,Training and Teaching Others,4,6,0
+4.A.4.b.3.d.18,Train others on work processes.,Train others on operational or work procedures.,Training and Teaching Others,1,1,0
+4.A.4.b.3.d.2,Train personnel on proper operational procedures.,Train others on operational or work procedures.,Training and Teaching Others,22,22,32
+4.A.4.b.3.d.4,Train personnel.,Train others on operational or work procedures.,Training and Teaching Others,2,2,0
+4.A.4.b.3.d.5,Train sales personnel.,Train others on operational or work procedures.,Training and Teaching Others,1,1,0
+4.A.4.b.3.d.6,Instruct staff in work policies or procedures.,Train others on operational or work procedures.,Training and Teaching Others,1,1,0
+4.A.4.b.3.d.8,Train staff members.,Train others on operational or work procedures.,Training and Teaching Others,2,2,0
+4.A.4.b.3.e.2,Instruct patients in the use of assistive equipment.,Train others to use equipment or products.,Training and Teaching Others,9,14,0
+4.A.4.b.3.e.3,Teach others to use computer equipment or hardware.,Train others to use equipment or products.,Training and Teaching Others,5,5,0
+4.A.4.b.3.e.4,Train others in computer interface or software use.,Train others to use equipment or products.,Training and Teaching Others,15,16,26
+4.A.4.b.3.e.5,Teach others to use technology or equipment.,Train others to use equipment or products.,Training and Teaching Others,2,2,0
+4.A.4.b.3.e.6,Demonstrate activity techniques or equipment use.,Train others to use equipment or products.,Training and Teaching Others,1,1,0
+4.A.4.b.3.f.1,Teach exercise or fitness techniques.,Train others on health or medical topics.,Training and Teaching Others,3,3,0
+4.A.4.b.3.f.10,Teach medical procedures to healthcare personnel.,Train others on health or medical topics.,Training and Teaching Others,5,6,0
+4.A.4.b.3.f.11,Train caregivers or other non-medical personnel.,Train others on health or medical topics.,Training and Teaching Others,8,8,4
+4.A.4.b.3.f.2,Engage patients in exercises or activities.,Train others on health or medical topics.,Training and Teaching Others,1,1,0
+4.A.4.b.3.f.5,"Train patients, family members, or caregivers in techniques for managing disabilities or illnesses.",Train others on health or medical topics.,Training and Teaching Others,11,18,7
+4.A.4.b.3.f.6,Conduct health or safety training programs.,Train others on health or medical topics.,Training and Teaching Others,5,5,1
+4.A.4.b.3.f.8,Train medical providers.,Train others on health or medical topics.,Training and Teaching Others,49,57,79
+4.A.4.b.3.f.9,Teach health management classes.,Train others on health or medical topics.,Training and Teaching Others,3,4,0
+4.A.4.b.4.a.10,Supervise scientific or technical personnel.,Supervise personnel activities.,"Guiding, Directing, and Motivating Subordinates",20,20,19
+4.A.4.b.4.a.11,Supervise medical support personnel.,Supervise personnel activities.,"Guiding, Directing, and Motivating Subordinates",7,8,2
+4.A.4.b.4.a.12,Supervise workers providing client or patient services.,Supervise personnel activities.,"Guiding, Directing, and Motivating Subordinates",3,3,0
+4.A.4.b.4.a.13,Supervise employees.,Supervise personnel activities.,"Guiding, Directing, and Motivating Subordinates",4,4,0
+4.A.4.b.4.a.14,Supervise patient care personnel.,Supervise personnel activities.,"Guiding, Directing, and Motivating Subordinates",34,36,63
+4.A.4.b.4.a.15,Supervise technical medical personnel.,Supervise personnel activities.,"Guiding, Directing, and Motivating Subordinates",8,8,7
+4.A.4.b.4.a.17,Supervise laboratory work.,Supervise personnel activities.,"Guiding, Directing, and Motivating Subordinates",16,16,26
+4.A.4.b.4.a.18,Supervise student research or internship work.,Supervise personnel activities.,"Guiding, Directing, and Motivating Subordinates",22,31,27
+4.A.4.b.4.a.19,Supervise workers performing environmentally sustainable activities.,Supervise personnel activities.,"Guiding, Directing, and Motivating Subordinates",2,2,0
+4.A.4.b.4.a.2,Supervise engineering or other technical personnel.,Supervise personnel activities.,"Guiding, Directing, and Motivating Subordinates",19,20,26
+4.A.4.b.4.a.3,Supervise trainees.,Supervise personnel activities.,"Guiding, Directing, and Motivating Subordinates",3,3,0
+4.A.4.b.4.a.5,Supervise production or support personnel.,Supervise personnel activities.,"Guiding, Directing, and Motivating Subordinates",3,3,0
+4.A.4.b.4.a.6,Direct activities of subordinates.,Supervise personnel activities.,"Guiding, Directing, and Motivating Subordinates",2,2,0
+4.A.4.b.4.a.7,Supervise information technology personnel.,Supervise personnel activities.,"Guiding, Directing, and Motivating Subordinates",11,13,8
+4.A.4.b.4.b.1,Serve on institutional or departmental committees.,Serve on organizational committees.,"Guiding, Directing, and Motivating Subordinates",24,25,27
+4.A.4.b.4.c.1,Coordinate forestry or agricultural activities.,Manage agricultural or forestry operations.,"Guiding, Directing, and Motivating Subordinates",2,2,0
+4.A.4.b.4.c.2,Manage agricultural or forestry operations.,Manage agricultural or forestry operations.,"Guiding, Directing, and Motivating Subordinates",5,15,0
+4.A.4.b.4.e.1,Direct surveying activities.,Direct scientific or technical activities.,"Guiding, Directing, and Motivating Subordinates",3,5,0
+4.A.4.b.4.e.10,Direct design or development activities.,Direct scientific or technical activities.,"Guiding, Directing, and Motivating Subordinates",6,8,1
+4.A.4.b.4.e.11,Coordinate cross-disciplinary research programs.,Direct scientific or technical activities.,"Guiding, Directing, and Motivating Subordinates",4,4,0
+4.A.4.b.4.e.2,Direct technical activities or operations.,Direct scientific or technical activities.,"Guiding, Directing, and Motivating Subordinates",4,5,0
+4.A.4.b.4.e.4,Coordinate software or hardware installation.,Direct scientific or technical activities.,"Guiding, Directing, and Motivating Subordinates",6,6,1
+4.A.4.b.4.e.5,Direct scientific activities.,Direct scientific or technical activities.,"Guiding, Directing, and Motivating Subordinates",5,7,1
+4.A.4.b.4.e.6,Direct natural resources management or conservation programs.,Direct scientific or technical activities.,"Guiding, Directing, and Motivating Subordinates",5,8,0
+4.A.4.b.4.e.7,Manage information technology projects or system activities.,Direct scientific or technical activities.,"Guiding, Directing, and Motivating Subordinates",8,14,2
+4.A.4.b.4.e.8,Manage scientific or technical project resources.,Direct scientific or technical activities.,"Guiding, Directing, and Motivating Subordinates",5,6,0
+4.A.4.b.4.e.9,Direct medical science or healthcare programs.,Direct scientific or technical activities.,"Guiding, Directing, and Motivating Subordinates",6,9,1
+4.A.4.b.4.f.1,Coordinate training activities.,Manage human resources activities.,"Guiding, Directing, and Motivating Subordinates",1,1,0
+4.A.4.b.4.f.4,Manage human resources activities.,Manage human resources activities.,"Guiding, Directing, and Motivating Subordinates",4,4,0
+4.A.4.b.4.g.1,Direct quality control activities.,Manage control systems or activities.,"Guiding, Directing, and Motivating Subordinates",10,11,3
+4.A.4.b.4.h.10,Prepare project budgets.,Manage budgets or finances.,"Guiding, Directing, and Motivating Subordinates",7,7,3
+4.A.4.b.4.h.2,Direct financial operations.,Manage budgets or finances.,"Guiding, Directing, and Motivating Subordinates",1,1,0
+4.A.4.b.4.h.3,Direct fundraising or financing activities.,Manage budgets or finances.,"Guiding, Directing, and Motivating Subordinates",1,1,0
+4.A.4.b.4.h.4,Prepare operational budgets.,Manage budgets or finances.,"Guiding, Directing, and Motivating Subordinates",3,3,0
+4.A.4.b.4.h.5,Manage organizational or project budgets.,Manage budgets or finances.,"Guiding, Directing, and Motivating Subordinates",3,3,0
+4.A.4.b.4.h.6,Manage financial activities of the organization.,Manage budgets or finances.,"Guiding, Directing, and Motivating Subordinates",2,7,0
+4.A.4.b.4.h.7,Manage budgets for appropriate resource allocation.,Manage budgets or finances.,"Guiding, Directing, and Motivating Subordinates",5,6,1
+4.A.4.b.4.i.1,Direct natural resources extraction projects.,Direct construction or extraction activities.,"Guiding, Directing, and Motivating Subordinates",2,3,0
+4.A.4.b.4.i.3,Direct construction activities.,Direct construction or extraction activities.,"Guiding, Directing, and Motivating Subordinates",5,5,0
+4.A.4.b.4.i.4,Direct installation activities.,Direct construction or extraction activities.,"Guiding, Directing, and Motivating Subordinates",7,8,2
+4.A.4.b.4.i.6,Coordinate construction or installation activities.,Direct construction or extraction activities.,"Guiding, Directing, and Motivating Subordinates",1,1,0
+4.A.4.b.4.i.7,Manage construction activities.,Direct construction or extraction activities.,"Guiding, Directing, and Motivating Subordinates",1,2,0
+4.A.4.b.4.j.10,Direct green energy production operations.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",1,1,0
+4.A.4.b.4.j.12,"Manage operations, research, or logistics projects.","Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",5,5,0
+4.A.4.b.4.j.2,Direct environmental development activities.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",3,5,0
+4.A.4.b.4.j.23,Direct healthcare delivery programs.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",12,13,14
+4.A.4.b.4.j.24,Direct industrial production activities.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",9,9,5
+4.A.4.b.4.j.26,Direct energy production or management activities.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",4,10,0
+4.A.4.b.4.j.27,Direct facility maintenance or repair activities.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",1,1,0
+4.A.4.b.4.j.29,Arrange delivery of goods or services.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",3,4,0
+4.A.4.b.4.j.32,Coordinate project activities with other personnel or departments.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",8,9,4
+4.A.4.b.4.j.33,Direct department activities.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",20,20,27
+4.A.4.b.4.j.34,Coordinate reporting or editing activities.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",1,1,0
+4.A.4.b.4.j.35,Manage preparation of special meals or diets.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",3,7,0
+4.A.4.b.4.j.36,Coordinate resource procurement activities.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",2,2,0
+4.A.4.b.4.j.37,Coordinate operational activities.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",1,1,0
+4.A.4.b.4.j.38,Manage healthcare operations.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",15,19,20
+4.A.4.b.4.j.39,"Direct organizational operations, projects, or services.","Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",2,3,0
+4.A.4.b.4.j.4,Direct equipment maintenance or repair activities.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",7,8,3
+4.A.4.b.4.j.5,Coordinate sales campaigns.,"Direct organizational operations, activities, or procedures.","Guiding, Directing, and Motivating Subordinates",1,1,0
+4.A.4.b.4.k.4,Coordinate enforcement of laws or regulations.,Direct security or safety activities or operations.,"Guiding, Directing, and Motivating Subordinates",1,1,0
+4.A.4.b.6.a.1,"Provide health and wellness advice to patients, program participants, or caregivers.",Advise patients or clients on medical issues.,Providing Consultation and Advice to Others,23,27,33
+4.A.4.b.6.a.2,Advise patients on preventive care techniques.,Advise patients or clients on medical issues.,Providing Consultation and Advice to Others,3,3,0
+4.A.4.b.6.a.4,Advise patients on effects of health conditions or treatments.,Advise patients or clients on medical issues.,Providing Consultation and Advice to Others,12,12,15
+4.A.4.b.6.a.5,Advise patients on healthcare system processes.,Advise patients or clients on medical issues.,Providing Consultation and Advice to Others,3,3,0
+4.A.4.b.6.b.1,Recommend types of assistive devices.,Advise others on products or services.,Providing Consultation and Advice to Others,7,9,0
+4.A.4.b.6.b.2,Advise customers on technical or procedural issues.,Advise others on products or services.,Providing Consultation and Advice to Others,4,4,0
+4.A.4.b.6.b.3,Advise customers on the use of products or services.,Advise others on products or services.,Providing Consultation and Advice to Others,13,16,5
+4.A.4.b.6.b.4,Recommend products or services to customers.,Advise others on products or services.,Providing Consultation and Advice to Others,2,2,0
+4.A.4.b.6.c.1,Advise others about environmental management or conservation.,Advise others on environmental sustainability or green practices.,Providing Consultation and Advice to Others,12,17,9
+4.A.4.b.6.c.2,Advise others regarding green practices or environmental concerns.,Advise others on environmental sustainability or green practices.,Providing Consultation and Advice to Others,5,11,0
+4.A.4.b.6.c.3,Advise others on green energy or related technologies.,Advise others on environmental sustainability or green practices.,Providing Consultation and Advice to Others,1,1,0
+4.A.4.b.6.c.4,Advise others about land management or conservation.,Advise others on environmental sustainability or green practices.,Providing Consultation and Advice to Others,5,8,0
+4.A.4.b.6.d.1,Provide technical guidance to other personnel.,Advise others on the design or use of technologies.,Providing Consultation and Advice to Others,15,15,10
+4.A.4.b.6.d.2,Provide technical support for software maintenance or use.,Advise others on the design or use of technologies.,Providing Consultation and Advice to Others,11,13,12
+4.A.4.b.6.d.3,Provide recommendations to others about computer hardware.,Advise others on the design or use of technologies.,Providing Consultation and Advice to Others,9,9,9
+4.A.4.b.6.d.4,Advise others on the development or use of new technologies.,Advise others on the design or use of technologies.,Providing Consultation and Advice to Others,5,6,0
+4.A.4.b.6.d.5,Provide technical support for computer network issues.,Advise others on the design or use of technologies.,Providing Consultation and Advice to Others,6,7,4
+4.A.4.b.6.d.6,Recommend changes to improve computer or information systems.,Advise others on the design or use of technologies.,Providing Consultation and Advice to Others,13,22,16
+4.A.4.b.6.e.10,Advise others on business or operational matters.,Advise others on business or operational matters.,Providing Consultation and Advice to Others,8,10,1
+4.A.4.b.6.e.11,Advise others on ways to improve processes or products.,Advise others on business or operational matters.,Providing Consultation and Advice to Others,1,1,0
+4.A.4.b.6.e.2,Advise others on logistics topics.,Advise others on business or operational matters.,Providing Consultation and Advice to Others,1,1,0
+4.A.4.b.6.e.5,Advise others on analytical techniques.,Advise others on business or operational matters.,Providing Consultation and Advice to Others,1,1,0
+4.A.4.b.6.e.7,Recommend organizational process or policy changes.,Advise others on business or operational matters.,Providing Consultation and Advice to Others,2,2,0
+4.A.4.b.6.e.9,"Recommend technical design or process changes to improve efficiency, quality, or performance.",Advise others on business or operational matters.,Providing Consultation and Advice to Others,21,28,30
+4.A.4.b.6.f.1,Advise medical personnel regarding healthcare issues.,Advise others on healthcare or wellness issues.,Providing Consultation and Advice to Others,19,21,26
+4.A.4.b.6.f.2,Advise communities or institutions regarding health or safety issues.,Advise others on healthcare or wellness issues.,Providing Consultation and Advice to Others,8,9,13
+4.A.4.b.6.f.4,"Advise athletes, coaches, or trainers on exercise regimens, nutrition, or equipment use.",Advise others on healthcare or wellness issues.,Providing Consultation and Advice to Others,3,11,0
+4.A.4.b.6.f.5,Advise others on healthcare matters.,Advise others on healthcare or wellness issues.,Providing Consultation and Advice to Others,5,8,0
+4.A.4.b.6.g.2,Advise students on academic or career matters.,Advise others on educational or vocational matters.,Providing Consultation and Advice to Others,22,63,27
+4.A.4.b.6.g.5,"Advise educators on curricula, instructional methods, or policies.",Advise others on educational or vocational matters.,Providing Consultation and Advice to Others,18,20,27
+4.A.4.b.6.g.6,Advise others on career or personal development.,Advise others on educational or vocational matters.,Providing Consultation and Advice to Others,1,1,0
+4.A.4.b.6.g.7,Advise others on educational matters.,Advise others on educational or vocational matters.,Providing Consultation and Advice to Others,4,5,0
+4.A.4.b.6.h.2,Advise others on matters of public policy.,Advise others on legal or regulatory matters.,Providing Consultation and Advice to Others,9,10,1
+4.A.4.b.6.h.4,Advise others on legal or regulatory compliance matters.,Advise others on legal or regulatory matters.,Providing Consultation and Advice to Others,3,3,0
+4.A.4.b.6.i.1,Advise others on management of emergencies or hazardous situations or materials.,Advise others on workplace health or safety issues.,Providing Consultation and Advice to Others,6,6,0
+4.A.4.b.6.i.3,Advise others on health and safety issues.,Advise others on workplace health or safety issues.,Providing Consultation and Advice to Others,7,10,1
+4.A.4.b.6.j.5,Counsel family members of clients or patients.,Counsel others about personal matters.,Providing Consultation and Advice to Others,2,2,0
+4.A.4.b.6.j.6,Counsel clients on mental health or personal achievement.,Counsel others about personal matters.,Providing Consultation and Advice to Others,5,13,3
+4.A.4.b.6.j.7,Counsel clients or patients regarding personal issues.,Counsel others about personal matters.,Providing Consultation and Advice to Others,2,2,0
+4.A.4.c.1.a.1,Classify materials according to standard systems.,Perform administrative or clerical activities.,Performing Administrative Activities,2,2,0
+4.A.4.c.1.a.3,Process healthcare paperwork.,Perform administrative or clerical activities.,Performing Administrative Activities,7,11,3
+4.A.4.c.1.a.5,Perform student enrollment or registration activities.,Perform administrative or clerical activities.,Performing Administrative Activities,20,20,27
+4.A.4.c.1.a.6,Perform clerical work in medical settings.,Perform administrative or clerical activities.,Performing Administrative Activities,13,20,14
+4.A.4.c.1.c.1,Operate cash registers.,Execute financial transactions.,Performing Administrative Activities,1,1,0
+4.A.4.c.1.c.10,Take product orders from customers.,Execute financial transactions.,Performing Administrative Activities,1,1,0
+4.A.4.c.1.c.11,Process sales or other transactions.,Execute financial transactions.,Performing Administrative Activities,2,2,0
+4.A.4.c.1.c.3,Process medical billing information.,Execute financial transactions.,Performing Administrative Activities,5,6,0
+4.A.4.c.1.d.1,Issue permits or other legal documents.,Issue documentation.,Performing Administrative Activities,1,1,0
+4.A.4.c.1.e.3,"Send information, materials or documentation.",Process shipments or mail.,Performing Administrative Activities,1,1,0
+4.A.4.c.2.a.2,Conduct eligibility or selection interviews.,Perform recruiting or hiring activities.,Staffing Organizational Units,1,1,0
+4.A.4.c.2.a.3,Hire personnel.,Perform recruiting or hiring activities.,Staffing Organizational Units,5,5,0
+4.A.4.c.2.a.4,Participate in staffing decisions.,Perform recruiting or hiring activities.,Staffing Organizational Units,3,4,0
+4.A.4.c.2.a.5,Recruit personnel.,Perform recruiting or hiring activities.,Staffing Organizational Units,5,5,0
+4.A.4.c.2.a.6,"Select staff, team members, or performers.",Perform recruiting or hiring activities.,Staffing Organizational Units,1,1,0
+4.A.4.c.2.a.7,"Hire farming, fishing or forestry workers.",Perform recruiting or hiring activities.,Staffing Organizational Units,1,1,0
+4.A.4.c.2.b.3,Administer standardized physical or psychological tests.,Perform human resources activities.,Staffing Organizational Units,6,6,3
+4.A.4.c.3.a.2,Maintain inventory of medical supplies or equipment.,"Replenish inventories of materials, equipment, or products.",Monitoring and Controlling Resources,14,19,19
+4.A.4.c.3.a.4,Maintain supply or equipment inventories.,"Replenish inventories of materials, equipment, or products.",Monitoring and Controlling Resources,1,1,0
+4.A.4.c.3.a.5,"Maintain inventories of materials, equipment, or products.","Replenish inventories of materials, equipment, or products.",Monitoring and Controlling Resources,5,5,0
+4.A.4.c.3.a.6,Maintain the inventory of equipment.,"Replenish inventories of materials, equipment, or products.",Monitoring and Controlling Resources,2,3,0
+4.A.4.c.3.b.1,Order medical diagnostic or clinical tests.,Order medical tests or procedures.,Monitoring and Controlling Resources,21,22,29
+4.A.4.c.3.c.3,Distribute materials to employees or customers.,"Distribute materials, supplies, or resources.",Monitoring and Controlling Resources,1,1,0
+4.A.4.c.3.c.8,Distribute supplies to workers.,"Distribute materials, supplies, or resources.",Monitoring and Controlling Resources,1,1,0
+4.A.4.c.3.e.1,"Order materials, supplies, or equipment.",Purchase goods or services.,Monitoring and Controlling Resources,3,3,0
+4.A.4.c.3.e.2,Order instructional or library materials or equipment.,Purchase goods or services.,Monitoring and Controlling Resources,20,21,27
+4.A.4.c.3.e.3,"Purchase materials, equipment, or other resources.",Purchase goods or services.,Monitoring and Controlling Resources,15,15,6
+4.A.4.c.3.e.7,Order medical supplies or equipment.,Purchase goods or services.,Monitoring and Controlling Resources,13,13,16
+4.A.4.c.3.f.1,Prescribe treatments or therapies.,Prescribe medical treatments or devices.,Monitoring and Controlling Resources,19,22,27
+4.A.4.c.3.f.3,Prescribe medications.,Prescribe medical treatments or devices.,Monitoring and Controlling Resources,32,38,42
+4.A.4.c.3.f.4,Prescribe assistive medical devices or related treatments.,Prescribe medical treatments or devices.,Monitoring and Controlling Resources,6,6,7
+4.A.4.c.3.g.1,Monitor availability of equipment or supplies.,Monitor resources or inventories.,Monitoring and Controlling Resources,1,1,0
+4.A.4.c.3.g.5,Monitor resources.,Monitor resources or inventories.,Monitoring and Controlling Resources,2,2,0

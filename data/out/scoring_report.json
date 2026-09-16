@@ -1,0 +1,19 @@
+{
+  "rubric_version": "2026-09-16.1",
+  "rubric_fingerprint": "49b87187f6f94ad8",
+  "model": "claude-opus-5",
+  "subtasks_scored": 963,
+  "subtasks_requested": 963,
+  "tasks_scored": 5612,
+  "occupations_scored": 268,
+  "failures": 0,
+  "estimate": {
+    "subtasks": 963,
+    "requests": 81,
+    "est_input_tokens": 166365,
+    "est_output_tokens": 294840,
+    "est_cost_usd": 8.2,
+    "model": "claude-opus-5",
+    "note": "estimate only; adaptive thinking makes output tokens variable"
+  }
+}

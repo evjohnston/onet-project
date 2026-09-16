@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "onet-job-taskings"
+version = "1.0.0"
+description = "Scrape O*NET OnLine STEM occupations into a job / task / subtask dataset"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+]
+
+[project.optional-dependencies]
+scoring = ["anthropic>=1.0"]
+
+[project.scripts]
+onet-scraper = "onet_scraper.cli:main"
+
+[tool.setuptools]
+packages = ["onet_scraper"]

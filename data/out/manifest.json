@@ -1,0 +1,113 @@
+{
+  "tool": "onet-job-taskings 1.0.0",
+  "stem_source": "https://www.onetonline.org/find/stem?t=0",
+  "bulk_release": "31_0",
+  "descriptor_provenance": {
+    "work_context.csv": {
+      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/work_context.csv",
+      "rows": "305389",
+      "sha256": "599f6bff23cbc3e7d8915e25c0167324b1e00c4117bcbcd9a0c754fe47cb4fd7"
+    },
+    "abilities.csv": {
+      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/abilities.csv",
+      "rows": "94640",
+      "sha256": "7e9cd79791ce6014e1d26d0a449ae5b1e7aa7ef52d39b3934c3bb8d438104b88"
+    },
+    "work_activities.csv": {
+      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/work_activities.csv",
+      "rows": "74702",
+      "sha256": "6c266205b2926c0c854a7a577aae29fe492c71bb0df7e197adca830b58fe4ea1"
+    },
+    "essential_skills.csv": {
+      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/essential_skills.csv",
+      "rows": "18200",
+      "sha256": "68c4d31d8c55077238395dca40cc4e6d32e6a608b5474bb8264b1f98ae415bd7"
+    },
+    "emerging_tasks.csv": {
+      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/emerging_tasks.csv",
+      "rows": "338",
+      "sha256": "7b7f304c456617083150cb7b09eb2be885dc11351fce1dbcc33bf0839d6dbfac"
+    },
+    "related_occupations.csv": {
+      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/related_occupations.csv",
+      "rows": "18460",
+      "sha256": "fc2a719a21dbd3805ddfb6d510c013c9e0c366b46273701b88c683a50ef3fe6b"
+    }
+  },
+  "bulk_provenance": {
+    "tasks_to_dwas.csv": {
+      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/tasks_to_dwas.csv",
+      "rows": "24087",
+      "sha256": "15624d31acb85627736a87dc7c485edffe30361262571c8242fad4ae9e7678a6"
+    },
+    "task_statements.csv": {
+      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/task_statements.csv",
+      "rows": "18838",
+      "sha256": "4568e14d8db6f05551ad37e056e909b13ebae4a26bcb5ff915bb5f281d582c57"
+    },
+    "gwas_to_iwas_to_dwas.csv": {
+      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/gwas_to_iwas_to_dwas.csv",
+      "rows": "2087",
+      "sha256": "ae4e9f166187bfe8e6328a21470689ed188e7ed831090ace2a21c66cebb31a49"
+    },
+    "occupation_data.csv": {
+      "url": "https://www.onetcenter.org/dl_files/database/db_31_0_csv/occupation_data.csv",
+      "rows": "1016",
+      "sha256": "a09eae1d6609686e44e05b7290993a1c8b523d8ca224bc0eedc194c855c3ee02"
+    }
+  },
+  "settings": {
+    "rate": 1.5,
+    "workers": 4,
+    "categories": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "use_bulk": true,
+    "with_ratings": false,
+    "limit": null,
+    "with_descriptors": true
+  },
+  "http_stats": {
+    "hits": 0,
+    "misses": 0,
+    "retries": 0
+  },
+  "row_counts": {
+    "occupations": 287,
+    "stem_categories": 13,
+    "occupation_stem_categories": 573,
+    "tasks": 5717,
+    "task_subtasks": 7215,
+    "occupation_subtasks": 5690,
+    "subtask_hierarchy": 2087,
+    "tasks_wide": 7320,
+    "occupation_work_context": 87713,
+    "occupation_abilities": 27144,
+    "occupation_work_activities": 21484,
+    "occupation_essential_skills": 5220,
+    "emerging_tasks": 121,
+    "related_occupations": 5360,
+    "occupation_indices": 287
+  },
+  "validation_summary": {
+    "occupations": 287,
+    "occupations_without_tasks": 19,
+    "residual_all_other_occupations": 19,
+    "tasks": 5717,
+    "task_subtask_links": 7215,
+    "occupation_subtask_links": 5690,
+    "distinct_subtasks": 963,
+    "wide_rows": 7320,
+    "mean_tasks_per_occupation": 19.92,
+    "task_subtask_coverage": 0.9816,
+    "errors": 0,
+    "warnings": 0
+  },
+  "license": "O*NET data is provided by the U.S. Department of Labor under CC BY 4.0. Attribute O*NET when redistributing.",
+  "generated_at": "2026-09-16T22:37:07Z"
+}

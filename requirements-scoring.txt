@@ -1,0 +1,2 @@
+# Only needed for the `score` stage (LLM rating of the subtask vocabulary).
+anthropic>=1.0

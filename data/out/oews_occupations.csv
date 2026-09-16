@@ -1,0 +1,196 @@
+soc_code,soc_title,total_employment,employment_prse,annual_mean_wage,annual_median_wage,hourly_mean_wage,wage_top_coded,release
+11-3021,Computer and Information Systems Managers,670570.0,0.5,192160.0,175140.0,92.39,0,May 2025
+11-9041,Architectural and Engineering Managers,220260.0,0.8,181540.0,171270.0,87.28,0,May 2025
+11-9111,Medical and Health Services Managers,597080.0,0.6,140970.0,123860.0,67.77,0,May 2025
+11-9121,Natural Sciences Managers,108690.0,1.2,180250.0,167220.0,86.66,0,May 2025
+15-1211,Computer Systems Analysts,519530.0,1.0,114610.0,105850.0,55.1,0,May 2025
+15-1212,Information Security Analysts,190650.0,2.0,132510.0,129180.0,63.71,0,May 2025
+15-1221,Computer and Information Research Scientists,37200.0,2.6,153930.0,140300.0,74.0,0,May 2025
+15-1231,Computer Network Support Specialists,146190.0,2.0,81870.0,76220.0,39.36,0,May 2025
+15-1232,Computer User Support Specialists,717190.0,0.8,67330.0,61860.0,32.37,0,May 2025
+15-1241,Computer Network Architects,179740.0,1.7,139580.0,134050.0,67.11,0,May 2025
+15-1242,Database Administrators,69990.0,1.7,110090.0,104620.0,52.93,0,May 2025
+15-1243,Database Architects,67140.0,2.9,144440.0,139500.0,69.44,0,May 2025
+15-1244,Network and Computer Systems Administrators,314340.0,1.0,103680.0,99130.0,49.85,0,May 2025
+15-1251,Computer Programmers,92230.0,2.5,105170.0,100390.0,50.56,0,May 2025
+15-1252,Software Developers,1687890.0,0.6,148100.0,135980.0,71.2,0,May 2025
+15-1253,Software Quality Assurance Analysts and Testers,186740.0,2.3,111490.0,104300.0,53.6,0,May 2025
+15-1254,Web Developers,70190.0,6.7,98770.0,92650.0,47.49,0,May 2025
+15-1255,Web and Digital Interface Designers,113330.0,1.6,117490.0,104000.0,56.49,0,May 2025
+15-1299,"Computer Occupations, All Other",435370.0,1.0,122230.0,116580.0,58.77,0,May 2025
+15-2011,Actuaries,26670.0,3.2,141480.0,130000.0,68.02,0,May 2025
+15-2021,Mathematicians,2030.0,2.5,129260.0,126710.0,62.15,0,May 2025
+15-2031,Operations Research Analysts,108510.0,1.4,99730.0,88940.0,47.95,0,May 2025
+15-2041,Statisticians,29030.0,2.7,115700.0,105650.0,55.63,0,May 2025
+15-2051,Data Scientists,262440.0,1.1,126800.0,120230.0,60.96,0,May 2025
+15-2099,"Mathematical Science Occupations, All Other",3720.0,12.6,91550.0,81490.0,44.02,0,May 2025
+17-1011,"Architects, Except Landscape and Naval",106770.0,2.0,106260.0,99280.0,51.09,0,May 2025
+17-1012,Landscape Architects,19600.0,4.4,88780.0,79870.0,42.68,0,May 2025
+17-1021,Cartographers and Photogrammetrists,14260.0,3.0,86690.0,81390.0,41.68,0,May 2025
+17-1022,Surveyors,50830.0,1.7,80570.0,75440.0,38.73,0,May 2025
+17-2011,Aerospace Engineers,67710.0,2.0,142060.0,134960.0,68.3,0,May 2025
+17-2021,Agricultural Engineers,1480.0,11.8,108230.0,98590.0,52.04,0,May 2025
+17-2031,Bioengineers and Biomedical Engineers,23480.0,4.6,116890.0,109370.0,56.2,0,May 2025
+17-2041,Chemical Engineers,21070.0,3.6,129980.0,125040.0,62.49,0,May 2025
+17-2051,Civil Engineers,367840.0,1.0,108670.0,100840.0,52.24,0,May 2025
+17-2061,Computer Hardware Engineers,76660.0,1.9,162670.0,161740.0,78.21,0,May 2025
+17-2071,Electrical Engineers,198750.0,1.7,125100.0,120630.0,60.15,0,May 2025
+17-2072,"Electronics Engineers, Except Computer",96900.0,2.0,137280.0,130220.0,66.0,0,May 2025
+17-2081,Environmental Engineers,38340.0,3.1,112910.0,107110.0,54.29,0,May 2025
+17-2111,"Health and Safety Engineers, Except Mining Safety Engineers and Inspectors",21450.0,6.5,119770.0,115160.0,57.58,0,May 2025
+17-2112,Industrial Engineers,365740.0,0.7,109900.0,102440.0,52.84,0,May 2025
+17-2121,Marine Engineers and Naval Architects,8250.0,5.5,124180.0,112230.0,59.7,0,May 2025
+17-2131,Materials Engineers,22770.0,2.0,120250.0,112860.0,57.81,0,May 2025
+17-2141,Mechanical Engineers,296810.0,1.3,113610.0,104110.0,54.62,0,May 2025
+17-2151,"Mining and Geological Engineers, Including Mining Safety Engineers",6080.0,6.4,115410.0,106220.0,55.49,0,May 2025
+17-2161,Nuclear Engineers,15280.0,3.4,140420.0,133970.0,67.51,0,May 2025
+17-2171,Petroleum Engineers,18060.0,5.7,157150.0,144910.0,75.55,0,May 2025
+17-2199,"Engineers, All Other",154070.0,1.1,125330.0,122930.0,60.26,0,May 2025
+17-3011,Architectural and Civil Drafters,103700.0,2.3,70740.0,66150.0,34.01,0,May 2025
+17-3012,Electrical and Electronics Drafters,17920.0,3.3,81280.0,76870.0,39.08,0,May 2025
+17-3013,Mechanical Drafters,39960.0,3.0,75060.0,71550.0,36.09,0,May 2025
+17-3021,Aerospace Engineering and Operations Technologists and Technicians,11280.0,3.7,91310.0,82890.0,43.9,0,May 2025
+17-3022,Civil Engineering Technologists and Technicians,68520.0,2.1,68990.0,64950.0,33.17,0,May 2025
+17-3023,Electrical and Electronic Engineering Technologists and Technicians,95130.0,1.4,80680.0,78190.0,38.79,0,May 2025
+17-3024,Electro-Mechanical and Mechatronics Technologists and Technicians,15520.0,4.1,76420.0,73900.0,36.74,0,May 2025
+17-3025,Environmental Engineering Technologists and Technicians,12190.0,5.4,64870.0,59920.0,31.19,0,May 2025
+17-3026,Industrial Engineering Technologists and Technicians,75570.0,1.1,70700.0,66120.0,33.99,0,May 2025
+17-3027,Mechanical Engineering Technologists and Technicians,36190.0,2.2,76380.0,74510.0,36.72,0,May 2025
+17-3028,Calibration Technologists and Technicians,16540.0,5.0,74170.0,67820.0,35.66,0,May 2025
+17-3029,"Engineering Technologists and Technicians, Except Drafters, All Other",59930.0,1.8,80960.0,78350.0,38.93,0,May 2025
+17-3031,Surveying and Mapping Technicians,58010.0,2.8,58000.0,54240.0,27.89,0,May 2025
+19-1011,Animal Scientists,3100.0,15.6,88350.0,68940.0,42.48,0,May 2025
+19-1012,Food Scientists and Technologists,13060.0,3.6,95360.0,88720.0,45.85,0,May 2025
+19-1013,Soil and Plant Scientists,15730.0,4.0,87720.0,78850.0,42.17,0,May 2025
+19-1021,Biochemists and Biophysicists,33830.0,4.2,129840.0,127410.0,62.43,0,May 2025
+19-1022,Microbiologists,18940.0,4.3,97600.0,87990.0,46.92,0,May 2025
+19-1023,Zoologists and Wildlife Biologists,18120.0,3.0,83020.0,76780.0,39.91,0,May 2025
+19-1029,"Biological Scientists, All Other",55850.0,1.9,106330.0,98920.0,51.12,0,May 2025
+19-1031,Conservation Scientists,25950.0,2.4,77130.0,73010.0,37.08,0,May 2025
+19-1032,Foresters,10430.0,3.2,79170.0,76400.0,38.06,0,May 2025
+19-1041,Epidemiologists,12090.0,3.2,97890.0,87220.0,47.06,0,May 2025
+19-1042,"Medical Scientists, Except Epidemiologists",172340.0,1.1,116840.0,103410.0,56.18,0,May 2025
+19-2011,Astronomers,2120.0,7.3,132920.0,128820.0,63.91,0,May 2025
+19-2012,Physicists,20430.0,3.1,171180.0,172250.0,82.3,0,May 2025
+19-2021,Atmospheric and Space Scientists,10000.0,4.4,106110.0,99070.0,51.01,0,May 2025
+19-2031,Chemists,82770.0,1.8,100450.0,91240.0,48.29,0,May 2025
+19-2032,Materials Scientists,8470.0,6.4,126180.0,117790.0,60.67,0,May 2025
+19-2041,"Environmental Scientists and Specialists, Including Health",89250.0,1.7,91680.0,82220.0,44.08,0,May 2025
+19-2042,"Geoscientists, Except Hydrologists and Geographers",23470.0,3.1,116150.0,101920.0,55.84,0,May 2025
+19-2043,Hydrologists,5850.0,4.3,103600.0,96600.0,49.81,0,May 2025
+19-2099,"Physical Scientists, All Other",22300.0,1.9,129230.0,122570.0,62.13,0,May 2025
+19-3011,Economists,17790.0,8.9,142130.0,124720.0,68.33,0,May 2025
+19-3022,Survey Researchers,8290.0,5.3,79580.0,69460.0,38.26,0,May 2025
+19-3032,Industrial-Organizational Psychologists,790.0,16.9,170230.0,193950.0,81.84,0,May 2025
+19-3033,Clinical and Counseling Psychologists,75990.0,2.4,112750.0,100580.0,54.21,0,May 2025
+19-3034,School Psychologists,63940.0,2.9,99160.0,95990.0,47.67,0,May 2025
+19-3039,"Psychologists, All Other",18820.0,3.4,111210.0,110840.0,53.47,0,May 2025
+19-3041,Sociologists,2260.0,7.9,114920.0,106030.0,55.25,0,May 2025
+19-3051,Urban and Regional Planners,44230.0,1.3,94750.0,89320.0,45.55,0,May 2025
+19-3091,Anthropologists and Archeologists,8990.0,6.6,75620.0,70770.0,36.35,0,May 2025
+19-3092,Geographers,1400.0,4.1,102350.0,102040.0,49.21,0,May 2025
+19-3094,Political Scientists,5540.0,4.6,142510.0,142080.0,68.51,0,May 2025
+19-3099,"Social Scientists and Related Workers, All Other",37100.0,1.8,107690.0,101110.0,51.78,0,May 2025
+19-4012,Agricultural Technicians,15130.0,4.9,53840.0,49630.0,25.89,0,May 2025
+19-4013,Food Science Technicians,14600.0,2.5,56660.0,52130.0,27.24,0,May 2025
+19-4021,Biological Technicians,69620.0,1.7,61380.0,57510.0,29.51,0,May 2025
+19-4031,Chemical Technicians,57540.0,2.0,63900.0,60390.0,30.72,0,May 2025
+19-4042,"Environmental Science and Protection Technicians, Including Health",34670.0,4.0,60800.0,55090.0,29.23,0,May 2025
+19-4043,"Geological Technicians, Except Hydrologic Technicians",6980.0,8.3,61870.0,53350.0,29.75,0,May 2025
+19-4044,Hydrologic Technicians,2840.0,6.3,69530.0,64790.0,33.43,0,May 2025
+19-4051,Nuclear Technicians,6470.0,7.7,108940.0,110240.0,52.37,0,May 2025
+19-4061,Social Science Research Assistants,30640.0,1.8,66140.0,61990.0,31.8,0,May 2025
+19-4071,Forest and Conservation Technicians,30410.0,1.0,59060.0,54560.0,28.39,0,May 2025
+19-4092,Forensic Science Technicians,19120.0,1.0,79200.0,72060.0,38.08,0,May 2025
+19-4099,"Life, Physical, and Social Science Technicians, All Other",73910.0,1.5,66280.0,62280.0,31.86,0,May 2025
+25-1021,"Computer Science Teachers, Postsecondary",35480.0,0.7,104420.0,96980.0,,0,May 2025
+25-1022,"Mathematical Science Teachers, Postsecondary",47670.0,0.3,91550.0,79940.0,,0,May 2025
+25-1031,"Architecture Teachers, Postsecondary",7700.0,0.8,101250.0,96870.0,,0,May 2025
+25-1032,"Engineering Teachers, Postsecondary",40270.0,0.5,124520.0,109270.0,,0,May 2025
+25-1041,"Agricultural Sciences Teachers, Postsecondary",8920.0,2.3,102050.0,98700.0,,0,May 2025
+25-1042,"Biological Science Teachers, Postsecondary",50190.0,0.4,102840.0,84620.0,,0,May 2025
+25-1043,"Forestry and Conservation Science Teachers, Postsecondary",1520.0,6.5,102450.0,101420.0,,0,May 2025
+25-1051,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",9900.0,0.9,116020.0,103170.0,,0,May 2025
+25-1052,"Chemistry Teachers, Postsecondary",19980.0,0.3,105210.0,93250.0,,0,May 2025
+25-1053,"Environmental Science Teachers, Postsecondary",6690.0,1.1,103610.0,94980.0,,0,May 2025
+25-1054,"Physics Teachers, Postsecondary",13090.0,0.4,111460.0,100310.0,,0,May 2025
+25-1061,"Anthropology and Archeology Teachers, Postsecondary",5240.0,0.4,106880.0,99650.0,,0,May 2025
+25-1062,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",11300.0,0.6,98330.0,85020.0,,0,May 2025
+25-1063,"Economics Teachers, Postsecondary",11560.0,0.4,138850.0,123920.0,,0,May 2025
+25-1064,"Geography Teachers, Postsecondary",3330.0,0.4,102350.0,97590.0,,0,May 2025
+25-1065,"Political Science Teachers, Postsecondary",16970.0,0.9,108100.0,98070.0,,0,May 2025
+25-1066,"Psychology Teachers, Postsecondary",41530.0,1.3,93860.0,80340.0,,0,May 2025
+25-1067,"Sociology Teachers, Postsecondary",11850.0,0.9,96980.0,84290.0,,0,May 2025
+25-1071,"Health Specialties Teachers, Postsecondary",221270.0,0.6,147570.0,107310.0,,0,May 2025
+25-1072,"Nursing Instructors and Teachers, Postsecondary",77960.0,1.3,86410.0,80250.0,,0,May 2025
+29-1011,Chiropractors,39630.0,2.8,90520.0,79200.0,43.52,0,May 2025
+29-1021,"Dentists, General",124390.0,2.8,191350.0,170950.0,91.99,0,May 2025
+29-1022,Oral and Maxillofacial Surgeons,4910.0,13.8,346490.0,352220.0,166.58,0,May 2025
+29-1023,Orthodontists,6210.0,13.5,259400.0,289140.0,124.71,0,May 2025
+29-1024,Prosthodontists,870.0,27.6,268630.0,311180.0,129.15,0,May 2025
+29-1031,Dietitians and Nutritionists,77570.0,2.1,77130.0,76400.0,37.08,0,May 2025
+29-1041,Optometrists,42790.0,2.8,141550.0,136570.0,68.05,0,May 2025
+29-1051,Pharmacists,321970.0,0.9,140920.0,140910.0,67.75,0,May 2025
+29-1071,Physician Assistants,162150.0,1.4,141280.0,135880.0,67.92,0,May 2025
+29-1081,Podiatrists,9680.0,3.8,175480.0,160300.0,84.37,0,May 2025
+29-1122,Occupational Therapists,162450.0,1.2,101280.0,100330.0,48.69,0,May 2025
+29-1123,Physical Therapists,267330.0,1.0,105280.0,102760.0,50.62,0,May 2025
+29-1124,Radiation Therapists,17070.0,7.1,114990.0,105310.0,55.28,0,May 2025
+29-1125,Recreational Therapists,14930.0,2.6,67630.0,61960.0,32.52,0,May 2025
+29-1126,Respiratory Therapists,139790.0,1.0,87300.0,82280.0,41.97,0,May 2025
+29-1127,Speech-Language Pathologists,183390.0,1.2,98170.0,97870.0,47.2,0,May 2025
+29-1128,Exercise Physiologists,8560.0,5.4,60940.0,59460.0,29.3,0,May 2025
+29-1129,"Therapists, All Other",22640.0,5.5,90420.0,77930.0,43.47,0,May 2025
+29-1131,Veterinarians,83900.0,1.3,142680.0,130100.0,68.6,0,May 2025
+29-1141,Registered Nurses,3379720.0,0.3,101420.0,97550.0,48.76,0,May 2025
+29-1151,Nurse Anesthetists,51840.0,4.5,248320.0,236590.0,119.38,0,May 2025
+29-1161,Nurse Midwives,7920.0,5.5,136980.0,134040.0,65.86,0,May 2025
+29-1171,Nurse Practitioners,323040.0,1.2,137300.0,132300.0,66.01,0,May 2025
+29-1181,Audiologists,13660.0,4.8,97740.0,95780.0,46.99,0,May 2025
+29-1211,Anesthesiologists,38760.0,11.0,360570.0,391490.0,173.35,0,May 2025
+29-1212,Cardiologists,17290.0,5.4,454940.0,496010.0,218.72,0,May 2025
+29-1213,Dermatologists,11370.0,9.4,323530.0,328730.0,155.55,0,May 2025
+29-1214,Emergency Medicine Physicians,32880.0,4.3,317480.0,335550.0,152.64,0,May 2025
+29-1215,Family Medicine Physicians,107510.0,5.1,255820.0,244180.0,122.99,0,May 2025
+29-1216,General Internal Medicine Physicians,67150.0,4.3,267200.0,256560.0,128.46,0,May 2025
+29-1217,Neurologists,10590.0,9.9,267630.0,248560.0,128.67,0,May 2025
+29-1218,Obstetricians and Gynecologists,21260.0,5.7,279040.0,292910.0,134.16,0,May 2025
+29-1221,"Pediatricians, General",39390.0,4.9,212110.0,210040.0,101.98,0,May 2025
+29-1222,"Physicians, Pathologists",11110.0,7.1,285420.0,312400.0,137.22,0,May 2025
+29-1223,Psychiatrists,27980.0,3.5,269940.0,281870.0,129.78,0,May 2025
+29-1224,Radiologists,26770.0,7.3,381530.0,420860.0,183.43,0,May 2025
+29-1229,"Physicians, All Other",342720.0,1.4,262040.0,265930.0,125.98,0,May 2025
+29-1241,"Ophthalmologists, Except Pediatric",8950.0,13.0,304650.0,300080.0,146.47,0,May 2025
+29-1242,"Orthopedic Surgeons, Except Pediatric",14100.0,10.9,373570.0,358550.0,179.6,0,May 2025
+29-1243,Pediatric Surgeons,1190.0,33.7,502050.0,559030.0,241.37,0,May 2025
+29-1291,Acupuncturists,7830.0,12.9,87020.0,76040.0,41.84,0,May 2025
+29-1292,Dental Hygienists,222740.0,1.6,98990.0,98100.0,47.59,0,May 2025
+29-1299,"Healthcare Diagnosing or Treating Practitioners, All Other",28630.0,1.9,127660.0,115210.0,61.38,0,May 2025
+29-2010,Clinical Laboratory Technologists and Technicians,332940.0,0.9,67350.0,62930.0,32.38,0,May 2025
+29-2031,Cardiovascular Technologists and Technicians,62960.0,2.1,76940.0,74310.0,36.99,0,May 2025
+29-2032,Diagnostic Medical Sonographers,90160.0,1.4,97240.0,96590.0,46.75,0,May 2025
+29-2033,Nuclear Medicine Technologists,17080.0,1.8,105160.0,101370.0,50.56,0,May 2025
+29-2034,Radiologic Technologists and Technicians,230490.0,0.9,83840.0,80110.0,40.31,0,May 2025
+29-2035,Magnetic Resonance Imaging Technologists,43390.0,1.7,96120.0,95480.0,46.21,0,May 2025
+29-2036,Medical Dosimetrists,3410.0,6.2,148500.0,147470.0,71.4,0,May 2025
+29-2042,Emergency Medical Technicians,180510.0,0.9,46830.0,44470.0,22.52,0,May 2025
+29-2043,Paramedics,100610.0,1.2,63360.0,60600.0,30.46,0,May 2025
+29-2051,Dietetic Technicians,31560.0,2.5,40630.0,37640.0,19.54,0,May 2025
+29-2052,Pharmacy Technicians,471680.0,0.6,46620.0,45750.0,22.41,0,May 2025
+29-2053,Psychiatric Technicians,156960.0,1.8,46610.0,45130.0,22.41,0,May 2025
+29-2055,Surgical Technologists,117460.0,1.2,68710.0,64650.0,33.03,0,May 2025
+29-2056,Veterinary Technologists and Technicians,129140.0,1.5,49120.0,47380.0,23.61,0,May 2025
+29-2057,Ophthalmic Medical Technicians,71010.0,4.0,47060.0,45570.0,22.63,0,May 2025
+29-2061,Licensed Practical and Licensed Vocational Nurses,648410.0,0.6,67050.0,64400.0,32.24,0,May 2025
+29-2072,Medical Records Specialists,194720.0,1.1,56790.0,51140.0,27.3,0,May 2025
+29-2081,"Opticians, Dispensing",73530.0,2.2,51770.0,47260.0,24.89,0,May 2025
+29-2091,Orthotists and Prosthetists,9390.0,9.7,83740.0,81110.0,40.26,0,May 2025
+29-2092,Hearing Aid Specialists,11270.0,5.6,66370.0,65160.0,31.91,0,May 2025
+29-2099,"Health Technologists and Technicians, All Other",182610.0,1.3,58710.0,50290.0,28.23,0,May 2025
+29-9021,Health Information Technologists and Medical Registrars,38100.0,1.9,74970.0,68020.0,36.04,0,May 2025
+29-9091,Athletic Trainers,30500.0,2.4,66620.0,62520.0,,0,May 2025
+29-9092,Genetic Counselors,3740.0,5.7,104620.0,100040.0,50.3,0,May 2025
+29-9093,Surgical Assistants,22270.0,6.4,72710.0,66800.0,34.96,0,May 2025
+29-9099,"Healthcare Practitioners and Technical Workers, All Other",35010.0,1.6,76720.0,65790.0,36.89,0,May 2025
+41-4011,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",284800.0,1.8,119730.0,104920.0,57.56,0,May 2025
+41-9031,Sales Engineers,51790.0,2.8,130140.0,124900.0,62.57,0,May 2025

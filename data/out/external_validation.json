@@ -1,0 +1,137 @@
+{
+  "citation": "Eloundou, T., Manning, S., Mishkin, P., & Rock, D. (2023). GPTs are GPTs: An early look at the labor market impact potential of large language models. https://github.com/openai/GPTs-are-GPTs",
+  "coverage": {
+    "matched": 268,
+    "unmatched": []
+  },
+  "susceptibility_vs": [
+    {
+      "measure": "human_beta",
+      "n": 268,
+      "pearson": 0.831,
+      "spearman": 0.819,
+      "expectation": "strong - closest definition to our rubric"
+    },
+    {
+      "measure": "human_gamma",
+      "n": 268,
+      "pearson": 0.846,
+      "spearman": 0.82,
+      "expectation": "strong - closest definition to our rubric"
+    },
+    {
+      "measure": "human_alpha",
+      "n": 268,
+      "pearson": 0.605,
+      "spearman": 0.623,
+      "expectation": "moderate - excludes tools, which our rubric assumes"
+    },
+    {
+      "measure": "gpt4_beta",
+      "n": 268,
+      "pearson": 0.847,
+      "spearman": 0.845,
+      "expectation": "strong - but model-to-model, so less independent"
+    },
+    {
+      "measure": "gpt4_gamma",
+      "n": 268,
+      "pearson": 0.805,
+      "spearman": 0.77,
+      "expectation": "strong - but model-to-model, so less independent"
+    },
+    {
+      "measure": "gpt4_alpha",
+      "n": 268,
+      "pearson": 0.58,
+      "spearman": 0.57,
+      "expectation": "moderate - excludes tools"
+    },
+    {
+      "measure": "frey_osborne",
+      "n": 150,
+      "pearson": 0.006,
+      "spearman": 0.119,
+      "expectation": "near zero or negative - pre-LLM, scored the routine gradient"
+    },
+    {
+      "measure": "felten_raj_seamans",
+      "n": 188,
+      "pearson": -0.178,
+      "spearman": -0.245,
+      "expectation": "near zero or negative - pre-LLM AI-capability exposure"
+    },
+    {
+      "measure": "brynjolfsson_sml",
+      "n": 188,
+      "pearson": -0.088,
+      "spearman": -0.094,
+      "expectation": "near zero or negative - pre-LLM machine-learning suitability"
+    }
+  ],
+  "exposure_vs": [
+    {
+      "measure": "human_beta",
+      "n": 268,
+      "pearson": 0.818,
+      "spearman": 0.799,
+      "expectation": "strong - closest definition to our rubric"
+    },
+    {
+      "measure": "human_gamma",
+      "n": 268,
+      "pearson": 0.816,
+      "spearman": 0.784,
+      "expectation": "strong - closest definition to our rubric"
+    },
+    {
+      "measure": "human_alpha",
+      "n": 268,
+      "pearson": 0.623,
+      "spearman": 0.644,
+      "expectation": "moderate - excludes tools, which our rubric assumes"
+    },
+    {
+      "measure": "gpt4_beta",
+      "n": 268,
+      "pearson": 0.79,
+      "spearman": 0.789,
+      "expectation": "strong - but model-to-model, so less independent"
+    },
+    {
+      "measure": "gpt4_gamma",
+      "n": 268,
+      "pearson": 0.811,
+      "spearman": 0.773,
+      "expectation": "strong - but model-to-model, so less independent"
+    },
+    {
+      "measure": "gpt4_alpha",
+      "n": 268,
+      "pearson": 0.474,
+      "spearman": 0.451,
+      "expectation": "moderate - excludes tools"
+    },
+    {
+      "measure": "frey_osborne",
+      "n": 150,
+      "pearson": -0.246,
+      "spearman": -0.113,
+      "expectation": "near zero or negative - pre-LLM, scored the routine gradient"
+    },
+    {
+      "measure": "felten_raj_seamans",
+      "n": 188,
+      "pearson": -0.144,
+      "spearman": -0.214,
+      "expectation": "near zero or negative - pre-LLM AI-capability exposure"
+    },
+    {
+      "measure": "brynjolfsson_sml",
+      "n": 188,
+      "pearson": -0.272,
+      "spearman": -0.283,
+      "expectation": "near zero or negative - pre-LLM machine-learning suitability"
+    }
+  ]
+}
