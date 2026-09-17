@@ -476,3 +476,55 @@ button{color:inherit;font:inherit}
   .beat{transition:none}
   .gg{transition:none}
 }
+
+/* ============================================================
+   EXPLORER — the interactive break in the middle of the story
+   ============================================================ */
+.explorer{background:var(--paper-2); padding:clamp(52px,8vh,110px) clamp(18px,5vw,72px)}
+.explorer .xhead{max-width:64ch; margin:0 auto clamp(28px,4vh,46px)}
+.explorer h2{
+  font:400 clamp(1.7rem,3.2vw,2.5rem)/1.1 var(--serif);
+  letter-spacing:-.02em; margin:10px 0 12px;
+}
+.explorer .standfirst{color:var(--muted); font-size:.98rem; line-height:1.7; margin:0}
+.xwrap{max-width:1180px; margin:0 auto; display:grid; gap:20px;
+       grid-template-columns:minmax(0,1fr) 340px}
+@media (max-width:980px){ .xwrap{grid-template-columns:1fr} }
+.xpanel{background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:20px 22px}
+.xcontrols{display:grid; gap:16px}
+.xfield label{
+  display:block; font:500 10px/1.6 var(--mono); letter-spacing:.11em;
+  text-transform:uppercase; color:var(--muted); margin-bottom:6px;
+}
+.xfield select,.xfield input[type=text]{
+  width:100%; font:inherit; font-size:.92rem; padding:9px 11px;
+  border:1px solid var(--line); border-radius:3px; background:var(--paper-3); color:var(--ink);
+}
+.xfield input[type=range]{width:100%; accent-color:var(--rust)}
+.xstat{border-top:1px solid var(--line); margin-top:4px; padding-top:16px}
+.xstat .n{font:400 clamp(2.6rem,6vw,3.6rem)/1 var(--serif); letter-spacing:-.02em; color:var(--rust)}
+.xstat .k{font:500 10px/1.7 var(--mono); letter-spacing:.11em; text-transform:uppercase; color:var(--muted)}
+.xstat .sub{font-size:.85rem; color:var(--muted); margin-top:8px; line-height:1.6}
+.xtasks{max-height:520px; overflow:auto; margin-top:4px}
+.xtask{display:grid; grid-template-columns:44px 1fr; gap:12px; align-items:start;
+       padding:9px 0; border-bottom:1px solid var(--line)}
+.xtask:last-child{border-bottom:0}
+.xtask .sc{
+  font:500 12px/1.5 var(--mono); text-align:right; padding-top:1px;
+  color:var(--muted); font-variant-numeric:tabular-nums;
+}
+.xtask.over .sc{color:var(--rust)}
+.xtask .tx{font-size:.88rem; line-height:1.55; color:var(--muted)}
+.xtask.over .tx{color:var(--ink)}
+.xtask .bar{grid-column:2; height:3px; margin-top:7px; background:var(--line); border-radius:2px}
+.xtask .bar i{display:block; height:100%; border-radius:2px; background:var(--muted-dark)}
+.xtask.over .bar i{background:var(--rust)}
+.xstrip{position:relative; height:46px; margin-top:12px}
+.xstrip .track{position:absolute; left:0; right:0; top:19px; height:4px;
+               background:var(--line); border-radius:2px}
+.xstrip .pip{position:absolute; top:13px; width:2px; height:16px; background:var(--muted-dark); opacity:.35}
+.xstrip .me{position:absolute; top:7px; width:3px; height:28px; background:var(--rust)}
+.xstrip .cap{position:absolute; top:34px; font:500 9px/1.4 var(--mono);
+             letter-spacing:.09em; text-transform:uppercase; color:var(--muted)}
+.xlegend{font:500 9.5px/1.7 var(--mono); letter-spacing:.09em; text-transform:uppercase;
+         color:var(--muted); margin-top:14px}

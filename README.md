@@ -398,11 +398,26 @@ constants are fitted to this corpus; re-fit them if it changes.
 open data/out/story.html
 ```
 
-A scroll-driven narrative over the same tables the dashboard reads. Seven chapters,
+A scroll-driven narrative over the same tables the dashboard reads. Eight chapters,
 each a sticky hand-inked figure that draws itself as you scroll past its beats:
-the inversion against Frey & Osborne, the subtask vocabulary, exposure versus
-anchoring, Watson's handoff frontier, the six-stage ladder, the employment weighting,
-and the external validation.
+the inversion against Frey & Osborne, the subtask vocabulary, **the task composition
+inside a job**, exposure versus anchoring, Watson's handoff frontier, the six-stage
+ladder, the employment weighting, and the external validation.
+
+**Chapter 03 is the one that answers "how much of this job".** Asking whether an
+occupation is exposed hides the mix. Business intelligence analysts have 17 tasks in
+O*NET and every one scores above the high-exposure threshold. Prosthodontists,
+chemists and medical laboratory technicians have none. Naturopathic physicians have
+the widest internal spread in the corpus — record-keeping and literature review at
+the top, examining a patient at the bottom. Across 268 occupations, 121 have fewer
+than a fifth of their tasks highly exposed and 11 have more than four fifths. The
+common case is partial: a job reshaped around what is left, not one that disappears.
+
+**The explorer breaks the story in the middle.** Every task of every scored occupation
+with the score it received, a threshold slider for how capable a model has to be
+before a task counts as at risk, and the share of the job that moves with it. The
+ranking of occupations is not fixed — it depends where you draw that line, and the
+strip shows where the chosen job sits against all 268.
 
 Where the dashboard is for interrogating the data, this is for being walked through
 what it says. One self-contained file; the only external request is the Google Fonts

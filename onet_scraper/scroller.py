@@ -31,6 +31,7 @@ def _f(row: dict[str, Any], key: str, default: float = 0.0) -> float:
 
 def build_payload(
     occ_susc: Sequence[dict[str, Any]],
+    tasks: Sequence[dict[str, Any]],
     handoff: Sequence[dict[str, Any]],
     benchmarks: Sequence[dict[str, Any]],
     soc: Sequence[dict[str, Any]],
@@ -78,6 +79,35 @@ def build_payload(
                    "ours": norm(_f(b, "our_susceptibility"), us_lo, us_hi), "hl": False}
                   for b in pairs if b["onet_soc_code"] not in named
                   and not b["title"].startswith("Mathematicians")][:46]
+
+    # --- 02b composition: every task of every job, for the explorer --------
+    tasks_by_occ: dict[str, list[dict[str, Any]]] = {}
+    for t in tasks:
+        tasks_by_occ.setdefault(t["onet_soc_code"], []).append({
+            "t": t["task"][:150],
+            "s": round(_f(t, "susceptibility")),
+            "e": round(_f(t, "exposure")),
+            "a": round(_f(t, "anchoring")),
+            "i": round(_f(t, "importance")) if t.get("importance") else None,
+        })
+    for v in tasks_by_occ.values():
+        v.sort(key=lambda r: -r["s"])
+    comp = []
+    for o in occ_susc:
+        code = o["onet_soc_code"]
+        rows = tasks_by_occ.get(code, [])
+        if not rows:
+            continue
+        comp.append({
+            "c": code, "t": o["title"], "n": len(rows),
+            "ty": (o.get("stem_occupation_types") or "").split(";")[0].strip(),
+            "mean": round(_f(o, "susceptibility"), 1),
+            "hi": round(sum(1 for r in rows if r["s"] >= 70) / len(rows), 3),
+            "spread": round(statistics.stdev([r["s"] for r in rows]), 1)
+                      if len(rows) > 1 else 0.0,
+            "scores": [r["s"] for r in rows],
+        })
+    comp.sort(key=lambda r: -r["hi"])
 
     # --- 03 axes ------------------------------------------------------------
     axes = [{"e": _f(o, "exposure"), "a": _f(o, "anchoring"), "s": _f(o, "susceptibility")}
@@ -129,6 +159,13 @@ def build_payload(
     slope = num / den
 
     return {
+        "comp": comp,
+        "tasks": tasks_by_occ,
+        "exemplars": {
+            "all": next((c["c"] for c in comp if c["hi"] >= 0.99), comp[0]["c"]),
+            "none": next((c["c"] for c in reversed(comp) if c["n"] >= 12), comp[-1]["c"]),
+            "split": max(comp, key=lambda c: c["spread"])["c"],
+        },
         "inversion": inversion,
         "axes": axes,
         "splits": {"x": 65.3, "y": 43.5},
@@ -237,6 +274,42 @@ SCENES: list[dict[str, Any]] = [
               "nursing and another in engineering. Consistency comes from the structure "
               "rather than from discipline.",
               "Every task inherits the score of its activities"),
+         ]),
+    dict(sid="composition", number="03 / Inside a job", rail="Inside a job",
+         title="A job is a bundle of tasks, and the bundles differ.",
+         standfirst="Asking whether an occupation is exposed hides the thing that "
+                    "matters. Almost every job has some tasks a model could take and "
+                    "some it could not. What separates one job from another is the "
+                    "mix.",
+         fig="Fig. 03 \u2014 Every task, three jobs",
+         aria="Three occupations shown as columns of horizontal bars, one bar per task, "
+              "sorted by susceptibility, followed by a histogram of the whole field.",
+         rk="A whole job", rv="100% of tasks",
+         note="One bar per task. Length is susceptibility.",
+         beats=[
+             ("01 / All of it", "Some jobs are exposed all the way down",
+              "Business intelligence analysts have seventeen tasks in O*NET. Every one of "
+              "them scores above the high-exposure threshold. There is no part of the "
+              "documented job that sits outside it \u2014 which is rare.",
+              "<b>100%</b> of 17 tasks \u00b7 spread ±2.4"),
+             ("02 / Part of it", "Most jobs split, and the split is the story",
+              "Naturopathic physicians have the widest internal spread in the corpus. "
+              "Their record-keeping, literature review and treatment-planning tasks sit "
+              "near the top of the exposure range; examining a patient and administering "
+              "care sit near the bottom. The job does not vanish. It loses one half and "
+              "keeps the other.",
+              "Widest internal spread \u00b7 <b>30% of 20 tasks</b>"),
+             ("03 / Almost none of it", "And some barely move",
+              "Prosthodontists, chemists and medical laboratory technicians have no task "
+              "above the threshold at all. Not because the work is simple \u2014 it is "
+              "among the most skilled in the corpus \u2014 but because the documented "
+              "tasks are chairside, bench and instrument work.",
+              "<b>0%</b> of tasks above threshold"),
+             ("04 / The field", "Most jobs lose some tasks, not all",
+              "Across 268 scored occupations, 121 have fewer than a fifth of their tasks "
+              "highly exposed. Eleven have more than four fifths. The common case is "
+              "partial \u2014 a job reshaped around what is left, not one that disappears.",
+              "<b>121</b> under 20% \u00b7 <b>11</b> over 80%"),
          ]),
     dict(sid="axes", number="03 / Two questions", rail="Two questions", tint=True,
          title="Whether a machine can do the work is not whether it will.",
@@ -407,12 +480,16 @@ def build_scroller(path: Path, payload: dict[str, Any], meta: dict[str, Any]) ->
     scenes_js = (ASSETS / "scroller_scenes.js").read_text()
     core = core.replace("/* __SCENES__ */", scenes_js)
 
-    sections = "".join(
-        _scene(s["sid"], s["number"], s["title"], s["standfirst"], s["fig"], s["aria"],
-               s["rk"], s["rv"], s["note"],
-               [_beat(*b) for b in s["beats"]], s.get("tint", False))
-        for s in SCENES
-    )
+    def render_scene(sc):
+        return _scene(sc["sid"], sc["number"], sc["title"], sc["standfirst"], sc["fig"],
+                      sc["aria"], sc["rk"], sc["rv"], sc["note"],
+                      [_beat(*b) for b in sc["beats"]], sc.get("tint", False))
+
+    # The explorer breaks the story after the within-job chapter: the reader has
+    # just been shown three bundles and should get to open the rest themselves.
+    cut = next(i for i, sc in enumerate(SCENES) if sc["sid"] == "composition") + 1
+    sections_before = "".join(render_scene(sc) for sc in SCENES[:cut])
+    sections_after = "".join(render_scene(sc) for sc in SCENES[cut:])
     rail = "".join(
         f'<a href="#{s["sid"]}"><span class="dot"></span>'
         f'<span class="rail-label">{s["rail"]}</span></a>' for s in SCENES
@@ -464,7 +541,53 @@ say about which work is exposed to automation, and which is held by accountabili
   itself against published human ratings. The dashboard alongside it lets you interrogate
   the same tables directly.</p>
 </section>
-{sections}
+{sections_before}
+
+<section class="explorer" id="explorer">
+  <div class="xhead">
+    <p class="chapter-number">Interlude / Work it through</p>
+    <h2>Pick a job. Decide what counts as exposed.</h2>
+    <p class="standfirst">Every task of every scored occupation, with the score it
+    received. Move the threshold to set how capable you think a model has to be before a
+    task is genuinely at risk \u2014 the share of the job it covers moves with you. The
+    ranking of occupations is not fixed; it depends on where you draw that line.</p>
+  </div>
+  <div class="xwrap">
+    <div class="xpanel">
+      <div class="xfield">
+        <label for="x-occ">Occupation</label>
+        <select id="x-occ"></select>
+      </div>
+      <div class="xlegend">
+        Jump to &mdash;
+        <a href="#explorer" data-xpick="all">exposed throughout</a> &middot;
+        <a href="#explorer" data-xpick="split">split down the middle</a> &middot;
+        <a href="#explorer" data-xpick="none">barely moves</a>
+      </div>
+      <div class="xtasks" id="x-list"></div>
+    </div>
+    <div class="xpanel">
+      <div class="xcontrols">
+        <div class="xfield">
+          <label for="x-thr">Exposure threshold &mdash; <span id="x-thr-out">70</span></label>
+          <input type="range" id="x-thr" min="40" max="95" step="1" value="70">
+        </div>
+        <div class="xstat">
+          <div class="k">Share of this job</div>
+          <div class="n" id="x-n">&mdash;</div>
+          <div class="k" id="x-k">&mdash;</div>
+          <p class="sub" id="x-sub"></p>
+        </div>
+        <div>
+          <div class="k">Against all 268 occupations</div>
+          <div class="xstrip" id="x-strip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{sections_after}
 
 <section class="ending coda">
   <svg class="coda-canvas" id="codaCanvas" viewBox="0 0 1200 300"

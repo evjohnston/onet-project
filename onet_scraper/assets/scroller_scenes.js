@@ -371,3 +371,143 @@ function buildCoda(){
   const s = Stroke(g, [[80,150],[420,150],[760,150],[1100,150]], {cls:'ink acid w1', amp:2.2});
   return function(t){ s.draw(clamp(t,0,1)); };
 }
+
+/* ---------- 02b COMPOSITION: a job is a bundle of tasks ------------------- */
+BUILD.composition = function(ctx){
+  const g = S('g', null, ctx.svg);
+  const byCode = {}; D.comp.forEach(function(c){ byCode[c.c] = c; });
+  const picks = [byCode[D.exemplars.all], byCode[D.exemplars.split], byCode[D.exemplars.none]]
+                  .filter(Boolean);
+  const CX = [330, 800, 1270], TOP = 250, COLW = 330;
+  const cols = picks.map(function(c, ci){
+    const x0 = CX[ci] - COLW/2;
+    const n = c.scores.length;
+    const rowH = Math.min(22, 430 / n);
+    const bars = c.scores.map(function(sc, i){
+      const y = TOP + i*rowH;
+      const w = Math.max(6, (sc/100) * COLW);
+      return {s: Stroke(g, [[x0, y],[x0 + w, y]],
+                {cls: sc>=70 ? 'ink coral w3' : (sc<50 ? 'ink blue w3' : 'ink w3 soft'),
+                 amp:1.0, seed:7000+ci*211+i}), i:i, n:n};
+    });
+    const name = Txt(g, CX[ci], 186, c.t.length>26 ? c.t.slice(0,25)+'…' : c.t,
+                     {cls:'sm', anchor:'middle', op:0});
+    const stat = Txt(g, CX[ci], 216, Math.round(c.hi*100) + '% OF ' + n + ' TASKS EXPOSED',
+                     {cls:'sm dim', anchor:'middle', op:0});
+    return {bars:bars, name:name, stat:stat, ci:ci};
+  });
+
+  /* beat 4: how the whole field distributes */
+  const HX0 = 360, HX1 = 1240, HY = 700, HH = 330;
+  const bins = [0,0,0,0,0];
+  D.comp.forEach(function(c){ bins[Math.min(4, Math.floor(c.hi*5))]++; });
+  const hmax = Math.max.apply(null, bins);
+  const hist = bins.map(function(v, i){
+    const bw = (HX1-HX0)/5, cx = HX0 + i*bw + bw/2;
+    const h = (v/hmax)*HH;
+    /* a thick vertical stroke, not a closed rectangle - four corner points run
+       through Catmull-Rom come out as a lozenge */
+    return {s: Stroke(g, [[cx, HY],[cx, HY-h]],
+              {cls: i>=3 ? 'ink coral' : 'ink soft', amp:1.2, seed:7600+i, w:bw*0.52}),
+            lab: Txt(g, cx, HY+26, (i*20)+'–'+((i+1)*20)+'%',
+                     {cls:'sm dim', anchor:'middle', op:0}),
+            val: Txt(g, cx, HY-h-16, String(v), {cls:'sm', anchor:'middle', op:0}), i:i};
+  });
+  const histLab = Txt(g, 800, 862, 'SHARE OF A JOB’S TASKS THAT ARE HIGHLY EXPOSED',
+                      {cls:'sm', anchor:'middle', op:0});
+
+  return function(p, idx){
+    cols.forEach(function(col){
+      const t0 = col.ci * 0.20;
+      col.name.style.opacity = eo(clamp((p-t0)/0.06,0,1));
+      col.stat.style.opacity = eo(clamp((p-t0-0.03)/0.06,0,1))*.75;
+      col.bars.forEach(function(b){
+        b.s.draw(eo(clamp((p - t0 - 0.02 - (b.i/b.n)*0.10)/0.08, 0, 1)));
+      });
+    });
+    const fade = 1 - eo(clamp((p-0.62)/0.08,0,1));
+    cols.forEach(function(col){
+      col.bars.forEach(function(b){ b.s.opacity(fade); });
+      col.name.style.opacity = Math.min(col.name.style.opacity || 1, fade);
+      col.stat.style.opacity = Math.min(col.stat.style.opacity || 1, fade);
+    });
+    hist.forEach(function(h){
+      h.s.draw(eo(clamp((p-0.66-h.i*0.03)/0.08,0,1)));
+      h.lab.style.opacity = eo(clamp((p-0.70-h.i*0.03)/0.06,0,1))*.7;
+      h.val.style.opacity = eo(clamp((p-0.74-h.i*0.03)/0.06,0,1));
+    });
+    histLab.style.opacity = eo(clamp((p-0.88)/0.08,0,1));
+    ctx.readout(['A whole job','A job that splits','A job that holds','Across 268 jobs'][Math.min(idx,3)],
+                [picks[0] ? Math.round(picks[0].hi*100)+'% of tasks' : '—',
+                 picks[1] ? 'spread ±'+picks[1].spread : '—',
+                 picks[2] ? Math.round(picks[2].hi*100)+'% of tasks' : '—',
+                 bins[0]+' jobs under 20%'][Math.min(idx,3)]);
+  };
+};
+
+/* ---------- EXPLORER: work through any job yourself ----------------------- */
+(function explorer(){
+  const sel = document.getElementById('x-occ');
+  if(!sel || !D.comp) return;
+  const thr = document.getElementById('x-thr');
+  const thrOut = document.getElementById('x-thr-out');
+  const nEl = document.getElementById('x-n');
+  const kEl = document.getElementById('x-k');
+  const subEl = document.getElementById('x-sub');
+  const listEl = document.getElementById('x-list');
+  const strip = document.getElementById('x-strip');
+  const byCode = {}; D.comp.forEach(function(c){ byCode[c.c] = c; });
+
+  sel.innerHTML = D.comp.slice().sort(function(a,b){ return a.t.localeCompare(b.t); })
+    .map(function(c){ return '<option value="'+c.c+'">'+c.t+'</option>'; }).join('');
+  sel.value = D.exemplars.split;
+
+  /* The comparison strip: every occupation as a pip, the current one marked.
+     A percentage means little until you can see the distribution behind it. */
+  function drawStrip(share){
+    const pips = D.comp.map(function(c){
+      return '<i class="pip" style="left:'+(c.hi*100).toFixed(1)+'%"></i>';
+    }).join('');
+    strip.innerHTML = '<div class="track"></div>' + pips +
+      '<div class="me" style="left:'+(share*100).toFixed(1)+'%"></div>' +
+      '<div class="cap" style="left:0">0% of tasks</div>' +
+      '<div class="cap" style="right:0;left:auto">100%</div>';
+  }
+
+  function render(){
+    const c = byCode[sel.value]; if(!c) return;
+    const t = +thr.value;
+    thrOut.textContent = t;
+    const rows = (D.tasks[c.c] || []);
+    const over = rows.filter(function(r){ return r.s >= t; });
+    const share = rows.length ? over.length / rows.length : 0;
+
+    nEl.textContent = Math.round(share*100) + '%';
+    kEl.textContent = over.length + ' of ' + rows.length + ' tasks at or above ' + t;
+    const rank = D.comp.filter(function(o){ return o.hi > c.hi; }).length + 1;
+    subEl.innerHTML = 'Ranked <b>' + rank + '</b> of ' + D.comp.length +
+      ' STEM occupations by share of tasks highly exposed. Internal spread ±' +
+      c.spread + ' — ' + (c.spread > 15
+        ? 'this job pulls hard in both directions.'
+        : 'its tasks score fairly close together.');
+
+    listEl.innerHTML = rows.map(function(r){
+      return '<div class="xtask' + (r.s >= t ? ' over' : '') + '">' +
+        '<div class="sc">' + r.s + '</div>' +
+        '<div class="tx">' + r.t.replace(/[&<>]/g, function(ch){
+          return {'&':'&amp;','<':'&lt;','>':'&gt;'}[ch]; }) + '</div>' +
+        '<div class="bar"><i style="width:' + r.s + '%"></i></div>' +
+      '</div>';
+    }).join('');
+    drawStrip(share);
+  }
+
+  sel.addEventListener('change', render);
+  thr.addEventListener('input', render);
+  document.querySelectorAll('[data-xpick]').forEach(function(b){
+    b.addEventListener('click', function(){
+      sel.value = D.exemplars[b.dataset.xpick] || sel.value; render();
+    });
+  });
+  render();
+})();
