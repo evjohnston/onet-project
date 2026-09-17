@@ -391,6 +391,41 @@ cloud, and `TRACTABILITY_FLOOR` exists because a constant-product curve alone pu
 first is not a handoff, it is work AI cannot lead at any level of consequence. Both
 constants are fitted to this corpus; re-fit them if it changes.
 
+### Longitudinal task churn (`churn`)
+
+```bash
+.venv/bin/python -m onet_scraper churn
+```
+
+Every other measure here depends on a model's judgment about what *could* happen.
+This one does not. O*NET archives each database release, so the task statements
+attached to an occupation can be diffed across eleven years (releases 20.1 to 31.0,
+2015–2026) and the turnover counted directly.
+
+**The raw answer is that almost nothing changed.** 3,553 task statements became
+3,666 across 175 STEM occupations — 5.2% turnover, 6.6% of today's tasks new, and
+74 occupations with identical task lists to 2015. Turnover did *not* accelerate after
+2022; the largest step in the series is 2019–2021.
+
+**But O*NET re-surveys on a rolling cycle, so that number is confounded.** An
+occupation whose tasks did not change may simply not have been looked at. The `Date`
+column separates the two: of the occupations re-surveyed since 2022, turnover is
+**8.1%**; of those that were not, **2.4%**. The headline is diluted by occupations
+nobody checked.
+
+**Among the ones that were checked, exposed jobs moved roughly three times faster:**
+13.2% turnover for the highly exposed against 4.6% for the least (7.9% in between —
+the gradient is monotonic). Sixteen occupations in the top group, and O*NET does not
+choose what to re-survey at random, so treat it as directional. It points the same
+way the scores do, from data that knows nothing about them.
+
+Two parsing traps, both caught and both tested: a suffix match on
+`Task Statements.txt` also catches **`Green Task Statements.txt`**, a 140-occupation
+subset that ships in the 2019-era archives, sorts first, and parses cleanly enough to
+replace the real file silently. And the 2019 SOC revision renumbered codes, so 93 of
+268 occupations cannot be compared at all and are reported as skipped rather than
+counted as churn.
+
 ### Wage protection and transition pathways (`pathways`)
 
 ```bash
@@ -438,7 +473,7 @@ matters. The direction is robust; the number is not, and both are in
 open data/out/story.html
 ```
 
-A scroll-driven narrative over the same tables the dashboard reads. Eleven chapters
+A scroll-driven narrative over the same tables the dashboard reads. Twelve chapters
 and two interactives,
 each a sticky hand-inked figure that draws itself as you scroll past its beats:
 the inversion against Frey & Osborne, the subtask vocabulary, **the task composition

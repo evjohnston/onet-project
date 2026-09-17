@@ -1,0 +1,49 @@
+{
+  "releases": [
+    "20_1",
+    "22_0",
+    "24_0",
+    "26_0",
+    "28_0",
+    "29_0",
+    "30_0",
+    "31_0"
+  ],
+  "releases_unavailable": [],
+  "review_cutoff": 2022,
+  "reviewed_since_cutoff": 153,
+  "not_reviewed_since_cutoff": 115,
+  "refreshed_only": {
+    "occupations_compared": 92,
+    "occupations_skipped": 61,
+    "tasks_start": 1728,
+    "tasks_end": 1827,
+    "added": 193,
+    "retired": 94,
+    "survived": 1634,
+    "turnover_rate": 0.0807,
+    "added_rate": 0.1056
+  },
+  "stale_only": {
+    "occupations_compared": 83,
+    "occupations_skipped": 32,
+    "tasks_start": 1825,
+    "tasks_end": 1839,
+    "added": 50,
+    "retired": 36,
+    "survived": 1789,
+    "turnover_rate": 0.0235,
+    "added_rate": 0.0272
+  },
+  "span": "20.1 \u2192 31.0",
+  "years": "2015\u20132026",
+  "occupations_compared": 175,
+  "occupations_skipped": 93,
+  "tasks_start": 3553,
+  "tasks_end": 3666,
+  "added": 243,
+  "retired": 130,
+  "survived": 3423,
+  "turnover_rate": 0.0517,
+  "added_rate": 0.0663
+}

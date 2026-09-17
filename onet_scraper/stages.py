@@ -404,8 +404,24 @@ def run_scroller(settings: Settings) -> Path:
         pathways["strandedSample"] = [
             {"t": r["title"][:28], "s": float(r["susceptibility"])}
             for r in stranded[:6]]
+    ch_path = settings.out_dir / "churn_report.json"
+    churn = json.loads(ch_path.read_text()) if ch_path.exists() else {}
+    if churn:
+        churn["steps"] = read_table(settings.out_dir, "task_churn_steps")
+        rows = [r for r in read_table(settings.out_dir, "task_churn_occupations")
+                if r.get("susceptibility") and r.get("last_reviewed")
+                and int(r["last_reviewed"]) >= churn.get("review_cutoff", 2022)
+                and int(r["tasks_first"]) >= 8]
+        churn["byExposure"] = []
+        for label, lo, hi in (("Highly exposed", 65, 200), ("Middling", 55, 65),
+                              ("Low exposure", 0, 55)):
+            g = [r for r in rows if lo <= float(r["susceptibility"]) < hi]
+            if g:
+                churn["byExposure"].append({
+                    "label": label, "n": len(g),
+                    "turnover": round(sum(float(r["turnover_rate"]) for r in g)/len(g), 4)})
     payload = build_payload(occ, tasks, subtasks, links, handoff, benchmarks, soc, emp,
-                            pathways)
+                            pathways, churn)
     return build_scroller(settings.out_dir / "story.html", payload, meta)
 
 
@@ -439,6 +455,15 @@ def run_churn(settings: Settings, client, releases: tuple[str, ...] = ()) -> dic
              summary["added"], summary["retired"], summary["survived"])
     log.info("  turnover %.1f%% · %.1f%% of today's tasks did not exist at the start",
              100*summary["turnover_rate"], 100*summary["added_rate"])
+    f, st = summary["refreshed_only"], summary["stale_only"]
+    log.info("  split on whether O*NET re-surveyed the occupation since %d:",
+             summary["review_cutoff"])
+    log.info("    re-surveyed    %3d occupations - turnover %.1f%%, %.1f%% of tasks new",
+             summary["reviewed_since_cutoff"], 100*f["turnover_rate"], 100*f["added_rate"])
+    log.info("    never looked at %3d occupations - turnover %.1f%%, %.1f%% new",
+             summary["not_reviewed_since_cutoff"], 100*st["turnover_rate"],
+             100*st["added_rate"])
+    log.info("  the overall figure is diluted by occupations nobody checked")
     return summary
 
 

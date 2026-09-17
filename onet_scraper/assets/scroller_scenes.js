@@ -804,3 +804,95 @@ BUILD.pathways = function(ctx){
                    : '—')][Math.min(idx,3)]);
   };
 };
+
+/* ---------- 10 CHURN: has the work already moved? ------------------------ */
+BUILD.churn = function(ctx){
+  const g = S('g', null, ctx.svg);
+  const C = D.churn || {};
+  const steps = C.steps || [];
+  if(!steps.length) return function(){};
+
+  /* top: turnover per release step */
+  const X0=380, X1=1280, Y0=230, Y1=520;
+  const maxT = Math.max.apply(null, steps.map(function(s){ return +s.turnover_rate; }));
+  const xs = i => X0 + (i/(steps.length-1))*(X1-X0);
+  const ys = v => Y1 - (v/(maxT||1))*(Y1-Y0);
+  const ax = Stroke(g, [[X0,Y1],[X1,Y1]], {cls:'ink w1', amp:1.4});
+  const line = Stroke(g, steps.map(function(s,i){ return [xs(i), ys(+s.turnover_rate)]; }),
+                      {cls:'ink w3 soft', amp:1.6});
+  const pts = steps.map(function(s,i){
+    return {d: Dot(g, xs(i), ys(+s.turnover_rate), 7,
+              (+s.year) >= 2023 ? 'ink coral' : 'ink soft', 9500+i),
+            lab: Txt(g, xs(i), Y1+26, String(s.year), {cls:'sm dim', anchor:'middle', op:0}),
+            i:i};
+  });
+  const gptMark = Stroke(g, [[xs(3.1), Y0-16],[xs(3.1), Y1]],
+                         {cls:'ink coral w1 ghost', amp:1.2});
+  const gptLab = Txt(g, xs(3.1)+12, Y0-4, 'CHATGPT', {cls:'sm', op:0});
+  const head = Txt(g, X0, Y0-40, 'TASK TURNOVER PER RELEASE — IT DID NOT ACCELERATE',
+                   {cls:'sm', op:0});
+
+  /* bottom: the split that matters */
+  const f = C.refreshed_only || {}, st = C.stale_only || {};
+  const BY = 640, BW = 420;
+  const bars = [
+    {t:'RE-SURVEYED SINCE 2022', n:C.reviewed_since_cutoff, v:(f.turnover_rate||0), cls:'ink coral'},
+    {t:'NEVER RE-SURVEYED', n:C.not_reviewed_since_cutoff, v:(st.turnover_rate||0), cls:'ink soft'},
+  ].map(function(b, i){
+    const y = BY + i*66;
+    const w = (b.v/0.12)*BW;
+    return {s: Stroke(g, [[620,y],[620+Math.max(6,w),y]], {cls:b.cls+' w4', amp:1.4, seed:9700+i}),
+            lab: Txt(g, 600, y+5, b.t, {cls:'sm', anchor:'end', op:0}),
+            val: Txt(g, 620+Math.max(6,w)+18, y+5,
+                     (b.v*100).toFixed(1)+'%  ·  '+b.n+' OCCUPATIONS', {cls:'sm dim', op:0}),
+            i:i};
+  });
+  const splitHead = Txt(g, 600, BY-38,
+    'BUT THE OVERALL FIGURE IS DILUTED BY OCCUPATIONS NOBODY CHECKED',
+    {cls:'sm', anchor:'end', op:0});
+
+  const ex = (C.byExposure || []).map(function(b, i){
+    const y = BY + 150 + i*40;
+    const w = (b.turnover/0.16)*BW;
+    return {s: Stroke(g, [[620,y],[620+Math.max(6,w),y]],
+              {cls: i===0 ? 'ink coral w3' : 'ink blue w3', amp:1.3, seed:9800+i}),
+            lab: Txt(g, 600, y+5, b.label.toUpperCase(), {cls:'sm', anchor:'end', op:0}),
+            val: Txt(g, 620+Math.max(6,w)+18, y+5,
+                     (b.turnover*100).toFixed(1)+'%  ·  n='+b.n, {cls:'sm dim', op:0}),
+            i:i};
+  });
+  const exHead = Txt(g, 600, BY+118,
+    'AMONG THOSE, THE EXPOSED JOBS MOVED FASTEST', {cls:'sm', anchor:'end', op:0});
+
+  return function(p, idx){
+    ax.draw(clamp(p*5,0,1));
+    head.style.opacity = eo(clamp(p*6,0,1));
+    line.draw(eo(clamp((p-0.05)/0.18,0,1)));
+    pts.forEach(function(k){
+      k.d.draw(eo(clamp((p-0.06-k.i*0.02)/0.06,0,1)));
+      k.lab.style.opacity = eo(clamp((p-0.08-k.i*0.02)/0.06,0,1))*.7;
+    });
+    gptMark.draw(eo(clamp((p-0.22)/0.08,0,1)));
+    gptLab.style.opacity = eo(clamp((p-0.26)/0.06,0,1));
+
+    splitHead.style.opacity = eo(clamp((p-0.40)/0.06,0,1));
+    bars.forEach(function(b){
+      b.s.draw(eo(clamp((p-0.44-b.i*0.06)/0.10,0,1)));
+      b.lab.style.opacity = eo(clamp((p-0.44-b.i*0.06)/0.06,0,1));
+      b.val.style.opacity = eo(clamp((p-0.48-b.i*0.06)/0.06,0,1))*.8;
+    });
+    exHead.style.opacity = eo(clamp((p-0.70)/0.06,0,1));
+    ex.forEach(function(b){
+      b.s.draw(eo(clamp((p-0.74-b.i*0.05)/0.09,0,1)));
+      b.lab.style.opacity = eo(clamp((p-0.74-b.i*0.05)/0.06,0,1));
+      b.val.style.opacity = eo(clamp((p-0.78-b.i*0.05)/0.06,0,1))*.8;
+    });
+    ctx.readout(['Turnover since 2015','After ChatGPT','Who was actually checked','Exposed jobs'][Math.min(idx,3)],
+                [((C.turnover_rate||0)*100).toFixed(1)+'% overall',
+                 'no acceleration',
+                 ((f.turnover_rate||0)*100).toFixed(1)+'% vs '+((st.turnover_rate||0)*100).toFixed(1)+'%',
+                 (C.byExposure && C.byExposure[0]
+                   ? (C.byExposure[0].turnover*100).toFixed(1)+'% turnover' : '—')
+                ][Math.min(idx,3)]);
+  };
+};

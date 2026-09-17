@@ -39,6 +39,7 @@ def build_payload(
     soc: Sequence[dict[str, Any]],
     employment_report: dict[str, Any],
     pathways: dict[str, Any] | None = None,
+    churn: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     # --- 01 inversion ------------------------------------------------------
     # Plot the ACTUAL values on each side, each scaled to its own range, rather
@@ -201,11 +202,13 @@ def build_payload(
     den = sum((p[0] - mx) ** 2 for p in vpairs) or 1
     slope = num / den
 
+    churn = churn or {}
     pathways = pathways or {}
     wages = pathways.get("wages", {})
     trans = pathways.get("transitions", {})
 
     return {
+        "churn": churn,
         "wage": {
             "deciles": pathways.get("deciles", []),
             "rExposure": wages.get("wage_vs_exposure"),
@@ -631,6 +634,44 @@ SCENES: list[dict[str, Any]] = [
               "much overlap you require barely changes it at all. The finding is that "
               "exposure is clustered \u2014 not that the number is 161.",
               "Sweep \u2014 <b>105 to 240</b> stranded"),
+         ]),
+    dict(sid="churn", number="10 / Has it moved yet", rail="Has it moved yet",
+         title="The work has already started changing \u2014 where anyone looked.",
+         standfirst="Every other measure here rests on a model\u2019s judgment about "
+                    "what could happen. This one does not. O*NET archives every "
+                    "release, so the task statements attached to a job can be diffed "
+                    "across eleven years and the turnover counted directly.",
+         fig="Fig. 10 \u2014 Task turnover, 2015 to 2026",
+         aria="Task turnover per release, then turnover split by whether O*NET "
+              "re-surveyed the occupation, then by exposure.",
+         rk="Turnover since 2015", rv="5.2% overall",
+         note="175 occupations tracked; 93 skipped on the 2019 SOC revision.",
+         beats=[
+             ("01 / The raw number", "Almost nothing changed",
+              "Across 175 STEM occupations present in both the 2015 and 2026 releases, "
+              "3,553 task statements became 3,666. Two hundred and forty-three were "
+              "added, 130 retired, and 3,423 survived untouched. Seventy-four "
+              "occupations have identical task lists to eleven years ago.",
+              "<b>5.2%</b> turnover \u00b7 <b>6.6%</b> of today\u2019s tasks are new"),
+             ("02 / And no inflection", "The turnover did not accelerate after 2022",
+              "If language models had already reshaped these jobs, the diff would show "
+              "it. The largest single step in the series is 2019 to 2021 \u2014 before "
+              "ChatGPT. Every step since 2022 is smaller than the ones before it.",
+              "Largest step <b>2019\u20132021</b>, at 2.5%"),
+             ("03 / The confound", "But O*NET only re-surveys on a rolling cycle",
+              "An occupation whose tasks did not change may simply not have been looked "
+              "at. Splitting on the date O*NET last reviewed each one: the 153 "
+              "re-surveyed since 2022 turned over 8.1 per cent, the 115 that were not "
+              "turned over 2.4. The headline figure is diluted by occupations nobody "
+              "checked, and no amount of care with the diff fixes that.",
+              "<b>8.1%</b> where checked \u00b7 <b>2.4%</b> where not"),
+             ("04 / The signal", "And exposed jobs moved roughly three times faster",
+              "Among occupations O*NET did re-survey, the highly exposed ones turned "
+              "over 13.2 per cent of their tasks against 4.6 for the least exposed. "
+              "Small sample \u2014 sixteen occupations \u2014 and O*NET does not pick "
+              "what to re-survey at random. But it points the same way the scores do, "
+              "from data that knows nothing about them.",
+              "<b>13.2%</b> exposed \u00b7 <b>4.6%</b> not \u00b7 n=16"),
          ]),
     dict(sid="validation", number="07 / The check", rail="The check", tint=True,
          title="A model rating work is an assertion until someone checks it.",

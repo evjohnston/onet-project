@@ -565,3 +565,40 @@ class TestTransitions(unittest.TestCase):
         out = sweep(*self._setup())
         self.assertEqual(len(out), 9)
         self.assertTrue(all("stranded" in r for r in out))
+
+
+class TestChurn(unittest.TestCase):
+    def test_picks_the_real_task_file_not_the_green_subset(self):
+        """A suffix match also catches 'Green Task Statements.txt', which is a
+        small subset that parses cleanly and silently replaces the real file."""
+        import io, zipfile
+        from unittest.mock import Mock
+        from onet_scraper.churn import fetch_release
+        buf = io.BytesIO()
+        hdr = "O*NET-SOC Code\tTitle\tTask ID\tTask\n"
+        with zipfile.ZipFile(buf, "w") as z:
+            # green file first, exactly as the real archives order them
+            z.writestr("db/Green Task Statements.txt", hdr + "11-0000.00\tG\t1\tgreen task\n")
+            z.writestr("db/Task Statements.txt",
+                       hdr + "11-0000.00\tR\t2\treal task\n15-0000.00\tR\t3\tanother\n")
+        client = Mock()
+        client.get.return_value = Mock(content=buf.getvalue())
+        out = fetch_release(client, "24_0")
+        self.assertEqual(len(out), 2, "must read the full file, not the green subset")
+        self.assertEqual(out["11-0000.00"][0]["task"], "real task")
+
+    def test_reworded_task_counts_as_surviving(self):
+        from onet_scraper.churn import diff, normalise
+        before = {"A": [{"id": "1", "task": "Analyze data.", "key": normalise("Analyze data.")}]}
+        after = {"A": [{"id": "9", "task": "Analyze  data!", "key": normalise("Analyze  data!")}]}
+        d = diff(before, after, ["A"])
+        self.assertEqual(d["added"], 0, "punctuation and spacing are not a new task")
+        self.assertEqual(d["survived"], 1)
+
+    def test_missing_occupation_is_skipped_not_counted_as_churn(self):
+        from onet_scraper.churn import diff, normalise
+        before = {"A": [{"id": "1", "task": "x", "key": "x"}]}
+        after = {}
+        d = diff(before, after, ["A"])
+        self.assertEqual(d["occupations_skipped"], 1)
+        self.assertEqual(d["retired"], 0, "a taxonomy change is not a retired task")

@@ -40,7 +40,8 @@ CHURN_COLUMNS = ("release", "year", "occupations_compared", "occupations_skipped
                  "tasks_start", "tasks_end", "added", "retired", "survived",
                  "turnover_rate", "added_rate")
 OCC_CHURN_COLUMNS = ("onet_soc_code", "title", "susceptibility", "tasks_first",
-                     "tasks_last", "added", "retired", "turnover_rate", "net_change")
+                     "tasks_last", "added", "retired", "turnover_rate", "net_change",
+                     "last_reviewed")
 
 _WS = re.compile(r"\s+")
 _PUNCT = re.compile(r"[^a-z0-9 ]+")
@@ -62,8 +63,12 @@ def fetch_release(client, release: str) -> dict[str, list[dict[str, str]]]:
     url = ARCHIVE_URL.format(release=release)
     page = client.get(url)
     with zipfile.ZipFile(io.BytesIO(page.content)) as archive:
+        # Match the basename exactly. A suffix test also catches "Green Task
+        # Statements.txt", which ships in the 2019-era releases, sorts first in
+        # the archive, and is a 140-occupation subset - it parsed cleanly and
+        # silently replaced the real file for that release.
         name = next((n for n in archive.namelist()
-                     if n.lower().endswith("task statements.txt")), None)
+                     if n.rsplit("/", 1)[-1].lower() == "task statements.txt"), None)
         if name is None:
             raise RuntimeError(f"no Task Statements.txt in {url}")
         raw = archive.read(name).decode("utf-8", errors="replace")
@@ -77,15 +82,20 @@ def fetch_release(client, release: str) -> dict[str, list[dict[str, str]]]:
     if code_i is None or task_i is None:
         raise RuntimeError(f"unexpected columns in {name}: {header[:6]}")
 
+    date_i = idx.get("Date")
     out: dict[str, list[dict[str, str]]] = {}
     for line in lines[1:]:
         parts = line.split("\t")
         if len(parts) <= max(code_i, task_i):
             continue
+        year = ""
+        if date_i is not None and len(parts) > date_i and "/" in parts[date_i]:
+            year = parts[date_i].rsplit("/", 1)[-1]
         out.setdefault(parts[code_i], []).append({
             "id": parts[id_i] if id_i is not None and len(parts) > id_i else "",
             "task": parts[task_i],
             "key": normalise(parts[task_i]),
+            "year": year,
         })
     log.info("release %-5s %5d occupations, %6d task statements",
              release.replace("_", "."), len(out), sum(len(v) for v in out.values()))
@@ -133,6 +143,16 @@ def diff(before: dict[str, list[dict[str, str]]],
     }
 
 
+def last_reviewed(snapshot: dict[str, list[dict[str, str]]]) -> dict[str, int]:
+    """Most recent task date per occupation - when O*NET last looked at it."""
+    out: dict[str, int] = {}
+    for code, tasks in snapshot.items():
+        years = [int(t["year"]) for t in tasks if t.get("year", "").isdigit()]
+        if years:
+            out[code] = max(years)
+    return out
+
+
 def build(client, releases: Sequence[str], codes: Iterable[str],
           titles: dict[str, str], susceptibility: dict[str, float]
           ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]]:
@@ -161,6 +181,7 @@ def build(client, releases: Sequence[str], codes: Iterable[str],
 
     # Cumulative first-to-last, which is what the occupation table reports.
     span = diff(snapshots[releases[0]], snapshots[releases[-1]], codes)
+    reviewed_all = last_reviewed(snapshots[releases[-1]])
     occ_rows = []
     for code, v in span["per_occupation"].items():
         occ_rows.append({
@@ -173,12 +194,29 @@ def build(client, releases: Sequence[str], codes: Iterable[str],
             "retired": v["retired"],
             "turnover_rate": round((v["added"] + v["retired"]) / max(v["first"] + v["last"], 1), 4),
             "net_change": v["last"] - v["first"],
+            "last_reviewed": reviewed_all.get(code),
         })
     occ_rows.sort(key=lambda r: -r["turnover_rate"])
+
+    # THE CONFOUND. O*NET re-surveys occupations on a rolling cycle, so an
+    # occupation whose tasks did not change may simply not have been looked at.
+    # Splitting on the last review date separates "the work did not change" from
+    # "nobody checked", and only the first subset can answer the question.
+    reviewed = last_reviewed(snapshots[releases[-1]])
+    cutoff = 2022
+    fresh = [c for c in codes if reviewed.get(c, 0) >= cutoff]
+    stale = [c for c in codes if 0 < reviewed.get(c, 0) < cutoff]
+    fresh_span = diff(snapshots[releases[0]], snapshots[releases[-1]], fresh)
+    stale_span = diff(snapshots[releases[0]], snapshots[releases[-1]], stale)
 
     summary = {
         "releases": list(releases),
         "releases_unavailable": missing,
+        "review_cutoff": cutoff,
+        "reviewed_since_cutoff": len(fresh),
+        "not_reviewed_since_cutoff": len(stale),
+        "refreshed_only": {k: v for k, v in fresh_span.items() if k != "per_occupation"},
+        "stale_only": {k: v for k, v in stale_span.items() if k != "per_occupation"},
         "span": releases[0].replace("_", ".") + " → " + releases[-1].replace("_", "."),
         "years": f"{release_year(releases[0])}–{release_year(releases[-1])}",
         **{k: v for k, v in span.items() if k != "per_occupation"},
