@@ -662,6 +662,14 @@ because they regenerate from what is committed:
 | `occupation_work_context.csv` and other descriptor mirrors | `fetch-descriptors` then `build` |
 | `data/cache/` (246 MB), `data/raw/` (95 MB) | any fetch stage |
 
+## License
+
+The code in this repository is MIT licensed (see `LICENSE`). **That covers the code,
+not the data.** The tables under `data/out/` and `docs/data/` are derived from O*NET
+and BLS and carry those sources' own terms — see below. The model-generated
+automation scores are released under the same MIT terms as the code, with the caveat
+stated beneath them.
+
 ## Data sources and attribution
 
 This repository redistributes data derived from three public sources. If you build on
