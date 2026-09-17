@@ -1368,3 +1368,125 @@ class TestOnetRatings(unittest.TestCase):
         r = cov / (statistics.pstdev(t) * statistics.pstdev(c))
         self.assertLess(r, -0.3, f"expected a negative correlation, got r={r:.2f}")
         self.assertGreater(r, -0.8, f"r={r:.2f} would make it near-redundant")
+
+
+class TestFrontierCalibration(unittest.TestCase):
+    """The frontier is derived from the corpus, not asserted against it."""
+
+    def _corpus(self, n=200, recurrence=False):
+        """A synthetic corpus with a realistic spread on both axes."""
+        rows = []
+        for i in range(n):
+            rows.append({
+                "onet_soc_code": f"{i:02d}-0000.00",
+                "llm_exposure": 30.0 + (i % 50),
+                "automation_feasibility_today": 10.0 + (i % 30),
+                "physical_embodiment_required": 5.0 + (i % 60),
+                "judgment_under_uncertainty": 20.0 + (i % 45),
+                "accountability_requirement": 25.0 + (i % 55),
+                "error_cost": 20.0 + (i % 65),
+                "interpersonal_demand": 15.0 + (i % 40),
+            })
+        return rows
+
+    def _classify_all(self, rows, recurrence=None, absolute=False):
+        from onet_scraper import handoff as H
+        pairs = [H.axes(r, (recurrence or {}).get(r["onet_soc_code"])) for r in rows]
+        gaps = [float(r["llm_exposure"]) - float(r["automation_feasibility_today"])
+                for r in rows]
+        cal = (H.Calibration.absolute() if absolute
+               else H.calibrate([t for t, _ in pairs], [x for _, x in pairs], gaps))
+        return ({r["onet_soc_code"]: H.classify(t, x, g, cal)
+                 for r, (t, x), g in zip(rows, pairs, gaps)}, cal)
+
+    # -- the identity that makes this a reparameterisation ----------------
+    def test_derived_calibration_reproduces_the_original_absolutes(self):
+        """The quantiles were obtained by inverting the hand-chosen constants
+        against release 31.0, so on that release they must reproduce them."""
+        import csv
+        from pathlib import Path
+        from onet_scraper import handoff as H
+        path = Path("data/out/occupation_automation_scores.csv")
+        if not path.exists():
+            self.skipTest("no built dataset")
+            return
+        scored = list(csv.DictReader(path.open()))
+        pairs = [H.axes(r) for r in scored]
+        cal = H.calibrate(
+            [t for t, _ in pairs], [x for _, x in pairs],
+            [float(r["llm_exposure"]) - float(r["automation_feasibility_today"])
+             for r in scored])
+        for field, original in (("tractability_floor", 50.0), ("frontier_k", 53.0),
+                                ("crossing_band", 5.0), ("watch_tractability", 55.0),
+                                ("watch_resistance", 50.0), ("watch_gap", 40.0)):
+            self.assertAlmostEqual(getattr(cal, field), original, places=2,
+                                   msg=f"{field} drifted from its absolute")
+
+    def test_reparameterisation_changes_no_classification(self):
+        """Architects sit 0.0007 from the crossing boundary, so this is a real
+        constraint on the precision of CROSSING_BAND_SD, not a formality."""
+        import csv
+        from pathlib import Path
+        from onet_scraper import handoff as H
+        if not Path("data/out/occupation_handoff.csv").exists():
+            self.skipTest("no built dataset")
+            return
+        published = {r["onet_soc_code"]: r["classification"] for r in
+                     csv.DictReader(open("data/out/occupation_handoff.csv"))}
+        scored = list(csv.DictReader(
+            open("data/out/occupation_automation_scores.csv")))
+        got = {r["onet_soc_code"]: r["classification"] for r in H.build(scored)}
+        changed = [c for c in published if published[c] != got.get(c)]
+        self.assertEqual(changed, [], f"{len(changed)} classifications moved")
+
+    # -- the fragility it removes ----------------------------------------
+    def test_calibration_tracks_a_compressed_axis(self):
+        rows = self._corpus()
+        rec = {r["onet_soc_code"]: 50.0 + (i % 40)
+               for i, r in enumerate(rows)}
+        _, three = self._classify_all(rows)
+        _, four = self._classify_all(rows, recurrence=rec)
+        # adding a fourth term narrows the axis, so the thresholds must move
+        self.assertNotAlmostEqual(three.tractability_floor, four.tractability_floor,
+                                  places=2)
+
+    def test_stale_absolutes_and_adaptive_disagree_on_a_changed_axis(self):
+        """The whole point. On the real corpus, adding recurrence under the old
+        fixed constants raised "handed off" from 36 to 60; under a calibration
+        that tracks the axis it falls to 25. The stale thresholds inverted the
+        direction of the conclusion, so anything that reintroduces fixed
+        constants has to fail here."""
+        rows = self._corpus()
+        rec = {r["onet_soc_code"]: 50.0 + (i % 40) for i, r in enumerate(rows)}
+        stale, _ = self._classify_all(rows, recurrence=rec, absolute=True)
+        adaptive, _ = self._classify_all(rows, recurrence=rec)
+        disagree = [c for c in stale if stale[c] != adaptive[c]]
+        self.assertGreater(len(disagree), 0,
+                           "a compressed axis must classify differently under "
+                           "fixed thresholds than under derived ones")
+
+    def test_an_empty_corpus_falls_back_to_the_absolutes(self):
+        from onet_scraper.handoff import Calibration, calibrate
+        self.assertEqual(calibrate([], [], []), Calibration.absolute())
+
+    def test_classify_without_a_calibration_uses_the_absolutes(self):
+        from onet_scraper import handoff as H
+        # tractability below the absolute floor is human-held either way
+        self.assertEqual(H.classify(40.0, 60.0, 10.0), "Human held")
+
+    def test_quantile_interpolates(self):
+        from onet_scraper.handoff import _quantile
+        v = [0.0, 10.0, 20.0, 30.0]
+        self.assertEqual(_quantile(v, 0.0), 0.0)
+        self.assertEqual(_quantile(v, 1.0), 30.0)
+        self.assertAlmostEqual(_quantile(v, 0.5), 15.0)
+        self.assertEqual(_quantile([], 0.5), 0.0)
+
+    def test_frontier_is_a_threshold_on_the_product(self):
+        """k is calibrated on T*R because the curve is the locus T*R = k^2."""
+        from onet_scraper.handoff import calibrate
+        t = [40.0, 50.0, 60.0, 70.0]
+        r = [70.0, 60.0, 50.0, 40.0]   # every product is near 2800-3000
+        cal = calibrate(t, r, [10.0])
+        self.assertGreater(cal.frontier_k, 45.0)
+        self.assertLess(cal.frontier_k, 60.0)

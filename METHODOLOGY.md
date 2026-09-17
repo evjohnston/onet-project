@@ -255,11 +255,51 @@ leadership. Stage is the **lower** of the capability ceiling and the permission
 ceiling, not an average — Watson's first four properties decide what AI can do,
 the last two what it is allowed to do.
 
-Six of his eight properties are covered. **Recurrence** and **feedback
-speed/clarity** are not; recurrence is available as O\*NET's `FT` scale and is the
-cheaper of the two to add. The frontier constants (`FRONTIER_K`,
-`TRACTABILITY_FLOOR`, `CROSSING_BAND`) are **calibrated to this corpus, not
-derived** — Watson's figure shows the curve's shape and no numbers.
+Six of his eight properties are covered. **Recurrence** is now measured (§4.4)
+but deliberately not folded into tractability; **feedback speed and clarity** is
+not in O\*NET at all and would need new scoring.
+
+**The frontier is calibrated, and the calibration now travels with the
+distribution.** Watson's figure shows the curve's shape and no numbers, so the
+thresholds were chosen by eye against release 31.0: `FRONTIER_K = 53`,
+`TRACTABILITY_FLOOR = 50`, `CROSSING_BAND = 5`, plus three literals inside the
+watch-point rule. That made them quietly fragile. A threshold on an axis is
+meaningful only relative to the spread of that axis, and the axis is a mean of
+terms that can be added to or reweighted — so any change to the rubric would
+silently reclassify the corpus.
+
+That is not hypothetical. Averaging recurrence into tractability narrows the
+axis by a third (sd 9.95 → 6.44), because recurrence runs against the other
+terms at r = −0.53. Under the fixed thresholds the result would have been
+reported as a large move toward automation. Under thresholds that track the
+axis, it moves the other way:
+
+| Calibration | Human held | Watch point | Crossing now | Handed off |
+| --- | ---: | ---: | ---: | ---: |
+| 3-term, adaptive *(published)* | 105 | 29 | 98 | 36 |
+| 4-term, stale absolutes | 81 | 34 | 93 | **60** |
+| 4-term, adaptive | 104 | 34 | 105 | **25** |
+
+The stale constants did not merely exaggerate the effect, they **inverted its
+direction**: "handed off" rises from 36 to 60 under fixed thresholds and falls
+to 25 once the calibration adapts. Eighty-four occupations change class the
+first way, fifty-four the second.
+
+Each constant is therefore expressed as a **quantile of the observed
+distribution** — the tractability floor at the 19.1st percentile, the frontier
+at the 38.6th percentile of the *product* `T × R` (which is what the curve is a
+threshold on), the crossing band at 0.391 standard deviations of resistance. The
+quantiles were obtained by inverting the original absolutes against release 31.0,
+so on that release they reproduce the old thresholds to four decimal places and
+**not one classification changes**. A test asserts that identity. The
+reparameterisation is not meant to move today's answer; it is meant to ensure
+tomorrow's answer moves for a reason.
+
+One detail worth recording: the precision of the crossing-band coefficient is
+load-bearing. Architects sit at a frontier margin of +4.999362, within 0.0007 of
+the band edge, so rounding 0.39117889 to 0.391 moves them from "crossing now" to
+"human held". Their classification was never really determined by the data, and
+the same is presumably true of any occupation near the curve.
 
 ### 6.3 Employment weighting
 

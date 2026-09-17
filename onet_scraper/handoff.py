@@ -44,7 +44,9 @@ renames it to what he shows it means.
 
 from __future__ import annotations
 
+import dataclasses
 import logging
+import math
 import statistics
 from typing import Any, Sequence
 
@@ -157,6 +159,38 @@ def stage(capability: float, resistance: float) -> int:
 # absolute claims about when a handoff occurs. CROSSING_BAND is half the width
 # of the "crossing now" strip, roughly a quarter of the resistance IQR.
 # Re-fit both if the corpus changes; do not read them as measurements.
+# --------------------------------------------------------------------------- #
+# Calibration
+# --------------------------------------------------------------------------- #
+# These were absolute values on the 0-100 scales, chosen by eye against release
+# 31.0. That made them silently fragile: the thresholds are meaningful only
+# relative to the spread of the axis they cut, and the axis is a mean of terms
+# that can be added to or reweighted. Adding recurrence to tractability - a term
+# correlated at -0.53 with the other three - narrows the spread by a third, and
+# the fixed thresholds then reclassified 24 occupations out of "human held" and
+# 24 into "handed off". Nothing about the world had changed. Any future change
+# to the rubric would do the same thing, quietly.
+#
+# So the calibration now travels with the distribution. Each constant is
+# expressed as a quantile of the observed values, and the quantiles below were
+# obtained by *inverting* the original absolutes against release 31.0 - so on
+# that release they reproduce the previous thresholds to four decimal places and
+# every classification is unchanged. A test asserts that identity. The point is
+# not to move today's answer; it is that tomorrow's answer moves for a reason.
+FLOOR_QUANTILE = 0.191011        # was TRACTABILITY_FLOOR = 50.0
+FRONTIER_QUANTILE = 0.385560     # was FRONTIER_K = 53.0, i.e. T*R = 2809
+WATCH_TRACT_QUANTILE = 0.353933  # was tractability >= 55
+WATCH_RESIST_QUANTILE = 0.575531 # was resistance >= 50
+WATCH_GAP_QUANTILE = 0.750936    # was willingness_gap >= 40
+CROSSING_BAND_SD = 0.39117889    # was CROSSING_BAND = 5.0, i.e. 0.39 sd of resistance
+# The extra digits are not false precision, they are how the identity test
+# passes. Architects sit at a frontier margin of +4.999362, within 0.0007 of the
+# old 5.0 band, so rounding the coefficient to 0.391 moves them from "crossing
+# now" to "human held". That is worth knowing on its own: their classification
+# was never really determined by the data.
+
+# The absolutes, kept as the fallback for a caller with no corpus to calibrate
+# against, and as the reference the identity test checks.
 FRONTIER_K = 53.0
 CROSSING_BAND = 5.0
 
@@ -181,22 +215,80 @@ def frontier_resistance(tractability: float, k: float = FRONTIER_K) -> float:
     return min(100.0, (k * k) / max(tractability, 1.0))
 
 
-def classify(tractability: float, resistance: float, willingness_gap: float) -> str:
+def _quantile(sorted_values: Sequence[float], q: float) -> float:
+    """Linear-interpolated quantile. statistics.quantiles cuts at fixed
+    fractions; this needs an arbitrary one."""
+    if not sorted_values:
+        return 0.0
+    if q <= 0:
+        return sorted_values[0]
+    if q >= 1:
+        return sorted_values[-1]
+    pos = q * (len(sorted_values) - 1)
+    lo = int(pos)
+    hi = min(lo + 1, len(sorted_values) - 1)
+    return sorted_values[lo] + (pos - lo) * (sorted_values[hi] - sorted_values[lo])
+
+
+@dataclasses.dataclass(frozen=True)
+class Calibration:
+    """The frontier, derived from a corpus rather than asserted against it."""
+
+    tractability_floor: float
+    frontier_k: float
+    crossing_band: float
+    watch_tractability: float
+    watch_resistance: float
+    watch_gap: float
+
+    @classmethod
+    def absolute(cls) -> "Calibration":
+        """The original hand-chosen values, for a caller with no corpus."""
+        return cls(TRACTABILITY_FLOOR, FRONTIER_K, CROSSING_BAND, 55.0, 50.0, 40.0)
+
+
+def calibrate(tractability: Sequence[float], resistance: Sequence[float],
+              gaps: Sequence[float]) -> Calibration:
+    """Read the thresholds off the distribution they are meant to cut."""
+    if not tractability or not resistance:
+        return Calibration.absolute()
+    t = sorted(tractability)
+    r = sorted(resistance)
+    g = sorted(gaps) if gaps else [0.0]
+    products = sorted(a * b for a, b in zip(tractability, resistance))
+    sd = statistics.pstdev(r) if len(r) > 1 else 0.0
+    return Calibration(
+        tractability_floor=_quantile(t, FLOOR_QUANTILE),
+        # The frontier is the locus T*R = k^2, so calibrating it is a threshold
+        # on the product, and the product is what gets a quantile.
+        frontier_k=math.sqrt(max(_quantile(products, FRONTIER_QUANTILE), 1.0)),
+        crossing_band=CROSSING_BAND_SD * sd,
+        watch_tractability=_quantile(t, WATCH_TRACT_QUANTILE),
+        watch_resistance=_quantile(r, WATCH_RESIST_QUANTILE),
+        watch_gap=_quantile(g, WATCH_GAP_QUANTILE),
+    )
+
+
+def classify(tractability: float, resistance: float, willingness_gap: float,
+             cal: Calibration | None = None) -> str:
     """Watson's four figure categories.
 
     'Watch point' is the strategically interesting one: capability is present,
     resistance is what is holding the line, and the willingness gap is wide - so
     an actor with looser accountability norms could cross first.
     """
-    if tractability < TRACTABILITY_FLOOR:
+    cal = cal or Calibration.absolute()
+    if tractability < cal.tractability_floor:
         # AI cannot lead this work yet; consequence is not what is holding it.
         return "Human held"
-    margin = resistance - frontier_resistance(tractability)
-    if tractability >= 55 and resistance >= 50 and willingness_gap >= 40:
+    margin = resistance - frontier_resistance(tractability, cal.frontier_k)
+    if (tractability >= cal.watch_tractability
+            and resistance >= cal.watch_resistance
+            and willingness_gap >= cal.watch_gap):
         return "Watch point"
-    if margin < -CROSSING_BAND:
+    if margin < -cal.crossing_band:
         return "Handed off"
-    if margin <= CROSSING_BAND:
+    if margin <= cal.crossing_band:
         return "Crossing now"
     return "Human held"
 
@@ -210,17 +302,23 @@ def build(
     employment = employment or {}
     reach = reach or {}
     recurrence = recurrence or {}
+
+    # Calibrate against this corpus, on these axes, before classifying anything.
+    axis_pairs = [axes(r, recurrence.get(r["onet_soc_code"])) for r in scored]
+    cal = calibrate([t for t, _ in axis_pairs], [r for _, r in axis_pairs],
+                    [_f(r, "llm_exposure") - _f(r, "automation_feasibility_today")
+                     for r in scored])
+
     rows = []
-    for row in scored:
+    for row, (tract, resist) in zip(scored, axis_pairs):
         code = row["onet_soc_code"]
-        tract, resist = axes(row, recurrence.get(code))
         deployed = _f(row, "automation_feasibility_today")
         capability = _f(row, "llm_exposure")
         gap = round(capability - deployed, 1)
 
         now = stage(deployed, resist)
         reachable = stage(capability, resist)
-        cls = classify(tract, resist, gap)
+        cls = classify(tract, resist, gap, cal)
 
         # Erosion: AI can already do the work, a human still nominally signs off,
         # and the sign-off is the only thing in the way. Watson's merge-approval
@@ -247,7 +345,8 @@ def build(
             "tractability": tract,
             "resistance": resist,
             "recurrence": recurrence.get(code),
-            "frontier_distance": round(frontier_resistance(tract) - resist, 1),
+            "frontier_distance": round(
+                frontier_resistance(tract, cal.frontier_k) - resist, 1),
             "stage_now": now,
             "stage_now_label": STAGES[now],
             "stage_reachable": reachable,
