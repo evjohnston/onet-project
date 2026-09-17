@@ -621,3 +621,71 @@ def run_scenarios(settings: Settings) -> dict[str, Any]:
                  report["scenarios"][name]["label"], 100*fl["share_reshaped"],
                  100*fl["share_with_destination"], 100*fl["share_stranded"])
     return report
+
+
+def run_security(settings: Settings) -> dict[str, Any]:
+    """Place every occupation on the efficiency / risk / reconstitution matrix."""
+    from .security import (
+        FIELD_COLUMNS,
+        SECURITY_COLUMNS,
+        build,
+        by_field,
+        field_map,
+        summarise,
+    )
+
+    fates = read_table(settings.out_dir, "task_fates")
+    if not fates:
+        raise SystemExit("run the scenarios stage first")
+    task_scores = read_table(settings.out_dir, "task_automation_scores")
+    occ = read_table(settings.out_dir, "occupation_susceptibility")
+    net = read_table(settings.out_dir, "network_occupation_nodes")
+    similarity = {n["onet_soc_code"]: float(n["mean_similarity"])
+                  for n in net if n.get("mean_similarity")}
+    hand = {h["onet_soc_code"]: h for h in read_table(settings.out_dir,
+                                                      "occupation_handoff")}
+
+    # Employment lives at 6-digit SOC; map it onto every O*NET code under that
+    # SOC and keep the reverse map so aggregates can collapse back.
+    soc = read_table(settings.out_dir, "soc_susceptibility")
+    employment: dict[str, float] = {}
+    soc_of: dict[str, str] = {}
+    for r in soc:
+        for c in (r.get("onet_codes") or "").split(";"):
+            if not c:
+                continue
+            soc_of[c] = r["soc_code"]
+            if r.get("total_employment"):
+                employment[c] = float(r["total_employment"])
+
+    fields = field_map(read_table(settings.out_dir, "occupation_stem_categories"),
+                       read_table(settings.out_dir, "stem_categories"))
+    rows = build(fates, task_scores, occ, employment, similarity, hand, fields, soc_of)
+    fields = by_field(rows, soc_of)
+    report = summarise(rows, soc_of)
+
+    COLUMNS["security_matrix"] = SECURITY_COLUMNS
+    COLUMNS["security_fields"] = FIELD_COLUMNS
+    tables = {"security_matrix": rows, "security_fields": fields}
+    for name, table in tables.items():
+        write_csv(settings.out_dir / f"{name}.csv", table, COLUMNS[name])
+    append_sqlite(settings.out_dir / "onet_stem.sqlite", tables)
+    (settings.out_dir / "security_report.json").write_text(json.dumps(report, indent=2))
+
+    from .matrix3d import build_matrix3d
+    build_matrix3d(rows, fields, settings.out_dir / "security_matrix.html", soc_of)
+
+    log.info("-" * 72)
+    log.info("national security matrix · %d occupations x 3 scenarios",
+             report["occupations"])
+    for scenario, s in report["scenarios"].items():
+        trap = s["by_octant"]["Strategic trap"]
+        prot = s["by_octant"]["Protect"]
+        log.info("  %-12s efficiency %4.1f  risk %4.1f  reconstitution %4.1f",
+                 scenario, s["mean_efficiency"], s["mean_removal_risk"],
+                 s["mean_reconstitution"])
+        log.info("               strategic trap %3d occ (%4.1f%% of workers) · "
+                 "protect %3d occ (%4.1f%%)",
+                 trap["occupations"], 100 * trap["share_employment"],
+                 prot["occupations"], 100 * prot["share_employment"])
+    return report

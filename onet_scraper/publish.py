@@ -19,7 +19,7 @@ log = logging.getLogger(__name__)
 DOMAIN = "onet.emersonjohnston.org"
 REPO = "https://github.com/evjohnston/onet-project"
 
-COPY = ("story.html", "dashboard.html")
+COPY = ("story.html", "dashboard.html", "security_matrix.html")
 METHODOLOGY = Path("METHODOLOGY.md")
 COPY_DIRS = ("figures",)
 DATA_FILES = (
@@ -28,6 +28,7 @@ DATA_FILES = (
     "soc_susceptibility.csv", "external_benchmarks.csv",
     "transitions.csv", "stranded_occupations.csv", "wage_deciles.csv",
     "task_churn_occupations.csv", "task_churn_steps.csv", "tasks_wide.csv",
+    "security_matrix.csv", "security_fields.csv",
 )
 
 
@@ -172,6 +173,7 @@ footer a{{color:var(--ink)}}
   <div class="cta">
     <a class="btn p" href="story.html">Read the story</a>
     <a class="btn ghost" href="dashboard.html">Open the dashboard</a>
+    <a class="btn ghost" href="security_matrix.html">Security matrix</a>
     <a class="btn ghost" href="methodology.html">Methodology</a>
     <a class="btn ghost" href="{REPO}">Source &amp; data</a>
   </div>
@@ -186,9 +188,11 @@ footer a{{color:var(--ink)}}
 </div></section>
 
 <section class="body tint"><div class="wrap">
-  <h2>Two ways in</h2>
+  <h2>Three ways in</h2>
   <p class="lead">The story walks through the argument in twelve chapters with two
-  interactives. The dashboard lets you interrogate the same tables directly.</p>
+  interactives. The dashboard lets you interrogate the same tables directly. The
+  security matrix asks a different question of the same data: not whether a handoff
+  will happen, but whether it could be undone.</p>
   <div class="cards">
     <a class="card" href="story.html">
       <p class="t">The story</p>
@@ -204,6 +208,15 @@ footer a{{color:var(--ink)}}
       measures. Network projections, the employment join, the validation panel, and a
       PNG export on every chart.</p>
       <span class="go">Explore &rarr;</span>
+    </a>
+    <a class="card" href="security_matrix.html">
+      <p class="t">The security matrix</p>
+      <p class="d">Every occupation on three axes at once: what AI deployment buys,
+      what it costs to remove the human, and how hard the capability would be to
+      rebuild. Rotatable in 3D with axis-aligned face views for reading values, a
+      scenario selector, and eight named cells from &ldquo;clear win&rdquo; to
+      &ldquo;strategic trap&rdquo;.</p>
+      <span class="go">Open &rarr;</span>
     </a>
   </div>
 </div></section>

@@ -1,0 +1,22 @@
+field,scenario,occupations,total_employment,efficiency,removal_risk,reconstitution,octant,trap_score
+Architecture and Engineering,extreme,56,2602660.0,79.9,54.6,63.6,Strategic trap,27.7
+Architecture and Engineering,modest,56,2602660.0,42.6,54.6,63.6,Protect,14.8
+Architecture and Engineering,substantial,56,2602660.0,64.8,54.6,63.6,Strategic trap,22.5
+Computer and Mathematical,extreme,36,5260120.0,95.5,45.4,58.5,Guard the pipeline,25.4
+Computer and Mathematical,modest,36,5260120.0,71.5,45.4,58.5,Guard the pipeline,19.0
+Computer and Mathematical,substantial,36,5260120.0,90.1,45.4,58.5,Guard the pipeline,23.9
+Healthcare Practitioners and Technical,extreme,89,9793540.0,63.4,72.3,59.4,Strategic trap,27.2
+Healthcare Practitioners and Technical,modest,89,9793540.0,28.9,72.3,59.4,Protect,12.4
+Healthcare Practitioners and Technical,substantial,89,9793540.0,42.3,72.3,59.4,Protect,18.2
+"Life, Physical, and Social Science",extreme,57,1291170.0,79.9,53.7,73.4,Strategic trap,31.5
+"Life, Physical, and Social Science",modest,57,1291170.0,44.7,53.7,73.4,Protect,17.6
+"Life, Physical, and Social Science",substantial,57,1291170.0,63.4,53.7,73.4,Strategic trap,25.0
+Managerial,extreme,7,1596600.0,89.5,53.4,60.8,Strategic trap,29.1
+Managerial,modest,7,1596600.0,49.2,53.4,60.8,Protect,16.0
+Managerial,substantial,7,1596600.0,66.5,53.4,60.8,Strategic trap,21.6
+Postsecondary Teaching,extreme,20,642420.0,95.6,44.0,68.3,Guard the pipeline,28.7
+Postsecondary Teaching,modest,20,642420.0,58.5,44.0,68.3,Guard the pipeline,17.6
+Postsecondary Teaching,substantial,20,642420.0,79.8,44.0,68.3,Guard the pipeline,24.0
+Sales,extreme,3,336590.0,95.8,35.2,52.3,Guard the pipeline,17.6
+Sales,modest,3,336590.0,65.9,35.2,52.3,Guard the pipeline,12.1
+Sales,substantial,3,336590.0,87.7,35.2,52.3,Guard the pipeline,16.1

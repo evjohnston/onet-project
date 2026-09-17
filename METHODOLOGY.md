@@ -297,6 +297,104 @@ the 153 occupations re-surveyed since 2022, 2.4% among the 115 that were not. Th
 unsplit 5.2% figure is diluted by occupations nobody checked, and no care with the
 diff fixes that.
 
+### 6.8 National security matrix
+
+`security_matrix.csv` places every occupation on three axes at once. The first
+two ask whether a handoff is *attractive*; the third asks whether it is
+*reversible*, which is the question the other measures in this dataset do not
+reach.
+
+| Axis | Built from |
+| --- | --- |
+| **x** AI efficiency | importance-weighted share of the occupation's task mass AI can carry — automated tasks at full credit, augmented at 0.5 |
+| **y** Risk of removing humans | 0.45 × error cost + 0.35 × accountability + 0.20 × judgment under uncertainty, importance-weighted |
+| **z** Reconstitution difficulty | 0.50 × training depth + 0.30 × workforce scarcity + 0.20 × isolation |
+
+Efficiency is deliberately **not** raw exposure. An occupation whose one exposed
+task carries 3% of its importance mass is not an efficiency opportunity, and
+averaging exposure across tasks would score it as though it were. Because
+efficiency reads the per-task verdicts from §6.6, it moves with the scenario:
+mean 42.6 at modest, 58.9 at substantial, 73.8 at extreme.
+
+**Why the risk weights exclude two dimensions we already have.** This index does
+not reuse `anchoring`, which averages stakes, interpersonal demand, judgment and
+physical embodiment. Two of those do not belong in a security reading:
+interpersonal demand is a service-quality property — a call centre scores high
+and carries no strategic risk — and physical embodiment is a capability *limit*,
+not a consequence, so work a robot cannot reach is not thereby high-stakes.
+Including them produces a general "human-centred work" index; excluding them is
+what makes this a risk index. That single choice is the main thing to argue with
+here, and the weights themselves are a calibrated judgment, not a measurement.
+
+Training depth comes from O\*NET's **Job Zone** (1–5, education and experience
+required), mapped linearly to 0–100. Scarcity is log-scaled employment — the
+corpus spans four orders of magnitude, and a linear read would call everything
+except registered nurses scarce. Isolation is the inverse of `mean_similarity`
+from the shared-activity network: where many neighbouring occupations share the
+work, people can cross-train in, and reconstitution is easier.
+
+The cube is split at 50 on each axis into eight named cells:
+
+| Cell | Modest | Substantial | Extreme |
+| --- | --- | --- | --- |
+| Strategic trap | 37 / 10.1% | 99 / 33.2% | 139 / 52.6% |
+| Guard the pipeline | 59 / 22.3% | 72 / 24.1% | 78 / 24.9% |
+| Protect | 130 / 50.4% | 68 / 27.3% | 28 / 8.0% |
+| Reversible gamble | 0 / 0.0% | 0 / 0.0% | 0 / 0.0% |
+| Quiet attrition | 33 / 4.7% | 20 / 2.9% | 14 / 2.1% |
+| Clear win | 4 / 5.7% | 4 / 5.7% | 5 / 7.9% |
+| Hold the line | 4 / 4.6% | 4 / 4.6% | 4 / 4.6% |
+| Low stakes | 1 / 2.2% | 1 / 2.2% | 0 / 0.0% |
+
+*(occupations / share of the 21,523,100 workers)*
+
+**The empty cell is a finding about the frame, not the workforce.** No occupation
+anywhere in this corpus is a "reversible gamble", and that is because the
+reconstitution axis has a **floor of 44.3** — every STEM occupation here is Job
+Zone 3 or above, so none is genuinely easy to rebuild. An absolute split at 50
+therefore leaves four of eight cells holding 9 occupations between them. The
+matrix page offers a second threshold, the corpus median (efficiency 60, risk 54,
+reconstitution 70), which populates all eight — 20 strategic traps rather than 99.
+Neither reading is the correct one. The absolute split answers "is this
+occupation dangerous on an interpretable scale"; the median split answers "which
+of these occupations is most dangerous relative to the others". They are
+different questions and the page does not choose.
+
+**Employment partitions on a per-occupation share, not the SOC figure.** §6.3
+collapses O\*NET occupations to SOC before summing, which is right for a total
+and wrong for a partition: 18 of the 37 multi-occupation SOCs have members that
+land in *different* cells. SOC 19-1029 splits four occupations across three cells,
+and crediting each cell the SOC's full 55,850 makes the cell shares add to 130%.
+Each SOC's employment is therefore divided evenly among its constituent
+occupations. The even split is an assumption — O\*NET does not publish how a
+SOC's workers divide — but every slice then sums exactly to 21,523,100 however
+the reader cuts it. The alternative, classifying whole SOCs, would discard the
+occupation-level distinctions the matrix exists to show.
+
+Aggregated to field, weighting each axis by employment:
+
+| Field | Workers | Eff | Risk | Recon | Cell |
+| --- | --- | --- | --- | --- | --- |
+| Healthcare Practitioners and Technical | 9,793,540 | 42.3 | 72.3 | 59.4 | Protect |
+| Computer and Mathematical | 5,260,120 | 90.1 | 45.4 | 58.5 | Guard the pipeline |
+| Architecture and Engineering | 2,602,660 | 64.8 | 54.6 | 63.6 | Strategic trap |
+| Managerial | 1,596,600 | 66.5 | 53.4 | 60.8 | Strategic trap |
+| Life, Physical, and Social Science | 1,291,170 | 63.4 | 53.7 | 73.4 | Strategic trap |
+| Postsecondary Teaching | 642,420 | 79.8 | 44.0 | 68.3 | Guard the pipeline |
+| Sales | 336,590 | 87.7 | 35.2 | 52.3 | Guard the pipeline |
+
+Field is the leaf STEM discipline where an occupation has one, and the top-level
+role type for the 31 — teaching, management, sales — that do not. An occupation
+with several leaf memberships takes the lowest category id, so the assignment is
+deterministic across runs.
+
+**What this is not.** O\*NET carries no industry, clearance or criticality field,
+so nothing here identifies an occupation as defence-relevant. The matrix scores
+*properties* that make a handoff strategically dangerous, across the whole STEM
+corpus. Which fields matter is the reader's overlay, not our measurement — and the
+word "security" in the title describes the question being asked, not a
+classification this dataset is able to make.
+
 ## 7. Validation
 
 **Internal — 11 automated checks**, in `data/out/validation_report.json`. Errors

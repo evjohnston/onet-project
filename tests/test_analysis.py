@@ -22,6 +22,7 @@ from onet_scraper.network import (  # noqa: E402
     validate_against_related,
     write_graphml,
 )
+from onet_scraper import security  # noqa: E402
 from onet_scraper.score import estimate_cost, propagate, subtask_catalogue  # noqa: E402
 
 TASKS = [
@@ -218,6 +219,245 @@ class TestIndices(unittest.TestCase):
               "Related Title": "B", "Relatedness Tier": "Primary-Short", "Index": "1"}],
             {"15-0001.00", "29-0002.00"})
         self.assertEqual(rows[0]["related_is_stem"], 1)
+
+
+class TestSecurityMatrix(unittest.TestCase):
+    """The efficiency / removal-risk / reconstitution matrix."""
+
+    def _task(self, **kw):
+        base = {"onet_soc_code": "15-0001.00", "task_id": 1, "importance": 50.0,
+                "modest": "unchanged", "substantial": "unchanged",
+                "extreme": "unchanged", "error_cost": 50.0,
+                "accountability_requirement": 50.0,
+                "judgment_under_uncertainty": 50.0,
+                "interpersonal_demand": 50.0,
+                "physical_embodiment_required": 50.0}
+        base.update(kw)
+        return base
+
+    def test_efficiency_credits_automated_fully_and_augmented_partly(self):
+        auto = [self._task(substantial="automated")]
+        aug = [self._task(substantial="augmented")]
+        none = [self._task(substantial="unchanged")]
+        self.assertEqual(security.efficiency(auto, "substantial"), 100.0)
+        self.assertEqual(security.efficiency(none, "substantial"), 0.0)
+        self.assertEqual(security.efficiency(aug, "substantial"),
+                         100.0 * security.AUGMENTED_CREDIT)
+
+    def test_efficiency_is_importance_weighted_not_a_task_count(self):
+        # One trivial automatable task plus one dominant task that stays human
+        # is not an efficiency opportunity, even though it is 50% of the tasks.
+        tasks = [self._task(task_id=1, importance=5.0, substantial="automated"),
+                 self._task(task_id=2, importance=95.0, substantial="unchanged")]
+        self.assertEqual(security.efficiency(tasks, "substantial"), 5.0)
+
+    def test_efficiency_rises_with_scenario_severity(self):
+        tasks = [self._task(task_id=1, modest="unchanged",
+                            substantial="augmented", extreme="automated")]
+        modest = security.efficiency(tasks, "modest")
+        substantial = security.efficiency(tasks, "substantial")
+        extreme = security.efficiency(tasks, "extreme")
+        self.assertLess(modest, substantial)
+        self.assertLess(substantial, extreme)
+
+    def test_removal_risk_ignores_interpersonal_and_physical(self):
+        """The central design claim: this is a risk index, not an
+        anchoring index. Two tasks differing only in interpersonal demand and
+        physical embodiment must score identically."""
+        low = [self._task(interpersonal_demand=0.0, physical_embodiment_required=0.0)]
+        high = [self._task(interpersonal_demand=100.0,
+                           physical_embodiment_required=100.0)]
+        self.assertEqual(security.removal_risk(low), security.removal_risk(high))
+
+    def test_removal_risk_weights_error_cost_highest(self):
+        base = self._task(error_cost=0.0, accountability_requirement=0.0,
+                          judgment_under_uncertainty=0.0)
+        bump_error = security.removal_risk([dict(base, error_cost=100.0)])
+        bump_acct = security.removal_risk(
+            [dict(base, accountability_requirement=100.0)])
+        bump_judge = security.removal_risk(
+            [dict(base, judgment_under_uncertainty=100.0)])
+        self.assertGreater(bump_error, bump_acct)
+        self.assertGreater(bump_acct, bump_judge)
+        self.assertAlmostEqual(
+            sum(security.RISK_WEIGHTS.values()), 1.0, places=6)
+
+    def test_risk_at_stake_only_counts_handed_over_work(self):
+        # The risky task stays human; the automated task is harmless. Overall
+        # risk is high, but the risk actually being handed over is not.
+        tasks = [self._task(task_id=1, importance=50.0, error_cost=100.0,
+                            accountability_requirement=100.0,
+                            judgment_under_uncertainty=100.0,
+                            substantial="unchanged"),
+                 self._task(task_id=2, importance=50.0, error_cost=0.0,
+                            accountability_requirement=0.0,
+                            judgment_under_uncertainty=0.0,
+                            substantial="automated")]
+        self.assertAlmostEqual(security.removal_risk(tasks), 50.0, places=1)
+        self.assertEqual(security.risk_at_stake(tasks, "substantial"), 0.0)
+
+    def test_risk_at_stake_is_zero_when_nothing_is_handed_over(self):
+        tasks = [self._task(substantial="unchanged")]
+        self.assertEqual(security.risk_at_stake(tasks, "substantial"), 0.0)
+
+    def test_reconstitution_rises_with_training_depth(self):
+        shallow = security.reconstitution(3, 10000, 0.3, 3.0, 6.0)
+        deep = security.reconstitution(5, 10000, 0.3, 3.0, 6.0)
+        self.assertLess(shallow["reconstitution"], deep["reconstitution"])
+        self.assertEqual(deep["training_depth"], 100.0)
+
+    def test_reconstitution_treats_small_cohorts_as_harder(self):
+        tiny = security.reconstitution(4, 1_000, 0.3, 3.0, 6.0)
+        huge = security.reconstitution(4, 1_000_000, 0.3, 3.0, 6.0)
+        self.assertGreater(tiny["scarcity"], huge["scarcity"])
+        self.assertGreater(tiny["reconstitution"], huge["reconstitution"])
+
+    def test_scarcity_is_log_scaled(self):
+        """A linear scale would call everything except the largest occupation
+        scarce, because the corpus spans four orders of magnitude."""
+        mid = security._scarcity(10**4.5, 3.0, 6.0)
+        self.assertAlmostEqual(mid, 50.0, places=1)
+
+    def test_isolation_is_the_inverse_of_shared_activity(self):
+        shared = security.reconstitution(4, 10000, 0.9, 3.0, 6.0)
+        isolated = security.reconstitution(4, 10000, 0.1, 3.0, 6.0)
+        self.assertLess(shared["isolation"], isolated["isolation"])
+        self.assertLess(shared["reconstitution"], isolated["reconstitution"])
+
+    def test_missing_inputs_fall_back_to_the_midpoint(self):
+        parts = security.reconstitution(None, None, None, 3.0, 6.0)
+        self.assertEqual(parts["scarcity"], security.MIDPOINT)
+        self.assertEqual(parts["isolation"], security.MIDPOINT)
+        self.assertEqual(parts["reconstitution"], security.MIDPOINT)
+
+    def test_all_eight_octants_are_reachable_and_named(self):
+        seen = set()
+        for eff in (10.0, 90.0):
+            for risk in (10.0, 90.0):
+                for recon in (10.0, 90.0):
+                    seen.add(security.octant(eff, risk, recon)[0])
+        self.assertEqual(len(seen), 8)
+        self.assertEqual(len(security.OCTANTS), 8)
+        self.assertEqual(len({n for n, _ in security.OCTANTS.values()}), 8)
+
+    def test_octant_boundary_is_inclusive_at_the_midpoint(self):
+        self.assertEqual(security.octant(50.0, 50.0, 50.0)[0], "Strategic trap")
+        self.assertEqual(security.octant(49.9, 49.9, 49.9)[0], "Low stakes")
+
+    def test_trap_score_is_a_product_so_one_low_axis_demotes(self):
+        """A sum would rank overwhelming-efficiency-no-risk above
+        dangerous-on-all-three, which inverts what a planner needs to read."""
+        lopsided = security.trap_score(100.0, 5.0, 5.0)
+        balanced = security.trap_score(60.0, 60.0, 60.0)
+        self.assertGreater(balanced, lopsided)
+
+    def test_field_map_prefers_a_leaf_discipline_over_a_role_type(self):
+        cats = [{"stem_category_id": "1", "stem_category_name": "Role", "is_leaf": "0"},
+                {"stem_category_id": "1-2", "stem_category_name": "Discipline",
+                 "is_leaf": "1"}]
+        members = [{"onet_soc_code": "X", "stem_category_id": "1"},
+                   {"onet_soc_code": "X", "stem_category_id": "1-2"}]
+        self.assertEqual(security.field_map(members, cats)["X"], "Discipline")
+        # reversed input order must not change the answer
+        self.assertEqual(
+            security.field_map(list(reversed(members)), cats)["X"], "Discipline")
+
+    def test_field_map_falls_back_to_role_type_when_no_discipline(self):
+        cats = [{"stem_category_id": "4", "stem_category_name": "Managerial",
+                 "is_leaf": "0"}]
+        members = [{"onet_soc_code": "X", "stem_category_id": "4"}]
+        self.assertEqual(security.field_map(members, cats)["X"], "Managerial")
+
+    def test_field_map_is_deterministic_with_two_disciplines(self):
+        cats = [{"stem_category_id": "1-2", "stem_category_name": "Comp",
+                 "is_leaf": "1"},
+                {"stem_category_id": "1-4", "stem_category_name": "Science",
+                 "is_leaf": "1"}]
+        members = [{"onet_soc_code": "X", "stem_category_id": "1-4"},
+                   {"onet_soc_code": "X", "stem_category_id": "1-2"}]
+        self.assertEqual(security.field_map(members, cats)["X"], "Comp")
+
+    # -- the double-count regression -------------------------------------
+    def _corpus(self):
+        fates = [
+            {"onet_soc_code": "29-1141.00", "task_id": 1, "importance": 90.0,
+             "modest": "unchanged", "substantial": "automated",
+             "extreme": "automated"},
+            {"onet_soc_code": "29-1141.01", "task_id": 2, "importance": 90.0,
+             "modest": "unchanged", "substantial": "automated",
+             "extreme": "automated"},
+        ]
+        scores = [
+            {"task_id": 1, "error_cost": 90.0, "accountability_requirement": 90.0,
+             "judgment_under_uncertainty": 90.0},
+            {"task_id": 2, "error_cost": 90.0, "accountability_requirement": 90.0,
+             "judgment_under_uncertainty": 90.0},
+        ]
+        occs = [
+            {"onet_soc_code": "29-1141.00", "title": "Nurses", "job_zone": 4,
+             "stem_occupation_types": "Healthcare"},
+            {"onet_soc_code": "29-1141.01", "title": "Acute Nurses", "job_zone": 4,
+             "stem_occupation_types": "Healthcare"},
+        ]
+        # Both O*NET codes roll up to one SOC and each carries its full figure.
+        emp = {"29-1141.00": 3_000_000.0, "29-1141.01": 3_000_000.0}
+        soc_of = {"29-1141.00": "29-1141", "29-1141.01": "29-1141"}
+        fields = {"29-1141.00": "Healthcare", "29-1141.01": "Healthcare"}
+        return fates, scores, occs, emp, soc_of, fields
+
+    def test_field_employment_collapses_to_soc_before_summing(self):
+        """Both O*NET codes roll up to one SOC and each carries its full figure.
+        Knowing the SOC map at build time is what prevents the double count -
+        without it every occupation looks like its own SOC."""
+        fates, scores, occs, emp, soc_of, fields = self._corpus()
+        correct = security.by_field(
+            security.build(fates, scores, occs, emp, fields=fields, soc_of=soc_of))
+        naive = security.by_field(
+            security.build(fates, scores, occs, emp, fields=fields))
+        one = [r for r in correct if r["scenario"] == "substantial"][0]
+        two = [r for r in naive if r["scenario"] == "substantial"][0]
+        self.assertEqual(one["total_employment"], 3_000_000.0)
+        self.assertEqual(two["total_employment"], 6_000_000.0)
+        self.assertNotEqual(one["total_employment"], two["total_employment"])
+
+    def test_summary_employment_collapses_to_soc(self):
+        fates, scores, occs, emp, soc_of, fields = self._corpus()
+        rows = security.build(fates, scores, occs, emp, fields=fields, soc_of=soc_of)
+        report = security.summarise(rows, soc_of)
+        self.assertEqual(
+            report["scenarios"]["substantial"]["total_employment"], 3_000_000.0)
+        shares = [c["share_employment"]
+                  for c in report["scenarios"]["substantial"]["by_octant"].values()]
+        self.assertAlmostEqual(sum(shares), 1.0, places=3)
+
+    def test_build_emits_one_row_per_occupation_per_scenario(self):
+        fates, scores, occs, emp, soc_of, fields = self._corpus()
+        rows = security.build(fates, scores, occs, emp, fields=fields)
+        self.assertEqual(len(rows), 6)
+        self.assertEqual({r["scenario"] for r in rows},
+                         {"modest", "substantial", "extreme"})
+        self.assertEqual({r["field"] for r in rows}, {"Healthcare"})
+
+    def test_build_skips_occupations_with_no_scored_tasks(self):
+        fates, scores, occs, emp, soc_of, fields = self._corpus()
+        occs.append({"onet_soc_code": "99-9999.00", "title": "Ghost",
+                     "job_zone": 4, "stem_occupation_types": "Healthcare"})
+        rows = security.build(fates, scores, occs, emp, fields=fields)
+        self.assertNotIn("99-9999.00", {r["onet_soc_code"] for r in rows})
+
+    def test_ranking_is_insensitive_to_the_augmented_credit(self):
+        """AUGMENTED_CREDIT is a round number standing in for 'some'. The
+        ordering it produces must not depend on the exact value."""
+        tasks_a = [self._task(task_id=1, importance=80.0, substantial="augmented")]
+        tasks_b = [self._task(task_id=2, importance=80.0, substantial="automated")]
+        original = security.AUGMENTED_CREDIT
+        try:
+            for credit in (0.35, 0.5, 0.65):
+                security.AUGMENTED_CREDIT = credit
+                self.assertLess(security.efficiency(tasks_a, "substantial"),
+                                security.efficiency(tasks_b, "substantial"))
+        finally:
+            security.AUGMENTED_CREDIT = original
 
 
 if __name__ == "__main__":
@@ -657,3 +897,80 @@ class TestScenarios(unittest.TestCase):
                             [{"onet_soc_code": "15-0001.00", "task": "new thing"}],
                             {"15-0001.00": "X"}, {}, set())
         self.assertTrue(all(r["new_tasks"] == 1 for r in occ))
+
+
+class TestSecuritySeverity(unittest.TestCase):
+    def test_every_octant_has_a_severity(self):
+        names = {n for n, _ in security.OCTANTS.values()}
+        self.assertEqual(names, set(security.SEVERITY))
+
+    def test_severity_tiers_are_in_range(self):
+        self.assertTrue(all(0 <= v < len(security.SEVERITY_LABELS)
+                            for v in security.SEVERITY.values()))
+        self.assertEqual(len(security.SEVERITY_LABELS), 4)
+
+    def test_strategic_trap_is_the_only_critical_cell(self):
+        top = max(security.SEVERITY.values())
+        critical = [n for n, v in security.SEVERITY.items() if v == top]
+        self.assertEqual(critical, ["Strategic trap"])
+
+    def test_irreversible_outranks_reversible_at_equal_risk(self):
+        """Quiet attrition and Hold the line both sit at low efficiency; the
+        first is irreversible, the second is not, and that must show up."""
+        self.assertGreater(security.severity("Quiet attrition"),
+                           security.severity("Hold the line"))
+
+    def test_unknown_octant_is_lowest_not_an_error(self):
+        self.assertEqual(security.severity("nonsense"), 0)
+
+
+class TestSecurityEmploymentPartition(unittest.TestCase):
+    """Employment must partition exactly, however the matrix is sliced."""
+
+    SOC_OF = {"19-1029.00": "19-1029", "19-1029.01": "19-1029",
+              "19-1029.02": "19-1029", "29-1141.00": "29-1141"}
+    EMP = {"19-1029.00": 55_850.0, "19-1029.01": 55_850.0,
+           "19-1029.02": 55_850.0, "29-1141.00": 3_000_000.0}
+
+    def test_share_splits_a_soc_evenly_and_preserves_the_total(self):
+        shares = security.employment_shares(
+            list(self.SOC_OF), self.EMP, self.SOC_OF)
+        self.assertAlmostEqual(shares["19-1029.00"], 55_850.0 / 3, places=4)
+        self.assertEqual(shares["29-1141.00"], 3_000_000.0)
+        self.assertAlmostEqual(sum(shares.values()), 55_850.0 + 3_000_000.0, places=3)
+
+    def test_naive_soc_dedup_overcounts_a_straddling_soc(self):
+        """The bug this exists to prevent: three occupations of one SOC landing
+        in three different cells, each cell claiming the whole SOC."""
+        shares = security.employment_shares(
+            list(self.SOC_OF), self.EMP, self.SOC_OF)
+        cells = [["19-1029.00"], ["19-1029.01"], ["19-1029.02"]]
+        by_share = sum(sum(shares[c] for c in cell) for cell in cells)
+        by_soc_dedup = sum(self.EMP[cell[0]] for cell in cells)
+        self.assertAlmostEqual(by_share, 55_850.0, places=3)
+        self.assertEqual(by_soc_dedup, 55_850.0 * 3)
+        self.assertNotEqual(round(by_share), by_soc_dedup)
+
+    def test_occupation_with_no_employment_gets_no_share(self):
+        shares = security.employment_shares(["X.00"], {}, {"X.00": "X"})
+        self.assertNotIn("X.00", shares)
+
+    def test_cell_shares_sum_to_one(self):
+        fates, scores, occs, emp, soc_of, fields = \
+            TestSecurityMatrix._corpus(TestSecurityMatrix())
+        rows = security.build(fates, scores, occs, emp, fields=fields, soc_of=soc_of)
+        report = security.summarise(rows, soc_of)
+        for scenario, s in report["scenarios"].items():
+            shares = [c["share_employment"] for c in s["by_octant"].values()]
+            self.assertAlmostEqual(sum(shares), 1.0, places=3, msg=scenario)
+            self.assertEqual(s["total_employment"], 3_000_000.0)
+
+    def test_field_totals_sum_to_the_corpus_total(self):
+        fates, scores, occs, emp, soc_of, fields = \
+            TestSecurityMatrix._corpus(TestSecurityMatrix())
+        rows = security.build(fates, scores, occs, emp, fields=fields, soc_of=soc_of)
+        for scenario in ("modest", "substantial", "extreme"):
+            fl = [f for f in security.by_field(rows, soc_of)
+                  if f["scenario"] == scenario]
+            self.assertAlmostEqual(sum(f["total_employment"] for f in fl),
+                                   3_000_000.0, places=3)

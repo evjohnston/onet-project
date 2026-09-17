@@ -37,6 +37,7 @@ from .stages import (
     run_publish,
     run_report,
     run_scenarios,
+    run_security,
     run_scroller,
     run_score,
 )
@@ -116,7 +117,7 @@ def build_parser() -> argparse.ArgumentParser:
         default="run",
         choices=["run", "fetch-stem", "fetch-occupations", "fetch-bulk",
                  "fetch-descriptors", "build", "validate", "network", "score",
-                 "report", "employment", "validate-external", "figures", "story", "churn", "pathways", "publish", "scenarios",
+                 "report", "employment", "validate-external", "figures", "story", "churn", "pathways", "publish", "scenarios", "security",
                  "clean-cache"],
         help="which stage to run (default: run = all of them)",
     )
@@ -205,6 +206,10 @@ def main(argv: list[str] | None = None) -> int:
 
     if stage == "scenarios":
         run_scenarios(settings)
+        return 0
+
+    if stage == "security":
+        run_security(settings)
         return 0
 
     if stage == "pathways":
