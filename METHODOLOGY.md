@@ -310,6 +310,18 @@ reach.
 | **y** Risk of removing humans | 0.45 × error cost + 0.35 × accountability + 0.20 × judgment under uncertainty, importance-weighted |
 | **z** Reconstitution difficulty | 0.50 × training depth + 0.30 × workforce scarcity + 0.20 × isolation |
 
+**Unrated tasks still carry weight.** O\*NET does not rate task importance for
+every occupation: 159 of 5,612 tasks here carry none, and for six occupations —
+Cardiologists, Pediatric and Orthopedic Surgeons, Emergency Medical Technicians,
+Hydrologic Technicians, Health Information Technologists — *every* task is
+unrated. The first implementation skipped unrated tasks, which left those six
+with a zero denominator, returned 0.0 on both axes, and filed surgeons under
+"nothing is pushing this work toward AI". An unrated task now takes the mean
+importance of the rated tasks in the same occupation, and an occupation with
+nothing rated falls back to equal weighting — which says we do not know which of
+its tasks matters more, not that none of them matters. Radiologists, who had 13
+of 30 tasks unrated, move cell as a result, so this is not only about the six.
+
 Efficiency is deliberately **not** raw exposure. An occupation whose one exposed
 task carries 3% of its importance mass is not an efficiency opportunity, and
 averaging exposure across tasks would score it as though it were. Because
@@ -337,11 +349,11 @@ The cube is split at 50 on each axis into eight named cells:
 
 | Cell | Modest | Substantial | Extreme |
 | --- | ---: | ---: | ---: |
-| Strategic trap | 37 / 10.1% | 99 / 33.2% | 139 / 52.6% |
-| Guard the pipeline | 59 / 22.3% | 72 / 24.1% | 78 / 24.9% |
-| Protect | 130 / 50.4% | 68 / 27.3% | 28 / 8.0% |
+| Strategic trap | 38 / 10.3% | 99 / 33.3% | 143 / 52.9% |
+| Guard the pipeline | 60 / 22.4% | 73 / 24.1% | 80 / 25.0% |
+| Protect | 134 / 51.4% | 73 / 28.4% | 29 / 8.8% |
 | Reversible gamble | 0 / 0.0% | 0 / 0.0% | 0 / 0.0% |
-| Quiet attrition | 33 / 4.7% | 20 / 2.9% | 14 / 2.1% |
+| Quiet attrition | 27 / 3.5% | 14 / 1.7% | 7 / 0.9% |
 | Clear win | 4 / 5.7% | 4 / 5.7% | 5 / 7.9% |
 | Hold the line | 4 / 4.6% | 4 / 4.6% | 4 / 4.6% |
 | Low stakes | 1 / 2.2% | 1 / 2.2% | 0 / 0.0% |

@@ -1045,3 +1045,58 @@ class TestSharedTheme(unittest.TestCase):
         src = inspect.getsource(dashboard)
         self.assertNotIn("window.DATA?.hand", src)
         self.assertIn("new Map((DATA.hand || [])", src)
+
+
+class TestSecurityWeighting(unittest.TestCase):
+    """No task may be silently dropped from its own occupation's score."""
+
+    def _t(self, **kw):
+        base = {"importance": 50.0, "substantial": "unchanged", "error_cost": 50.0,
+                "accountability_requirement": 50.0, "judgment_under_uncertainty": 50.0}
+        base.update(kw)
+        return base
+
+    def test_unrated_task_takes_the_occupations_mean(self):
+        tasks = [self._t(importance=80.0), self._t(importance=40.0),
+                 self._t(importance="")]
+        self.assertEqual(security.weights(tasks), [80.0, 40.0, 60.0])
+
+    def test_wholly_unrated_occupation_falls_back_to_equal_weights(self):
+        tasks = [self._t(importance=""), self._t(importance=""), self._t(importance="")]
+        self.assertEqual(security.weights(tasks), [1.0, 1.0, 1.0])
+
+    def test_a_surgeon_with_no_importance_ratings_is_not_scored_zero(self):
+        """The bug: O*NET rates no task importance for Cardiologists, Pediatric
+        and Orthopedic Surgeons or EMTs, the weighted mean divided by zero, and
+        they were returned as risk 0.0 and filed under 'Quiet attrition'."""
+        tasks = [self._t(importance="", error_cost=95.0,
+                         accountability_requirement=95.0,
+                         judgment_under_uncertainty=90.0) for _ in range(5)]
+        risk = security.removal_risk(tasks)
+        self.assertGreater(risk, 80.0)
+        self.assertNotEqual(risk, 0.0)
+        name, _ = security.octant(20.0, risk, 85.0)
+        self.assertEqual(name, "Protect")
+
+    def test_efficiency_is_not_zero_for_a_wholly_unrated_occupation(self):
+        tasks = [self._t(importance="", substantial="automated") for _ in range(4)]
+        self.assertEqual(security.efficiency(tasks, "substantial"), 100.0)
+
+    def test_partially_rated_occupation_still_counts_every_task(self):
+        """Radiologists had 13 of 30 tasks unrated; dropping them changed the
+        occupation's cell, so the unrated ones have to carry weight."""
+        rated_only = [self._t(importance=90.0, substantial="unchanged")]
+        with_unrated = rated_only + [self._t(importance="", substantial="automated")]
+        self.assertEqual(security.efficiency(rated_only, "substantial"), 0.0)
+        self.assertGreater(security.efficiency(with_unrated, "substantial"), 0.0)
+
+    def test_weights_length_always_matches_task_count(self):
+        for n in (0, 1, 5):
+            tasks = [self._t() for _ in range(n)]
+            self.assertEqual(len(security.weights(tasks)), n)
+
+    def test_negative_and_zero_importance_are_treated_as_missing(self):
+        """O*NET's sort sentinel puts -2.0 behind 'Not available'."""
+        tasks = [self._t(importance=60.0), self._t(importance=-2.0),
+                 self._t(importance=0.0)]
+        self.assertEqual(security.weights(tasks), [60.0, 60.0, 60.0])

@@ -52,6 +52,7 @@ import collections
 import logging
 import math
 import statistics
+from statistics import fmean
 from typing import Any, Iterable, Sequence
 
 log = logging.getLogger(__name__)
@@ -97,13 +98,30 @@ def _f(row: dict[str, Any], key: str, default: float = 0.0) -> float:
         return default
 
 
+def weights(tasks: Sequence[dict[str, Any]]) -> list[float]:
+    """One weight per task, with no task silently dropped.
+
+    O*NET does not rate task importance for every occupation - 159 of 5,612
+    tasks here carry none, and for six occupations (Cardiologists, Pediatric and
+    Orthopedic Surgeons, Emergency Medical Technicians, Hydrologic Technicians,
+    Health Information Technologists) *every* task is unrated. Skipping unrated
+    tasks left those occupations with a zero denominator, which returned 0.0 and
+    filed surgeons under "nothing is pushing this work toward AI".
+
+    So: an unrated task takes the mean of the rated tasks in the same
+    occupation, and an occupation with nothing rated falls back to equal
+    weighting. Equal weighting is the honest default - it says we do not know
+    which of these tasks matters more, not that none of them matters.
+    """
+    rated = [_f(t, "importance") for t in tasks if _f(t, "importance") > 0]
+    fill = fmean(rated) if rated else 1.0
+    return [_f(t, "importance") if _f(t, "importance") > 0 else fill for t in tasks]
+
+
 def efficiency(tasks: Sequence[dict[str, Any]], scenario: str) -> float:
     """Importance-weighted share of an occupation's task mass AI can carry."""
     num = den = 0.0
-    for t in tasks:
-        weight = _f(t, "importance")
-        if weight <= 0:
-            continue
+    for t, weight in zip(tasks, weights(tasks)):
         fate = (t.get(scenario) or "").strip()
         credit = 1.0 if fate == "automated" else (
             AUGMENTED_CREDIT if fate == "augmented" else 0.0)
@@ -115,10 +133,7 @@ def efficiency(tasks: Sequence[dict[str, Any]], scenario: str) -> float:
 def removal_risk(tasks: Sequence[dict[str, Any]]) -> float:
     """Importance-weighted cost of taking the human out of the loop."""
     num = den = 0.0
-    for t in tasks:
-        weight = _f(t, "importance")
-        if weight <= 0:
-            continue
+    for t, weight in zip(tasks, weights(tasks)):
         score = sum(w * _f(t, key) for key, w in RISK_WEIGHTS.items())
         num += weight * score
         den += weight
@@ -133,11 +148,11 @@ def risk_at_stake(tasks: Sequence[dict[str, Any]], scenario: str) -> float:
     work is exactly the work being handed over, and this separates them.
     """
     num = den = 0.0
-    for t in tasks:
+    for t, base in zip(tasks, weights(tasks)):
         fate = (t.get(scenario) or "").strip()
         credit = 1.0 if fate == "automated" else (
             AUGMENTED_CREDIT if fate == "augmented" else 0.0)
-        weight = _f(t, "importance") * credit
+        weight = base * credit
         if weight <= 0:
             continue
         num += weight * sum(w * _f(t, key) for key, w in RISK_WEIGHTS.items())

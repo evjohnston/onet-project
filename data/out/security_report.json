@@ -4,9 +4,9 @@
     "extreme": {
       "by_octant": {
         "Strategic trap": {
-          "occupations": 139,
-          "employment": 11316490.972222222,
-          "share_employment": 0.5258
+          "occupations": 143,
+          "employment": 11387170.972222222,
+          "share_employment": 0.5291
         },
         "Reversible gamble": {
           "occupations": 0,
@@ -14,9 +14,9 @@
           "share_employment": 0.0
         },
         "Guard the pipeline": {
-          "occupations": 78,
-          "employment": 5362189.583333333,
-          "share_employment": 0.2491
+          "occupations": 80,
+          "employment": 5372789.583333333,
+          "share_employment": 0.2496
         },
         "Clear win": {
           "occupations": 5,
@@ -24,9 +24,9 @@
           "share_employment": 0.0787
         },
         "Protect": {
-          "occupations": 28,
-          "employment": 1710065.0,
-          "share_employment": 0.0795
+          "occupations": 29,
+          "employment": 1890575.0,
+          "share_employment": 0.0878
         },
         "Hold the line": {
           "occupations": 4,
@@ -34,9 +34,9 @@
           "share_employment": 0.046
         },
         "Quiet attrition": {
-          "occupations": 14,
-          "employment": 450490.0,
-          "share_employment": 0.0209
+          "occupations": 7,
+          "employment": 188700.0,
+          "share_employment": 0.0088
         },
         "Low stakes": {
           "occupations": 0,
@@ -45,8 +45,8 @@
         }
       },
       "total_employment": 21523100.0,
-      "mean_efficiency": 73.8,
-      "mean_removal_risk": 55.4,
+      "mean_efficiency": 75.2,
+      "mean_removal_risk": 56.9,
       "mean_reconstitution": 69.1,
       "top_traps": [
         {
@@ -62,13 +62,6 @@
           "efficiency": 81.3,
           "removal_risk": 80.0,
           "reconstitution": 83.5
-        },
-        {
-          "title": "Radiologists",
-          "trap_score": 53.4,
-          "efficiency": 85.0,
-          "removal_risk": 76.6,
-          "reconstitution": 82.0
         },
         {
           "title": "Psychiatrists",
@@ -99,6 +92,13 @@
           "reconstitution": 85.9
         },
         {
+          "title": "Radiologists",
+          "trap_score": 48.6,
+          "efficiency": 76.5,
+          "removal_risk": 77.4,
+          "reconstitution": 82.0
+        },
+        {
           "title": "General Internal Medicine Physicians",
           "trap_score": 48.0,
           "efficiency": 76.7,
@@ -124,9 +124,9 @@
     "modest": {
       "by_octant": {
         "Strategic trap": {
-          "occupations": 37,
-          "employment": 2179169.3055555555,
-          "share_employment": 0.1012
+          "occupations": 38,
+          "employment": 2217269.3055555555,
+          "share_employment": 0.103
         },
         "Reversible gamble": {
           "occupations": 0,
@@ -134,9 +134,9 @@
           "share_employment": 0.0
         },
         "Guard the pipeline": {
-          "occupations": 59,
-          "employment": 4807749.583333333,
-          "share_employment": 0.2234
+          "occupations": 60,
+          "employment": 4810589.583333333,
+          "share_employment": 0.2235
         },
         "Clear win": {
           "occupations": 4,
@@ -144,9 +144,9 @@
           "share_employment": 0.0568
         },
         "Protect": {
-          "occupations": 130,
-          "employment": 10847386.666666666,
-          "share_employment": 0.504
+          "occupations": 134,
+          "employment": 11060476.666666666,
+          "share_employment": 0.5139
         },
         "Hold the line": {
           "occupations": 4,
@@ -154,9 +154,9 @@
           "share_employment": 0.046
         },
         "Quiet attrition": {
-          "occupations": 33,
-          "employment": 1004930.0,
-          "share_employment": 0.0467
+          "occupations": 27,
+          "employment": 750900.0,
+          "share_employment": 0.0349
         },
         "Low stakes": {
           "occupations": 1,
@@ -165,8 +165,8 @@
         }
       },
       "total_employment": 21523100.0,
-      "mean_efficiency": 42.6,
-      "mean_removal_risk": 55.4,
+      "mean_efficiency": 43.3,
+      "mean_removal_risk": 56.9,
       "mean_reconstitution": 69.1,
       "top_traps": [
         {
@@ -245,8 +245,8 @@
       "by_octant": {
         "Strategic trap": {
           "occupations": 99,
-          "employment": 7145652.472222222,
-          "share_employment": 0.332
+          "employment": 7158447.472222222,
+          "share_employment": 0.3326
         },
         "Reversible gamble": {
           "occupations": 0,
@@ -254,9 +254,9 @@
           "share_employment": 0.0
         },
         "Guard the pipeline": {
-          "occupations": 72,
-          "employment": 5189019.583333333,
-          "share_employment": 0.2411
+          "occupations": 73,
+          "employment": 5191859.583333333,
+          "share_employment": 0.2412
         },
         "Clear win": {
           "occupations": 4,
@@ -264,9 +264,9 @@
           "share_employment": 0.0568
         },
         "Protect": {
-          "occupations": 68,
-          "employment": 5880903.5,
-          "share_employment": 0.2732
+          "occupations": 73,
+          "employment": 6119298.5,
+          "share_employment": 0.2843
         },
         "Hold the line": {
           "occupations": 4,
@@ -274,9 +274,9 @@
           "share_employment": 0.046
         },
         "Quiet attrition": {
-          "occupations": 20,
-          "employment": 623660.0,
-          "share_employment": 0.029
+          "occupations": 14,
+          "employment": 369630.0,
+          "share_employment": 0.0172
         },
         "Low stakes": {
           "occupations": 1,
@@ -285,8 +285,8 @@
         }
       },
       "total_employment": 21523100.0,
-      "mean_efficiency": 58.9,
-      "mean_removal_risk": 55.4,
+      "mean_efficiency": 60.0,
+      "mean_removal_risk": 56.9,
       "mean_reconstitution": 69.1,
       "top_traps": [
         {
@@ -295,13 +295,6 @@
           "efficiency": 64.7,
           "removal_risk": 74.1,
           "reconstitution": 88.7
-        },
-        {
-          "title": "Urban and Regional Planners",
-          "trap_score": 42.1,
-          "efficiency": 92.3,
-          "removal_risk": 55.7,
-          "reconstitution": 81.8
         },
         {
           "title": "Environmental Economists",
@@ -337,6 +330,13 @@
           "efficiency": 91.8,
           "removal_risk": 52.9,
           "reconstitution": 78.2
+        },
+        {
+          "title": "Urban and Regional Planners",
+          "trap_score": 37.3,
+          "efficiency": 88.1,
+          "removal_risk": 51.8,
+          "reconstitution": 81.8
         },
         {
           "title": "Dermatologists",
