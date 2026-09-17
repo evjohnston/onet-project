@@ -406,3 +406,91 @@ class TestExternalValidation(unittest.TestCase):
         result = {c["measure"]: c for c in correlate(rows)}
         self.assertIsNone(result["human_beta"]["pearson"],
                           "fewer than 10 pairs must not produce a correlation")
+
+
+class TestHandoffFramework(unittest.TestCase):
+    """Watson's two axes, six stages and four categories."""
+
+    def _row(self, **kw):
+        base = {d: 0 for d in (
+            "automation_feasibility_today", "llm_exposure", "physical_embodiment_required",
+            "interpersonal_demand", "judgment_under_uncertainty",
+            "accountability_requirement", "error_cost")}
+        base.update(kw)
+        base.setdefault("onet_soc_code", "15-0001.00")
+        return base
+
+    def test_axes_separate_can_from_permitted(self):
+        from onet_scraper.handoff import axes
+        # Pure capability, nothing in the way.
+        t, r = axes(self._row(llm_exposure=100))
+        self.assertGreater(t, 90)
+        self.assertEqual(r, 0.0)
+        # Pure resistance: accountability and stakes, no capability.
+        t, r = axes(self._row(accountability_requirement=100, error_cost=100,
+                              interpersonal_demand=100))
+        self.assertEqual(r, 100.0)
+
+    def test_stage_is_the_lower_of_the_two_ceilings(self):
+        from onet_scraper.handoff import stage
+        # Full capability but total resistance -> nothing is permitted.
+        self.assertEqual(stage(100, 100), 0)
+        # Full capability, no resistance -> AI led, unreviewed.
+        self.assertEqual(stage(100, 0), 5)
+        # Capability is the binding constraint here, not permission.
+        self.assertEqual(stage(20, 0), 1)
+
+    def test_low_tractability_is_never_handed_off(self):
+        """The bug the frontier curve alone produces: a constant-product curve
+        puts 'low on both axes' on the same side as 'high T, low R'."""
+        from onet_scraper.handoff import classify
+        self.assertEqual(classify(33, 45, 10), "Human held")
+        self.assertEqual(classify(49, 20, 10), "Human held")
+
+    def test_handed_off_and_human_held_separate(self):
+        from onet_scraper.handoff import classify
+        self.assertEqual(classify(78, 30, 5), "Handed off")
+        self.assertEqual(classify(55, 80, 5), "Human held")
+
+    def test_watch_point_needs_all_three_conditions(self):
+        from onet_scraper.handoff import classify
+        self.assertEqual(classify(64, 70, 50), "Watch point")
+        # capability present and resistance high, but no willingness gap
+        self.assertNotEqual(classify(64, 70, 5), "Watch point")
+        # wide gap but the work is not tractable
+        self.assertEqual(classify(40, 70, 50), "Human held")
+
+    def test_frontier_is_monotone_decreasing(self):
+        from onet_scraper.handoff import frontier_resistance
+        values = [frontier_resistance(t) for t in (40, 50, 60, 70, 80)]
+        self.assertEqual(values, sorted(values, reverse=True))
+
+    def test_build_reports_pending_crossings_and_weighty_ones(self):
+        from onet_scraper.handoff import WEIGHTY_CROSSINGS, build
+        rows = build([self._row(llm_exposure=80, automation_feasibility_today=20,
+                                accountability_requirement=30, error_cost=30)])
+        row = rows[0]
+        self.assertGreater(row["stage_reachable"], row["stage_now"])
+        self.assertEqual(row["pending_crossings"],
+                         row["stage_reachable"] - row["stage_now"])
+        self.assertEqual(row["willingness_gap"], 60.0)
+        if row["stage_now"] in WEIGHTY_CROSSINGS:
+            self.assertTrue(row["weighty_crossing"])
+
+    def test_no_pending_crossing_means_no_weighty_label(self):
+        from onet_scraper.handoff import build
+        rows = build([self._row(llm_exposure=50, automation_feasibility_today=50)])
+        self.assertEqual(rows[0]["pending_crossings"], 0)
+        self.assertEqual(rows[0]["weighty_crossing"], "")
+
+    def test_summarise_counts_employment_once(self):
+        from onet_scraper.handoff import build, summarise
+        rows = build(
+            [self._row(onet_soc_code="29-1141.01", llm_exposure=70,
+                       accountability_requirement=70, error_cost=70),
+             self._row(onet_soc_code="29-1141.02", llm_exposure=70,
+                       accountability_requirement=70, error_cost=70)],
+            employment={"29-1141.01": 100.0, "29-1141.02": 100.0})
+        s = summarise(rows)
+        self.assertEqual(s["occupations"], 2)
+        self.assertIn("by_classification", s)

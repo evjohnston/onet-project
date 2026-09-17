@@ -91,6 +91,11 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 @media (max-width: 1000px) { .grid2 { grid-template-columns: 1fr; } }
 .topbar { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+.card { position: relative; }
+.png { position: absolute; top: 14px; right: 16px; font-size: 11px; padding: 3px 9px;
+       opacity: .45; transition: opacity .15s; }
+.card:hover .png { opacity: 1; }
+.pending { color: var(--text-muted); font-size: 12.5px; padding: 26px 0; }
 text { font-family: inherit; }
 </style></head>
 <body><div class="viz-root">
@@ -147,7 +152,80 @@ $('#theme').onclick = () => {
   document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
   renderAll();
 };
-addEventListener('resize', () => renderAll());
+addEventListener('resize', () => { clearTimeout(window._rz);
+  window._rz = setTimeout(renderAll, 200); });
+
+/* Export any chart as PNG: serialise the SVG, paint it to a canvas at 2x for a
+   crisp raster, and hand back a download. No server, no library. */
+function svgToPng(svg, filename, scale) {
+  scale = scale || 2;
+  const clone = svg.cloneNode(true);
+  const W = +svg.getAttribute('width'), H = +svg.getAttribute('height');
+  clone.setAttribute('xmlns', NS);
+  // Inline the resolved surface colour - the SVG has no stylesheet once detached.
+  const bg = css('--surface-1');
+  const rect = document.createElementNS(NS, 'rect');
+  rect.setAttribute('width', W); rect.setAttribute('height', H); rect.setAttribute('fill', bg);
+  clone.insertBefore(rect, clone.firstChild);
+  clone.querySelectorAll('text').forEach(t => {
+    if (!t.getAttribute('font-family')) t.setAttribute('font-family', 'Helvetica, Arial, sans-serif');
+  });
+  const blob = new Blob([new XMLSerializer().serializeToString(clone)],
+                        {type: 'image/svg+xml;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const img = new Image();
+  img.onload = () => {
+    const cv = document.createElement('canvas');
+    cv.width = W*scale; cv.height = H*scale;
+    const ctx = cv.getContext('2d');
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, cv.width, cv.height);
+    ctx.setTransform(scale, 0, 0, scale, 0, 0);
+    ctx.drawImage(img, 0, 0);
+    URL.revokeObjectURL(url);
+    cv.toBlob(b => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(b); a.download = filename + '.png';
+      a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    });
+  };
+  img.src = url;
+}
+
+function addPngButtons() {
+  document.querySelectorAll('.card').forEach(card => {
+    if (card.querySelector('.png')) return;
+    const svg = card.querySelector('svg');
+    if (!svg) return;
+    const name = (card.querySelector('h2')?.textContent || 'chart')
+      .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48);
+    const b = document.createElement('button');
+    b.className = 'btn png'; b.textContent = 'PNG';
+    b.title = 'Download this chart as a PNG';
+    b.onclick = () => {
+      const svgs = [...card.querySelectorAll('svg')];
+      svgs.forEach((s, i) => svgToPng(s, svgs.length > 1 ? `${name}-${i+1}` : name));
+    };
+    card.appendChild(b);
+  });
+}
+
+/* Render in stages, yielding to the browser between each, so the page paints
+   immediately instead of waiting on the whole batch. */
+function renderAll() {
+  const steps = [renderKpis, renderAnswer, renderFrontier, renderStages,
+                 renderScatter, renderBars, renderDumbbell, renderEmployment,
+                 renderValidation, renderNetwork, renderLeverage,
+                 renderSub, renderTasks];
+  let i = 0;
+  (function step() {
+    if (i >= steps.length) { addPngButtons(); return; }
+    try { steps[i](); } catch (err) { console.error('chart failed:', err); }
+    i++;
+    // setTimeout, not requestAnimationFrame: rAF does not advance under
+    // headless Chrome's virtual clock, so screenshots caught a half-drawn page.
+    setTimeout(step, 0);
+  })();
+}
 renderAll();
 </script></body></html>
 """
@@ -172,8 +250,12 @@ def build_dashboard(
     employment: dict[str, Any] | None = None,
     benchmarks: Sequence[dict[str, Any]] | None = None,
     net_edges: Sequence[dict[str, Any]] | None = None,
+    net_nodes: Sequence[dict[str, Any]] | None = None,
+    handoff: Sequence[dict[str, Any]] | None = None,
     dimensions: Sequence[dict[str, Any]] | None = None,
 ) -> Path:
+    layout = {n["onet_soc_code"]: (_f(n, "layout_x", -1), _f(n, "layout_y", -1))
+              for n in (net_nodes or [])}
     occ = [
         {
             "c": o["onet_soc_code"], "t": o["title"],
@@ -183,6 +265,8 @@ def build_dashboard(
             "hi": _f(o, "share_tasks_high_susceptibility"),
             "n": int(_f(o, "n_tasks_scored")), "q": o.get("quadrant", ""),
             "z": o.get("job_zone") or "",
+            "x": layout.get(o["onet_soc_code"], (-1, -1))[0],
+            "y": layout.get(o["onet_soc_code"], (-1, -1))[1],
         }
         for o in occupations
     ]
@@ -241,7 +325,19 @@ def build_dashboard(
             "accountability_requirement", "error_cost")
     dims = {d["onet_soc_code"]: [_f(d, k) for k in DIMS] for d in (dimensions or [])}
 
-    payload = {"occ": occ, "task": tsk, "sub": sub, "splits": splits, "meta": meta,
+    hand = [
+        {"c": h["onet_soc_code"], "t": h["title"],
+         "T": _f(h, "tractability"), "R": _f(h, "resistance"),
+         "now": int(_f(h, "stage_now")), "reach": int(_f(h, "stage_reachable")),
+         "nowL": h.get("stage_now_label", ""), "reachL": h.get("stage_reachable_label", ""),
+         "gap": _f(h, "willingness_gap"), "cls": h.get("classification", ""),
+         "ero": _f(h, "erosion_risk"), "sur": _f(h, "surprise_potential"),
+         "emp": _f(h, "total_employment", 0), "wx": h.get("weighty_crossing", ""),
+         "ty": (h.get("stem_occupation_types") or "").split(";")[0].strip()}
+        for h in (handoff or [])
+    ]
+    payload = {"hand": hand,
+               "occ": occ, "task": tsk, "sub": sub, "splits": splits, "meta": meta,
                "soc": soc_rows, "emp": employment or {}, "val": val, "net": net,
                "dims": dims, "dimNames": [
                    "Automatable today", "LLM exposure", "Physical embodiment",
@@ -259,7 +355,7 @@ def build_dashboard(
     html = (TEMPLATE_HEAD.replace("__SUBTITLE__", subtitle)
             + _BODY
             + TEMPLATE_TAIL.replace("__DATA__", json.dumps(payload, separators=(",", ":")))
-                           .replace("__SCRIPTS__", _SCRIPTS + _EMP_SCRIPT + _VIZ2_SCRIPT))
+                           .replace("__SCRIPTS__", _SCRIPTS + _EMP_SCRIPT + _VIZ2_SCRIPT + _HANDOFF_SCRIPT))
     path.write_text(html, encoding="utf-8")
     log.info("wrote %-28s %.1f MB", path.name, path.stat().st_size / 1e6)
     return path
@@ -268,7 +364,64 @@ def build_dashboard(
 _BODY = """
 <div class="kpis" id="kpis"></div>
 
-<div class="card">
+<div class="card" id="card-answer">
+  <h2>Which jobs are most exposed to displacement</h2>
+  <p class="note">Pick the question you actually want answered &mdash; the ranking changes a
+  lot depending on which one it is. Click any row to load that occupation's tasks and
+  dimension profile at the bottom of the page.</p>
+  <div class="controls">
+    <label>Rank by
+      <select id="a-metric">
+        <option value="s">Susceptibility (exposure net of anchoring)</option>
+        <option value="gap">Willingness gap (capability minus deployment)</option>
+        <option value="ero">Erosion risk (crossing without an event)</option>
+        <option value="sur">Surprise potential (Watson)</option>
+        <option value="emp">Workers in the occupation</option>
+        <option value="empatrisk">Workers &times; susceptibility</option>
+      </select>
+    </label>
+    <label>Handoff class
+      <select id="a-cls"><option value="">All</option></select>
+    </label>
+    <label>STEM type
+      <select id="a-type"><option value="">All</option></select>
+    </label>
+    <label><input type="checkbox" id="a-emp" style="vertical-align:-2px"> Only jobs with
+      employment data</label>
+    <input id="a-q" placeholder="Search..." style="min-width:170px">
+    <span class="pill" id="a-n"></span>
+  </div>
+  <div class="scroll" style="max-height:520px"><table id="t-answer"></table></div>
+</div>
+
+<div class="card" id="card-frontier">
+  <h2>The handoff frontier</h2>
+  <p class="note"><strong>Tractability</strong> (right) is whether AI can lead the work;
+  <strong>resistance</strong> (up) is whether it will be permitted to. The curve is the
+  frontier &mdash; the resistance a given tractability can currently overcome. Work below it
+  has crossed; work above it is still human-held. Framework from Watson (2026);
+  axis positions are relative to other STEM occupations, and the curve is calibrated to
+  this corpus, not derived from theory.</p>
+  <div class="legend" id="frontier-legend"></div>
+  <div id="frontier"></div>
+</div>
+
+<div class="card" id="card-stages">
+  <h2>Where cognitive leadership sits, and where it could</h2>
+  <p class="note">Watson's six-stage scale. The light dot is how many occupations sit at each
+  stage given what is actually deployed today; the dark dot is where current AI capability
+  could already put them. The distance between the two is pending handoff.
+  He expects two crossings to carry most of the strategic weight: proposing action to taking
+  it, and human veto to after-the-fact audit &mdash; the second being a crossing by erosion,
+  with no event to observe.</p>
+  <div class="legend">
+    <span><span class="sw" style="background:var(--seq-2)"></span>Occupations at this stage today</span>
+    <span><span class="sw" style="background:var(--seq-6)"></span>Where capability could put them</span>
+  </div>
+  <div id="stages"></div>
+</div>
+
+<div class="card" id="card-scatter">
   <h2>Where each occupation sits</h2>
   <p class="note">Each dot is one occupation, placed by the importance-weighted average of its
   tasks. Right = a machine could do more of this work. Up = more of it requires a human to do it
@@ -318,12 +471,12 @@ _BODY = """
   they called safe. A tight line on the right would have been the warning sign.</p>
 </div>
 
-<div class="card">
+<div class="card" id="card-network">
   <h2>The occupation network</h2>
   <p class="note">Occupations linked to their three most similar peers by shared subtasks
   (575 of 4,656 edges &mdash; the full graph is a hairball). Position is force-directed, so
   clusters are groups of occupations that do the same kind of work. Colour is
-  susceptibility. Drag a node to pull the layout apart; click to load its tasks.</p>
+  susceptibility. Click a node to load its tasks.</p>
   <div class="legend">
     <span><span class="sw" style="background:var(--div-low)"></span>Lower susceptibility</span>
     <span><span class="sw" style="background:var(--div-high)"></span>Higher susceptibility</span>
@@ -332,7 +485,7 @@ _BODY = """
   <div id="network"></div>
 </div>
 
-<div class="card">
+<div class="card" id="card-leverage">
   <h2>Which subtasks have the most leverage</h2>
   <p class="note">A susceptible subtask used by 50 occupations matters far more than one used
   by a single job. Up and to the right = automatable <em>and</em> widespread &mdash; the
@@ -340,20 +493,20 @@ _BODY = """
   <div id="leverage"></div>
 </div>
 
-<div class="grid2">
-  <div class="card">
+<div class="grid2" id="grid-bars">
+  <div class="card" id="card-bars-top">
     <h2>Most susceptible occupations</h2>
     <p class="note">High exposure, low human anchoring.</p>
     <div id="bars-top"></div>
   </div>
-  <div class="card">
+  <div class="card" id="card-bars-bot">
     <h2>Least susceptible occupations</h2>
     <p class="note">Work a human must do, or answer for.</p>
     <div id="bars-bot"></div>
   </div>
 </div>
 
-<div class="card">
+<div class="card" id="card-dumbbell">
   <h2>Capability is ahead of deployment</h2>
   <p class="note">The left dot is what today's deployed technology can actually do; the right dot
   is what a current model could do in principle. The gap is where change is pending rather than
@@ -386,7 +539,7 @@ _BODY = """
   averaged across an SOC's O*NET occupations before the employment is attached once.</p>
 </div>
 
-<div class="card">
+<div class="card" id="card-subtasks">
   <h2>Subtasks ranked by susceptibility</h2>
   <p class="note">The shared vocabulary underneath every task. <strong>Jobs</strong> is how many
   occupations use this subtask &mdash; a highly susceptible subtask used by 50 occupations matters
@@ -398,7 +551,7 @@ _BODY = """
   <div class="scroll"><table id="t-sub"></table></div>
 </div>
 
-<div class="card">
+<div class="card" id="card-tasks">
   <h2 id="task-title">Tasks &mdash; click an occupation above</h2>
   <p class="note">Task-level scores, inherited from the subtasks each task maps to.
   Sorted by susceptibility.</p>
@@ -655,9 +808,7 @@ function renderTasks() {
   }
 }
 
-function renderAll() { renderKpis(); renderScatter(); renderBars(); renderDumbbell();
-                       renderEmployment(); renderValidation(); renderNetwork();
-                       renderLeverage(); renderSub(); renderTasks(); }
+
 
 const types = [...new Set(DATA.occ.map(o => o.ty).filter(Boolean))].sort();
 $('#f-type').innerHTML = '<option value="">All</option>' +
@@ -666,6 +817,22 @@ for (const id of ['#f-type', '#f-hl'])
   $(id).onchange = () => { renderScatter(); renderBars(); renderDumbbell(); };
 $('#f-q').oninput = () => { renderScatter(); renderBars(); renderDumbbell(); };
 $('#f-sub').oninput = renderSub;
+
+(function initAnswer() {
+  const hand = DATA.hand || [];
+  const classes = [...new Set(hand.map(h => h.cls).filter(Boolean))];
+  const order = ['Watch point','Crossing now','Handed off','Human held'];
+  $('#a-cls').innerHTML = '<option value="">All</option>' +
+    order.filter(c => classes.includes(c)).map(c => `<option>${c}</option>`).join('');
+  const types = [...new Set(DATA.occ.map(o => o.ty).filter(Boolean))].sort();
+  $('#a-type').innerHTML = '<option value="">All</option>' +
+    types.map(t => `<option>${esc(t)}</option>`).join('');
+  $('#a-metric').onchange = e => { FILTER.metric = e.target.value; renderAnswer(); };
+  $('#a-cls').onchange = e => { FILTER.cls = e.target.value; renderAnswer(); renderFrontier(); };
+  $('#a-type').onchange = e => { FILTER.type = e.target.value; renderAnswer(); };
+  $('#a-emp').onchange = e => { FILTER.empOnly = e.target.checked; renderAnswer(); };
+  $('#a-q').oninput = e => { FILTER.q = e.target.value.toLowerCase(); renderAnswer(); };
+})();
 """
 
 
@@ -862,76 +1029,30 @@ function renderValidation() {
 }
 
 /* --- force-directed occupation network ------------------------------------ */
-let NETPOS = null;
-function layoutNetwork(nodes, edges, W, H, iters) {
-  const idx = new Map(nodes.map((n,i) => [n.c, i]));
-  // Deterministic PRNG so the layout is identical on every render and reload.
-  let seed = 20260916;
-  const rnd = () => (seed = (seed*1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
-  const P = nodes.map(() => ({x: rnd()*W, y: rnd()*H, dx: 0, dy: 0}));
-  const E = edges.map(e => [idx.get(e.s), idx.get(e.t)])
-                 .filter(([a,b]) => a !== undefined && b !== undefined);
-  const area = W*H, k = Math.sqrt(area/nodes.length);
-  let temp = W*0.04;
-  const cool = temp/(iters+1);
-
-  for (let it=0; it<iters; it++) {
-    for (const p of P) { p.dx = 0; p.dy = 0; }
-    for (let i=0;i<P.length;i++) {
-      for (let j=i+1;j<P.length;j++) {
-        let dx = P[i].x-P[j].x, dy = P[i].y-P[j].y;
-        let d = Math.hypot(dx, dy) || 0.01;
-        const rep = (k*k)/d;
-        const ux = dx/d*rep, uy = dy/d*rep;
-        P[i].dx += ux; P[i].dy += uy; P[j].dx -= ux; P[j].dy -= uy;
-      }
-    }
-    for (const [a,b] of E) {
-      const dx = P[a].x-P[b].x, dy = P[a].y-P[b].y;
-      const d = Math.hypot(dx, dy) || 0.01;
-      const att = (d*d)/k;
-      const ux = dx/d*att, uy = dy/d*att;
-      P[a].dx -= ux; P[a].dy -= uy; P[b].dx += ux; P[b].dy += uy;
-    }
-    for (const p of P) {
-      // Pull to centre instead of clamping at the edges. A hard wall makes nodes
-      // pile onto the border and then hold each other there; gravity keeps the
-      // drawing bounded while letting clusters separate. Final fit is by rescale.
-      p.dx += (W/2 - p.x)*0.09; p.dy += (H/2 - p.y)*0.09;
-      const d = Math.hypot(p.dx, p.dy) || 0.01;
-      const step = Math.min(d, temp);
-      p.x += p.dx/d*step; p.y += p.dy/d*step;
-    }
-    temp -= cool;   // anneal: large rearrangements early, fine settling late
-  }
-  return P;
-}
-
 function renderNetwork() {
-  const host = $('#network'); if (!DATA.net || !DATA.net.length) return;
+  const host = $('#network');
+  if (!DATA.net || !DATA.net.length) return;
+  const nodes = DATA.occ.filter(n => n.x >= 0);
+  if (!nodes.length) { host.innerHTML =
+    '<p class="note">No layout coordinates - re-run the network stage.</p>'; return; }
   host.innerHTML = '';
-  const W = host.clientWidth || 900, H = 620;
-  const nodes = DATA.occ;
-  if (!NETPOS || NETPOS.w !== W) NETPOS = {w: W, p: layoutNetwork(nodes, DATA.net, W, H, 400)};
-  const P = NETPOS.p;
-  const idx = new Map(nodes.map((n,i) => [n.c, i]));
-  const xs = P.map(p=>p.x), yss = P.map(p=>p.y);
-  const pad = 26;
-  const sx = v => pad + (v-Math.min(...xs))/((Math.max(...xs)-Math.min(...xs))||1)*(W-2*pad);
-  const sy = v => pad + (v-Math.min(...yss))/((Math.max(...yss)-Math.min(...yss))||1)*(H-2*pad);
+  const W = host.clientWidth || 900, H = 620, pad = 26;
+  // Coordinates arrive precomputed and normalised 0-1 from the network stage.
+  const sx = v => pad + v*(W-2*pad), sy = v => pad + v*(H-2*pad);
+  const pos = new Map(nodes.map(n => [n.c, n]));
   const svg = el('svg', {width: W, height: H, role: 'img',
     'aria-label': 'Force-directed network of STEM occupations linked by shared subtasks'});
 
   for (const e of DATA.net) {
-    const a = idx.get(e.s), b = idx.get(e.t);
-    if (a === undefined || b === undefined) continue;
-    svg.appendChild(el('line', {x1: sx(P[a].x), y1: sy(P[a].y),
-      x2: sx(P[b].x), y2: sy(P[b].y), stroke: css('--grid'), 'stroke-width': 1.2}));
+    const a = pos.get(e.s), b = pos.get(e.t);
+    if (!a || !b) continue;
+    svg.appendChild(el('line', {x1: sx(a.x), y1: sy(a.y), x2: sx(b.x), y2: sy(b.y),
+      stroke: css('--grid'), 'stroke-width': 1.2}));
   }
-  nodes.forEach((n, i) => {
-    const c = el('circle', {cx: sx(P[i].x), cy: sy(P[i].y),
-      r: Math.max(4, Math.sqrt(n.n)*1.0), fill: divergingColor(n.s),
-      stroke: css('--surface-1'), 'stroke-width': 1.6, cursor: 'pointer'});
+  for (const n of nodes) {
+    const c = el('circle', {cx: sx(n.x), cy: sy(n.y), r: Math.max(4, Math.sqrt(n.n)*1.0),
+      fill: divergingColor(n.s), stroke: css('--surface-1'), 'stroke-width': 1.6,
+      cursor: 'pointer'});
     c.addEventListener('mousemove', e => showTip(e, `<b>${esc(n.t)}</b>` +
       row('Susceptibility', n.s) + row('Exposure', n.e) + row('Anchoring', n.a) +
       row('Quadrant', n.q)));
@@ -939,7 +1060,7 @@ function renderNetwork() {
     c.addEventListener('click', () => { SEL = n; hideTip(); renderTasks();
       $('#task-title').scrollIntoView({behavior:'smooth', block:'center'}); });
     svg.appendChild(c);
-  });
+  }
   host.appendChild(svg);
 }
 
@@ -1034,5 +1155,195 @@ function renderProfile() {
       'font-size':11.5}); vt.textContent = vals[i].toFixed(0); svg.appendChild(vt);
   });
   host.appendChild(svg);
+}
+"""
+
+
+_HANDOFF_SCRIPT = """
+/* Watson's four categories. Three validated categorical slots plus the
+   de-emphasis grey for "Human held" - the all-pairs scatter gate caps colour
+   identity at three, and "nothing crossing here" is the right thing to mute. */
+const CLS_COLOR = {
+  'Watch point': '--series-2', 'Crossing now': '--series-1',
+  'Handed off': '--series-3', 'Human held': '--text-muted',
+};
+const CLS_ORDER = ['Watch point', 'Crossing now', 'Handed off', 'Human held'];
+const HAND = new Map((window.DATA?.hand || []).map(h => [h.c, h]));
+
+function frontierR(T) { return Math.min(100, (53*53)/Math.max(T,1)); }
+
+function renderFrontier() {
+  const host = $('#frontier'); if (!DATA.hand || !DATA.hand.length) return;
+  host.innerHTML = '';
+  $('#frontier-legend').innerHTML = CLS_ORDER.map(c =>
+    `<span><span class="sw" style="background:var(${CLS_COLOR[c]})"></span>${c}</span>`
+  ).join('') + '<span style="color:var(--text-muted)">Dot size = workers</span>';
+
+  const W = host.clientWidth || 900, H = 560, m = {t: 16, r: 20, b: 46, l: 58};
+  const iw = W-m.l-m.r, ih = H-m.t-m.b;
+  const xs = v => m.l + (v-22)/62*iw, ys = v => m.t + ih - (v-24)/64*ih;
+  const svg = el('svg', {width: W, height: H, role: 'img',
+    'aria-label': 'Occupations plotted by tractability against resistance, with the handoff frontier'});
+  for (let v=30; v<=80; v+=10) {
+    svg.appendChild(el('line',{x1:xs(v),x2:xs(v),y1:m.t,y2:m.t+ih,stroke:css('--grid'),'stroke-width':1}));
+    const t=el('text',{x:xs(v),y:H-26,'text-anchor':'middle',fill:css('--text-muted'),'font-size':11});
+    t.textContent=v; svg.appendChild(t);
+    svg.appendChild(el('line',{x1:m.l,x2:m.l+iw,y1:ys(v),y2:ys(v),stroke:css('--grid'),'stroke-width':1}));
+    const u=el('text',{x:m.l-8,y:ys(v)+4,'text-anchor':'end',fill:css('--text-muted'),'font-size':11});
+    u.textContent=v; svg.appendChild(u);
+  }
+  // the frontier itself
+  let d = '';
+  for (let T=24; T<=84; T+=1) {
+    const R = frontierR(T);
+    if (R < 24 || R > 88) continue;
+    d += (d ? ' L' : 'M') + xs(T).toFixed(1) + ' ' + ys(R).toFixed(1);
+  }
+  svg.appendChild(el('path', {d, fill:'none', stroke:css('--series-2'), 'stroke-width':2.5}));
+  const fl = el('text', {x: xs(38), y: ys(frontierR(38))-10, 'text-anchor':'start',
+    fill: css('--series-2'), 'font-size': 11.5, 'font-weight': 640});
+  fl.textContent = 'frontier today'; svg.appendChild(fl);
+  // The tractability floor: left of this, AI cannot lead the work at all, so
+  // resistance is not what is holding it and the frontier does not apply.
+  svg.appendChild(el('line', {x1: xs(50), x2: xs(50), y1: m.t, y2: m.t+ih,
+    stroke: css('--text-muted'), 'stroke-width': 1.5, 'stroke-dasharray': '4 4'}));
+  const ft = el('text', {x: xs(50)-7, y: m.t+ih-8, 'text-anchor':'end',
+    fill: css('--text-muted'), 'font-size': 10.5});
+  ft.textContent = 'not yet tractable'; svg.appendChild(ft);
+  for (const [lab, tx, ty, an] of [['HUMAN HELD', m.l+12, m.t+16, 'start'],
+                                   ['HANDED OFF', m.l+iw-12, m.t+ih-10, 'end']]) {
+    const t = el('text', {x: tx, y: ty, 'text-anchor': an, fill: css('--text-muted'),
+      'font-size': 11, 'font-weight': 600, 'letter-spacing': '.04em'});
+    t.textContent = lab; svg.appendChild(t);
+  }
+
+  const maxE = Math.max(...DATA.hand.map(h => h.emp || 0), 1);
+  const shown = DATA.hand.filter(h => !FILTER.cls || h.cls === FILTER.cls);
+  for (const h of shown) {
+    const r = h.emp ? Math.max(4, Math.sqrt(h.emp/maxE)*22) : 4;
+    const c = el('circle', {cx: xs(h.T), cy: ys(h.R), r,
+      fill: css(CLS_COLOR[h.cls] || '--text-muted'),
+      opacity: h.cls === 'Human held' ? .5 : .82,
+      stroke: css('--surface-1'), 'stroke-width': 1.8, cursor: 'pointer'});
+    c.addEventListener('mousemove', e => showTip(e, `<b>${esc(h.t)}</b>` +
+      row('Classification', h.cls) + row('Tractability', h.T) + row('Resistance', h.R) +
+      row('Stage today', h.nowL) + row('Reachable now', h.reachL) +
+      row('Willingness gap', '+' + h.gap) +
+      (h.emp ? row('Workers', Math.round(h.emp).toLocaleString()) : '')));
+    c.addEventListener('mouseleave', hideTip);
+    c.addEventListener('click', () => selectOcc(h.c));
+    svg.appendChild(c);
+  }
+  // Label the watch points - they are the point of the chart.
+  const wp = shown.filter(h => h.cls === 'Watch point')
+                  .sort((a,b) => b.gap - a.gap).slice(0, 5);
+  const used = [];
+  for (const h of wp) {
+    let y = Math.max(m.t+11, ys(h.R) - 11);
+    while (used.some(u => Math.abs(u-y) < 12)) y += 12;
+    used.push(y);
+    const t = el('text', {x: Math.min(Math.max(xs(h.T), m.l+50), m.l+iw-50), y,
+      'text-anchor':'middle', fill: css('--text-primary'), 'font-size': 10.5,
+      'font-weight': 600});
+    t.textContent = h.t.length>28 ? h.t.slice(0,27)+'\\u2026' : h.t;
+    svg.appendChild(t);
+  }
+  const ax=el('text',{x:m.l+iw/2,y:H-6,'text-anchor':'middle',fill:css('--text-secondary'),'font-size':12});
+  ax.textContent='Tractability: can AI lead this work \\u2192'; svg.appendChild(ax);
+  const ay=el('text',{x:13,y:m.t+ih/2,'text-anchor':'middle',fill:css('--text-secondary'),
+    'font-size':12,transform:`rotate(-90 13 ${m.t+ih/2})`});
+  ay.textContent='Resistance: will it be permitted \\u2192'; svg.appendChild(ay);
+  host.appendChild(svg);
+}
+
+const STAGES = ['Human only','AI informed','AI recommended','AI executed, human veto',
+                'AI led, human audit','AI led, unreviewed'];
+function renderStages() {
+  const host = $('#stages'); if (!DATA.hand || !DATA.hand.length) return;
+  host.innerHTML = '';
+  const now = new Array(6).fill(0), reach = new Array(6).fill(0);
+  for (const h of DATA.hand) { now[h.now]++; reach[h.reach]++; }
+  const W = host.clientWidth || 900, rowH = 42, m = {t: 8, r: 60, b: 24, l: 210};
+  const iw = W-m.l-m.r, max = Math.max(...now, ...reach, 1);
+  const xs = v => m.l + v/max*iw;
+  const svg = el('svg', {width: W, height: m.t + 6*rowH + m.b, role: 'img'});
+  STAGES.forEach((name, i) => {
+    const y = m.t + i*rowH + rowH/2;
+    svg.appendChild(el('line', {x1: xs(0), x2: xs(Math.max(now[i], reach[i])), y1: y, y2: y,
+      stroke: css('--seq-3'), 'stroke-width': 2}));
+    svg.appendChild(el('circle', {cx: xs(now[i]), cy: y, r: 7, fill: css('--seq-2'),
+      stroke: css('--surface-1'), 'stroke-width': 2}));
+    svg.appendChild(el('circle', {cx: xs(reach[i]), cy: y, r: 7, fill: css('--seq-6'),
+      stroke: css('--surface-1'), 'stroke-width': 2}));
+    const lt = el('text', {x: m.l-12, y: y+4, 'text-anchor':'end',
+      fill: css('--text-primary'), 'font-size': 12}); lt.textContent = `${i}. ${name}`;
+    svg.appendChild(lt);
+    const vt = el('text', {x: Math.max(xs(now[i]), xs(reach[i]))+10, y: y+4,
+      fill: css('--text-secondary'), 'font-size': 11.5});
+    vt.textContent = `${now[i]} \\u2192 ${reach[i]}`; svg.appendChild(vt);
+    if (i === 2 || i === 3) {
+      const wx = el('text', {x: m.l-12, y: y+18, 'text-anchor':'end',
+        fill: css('--series-2'), 'font-size': 10, 'font-weight': 600});
+      wx.textContent = i === 2 ? 'weighty crossing \\u2193' : 'erosion crossing \\u2193';
+      svg.appendChild(wx);
+    }
+  });
+  host.appendChild(svg);
+}
+
+/* ---- the answer panel ---------------------------------------------------- */
+const FILTER = {cls: '', type: '', q: '', empOnly: false, metric: 's'};
+const METRIC_LABEL = {s:'Susceptibility', gap:'Willingness gap', ero:'Erosion risk',
+                      sur:'Surprise potential', emp:'Workers', empatrisk:'Workers x susceptibility'};
+
+function answerRows() {
+  return DATA.occ.map(o => {
+    const h = HAND.get(o.c) || {};
+    return {...o, gap: h.gap ?? o.g, ero: h.ero ?? 0, sur: h.sur ?? 0,
+            emp: h.emp ?? 0, cls: h.cls ?? '', nowL: h.nowL ?? '', reachL: h.reachL ?? '',
+            empatrisk: (h.emp ?? 0) * o.s / 100};
+  }).filter(r =>
+      (!FILTER.cls || r.cls === FILTER.cls) &&
+      (!FILTER.type || r.ty === FILTER.type) &&
+      (!FILTER.empOnly || r.emp > 0) &&
+      (!FILTER.q || r.t.toLowerCase().includes(FILTER.q)))
+    .sort((a,b) => (b[FILTER.metric]||0) - (a[FILTER.metric]||0));
+}
+
+function renderAnswer() {
+  if (!DATA.occ || !DATA.occ.length) return;
+  const rows = answerRows();
+  $('#a-n').textContent = rows.length + ' occupations';
+  const m = FILTER.metric;
+  const fmt = v => m === 'emp' ? Math.round(v).toLocaleString()
+    : m === 'empatrisk' ? Math.round(v).toLocaleString() : (+v).toFixed(0);
+  const t = $('#t-answer'); t.innerHTML = '';
+  const head = document.createElement('tr');
+  head.innerHTML = '<th>#</th><th>Occupation</th>' +
+    `<th class="num">${METRIC_LABEL[m]}</th>` +
+    '<th class="num">Suscept.</th><th class="num">Workers</th>' +
+    '<th>Handoff class</th><th>Stage today &rarr; reachable</th>';
+  t.appendChild(head);
+  rows.slice(0, 120).forEach((r, i) => {
+    const tr = document.createElement('tr');
+    tr.style.cursor = 'pointer';
+    const clsColor = CLS_COLOR[r.cls] || '--text-muted';
+    tr.innerHTML = `<td class="num" style="color:var(--text-muted)">${i+1}</td>` +
+      `<td>${esc(r.t)}</td>` +
+      `<td class="num" style="font-weight:650">${fmt(r[m]||0)}</td>` +
+      `<td class="num" style="color:${divergingColor(r.s)}">${r.s.toFixed(0)}</td>` +
+      `<td class="num">${r.emp ? Math.round(r.emp).toLocaleString() : '\\u2014'}</td>` +
+      `<td><span class="sw" style="background:var(${clsColor})"></span>${esc(r.cls)}</td>` +
+      `<td style="color:var(--text-secondary)">${esc(r.nowL)} &rarr; ${esc(r.reachL)}</td>`;
+    tr.onclick = () => selectOcc(r.c);
+    t.appendChild(tr);
+  });
+}
+
+function selectOcc(code) {
+  const o = DATA.occ.find(x => x.c === code);
+  if (!o) return;
+  SEL = o; hideTip(); renderTasks();
+  $('#task-title').scrollIntoView({behavior:'smooth', block:'center'});
 }
 """

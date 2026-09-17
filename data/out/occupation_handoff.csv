@@ -1,0 +1,269 @@
+onet_soc_code,title,stem_occupation_types,total_employment,tractability,resistance,frontier_distance,stage_now,stage_now_label,stage_reachable,stage_reachable_label,pending_crossings,willingness_gap,classification,erosion_risk,surprise_potential,weighty_crossing
+19-3041.00,Sociologists,"Research, Development, Design, and Practitioners",2260.0,65.0,49.7,-6.5,1,AI informed,3,"AI executed, human veto",2,45.0,Human held,22.2,4.0,
+29-9092.00,Genetic Counselors,"Research, Development, Design, and Practitioners",3740.0,64.0,69.7,-25.8,1,AI informed,2,AI recommended,1,50.9,Watch point,36.1,3.7,
+19-2041.01,Climate Change Policy Analysts,"Research, Development, Design, and Practitioners",89250.0,69.5,46.3,-5.9,2,AI recommended,3,"AI executed, human veto",1,49.3,Human held,31.5,3.1,proposing action to taking it
+19-3094.00,Political Scientists,"Research, Development, Design, and Practitioners",5540.0,68.6,44.3,-3.4,2,AI recommended,3,"AI executed, human veto",1,50.3,Crossing now,29.6,3.0,proposing action to taking it
+15-2011.00,Actuaries,"Research, Development, Design, and Practitioners",26670.0,66.1,61.7,-19.2,1,AI informed,2,AI recommended,1,45.6,Watch point,31.7,2.9,
+19-3099.01,Transportation Planners,"Research, Development, Design, and Practitioners",37100.0,66.4,49.3,-7.0,2,AI recommended,3,"AI executed, human veto",1,48.4,Human held,30.0,2.9,proposing action to taking it
+19-3011.01,Environmental Economists,"Research, Development, Design, and Practitioners",17790.0,65.1,43.8,-0.7,2,AI recommended,3,"AI executed, human veto",1,48.8,Crossing now,26.4,2.6,proposing action to taking it
+29-1229.05,Preventive Medicine Physicians,"Research, Development, Design, and Practitioners",342720.0,62.3,65.1,-20.0,1,AI informed,2,AI recommended,1,46.6,Watch point,27.6,2.6,
+15-1211.01,Health Informatics Specialists,"Research, Development, Design, and Practitioners",519530.0,73.8,41.7,-3.6,2,AI recommended,3,"AI executed, human veto",1,43.0,Crossing now,29.5,2.5,proposing action to taking it
+15-2021.00,Mathematicians,"Research, Development, Design, and Practitioners",2030.0,74.8,34.6,3.0,2,AI recommended,3,"AI executed, human veto",1,41.5,Crossing now,29.9,2.5,proposing action to taking it
+15-1243.01,Data Warehousing Specialists,"Research, Development, Design, and Practitioners",67140.0,75.7,38.0,-0.9,2,AI recommended,3,"AI executed, human veto",1,40.7,Crossing now,29.1,2.4,proposing action to taking it
+15-2051.00,Data Scientists,"Research, Development, Design, and Practitioners",262440.0,74.9,34.8,2.7,2,AI recommended,3,"AI executed, human veto",1,40.8,Crossing now,28.8,2.4,proposing action to taking it
+15-2041.01,Biostatisticians,"Research, Development, Design, and Practitioners",29030.0,74.2,37.4,0.5,2,AI recommended,3,"AI executed, human veto",1,38.5,Crossing now,29.5,2.3,proposing action to taking it
+19-1029.04,Biologists,"Research, Development, Design, and Practitioners",55850.0,60.1,44.9,1.8,1,AI informed,3,"AI executed, human veto",2,40.5,Crossing now,14.3,2.3,
+19-2041.03,Industrial Ecologists,"Research, Development, Design, and Practitioners",89250.0,62.8,44.1,0.6,2,AI recommended,3,"AI executed, human veto",1,48.4,Crossing now,23.9,2.3,proposing action to taking it
+19-3011.00,Economists,"Research, Development, Design, and Practitioners",17790.0,66.4,48.9,-6.6,2,AI recommended,3,"AI executed, human veto",1,45.6,Human held,25.6,2.3,proposing action to taking it
+15-2041.00,Statisticians,"Research, Development, Design, and Practitioners",29030.0,72.5,38.0,0.7,2,AI recommended,3,"AI executed, human veto",1,38.9,Crossing now,28.3,2.2,proposing action to taking it
+15-1299.04,Penetration Testers,"Research, Development, Design, and Practitioners; Technologists and Technicians",435370.0,70.6,43.8,-4.0,2,AI recommended,3,"AI executed, human veto",1,37.3,Crossing now,27.7,2.1,proposing action to taking it
+15-2031.00,Operations Research Analysts,"Research, Development, Design, and Practitioners",108510.0,71.1,39.3,0.2,2,AI recommended,3,"AI executed, human veto",1,42.1,Crossing now,25.1,2.1,proposing action to taking it
+17-2041.00,Chemical Engineers,"Research, Development, Design, and Practitioners",21070.0,58.2,47.7,0.6,1,AI informed,3,"AI executed, human veto",2,39.5,Crossing now,13.3,2.1,
+19-3051.00,Urban and Regional Planners,"Research, Development, Design, and Practitioners",44230.0,66.8,49.5,-7.4,2,AI recommended,3,"AI executed, human veto",1,43.0,Human held,24.4,2.1,proposing action to taking it
+29-1229.06,Sports Medicine Physicians,"Research, Development, Design, and Practitioners",342720.0,57.3,69.6,-20.6,1,AI informed,2,AI recommended,1,45.0,Watch point,23.7,2.1,
+15-1212.00,Information Security Analysts,"Research, Development, Design, and Practitioners",190650.0,72.8,46.7,-8.1,2,AI recommended,3,"AI executed, human veto",1,34.2,Human held,28.8,2.0,proposing action to taking it
+15-1299.03,Document Management Specialists,"Research, Development, Design, and Practitioners; Technologists and Technicians",435370.0,77.2,37.1,-0.7,2,AI recommended,3,"AI executed, human veto",1,35.0,Crossing now,29.1,2.0,proposing action to taking it
+19-1029.01,Bioinformatics Scientists,"Research, Development, Design, and Practitioners",55850.0,66.0,44.3,-1.7,2,AI recommended,3,"AI executed, human veto",1,46.8,Crossing now,21.5,2.0,proposing action to taking it
+19-1041.00,Epidemiologists,"Research, Development, Design, and Practitioners",12090.0,61.4,55.9,-10.2,1,AI informed,2,AI recommended,1,45.3,Watch point,22.5,2.0,
+19-2041.00,"Environmental Scientists and Specialists, Including Health","Research, Development, Design, and Practitioners",89250.0,60.5,50.9,-4.5,1,AI informed,2,AI recommended,1,44.7,Watch point,22.4,2.0,
+15-1243.00,Database Architects,"Research, Development, Design, and Practitioners",67140.0,77.3,37.5,-1.2,2,AI recommended,3,"AI executed, human veto",1,36.4,Crossing now,26.1,1.9,proposing action to taking it
+15-2051.02,Clinical Data Managers,"Research, Development, Design, and Practitioners",262440.0,74.5,38.2,-0.5,2,AI recommended,3,"AI executed, human veto",1,38.0,Crossing now,25.5,1.9,proposing action to taking it
+19-3032.00,Industrial-Organizational Psychologists,"Research, Development, Design, and Practitioners",790.0,64.2,51.9,-8.1,1,AI informed,2,AI recommended,1,43.8,Watch point,21.5,1.9,
+25-1053.00,"Environmental Science Teachers, Postsecondary",Postsecondary Teaching,6690.0,70.6,45.6,-5.8,2,AI recommended,3,"AI executed, human veto",1,40.5,Human held,23.2,1.9,proposing action to taking it
+11-9041.00,Architectural and Engineering Managers,Managerial,220260.0,62.9,57.5,-12.8,1,AI informed,2,AI recommended,1,41.7,Watch point,22.1,1.8,
+11-9121.00,Natural Sciences Managers,Managerial,108690.0,65.2,53.8,-10.7,1,AI informed,2,AI recommended,1,41.0,Watch point,22.0,1.8,
+15-1211.00,Computer Systems Analysts,"Research, Development, Design, and Practitioners",519530.0,73.5,38.8,-0.6,2,AI recommended,3,"AI executed, human veto",1,37.4,Crossing now,23.7,1.8,proposing action to taking it
+15-1221.00,Computer and Information Research Scientists,"Research, Development, Design, and Practitioners",37200.0,67.3,49.4,-7.7,2,AI recommended,3,"AI executed, human veto",1,41.2,Human held,21.5,1.8,proposing action to taking it
+15-1255.00,Web and Digital Interface Designers,"Research, Development, Design, and Practitioners",113330.0,76.9,34.8,1.7,2,AI recommended,3,"AI executed, human veto",1,36.8,Crossing now,25.1,1.8,proposing action to taking it
+15-1299.07,Blockchain Engineers,"Research, Development, Design, and Practitioners; Technologists and Technicians",435370.0,71.5,43.0,-3.7,2,AI recommended,3,"AI executed, human veto",1,35.6,Crossing now,25.0,1.8,proposing action to taking it
+17-2031.00,Bioengineers and Biomedical Engineers,"Research, Development, Design, and Practitioners",23480.0,64.3,46.2,-2.5,2,AI recommended,3,"AI executed, human veto",1,44.5,Crossing now,20.0,1.8,proposing action to taking it
+17-2051.02,Water/Wastewater Engineers,"Research, Development, Design, and Practitioners",367840.0,61.9,51.8,-6.4,1,AI informed,2,AI recommended,1,41.5,Watch point,21.4,1.8,
+25-1031.00,"Architecture Teachers, Postsecondary",Postsecondary Teaching,7700.0,70.9,45.0,-5.4,2,AI recommended,3,"AI executed, human veto",1,39.5,Human held,22.5,1.8,proposing action to taking it
+25-1043.00,"Forestry and Conservation Science Teachers, Postsecondary",Postsecondary Teaching,1520.0,70.8,45.2,-5.5,2,AI recommended,3,"AI executed, human veto",1,40.1,Human held,22.7,1.8,proposing action to taking it
+25-1061.00,"Anthropology and Archeology Teachers, Postsecondary",Postsecondary Teaching,5240.0,69.1,45.9,-5.2,2,AI recommended,3,"AI executed, human veto",1,40.9,Human held,21.7,1.8,proposing action to taking it
+25-1062.00,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",Postsecondary Teaching,11300.0,70.6,44.9,-5.1,2,AI recommended,3,"AI executed, human veto",1,40.0,Human held,22.1,1.8,proposing action to taking it
+25-1063.00,"Economics Teachers, Postsecondary",Postsecondary Teaching,11560.0,71.1,44.3,-4.8,2,AI recommended,3,"AI executed, human veto",1,39.6,Crossing now,22.3,1.8,proposing action to taking it
+25-1072.00,"Nursing Instructors and Teachers, Postsecondary",Postsecondary Teaching,77960.0,69.2,48.2,-7.6,2,AI recommended,3,"AI executed, human veto",1,41.4,Human held,21.9,1.8,proposing action to taking it
+15-1299.06,Digital Forensics Analysts,"Research, Development, Design, and Practitioners; Technologists and Technicians",435370.0,69.4,44.9,-4.4,2,AI recommended,3,"AI executed, human veto",1,32.6,Crossing now,25.6,1.7,proposing action to taking it
+25-1022.00,"Mathematical Science Teachers, Postsecondary",Postsecondary Teaching,47670.0,71.1,45.3,-5.8,2,AI recommended,3,"AI executed, human veto",1,37.6,Human held,22.1,1.7,proposing action to taking it
+25-1032.00,"Engineering Teachers, Postsecondary",Postsecondary Teaching,40270.0,70.9,44.5,-4.9,2,AI recommended,3,"AI executed, human veto",1,39.1,Crossing now,22.2,1.7,proposing action to taking it
+25-1041.00,"Agricultural Sciences Teachers, Postsecondary",Postsecondary Teaching,8920.0,70.2,45.9,-5.9,2,AI recommended,3,"AI executed, human veto",1,39.9,Human held,21.6,1.7,proposing action to taking it
+25-1051.00,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",Postsecondary Teaching,9900.0,70.8,44.2,-4.5,2,AI recommended,3,"AI executed, human veto",1,38.9,Crossing now,21.8,1.7,proposing action to taking it
+25-1065.00,"Political Science Teachers, Postsecondary",Postsecondary Teaching,16970.0,70.9,44.7,-5.1,2,AI recommended,3,"AI executed, human veto",1,39.5,Human held,22.0,1.7,proposing action to taking it
+25-1066.00,"Psychology Teachers, Postsecondary",Postsecondary Teaching,41530.0,68.6,47.7,-6.8,2,AI recommended,3,"AI executed, human veto",1,40.2,Human held,21.5,1.7,proposing action to taking it
+25-1067.00,"Sociology Teachers, Postsecondary",Postsecondary Teaching,11850.0,70.1,45.7,-5.6,2,AI recommended,3,"AI executed, human veto",1,39.7,Human held,21.5,1.7,proposing action to taking it
+29-1031.00,Dietitians and Nutritionists,"Research, Development, Design, and Practitioners",77570.0,60.2,62.6,-15.9,1,AI informed,2,AI recommended,1,41.6,Watch point,20.9,1.7,
+29-1129.02,Music Therapists,"Research, Development, Design, and Practitioners",22640.0,56.4,67.5,-17.7,1,AI informed,2,AI recommended,1,42.7,Watch point,19.4,1.7,
+15-1299.01,Web Administrators,"Research, Development, Design, and Practitioners; Technologists and Technicians",435370.0,74.1,38.6,-0.7,2,AI recommended,3,"AI executed, human veto",1,33.1,Crossing now,23.9,1.6,proposing action to taking it
+15-1299.08,Computer Systems Engineers/Architects,"Research, Development, Design, and Practitioners; Technologists and Technicians",435370.0,70.8,42.5,-2.8,2,AI recommended,3,"AI executed, human veto",1,36.9,Crossing now,21.8,1.6,proposing action to taking it
+15-2099.01,Bioinformatics Technicians,"Research, Development, Design, and Practitioners; Technologists and Technicians",3720.0,75.6,35.5,1.7,2,AI recommended,3,"AI executed, human veto",1,35.8,Crossing now,21.8,1.6,proposing action to taking it
+19-2012.00,Physicists,"Research, Development, Design, and Practitioners",20430.0,63.3,42.3,2.1,2,AI recommended,3,"AI executed, human veto",1,42.8,Crossing now,18.8,1.6,proposing action to taking it
+19-2041.02,Environmental Restoration Planners,"Research, Development, Design, and Practitioners",89250.0,58.7,50.8,-2.9,1,AI informed,2,AI recommended,1,44.9,Watch point,18.2,1.6,
+19-3033.00,Clinical and Counseling Psychologists,"Research, Development, Design, and Practitioners",75990.0,59.6,64.8,-17.7,1,AI informed,2,AI recommended,1,39.8,Human held,19.9,1.6,
+25-1021.00,"Computer Science Teachers, Postsecondary",Postsecondary Teaching,35480.0,68.8,46.9,-6.1,2,AI recommended,3,"AI executed, human veto",1,40.3,Human held,20.1,1.6,proposing action to taking it
+25-1042.00,"Biological Science Teachers, Postsecondary",Postsecondary Teaching,50190.0,69.2,45.2,-4.6,2,AI recommended,3,"AI executed, human veto",1,39.7,Crossing now,19.7,1.6,proposing action to taking it
+25-1064.00,"Geography Teachers, Postsecondary",Postsecondary Teaching,3330.0,70.0,44.7,-4.6,2,AI recommended,3,"AI executed, human veto",1,38.3,Crossing now,20.7,1.6,proposing action to taking it
+25-1071.00,"Health Specialties Teachers, Postsecondary",Postsecondary Teaching,221270.0,70.1,45.8,-5.7,2,AI recommended,3,"AI executed, human veto",1,38.6,Human held,21.2,1.6,proposing action to taking it
+29-1129.01,Art Therapists,"Research, Development, Design, and Practitioners",22640.0,59.1,64.9,-17.4,1,AI informed,2,AI recommended,1,39.6,Human held,19.8,1.6,
+29-2051.00,Dietetic Technicians,Technologists and Technicians,31560.0,59.4,64.2,-16.9,1,AI informed,2,AI recommended,1,41.3,Watch point,19.8,1.6,
+15-1251.00,Computer Programmers,"Research, Development, Design, and Practitioners",92230.0,76.9,35.3,1.2,2,AI recommended,3,"AI executed, human veto",1,32.1,Crossing now,23.7,1.5,proposing action to taking it
+15-1252.00,Software Developers,"Research, Development, Design, and Practitioners",1687890.0,71.4,43.9,-4.6,2,AI recommended,3,"AI executed, human veto",1,35.0,Crossing now,20.9,1.5,proposing action to taking it
+17-2141.00,Mechanical Engineers,"Research, Development, Design, and Practitioners",296810.0,60.0,48.3,-1.5,1,AI informed,3,"AI executed, human veto",2,35.9,Crossing now,10.3,1.5,
+17-2199.05,Mechatronics Engineers,"Research, Development, Design, and Practitioners",154070.0,60.4,48.0,-1.5,1,AI informed,3,"AI executed, human veto",2,33.5,Crossing now,11.0,1.5,
+19-3034.00,School Psychologists,"Research, Development, Design, and Practitioners",63940.0,64.4,54.6,-11.0,1,AI informed,2,AI recommended,1,39.8,Human held,18.6,1.5,
+25-1054.00,"Physics Teachers, Postsecondary",Postsecondary Teaching,13090.0,69.1,45.2,-4.5,2,AI recommended,3,"AI executed, human veto",1,38.1,Crossing now,19.2,1.5,proposing action to taking it
+29-1123.00,Physical Therapists,"Research, Development, Design, and Practitioners",267330.0,56.6,69.5,-19.9,1,AI informed,2,AI recommended,1,38.9,Human held,19.4,1.5,
+15-1241.00,Computer Network Architects,"Research, Development, Design, and Practitioners",179740.0,68.4,44.6,-3.5,2,AI recommended,3,"AI executed, human veto",1,36.0,Crossing now,19.1,1.4,proposing action to taking it
+15-1255.01,Video Game Designers,"Research, Development, Design, and Practitioners",113330.0,74.1,35.5,2.4,2,AI recommended,3,"AI executed, human veto",1,36.9,Crossing now,18.9,1.4,proposing action to taking it
+17-2112.00,Industrial Engineers,"Research, Development, Design, and Practitioners",365740.0,66.0,47.5,-4.9,2,AI recommended,3,"AI executed, human veto",1,36.2,Crossing now,19.7,1.4,proposing action to taking it
+19-3022.00,Survey Researchers,"Research, Development, Design, and Practitioners",8290.0,66.6,44.5,-2.3,2,AI recommended,3,"AI executed, human veto",1,37.8,Crossing now,19.1,1.4,proposing action to taking it
+19-3039.02,Neuropsychologists,"Research, Development, Design, and Practitioners",18820.0,56.6,65.0,-15.4,1,AI informed,2,AI recommended,1,43.0,Watch point,16.8,1.4,
+25-1052.00,"Chemistry Teachers, Postsecondary",Postsecondary Teaching,19980.0,68.2,46.4,-5.2,2,AI recommended,3,"AI executed, human veto",1,37.2,Human held,18.5,1.4,proposing action to taking it
+17-2112.01,Human Factors Engineers and Ergonomists,"Research, Development, Design, and Practitioners",365740.0,59.0,50.5,-2.9,1,AI informed,2,AI recommended,1,43.2,Watch point,15.5,1.3,
+19-1011.00,Animal Scientists,"Research, Development, Design, and Practitioners",3100.0,58.6,37.5,10.4,1,AI informed,3,"AI executed, human veto",2,43.1,Handed off,7.6,1.3,
+19-2011.00,Astronomers,"Research, Development, Design, and Practitioners",2120.0,63.6,47.6,-3.4,2,AI recommended,3,"AI executed, human veto",1,38.5,Crossing now,16.5,1.3,proposing action to taking it
+19-4061.00,Social Science Research Assistants,Technologists and Technicians,30640.0,69.7,42.1,-1.8,2,AI recommended,3,"AI executed, human veto",1,32.8,Crossing now,19.7,1.3,proposing action to taking it
+29-9021.00,Health Information Technologists and Medical Registrars,"Research, Development, Design, and Practitioners; Technologists and Technicians",38100.0,68.0,49.3,-8.0,2,AI recommended,3,"AI executed, human veto",1,33.3,Human held,19.9,1.3,proposing action to taking it
+11-9121.01,Clinical Research Coordinators,Managerial,108690.0,69.4,47.6,-7.1,2,AI recommended,3,"AI executed, human veto",1,31.9,Human held,19.5,1.2,proposing action to taking it
+11-9121.02,Water Resource Specialists,Managerial,108690.0,60.9,47.6,-1.5,2,AI recommended,3,"AI executed, human veto",1,36.9,Crossing now,16.1,1.2,proposing action to taking it
+17-2112.03,Manufacturing Engineers,"Research, Development, Design, and Practitioners",365740.0,62.4,47.9,-2.9,2,AI recommended,3,"AI executed, human veto",1,38.1,Crossing now,16.1,1.2,proposing action to taking it
+19-2021.00,Atmospheric and Space Scientists,"Research, Development, Design, and Practitioners",10000.0,63.5,40.7,3.5,2,AI recommended,3,"AI executed, human veto",1,38.0,Crossing now,15.4,1.2,proposing action to taking it
+29-1299.01,Naturopathic Physicians,"Research, Development, Design, and Practitioners",28630.0,54.9,68.0,-16.8,1,AI informed,2,AI recommended,1,38.8,Human held,16.1,1.2,
+29-2072.00,Medical Records Specialists,Technologists and Technicians,194720.0,70.6,48.7,-8.9,2,AI recommended,3,"AI executed, human veto",1,28.6,Human held,21.8,1.2,proposing action to taking it
+17-1011.00,"Architects, Except Landscape and Naval","Research, Development, Design, and Practitioners",106770.0,62.7,49.8,-5.0,2,AI recommended,3,"AI executed, human veto",1,35.1,Crossing now,16.1,1.1,proposing action to taking it
+17-2141.02,Automotive Engineers,"Research, Development, Design, and Practitioners",296810.0,61.5,47.2,-1.5,2,AI recommended,3,"AI executed, human veto",1,38.3,Crossing now,15.0,1.1,proposing action to taking it
+29-1122.00,Occupational Therapists,"Research, Development, Design, and Practitioners",162450.0,54.3,68.1,-16.4,1,AI informed,2,AI recommended,1,38.3,Human held,14.2,1.1,
+29-1222.00,"Physicians, Pathologists","Research, Development, Design, and Practitioners",11110.0,53.8,65.0,-12.8,1,AI informed,2,AI recommended,1,32.6,Human held,16.2,1.1,
+15-1241.01,Telecommunications Engineering Specialists,"Research, Development, Design, and Practitioners",179740.0,67.8,41.3,0.1,2,AI recommended,3,"AI executed, human veto",1,31.3,Crossing now,15.2,1.0,proposing action to taking it
+17-2081.00,Environmental Engineers,"Research, Development, Design, and Practitioners",38340.0,61.9,48.8,-3.4,2,AI recommended,3,"AI executed, human veto",1,36.3,Crossing now,13.1,1.0,proposing action to taking it
+19-1042.00,"Medical Scientists, Except Epidemiologists","Research, Development, Design, and Practitioners",172340.0,56.8,52.0,-2.5,1,AI informed,2,AI recommended,1,39.2,Crossing now,13.2,1.0,
+29-2099.08,Patient Representatives,Technologists and Technicians,182610.0,71.0,40.6,-1.0,2,AI recommended,3,"AI executed, human veto",1,33.9,Crossing now,14.8,1.0,proposing action to taking it
+41-4011.07,Solar Sales Representatives and Assessors,Sales,284800.0,71.1,38.4,1.1,2,AI recommended,3,"AI executed, human veto",1,31.1,Crossing now,15.5,1.0,proposing action to taking it
+17-1012.00,Landscape Architects,"Research, Development, Design, and Practitioners",19600.0,63.6,45.1,-0.9,2,AI recommended,3,"AI executed, human veto",1,36.2,Crossing now,12.2,0.9,proposing action to taking it
+17-2061.00,Computer Hardware Engineers,"Research, Development, Design, and Practitioners",76660.0,63.9,45.3,-1.3,2,AI recommended,3,"AI executed, human veto",1,34.1,Crossing now,12.6,0.9,proposing action to taking it
+17-2111.00,"Health and Safety Engineers, Except Mining Safety Engineers and Inspectors","Research, Development, Design, and Practitioners",21450.0,53.9,59.0,-6.9,1,AI informed,2,AI recommended,1,39.8,Human held,11.5,0.9,
+17-2151.00,"Mining and Geological Engineers, Including Mining Safety Engineers","Research, Development, Design, and Practitioners",6080.0,61.4,48.8,-3.1,2,AI recommended,3,"AI executed, human veto",1,33.6,Crossing now,13.3,0.9,proposing action to taking it
+17-2199.06,Microsystems Engineers,"Research, Development, Design, and Practitioners",154070.0,61.1,47.4,-1.4,2,AI recommended,3,"AI executed, human veto",1,33.3,Crossing now,13.1,0.9,proposing action to taking it
+19-1029.02,Molecular and Cellular Biologists,"Research, Development, Design, and Practitioners",55850.0,56.1,48.6,1.5,1,AI informed,3,"AI executed, human veto",2,33.0,Crossing now,6.9,0.9,
+29-1011.00,Chiropractors,"Research, Development, Design, and Practitioners",39630.0,55.2,67.4,-16.5,1,AI informed,2,AI recommended,1,32.0,Human held,14.0,0.9,
+17-2199.03,"Energy Engineers, Except Wind and Solar","Research, Development, Design, and Practitioners",154070.0,64.9,43.1,0.2,2,AI recommended,3,"AI executed, human veto",1,28.7,Crossing now,14.5,0.8,proposing action to taking it
+19-1013.00,Soil and Plant Scientists,"Research, Development, Design, and Practitioners",15730.0,53.0,43.4,9.6,1,AI informed,3,"AI executed, human veto",2,41.3,Handed off,4.7,0.8,
+41-9031.00,Sales Engineers,Sales,51790.0,71.3,39.2,0.2,2,AI recommended,3,"AI executed, human veto",1,29.1,Crossing now,13.8,0.8,proposing action to taking it
+15-1244.00,Network and Computer Systems Administrators,"Research, Development, Design, and Practitioners",314340.0,69.2,40.6,-0.0,2,AI recommended,3,"AI executed, human veto",1,24.1,Crossing now,15.5,0.7,proposing action to taking it
+17-2072.00,"Electronics Engineers, Except Computer","Research, Development, Design, and Practitioners",96900.0,63.7,43.6,0.5,2,AI recommended,3,"AI executed, human veto",1,30.1,Crossing now,11.2,0.7,proposing action to taking it
+17-2141.01,Fuel Cell Engineers,"Research, Development, Design, and Practitioners",296810.0,59.1,44.7,2.8,2,AI recommended,3,"AI executed, human veto",1,34.5,Crossing now,9.6,0.7,proposing action to taking it
+17-2199.07,Photonics Engineers,"Research, Development, Design, and Practitioners",154070.0,61.9,43.3,2.1,2,AI recommended,3,"AI executed, human veto",1,33.1,Crossing now,10.4,0.7,proposing action to taking it
+19-1029.03,Geneticists,"Research, Development, Design, and Practitioners",55850.0,58.8,42.6,5.2,2,AI recommended,3,"AI executed, human veto",1,38.2,Handed off,9.2,0.7,proposing action to taking it
+19-1031.00,Conservation Scientists,"Research, Development, Design, and Practitioners",25950.0,54.5,52.3,-0.8,1,AI informed,2,AI recommended,1,38.1,Crossing now,9.8,0.7,
+17-2021.00,Agricultural Engineers,"Research, Development, Design, and Practitioners",1480.0,59.5,51.9,-4.7,1,AI informed,2,AI recommended,1,33.8,Crossing now,8.8,0.6,
+17-2131.00,Materials Engineers,"Research, Development, Design, and Practitioners",22770.0,60.2,49.1,-2.4,2,AI recommended,3,"AI executed, human veto",1,31.3,Crossing now,9.9,0.6,proposing action to taking it
+19-2042.00,"Geoscientists, Except Hydrologists and Geographers","Research, Development, Design, and Practitioners",23470.0,58.1,41.4,6.9,2,AI recommended,3,"AI executed, human veto",1,32.7,Handed off,8.8,0.6,proposing action to taking it
+19-2043.00,Hydrologists,"Research, Development, Design, and Practitioners",5850.0,57.3,44.6,4.4,2,AI recommended,3,"AI executed, human veto",1,33.5,Crossing now,8.6,0.6,proposing action to taking it
+29-1131.00,Veterinarians,"Research, Development, Design, and Practitioners",83900.0,49.6,67.7,-11.1,1,AI informed,2,AI recommended,1,37.8,Human held,7.6,0.6,
+17-2112.02,Validation Engineers,"Research, Development, Design, and Practitioners",365740.0,62.3,44.4,0.7,2,AI recommended,3,"AI executed, human veto",1,28.4,Crossing now,9.2,0.5,proposing action to taking it
+17-2199.08,Robotics Engineers,"Research, Development, Design, and Practitioners",154070.0,60.1,44.5,2.2,2,AI recommended,3,"AI executed, human veto",1,30.7,Crossing now,8.8,0.5,proposing action to taking it
+17-3022.00,Civil Engineering Technologists and Technicians,Technologists and Technicians,68520.0,63.1,43.9,0.6,2,AI recommended,3,"AI executed, human veto",1,25.7,Crossing now,10.7,0.5,proposing action to taking it
+19-1023.00,Zoologists and Wildlife Biologists,"Research, Development, Design, and Practitioners",18120.0,56.8,45.2,4.3,2,AI recommended,3,"AI executed, human veto",1,33.0,Crossing now,7.7,0.5,proposing action to taking it
+19-2099.01,Remote Sensing Scientists and Technologists,"Research, Development, Design, and Practitioners",22300.0,61.5,40.6,5.1,2,AI recommended,3,"AI executed, human veto",1,31.1,Handed off,8.7,0.5,proposing action to taking it
+19-4099.01,Quality Control Analysts,Technologists and Technicians,73910.0,61.5,44.3,1.4,2,AI recommended,3,"AI executed, human veto",1,25.1,Crossing now,10.2,0.5,proposing action to taking it
+15-1232.00,Computer User Support Specialists,Technologists and Technicians,717190.0,69.0,33.9,6.8,2,AI recommended,3,"AI executed, human veto",1,25.7,Handed off,7.5,0.4,proposing action to taking it
+17-2171.00,Petroleum Engineers,"Research, Development, Design, and Practitioners",18060.0,58.5,49.3,-1.3,2,AI recommended,3,"AI executed, human veto",1,27.8,Crossing now,6.6,0.4,proposing action to taking it
+17-2199.11,Solar Energy Systems Engineers,"Research, Development, Design, and Practitioners",154070.0,58.4,45.6,2.5,2,AI recommended,3,"AI executed, human veto",1,30.7,Crossing now,6.6,0.4,proposing action to taking it
+17-3011.00,Architectural and Civil Drafters,Technologists and Technicians,103700.0,65.0,40.0,3.2,2,AI recommended,3,"AI executed, human veto",1,21.0,Crossing now,8.6,0.4,proposing action to taking it
+17-3012.00,Electrical and Electronics Drafters,Technologists and Technicians,17920.0,64.2,42.8,1.0,2,AI recommended,3,"AI executed, human veto",1,26.8,Crossing now,8.3,0.4,proposing action to taking it
+19-2032.00,Materials Scientists,"Research, Development, Design, and Practitioners",8470.0,58.6,41.6,6.3,2,AI recommended,3,"AI executed, human veto",1,30.0,Handed off,7.5,0.4,proposing action to taking it
+19-4012.01,Precision Agriculture Technicians,Technologists and Technicians,15130.0,63.1,37.2,7.3,2,AI recommended,3,"AI executed, human veto",1,25.8,Handed off,8.5,0.4,proposing action to taking it
+29-1128.00,Exercise Physiologists,"Research, Development, Design, and Practitioners",8560.0,51.8,64.7,-10.5,1,AI informed,2,AI recommended,1,31.3,Human held,6.6,0.4,
+17-2051.00,Civil Engineers,"Research, Development, Design, and Practitioners",367840.0,53.0,53.6,-0.6,1,AI informed,2,AI recommended,1,29.9,Crossing now,5.6,0.3,
+17-2071.00,Electrical Engineers,"Research, Development, Design, and Practitioners",198750.0,57.1,48.4,0.8,2,AI recommended,3,"AI executed, human veto",1,26.7,Crossing now,5.1,0.3,proposing action to taking it
+17-2072.01,Radio Frequency Identification Device Specialists,"Research, Development, Design, and Practitioners",96900.0,60.5,40.5,5.9,2,AI recommended,3,"AI executed, human veto",1,28.9,Handed off,4.6,0.3,proposing action to taking it
+17-3013.00,Mechanical Drafters,Technologists and Technicians,39960.0,65.6,40.7,2.1,2,AI recommended,3,"AI executed, human veto",1,18.9,Crossing now,7.1,0.3,proposing action to taking it
+19-1031.02,Range Managers,"Research, Development, Design, and Practitioners",25950.0,52.1,51.6,2.3,1,AI informed,2,AI recommended,1,39.2,Crossing now,4.3,0.3,
+17-2199.09,Nanosystems Engineers,"Research, Development, Design, and Practitioners",154070.0,56.4,43.4,6.4,2,AI recommended,3,"AI executed, human veto",1,32.2,Handed off,3.6,0.2,proposing action to taking it
+17-3026.00,Industrial Engineering Technologists and Technicians,Technologists and Technicians,75570.0,57.1,46.5,2.7,2,AI recommended,3,"AI executed, human veto",1,24.9,Crossing now,3.2,0.2,proposing action to taking it
+19-1012.00,Food Scientists and Technologists,"Research, Development, Design, and Practitioners",13060.0,54.9,44.5,6.7,2,AI recommended,3,"AI executed, human veto",1,33.0,Handed off,2.7,0.2,proposing action to taking it
+19-4099.03,Remote Sensing Technicians,Technologists and Technicians,73910.0,63.0,35.1,9.5,2,AI recommended,3,"AI executed, human veto",1,22.3,Handed off,4.4,0.2,proposing action to taking it
+17-2121.00,Marine Engineers and Naval Architects,"Research, Development, Design, and Practitioners",8250.0,58.8,45.6,2.2,2,AI recommended,3,"AI executed, human veto",1,23.9,Crossing now,3.0,0.1,proposing action to taking it
+17-3023.00,Electrical and Electronic Engineering Technologists and Technicians,Technologists and Technicians,95130.0,60.2,42.2,4.5,2,AI recommended,3,"AI executed, human veto",1,25.6,Crossing now,2.2,0.1,proposing action to taking it
+17-3027.00,Mechanical Engineering Technologists and Technicians,Technologists and Technicians,36190.0,61.6,39.2,6.4,2,AI recommended,3,"AI executed, human veto",1,18.6,Handed off,3.0,0.1,proposing action to taking it
+19-1032.00,Foresters,"Research, Development, Design, and Practitioners",10430.0,49.6,53.0,3.6,1,AI informed,2,AI recommended,1,35.2,Human held,1.7,0.1,
+19-4044.00,Hydrologic Technicians,Technologists and Technicians,2840.0,58.5,40.9,7.1,2,AI recommended,3,"AI executed, human veto",1,24.0,Handed off,2.5,0.1,proposing action to taking it
+11-3021.00,Computer and Information Systems Managers,Managerial,670570.0,68.4,51.4,-10.3,2,AI recommended,2,AI recommended,0,43.7,Watch point,25.8,0.0,
+11-9041.01,Biofuels/Biodiesel Technology and Product Development Managers,Managerial,220260.0,50.0,44.3,11.9,1,AI informed,3,"AI executed, human veto",2,33.8,Handed off,0.0,0.0,
+11-9111.00,Medical and Health Services Managers,Managerial,597080.0,66.2,52.3,-9.9,2,AI recommended,2,AI recommended,0,35.1,Human held,17.6,0.0,
+15-1231.00,Computer Network Support Specialists,Technologists and Technicians,146190.0,68.6,34.6,6.3,3,"AI executed, human veto",3,"AI executed, human veto",0,15.4,Handed off,7.6,0.0,
+15-1242.00,Database Administrators,"Research, Development, Design, and Practitioners",69990.0,78.0,34.8,1.2,3,"AI executed, human veto",3,"AI executed, human veto",0,29.6,Crossing now,25.6,0.0,
+15-1253.00,Software Quality Assurance Analysts and Testers,"Research, Development, Design, and Practitioners",186740.0,75.0,35.1,2.4,3,"AI executed, human veto",3,"AI executed, human veto",0,24.5,Crossing now,20.6,0.0,
+15-1254.00,Web Developers,"Research, Development, Design, and Practitioners",70190.0,76.8,35.1,1.5,3,"AI executed, human veto",3,"AI executed, human veto",0,31.2,Crossing now,23.7,0.0,
+15-1299.02,Geographic Information Systems Technologists and Technicians,"Research, Development, Design, and Practitioners; Technologists and Technicians",435370.0,78.6,30.7,5.0,3,"AI executed, human veto",3,"AI executed, human veto",0,32.1,Handed off,25.8,0.0,
+15-1299.05,Information Security Engineers,"Research, Development, Design, and Practitioners; Technologists and Technicians",435370.0,67.3,50.1,-8.4,2,AI recommended,2,AI recommended,0,38.7,Human held,23.7,0.0,
+15-1299.09,Information Technology Project Managers,"Research, Development, Design, and Practitioners; Technologists and Technicians",435370.0,69.2,50.6,-10.0,2,AI recommended,2,AI recommended,0,40.4,Watch point,24.7,0.0,
+15-2051.01,Business Intelligence Analysts,"Research, Development, Design, and Practitioners",262440.0,79.8,30.1,5.1,3,"AI executed, human veto",3,"AI executed, human veto",0,32.9,Handed off,27.6,0.0,
+17-1021.00,Cartographers and Photogrammetrists,Technologists and Technicians,14260.0,56.5,34.6,15.1,2,AI recommended,2,AI recommended,0,-1.3,Handed off,0.0,-0.0,
+17-1022.00,Surveyors,Technologists and Technicians,50830.0,57.3,44.4,4.6,2,AI recommended,3,"AI executed, human veto",1,7.7,Crossing now,0.0,0.0,proposing action to taking it
+17-1022.01,Geodetic Surveyors,Technologists and Technicians,50830.0,64.0,39.6,4.3,3,"AI executed, human veto",3,"AI executed, human veto",0,7.8,Crossing now,3.7,0.0,
+17-2011.00,Aerospace Engineers,"Research, Development, Design, and Practitioners",67710.0,60.4,50.6,-4.1,2,AI recommended,2,AI recommended,0,31.7,Crossing now,12.6,0.0,
+17-2051.01,Transportation Engineers,"Research, Development, Design, and Practitioners",367840.0,59.5,51.6,-4.4,2,AI recommended,2,AI recommended,0,35.6,Crossing now,14.1,0.0,
+17-2111.02,Fire-Prevention and Protection Engineers,"Research, Development, Design, and Practitioners",21450.0,62.4,53.0,-8.0,2,AI recommended,2,AI recommended,0,42.1,Watch point,21.2,0.0,
+17-2161.00,Nuclear Engineers,"Research, Development, Design, and Practitioners",15280.0,60.7,52.4,-6.1,2,AI recommended,2,AI recommended,0,36.9,Human held,15.4,0.0,
+17-2199.10,Wind Energy Engineers,"Research, Development, Design, and Practitioners",154070.0,58.7,50.1,-2.2,2,AI recommended,2,AI recommended,0,32.8,Crossing now,11.8,0.0,
+17-3021.00,Aerospace Engineering and Operations Technologists and Technicians,Technologists and Technicians,11280.0,51.3,39.8,15.0,2,AI recommended,2,AI recommended,0,9.6,Handed off,0.0,0.0,
+17-3024.00,Electro-Mechanical and Mechatronics Technologists and Technicians,Technologists and Technicians,15520.0,52.9,39.5,13.6,2,AI recommended,3,"AI executed, human veto",1,14.6,Handed off,0.0,0.0,proposing action to taking it
+17-3024.01,Robotics Technicians,Technologists and Technicians,15520.0,47.7,37.7,21.2,2,AI recommended,2,AI recommended,0,8.4,Human held,0.0,0.0,
+17-3025.00,Environmental Engineering Technologists and Technicians,Technologists and Technicians,12190.0,55.1,44.3,6.7,2,AI recommended,3,"AI executed, human veto",1,16.4,Handed off,0.0,0.0,proposing action to taking it
+17-3026.01,Nanotechnology Engineering Technologists and Technicians,Technologists and Technicians,75570.0,52.5,37.4,16.1,2,AI recommended,3,"AI executed, human veto",1,10.2,Handed off,0.0,0.0,proposing action to taking it
+17-3027.01,Automotive Engineering Technicians,Technologists and Technicians,36190.0,54.5,37.3,14.2,2,AI recommended,3,"AI executed, human veto",1,12.7,Handed off,0.0,0.0,proposing action to taking it
+17-3028.00,Calibration Technologists and Technicians,Technologists and Technicians,16540.0,54.4,36.6,15.0,2,AI recommended,3,"AI executed, human veto",1,15.9,Handed off,0.0,0.0,proposing action to taking it
+17-3029.01,Non-Destructive Testing Specialists,Technologists and Technicians,59930.0,50.9,37.8,17.4,2,AI recommended,2,AI recommended,0,-0.4,Handed off,0.0,-0.0,
+17-3029.08,Photonics Technicians,Technologists and Technicians,59930.0,47.0,34.5,25.3,2,AI recommended,2,AI recommended,0,2.6,Human held,0.0,0.0,
+17-3031.00,Surveying and Mapping Technicians,Technologists and Technicians,58010.0,56.3,37.9,12.0,2,AI recommended,2,AI recommended,0,-1.3,Handed off,0.0,-0.0,
+19-1021.00,Biochemists and Biophysicists,"Research, Development, Design, and Practitioners",33830.0,50.7,40.8,14.6,1,AI informed,3,"AI executed, human veto",2,34.7,Handed off,0.0,0.0,
+19-1022.00,Microbiologists,"Research, Development, Design, and Practitioners",18940.0,45.1,40.5,21.8,2,AI recommended,3,"AI executed, human veto",1,20.9,Human held,0.0,0.0,proposing action to taking it
+19-1031.03,Park Naturalists,"Research, Development, Design, and Practitioners",25950.0,60.7,40.1,6.2,2,AI recommended,3,"AI executed, human veto",1,22.1,Handed off,0.0,0.0,proposing action to taking it
+19-2031.00,Chemists,"Research, Development, Design, and Practitioners",82770.0,51.0,47.1,8.0,1,AI informed,3,"AI executed, human veto",2,24.7,Handed off,0.0,0.0,
+19-3039.03,Clinical Neuropsychologists,"Research, Development, Design, and Practitioners",18820.0,55.3,70.7,-19.9,1,AI informed,1,AI informed,0,44.9,Watch point,19.5,0.0,
+19-3091.00,Anthropologists and Archeologists,"Research, Development, Design, and Practitioners",8990.0,53.0,44.9,8.1,1,AI informed,3,"AI executed, human veto",2,35.3,Handed off,0.2,0.0,
+19-3092.00,Geographers,"Research, Development, Design, and Practitioners",1400.0,55.8,38.2,12.1,2,AI recommended,3,"AI executed, human veto",1,29.8,Handed off,0.0,0.0,proposing action to taking it
+19-4012.00,Agricultural Technicians,Technologists and Technicians,15130.0,45.5,34.3,27.4,2,AI recommended,2,AI recommended,0,4.0,Human held,0.0,0.0,
+19-4013.00,Food Science Technicians,Technologists and Technicians,14600.0,47.8,38.3,20.5,2,AI recommended,2,AI recommended,0,-0.4,Human held,0.0,-0.0,
+19-4021.00,Biological Technicians,Technologists and Technicians,69620.0,50.6,33.9,21.6,2,AI recommended,2,AI recommended,0,6.9,Handed off,0.0,0.0,
+19-4031.00,Chemical Technicians,Technologists and Technicians,57540.0,50.1,43.6,12.5,2,AI recommended,3,"AI executed, human veto",1,20.6,Handed off,0.0,0.0,proposing action to taking it
+19-4042.00,"Environmental Science and Protection Technicians, Including Health",Technologists and Technicians,34670.0,51.1,47.6,7.4,2,AI recommended,3,"AI executed, human veto",1,21.7,Handed off,0.0,0.0,proposing action to taking it
+19-4043.00,"Geological Technicians, Except Hydrologic Technicians",Technologists and Technicians,6980.0,50.4,36.3,19.4,2,AI recommended,2,AI recommended,0,9.0,Handed off,0.0,0.0,
+19-4051.00,Nuclear Technicians,Technologists and Technicians,6470.0,45.5,47.3,14.4,2,AI recommended,2,AI recommended,0,9.6,Human held,0.0,0.0,
+19-4051.02,Nuclear Monitoring Technicians,Technologists and Technicians,6470.0,48.9,46.6,10.8,2,AI recommended,2,AI recommended,0,0.0,Human held,0.0,0.0,
+19-4071.00,Forest and Conservation Technicians,Technologists and Technicians,30410.0,48.6,45.7,12.1,2,AI recommended,2,AI recommended,0,14.1,Human held,0.0,0.0,
+19-4092.00,Forensic Science Technicians,Technologists and Technicians,19120.0,43.1,57.5,7.7,1,AI informed,2,AI recommended,1,19.1,Human held,0.0,0.0,
+29-1021.00,"Dentists, General","Research, Development, Design, and Practitioners",124390.0,38.0,74.3,-0.4,1,AI informed,1,AI informed,0,28.5,Human held,0.0,0.0,
+29-1022.00,Oral and Maxillofacial Surgeons,"Research, Development, Design, and Practitioners",4910.0,27.5,81.5,18.5,0,Human only,1,AI informed,1,29.4,Human held,0.0,0.0,
+29-1023.00,Orthodontists,"Research, Development, Design, and Practitioners",6210.0,48.2,70.6,-12.3,1,AI informed,1,AI informed,0,31.4,Human held,5.8,0.0,
+29-1024.00,Prosthodontists,"Research, Development, Design, and Practitioners",870.0,30.0,69.7,23.9,1,AI informed,1,AI informed,0,14.6,Human held,0.0,0.0,
+29-1041.00,Optometrists,"Research, Development, Design, and Practitioners",42790.0,48.6,75.8,-18.0,1,AI informed,1,AI informed,0,39.8,Human held,15.5,0.0,
+29-1051.00,Pharmacists,"Research, Development, Design, and Practitioners",321970.0,59.9,62.9,-16.0,2,AI recommended,2,AI recommended,0,32.9,Human held,17.9,0.0,
+29-1071.00,Physician Assistants,"Research, Development, Design, and Practitioners",162150.0,54.2,72.0,-20.2,1,AI informed,1,AI informed,0,38.7,Human held,19.7,0.0,
+29-1071.01,Anesthesiologist Assistants,"Research, Development, Design, and Practitioners",162150.0,37.2,69.4,6.1,1,AI informed,2,AI recommended,1,19.9,Human held,0.0,0.0,
+29-1081.00,Podiatrists,"Research, Development, Design, and Practitioners",9680.0,49.6,71.8,-15.2,1,AI informed,1,AI informed,0,38.2,Human held,13.6,0.0,
+29-1122.01,"Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists","Research, Development, Design, and Practitioners",162450.0,50.5,71.7,-16.1,1,AI informed,1,AI informed,0,42.3,Human held,11.3,0.0,
+29-1124.00,Radiation Therapists,"Research, Development, Design, and Practitioners",17070.0,46.7,67.0,-6.9,1,AI informed,2,AI recommended,1,16.2,Human held,0.0,0.0,
+29-1125.00,Recreational Therapists,"Research, Development, Design, and Practitioners",14930.0,57.6,73.9,-25.1,1,AI informed,1,AI informed,0,45.6,Watch point,25.0,0.0,
+29-1126.00,Respiratory Therapists,"Research, Development, Design, and Practitioners",139790.0,45.7,70.2,-8.7,1,AI informed,1,AI informed,0,26.7,Human held,0.0,0.0,
+29-1127.00,Speech-Language Pathologists,"Research, Development, Design, and Practitioners",183390.0,55.5,70.9,-20.3,1,AI informed,1,AI informed,0,44.1,Watch point,19.8,0.0,
+29-1141.00,Registered Nurses,"Research, Development, Design, and Practitioners",3379720.0,51.2,70.8,-15.9,1,AI informed,1,AI informed,0,34.0,Human held,11.2,0.0,
+29-1141.01,Acute Care Nurses,"Research, Development, Design, and Practitioners",3379720.0,51.4,73.1,-18.5,1,AI informed,1,AI informed,0,39.7,Human held,16.3,0.0,
+29-1141.02,Advanced Practice Psychiatric Nurses,"Research, Development, Design, and Practitioners",3379720.0,54.2,74.0,-22.2,1,AI informed,1,AI informed,0,44.4,Human held,21.9,0.0,
+29-1141.03,Critical Care Nurses,"Research, Development, Design, and Practitioners",3379720.0,46.9,71.3,-11.4,1,AI informed,1,AI informed,0,29.0,Human held,4.2,0.0,
+29-1141.04,Clinical Nurse Specialists,"Research, Development, Design, and Practitioners",3379720.0,57.7,72.5,-23.8,1,AI informed,1,AI informed,0,50.6,Watch point,25.7,0.0,
+29-1151.00,Nurse Anesthetists,"Research, Development, Design, and Practitioners",51840.0,44.2,69.1,-5.5,1,AI informed,2,AI recommended,1,25.9,Human held,0.0,0.0,
+29-1161.00,Nurse Midwives,"Research, Development, Design, and Practitioners",7920.0,52.4,72.9,-19.3,1,AI informed,1,AI informed,0,40.2,Human held,17.0,0.0,
+29-1171.00,Nurse Practitioners,"Research, Development, Design, and Practitioners",323040.0,56.9,72.7,-23.3,1,AI informed,1,AI informed,0,46.9,Watch point,25.6,0.0,
+29-1181.00,Audiologists,"Research, Development, Design, and Practitioners",13660.0,54.6,70.5,-19.1,1,AI informed,1,AI informed,0,40.0,Human held,17.9,0.0,
+29-1211.00,Anesthesiologists,"Research, Development, Design, and Practitioners",38760.0,47.8,73.6,-14.8,1,AI informed,1,AI informed,0,33.7,Human held,7.7,0.0,
+29-1212.00,Cardiologists,"Research, Development, Design, and Practitioners",17290.0,49.0,72.9,-15.6,1,AI informed,1,AI informed,0,35.2,Human held,13.2,0.0,
+29-1213.00,Dermatologists,"Research, Development, Design, and Practitioners",11370.0,52.5,73.5,-20.0,1,AI informed,1,AI informed,0,47.8,Human held,23.6,0.0,
+29-1214.00,Emergency Medicine Physicians,"Research, Development, Design, and Practitioners",32880.0,49.6,77.7,-21.1,1,AI informed,1,AI informed,0,41.8,Human held,20.6,0.0,
+29-1215.00,Family Medicine Physicians,"Research, Development, Design, and Practitioners",107510.0,60.0,73.9,-27.1,1,AI informed,1,AI informed,0,44.9,Watch point,28.8,0.0,
+29-1216.00,General Internal Medicine Physicians,"Research, Development, Design, and Practitioners",67150.0,53.0,75.1,-22.1,1,AI informed,1,AI informed,0,45.7,Human held,23.6,0.0,
+29-1217.00,Neurologists,"Research, Development, Design, and Practitioners",10590.0,56.1,74.5,-24.4,1,AI informed,1,AI informed,0,45.8,Watch point,27.6,0.0,
+29-1218.00,Obstetricians and Gynecologists,"Research, Development, Design, and Practitioners",21260.0,52.2,75.4,-21.6,1,AI informed,1,AI informed,0,41.8,Human held,20.3,0.0,
+29-1221.00,"Pediatricians, General","Research, Development, Design, and Practitioners",39390.0,52.3,74.9,-21.2,1,AI informed,1,AI informed,0,44.3,Human held,19.0,0.0,
+29-1223.00,Psychiatrists,"Research, Development, Design, and Practitioners",27980.0,60.9,71.8,-25.7,1,AI informed,1,AI informed,0,47.1,Watch point,32.5,0.0,
+29-1224.00,Radiologists,"Research, Development, Design, and Practitioners",26770.0,58.1,71.0,-22.7,1,AI informed,1,AI informed,0,38.7,Human held,24.3,0.0,
+29-1229.01,Allergists and Immunologists,"Research, Development, Design, and Practitioners",342720.0,57.4,74.3,-25.4,1,AI informed,1,AI informed,0,51.0,Watch point,31.6,0.0,
+29-1229.02,Hospitalists,"Research, Development, Design, and Practitioners",342720.0,62.4,71.4,-26.4,1,AI informed,1,AI informed,0,49.8,Watch point,32.9,0.0,
+29-1229.03,Urologists,"Research, Development, Design, and Practitioners",342720.0,48.9,76.1,-18.7,1,AI informed,1,AI informed,0,40.2,Human held,15.0,0.0,
+29-1229.04,Physical Medicine and Rehabilitation Physicians,"Research, Development, Design, and Practitioners",342720.0,47.5,77.2,-18.1,1,AI informed,1,AI informed,0,41.0,Human held,14.7,0.0,
+29-1241.00,"Ophthalmologists, Except Pediatric","Research, Development, Design, and Practitioners",8950.0,51.5,74.6,-20.1,1,AI informed,1,AI informed,0,41.4,Human held,20.3,0.0,
+29-1242.00,"Orthopedic Surgeons, Except Pediatric","Research, Development, Design, and Practitioners",14100.0,49.7,72.2,-15.7,1,AI informed,1,AI informed,0,35.0,Human held,12.9,0.0,
+29-1243.00,Pediatric Surgeons,"Research, Development, Design, and Practitioners",1190.0,48.4,73.7,-15.7,1,AI informed,1,AI informed,0,33.7,Human held,11.2,0.0,
+29-1291.00,Acupuncturists,"Research, Development, Design, and Practitioners",7830.0,42.8,73.5,-7.9,1,AI informed,1,AI informed,0,32.9,Human held,0.7,0.0,
+29-1292.00,Dental Hygienists,"Research, Development, Design, and Practitioners",222740.0,46.3,61.6,-0.9,1,AI informed,2,AI recommended,1,17.3,Human held,0.0,0.0,
+29-1299.02,Orthoptists,"Research, Development, Design, and Practitioners",28630.0,53.2,71.3,-18.5,1,AI informed,1,AI informed,0,38.3,Human held,18.9,0.0,
+29-2011.00,Medical and Clinical Laboratory Technologists,Technologists and Technicians,332940.0,47.5,58.5,0.6,2,AI recommended,2,AI recommended,0,10.4,Human held,0.0,0.0,
+29-2011.01,Cytogenetic Technologists,Technologists and Technicians,332940.0,52.4,57.0,-3.4,2,AI recommended,2,AI recommended,0,11.1,Crossing now,0.3,0.0,
+29-2011.02,Cytotechnologists,Technologists and Technicians,332940.0,50.1,60.4,-4.3,2,AI recommended,2,AI recommended,0,9.8,Crossing now,0.0,0.0,
+29-2011.04,Histotechnologists,Technologists and Technicians,332940.0,42.2,50.6,16.0,2,AI recommended,2,AI recommended,0,-6.1,Human held,0.0,-0.0,
+29-2012.00,Medical and Clinical Laboratory Technicians,Technologists and Technicians,332940.0,46.8,53.5,6.5,2,AI recommended,2,AI recommended,0,3.6,Human held,0.0,0.0,
+29-2012.01,Histology Technicians,Technologists and Technicians,332940.0,32.8,44.7,40.9,2,AI recommended,1,AI informed,-1,-15.0,Human held,0.0,0.0,
+29-2031.00,Cardiovascular Technologists and Technicians,Technologists and Technicians,62960.0,47.5,67.3,-8.2,2,AI recommended,2,AI recommended,0,15.3,Human held,0.0,0.0,
+29-2032.00,Diagnostic Medical Sonographers,Technologists and Technicians,90160.0,52.6,61.7,-8.3,2,AI recommended,2,AI recommended,0,16.3,Human held,1.9,0.0,
+29-2033.00,Nuclear Medicine Technologists,Technologists and Technicians,17080.0,51.1,58.2,-3.2,2,AI recommended,2,AI recommended,0,11.0,Crossing now,0.0,0.0,
+29-2034.00,Radiologic Technologists and Technicians,Technologists and Technicians,230490.0,49.5,64.4,-7.7,1,AI informed,2,AI recommended,1,18.6,Human held,0.0,0.0,
+29-2035.00,Magnetic Resonance Imaging Technologists,Technologists and Technicians,43390.0,48.7,60.9,-3.2,2,AI recommended,2,AI recommended,0,16.4,Human held,0.0,0.0,
+29-2036.00,Medical Dosimetrists,Technologists and Technicians,3410.0,54.4,59.6,-8.0,2,AI recommended,2,AI recommended,0,23.2,Human held,5.8,0.0,
+29-2042.00,Emergency Medical Technicians,Technologists and Technicians,180510.0,42.7,70.1,-4.3,1,AI informed,1,AI informed,0,23.5,Human held,0.0,0.0,
+29-2043.00,Paramedics,Technologists and Technicians,100610.0,40.7,76.9,-7.9,1,AI informed,1,AI informed,0,34.9,Human held,0.3,0.0,
+29-2052.00,Pharmacy Technicians,Technologists and Technicians,471680.0,59.2,43.3,4.1,2,AI recommended,3,"AI executed, human veto",1,6.9,Crossing now,0.0,0.0,proposing action to taking it
+29-2053.00,Psychiatric Technicians,Technologists and Technicians,156960.0,46.8,69.8,-9.8,1,AI informed,2,AI recommended,1,26.3,Human held,0.0,0.0,
+29-2055.00,Surgical Technologists,Technologists and Technicians,117460.0,40.4,58.7,10.8,2,AI recommended,2,AI recommended,0,1.6,Human held,0.0,0.0,
+29-2056.00,Veterinary Technologists and Technicians,Technologists and Technicians,129140.0,40.6,62.4,6.8,1,AI informed,2,AI recommended,1,10.5,Human held,0.0,0.0,
+29-2057.00,Ophthalmic Medical Technicians,Technologists and Technicians,71010.0,39.8,60.8,9.8,2,AI recommended,2,AI recommended,0,-0.5,Human held,0.0,-0.0,
+29-2061.00,Licensed Practical and Licensed Vocational Nurses,Technologists and Technicians,648410.0,47.3,61.3,-1.9,1,AI informed,2,AI recommended,1,13.7,Human held,0.0,0.0,
+29-2081.00,"Opticians, Dispensing",Technologists and Technicians,73530.0,50.0,56.3,-0.1,2,AI recommended,2,AI recommended,0,16.7,Crossing now,0.0,0.0,
+29-2091.00,Orthotists and Prosthetists,Technologists and Technicians,9390.0,44.8,65.1,-2.4,1,AI informed,2,AI recommended,1,20.6,Human held,0.0,0.0,
+29-2092.00,Hearing Aid Specialists,Technologists and Technicians,11270.0,38.7,67.6,5.0,1,AI informed,2,AI recommended,1,17.4,Human held,0.0,0.0,
+29-2099.01,Neurodiagnostic Technologists,Technologists and Technicians,182610.0,47.4,66.7,-7.4,1,AI informed,2,AI recommended,1,23.5,Human held,0.0,0.0,
+29-2099.05,Ophthalmic Medical Technologists,Technologists and Technicians,182610.0,43.1,60.6,4.6,2,AI recommended,2,AI recommended,0,1.1,Human held,0.0,0.0,
+29-9091.00,Athletic Trainers,"Research, Development, Design, and Practitioners",30500.0,51.2,58.4,-3.5,1,AI informed,2,AI recommended,1,26.0,Crossing now,0.0,0.0,
+29-9093.00,Surgical Assistants,"Research, Development, Design, and Practitioners",22270.0,32.1,71.0,16.5,1,AI informed,1,AI informed,0,10.3,Human held,0.0,0.0,
+29-9099.01,Midwives,"Research, Development, Design, and Practitioners; Technologists and Technicians",35010.0,47.7,72.1,-13.2,1,AI informed,1,AI informed,0,33.8,Human held,7.6,0.0,
+41-4011.00,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",Sales,284800.0,74.4,36.8,1.0,3,"AI executed, human veto",3,"AI executed, human veto",0,21.2,Crossing now,13.8,0.0,

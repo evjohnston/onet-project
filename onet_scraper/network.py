@@ -26,7 +26,7 @@ OCC_EDGE_COLUMNS = ("source", "target", "source_title", "target_title",
                     "same_soc_major_group")
 OCC_NODE_COLUMNS = ("onet_soc_code", "title", "stem_occupation_types", "job_zone",
                     "bright_outlook", "n_tasks", "n_subtasks", "degree",
-                    "weighted_degree", "mean_similarity")
+                    "weighted_degree", "mean_similarity", "layout_x", "layout_y")
 DWA_EDGE_COLUMNS = ("source", "target", "source_title", "target_title",
                     "co_occurring_occupations", "cosine")
 DWA_NODE_COLUMNS = ("dwa_id", "dwa_title", "iwa_title", "gwa_title",
@@ -286,3 +286,88 @@ def write_graphml(
     path.write_text("\n".join(lines))
     log.info("wrote %-28s %d nodes, %d edges (weight: %s)",
              path.name, len(nodes), len(edges), edge_weight)
+
+
+# --------------------------------------------------------------------------- #
+# Layout                                                                        #
+# --------------------------------------------------------------------------- #
+def backbone(edges: Sequence[dict[str, Any]], per_node: int = 3) -> list[tuple[str, str]]:
+    """Each node's strongest `per_node` links. The full graph renders as a hairball."""
+    best: dict[str, list[tuple[float, str]]] = collections.defaultdict(list)
+    for edge in edges:
+        c = float(edge["cosine"])
+        best[edge["source"]].append((c, edge["target"]))
+        best[edge["target"]].append((c, edge["source"]))
+    keep: set[tuple[str, str]] = set()
+    for node, lst in best.items():
+        for _, other in sorted(lst, reverse=True)[:per_node]:
+            keep.add(tuple(sorted((node, other))))
+    return sorted(keep)
+
+
+def force_layout(
+    node_ids: Sequence[str],
+    edges: Sequence[tuple[str, str]],
+    width: float = 1000.0,
+    height: float = 620.0,
+    iterations: int = 400,
+    seed: int = 20260916,
+) -> dict[str, tuple[float, float]]:
+    """Annealed Fruchterman-Reingold, computed here rather than in the browser.
+
+    Doing this client-side blocked the page for seconds on load - it is O(n^2)
+    per iteration and the layout is static anyway, so it belongs at build time.
+    Seeded, so the same input always produces the same drawing.
+    """
+    import random
+
+    rng = random.Random(seed)
+    n = len(node_ids)
+    if n == 0:
+        return {}
+    index = {code: i for i, code in enumerate(node_ids)}
+    px = [rng.uniform(0, width) for _ in range(n)]
+    py = [rng.uniform(0, height) for _ in range(n)]
+    pairs = [(index[a], index[b]) for a, b in edges if a in index and b in index]
+
+    k = math.sqrt(width * height / n)
+    temp = width * 0.04
+    cooling = temp / (iterations + 1)
+
+    for _ in range(iterations):
+        dx = [0.0] * n
+        dy = [0.0] * n
+        for i in range(n):
+            xi, yi = px[i], py[i]
+            for j in range(i + 1, n):
+                ddx, ddy = xi - px[j], yi - py[j]
+                dist = math.hypot(ddx, ddy) or 0.01
+                rep = (k * k) / dist / dist
+                ux, uy = ddx * rep, ddy * rep
+                dx[i] += ux; dy[i] += uy
+                dx[j] -= ux; dy[j] -= uy
+        for a, b in pairs:
+            ddx, ddy = px[a] - px[b], py[a] - py[b]
+            dist = math.hypot(ddx, ddy) or 0.01
+            att = dist / k
+            ux, uy = ddx * att, ddy * att
+            dx[a] -= ux; dy[a] -= uy
+            dx[b] += ux; dy[b] += uy
+        for i in range(n):
+            # Centre gravity rather than hard walls: a wall makes nodes pile onto
+            # the border and hold each other there.
+            dx[i] += (width / 2 - px[i]) * 0.09
+            dy[i] += (height / 2 - py[i]) * 0.09
+            dist = math.hypot(dx[i], dy[i]) or 0.01
+            step = min(dist, temp)
+            px[i] += dx[i] / dist * step
+            py[i] += dy[i] / dist * step
+        temp -= cooling
+
+    # Normalise to 0-1 so the dashboard can scale to whatever width it has.
+    lo_x, hi_x = min(px), max(px)
+    lo_y, hi_y = min(py), max(py)
+    span_x = (hi_x - lo_x) or 1.0
+    span_y = (hi_y - lo_y) or 1.0
+    return {code: (round((px[i] - lo_x) / span_x, 5), round((py[i] - lo_y) / span_y, 5))
+            for code, i in index.items()}

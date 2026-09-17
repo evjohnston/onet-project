@@ -341,6 +341,70 @@ measures called safe. A strong positive correlation here would have been the war
 sign, not the reassurance. (These three expectations were originally written down as
 "moderate positive" and the data refuted them — the code records that.)
 
+### The handoff framing (Watson 2026)
+
+Phil Watson's *Considering Handoffs of Cognitive Leadership from Humans to AI*
+(Applied Emergence, July 2026) proposes scoring work on two independent axes and
+locating each unit on a six-stage scale of cognitive leadership. A handoff is a
+crossing between stages. The paper names this corpus directly: *"Machine-readable
+decompositions of work already exist, e.g. the Department of Labor's O\*NET database.
+The novel work is to identify which tasks are decisions, and then to score where each
+decision's authority resides."*
+
+`occupation_handoff.csv` maps the scored dimensions onto that framework.
+
+| Watson's property | Our measure |
+| --- | --- |
+| **Tractability** — machine-readable state | `100 − physical_embodiment_required` |
+| **Tractability** — formalizable options | `100 − judgment_under_uncertainty` |
+| **Tractability** — general capability | `llm_exposure` |
+| **Tractability** — recurrence | **missing** — O\*NET's FT scale in `task_ratings.csv` would supply it |
+| **Tractability** — feedback speed/clarity | **missing** — not in O\*NET; needs new scoring |
+| **Resistance** — stakes, irreversibility | `error_cost` |
+| **Resistance** — legitimacy needs a human | `accountability_requirement` |
+| **Resistance** — relational demand | `interpersonal_demand` |
+
+Watson scores capability and deployment separately and reads the gap between them as
+**willingness to permit the handoff**. We already computed that gap; the framing is his.
+
+**Two things do not map, and they matter.** Our unit is the O\*NET *task*; his is the
+recurring *decision*, and he is explicit that identifying which tasks are decisions is
+the novel work. We have not done it, so the stage numbers are provisional. And six of
+his eight properties are covered — recurrence and feedback speed are absent, and
+recurrence is the cheaper of the two to add.
+
+Results across 268 occupations: **105 Human held, 98 Crossing now, 36 Handed off, 29
+Watch points.** 179 have a pending crossing; 120 of those sit at one of the two
+crossings Watson expects to carry most of the strategic weight.
+
+The sharpest single number: **8 occupations are at "AI executed, human veto" today;
+current capability could already put 140 there.**
+
+Watch points — capability present, accountability holding the line, wide willingness
+gap — are led by Genetic Counselors, Actuaries, Preventive Medicine Physicians and
+Epidemiologists.
+
+**Calibration is not theory.** Watson's figure shows the frontier's shape but no
+numbers. `FRONTIER_K` is set so the curve passes through the median of the observed
+cloud, and `TRACTABILITY_FLOOR` exists because a constant-product curve alone puts
+"low on both axes" on the same side as "high tractability, low resistance" — and the
+first is not a handoff, it is work AI cannot lead at any level of consequence. Both
+constants are fitted to this corpus; re-fit them if it changes.
+
+### Static figures (`figures`)
+
+```bash
+.venv/bin/python -m onet_scraper figures            # data/out/figures/*.png
+.venv/bin/python -m onet_scraper figures --dark
+.venv/bin/python -m onet_scraper figures --only frontier,network
+```
+
+Twelve publication-resolution PNGs at 2× device scale, auto-cropped to content.
+A figure page is the dashboard with every card but one hidden, screenshotted by
+headless Chrome — so the PNGs cannot drift from what the dashboard shows, because
+there is only one implementation of each chart. Every chart in the dashboard also
+has its own PNG button, which needs no external tool.
+
 ## Known characteristics of the data
 
 Not bugs — things the validation surfaces that you should know before analysing:
@@ -395,7 +459,7 @@ python -m onet_scraper [stage] [options]
 
 Stages:  run (default) | fetch-stem | fetch-occupations | fetch-bulk
          fetch-descriptors | build | validate | network | score | report
-         employment | validate-external | clean-cache
+         employment | validate-external | figures | clean-cache
 ```
 
 | Option | Purpose |

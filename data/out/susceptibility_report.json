@@ -10,6 +10,26 @@
     "human_anchored": 40.3,
     "monotonic": true
   },
+  "handoff": {
+    "occupations": 268,
+    "by_classification": {
+      "Human held": 105,
+      "Watch point": 29,
+      "Crossing now": 98,
+      "Handed off": 36
+    },
+    "by_current_stage": {
+      "AI informed": 101,
+      "AI recommended": 158,
+      "AI executed, human veto": 8,
+      "Human only": 1
+    },
+    "with_pending_crossing": 179,
+    "at_a_weighty_crossing": 120,
+    "employment_at_weighty_crossing": 15043240.0,
+    "employment_at_watch_points": 7999160.0,
+    "mean_willingness_gap": 31.5
+  },
   "rows": {
     "subtask_susceptibility": 963,
     "task_susceptibility": 5612,

@@ -4,12 +4,15 @@ from __future__ import annotations
 
 import json
 import logging
+from pathlib import Path
 from typing import Any
 
 from .build import COLUMNS, append_sqlite, read_table, write_csv
 from .config import Settings
 from .network import (
+    backbone,
     build_incidence,
+    force_layout,
     occupation_edges,
     occupation_nodes,
     subtask_network,
@@ -44,6 +47,15 @@ def run_network(settings: Settings, *, min_shared: int, min_co_occurring: int,
     occ_dwa, weights, dwa_occ = build_incidence(task_subtasks, tasks, exclude_soc)
     edges = occupation_edges(occ_dwa, weights, occupations, min_shared=min_shared)
     nodes = occupation_nodes(occ_dwa, weights, edges, occupations)
+
+    # Precompute the drawing here: it is O(n^2) per iteration and static, so
+    # doing it in the browser just blocks the page on load.
+    bone = backbone(edges)
+    log.info("laying out %d nodes over a %d-edge backbone", len(nodes), len(bone))
+    positions = force_layout([n["onet_soc_code"] for n in nodes], bone)
+    for node in nodes:
+        x, y = positions.get(node["onet_soc_code"], (0.5, 0.5))
+        node["layout_x"], node["layout_y"] = x, y
     dwa_edges, dwa_nodes = subtask_network(dwa_occ, hierarchy, task_subtasks,
                                            min_shared=min_co_occurring)
 
@@ -169,6 +181,33 @@ def run_report(settings: Settings) -> dict[str, Any]:
         write_csv(settings.out_dir / f"{name}.csv", rows, columns[name])
     append_sqlite(settings.out_dir / "onet_stem.sqlite", result)
 
+    # Watson handoff framing, computed from the same scored dimensions.
+    from .handoff import HANDOFF_COLUMNS, build as build_handoff, summarise as sum_handoff
+    occ_scores = read_table(settings.out_dir, "occupation_automation_scores")
+    soc_emp = read_table(settings.out_dir, "soc_susceptibility")
+    emp_by_onet: dict[str, float] = {}
+    for srow in soc_emp:
+        for code in (srow.get("onet_codes") or "").split(";"):
+            if code and srow.get("total_employment"):
+                # SOC employment, carried for scale only - never summed across
+                # the O*NET occupations inside one SOC.
+                emp_by_onet[code] = float(srow["total_employment"])
+    occ_titles = {o["onet_soc_code"]: o for o in occupations}
+    for row in occ_scores:
+        meta = occ_titles.get(row["onet_soc_code"], {})
+        row.setdefault("title", meta.get("title", ""))
+        row["stem_occupation_types"] = meta.get("stem_occupation_types", "")
+    handoff_rows = build_handoff(occ_scores, employment=emp_by_onet)
+    COLUMNS["occupation_handoff"] = HANDOFF_COLUMNS
+    write_csv(settings.out_dir / "occupation_handoff.csv", handoff_rows, HANDOFF_COLUMNS)
+    append_sqlite(settings.out_dir / "onet_stem.sqlite",
+                  {"occupation_handoff": handoff_rows})
+    handoff_summary = sum_handoff(handoff_rows)
+    log.info("handoff framing: %s", handoff_summary["by_classification"])
+    log.info("  %d occupations have a pending crossing, %d of them at one of the "
+             "two weighty crossings", handoff_summary["with_pending_crossing"],
+             handoff_summary["at_a_weighty_crossing"])
+
     validity = convergent_validity(result["subtask_susceptibility"])
     log.info("convergent validity (mean index by the model's own verdict): %s", validity)
     if not validity.get("monotonic"):
@@ -200,10 +239,13 @@ def run_report(settings: Settings) -> dict[str, Any]:
         employment=employment_meta,
         benchmarks=read_table(settings.out_dir, "external_benchmarks"),
         net_edges=read_table(settings.out_dir, "network_occupation_edges"),
+        net_nodes=read_table(settings.out_dir, "network_occupation_nodes"),
+        handoff=handoff_rows,
         dimensions=read_table(settings.out_dir, "occupation_automation_scores"),
     )
 
     report = {"splits": splits, "convergent_validity": validity,
+              "handoff": handoff_summary,
               "rows": {k: len(v) for k, v in result.items()},
               "dashboard": str(dashboard)}
     (settings.out_dir / "susceptibility_report.json").write_text(json.dumps(report, indent=2))
@@ -309,3 +351,17 @@ def run_external(settings: Settings, client) -> dict[str, Any]:
         log.info("this is the external check - the rest of the pipeline is self-consistent "
                  "by construction, but this is not")
     return report
+
+
+def run_figures(settings: Settings, *, chrome: str | None, dark: bool,
+                scale: int, only: tuple[str, ...]) -> list[Path]:
+    """Export each dashboard chart as a PNG."""
+    from .figures import render
+
+    dashboard = settings.out_dir / "dashboard.html"
+    if not dashboard.exists():
+        raise SystemExit("no dashboard.html - run the report stage first")
+    out_dir = settings.out_dir / "figures"
+    written = render(dashboard, out_dir, chrome=chrome, dark=dark, scale=scale, only=only)
+    log.info("%d figure(s) in %s", len(written), out_dir)
+    return written

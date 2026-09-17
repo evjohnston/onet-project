@@ -518,7 +518,8 @@ def read_table(out_dir: Path, name: str) -> list[dict[str, Any]]:
     if not path.exists():
         return []
     numeric = {"importance", "relevance", "data_value", "cosine", "jaccard",
-               "weighted_cosine", "mean_similarity", "weighted_degree"}
+               "weighted_cosine", "mean_similarity", "weighted_degree",
+               "layout_x", "layout_y"}
     integer = {"task_id", "job_zone", "n_tasks", "n_subtasks", "display_rank",
                "bright_outlook", "degree", "shared_subtasks", "n_occupations",
                "co_occurring_occupations", "linked_on_web_report", "related_is_stem",

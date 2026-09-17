@@ -30,6 +30,7 @@ from .pipeline import (
 from .stages import (
     run_employment,
     run_external,
+    run_figures,
     run_network,
     run_report,
     run_score,
@@ -81,6 +82,14 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--score-chunk-size", type=int, default=12,
                         help="subtasks rated per request (default: 12)")
     parser.add_argument("--score-workers", type=int, default=4)
+    parser.add_argument("--chrome", default=None,
+                        help="path to a Chrome/Chromium binary for the figures stage")
+    parser.add_argument("--dark", action="store_true",
+                        help="for the figures stage: render the dark theme")
+    parser.add_argument("--figure-scale", type=int, default=2,
+                        help="device pixel ratio for exported PNGs (default: 2)")
+    parser.add_argument("--only", default="",
+                        help="for the figures stage: comma-separated name filters")
     parser.add_argument("--dry-run", action="store_true",
                         help="for the score stage: print the cost estimate and stop")
     parser.add_argument("--with-ratings", action="store_true",
@@ -100,7 +109,8 @@ def build_parser() -> argparse.ArgumentParser:
         default="run",
         choices=["run", "fetch-stem", "fetch-occupations", "fetch-bulk",
                  "fetch-descriptors", "build", "validate", "network", "score",
-                 "report", "employment", "validate-external", "clean-cache"],
+                 "report", "employment", "validate-external", "figures",
+                 "clean-cache"],
         help="which stage to run (default: run = all of them)",
     )
     return parser
@@ -170,6 +180,12 @@ def main(argv: list[str] | None = None) -> int:
         exclude = tuple(p.strip() for p in args.network_exclude_soc.split(",") if p.strip())
         run_network(settings, min_shared=args.network_min_shared,
                     min_co_occurring=args.network_min_co_occurring, exclude_soc=exclude)
+        return 0
+
+    if stage == "figures":
+        run_figures(settings, chrome=args.chrome, dark=args.dark,
+                    scale=args.figure_scale,
+                    only=tuple(o.strip() for o in args.only.split(",") if o.strip()))
         return 0
 
     if stage == "report":
