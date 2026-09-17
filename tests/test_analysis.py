@@ -1100,3 +1100,131 @@ class TestSecurityWeighting(unittest.TestCase):
         tasks = [self._t(importance=60.0), self._t(importance=-2.0),
                  self._t(importance=0.0)]
         self.assertEqual(security.weights(tasks), [60.0, 60.0, 60.0])
+
+
+class TestDerivedValidation(unittest.TestCase):
+    """Each check is proved against the bug it was written for."""
+
+    def _corpus(self, **over):
+        """A minimal passing corpus, so a test can break exactly one thing."""
+        def row(title, scenario, eff, risk, recon=70.0, code=None):
+            return {"onet_soc_code": code or title[:6], "title": title,
+                    "scenario": scenario, "efficiency": eff, "removal_risk": risk,
+                    "reconstitution": recon, "trap_score": 10.0}
+        security = []
+        for title, risk in (("Pediatric Surgeons", 78.0), ("Cardiologists", 79.0),
+                            ("Anesthesiologists", 76.0),
+                            ("Emergency Medical Technicians", 75.0),
+                            ("Oral and Maxillofacial Surgeons", 88.0),
+                            ("Video Game Designers", 36.0),
+                            ("Business Intelligence Analysts", 35.0)):
+            for sc, eff in (("modest", 30.0), ("substantial", 50.0), ("extreme", 70.0)):
+                security.append(row(title, sc, eff, risk))
+        susc = [{"title": "Business Intelligence Analysts", "exposure": 86.0,
+                 "susceptibility": 80.0, "anchoring": 26.0},
+                {"title": "Mathematicians", "exposure": 84.0,
+                 "susceptibility": 77.0, "anchoring": 30.0},
+                {"title": "Anesthesiologists", "exposure": 40.0,
+                 "susceptibility": 30.0, "anchoring": 70.0},
+                {"title": "Paramedics", "exposure": 38.0,
+                 "susceptibility": 28.0, "anchoring": 72.0}]
+        soc = [{"total_employment": 1000.0}]
+        report = {"scenarios": {sc: {"total_employment": 1000.0, "by_octant": {
+            "Strategic trap": {"share_employment": 0.5},
+            "Protect": {"share_employment": 0.5}}}
+            for sc in ("modest", "substantial", "extreme")}}
+        data = {"susceptibility": susc, "handoff": [], "security": security,
+                "security_report": report, "soc": soc}
+        data.update(over)
+        return data
+
+    def _run(self, **over):
+        from onet_scraper.validate_derived import validate_derived
+        checks, summary = validate_derived(**self._corpus(**over))
+        return {c["check"]: c for c in checks}, summary
+
+    def test_the_baseline_corpus_passes(self):
+        checks, summary = self._run()
+        failed = [n for n, c in checks.items() if not c["passed"]]
+        self.assertEqual(failed, [], f"baseline should pass, failed: {failed}")
+        self.assertEqual(summary["errors"], 0)
+
+    def test_catches_a_composite_of_exactly_zero(self):
+        """The surgeons bug: no importance ratings, empty denominator, 0.0."""
+        c = self._corpus()
+        for r in c["security"]:
+            if r["title"] == "Pediatric Surgeons":
+                r["removal_risk"] = 0.0
+        checks, summary = self._run(security=c["security"])
+        self.assertFalse(checks["no_composite_is_exactly_zero"]["passed"])
+        self.assertFalse(checks["removal_risk_anchors_hold"]["passed"])
+        self.assertGreater(summary["errors"], 0)
+
+    def test_catches_an_out_of_range_index(self):
+        c = self._corpus()
+        c["security"][0]["efficiency"] = 140.0
+        checks, _ = self._run(security=c["security"])
+        self.assertFalse(checks["indices_in_range"]["passed"])
+
+    def test_catches_shares_that_do_not_partition(self):
+        """The employment double-count: a SOC credited to several cells made the
+        shares sum to 1.30."""
+        c = self._corpus()
+        c["security_report"]["scenarios"]["substantial"]["by_octant"][
+            "Protect"]["share_employment"] = 0.8
+        checks, _ = self._run(security_report=c["security_report"])
+        self.assertFalse(checks["cell_shares_partition"]["passed"])
+
+    def test_catches_employment_diverging_from_the_soc_rollup(self):
+        checks, _ = self._run(soc=[{"total_employment": 49_300_000.0}])
+        self.assertFalse(checks["employment_matches_soc_rollup"]["passed"])
+
+    def test_catches_non_monotonic_scenarios(self):
+        """A threshold edit applied to the wrong scenario."""
+        c = self._corpus()
+        for r in c["security"]:
+            if r["scenario"] == "extreme":
+                r["efficiency"] = 5.0
+        checks, _ = self._run(security=c["security"])
+        self.assertFalse(checks["efficiency_rises_with_scenario"]["passed"])
+
+    def test_catches_a_missing_axis(self):
+        c = self._corpus()
+        c["security"][1]["reconstitution"] = ""
+        checks, _ = self._run(security=c["security"])
+        self.assertFalse(checks["every_occupation_has_all_three_axes"]["passed"])
+
+    def test_anchor_outside_its_band_fails_with_a_reason(self):
+        """A failure has to say why the band exists, or whoever hits it cannot
+        judge whether the anchor or the change is wrong."""
+        c = self._corpus()
+        for r in c["security"]:
+            if r["title"] == "Video Game Designers":
+                r["removal_risk"] = 95.0
+        checks, _ = self._run(security=c["security"])
+        bad = checks["removal_risk_anchors_hold"]
+        self.assertFalse(bad["passed"])
+        self.assertTrue(any("because" in s for s in bad["sample"]))
+
+    def test_a_missing_anchor_warns_rather_than_failing(self):
+        """An anchor that is not in the corpus is a dead test, and has to say
+        so - but it must not fail a build that is otherwise sound."""
+        checks, summary = self._run(security=[
+            r for r in self._corpus()["security"] if r["title"] != "Cardiologists"])
+        self.assertFalse(checks["removal_risk_anchors_present"]["passed"])
+        self.assertEqual(checks["removal_risk_anchors_present"]["severity"], "warn")
+        self.assertEqual(summary["errors"], 0)
+
+    def test_every_declared_anchor_resolves_against_the_real_corpus(self):
+        """Guards against an anchor quietly going stale when O*NET renames an
+        occupation - which has already happened to three work_context elements."""
+        import csv
+        from pathlib import Path
+        from onet_scraper.validate_derived import EXPOSURE_ANCHORS, RISK_ANCHORS
+        path = Path("data/out/security_matrix.csv")
+        if not path.exists():
+            self.skipTest("no built dataset")
+        titles = [r["title"] for r in csv.DictReader(path.open())]
+        for needle, *_ in RISK_ANCHORS + EXPOSURE_ANCHORS:
+            self.assertTrue(any(needle.lower() in t.lower() for t in titles),
+                            f"anchor {needle!r} no longer matches any occupation")

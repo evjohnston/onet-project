@@ -52,7 +52,17 @@ BULK_FILES = (
     "gwas_to_iwas_to_dwas.csv",
     "occupation_data.csv",
 )
-BULK_FILES_OPTIONAL = ("task_ratings.csv",)
+# Extra measurement detail, all of it free but large, so the stage is opt-in.
+#   task_ratings.csv  the FT (Frequency of Task) scale, which is the recurrence
+#                     property Watson's tractability axis wants and our rubric
+#                     never measured. ~29 MB.
+#   education.csv     the Required Level of Education distribution over 12
+#                     categories. Job Zone collapses this to 5 levels, and only
+#                     3 of them occur across this corpus, which makes it the
+#                     coarsest input to the reconstitution axis.
+#   job_zones.csv     the Job Zone at bulk grain, so it no longer depends on
+#                     having scraped every occupation page.
+BULK_FILES_OPTIONAL = ("task_ratings.csv", "education.csv", "job_zones.csv")
 
 # Descriptor files power the collaboration and automation-bottleneck indices.
 # They are large (work_context.csv alone is ~40 MB) so the stage is opt-in.

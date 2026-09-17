@@ -38,6 +38,8 @@ from .stages import (
     run_report,
     run_scenarios,
     run_security,
+    run_validate_derived,
+    run_smoke,
     run_scroller,
     run_score,
 )
@@ -101,7 +103,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--dry-run", action="store_true",
                         help="for the score stage: print the cost estimate and stop")
     parser.add_argument("--with-ratings", action="store_true",
-                        help="also download task_ratings.csv (~29 MB) for frequency/relevance")
+                        help="also download task_ratings.csv, education.csv and "
+                             "job_zones.csv (~30 MB) for task frequency, the "
+                             "education distribution and bulk job zones")
     parser.add_argument("--save-html", action="store_true",
                         help="keep a readable copy of every occupation page under raw/html")
     parser.add_argument("--categories", default=None,
@@ -117,7 +121,7 @@ def build_parser() -> argparse.ArgumentParser:
         default="run",
         choices=["run", "fetch-stem", "fetch-occupations", "fetch-bulk",
                  "fetch-descriptors", "build", "validate", "network", "score",
-                 "report", "employment", "validate-external", "figures", "story", "churn", "pathways", "publish", "scenarios", "security",
+                 "report", "employment", "validate-external", "figures", "story", "churn", "pathways", "publish", "scenarios", "security", "validate-derived", "smoke",
                  "clean-cache"],
         help="which stage to run (default: run = all of them)",
     )
@@ -210,6 +214,14 @@ def main(argv: list[str] | None = None) -> int:
 
     if stage == "security":
         run_security(settings)
+        return 0
+
+    if stage == "validate-derived":
+        run_validate_derived(settings)
+        return 0
+
+    if stage == "smoke":
+        run_smoke(settings, chrome=args.chrome)
         return 0
 
     if stage == "pathways":

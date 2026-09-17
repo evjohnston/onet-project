@@ -296,3 +296,59 @@ class TestMarkdownTableAlignment(unittest.TestCase):
     def test_short_row_does_not_raise(self):
         html = self._render("| A | B | C |\n| --- | --- | --- |\n| 1 | 2 |\n")
         self.assertIn("<table>", html)
+
+
+class TestSmokeAssertions(unittest.TestCase):
+    """The page checks themselves, which had their own version of the bug."""
+
+    TWO_TABLES = """
+    <table><thead><tr><th>Occupation</th><th>Workers</th></tr></thead><tbody>
+      <tr><td>a</td><td>n/a</td></tr>
+      <tr><td>b</td><td>n/a</td></tr>
+      <tr><td>c</td><td>n/a</td></tr>
+    </tbody></table>
+    <table><thead><tr><th>Task</th><th>Score</th></tr></thead><tbody>
+      <tr><td>t1</td><td>91</td></tr>
+      <tr><td>t2</td><td>84</td></tr>
+    </tbody></table>"""
+
+    def test_extraction_is_scoped_to_the_table_declaring_the_header(self):
+        """The bug: the column index from one table's header was applied to
+        every <tr> in the document, so rows borrowed from a second table masked
+        a column that had come through entirely empty."""
+        from onet_scraper.smoke import _cells
+        vals = _cells("Workers")(self.TWO_TABLES)
+        self.assertEqual(vals, ["n/a", "n/a", "n/a"])
+        self.assertNotIn("91", vals)
+
+    def test_a_wholly_placeholder_column_fails(self):
+        from onet_scraper.smoke import _mostly_populated
+        self.assertFalse(_mostly_populated("Workers")(self.TWO_TABLES))
+
+    def test_a_populated_column_passes(self):
+        from onet_scraper.smoke import _mostly_populated
+        self.assertTrue(_mostly_populated("Score")(self.TWO_TABLES))
+
+    def test_partial_gaps_are_tolerated(self):
+        """Some occupations genuinely have no BLS employment match, so the test
+        is a fraction, not a demand that every cell be filled."""
+        from onet_scraper.smoke import _mostly_populated
+        dom = ("<table><thead><tr><th>Workers</th></tr></thead><tbody>"
+               + "<tr><td>1,000</td></tr>" * 7 + "<tr><td>n/a</td></tr>" * 3
+               + "</tbody></table>")
+        self.assertTrue(_mostly_populated("Workers")(dom))
+
+    def test_a_missing_column_fails_rather_than_passing_vacuously(self):
+        from onet_scraper.smoke import _mostly_populated
+        self.assertFalse(_mostly_populated("Nonexistent")(self.TWO_TABLES))
+
+    def test_em_dash_counts_as_a_placeholder(self):
+        from onet_scraper.smoke import PLACEHOLDERS
+        self.assertIn("—", PLACEHOLDERS)
+
+    def test_every_published_page_has_assertions(self):
+        from onet_scraper.smoke import PAGES
+        for page in ("index.html", "story.html", "dashboard.html",
+                     "methodology.html", "security_matrix.html"):
+            self.assertIn(page, PAGES)
+            self.assertTrue(PAGES[page], f"{page} has no assertions")

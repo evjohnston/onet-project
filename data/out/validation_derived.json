@@ -1,0 +1,66 @@
+{
+  "checks": [
+    {
+      "check": "indices_in_range",
+      "severity": "error",
+      "passed": true,
+      "detail": "0 index values fall outside 0-100",
+      "sample": null
+    },
+    {
+      "check": "no_composite_is_exactly_zero",
+      "severity": "error",
+      "passed": true,
+      "detail": "0 rows score exactly 0.0 on a composite measure, which indicates an empty denominator rather than a genuine floor",
+      "sample": null
+    },
+    {
+      "check": "cell_shares_partition",
+      "severity": "error",
+      "passed": true,
+      "detail": "0 scenarios have cell employment shares that do not sum to 1.0, so a SOC is being counted in more than one cell",
+      "sample": null
+    },
+    {
+      "check": "employment_matches_soc_rollup",
+      "severity": "error",
+      "passed": true,
+      "detail": "matrix employment differs from the SOC rollup (21,523,100) by more than 2% in 0 scenarios",
+      "sample": null
+    },
+    {
+      "check": "efficiency_rises_with_scenario",
+      "severity": "error",
+      "passed": true,
+      "detail": "0 occupations do not have efficiency rising monotonically from modest to extreme",
+      "sample": null
+    },
+    {
+      "check": "removal_risk_anchors_hold",
+      "severity": "error",
+      "passed": true,
+      "detail": "0 of 7 anchored occupations sit outside the band their work implies",
+      "sample": null
+    },
+    {
+      "check": "exposure_anchors_hold",
+      "severity": "error",
+      "passed": true,
+      "detail": "0 of 4 anchored occupations sit outside the band their work implies",
+      "sample": null
+    },
+    {
+      "check": "every_occupation_has_all_three_axes",
+      "severity": "error",
+      "passed": true,
+      "detail": "0 occupations are missing at least one matrix axis",
+      "sample": null
+    }
+  ],
+  "summary": {
+    "occupations_checked": 268,
+    "errors": 0,
+    "warnings": 0,
+    "soc_employment_total": 21523100.0
+  }
+}

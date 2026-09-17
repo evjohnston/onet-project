@@ -689,3 +689,50 @@ def run_security(settings: Settings) -> dict[str, Any]:
                  trap["occupations"], 100 * trap["share_employment"],
                  prot["occupations"], 100 * prot["share_employment"])
     return report
+
+
+def run_validate_derived(settings: Settings) -> dict[str, Any]:
+    """Plausibility checks on the computed measures, not the scrape."""
+    from .validate_derived import log_report, validate_derived
+
+    security = read_table(settings.out_dir, "security_matrix")
+    if not security:
+        raise SystemExit("run the security stage first")
+    report_path = settings.out_dir / "security_report.json"
+    checks, summary = validate_derived(
+        read_table(settings.out_dir, "occupation_susceptibility"),
+        read_table(settings.out_dir, "occupation_handoff"),
+        security,
+        json.loads(report_path.read_text()) if report_path.exists() else {},
+        read_table(settings.out_dir, "soc_susceptibility"),
+    )
+    errors = log_report(checks, summary)
+    (settings.out_dir / "validation_derived.json").write_text(
+        json.dumps({"checks": checks, "summary": summary}, indent=2))
+    if errors:
+        log.error("%d derived-measure check(s) failed; see "
+                  "data/out/validation_derived.json", errors)
+        raise SystemExit(1)
+    return {"checks": checks, "summary": summary}
+
+
+def run_smoke(settings: Settings, *, chrome: str | None = None,
+              docs: Path | None = None) -> dict[str, Any]:
+    """Load every published page in a browser and assert it rendered."""
+    from .figures import find_chrome
+    from .smoke import check, log_report
+
+    binary = find_chrome(chrome)
+    if not binary:
+        raise SystemExit("no Chrome/Chromium found; pass --chrome /path/to/binary")
+    target = docs or (Path(__file__).resolve().parents[1] / "docs")
+    log.info("smoke-testing %s with %s", target, Path(binary).name)
+    results = check(binary, target)
+    failed = log_report(results)
+    (settings.out_dir / "smoke_report.json").write_text(json.dumps(results, indent=2))
+    if failed:
+        log.error("%d page assertion(s) failed", failed)
+        raise SystemExit(1)
+    log.info("%d assertions passed across %d pages", len(results),
+             len({r["page"] for r in results}))
+    return {"results": results, "failed": failed}

@@ -1,0 +1,134 @@
+[
+  {
+    "page": "index.html",
+    "assertion": "no uncaught console errors",
+    "passed": true,
+    "detail": "clean"
+  },
+  {
+    "page": "index.html",
+    "assertion": "links to all three entry points",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "index.html",
+    "assertion": "stat row rendered",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "methodology.html",
+    "assertion": "no uncaught console errors",
+    "passed": true,
+    "detail": "clean"
+  },
+  {
+    "page": "methodology.html",
+    "assertion": "sections rendered",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "methodology.html",
+    "assertion": "tables rendered",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "methodology.html",
+    "assertion": "numeric columns aligned",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "dashboard.html",
+    "assertion": "no uncaught console errors",
+    "passed": true,
+    "detail": "clean"
+  },
+  {
+    "page": "dashboard.html",
+    "assertion": "occupation table populated",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "dashboard.html",
+    "assertion": "kpi figures rendered",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "dashboard.html",
+    "assertion": "charts drawn",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "dashboard.html",
+    "assertion": "workers column populated",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "dashboard.html",
+    "assertion": "handoff class column populated",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "dashboard.html",
+    "assertion": "stage column populated",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "security_matrix.html",
+    "assertion": "no uncaught console errors",
+    "passed": true,
+    "detail": "clean"
+  },
+  {
+    "page": "security_matrix.html",
+    "assertion": "cloud drawn",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "security_matrix.html",
+    "assertion": "eight cells listed",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "security_matrix.html",
+    "assertion": "cell counts are not all zero",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "security_matrix.html",
+    "assertion": "axis frame drawn",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "story.html",
+    "assertion": "no uncaught console errors",
+    "passed": true,
+    "detail": "clean"
+  },
+  {
+    "page": "story.html",
+    "assertion": "scenes drawn",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "story.html",
+    "assertion": "marks drawn",
+    "passed": true,
+    "detail": ""
+  }
+]

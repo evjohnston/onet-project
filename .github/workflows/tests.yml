@@ -48,7 +48,7 @@ jobs:
         # data it was built from. Compare the two copies rather than trusting it.
         run: |
           status=0
-          for f in story.html dashboard.html; do
+          for f in story.html dashboard.html security_matrix.html; do
             if [ ! -f "docs/$f" ]; then echo "::error::docs/$f missing"; status=1; continue; fi
             if ! cmp -s "data/out/$f" "docs/$f"; then
               echo "::error::docs/$f differs from data/out/$f - run: python -m onet_scraper publish"
@@ -57,3 +57,33 @@ jobs:
           done
           [ -f docs/CNAME ] || { echo "::error::docs/CNAME missing - custom domain will drop"; status=1; }
           exit $status
+
+  pages:
+    # The dashboard shipped reading window.DATA when the payload was declared
+    # `const DATA`, so three columns rendered blank on a page that otherwise
+    # looked fine. Nothing caught it because nothing loaded a page. This job
+    # opens all five in headless Chrome and asserts they actually rendered.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install -q --upgrade pip
+          pip install -q -r requirements.txt
+      - name: Chrome
+        uses: browser-actions/setup-chrome@v1
+        id: chrome
+      - name: Pages render
+        run: |
+          mkdir -p data/out
+          python -m onet_scraper smoke --chrome "${{ steps.chrome.outputs.chrome-path }}"
+      - name: Upload the report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-report
+          path: data/out/smoke_report.json
