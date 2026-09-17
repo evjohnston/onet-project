@@ -435,6 +435,45 @@ button{color:inherit;font:inherit}
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+/* Portrait, and anything close to it. The figures are wide compositions - the
+   drawing is roughly 2:1 - so a full-height stage strands them in a band with
+   two thirds of the frame as blank paper, which is what made the page feel
+   wrong at the wrong window size. Below 13:10 the stage stops claiming the
+   whole viewport: it becomes a sticky band proportioned to the drawing, and the
+   beat copy flows beneath it instead of floating over the empty paper. */
+@media (max-aspect-ratio: 13/10){
+  .stage{height:min(78svh, calc(100vw / 1.62))}
+  .beats{margin-top:0}
+  .beat{
+    min-height:auto; align-items:flex-start;
+    padding:clamp(18px,4vh,34px) clamp(18px,5vw,72px) clamp(26px,6vh,54px);
+  }
+  .beat-card{
+    max-width:none; width:100%;
+    background:var(--paper); backdrop-filter:none; -webkit-backdrop-filter:none;
+  }
+  /* On wide screens only the active card is shown, because they all sit on top
+     of the figure. Stacked beneath it they do not overlap anything, so they can
+     all be read - which is how the copy was written to work. Fading them in and
+     out here would just leave holes in the column. */
+  .beat-card{opacity:1; transform:none}
+  .beat.is-active .beat-card{border-color:var(--coral)}
+
+  /* The drawing's own axis label and caption sit near the foot of its
+     coordinate space. In a short band that lands on top of the two HTML
+     overlays pinned to the frame's bottom edge - readout, axis label, caption
+     and credit all in one strip. The live readout moves up under the HUD where
+     there is room; the credit is a static line the methodology also carries, so
+     it goes. */
+  .stage-readout{
+    top:auto; bottom:auto; left:clamp(14px,4vw,28px);
+    transform:translateY(calc(100% + 18px));
+    max-width:72%;
+  }
+  .stage-note{display:none}
+  .stage-hud{padding-top:14px}
+}
+
 @media (max-width:1000px){
   .rail{display:none}
   /* the figure still pins full-bleed; the card drops to the foot of the screen

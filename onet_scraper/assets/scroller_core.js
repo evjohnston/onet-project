@@ -284,9 +284,42 @@ const BUILD = {};
    coordinates and its squares stay square at any viewport. Ruled by hand, not
    by a repeating background: the lines wander and a few bear down harder. */
 
-function paperGrid(svg, W, H){
-  const g = S('g',{'aria-hidden':'true'}, null);
+/* The drawing's own coordinate space. Scenes place everything inside this and
+   never need to know the viewport - what adapts is the WINDOW onto it, not the
+   drawing.
+
+   The stage used to carry a fixed viewBox of 0 0 1600 900 with
+   preserveAspectRatio="meet", so at any other aspect ratio it letterboxed: 31%
+   of the frame left empty on a 2560-wide monitor, 58% in portrait, with the
+   figure stranded in a band across the middle while the HUD stayed pinned to
+   the frame edge. Measured, not guessed.
+
+   Extending the viewBox to the container's aspect ratio fixes that without
+   touching a single scene coordinate. At 16:9 the box is exactly 1600x900, so
+   the composition every scene was drawn against is preserved; anywhere else the
+   surplus becomes more ruled paper around the same figure. */
+const BASE_VB = {w: 1600, h: 900};
+
+function fitViewBox(svg, host){
+  const box = (host || svg.parentElement).getBoundingClientRect();
+  if(!box.width || !box.height) return null;
+  const ar = box.width / box.height;
+  let w = BASE_VB.w, h = BASE_VB.h;
+  if(BASE_VB.w / BASE_VB.h < ar) w = h * ar;   /* wider than 16:9: add paper at the sides */
+  else h = w / ar;                             /* taller: add paper above and below */
+  const vb = [(BASE_VB.w - w) / 2, (BASE_VB.h - h) / 2, w, h];
+  svg.setAttribute('viewBox', vb.map(f2).join(' '));
+  return vb;
+}
+
+/* Redrawable: the ruling has to be re-laid when the box changes, so it owns a
+   node it can replace rather than appending another layer each time. */
+function paperGrid(svg, vb){
+  const prev = svg.querySelector('g[data-grid]');
+  if(prev) prev.remove();
+  const g = S('g',{'aria-hidden':'true','data-grid':'1'}, null);
   svg.insertBefore(g, svg.firstChild);
+  const X0 = vb[0], Y0 = vb[1], W = vb[2], H = vb[3];
   const r = prng(31);
   const line = (x1,y1,x2,y2,op) => {
     const n = S('line',{x1:f2(x1), y1:f2(y1), x2:f2(x2), y2:f2(y2), class:'gridline'}, g);
@@ -294,14 +327,18 @@ function paperGrid(svg, W, H){
     return n;
   };
   const STEP = 42;
-  for(let x=0; x<=W; x+=STEP)  line(x+(r()-.5)*2, 0, x+(r()-.5)*2, H, 0.05+r()*0.028);
-  for(let y=0; y<=H; y+=STEP)  line(0, y+(r()-.5)*2, W, y+(r()-.5)*2, 0.05+r()*0.028);
-  for(let x=0; x<=W; x+=STEP*5) line(x+(r()-.5)*2, 0, x+(r()-.5)*2, H, 0.085+r()*0.03);
-  for(let y=0; y<=H; y+=STEP*5) line(0, y+(r()-.5)*2, W, y+(r()-.5)*2, 0.085+r()*0.03);
+  /* Start the ruling on a multiple of STEP so the lines do not shift under the
+     figure when the box grows - the paper should look like it was ruled once. */
+  const sx = Math.floor(X0 / STEP) * STEP, sy = Math.floor(Y0 / STEP) * STEP;
+  const ex = X0 + W, ey = Y0 + H;
+  for(let x=sx; x<=ex; x+=STEP)  line(x+(r()-.5)*2, Y0, x+(r()-.5)*2, ey, 0.05+r()*0.028);
+  for(let y=sy; y<=ey; y+=STEP)  line(X0, y+(r()-.5)*2, ex, y+(r()-.5)*2, 0.05+r()*0.028);
+  for(let x=sx; x<=ex; x+=STEP*5) line(x+(r()-.5)*2, Y0, x+(r()-.5)*2, ey, 0.085+r()*0.03);
+  for(let y=sy; y<=ey; y+=STEP*5) line(X0, y+(r()-.5)*2, ex, y+(r()-.5)*2, 0.085+r()*0.03);
   /* the few rulings that got pressed harder */
   for(let i=0;i<8;i++){
-    const x = Math.round(r()*(W/STEP))*STEP;
-    line(x+(r()-.5)*2.5, r()*H*0.2, x+(r()-.5)*2.5, H-r()*H*0.2, 0.1+r()*0.07);
+    const x = sx + Math.round(r()*(W/STEP))*STEP;
+    line(x+(r()-.5)*2.5, Y0+r()*H*0.2, x+(r()-.5)*2.5, ey-r()*H*0.2, 0.1+r()*0.07);
   }
   return g;
 }
@@ -331,9 +368,11 @@ document.querySelectorAll('[data-scene]').forEach(function(root){
   };
   /* the ruling goes down before the figure does */
   if(ctx.svg){
-    const vb = (ctx.svg.getAttribute('viewBox')||'0 0 1600 900').split(/\s+/).map(Number);
-    paperGrid(ctx.svg, vb[2], vb[3]);
-    ctx.svg.setAttribute('viewBox', vb.join(' '));
+    ctx.refit = function(){
+      const vb = fitViewBox(ctx.svg, ctx.svg.parentElement);
+      if(vb) paperGrid(ctx.svg, vb);
+    };
+    ctx.refit();
   }
   /* beat copy rides over the figure in a card, so wrap what the markup declared */
   ctx.beats.forEach(function(b){
@@ -444,7 +483,18 @@ function loop(){
   requestAnimationFrame(loop);
 }
 
-addEventListener('resize', function(){ force = true; }, {passive:true});
+/* A resize changes the aspect ratio, so the window onto every drawing has to be
+   refitted and the paper re-ruled - not just the progress recomputed. Debounced,
+   because a drag-resize fires continuously and re-ruling is not free. */
+let refitTimer = null;
+addEventListener('resize', function(){
+  force = true;
+  clearTimeout(refitTimer);
+  refitTimer = setTimeout(function(){
+    for(let i=0;i<reg.length;i++) if(reg[i].refit) reg[i].refit();
+    force = true;
+  }, 120);
+}, {passive:true});
 addEventListener('load', function(){ force = true; }, {passive:true});
 document.fonts && document.fonts.ready.then(function(){ force = true; });
 

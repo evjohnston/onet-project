@@ -420,3 +420,21 @@ class TestIngestionBaseline(unittest.TestCase):
         counts = counts_of(load(Path("data/out")))
         self.assertGreater(len(counts), 5)
         self.assertTrue(all(isinstance(v, int) for v in counts.values()))
+
+
+class TestDocumentedTestCount(unittest.TestCase):
+    def test_the_quoted_test_count_matches_reality(self):
+        """METHODOLOGY.md and the landing page both quote a test count, and both
+        had drifted to 66 while the suite had more than doubled."""
+        import re
+        import unittest as ut
+        from pathlib import Path
+        loader = ut.TestLoader()
+        actual = loader.discover(str(Path(__file__).parent)).countTestCases()
+        for path in (Path("METHODOLOGY.md"), Path("onet_scraper/publish.py")):
+            if not path.exists():
+                continue
+            for quoted in re.findall(r"(\d+) tests", path.read_text()):
+                self.assertEqual(
+                    int(quoted), actual,
+                    f"{path} says {quoted} tests, the suite has {actual}")

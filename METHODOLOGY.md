@@ -590,25 +590,14 @@ The scroller's network layout is seeded, so the drawing is identical on every ru
 
 A full rebuild from scratch is `python -m onet_scraper --refresh` followed by the
 `score`, `report`, `employment`, `validate-external`, `pathways`, `churn`,
-`figures`, `story` and `publish` stages. 66 tests run in CI on Python 3.10 and 3.13.
+`figures`, `story`, `security` and `publish` stages. 173 tests run in CI on
+Python 3.10 and 3.13, and a sixth job opens every published page in headless
+Chrome and asserts it rendered.
 
 **One caveat on the recorded stats.** `http_stats` in the manifest reads zero
 because the final build was served entirely from cache; it counts the requests
 that build made, not the requests that populated the cache.
 
-## 10. Citation
-
-If you use the dataset, cite the upstream sources — they did the expensive part.
-
-> O\*NET data is provided by the U.S. Department of Labor, Employment and Training
-> Administration, under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-> O\*NET® is a trademark of USDOL/ETA. Employment and wage data from the U.S.
-> Bureau of Labor Statistics, Occupational Employment and Wage Statistics (May
-> 2025). Benchmark exposure ratings from Eloundou, T., Manning, S., Mishkin, P., &
-> Rock, D. (2023), *GPTs are GPTs*. Handoff framework from Watson, P. (2026),
-> *Considering Handoffs of Cognitive Leadership from Humans to AI*, Applied
-> Emergence.
-
-The code is MIT licensed. The derived tables carry their upstream terms. If you
-use the automation scores, cite the rubric version (`2026-09-16.1`) — they are not
-comparable across rubric changes.
+Automation scores are tied to a rubric version (`2026-09-16.1`, recorded in
+`manifest.json`). Scores produced under different rubric versions are not
+comparable, so the version travels with the data.
