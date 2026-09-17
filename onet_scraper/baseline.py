@@ -79,10 +79,20 @@ def compare(previous: dict[str, int], current: dict[str, int],
         change = (now - before) / before
         if abs(change) < warn_at:
             continue
+        # A table at exactly zero rows means the stage that fills it did not run
+        # in this invocation, not that its data was lost. The descriptor and
+        # linkage tables are opt-in (--with-descriptors), so a plain build writes
+        # them empty - which is how this check first fired, on 13 tables at once,
+        # against a run that had simply not asked for them. The failure mode it
+        # exists to catch looks different: release 24.0 came back with 140
+        # occupations against 923, a partial collapse, not an empty table.
+        stage_not_run = now == 0
         drifts.append({
             "table": name, "previous": before, "current": now,
             "change": round(change, 4),
-            "severity": "error" if abs(change) >= fail_at else "warn",
+            "severity": "warn" if stage_not_run or abs(change) < fail_at else "error",
+            "note": "table is empty - the stage that writes it probably did not "
+                    "run" if stage_not_run else "",
         })
 
     # A table that used to be written and now is not is the same class of
@@ -90,7 +100,8 @@ def compare(previous: dict[str, int], current: dict[str, int],
     for name, before in sorted(previous.items()):
         if name not in current and before > 0:
             drifts.append({"table": name, "previous": before, "current": 0,
-                           "change": -1.0, "severity": "error"})
+                           "change": -1.0, "severity": "warn",
+                           "note": "table was not written at all this run"})
     return drifts
 
 
@@ -109,8 +120,9 @@ def log_report(drifts: list[dict[str, Any]], had_baseline: bool) -> int:
             log.error("  %-42s %7d -> %7d  (%+.0f%%)",
                       d["table"], d["previous"], d["current"], pct)
         else:
-            log.warning("  %-42s %7d -> %7d  (%+.0f%%)",
-                        d["table"], d["previous"], d["current"], pct)
+            log.warning("  %-42s %7d -> %7d  (%+.0f%%)%s",
+                        d["table"], d["previous"], d["current"], pct,
+                        "  " + d["note"] if d.get("note") else "")
     if errors:
         log.error("%d row count(s) moved by %.0f%% or more. If the release "
                   "genuinely changed, re-run with --accept-baseline to adopt "

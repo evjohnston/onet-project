@@ -389,12 +389,16 @@ class TestIngestionBaseline(unittest.TestCase):
         from onet_scraper.baseline import compare
         self.assertEqual(compare({"a": 10}, {"a": 10, "security_matrix": 804}), [])
 
-    def test_a_table_that_stopped_being_written_is_an_error(self):
-        """The count comparison cannot see a table that vanished."""
+    def test_a_table_that_stopped_being_written_is_reported(self):
+        """The count comparison cannot see a table that vanished, so it is
+        looked for separately. It warns rather than failing: the descriptor and
+        linkage tables are opt-in, so a plain build legitimately omits them -
+        which is how this check first fired, on 13 tables at once."""
         from onet_scraper.baseline import compare
         drift = compare({"tasks": 5612}, {})
         self.assertEqual(drift[0]["table"], "tasks")
-        self.assertEqual(drift[0]["severity"], "error")
+        self.assertEqual(drift[0]["severity"], "warn")
+        self.assertIn("not written", drift[0]["note"])
 
     def test_a_zero_baseline_does_not_divide(self):
         from onet_scraper.baseline import compare
@@ -438,3 +442,55 @@ class TestDocumentedTestCount(unittest.TestCase):
                 self.assertEqual(
                     int(quoted), actual,
                     f"{path} says {quoted} tests, the suite has {actual}")
+
+
+class TestBaselineSeverity(unittest.TestCase):
+    """An empty table is a stage that did not run, not data that was lost."""
+
+    def test_a_table_at_zero_only_warns(self):
+        """This check first fired on 13 tables at once, against a build that had
+        simply not asked for the opt-in descriptor files."""
+        from onet_scraper.baseline import compare
+        drift = compare({"occupation_work_context": 87713},
+                        {"occupation_work_context": 0})
+        self.assertEqual(len(drift), 1)
+        self.assertEqual(drift[0]["severity"], "warn")
+        self.assertIn("did not run", drift[0]["note"])
+
+    def test_a_partial_collapse_is_still_an_error(self):
+        """The Green-Task case: 923 occupations down to 140, not to zero."""
+        from onet_scraper.baseline import compare
+        drift = compare({"occupations": 923}, {"occupations": 140})
+        self.assertEqual(drift[0]["severity"], "error")
+        self.assertFalse(drift[0].get("note"))
+
+    def test_a_vanished_table_warns_rather_than_failing_the_build(self):
+        from onet_scraper.baseline import compare
+        drift = compare({"occupation_indices": 287}, {})
+        self.assertEqual(drift[0]["severity"], "warn")
+
+    def test_growth_beyond_the_fail_threshold_is_still_an_error(self):
+        from onet_scraper.baseline import compare
+        drift = compare({"soc_susceptibility": 195}, {"soc_susceptibility": 400})
+        self.assertEqual(drift[0]["severity"], "error")
+
+
+class TestMainIsImportable(unittest.TestCase):
+    def test_importing_main_does_not_run_the_cli(self):
+        """__main__.py ran sys.exit(main()) at module level, so the CI step that
+        imports every module was running the full scraper against O*NET on every
+        push."""
+        import importlib
+        import pkgutil
+
+        import onet_scraper
+        names = [m.name for m in pkgutil.iter_modules(onet_scraper.__path__)]
+        self.assertIn("__main__", names, "the guard is only meaningful if the "
+                                         "module is actually discoverable")
+        for name in names:
+            importlib.import_module(f"onet_scraper.{name}")
+
+    def test_the_guard_is_present(self):
+        from pathlib import Path
+        src = Path("onet_scraper/__main__.py").read_text()
+        self.assertIn('if __name__ == "__main__":', src)
