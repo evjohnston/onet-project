@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology — STEM work and the handoff to AI</title>
+<meta name="description" content="Where the data comes from, how it was extracted and
+scored, which decisions shape which numbers, and what the dataset cannot tell you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1c1c18;--paper:#faf9f5;--paper2:#f2efe5;--paper3:#f8f6f0;
+  --rust:#bf5540;--muted:#6e6e66;--line:rgba(28,28,24,.15);
+  --sans:'Manrope',Helvetica,Arial,sans-serif;--serif:'DM Serif Display',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased}
+a{color:var(--rust)}
+.top{background:var(--ink);color:var(--paper);padding:26px 0}
+.top a{color:var(--paper);text-decoration:none;font:500 10.5px/1 var(--mono);
+  letter-spacing:.12em;text-transform:uppercase}
+.wrap{max-width:820px;margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.lay{display:grid;grid-template-columns:230px minmax(0,1fr);gap:48px;
+  max-width:1120px;margin:0 auto;padding:clamp(40px,7vh,72px) clamp(20px,5vw,40px) 90px}
+@media(max-width:900px){.lay{grid-template-columns:1fr;gap:20px}}
+nav.side{position:sticky;top:26px;align-self:start;font-size:.84rem;line-height:1.5}
+@media(max-width:900px){nav.side{position:static}}
+nav.side .h{font:500 9.5px/1.6 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px}
+ol.toc{list-style:none;counter-reset:s;margin:0;padding:0}
+ol.toc li{counter-increment:s;margin-bottom:9px}
+ol.toc li::before{content:counter(s) ".";color:var(--muted);font:500 10px var(--mono);
+  margin-right:7px;min-width:14px;display:inline-block}
+ol.toc a{text-decoration:none;color:var(--ink)}
+ol.toc a:hover{color:var(--rust)}
+article h1{font:400 clamp(2rem,4.4vw,2.9rem)/1.08 var(--serif);letter-spacing:-.022em;
+  margin:0 0 10px}
+article h2{font:400 clamp(1.3rem,2.4vw,1.72rem)/1.18 var(--serif);letter-spacing:-.016em;
+  margin:52px 0 12px;padding-top:20px;border-top:1px solid var(--line)}
+article h3{font:600 .96rem/1.4 var(--sans);margin:30px 0 8px}
+article p{line-height:1.72;color:#333;margin:0 0 15px}
+article li{line-height:1.7;color:#333;margin-bottom:7px}
+article strong{color:var(--ink);font-weight:650}
+article code{font:500 .86em var(--mono);background:var(--paper2);padding:1px 5px;
+  border-radius:3px}
+article pre{background:var(--ink);color:#e9e6dd;padding:16px 18px;border-radius:4px;
+  overflow:auto;font:500 12.5px/1.6 var(--mono)}
+article pre code{background:none;padding:0;color:inherit}
+article table{border-collapse:collapse;width:100%;margin:8px 0 22px;font-size:.87rem}
+article th{text-align:left;font:500 9.5px/1.6 var(--mono);letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--ink);
+  padding:8px 10px 8px 0;vertical-align:bottom}
+article td{padding:8px 10px 8px 0;border-bottom:1px solid var(--line);
+  vertical-align:top;line-height:1.55}
+article blockquote{margin:0 0 20px;padding:16px 20px;background:var(--paper3);
+  border-left:2px solid var(--rust);border-radius:0 3px 3px 0}
+article blockquote p{margin:0;font-size:.9rem;color:var(--muted)}
+footer{border-top:1px solid var(--line);margin-top:56px;padding-top:24px;
+  font-size:.82rem;color:var(--muted);line-height:1.7}
+</style></head>
+<body>
+<div class="top"><div class="wrap"><a href="index.html">&larr; STEM work and the handoff to AI</a></div></div>
+<div class="lay">
+  <nav class="side"><div class="h">Contents</div><ol class='toc'><li><a href="#1-what-the-dataset-is">What the dataset is</a></li><li><a href="#2-sampling-frame">Sampling frame</a></li><li><a href="#3-sources">Sources</a></li><li><a href="#4-extraction">Extraction</a></li><li><a href="#5-scoring">Scoring</a></li><li><a href="#6-derived-measures">Derived measures</a></li><li><a href="#7-validation">Validation</a></li><li><a href="#8-limitations">Limitations</a></li><li><a href="#9-reproducibility">Reproducibility</a></li><li><a href="#10-citation">Citation</a></li></ol></nav>
+  <article><h1 id="methodology">Methodology</h1>
+<p>How this dataset was built, from which sources, with which decisions and which known weaknesses. Written so the numbers can be checked rather than taken.</p>
+<p>Every figure quoted below is reproduced in <code>data/out/*.json</code> by the run that produced it; the commands to rebuild are in the README.</p>
+<h2 id="1-what-the-dataset-is">1. What the dataset is</h2>
+<p>A record of <strong>which tasks belong to which STEM occupations, which standardised activities those tasks are built from, and how exposed each of those is to being performed by AI</strong> — joined to employment and wages, and benchmarked against independently produced measures.</p>
+<table><thead><tr><th></th><th>Count</th></tr></thead><tbody><tr><td>STEM occupations</td><td>287</td></tr><tr><td>Task statements</td><td>5,717</td></tr><tr><td>Distinct detailed work activities (&quot;subtasks&quot;)</td><td>963</td></tr><tr><td>Task → activity links</td><td>7,215</td></tr><tr><td>Occupations with automation scores</td><td>268</td></tr><tr><td>Tasks with automation scores</td><td>5,612</td></tr><tr><td>Workers matched via BLS</td><td>21,523,100</td></tr></tbody></table>
+<p>The three counts that differ from their headline are not losses to be explained away: 19 occupations are SOC &quot;All Other&quot; residuals with no task data anywhere in O*NET, and 105 tasks postdate the activity crosswalk (§3.2).</p>
+<h2 id="2-sampling-frame">2. Sampling frame</h2>
+<p>The universe is <strong>every occupation O*NET classifies as STEM</strong>, taken from its own STEM filter rather than from a keyword rule or an SOC-range heuristic. This makes the boundary O*NET&#x27;s editorial decision, which is citable, rather than ours, which would not be.</p>
+<p>The filter has six top-level pages (<code>?t=0</code> through <code>?t=5</code>). Two of them split into sub-disciplines rendered as anchored sections <em>within</em> the same page (<code>?t=1#f1</code> … <code>#f4</code>), not as separate URLs — a fact that has to be handled or two thirds of the category memberships are silently lost.</p>
+<p>Membership is <strong>many-to-many</strong>: the individual category pages hold 302 rows against 287 unique occupations, because 15 occupations appear under more than one STEM discipline. Analyses should use <code>occupation_stem_categories</code> rather than assuming one category per occupation.</p>
+<h2 id="3-sources">3. Sources</h2>
+<table><thead><tr><th>Source</th><th>What it supplies</th><th>Version</th><th>Accessed</th><th>Terms</th></tr></thead><tbody><tr><td><a href="https://www.onetonline.org/find/stem?t=0">O*NET OnLine</a></td><td>STEM roster, task statements, importance ratings, occupation-level activities</td><td>live site</td><td>2026-09-16 20:53–20:58 UTC</td><td>CC BY 4.0</td></tr><tr><td><a href="https://www.onetcenter.org/database.html">O*NET Database</a></td><td>task → activity crosswalk, activity hierarchy, descriptors</td><td><strong>31.0</strong></td><td>2026-09-16</td><td>CC BY 4.0</td></tr><tr><td>O*NET Database archive</td><td>archived task statements for the churn series</td><td>20.1, 22.0, 24.0, 26.0, 28.0, 29.0, 30.0, 31.0</td><td>2026-09-16</td><td>CC BY 4.0</td></tr><tr><td><a href="https://www.bls.gov/oes/tables.htm">BLS OEWS</a></td><td>employment and wages, national cross-industry</td><td><strong>May 2025</strong></td><td>2026-09-16</td><td>public domain</td></tr><tr><td><a href="https://github.com/openai/GPTs-are-GPTs">Eloundou et al. (2023)</a></td><td>human and GPT-4 exposure ratings; Frey &amp; Osborne, Felten/Raj/Seamans, Brynjolfsson SML</td><td>repo <code>main</code></td><td>2026-09-16</td><td>see repo</td></tr><tr><td>Claude Opus 5</td><td>subtask automation scores</td><td>rubric <code>2026-09-16.1</code></td><td>2026-09-16</td><td>this repo, MIT</td></tr></tbody></table>
+<p>Row counts and SHA-256 digests for every file fetched are recorded per run in <code>data/out/manifest.json</code>.</p>
+<h3 id="3-1-why-the-site-and-the-bulk-database">3.1 Why the site <em>and</em> the bulk database</h3>
+<p>They are not redundant. The live site carries the STEM classification and the current task ratings; the bulk database carries the crosswalk the site does not publish. Both are needed and each is used only for what it alone provides.</p>
+<h3 id="3-2-the-crosswalk-the-website-does-not-expose">3.2 The crosswalk the website does not expose</h3>
+<p>O*NET OnLine publishes an occupation&#x27;s tasks and, separately, its detailed work activities. It does <strong>not</strong> publish which activities a given task maps to — the <code>/link/moreinfo/task/&lt;id&gt;</code> endpoint returns related occupations, not activities. That edge exists only in the bulk <code>tasks_to_dwas.csv</code>, so it is taken from there and joined on the O*NET task id, which the site exposes in each task&#x27;s popup link.</p>
+<p>Consequence: the crosswalk is fixed at release 31.0 while the site is live, so <strong>105 of 5,717 tasks have no activity mapping</strong> — they were added to the site after the release was cut. That is a ceiling imposed by O*NET&#x27;s publication cycle, not a scraping gap, and it is reported as such (98.2% coverage).</p>
+<h2 id="4-extraction">4. Extraction</h2>
+<h3 id="4-1-web-scraping">4.1 Web scraping</h3>
+<p>287 occupation detail reports plus 6 category pages, fetched at 1.5 requests per second across 4 workers with jitter, an identifying User-Agent, exponential backoff honouring <code>Retry-After</code>, and <code>robots.txt</code> respected. The paths used are permitted. Every response is cached on disk by URL digest with its fetch time and content hash, so a rebuild needs no network at all.</p>
+<p>Parsing is driven by O*NET&#x27;s own <code>data-title</code> cell labels and <code>data-text</code> sort values rather than column position, so a re-ordered or re-styled table cannot silently scramble a column.</p>
+<p><strong>Two layouts exist.</strong> Occupations with incumbent survey ratings render tasks as a table; occupations without render the same section as a <code>&lt;ul&gt;</code> list with no importance or category. Both are parsed. Missing this costs six occupations their entire task list.</p>
+<p><strong>Self-check.</strong> O*NET prints the row count of each section (&quot;… 16 displayed&quot;). The build compares that figure against the rows it actually parsed and fails if they disagree. This is the check that catches a truncated table, and it is the only reason the list-layout omission was found.</p>
+<p><strong>Unrated scores are missing, not zero.</strong> Tasks O*NET has not rated display &quot;Not available&quot; behind a <code>data-text=&quot;-2&quot;</code> sort sentinel. Parsed naively that sentinel enters the data as a score of −2 and drags every mean down. 264 of 5,717 tasks have no importance score and the field is left empty: 157 <code>New</code>, 102 from the six occupations with no incumbent survey, and 5 <code>Supplemental</code> tasks O*NET left unrated. A validation check rejects any rating outside 0–100.</p>
+<h3 id="4-2-employment">4.2 Employment</h3>
+<p>The OEWS national cross-industry file, latest release discovered at runtime from the tables page. Only <code>O_GROUP = &quot;detailed&quot;</code> rows are used. BLS suppression markers (<code>*</code>, <code>**</code>, <code>#</code>, <code>~</code>) are parsed as missing rather than as numbers.</p>
+<h3 id="4-3-archived-releases">4.3 Archived releases</h3>
+<p>Eight releases spanning 2015–2026, taken as <code>db_&lt;release&gt;_text.zip</code>. Availability is verified per release rather than assumed: <code>db_20_0</code> does not exist (that series begins at 20.1) and an unpublished release is dropped from the span with a warning instead of failing the run.</p>
+<h2 id="5-scoring">5. Scoring</h2>
+<h3 id="5-1-unit-of-analysis">5.1 Unit of analysis</h3>
+<p>Scores are assigned to the <strong>963 distinct activities</strong>, not the 5,717 tasks.</p>
+<p>This is a substantive choice, not an economy. Rating the activity layer is six times less work, but more importantly it removes an artefact: the same activity cannot receive one score inside nursing and a different score inside engineering. Consistency comes from the structure rather than from the rater&#x27;s discipline. Scores then propagate outward (§5.4).</p>
+<h3 id="5-2-rubric">5.2 Rubric</h3>
+<p>Seven dimensions, each 0–100, defined in <code>onet_scraper/score.py</code> and stamped on every row as <code>rubric_version</code>:</p>
+<table><thead><tr><th>Dimension</th><th>Asks</th></tr></thead><tbody><tr><td><code>automation_feasibility_today</code></td><td>could <em>deployed</em> technology do this end-to-end now</td></tr><tr><td><code>llm_exposure</code></td><td>could a current model do the cognitive core, given tools</td></tr><tr><td><code>physical_embodiment_required</code></td><td>does it need hands on matter in situ</td></tr><tr><td><code>interpersonal_demand</code></td><td>is the human relationship the substance of the work</td></tr><tr><td><code>judgment_under_uncertainty</code></td><td>could reasonable experts disagree</td></tr><tr><td><code>accountability_requirement</code></td><td>must an identifiable human answer for it</td></tr><tr><td><code>error_cost</code></td><td>how severe and irreversible is a mistake</td></tr></tbody></table>
+<p>Plus a four-way verdict (<code>largely_automatable</code> / <code>augmentable</code> / <code>resistant</code> / <code>human_anchored</code>), a confidence level, and a one-sentence rationale naming the binding constraint.</p>
+<p>The dimensions are deliberately separable. An activity can score high on <code>llm_exposure</code> <strong>and</strong> be <code>human_anchored</code> — drafting a legal opinion is largely language work that a named human must still own. 92 of the 963 activities score ≥70 on both. Collapsing these into a single &quot;automation risk&quot; number is the specific failure the rubric is built to avoid.</p>
+<h3 id="5-3-model-and-parameters">5.3 Model and parameters</h3>
+<p>Claude Opus 5, adaptive thinking, structured output validated against a schema, 12 activities per request, 81 requests, <strong>0 failures</strong>, ≈ $8.20. Rubric <code>2026-09-16.1</code>, fingerprint <code>49b87187f6f94ad8</code>. Results are cached per activity keyed on the rubric version, so changing the rubric re-runs rather than mixing incomparable scores.</p>
+<h3 id="5-4-propagation">5.4 Propagation</h3>
+<ul><li><strong>activity → task</strong>: unweighted mean over the activities the task maps to</li><li><strong>task → occupation</strong>: mean weighted by O*NET task <strong>importance</strong>, so an occupation is characterised by what matters in it rather than by its longest tail</li></ul>
+<p>Tasks with no scored activity are absent, not zero.</p>
+<h2 id="6-derived-measures">6. Derived measures</h2>
+<h3 id="6-1-susceptibility-index">6.1 Susceptibility index</h3>
+<p>Not a mean of the seven dimensions. Two pairs are close to collinear in the scored data:</p>
+<table><thead><tr><th>Pair</th><th>r</th></tr></thead><tbody><tr><td><code>llm_exposure</code> ↔ <code>physical_embodiment_required</code></td><td>−0.89</td></tr><tr><td><code>accountability_requirement</code> ↔ <code>error_cost</code></td><td>+0.90</td></tr></tbody></table>
+<p>Averaging all seven would double-count &quot;can a machine do it&quot; and double-count &quot;how much is at stake&quot;. Each pair collapses to one factor first, leaving:</p>
+<ul><li><strong>exposure</strong> = <code>llm_exposure</code> (physical embodiment is its mirror, not added again)</li><li><strong>anchoring</strong> = mean of stakes, interpersonal demand, judgment, physical embodiment</li></ul>
+<p><code>susceptibility = 50 + (exposure − anchoring) / 2</code>, clamped to 0–100.</p>
+<h3 id="6-2-handoff-framework">6.2 Handoff framework</h3>
+<p><code>occupation_handoff.csv</code> maps the same dimensions onto the framework in Watson (2026), which scores work on <strong>tractability</strong> (can AI lead it) and <strong>resistance</strong> (will it be permitted to), and locates each unit on a six-stage scale of cognitive leadership. Stage is the <strong>lower</strong> of the capability ceiling and the permission ceiling, not an average — Watson&#x27;s first four properties decide what AI can do, the last two what it is allowed to do.</p>
+<p>Six of his eight properties are covered. <strong>Recurrence</strong> and <strong>feedback speed/clarity</strong> are not; recurrence is available as O*NET&#x27;s <code>FT</code> scale and is the cheaper of the two to add. The frontier constants (<code>FRONTIER_K</code>, <code>TRACTABILITY_FLOOR</code>, <code>CROSSING_BAND</code>) are <strong>calibrated to this corpus, not derived</strong> — Watson&#x27;s figure shows the curve&#x27;s shape and no numbers.</p>
+<h3 id="6-3-employment-weighting">6.3 Employment weighting</h3>
+<p>O*NET reports at the 8-digit O*NET-SOC level; OEWS reports employment at the 6-digit SOC level. <strong>37 SOC codes here contain more than one O*NET occupation.</strong> Attaching OEWS employment to each O*NET row counts the same workers repeatedly — 3.38 million registered nurses five times over.</p>
+<p>So susceptibility is aggregated to the SOC level <strong>first</strong>, then employment is attached exactly once. <code>susceptibility_sd_within_soc</code> reports the spread across each SOC&#x27;s constituent occupations, so a mean concealing real disagreement is visible. Where BLS publishes only a broad group (29-2011 and 29-2012 both appear as 29-2010) codes fall back to it — and because both then land in the same group, the fallback cannot double-count either.</p>
+<h3 id="6-4-wage-deciles">6.4 Wage deciles</h3>
+<p>Employment-weighted, and an occupation&#x27;s workers are <strong>split across</strong> bucket boundaries rather than assigned whole. Registered nurses alone are 16% of these workers — larger than a decile — so whole assignment produced buckets ranging from 0.4M to 3.8M and the word &quot;decile&quot; was not true. Each decile now holds 2,152,310 workers.</p>
+<p>Occupation-level correlations and employment-weighted deciles answer different questions and point different ways here. Both are reported; quoting only one is a choice about which question to answer.</p>
+<h3 id="6-5-transition-pathways">6.5 Transition pathways</h3>
+<p>A destination must clear three bars: sufficient activity <strong>overlap</strong> (cosine ≥ 0.12), meaningful <strong>relief</strong> (≥ 12 susceptibility points), and <strong>direction</strong> — the shared activities must include the destination&#x27;s protected work, or the mover carries their exposure with them.</p>
+<p>All three thresholds are arbitrary, so the stage sweeps them. The stranded count ranges <strong>105 to 240</strong> of 268 across the sweep: it is sensitive to how much relief is demanded and nearly insensitive to the overlap floor. <strong>The clustering of exposure is the finding; the number 161 is not.</strong></p>
+<h3 id="6-6-task-churn">6.6 Task churn</h3>
+<p>Task statements diffed across the eight archived releases. A task <strong>survives</strong> if its id persists <strong>or</strong> its normalised text matches one in the later release for the same occupation — ids are retired and reissued, and a reworded task is not a new one.</p>
+<p>The 2019 SOC revision renumbered codes, so <strong>93 of 268 occupations cannot be compared</strong> across the span at all. Those are reported as skipped, never counted as retired tasks.</p>
+<p><strong>The confound, stated plainly.</strong> O*NET re-surveys occupations on a rolling cycle, so an occupation whose tasks did not change may simply not have been looked at. Splitting on the <code>Date</code> column separates the two: 8.1% turnover among the 153 occupations re-surveyed since 2022, 2.4% among the 115 that were not. The unsplit 5.2% figure is diluted by occupations nobody checked, and no care with the diff fixes that.</p>
+<h2 id="7-validation">7. Validation</h2>
+<p><strong>Internal — 11 automated checks</strong>, in <code>data/out/validation_report.json</code>. Errors fail the run. They cover: every rostered occupation fetched; no swallowed failures; parsed rows equal the page&#x27;s own declared count; every task carries an id; crosswalk ids resolve; activities present in the hierarchy; ratings inside 0–100; the wide table neither dropping nor duplicating a task; category membership complete. Table grain is asserted at write time, so a fan-out in a join raises instead of inflating counts.</p>
+<p><strong>Convergent.</strong> The index is computed only from the numeric dimensions, yet it orders the model&#x27;s <em>independently produced</em> categorical verdict monotonically: <code>largely_automatable</code> 74.9 &gt; <code>augmentable</code> 65.9 &gt; <code>resistant</code> 43.6 &gt; <code>human_anchored</code> 40.3. Re-checked every run, with a warning if monotonicity breaks.</p>
+<p><strong>External.</strong> Benchmarked against Eloundou et al. (2023), whose <code>occ_level.csv</code> is keyed to the same 8-digit O*NET-SOC codes — <strong>all 268 occupations matched, no crosswalk needed</strong>.</p>
+<table><thead><tr><th>Benchmark</th><th>Pearson</th><th>n</th></tr></thead><tbody><tr><td><strong>Human expert ratings, γ</strong></td><td><strong>0.846</strong></td><td>268</td></tr><tr><td><strong>Human expert ratings, β</strong></td><td><strong>0.831</strong></td><td>268</td></tr><tr><td>Human expert ratings, α (no tools)</td><td>0.605</td><td>268</td></tr><tr><td>GPT-4, β</td><td>0.847</td><td>268</td></tr><tr><td>Frey &amp; Osborne (2017)</td><td>0.006</td><td>150</td></tr><tr><td>Felten, Raj &amp; Seamans</td><td>−0.178</td><td>188</td></tr><tr><td>Brynjolfsson/Mitchell/Rock SML</td><td>−0.088</td><td>188</td></tr></tbody></table>
+<p>Both halves matter. Agreement with human experts at r ≈ 0.85 is the evidence the index measures what it claims. The weaker agreement with α is expected: α excludes tools and this rubric explicitly asks what a model could do <em>given</em> them.</p>
+<p>The pre-LLM measures disagree, and should. Frey &amp; Osborne give mathematicians a 4.7% probability of computerisation; this index ranks them third of 268. Those measures scored the routine/manual gradient; LLMs run the other way. <strong>A strong positive correlation there would have been the warning sign.</strong> These three expectations were written down as &quot;moderate positive&quot; before the test and the data refuted them; the code records that.</p>
+<h2 id="8-limitations">8. Limitations</h2>
+<ol><li><strong>The scores are model judgment</strong>, not survey data and not human expert judgment. They correlate with human ratings at r = 0.85, which is evidence of validity, not a substitute for it.</li><li><strong>No reliability estimate exists.</strong> Nobody has re-run the scoring and measured agreement, so it is unknown whether the scores are a property of the work or of this model on this day. This is the largest open gap.</li><li><strong>Chunk-order effects are untested.</strong> Activities were rated 12 per request; a score may depend partly on which others shared the request.</li><li><strong>The unit is the task, not the decision.</strong> Watson&#x27;s framework scores recurring decisions and is explicit that identifying which tasks are decisions is the novel work. That has not been done, so stage numbers are provisional.</li><li><strong>Activity assignment is analyst-coded</strong>, not survey-measured. The network structure partly reflects O*NET&#x27;s vocabulary choices; the 27% of activities unique to one occupation may be analyst granularity as much as real specialisation.</li><li><strong>Exposure is not displacement.</strong> Nothing here measures what employers will do, what regulation will permit, or how fast anything diffuses.</li><li><strong>O*NET&#x27;s own update cadence bounds the churn result</strong> (§6.6).</li><li><strong>STEM only.</strong> 287 occupations of O*NET&#x27;s ~1,000. Nothing here generalises to the rest of the labour market.</li><li><strong>Postsecondary teaching occupations are near-duplicates.</strong> O*NET gives all 25-xxxx occupations one boilerplate profile; Economics and Political Science Teachers score cosine 1.00. They dominate any similarity ranking and are excluded from network defaults.</li><li><strong>Employment is a national cross-industry snapshot.</strong> No geography, no industry detail, no projections.</li></ol>
+<h2 id="9-reproducibility">9. Reproducibility</h2>
+<p>Every response is cached by URL digest with its fetch time and SHA-256, so a rebuild is deterministic and needs no network:</p>
+<pre><code>python -m onet_scraper --offline --with-descriptors build</code></pre>
+<p><code>data/out/manifest.json</code> records the tool version, source URLs, the O*NET release, per-file row counts and content hashes, run settings, and the validation summary. The scroller&#x27;s network layout is seeded, so the drawing is identical on every run.</p>
+<p>A full rebuild from scratch is <code>python -m onet_scraper --refresh</code> followed by the <code>score</code>, <code>report</code>, <code>employment</code>, <code>validate-external</code>, <code>pathways</code>, <code>churn</code>, <code>figures</code>, <code>story</code> and <code>publish</code> stages. 66 tests run in CI on Python 3.10 and 3.13.</p>
+<p><strong>One caveat on the recorded stats.</strong> <code>http_stats</code> in the manifest reads zero because the final build was served entirely from cache; it counts the requests that build made, not the requests that populated the cache.</p>
+<h2 id="10-citation">10. Citation</h2>
+<p>If you use the dataset, cite the upstream sources — they did the expensive part.</p>
+<blockquote><p>O*NET data is provided by the U.S. Department of Labor, Employment and Training Administration, under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. O*NET® is a trademark of USDOL/ETA. Employment and wage data from the U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (May 2025). Benchmark exposure ratings from Eloundou, T., Manning, S., Mishkin, P., &amp; Rock, D. (2023), <em>GPTs are GPTs</em>. Handoff framework from Watson, P. (2026), <em>Considering Handoffs of Cognitive Leadership from Humans to AI</em>, Applied Emergence.</p></blockquote>
+<p>The code is MIT licensed. The derived tables carry their upstream terms. If you use the automation scores, cite the rubric version (<code>2026-09-16.1</code>) — they are not comparable across rubric changes.</p>
+    <footer>Generated from METHODOLOGY.md. <a href="https://github.com/evjohnston/onet-project/blob/main/METHODOLOGY.md">View the source document</a>.</footer>
+  </article>
+</div>
+</body></html>

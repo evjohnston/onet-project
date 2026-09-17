@@ -2,6 +2,8 @@
 
 **Live at [onet.emersonjohnston.org](https://onet.emersonjohnston.org)** — the story,
 the dashboard, the figures and the result tables.
+**[Methodology](METHODOLOGY.md)** — every source with its version and access date,
+every decision that shapes a number, and the ten things this dataset cannot tell you.
 
 
 Builds a research dataset of **which tasks belong to which STEM jobs, and which

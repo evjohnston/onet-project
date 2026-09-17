@@ -20,6 +20,7 @@ DOMAIN = "onet.emersonjohnston.org"
 REPO = "https://github.com/evjohnston/onet-project"
 
 COPY = ("story.html", "dashboard.html")
+METHODOLOGY = Path("METHODOLOGY.md")
 COPY_DIRS = ("figures",)
 DATA_FILES = (
     "occupation_susceptibility.csv", "task_susceptibility.csv",
@@ -171,6 +172,7 @@ footer a{{color:var(--ink)}}
   <div class="cta">
     <a class="btn p" href="story.html">Read the story</a>
     <a class="btn ghost" href="dashboard.html">Open the dashboard</a>
+    <a class="btn ghost" href="methodology.html">Methodology</a>
     <a class="btn ghost" href="{REPO}">Source &amp; data</a>
   </div>
 </div></header>
@@ -207,6 +209,28 @@ footer a{{color:var(--ink)}}
 </div></section>
 
 <section class="body"><div class="wrap">
+  <h2>How it was built</h2>
+  <p class="lead">Every source with its version and access date, every decision that
+  shapes a number, and the ten things this dataset cannot tell you.</p>
+  <div class="cards">
+    <a class="card" href="methodology.html">
+      <p class="t">Methodology</p>
+      <p class="d">Sampling frame, extraction, the scoring rubric and its unit of
+      analysis, the derived measures and why they are not simple means, three layers of
+      validation, and the limitations stated plainly.</p>
+      <span class="go">Read &rarr;</span>
+    </a>
+    <a class="card" href="{REPO}/blob/main/METHODOLOGY.md">
+      <p class="t">On GitHub</p>
+      <p class="d">The same document as markdown, alongside the pipeline that produced
+      every figure in it, the 66 tests, and <code>manifest.json</code> with per-file row
+      counts and content hashes for each run.</p>
+      <span class="go">View source &rarr;</span>
+    </a>
+  </div>
+</div></section>
+
+<section class="body"><div class="wrap">
   <h2>Figures</h2>
   <p class="lead">Publication-resolution PNGs, rendered from the dashboard itself so they
   cannot drift from what it shows.</p>
@@ -233,6 +257,78 @@ footer a{{color:var(--ink)}}
   <p><a href="{REPO}">Source on GitHub</a></p>
 </div></footer>
 
+</body></html>"""
+
+
+METHOD_PAGE = """<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology \u2014 STEM work and the handoff to AI</title>
+<meta name="description" content="Where the data comes from, how it was extracted and
+scored, which decisions shape which numbers, and what the dataset cannot tell you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1c1c18;--paper:#faf9f5;--paper2:#f2efe5;--paper3:#f8f6f0;
+  --rust:#bf5540;--muted:#6e6e66;--line:rgba(28,28,24,.15);
+  --sans:'Manrope',Helvetica,Arial,sans-serif;--serif:'DM Serif Display',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased}
+a{color:var(--rust)}
+.top{background:var(--ink);color:var(--paper);padding:26px 0}
+.top a{color:var(--paper);text-decoration:none;font:500 10.5px/1 var(--mono);
+  letter-spacing:.12em;text-transform:uppercase}
+.wrap{max-width:820px;margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.lay{display:grid;grid-template-columns:230px minmax(0,1fr);gap:48px;
+  max-width:1120px;margin:0 auto;padding:clamp(40px,7vh,72px) clamp(20px,5vw,40px) 90px}
+@media(max-width:900px){.lay{grid-template-columns:1fr;gap:20px}}
+nav.side{position:sticky;top:26px;align-self:start;font-size:.84rem;line-height:1.5}
+@media(max-width:900px){nav.side{position:static}}
+nav.side .h{font:500 9.5px/1.6 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px}
+ol.toc{list-style:none;counter-reset:s;margin:0;padding:0}
+ol.toc li{counter-increment:s;margin-bottom:9px}
+ol.toc li::before{content:counter(s) ".";color:var(--muted);font:500 10px var(--mono);
+  margin-right:7px;min-width:14px;display:inline-block}
+ol.toc a{text-decoration:none;color:var(--ink)}
+ol.toc a:hover{color:var(--rust)}
+article h1{font:400 clamp(2rem,4.4vw,2.9rem)/1.08 var(--serif);letter-spacing:-.022em;
+  margin:0 0 10px}
+article h2{font:400 clamp(1.3rem,2.4vw,1.72rem)/1.18 var(--serif);letter-spacing:-.016em;
+  margin:52px 0 12px;padding-top:20px;border-top:1px solid var(--line)}
+article h3{font:600 .96rem/1.4 var(--sans);margin:30px 0 8px}
+article p{line-height:1.72;color:#333;margin:0 0 15px}
+article li{line-height:1.7;color:#333;margin-bottom:7px}
+article strong{color:var(--ink);font-weight:650}
+article code{font:500 .86em var(--mono);background:var(--paper2);padding:1px 5px;
+  border-radius:3px}
+article pre{background:var(--ink);color:#e9e6dd;padding:16px 18px;border-radius:4px;
+  overflow:auto;font:500 12.5px/1.6 var(--mono)}
+article pre code{background:none;padding:0;color:inherit}
+article table{border-collapse:collapse;width:100%;margin:8px 0 22px;font-size:.87rem}
+article th{text-align:left;font:500 9.5px/1.6 var(--mono);letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--ink);
+  padding:8px 10px 8px 0;vertical-align:bottom}
+article td{padding:8px 10px 8px 0;border-bottom:1px solid var(--line);
+  vertical-align:top;line-height:1.55}
+article blockquote{margin:0 0 20px;padding:16px 20px;background:var(--paper3);
+  border-left:2px solid var(--rust);border-radius:0 3px 3px 0}
+article blockquote p{margin:0;font-size:.9rem;color:var(--muted)}
+footer{border-top:1px solid var(--line);margin-top:56px;padding-top:24px;
+  font-size:.82rem;color:var(--muted);line-height:1.7}
+</style></head>
+<body>
+<div class="top"><div class="wrap"><a href="index.html">&larr; STEM work and the handoff to AI</a></div></div>
+<div class="lay">
+  <nav class="side"><div class="h">Contents</div>__TOC__</nav>
+  <article>__BODY__
+    <footer>__FOOTER__</footer>
+  </article>
+</div>
 </body></html>"""
 
 
@@ -263,6 +359,20 @@ def publish(out_dir: Path, docs_dir: Path, domain: str = DOMAIN) -> Path:
             label = png.stem.split("-", 1)[-1].replace("-", " ")
             gallery += (f'<a href="figures/{png.name}"><img src="figures/{png.name}" '
                         f'alt="{label}" loading="lazy"><span>{label}</span></a>')
+
+    if METHODOLOGY.exists():
+        from .markdown import render, toc
+        md = METHODOLOGY.read_text()
+        (docs_dir / "methodology.html").write_text(
+            METHOD_PAGE.replace("__TOC__", toc(md))
+                       .replace("__BODY__", render(md))
+                       .replace("__FOOTER__",
+                                "Generated from METHODOLOGY.md. "
+                                f'<a href="{REPO}/blob/main/METHODOLOGY.md">'
+                                "View the source document</a>."),
+            encoding="utf-8")
+    else:
+        log.warning("METHODOLOGY.md not found - the site will link to a missing page")
 
     (docs_dir / "index.html").write_text(
         build_index(out_dir).replace("__GALLERY__", gallery), encoding="utf-8")
