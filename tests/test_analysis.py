@@ -494,3 +494,74 @@ class TestHandoffFramework(unittest.TestCase):
         s = summarise(rows)
         self.assertEqual(s["occupations"], 2)
         self.assertIn("by_classification", s)
+
+
+class TestWageProtection(unittest.TestCase):
+    def _soc(self, code, emp, wage, expo, anch):
+        return {"soc_code": code, "soc_title": code, "total_employment": emp,
+                "annual_mean_wage": wage, "exposure": expo, "anchoring": anch,
+                "susceptibility": 50 + (expo - anch) / 2, "quadrant": ""}
+
+    def test_returns_the_same_shape_when_empty(self):
+        """The success and failure paths must agree, or a caller's availability
+        check silently skips the whole analysis."""
+        from onet_scraper.wages import build
+        empty, full = build([]), build([self._soc("a", 100, 50000, 60, 40)])
+        self.assertEqual(set(empty), set(full))
+        self.assertFalse(empty["available"])
+        self.assertTrue(full["available"])
+
+    def test_deciles_hold_workers_constant_not_occupations(self):
+        """One occupation larger than a decile must be split across buckets,
+        not dropped whole into one - otherwise the buckets are not deciles."""
+        from onet_scraper.wages import build
+        rows = [self._soc("big", 9000, 40000, 50, 50),
+                self._soc("small", 1000, 200000, 90, 10)]
+        d = build(rows)["deciles"]
+        self.assertEqual(len(d), 10)
+        sizes = [x["workers"] for x in d]
+        self.assertLess(max(sizes) - min(sizes), 2, "every decile holds 1,000 workers")
+        # the cheap occupation fills the first nine buckets
+        self.assertEqual(sum(1 for x in d if x["mean_wage"] == 40000), 9)
+
+    def test_protection_classes(self):
+        from onet_scraper.wages import classify_protection
+        self.assertEqual(classify_protection(80, 80, 60, 50),
+                         "Accountability - AI could, a human must answer")
+        self.assertEqual(classify_protection(80, 20, 60, 50),
+                         "Unprotected - exposed and lightly anchored")
+        self.assertEqual(classify_protection(20, 80, 60, 50),
+                         "Capability - AI cannot do much of it")
+
+
+class TestTransitions(unittest.TestCase):
+    def _setup(self):
+        occ = [{"onet_soc_code": "A", "title": "A", "susceptibility": 80},
+               {"onet_soc_code": "B", "title": "B", "susceptibility": 40},
+               {"onet_soc_code": "C", "title": "C", "susceptibility": 78}]
+        edges = [{"source": "A", "target": "B", "cosine": 0.5},
+                 {"source": "A", "target": "C", "cosine": 0.9}]
+        occ_dwa = {"A": {"d1", "d2"}, "B": {"d1", "d3"}, "C": {"d1", "d2"}}
+        dwa_susc = {"d1": 90.0, "d2": 85.0, "d3": 20.0}
+        return edges, occ, occ_dwa, dwa_susc, {}
+
+    def test_similar_but_equally_exposed_is_not_a_destination(self):
+        from onet_scraper.transitions import build
+        moves, stranded, s = build(*self._setup())
+        a = next(m for m in moves if m["onet_soc_code"] == "A")
+        # C is the closest neighbour but offers no relief; B must win
+        self.assertEqual(a["destination_code"], "B")
+
+    def test_stranded_when_every_neighbour_is_exposed(self):
+        from onet_scraper.transitions import build
+        edges, occ, occ_dwa, dwa_susc, emp = self._setup()
+        edges = [{"source": "A", "target": "C", "cosine": 0.9}]
+        moves, stranded, s = build(edges, occ, occ_dwa, dwa_susc, emp)
+        self.assertIn("A", [r["onet_soc_code"] for r in stranded])
+        self.assertEqual(s["stranded_share"], round(len(stranded)/3, 3))
+
+    def test_sweep_reports_threshold_dependence(self):
+        from onet_scraper.transitions import sweep
+        out = sweep(*self._setup())
+        self.assertEqual(len(out), 9)
+        self.assertTrue(all("stranded" in r for r in out))

@@ -38,6 +38,7 @@ def build_payload(
     benchmarks: Sequence[dict[str, Any]],
     soc: Sequence[dict[str, Any]],
     employment_report: dict[str, Any],
+    pathways: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     # --- 01 inversion ------------------------------------------------------
     # Plot the ACTUAL values on each side, each scaled to its own range, rather
@@ -200,7 +201,29 @@ def build_payload(
     den = sum((p[0] - mx) ** 2 for p in vpairs) or 1
     slope = num / den
 
+    pathways = pathways or {}
+    wages = pathways.get("wages", {})
+    trans = pathways.get("transitions", {})
+
     return {
+        "wage": {
+            "deciles": pathways.get("deciles", []),
+            "rExposure": wages.get("wage_vs_exposure"),
+            "rAnchoring": wages.get("wage_vs_anchoring"),
+            "rSusc": wages.get("wage_vs_susceptibility"),
+            "protection": wages.get("by_protection", {}),
+        },
+        "trans": {
+            "moves": pathways.get("moveSample", []),
+            "stranded": trans.get("stranded"),
+            "strandedShare": trans.get("stranded_share"),
+            "withDest": trans.get("with_a_destination"),
+            "exposedStranded": trans.get("exposed_and_stranded"),
+            "exposedStrandedWorkers": trans.get("exposed_and_stranded_workers"),
+            "realMoves": trans.get("real_moves"),
+            "carries": trans.get("carries_exposure"),
+            "sensitivity": trans.get("sensitivity", []),
+        },
         "lev": lev,
         "cum": cum,
         "levStats": {
@@ -533,6 +556,81 @@ SCENES: list[dict[str, Any]] = [
               "not misleading. That is worth reporting precisely because it could have "
               "gone the other way.",
               "Mean susceptibility <b>58.2 → 58.7</b>"),
+         ]),
+    dict(sid="wages", number="08 / The premium", rail="The premium", tint=True,
+         title="What protects well-paid work is not that AI cannot do it.",
+         standfirst="The Frey and Osborne era found automation risk falling as wages "
+                    "rose. Run the same test against LLM exposure and the two "
+                    "components of susceptibility pull in opposite directions.",
+         fig="Fig. 08 \u2014 Exposure and anchoring by wage decile",
+         aria="Exposure, anchoring and net susceptibility plotted across ten "
+              "employment-weighted wage deciles.",
+         rk="Wage vs exposure", rv="r = 0.03",
+         note="Each decile holds 2.15M workers; r values are across occupations.",
+         beats=[
+             ("01 / Capability", "Exposure does not care what a job pays",
+              "Across the 195 occupation codes with wage data, the correlation between "
+              "pay and exposure is 0.03. Whatever decides how much of a job a model "
+              "could do, it is not the salary.",
+              "Wage vs exposure \u2014 <b>r = 0.03</b>"),
+             ("02 / Permission", "Anchoring is what tracks pay instead",
+              "Across those same occupations, accountability and the cost of error "
+              "correlate with the wage at 0.40. Better-paid STEM work is not harder for "
+              "a model to attempt \u2014 it is work someone has to answer for. The line "
+              "on screen is employment-weighted and does not climb smoothly: it dips "
+              "through the software and engineering-management deciles and rises again "
+              "at the clinical top.",
+              "Wage vs anchoring \u2014 <b>r = 0.40</b> across occupations"),
+             ("03 / The peak", "Exposure peaks just below the top of the scale",
+              "Susceptibility climbs from 52 in the bottom wage decile to 69 in the "
+              "seventh \u2014 and then falls back to 58 at the very top. The "
+              "highest-paid decile is physicians, dentists and specialists, where "
+              "anchoring climbs again. The most exposed workers are not the "
+              "best-paid; they are the well-paid tier just beneath them.",
+              "Peak at the <b>7th decile</b> \u00b7 69, falling to 58 at the top"),
+             ("04 / The share", "And accountability protects a minority",
+              "Sorting every occupation by what is actually holding it: 42 per cent of "
+              "STEM workers are in work a model largely cannot do, and only 9 per cent "
+              "in work it could do but is not permitted to. The accountability premium "
+              "is real, and it is narrow.",
+              "<b>9%</b> of workers protected by accountability"),
+         ]),
+    dict(sid="pathways", number="09 / Nowhere adjacent", rail="Nowhere adjacent",
+         title="The jobs next door are exposed too.",
+         standfirst="The standard answer to displacement is to move into an adjacent "
+                    "occupation. That assumes adjacency and exposure are independent. "
+                    "In the activity network they are not.",
+         fig="Fig. 09 \u2014 Where an exposed job could move",
+         aria="Arrows from exposed occupations to the nearest less-exposed occupation "
+              "that shares enough activities, above a count of those with no such "
+              "destination.",
+         rk="Moves that exist", rv="107 of 268",
+         note="Destination must share activities and be meaningfully less exposed.",
+         beats=[
+             ("01 / The test", "A destination has to clear three bars",
+              "Enough shared activities that the move is plausible. Meaningfully lower "
+              "susceptibility, not noise. And the shared activities have to include the "
+              "destination\u2019s protected work \u2014 otherwise the worker carries "
+              "their exposure with them.",
+              "Overlap \u00b7 relief \u00b7 direction"),
+             ("02 / The moves", "Where a move exists, it is usually genuine",
+              "A hundred and seven occupations have a destination that clears all three. "
+              "Ninety-eight of those are real moves into better-protected work; nine "
+              "share only the exposed half, and would carry the problem along.",
+              "<b>98</b> real \u00b7 <b>9</b> carry the exposure"),
+             ("03 / The stranded", "But most occupations have nowhere to go",
+              "A hundred and sixty-one of 268 have no close neighbour that is "
+              "meaningfully safer. Fifty-nine of those are themselves highly exposed, "
+              "covering 11.5 million workers. Database administrators, data scientists, "
+              "programmers and web developers sit in a neighbourhood where everything "
+              "is exposed.",
+              "<b>11.5M</b> workers exposed and stranded"),
+             ("04 / How firm", "The direction holds; the number does not",
+              "Sweeping the thresholds moves the stranded count between 105 and 240 of "
+              "268. How much relief you demand changes the answer a great deal, and how "
+              "much overlap you require barely changes it at all. The finding is that "
+              "exposure is clustered \u2014 not that the number is 161.",
+              "Sweep \u2014 <b>105 to 240</b> stranded"),
          ]),
     dict(sid="validation", number="07 / The check", rail="The check", tint=True,
          title="A model rating work is an assertion until someone checks it.",

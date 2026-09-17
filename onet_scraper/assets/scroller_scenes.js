@@ -682,3 +682,125 @@ BUILD.leverage = function(ctx){
   });
   render();
 })();
+
+/* ---------- 08 WAGES: what is doing the protecting ----------------------- */
+BUILD.wages = function(ctx){
+  const g = S('g', null, ctx.svg);
+  const dec = (D.wage && D.wage.deciles) || [];
+  if(!dec.length) return function(){};
+  const X0=340, X1=1300, Y0=210, Y1=640;
+  /* domain from the data - anchoring runs well below any sensible fixed floor */
+  const all = dec.reduce(function(a,d){
+    return a.concat([+d.exposure, +d.anchoring, +d.susceptibility]); }, []);
+  const lo = Math.floor(Math.min.apply(null, all)/5)*5 - 2;
+  const hi = Math.ceil(Math.max.apply(null, all)/5)*5 + 2;
+  const xs = i => X0 + (i/(dec.length-1))*(X1-X0);
+  const ys = v => Y1 - (v-lo)/((hi-lo)||1)*(Y1-Y0);
+  const ax = Stroke(g, [[X0,Y1],[X1,Y1]], {cls:'ink w1', amp:1.6});
+  const ay = Stroke(g, [[X0,Y1],[X0,Y0]], {cls:'ink w1', amp:1.6});
+  Txt(g, (X0+X1)/2, Y1+52, 'WAGE DECILE, EQUAL NUMBERS OF WORKERS →',
+      {cls:'sm', anchor:'middle', op:0});
+  const xlab = g.lastChild;
+  for(let v=Math.ceil(lo/10)*10; v<=hi; v+=10){
+    const t=Txt(g, X0-14, ys(v)+4, String(v), {cls:'sm dim', anchor:'end', op:0});
+    t.dataset.wt='1';
+  }
+  const yt = [].slice.call(g.querySelectorAll('[data-wt]'));
+
+  const lineE = Stroke(g, dec.map(function(d,i){ return [xs(i), ys(+d.exposure)]; }),
+                       {cls:'ink coral w3', amp:1.6});
+  const lineA = Stroke(g, dec.map(function(d,i){ return [xs(i), ys(+d.anchoring)]; }),
+                       {cls:'ink blue w3', amp:1.6});
+  const lineS = Stroke(g, dec.map(function(d,i){ return [xs(i), ys(+d.susceptibility)]; }),
+                       {cls:'ink w3 soft', amp:1.6});
+  const labE = Txt(g, X1+14, ys(+dec[dec.length-1].exposure)+4, 'EXPOSURE', {cls:'sm', op:0});
+  const labA = Txt(g, X1+14, ys(+dec[dec.length-1].anchoring)+4, 'ANCHORING', {cls:'sm', op:0});
+  const labS = Txt(g, X1+14, ys(+dec[dec.length-1].susceptibility)+4, 'NET', {cls:'sm dim', op:0});
+
+  const rs = Txt(g, X0+26, Y0+16,
+    'WAGE vs EXPOSURE r=' + D.wage.rExposure +
+    '   ·   vs ANCHORING r=' + D.wage.rAnchoring, {cls:'sm', op:0});
+  const prot = Object.keys(D.wage.protection || {})
+    .map(function(k){ return [k, D.wage.protection[k]]; })
+    .sort(function(a,b){ return b[1].workers - a[1].workers; });
+  const protLabs = prot.map(function(kv, i){
+    return Txt(g, X0+26, 742 + i*30,
+      Math.round(kv[1].share_of_workers*100) + '%  ·  ' + kv[0].toUpperCase(),
+      {cls: i===2 ? 'sm' : 'sm dim', op:0});
+  });
+
+  return function(p, idx){
+    ax.draw(clamp(p*6,0,1)); ay.draw(clamp(p*6-.2,0,1));
+    xlab.style.opacity = eo(clamp(p*6-.3,0,1))*.8;
+    yt.forEach(function(t){ t.style.opacity = eo(clamp(p*6-.4,0,1))*.6; });
+    lineE.draw(eo(clamp((p-0.08)/0.16,0,1)));
+    labE.style.opacity = eo(clamp((p-0.18)/0.08,0,1));
+    lineA.draw(eo(clamp((p-0.30)/0.16,0,1)));
+    labA.style.opacity = eo(clamp((p-0.40)/0.08,0,1));
+    rs.style.opacity = eo(clamp((p-0.46)/0.08,0,1));
+    lineS.draw(eo(clamp((p-0.56)/0.16,0,1)));
+    labS.style.opacity = eo(clamp((p-0.66)/0.08,0,1))*.7;
+    protLabs.forEach(function(l,i){ l.style.opacity = eo(clamp((p-0.76-i*.04)/0.08,0,1)); });
+    ctx.readout(['Wage vs exposure','Wage vs anchoring','Net effect','Who is protected'][Math.min(idx,3)],
+                ['r = ' + D.wage.rExposure, 'r = ' + D.wage.rAnchoring,
+                 'r = ' + D.wage.rSusc,
+                 (prot[2] ? Math.round(prot[2][1].share_of_workers*100)+'% by accountability' : '—')
+                ][Math.min(idx,3)]);
+  };
+};
+
+/* ---------- 09 NOWHERE TO GO: exposure is clustered ---------------------- */
+BUILD.pathways = function(ctx){
+  const g = S('g', null, ctx.svg);
+  const T = D.trans || {};
+  const moves = T.moves || [];
+  const L = 480, R = 1120, TOP = 250, ROW = 62;
+  const rows = moves.map(function(m, i){
+    const y = TOP + i*ROW;
+    const arrow = Stroke(g, [[L, y],[R, y]],
+      {cls: m.v === 'Real move' ? 'ink blue w1' : 'ink coral w1', amp:1.4, seed:9100+i});
+    const a = Dot(g, L, y, 7, 'ink coral', 9200+i);
+    const b = Dot(g, R, y, 7, m.v === 'Real move' ? 'ink blue' : 'ink coral', 9300+i);
+    const la = Txt(g, L-20, y+5, m.t.toUpperCase() + '  ' + Math.round(m.s),
+                   {cls:'sm', anchor:'end', op:0});
+    const lb = Txt(g, R+20, y+5, m.d.toUpperCase() + '  ' + Math.round(m.ds),
+                   {cls:'sm dim', op:0});
+    return {arrow:arrow, a:a, b:b, la:la, lb:lb, i:i};
+  });
+  const head = Txt(g, 800, 196, 'THE MOVES THAT EXIST', {cls:'sm', anchor:'middle', op:0});
+  const big = Txt(g, 800, 690, String(T.stranded || 0), {cls:'big', anchor:'middle', op:0});
+  const bigLab = Txt(g, 800, 726,
+    'OF ' + ((T.stranded||0)+(T.withDest||0)) + ' OCCUPATIONS HAVE NO CLOSE, LESS-EXPOSED NEIGHBOUR',
+    {cls:'sm', anchor:'middle', op:0});
+  const sens = Txt(g, 800, 772,
+    'SENSITIVITY — ' +
+    (T.sensitivity && T.sensitivity.length
+      ? Math.min.apply(null, T.sensitivity.map(function(s){return s.stranded;})) + '–' +
+        Math.max.apply(null, T.sensitivity.map(function(s){return s.stranded;})) +
+        ' ACROSS THE THRESHOLD SWEEP'
+      : 'NOT RUN'),
+    {cls:'sm dim', anchor:'middle', op:0});
+
+  return function(p, idx){
+    head.style.opacity = eo(clamp(p*6,0,1));
+    rows.forEach(function(r){
+      const t0 = 0.08 + r.i*0.06;
+      r.la.style.opacity = eo(clamp((p-t0)/0.06,0,1));
+      r.a.draw(eo(clamp((p-t0)/0.05,0,1)));
+      r.arrow.draw(eo(clamp((p-t0-0.02)/0.08,0,1)));
+      r.b.draw(eo(clamp((p-t0-0.05)/0.05,0,1)));
+      r.lb.style.opacity = eo(clamp((p-t0-0.06)/0.06,0,1))*.8;
+    });
+    big.style.opacity = eo(clamp((p-0.62)/0.10,0,1));
+    bigLab.style.opacity = eo(clamp((p-0.70)/0.08,0,1));
+    sens.style.opacity = eo(clamp((p-0.84)/0.08,0,1))*.8;
+    ctx.readout(['Moves that exist','Where they lead','Stranded','How firm is that'][Math.min(idx,3)],
+                [(T.withDest||0) + ' of ' + ((T.stranded||0)+(T.withDest||0)),
+                 (T.realMoves||0) + ' real, ' + (T.carries||0) + ' carry exposure',
+                 (T.stranded||0) + ' occupations',
+                 'sweep ' + (T.sensitivity && T.sensitivity.length
+                   ? Math.min.apply(null,T.sensitivity.map(function(s){return s.stranded;}))+'–'+
+                     Math.max.apply(null,T.sensitivity.map(function(s){return s.stranded;}))
+                   : '—')][Math.min(idx,3)]);
+  };
+};

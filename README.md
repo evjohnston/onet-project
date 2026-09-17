@@ -391,6 +391,46 @@ cloud, and `TRACTABILITY_FLOOR` exists because a constant-product curve alone pu
 first is not a handoff, it is work AI cannot lead at any level of consequence. Both
 constants are fitted to this corpus; re-fit them if it changes.
 
+### Wage protection and transition pathways (`pathways`)
+
+```bash
+.venv/bin/python -m onet_scraper pathways
+```
+
+Two analyses that run entirely on local tables.
+
+**What protects well-paid work.** Across the 195 occupation codes with wage data,
+pay barely correlates with exposure at all (r = 0.03) but does correlate with
+anchoring (r = 0.40). Capability does not care what a job pays; accountability does.
+Net susceptibility therefore drifts slightly *down* with wage across occupations
+(r = −0.18) while rising across employment-weighted deciles — different
+questions, both reported. Sorting occupations by what is actually holding them:
+**42% of STEM workers are in work a model largely cannot do, and only 9% in work it
+could do but is not permitted to.** The accountability premium is real and narrow.
+
+Employment-weighted deciles split an occupation's workers **across** bucket
+boundaries rather than assigning each occupation whole. Registered nurses alone are
+16% of these workers — larger than a decile — so the whole-assignment version
+produced buckets from 0.4M to 3.8M and the word "decile" was not true. A test covers
+it.
+
+**Where the people could go.** For each occupation, the nearest neighbour in the
+activity network that shares enough activities, is meaningfully less exposed, and
+shares the destination's *protected* work rather than only its exposed half. That
+last condition is what a plain similarity ranking misses: two jobs can overlap
+heavily and overlap only where both are exposed.
+
+**161 of 268 occupations have no such destination.** Fifty-nine of those are
+themselves highly exposed, covering 11.5M workers — database administrators,
+data scientists, programmers, web developers all sit in neighbourhoods where
+everything is exposed. Exposure is clustered in the network, so "reskill into an
+adjacent role" fails precisely where it is most needed.
+
+The thresholds are arbitrary, so the stage sweeps them: stranded ranges **105 to
+240** of 268 depending on how much relief you demand, while the overlap floor barely
+matters. The direction is robust; the number is not, and both are in
+`pathways_report.json`.
+
 ### The scrollable story (`story`)
 
 ```bash
@@ -398,7 +438,7 @@ constants are fitted to this corpus; re-fit them if it changes.
 open data/out/story.html
 ```
 
-A scroll-driven narrative over the same tables the dashboard reads. Nine chapters
+A scroll-driven narrative over the same tables the dashboard reads. Eleven chapters
 and two interactives,
 each a sticky hand-inked figure that draws itself as you scroll past its beats:
 the inversion against Frey & Osborne, the subtask vocabulary, **the task composition
@@ -520,7 +560,8 @@ python -m onet_scraper [stage] [options]
 
 Stages:  run (default) | fetch-stem | fetch-occupations | fetch-bulk
          fetch-descriptors | build | validate | network | score | report
-         employment | validate-external | figures | story | clean-cache
+         employment | validate-external | pathways | churn | figures | story
+         clean-cache
 ```
 
 | Option | Purpose |

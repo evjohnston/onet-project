@@ -28,10 +28,12 @@ from .pipeline import (
     write_manifest,
 )
 from .stages import (
+    run_churn,
     run_employment,
     run_external,
     run_figures,
     run_network,
+    run_pathways,
     run_report,
     run_scroller,
     run_score,
@@ -110,7 +112,7 @@ def build_parser() -> argparse.ArgumentParser:
         default="run",
         choices=["run", "fetch-stem", "fetch-occupations", "fetch-bulk",
                  "fetch-descriptors", "build", "validate", "network", "score",
-                 "report", "employment", "validate-external", "figures", "story",
+                 "report", "employment", "validate-external", "figures", "story", "churn", "pathways",
                  "clean-cache"],
         help="which stage to run (default: run = all of them)",
     )
@@ -193,6 +195,10 @@ def main(argv: list[str] | None = None) -> int:
         run_scroller(settings)
         return 0
 
+    if stage == "pathways":
+        run_pathways(settings)
+        return 0
+
     if stage == "report":
         run_report(settings)
         return 0
@@ -204,6 +210,10 @@ def main(argv: list[str] | None = None) -> int:
         return 1 if report.get("failures") else 0
 
     client = make_client(settings)
+
+    if stage == "churn":
+        run_churn(settings, client)
+        return 0
 
     if stage == "employment":
         run_employment(settings, client)

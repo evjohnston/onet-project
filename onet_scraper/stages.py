@@ -389,5 +389,139 @@ def run_scroller(settings: Settings) -> Path:
     tasks = read_table(settings.out_dir, "task_susceptibility")
     subtasks = read_table(settings.out_dir, "subtask_susceptibility")
     links = read_table(settings.out_dir, "task_subtasks")
-    payload = build_payload(occ, tasks, subtasks, links, handoff, benchmarks, soc, emp)
+    pw_path = settings.out_dir / "pathways_report.json"
+    pathways = json.loads(pw_path.read_text()) if pw_path.exists() else {}
+    if pathways:
+        pathways["deciles"] = read_table(settings.out_dir, "wage_deciles")
+        moves = read_table(settings.out_dir, "transitions")
+        stranded = read_table(settings.out_dir, "stranded_occupations")
+        # a handful of each, biggest first, for the figure
+        pathways["moveSample"] = [
+            {"t": m["title"][:28], "d": m["destination"][:28],
+             "s": float(m["susceptibility"]), "ds": float(m["destination_susceptibility"]),
+             "v": m["verdict"]}
+            for m in moves[:6]]
+        pathways["strandedSample"] = [
+            {"t": r["title"][:28], "s": float(r["susceptibility"])}
+            for r in stranded[:6]]
+    payload = build_payload(occ, tasks, subtasks, links, handoff, benchmarks, soc, emp,
+                            pathways)
     return build_scroller(settings.out_dir / "story.html", payload, meta)
+
+
+def run_churn(settings: Settings, client, releases: tuple[str, ...] = ()) -> dict[str, Any]:
+    """Diff task statements across archived O*NET releases."""
+    from .churn import CHURN_COLUMNS, DEFAULT_RELEASES, OCC_CHURN_COLUMNS, build
+
+    occ = read_table(settings.out_dir, "occupation_susceptibility")
+    if not occ:
+        raise SystemExit("run the report stage first")
+    titles = {o["onet_soc_code"]: o["title"] for o in occ}
+    susc = {o["onet_soc_code"]: float(o["susceptibility"]) for o in occ}
+
+    steps, occ_rows, summary = build(
+        client, releases or DEFAULT_RELEASES, titles.keys(), titles, susc)
+
+    COLUMNS["task_churn_steps"] = CHURN_COLUMNS
+    COLUMNS["task_churn_occupations"] = OCC_CHURN_COLUMNS
+    tables = {"task_churn_steps": steps, "task_churn_occupations": occ_rows}
+    for name, rows in tables.items():
+        write_csv(settings.out_dir / f"{name}.csv", rows, COLUMNS[name])
+    append_sqlite(settings.out_dir / "onet_stem.sqlite", tables)
+    (settings.out_dir / "churn_report.json").write_text(json.dumps(summary, indent=2))
+
+    log.info("-" * 70)
+    log.info("task churn %s (%s)", summary["span"], summary["years"])
+    log.info("  %d occupations compared, %d skipped on taxonomy change",
+             summary["occupations_compared"], summary["occupations_skipped"])
+    log.info("  %d tasks -> %d tasks  (%d added, %d retired, %d survived)",
+             summary["tasks_start"], summary["tasks_end"],
+             summary["added"], summary["retired"], summary["survived"])
+    log.info("  turnover %.1f%% · %.1f%% of today's tasks did not exist at the start",
+             100*summary["turnover_rate"], 100*summary["added_rate"])
+    return summary
+
+
+def run_pathways(settings: Settings) -> dict[str, Any]:
+    """Wage protection analysis and the transition map. Both run on local tables."""
+    from .transitions import (
+        STRANDED_COLUMNS,
+        TRANSITION_COLUMNS,
+        build as build_moves,
+        sweep,
+    )
+    from .wages import DECILE_COLUMNS, WAGE_COLUMNS, build as build_wages
+
+    occ = read_table(settings.out_dir, "occupation_susceptibility")
+    soc = read_table(settings.out_dir, "soc_susceptibility")
+    edges = read_table(settings.out_dir, "network_occupation_edges")
+    links = read_table(settings.out_dir, "task_subtasks")
+    subs = read_table(settings.out_dir, "subtask_susceptibility")
+    if not (occ and edges and links):
+        raise SystemExit("run report and network first")
+
+    tables: dict[str, list[dict[str, Any]]] = {}
+    report: dict[str, Any] = {}
+
+    # --- 1. what protects well-paid work ---------------------------------
+    if soc:
+        w = build_wages(soc)
+        if w.get("available"):
+            COLUMNS["wage_deciles"] = DECILE_COLUMNS
+            COLUMNS["wage_protection"] = WAGE_COLUMNS
+            tables["wage_deciles"] = w["deciles"]
+            tables["wage_protection"] = w["detail"]
+            report["wages"] = w["summary"]
+            s = w["summary"]
+            log.info("-" * 70)
+            log.info("wage vs exposure r=%s · vs anchoring r=%s · vs susceptibility r=%s",
+                     s["wage_vs_exposure"], s["wage_vs_anchoring"],
+                     s["wage_vs_susceptibility"])
+            log.info("susceptibility, bottom wage decile %s → top %s",
+                     s["decile_1_susceptibility"], s["decile_10_susceptibility"])
+            for k, v in sorted(s["by_protection"].items(),
+                               key=lambda kv: -kv[1]["workers"]):
+                log.info("  %-44s %2d occs · %5.1f%% of workers",
+                         k, v["occupations"], 100*v["share_of_workers"])
+    else:
+        log.warning("no soc_susceptibility - run the employment stage for the wage half")
+
+    # --- 2. where the people could go ------------------------------------
+    occ_dwa: dict[str, set[str]] = {}
+    for l in links:
+        if l.get("dwa_id"):
+            occ_dwa.setdefault(l["onet_soc_code"], set()).add(l["dwa_id"])
+    dwa_susc = {s["dwa_id"]: float(s["susceptibility"]) for s in subs}
+    employment: dict[str, float] = {}
+    for r in soc:
+        if r.get("total_employment"):
+            for c in (r.get("onet_codes") or "").split(";"):
+                if c:
+                    employment[c] = float(r["total_employment"])
+
+    moves, stranded, msum = build_moves(edges, occ, occ_dwa, dwa_susc, employment)
+    COLUMNS["transitions"] = TRANSITION_COLUMNS
+    COLUMNS["stranded_occupations"] = STRANDED_COLUMNS
+    tables["transitions"] = moves
+    tables["stranded_occupations"] = stranded
+    msum["sensitivity"] = sweep(edges, occ, occ_dwa, dwa_susc, employment)
+    report["transitions"] = msum
+
+    log.info("-" * 70)
+    log.info("%d of %d occupations have a plausible less-exposed destination; "
+             "%d are stranded (%.0f%%)", msum["with_a_destination"], msum["occupations"],
+             msum["stranded"], 100*msum["stranded_share"])
+    log.info("  of the moves that exist, %d are real and %d carry the exposure along",
+             msum["real_moves"], msum["carries_exposure"])
+    log.info("  %d exposed occupations are stranded (%s workers)",
+             msum["exposed_and_stranded"],
+             f"{msum['exposed_and_stranded_workers']:,}")
+    log.info("  sensitivity: stranded ranges %d-%d across the threshold sweep",
+             min(s["stranded"] for s in msum["sensitivity"]),
+             max(s["stranded"] for s in msum["sensitivity"]))
+
+    for name, rows in tables.items():
+        write_csv(settings.out_dir / f"{name}.csv", rows, COLUMNS[name])
+    append_sqlite(settings.out_dir / "onet_stem.sqlite", tables)
+    (settings.out_dir / "pathways_report.json").write_text(json.dumps(report, indent=2))
+    return report

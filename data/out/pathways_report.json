@@ -1,0 +1,116 @@
+{
+  "wages": {
+    "available": true,
+    "soc_codes": 195,
+    "workers": 21523100,
+    "wage_vs_exposure": 0.033,
+    "wage_vs_anchoring": 0.401,
+    "wage_vs_susceptibility": -0.181,
+    "decile_1_susceptibility": 51.8,
+    "decile_10_susceptibility": 57.6,
+    "by_protection": {
+      "Capability - AI cannot do much of it": {
+        "occupations": 74,
+        "workers": 9009570.0,
+        "share_of_workers": 0.4186
+      },
+      "Unprotected - exposed and lightly anchored": {
+        "occupations": 72,
+        "workers": 9399490.0,
+        "share_of_workers": 0.4367
+      },
+      "Neither - simply less exposed": {
+        "occupations": 23,
+        "workers": 1265240.0,
+        "share_of_workers": 0.0588
+      },
+      "Accountability - AI could, a human must answer": {
+        "occupations": 26,
+        "workers": 1848800.0,
+        "share_of_workers": 0.0859
+      }
+    },
+    "note": "Occupation-level correlation and employment-weighted deciles answer different questions and point different ways; both are reported."
+  },
+  "transitions": {
+    "occupations": 268,
+    "with_a_destination": 107,
+    "stranded": 161,
+    "stranded_share": 0.601,
+    "stranded_workers": 20952100,
+    "exposed_and_stranded": 59,
+    "exposed_and_stranded_workers": 11457920,
+    "real_moves": 98,
+    "carries_exposure": 9,
+    "median_relief": 15.1,
+    "thresholds": {
+      "min_overlap": 0.12,
+      "min_relief": 12.0
+    },
+    "sensitivity": [
+      {
+        "min_overlap": 0.08,
+        "min_relief": 8.0,
+        "stranded": 105,
+        "stranded_share": 0.392,
+        "real_moves": 138
+      },
+      {
+        "min_overlap": 0.08,
+        "min_relief": 12.0,
+        "stranded": 160,
+        "stranded_share": 0.597,
+        "real_moves": 99
+      },
+      {
+        "min_overlap": 0.08,
+        "min_relief": 18.0,
+        "stranded": 225,
+        "stranded_share": 0.84,
+        "real_moves": 36
+      },
+      {
+        "min_overlap": 0.12,
+        "min_relief": 8.0,
+        "stranded": 107,
+        "stranded_share": 0.399,
+        "real_moves": 136
+      },
+      {
+        "min_overlap": 0.12,
+        "min_relief": 12.0,
+        "stranded": 161,
+        "stranded_share": 0.601,
+        "real_moves": 98
+      },
+      {
+        "min_overlap": 0.12,
+        "min_relief": 18.0,
+        "stranded": 228,
+        "stranded_share": 0.851,
+        "real_moves": 33
+      },
+      {
+        "min_overlap": 0.18,
+        "min_relief": 8.0,
+        "stranded": 124,
+        "stranded_share": 0.463,
+        "real_moves": 123
+      },
+      {
+        "min_overlap": 0.18,
+        "min_relief": 12.0,
+        "stranded": 183,
+        "stranded_share": 0.683,
+        "real_moves": 79
+      },
+      {
+        "min_overlap": 0.18,
+        "min_relief": 18.0,
+        "stranded": 240,
+        "stranded_share": 0.896,
+        "real_moves": 25
+      }
+    ]
+  }
+}
