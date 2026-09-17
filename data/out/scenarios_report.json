@@ -1,0 +1,88 @@
+{
+  "tasks": 5612,
+  "new_tasks_observed": 121,
+  "reshaped_at": 0.5,
+  "scenarios": {
+    "modest": {
+      "label": "Modest",
+      "blurb": "Only work that is comfortably deployable today, and only where almost no accountability attaches to it.",
+      "thresholds": {
+        "auto_exposure": 80.0,
+        "auto_anchoring_max": 38.0,
+        "augment_exposure": 60.0
+      },
+      "automated": 1193,
+      "augmented": 2577,
+      "unchanged": 1842,
+      "share_automated": 0.2126,
+      "occupations_reshaped": 27
+    },
+    "substantial": {
+      "label": "Substantial",
+      "blurb": "Current capability applied where accountability is moderate \u2014 roughly the gap between what models can do and what is deployed.",
+      "thresholds": {
+        "auto_exposure": 70.0,
+        "auto_anchoring_max": 52.0,
+        "augment_exposure": 50.0
+      },
+      "automated": 2522,
+      "augmented": 1809,
+      "unchanged": 1281,
+      "share_automated": 0.4494,
+      "occupations_reshaped": 113
+    },
+    "extreme": {
+      "label": "Extreme",
+      "blurb": "Capability handed substantial accountability as well \u2014 work signed off by a machine that a human would answer for today.",
+      "thresholds": {
+        "auto_exposure": 58.0,
+        "auto_anchoring_max": 70.0,
+        "augment_exposure": 40.0
+      },
+      "automated": 3852,
+      "augmented": 868,
+      "unchanged": 892,
+      "share_automated": 0.6864,
+      "occupations_reshaped": 204
+    }
+  },
+  "note": "Scenarios are assumption sets about willingness to hand over accountability, not forecasts. They carry no dates. New tasks are observed from O*NET's emerging_tasks file, not modelled.",
+  "flows": {
+    "modest": {
+      "workers": 21523100,
+      "in_reshaped_occupations": 2498580,
+      "share_reshaped": 0.1161,
+      "reshaped_with_a_destination": 498220,
+      "share_with_destination": 0.0231,
+      "reshaped_and_stranded": 2000360,
+      "share_stranded": 0.0929,
+      "soc_codes": 195,
+      "occupations_reshaped": 16,
+      "mean_task_share_automated": 0.2123
+    },
+    "substantial": {
+      "workers": 21523100,
+      "in_reshaped_occupations": 9422370,
+      "share_reshaped": 0.4378,
+      "reshaped_with_a_destination": 2643410,
+      "share_with_destination": 0.1228,
+      "reshaped_and_stranded": 6778960,
+      "share_stranded": 0.315,
+      "soc_codes": 195,
+      "occupations_reshaped": 81,
+      "mean_task_share_automated": 0.4413
+    },
+    "extreme": {
+      "workers": 21523100,
+      "in_reshaped_occupations": 17940250,
+      "share_reshaped": 0.8335,
+      "reshaped_with_a_destination": 9467940,
+      "share_with_destination": 0.4399,
+      "reshaped_and_stranded": 8472310,
+      "share_stranded": 0.3936,
+      "soc_codes": 195,
+      "occupations_reshaped": 150,
+      "mean_task_share_automated": 0.683
+    }
+  }
+}

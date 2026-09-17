@@ -420,8 +420,11 @@ def run_scroller(settings: Settings) -> Path:
                 churn["byExposure"].append({
                     "label": label, "n": len(g),
                     "turnover": round(sum(float(r["turnover_rate"]) for r in g)/len(g), 4)})
+    sc_path = settings.out_dir / "scenarios_report.json"
+    scen = json.loads(sc_path.read_text()) if sc_path.exists() else {}
+    emerging = read_table(settings.out_dir, "emerging_tasks")
     payload = build_payload(occ, tasks, subtasks, links, handoff, benchmarks, soc, emp,
-                            pathways, churn)
+                            pathways, churn, scen, emerging)
     return build_scroller(settings.out_dir / "story.html", payload, meta)
 
 
@@ -557,3 +560,64 @@ def run_publish(settings: Settings, domain: str | None = None) -> Path:
     from .publish import DOMAIN, publish
 
     return publish(settings.out_dir, Path("docs"), domain or DOMAIN)
+
+
+def run_scenarios(settings: Settings) -> dict[str, Any]:
+    """Classify every task under each scenario and compute the employment flows."""
+    from .scenarios import (
+        OCC_SCENARIO_COLUMNS,
+        TASK_FATE_COLUMNS,
+        by_occupation,
+        flows,
+        summarise,
+        task_fates,
+    )
+
+    tasks = read_table(settings.out_dir, "task_susceptibility")
+    if not tasks:
+        raise SystemExit("run the report stage first")
+    occ = read_table(settings.out_dir, "occupation_susceptibility")
+    titles = {o["onet_soc_code"]: o["title"] for o in occ}
+    emerging = read_table(settings.out_dir, "emerging_tasks")
+    soc = read_table(settings.out_dir, "soc_susceptibility")
+    employment: dict[str, float] = {}
+    for r in soc:
+        if r.get("total_employment"):
+            for c in (r.get("onet_codes") or "").split(";"):
+                if c:
+                    employment[c] = float(r["total_employment"])
+    destinations = {m["onet_soc_code"] for m in read_table(settings.out_dir, "transitions")}
+    soc_of: dict[str, str] = {}
+    for r in soc:
+        for c in (r.get("onet_codes") or "").split(";"):
+            if c:
+                soc_of[c] = r["soc_code"]
+
+    fates = task_fates(tasks)
+    occ_rows = by_occupation(fates, emerging, titles, employment, destinations)
+    report = summarise(fates, occ_rows, len(emerging))
+    report["flows"] = flows(occ_rows, soc_of)
+
+    COLUMNS["task_fates"] = TASK_FATE_COLUMNS
+    COLUMNS["occupation_scenarios"] = OCC_SCENARIO_COLUMNS
+    tables = {"task_fates": fates, "occupation_scenarios": occ_rows}
+    for name, rows in tables.items():
+        write_csv(settings.out_dir / f"{name}.csv", rows, COLUMNS[name])
+    append_sqlite(settings.out_dir / "onet_stem.sqlite", tables)
+    (settings.out_dir / "scenarios_report.json").write_text(json.dumps(report, indent=2))
+
+    log.info("-" * 72)
+    log.info("%d tasks classified under 3 scenarios · %d new tasks observed",
+             report["tasks"], report["new_tasks_observed"])
+    for name, s in report["scenarios"].items():
+        log.info("  %-12s automated %4d (%3.0f%%)  augmented %4d  unchanged %4d  "
+                 "· %3d occupations reshaped", s["label"], s["automated"],
+                 100*s["share_automated"], s["augmented"], s["unchanged"],
+                 s["occupations_reshaped"])
+    log.info("  employment-weighted:")
+    for name, fl in report["flows"].items():
+        log.info("    %-12s %5.1f%% of workers in reshaped occupations — "
+                 "%4.1f%% could move, %4.1f%% stranded",
+                 report["scenarios"][name]["label"], 100*fl["share_reshaped"],
+                 100*fl["share_with_destination"], 100*fl["share_stranded"])
+    return report

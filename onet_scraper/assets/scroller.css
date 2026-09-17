@@ -13,6 +13,7 @@
   --blue:#5b8fc9;
   --blue-lt:#a9caea;
   --rust:#bf5540;
+  --violet:#4a3aa7;
   --muted:#6e6e66;
   --muted-dark:#a9a9a0;
   --line:rgba(28,28,24,.15);
@@ -383,6 +384,7 @@ button{color:inherit;font:inherit}
    ============================================================ */
 .mk{stroke:none; fill:var(--stroke)}
 .mk.coral{fill:var(--coral)}
+.mk.violet{fill:var(--violet)}
 .mk.acid{fill:var(--acid)}
 .mk.blue{fill:var(--blue)}
 .mk.soft{fill:var(--stroke); opacity:.4}
@@ -561,3 +563,24 @@ button{color:inherit;font:inherit}
 .crow.hot .ct{color:var(--ink)}
 .crow.sh .ct{border-left:2px solid var(--rust); padding-left:9px; margin-left:-2px}
 .cnone{font-size:.85rem; color:var(--muted-dark); margin:4px 0 0}
+
+/* ---- scenario toggle ---- */
+.scenbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 14px}
+.scenbar .lbl{font:500 9.5px/1.6 var(--mono);letter-spacing:.11em;
+  text-transform:uppercase;color:var(--muted);margin-right:4px}
+.scenbar button{font:500 10.5px/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;
+  padding:8px 15px;border-radius:20px;border:1px solid var(--line);
+  background:var(--paper);color:var(--muted);cursor:pointer;transition:all .15s ease}
+.scenbar button:hover{color:var(--ink)}
+.scenbar button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.scenblurb{font-size:.86rem;line-height:1.6;color:var(--muted);margin:0 0 12px;max-width:62ch}
+.fatekey{display:flex;gap:16px;flex-wrap:wrap;font:500 9.5px/1.6 var(--mono);
+  letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+.fatekey i{width:11px;height:11px;border-radius:2px;display:inline-block;
+  margin-right:6px;vertical-align:-1px}
+
+.scene-head .ctl{display:inline-block;font:500 9.5px/1.6 var(--mono);letter-spacing:.11em;
+  text-transform:uppercase;color:var(--muted);margin-top:4px}
+.scene-head .ctl select{display:block;margin-top:6px;font:inherit;font-size:.85rem;
+  text-transform:none;letter-spacing:0;padding:7px 10px;border:1px solid var(--line);
+  border-radius:3px;background:var(--paper);color:var(--ink);min-width:240px}

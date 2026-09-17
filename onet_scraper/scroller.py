@@ -40,6 +40,8 @@ def build_payload(
     employment_report: dict[str, Any],
     pathways: dict[str, Any] | None = None,
     churn: dict[str, Any] | None = None,
+    scenarios: dict[str, Any] | None = None,
+    emerging: Sequence[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     # --- 01 inversion ------------------------------------------------------
     # Plot the ACTUAL values on each side, each scaled to its own range, rather
@@ -202,12 +204,32 @@ def build_payload(
     den = sum((p[0] - mx) ** 2 for p in vpairs) or 1
     slope = num / den
 
+    # Fate is derived client-side from exposure and anchoring, which the task
+    # payload already carries, so the thresholds travel instead of a second copy
+    # of every task.
+    scen = scenarios or {}
+    new_by_occ: dict[str, list[str]] = {}
+    for e in (emerging or []):
+        new_by_occ.setdefault(e["onet_soc_code"], []).append(e["task"][:90])
     churn = churn or {}
     pathways = pathways or {}
     wages = pathways.get("wages", {})
     trans = pathways.get("transitions", {})
 
     return {
+        "scen": {
+            "thresholds": {k: v["thresholds"] for k, v in
+                           scen.get("scenarios", {}).items()},
+            "meta": {k: {"label": v["label"], "blurb": v["blurb"],
+                         "automated": v["automated"], "augmented": v["augmented"],
+                         "unchanged": v["unchanged"],
+                         "reshaped": v["occupations_reshaped"]}
+                     for k, v in scen.get("scenarios", {}).items()},
+            "flows": scen.get("flows", {}),
+            "order": ["modest", "substantial", "extreme"],
+            "gridDefault": "29-1161.00",
+        },
+        "newTasks": new_by_occ,
         "churn": churn,
         "wage": {
             "deciles": pathways.get("deciles", []),
@@ -272,13 +294,13 @@ def _beat(tag: str, head: str, body: str, eg: str = "") -> str:
 
 def _scene(sid: str, number: str, title: str, standfirst: str, fig: str,
            aria: str, readout_k: str, readout_v: str, note: str,
-           beats: list[str], tint: bool = False) -> str:
+           beats: list[str], tint: bool = False, controls: str = "") -> str:
     cls = "scene on-tint" if tint else "scene"
     return f"""
   <section class="{cls}" id="{sid}" data-scene="{sid}">
     <div class="scene-head">
       <p class="chapter-number">{number}</p>
-      <div><h2>{title}</h2><p class="standfirst">{standfirst}</p></div>
+      <div><h2>{title}</h2><p class="standfirst">{standfirst}</p>{controls}</div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -294,6 +316,9 @@ def _scene(sid: str, number: str, title: str, standfirst: str, fig: str,
     </div>
   </section>"""
 
+
+TG_CONTROLS = '<div class="scenbar" id="tg-scen"></div><p class="scenblurb" data-scenblurb></p><label class="ctl">Occupation <select id="tg-occ"></select></label>'
+FL_CONTROLS = '<div class="scenbar" id="fl-scen"></div><p class="scenblurb" data-scenblurb></p>'
 
 SCENES: list[dict[str, Any]] = [
     dict(sid="inversion", number="01 / The inversion", rail="The inversion",
@@ -673,6 +698,86 @@ SCENES: list[dict[str, Any]] = [
               "from data that knows nothing about them.",
               "<b>13.2%</b> exposed \u00b7 <b>4.6%</b> not \u00b7 n=16"),
          ]),
+    dict(sid="taskgrid", number="11 / One job, task by task", rail="Task by task",
+         title="What happens to each task, and what is left.",
+         standfirst="The same bundle, coloured by what becomes of each task under a "
+                    "chosen set of assumptions. Nothing here is a forecast \u2014 the "
+                    "scenario sets how much accountability an actor is willing to hand "
+                    "over, and everything else follows from the scores already measured.",
+         fig="Fig. 11 \u2014 A single job\u2019s tasks by fate",
+         aria="One occupation's tasks drawn as a grid of squares, coloured by whether "
+              "each is unchanged, augmented, automated, or newly arrived.",
+         rk="A bundle of tasks", rv="21 tasks",
+         note="New tasks are observed from O*NET, not modelled.",
+         controls=TG_CONTROLS,
+         beats=[
+             ("01 / The bundle", "Start with everything the job contains",
+              "O*NET lists each occupation as a set of task statements. Laid out flat "
+              "they are just a bundle \u2014 no ordering, no weighting, and nothing yet "
+              "said about which of them a machine could take.",
+              "Every square is one documented task"),
+             ("02 / What stays", "Some of it a model cannot touch",
+              "Work needing hands on a patient, presence in a room, or a judgement "
+              "someone has to own. These stay grey at every setting \u2014 no scenario "
+              "moves them, because the constraint is not capability.",
+              "Grey at every scenario"),
+             ("03 / What gets help", "Some gets faster rather than taken",
+              "A model drafts, summarises, plans or checks, and a person keeps the work. "
+              "This is the largest category in the middle scenario \u2014 the least "
+              "dramatic result in the dataset, and the most plausible.",
+              "The largest group under <b>Substantial</b>"),
+             ("04 / What gets taken", "And some of it goes",
+              "High exposure, little accountability attached: retrieval, formatting, "
+              "routine documentation, scheduling. Move the scenario and watch this "
+              "category eat into the middle one. That movement is the whole argument.",
+              "21% \u2192 45% \u2192 69% of all tasks"),
+             ("05 / What arrives", "New work appears too",
+              "Not modelled \u2014 observed. O*NET flags newly emerging task statements, "
+              "121 of them across these occupations. For a nurse midwife: evaluating "
+              "patients\u2019 mental health, screening for gynaecologic conditions.",
+              "<b>121</b> new tasks recorded in O*NET"),
+             ("06 / What is left", "The job is not smaller, it is different",
+              "What remains gets more room. The tasks a model touched carry more volume "
+              "per hour of human attention; the ones it cannot touch are what the job "
+              "becomes. Whether that is a better job is not a question this data can "
+              "answer.",
+              "Scale shows capacity, not headcount"),
+         ]),
+    dict(sid="flows", number="12 / Where people end up", rail="Where people end up",
+         tint=True,
+         title="Reshaped is not the same as displaced.",
+         standfirst="Weighted by employment, and crossed with whether a worker\u2019s "
+                    "occupation has anywhere adjacent to go. Move the scenario and both "
+                    "halves move \u2014 but not by the same amount, which is the point.",
+         fig="Fig. 12 \u2014 Workers by outcome",
+         aria="A bar of all STEM workers on the left, split on the right into little "
+              "change, could move to safer work, and nowhere adjacent to go.",
+         rk="Workers reshaped", rv="43.8%",
+         note="Employment counted once per SOC code. Undated.",
+         controls=FL_CONTROLS,
+         beats=[
+             ("01 / Reshaped", "Start with whose job changes at all",
+              "An occupation counts as reshaped when half its task list or more falls "
+              "into the automated category. Under the middle scenario that is 35 per "
+              "cent of STEM workers; under the modest one 12; under the extreme one 83.",
+              "<b>12%</b> \u2192 <b>44%</b> \u2192 <b>83%</b> of workers"),
+             ("02 / Little change", "Most of the workforce, at most settings",
+              "The remainder are in occupations whose documented task list survives the "
+              "threshold largely intact. That is the majority everywhere except the "
+              "extreme case, and it is the part headlines tend to drop.",
+              "The majority in two of three scenarios"),
+             ("03 / Could move", "Some have somewhere to go",
+              "Crossing the reshaped group with the transition map: these workers are in "
+              "occupations with a close, meaningfully less exposed neighbour that shares "
+              "the destination\u2019s protected work.",
+              "2% \u2192 12% \u2192 44% of workers"),
+             ("04 / And some do not", "The rest are in a neighbourhood that is all exposed",
+              "This is the number that does not scale kindly. Between 9 and 34 per cent "
+              "of STEM workers are in reshaped occupations with no adjacent destination. "
+              "Under the modest scenario, four in five of those affected have nowhere to "
+              "go.",
+              "<b>9%</b> \u2192 <b>32%</b> \u2192 <b>39%</b> stranded"),
+         ]),
     dict(sid="validation", number="07 / The check", rail="The check", tint=True,
          title="A model rating work is an assertion until someone checks it.",
          standfirst="Every other number here is internally consistent by construction. "
@@ -712,7 +817,8 @@ def build_scroller(path: Path, payload: dict[str, Any], meta: dict[str, Any]) ->
     def render_scene(sc):
         return _scene(sc["sid"], sc["number"], sc["title"], sc["standfirst"], sc["fig"],
                       sc["aria"], sc["rk"], sc["rv"], sc["note"],
-                      [_beat(*b) for b in sc["beats"]], sc.get("tint", False))
+                      [_beat(*b) for b in sc["beats"]], sc.get("tint", False),
+                      sc.get("controls", ""))
 
     # The explorer breaks the story after the within-job chapter: the reader has
     # just been shown three bundles and should get to open the rest themselves.

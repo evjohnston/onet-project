@@ -249,7 +249,37 @@ ranges **105 to 240** of 268 across the sweep: it is sensitive to how much relie
 is demanded and nearly insensitive to the overlap floor. **The clustering of
 exposure is the finding; the number 161 is not.**
 
-### 6.6 Task churn
+### 6.6 Scenarios
+
+`task_fates.csv` classifies every task as **automated**, **augmented** or
+**unchanged** under three assumption sets. These carry **no dates and are not
+forecasts.**
+
+The mechanism is deliberately the variable Watson identifies as the real one.
+Capability is roughly fixed and already measured; what differs between scenarios
+is willingness to hand over accountability:
+
+| Scenario | Automates when | Automated tasks |
+| --- | --- | --- |
+| Modest | exposure ≥ 80 and anchoring < 38 | 1,193 (21%) |
+| Substantial | exposure ≥ 70 and anchoring < 52 | 2,522 (45%) |
+| Extreme | exposure ≥ 58 and anchoring < 70 | 3,852 (69%) |
+
+Tasks below the augment threshold are unchanged at every setting — for a nurse
+midwife, 7 of 21 tasks never move regardless of scenario, which is the point the
+chapter makes.
+
+The fourth category, **new tasks, is not modelled**. It comes from O\*NET's own
+`emerging_tasks` file — 121 statements flagged as new or revised work in these
+occupations — so the arrival of new work is observed rather than assumed.
+
+Employment flows are summed **per SOC code, once**. The first implementation
+summed across O\*NET occupations and reported 49.3 M workers against a true
+21.5 M, because 37 SOC codes hold several O\*NET occupations that each carry the
+same employment figure. The O\*NET rows are collapsed to their SOC first; a test
+covers it.
+
+### 6.7 Task churn
 
 Task statements diffed across the eight archived releases. A task **survives** if
 its id persists **or** its normalised text matches one in the later release for

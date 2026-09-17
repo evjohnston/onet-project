@@ -896,3 +896,278 @@ BUILD.churn = function(ctx){
                 ][Math.min(idx,3)]);
   };
 };
+
+/* ---------- scenario state, shared by every scene that reads it ----------- */
+let SCEN = (D.scen && D.scen.gridDefault) ? 'substantial' : 'substantial';
+const FATE_CLS = {unchanged:'ink soft', augmented:'ink violet',
+                  automated:'ink blue', new:'ink acid'};
+const FATE_LABEL = {unchanged:'Unchanged by AI', augmented:'Augmented',
+                    automated:'Automated', new:'New tasks'};
+
+/* A grain-textured solid block. This does NOT go through the marker outline
+   geometry the line marks use: that traces a centreline out to half-width on
+   each side and fills with evenodd, which on a short closed path inverts into a
+   donut - at rectangular proportions it renders as an outlined blob. A filled
+   block needs a solid path, so this builds its own wobbly quadrilateral and
+   fills it, keeping the grain filter and the draw/recolor/scale surface. */
+function Block(parent, x, y, w, h, cls, seed){
+  const g = S('g', {filter:'url(#grain)'}, parent);
+  const tone = t => (String(t).match(/\b(coral|acid|blue|violet|soft|ghost)\b/) || [,''])[1];
+  const path = S('path', {class: 'mk ' + tone(cls)}, g);
+  let cur = tone(cls), drawn = -1, sc = 1, cx = x + w/2, cy = y + h/2;
+
+  function shape(x, y, w, h){
+    const r = prng(seed || 5);
+    const j = Math.max(1.2, Math.min(3.2, Math.min(w, h) * 0.06));
+    const p = (px, py) => [px + (r()-.5)*j, py + (r()-.5)*j];
+    /* Subdivide each edge every ~40 units. Eight corner points run through
+       Catmull-Rom bow the long sides of a tall bar into a barrel; enough
+       intermediate points keep the edge straight while still reading as inked. */
+    const step = 40;
+    const edge = (x0, y0, x1, y1) => {
+      const n = Math.max(1, Math.round(Math.hypot(x1-x0, y1-y0) / step));
+      const out = [];
+      for (let i = 0; i < n; i++)
+        out.push(p(x0 + (x1-x0)*i/n, y0 + (y1-y0)*i/n));
+      return out;
+    };
+    return smoothD([].concat(
+      edge(x, y, x+w, y), edge(x+w, y, x+w, y+h),
+      edge(x+w, y+h, x, y+h), edge(x, y+h, x, y)), true);
+  }
+  path.setAttribute('d', shape(x, y, w, h));
+
+  return {
+    g: g,
+    setRect: function(nx, ny, nw, nh){
+      cx = nx + nw/2; cy = ny + nh/2;
+      path.setAttribute('d', shape(nx, ny, Math.max(2, nw), Math.max(2, nh)));
+    },
+    draw: function(t){
+      const k = clamp(t, 0, 1);
+      if (Math.abs(k - drawn) < 0.01) return;
+      drawn = k; g.style.opacity = k;
+    },
+    full: function(){ this.draw(1); },
+    opacity: function(v){ g.style.opacity = v; },
+    recolor: function(c){
+      const t = tone(c);
+      if (t === cur) return;
+      cur = t; path.setAttribute('class', 'mk ' + t);
+    },
+    scale: function(k){
+      if (Math.abs(k - sc) < 0.005) return;
+      sc = k;
+      g.setAttribute('transform', k === 1 ? '' :
+        'translate(' + f2(cx) + ' ' + f2(cy) + ') scale(' + f2(k) +
+        ') translate(' + f2(-cx) + ' ' + f2(-cy) + ')');
+    },
+  };
+}
+
+function Square(parent, cx, cy, size, cls, seed){
+  return Block(parent, cx - size/2, cy - size/2, size, size, cls, seed);
+}
+
+/* Task statements are sentences, and a grid column is ~246 units wide. One line
+   of them collides with its neighbours, so captions wrap to two lines and
+   ellipsise whatever is left. */
+function Caption(parent, cx, cy, text, chars, lines){
+  chars = chars || 17; lines = lines || 2;
+  const words = String(text).split(/\s+/);
+  const rows = [];
+  let cur = '';
+  for (const w of words){
+    if (!cur.length) { cur = w; }
+    else if ((cur + ' ' + w).length <= chars) { cur += ' ' + w; }
+    else { rows.push(cur); cur = w; if (rows.length === lines) break; }
+  }
+  if (rows.length < lines && cur.length) rows.push(cur);
+  if (words.join(' ').length > rows.join(' ').length && rows.length)
+    rows[rows.length-1] = rows[rows.length-1].slice(0, chars-1) + '\u2026';
+  return rows.map(function(r, i){
+    return Txt(parent, cx, cy + i*18, r, {cls:'sm dim', anchor:'middle', op:0});
+  });
+}
+
+function fateOf(task, scenario){
+  const t = D.scen.thresholds[scenario];
+  if(!t) return 'unchanged';
+  if(task.e >= t.auto_exposure && task.a < t.auto_anchoring_max) return 'automated';
+  if(task.e >= t.augment_exposure) return 'augmented';
+  return 'unchanged';
+}
+
+function scenarioBar(host, onChange){
+  if(!host || !D.scen) return;
+  host.innerHTML = '<span class="lbl">Scenario</span>' +
+    D.scen.order.map(function(k){
+      return '<button data-s="'+k+'"'+(k===SCEN?' class="on"':'')+'>'+
+             D.scen.meta[k].label+'</button>';
+    }).join('');
+  host.querySelectorAll('button').forEach(function(b){
+    b.onclick = function(){
+      SCEN = b.dataset.s;
+      document.querySelectorAll('.scenbar').forEach(function(bar){
+        bar.querySelectorAll('button').forEach(function(x){
+          x.classList.toggle('on', x.dataset.s === SCEN); });
+      });
+      document.querySelectorAll('[data-scenblurb]').forEach(function(el){
+        el.textContent = D.scen.meta[SCEN].blurb; });
+      if(onChange) onChange();
+    };
+  });
+}
+
+/* ---------- 11 TASK GRID: what happens to each task in one job ----------- */
+BUILD.taskgrid = function(ctx){
+  let g = S('g', null, ctx.svg);
+  let built = null, cells = [], newCells = [], title = null;
+  const pick = document.getElementById('tg-occ');
+  if(pick){
+    pick.innerHTML = D.comp.slice().sort(function(a,b){ return a.t.localeCompare(b.t); })
+      .filter(function(c){ return (D.tasks[c.c]||[]).length <= 26; })
+      .map(function(c){ return '<option value="'+c.c+'">'+c.t+'</option>'; }).join('');
+    pick.value = D.scen.gridDefault;
+    pick.onchange = function(){ built = null; };
+  }
+  scenarioBar(document.getElementById('tg-scen'));
+
+  function build(code){
+    while(g.firstChild) g.removeChild(g.firstChild);
+    cells = []; newCells = [];
+    const tasks = (D.tasks[code] || []).slice(0, 24);   // 4 rows of six
+    const news = (D.newTasks[code] || []);
+    const per = 6, SZ = 40, GX = 246, GY = 172, ROW = 146;
+    const occ = D.comp.find(function(c){ return c.c === code; });
+    title = Txt(g, 800, 96, (occ ? occ.t : code).toUpperCase() + '’S TASKS',
+                {cls:'sm', anchor:'middle', op:0});
+    tasks.forEach(function(t, i){
+      const cx = 800 - (per-1)*GX/2 + (i % per)*GX;
+      const cy = GY + Math.floor(i/per)*ROW;
+      const sq = Square(g, cx, cy, SZ, 'ink soft', 11000+i*7);
+      const lab = Caption(g, cx, cy + SZ/2 + 22, t.t);
+      cells.push({sq:sq, lab:lab, t:t, i:i, cx:cx, cy:cy});
+    });
+    news.slice(0, 4).forEach(function(txt, j){
+      const row = Math.ceil(tasks.length/per);
+      const cx = 800 - (per-1)*GX/2 + (j % per)*GX;
+      const cy = GY + row*ROW;
+      const sq = Square(g, cx, cy, SZ, 'ink acid', 12000+j*7);
+      const lab = Caption(g, cx, cy + SZ/2 + 22, txt);
+      newCells.push({sq:sq, lab:lab, j:j});
+    });
+    built = code;
+  }
+
+  return function(p, idx){
+    const code = pick ? pick.value : D.scen.gridDefault;
+    if(built !== code) build(code);
+    title.style.opacity = eo(clamp(p*6,0,1));
+
+    /* beat 1 lays the bundle down grey; 2 keeps the unchanged grey; 3 lights the
+       augmented; 4 the automated; 5 brings new work in; 6 grows what AI touched */
+    const show = {unchanged: p >= 0.00, augmented: p >= 0.36, automated: p >= 0.54};
+    cells.forEach(function(c){
+      c.sq.draw(eo(clamp((p - 0.02 - (c.i/Math.max(cells.length,1))*0.14)/0.10, 0, 1)));
+      const lo = eo(clamp((p - 0.04 - (c.i/Math.max(cells.length,1))*0.14)/0.10, 0, 1))*.85;
+      c.lab.forEach(function(n){ n.style.opacity = lo; });
+      const f = fateOf(c.t, SCEN);
+      const lit = f === 'unchanged' ? true : show[f];
+      const cls = lit ? FATE_CLS[f] : FATE_CLS.unchanged;
+      if(c.cls !== cls){ c.cls = cls; c.sq.recolor(cls); }
+      const grown = p >= 0.86 && f !== 'unchanged';
+      c.sq.scale(grown ? 1.45 : 1);
+    });
+    newCells.forEach(function(n){
+      const t = eo(clamp((p - 0.70 - n.j*0.03)/0.08, 0, 1));
+      n.sq.draw(t);
+      n.lab.forEach(function(x){ x.style.opacity = t*.85; });
+    });
+    ctx.readout(
+      ['A bundle of tasks','What AI cannot do','Augmented','Automated','New work','More gets done'][Math.min(idx,5)],
+      [cells.length + ' tasks',
+       cells.filter(function(c){ return fateOf(c.t,SCEN)==='unchanged'; }).length + ' unchanged',
+       cells.filter(function(c){ return fateOf(c.t,SCEN)==='augmented'; }).length + ' augmented',
+       cells.filter(function(c){ return fateOf(c.t,SCEN)==='automated'; }).length + ' automated',
+       newCells.length + ' observed new tasks',
+       D.scen.meta[SCEN].label + ' scenario'][Math.min(idx,5)]);
+  };
+};
+
+/* ---------- 12 FLOWS: where the workers end up under each scenario ------- */
+BUILD.flows = function(ctx){
+  const g = S('g', null, ctx.svg);
+  scenarioBar(document.getElementById('fl-scen'));
+  const LX = 330, RX = 1010, W = 210, TOP = 190, H = 470;
+
+  const whole = Block(g, LX, TOP, W, H, 'ink soft', 13001);
+  const wholeN = Txt(g, LX - 24, TOP + H/2 - 4, '', {cls:'big', anchor:'end', op:0});
+  const wholeK = Txt(g, LX - 24, TOP + H/2 + 26, 'ALL STEM WORKERS',
+                     {cls:'sm dim', anchor:'end', op:0});
+
+  const segs = [
+    {key:'kept',  cls:'ink soft',   label:'LITTLE CHANGE'},
+    {key:'moved', cls:'ink violet', label:'COULD MOVE TO SAFER WORK'},
+    {key:'stuck', cls:'ink coral',  label:'NOWHERE ADJACENT TO GO'},
+  ].map(function(d, i){
+    return {
+      key: d.key, label: d.label,
+      box: Block(g, RX, TOP, W, 10, d.cls, 13100 + i*37),
+      /* a thin band from the left column to this segment, so the split reads as
+         one population dividing rather than three unrelated bars */
+      link: Block(g, LX + W, TOP, RX - LX - W, 6, d.cls, 13200 + i*37),
+      n: Txt(g, RX + W + 22, TOP, '', {cls:'big', op:0}),
+      k: Txt(g, RX + W + 22, TOP, d.label, {cls:'sm dim', op:0}),
+      i: i,
+    };
+  });
+
+  const head = Txt(g, RX + W/2, TOP - 34, 'UNDER THIS SCENARIO',
+                   {cls:'sm', anchor:'middle', op:0});
+  const note = Txt(g, 800, 730, '', {cls:'sm', anchor:'middle', op:0});
+  const caveat = Txt(g, 800, 766,
+    'SCENARIOS ARE ASSUMPTION SETS ABOUT HANDING OVER ACCOUNTABILITY \u2014 NOT FORECASTS, AND UNDATED',
+    {cls:'sm dim', anchor:'middle', op:0});
+
+  return function(p, idx){
+    const fl = (D.scen.flows || {})[SCEN] || {};
+    const share = {
+      kept: 1 - (fl.share_reshaped || 0),
+      moved: fl.share_with_destination || 0,
+      stuck: fl.share_stranded || 0,
+    };
+    const pct = v => (v*100).toFixed(1) + '%';
+    wholeN.textContent = ((fl.workers || 0)/1e6).toFixed(1) + 'M';
+
+    let y = TOP;
+    segs.forEach(function(sg){
+      const h = Math.max(7, H * share[sg.key]);
+      sg.box.setRect(RX, y, W, h);
+      sg.link.setRect(LX + W, y + h/2 - 3, RX - LX - W, 6);
+      sg.n.setAttribute('y', y + h/2 + 2);
+      sg.n.textContent = pct(share[sg.key]);
+      sg.k.setAttribute('y', y + h/2 + 28);
+      y += h + 10;
+    });
+
+    whole.draw(eo(clamp((p-0.02)/0.10,0,1)));
+    wholeN.style.opacity = eo(clamp((p-0.06)/0.08,0,1));
+    wholeK.style.opacity = eo(clamp((p-0.08)/0.08,0,1))*.75;
+    head.style.opacity = eo(clamp((p-0.20)/0.08,0,1));
+    segs.forEach(function(sg){
+      const t = eo(clamp((p - 0.24 - sg.i*0.17)/0.12, 0, 1));
+      sg.link.draw(t*0.5); sg.box.draw(t);
+      sg.n.style.opacity = t; sg.k.style.opacity = t*.75;
+    });
+    note.textContent = D.scen.meta[SCEN].label.toUpperCase() + ' \u2014 ' +
+      (fl.occupations_reshaped||0) + ' OF 195 OCCUPATIONS RESHAPED, ' +
+      Math.round((fl.mean_task_share_automated||0)*100) +
+      '% OF THE AVERAGE TASK LIST AUTOMATED';
+    note.style.opacity = eo(clamp((p-0.76)/0.08,0,1));
+    caveat.style.opacity = eo(clamp((p-0.86)/0.08,0,1))*.7;
+    ctx.readout(['All STEM workers','Little change','Could move','Stranded'][Math.min(idx,3)],
+                [((fl.workers||0)/1e6).toFixed(1)+'M', pct(share.kept),
+                 pct(share.moved), pct(share.stuck)][Math.min(idx,3)]);
+  };
+};

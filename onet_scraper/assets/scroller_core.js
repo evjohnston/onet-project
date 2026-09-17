@@ -154,7 +154,7 @@ function Stroke(parent, pts, opt){
   /* reveal along the mark's own direction, lazily — a clip is only built if
      something actually animates this mark */
   let clipRect = null, drawn = -1;
-  const first = base[0], last = base[base.length-1];
+  let first = base[0], last = base[base.length-1];
   function buildClip(){
     let dx = last[0]-first[0], dy = last[1]-first[1];
     if(o.closed || Math.hypot(dx,dy) < 1){ dx = 1; dy = 0; }
@@ -173,8 +173,54 @@ function Stroke(parent, pts, opt){
     clipRect._span = (s1-s0) + pad*2;
     g.setAttribute('clip-path','url(#'+id+')');
   }
+  /* Centroid of the base points, for scaling a mark about its own centre. */
+  let cx0 = 0, cy0 = 0;
+  for (let i=0;i<base.length;i++){ cx0 += base[i][0]; cy0 += base[i][1]; }
+  cx0 /= base.length; cy0 /= base.length;
+  let curPts = base, curTone = tone, curScale = 1;
+
+  function repaint(){
+    for (let i=0;i<shapes.length;i++){
+      const bleed = /\bbleed\b/.test(shapes[i].getAttribute('class') || '');
+      shapes[i].setAttribute('class',
+        'mk' + (bleed ? ' bleed' : '') + (curTone ? ' ' + curTone : '') + extra);
+    }
+  }
+
   return {
     g: g,
+    /* Swap the tone class without rebuilding geometry - the reveal clip and the
+       cached filter both survive, so a colour change is cheap enough to do on
+       every frame as the scenario toggle demands. */
+    recolor: function(cls){
+      const t = (String(cls).match(/\b(coral|acid|blue|violet|soft|ghost)\b/) || [,''])[1];
+      if (t === curTone) return;
+      curTone = t; repaint();
+    },
+    scale: function(k){
+      if (Math.abs(k - curScale) < 0.001) return;
+      curScale = k;
+      g.setAttribute('transform', k === 1 ? '' :
+        'translate(' + f2(cx0) + ' ' + f2(cy0) + ') scale(' + f2(k) +
+        ') translate(' + f2(-cx0) + ' ' + f2(-cy0) + ')');
+    },
+    /* Re-run the marker geometry over new points. Used by marks whose extent is
+       driven by live data rather than fixed at build time. */
+    setPoints: function(pts){
+      curPts = roughPts(pts, o.amp, o.seed);
+      first = curPts[0]; last = curPts[curPts.length-1];
+      cx0 = 0; cy0 = 0;
+      for (let i=0;i<curPts.length;i++){ cx0 += curPts[i][0]; cy0 += curPts[i][1]; }
+      cx0 /= curPts.length; cy0 /= curPts.length;
+      let n = 0;
+      if (o.double){
+        for (let k=0;k<2;k++)
+          shapes[n++].setAttribute('d',
+            markerD(curPts, w*(1.35+k*0.3), o.seed+71+k*29, o.closed));
+      }
+      shapes[n].setAttribute('d', markerD(curPts, w, o.seed, o.closed));
+      clipRect = null; drawn = -1;   // the reveal must be rebuilt for new extents
+    },
     draw: function(t){
       const k = clamp(t,0,1);
       if(Math.abs(k-drawn) < 0.002) return;
@@ -386,7 +432,9 @@ function update(y, vh){
   if(note !== lastNote){ lastNote = note; headerNote.textContent = note; }
 }
 
+let PAUSED = false;
 function loop(){
+  if (PAUSED) { requestAnimationFrame(loop); return; }
   const y = window.scrollY || window.pageYOffset || 0;
   const vh = window.innerHeight;
   if(force || y !== lastY || vh !== lastVH){
@@ -408,6 +456,11 @@ requestAnimationFrame(loop);
    directly, which is also how the still figures are exported. */
 window.__story = {
   scenes: reg.map(function(s){ return s.root.id; }),
+  /* Stop the scroll loop before freezing. Otherwise the next frame recomputes
+     progress from the real scroll position and overwrites the frozen state -
+     and with the beats hidden for a still, that position reads as zero. */
+  pause: function(){ PAUSED = true; },
+  resume: function(){ PAUSED = false; force = true; },
   freeze: function(id, p){
     for(let i=0;i<reg.length;i++){
       const sc = reg[i];

@@ -602,3 +602,58 @@ class TestChurn(unittest.TestCase):
         d = diff(before, after, ["A"])
         self.assertEqual(d["occupations_skipped"], 1)
         self.assertEqual(d["retired"], 0, "a taxonomy change is not a retired task")
+
+
+class TestScenarios(unittest.TestCase):
+    def _t(self, e, a, code="15-0001.00"):
+        return {"onet_soc_code": code, "occupation_title": "X", "task_id": 1,
+                "task": "t", "importance": 50, "exposure": e, "anchoring": a}
+
+    def test_accountability_is_what_the_scenario_moves(self):
+        """Capability is fixed; the scenarios differ in how much accountability
+        they are willing to hand over, so a high-exposure high-anchoring task
+        should only automate at the extreme setting."""
+        from onet_scraper.scenarios import fate
+        t = self._t(75, 60)
+        self.assertEqual(fate(t, "modest"), "augmented")
+        self.assertEqual(fate(t, "substantial"), "augmented")
+        self.assertEqual(fate(t, "extreme"), "automated")
+
+    def test_low_exposure_never_moves(self):
+        from onet_scraper.scenarios import SCENARIOS, fate
+        t = self._t(20, 20)
+        for name in SCENARIOS:
+            self.assertEqual(fate(t, name), "unchanged", name)
+
+    def test_scenarios_are_ordered_by_severity(self):
+        from onet_scraper.scenarios import SCENARIOS, task_fates
+        import collections
+        tasks = [self._t(e, a) for e in range(30, 100, 5) for a in range(20, 80, 10)]
+        counts = {}
+        for name in SCENARIOS:
+            f = task_fates(tasks)
+            counts[name] = sum(1 for r in f if r[name] == "automated")
+        self.assertLess(counts["modest"], counts["substantial"])
+        self.assertLess(counts["substantial"], counts["extreme"])
+
+    def test_employment_is_counted_once_per_soc(self):
+        """Several O*NET occupations share one SOC and carry the same employment
+        figure; summing across the O*NET rows turns 21.5M into 49.3M."""
+        from onet_scraper.scenarios import by_occupation, flows
+        tasks = [self._t(90, 10, "29-1141.01"), self._t(90, 10, "29-1141.02")]
+        fates = __import__("onet_scraper.scenarios", fromlist=["x"]).task_fates(tasks)
+        occ = by_occupation(fates, [], {"29-1141.01": "A", "29-1141.02": "B"},
+                           {"29-1141.01": 3_000_000.0, "29-1141.02": 3_000_000.0},
+                           set())
+        naive = flows(occ)                       # no SOC map: double counts
+        correct = flows(occ, {"29-1141.01": "29-1141", "29-1141.02": "29-1141"})
+        self.assertEqual(naive["substantial"]["workers"], 6_000_000)
+        self.assertEqual(correct["substantial"]["workers"], 3_000_000)
+        self.assertEqual(correct["substantial"]["soc_codes"], 1)
+
+    def test_new_tasks_are_observed_not_derived(self):
+        from onet_scraper.scenarios import by_occupation, task_fates
+        occ = by_occupation(task_fates([self._t(50, 50)]),
+                            [{"onet_soc_code": "15-0001.00", "task": "new thing"}],
+                            {"15-0001.00": "X"}, {}, set())
+        self.assertTrue(all(r["new_tasks"] == 1 for r in occ))
