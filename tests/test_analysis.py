@@ -974,3 +974,74 @@ class TestSecurityEmploymentPartition(unittest.TestCase):
                   if f["scenario"] == scenario]
             self.assertAlmostEqual(sum(f["total_employment"] for f in fl),
                                    3_000_000.0, places=3)
+
+
+class TestSharedTheme(unittest.TestCase):
+    """Every emitted page draws type and colour from one place.
+
+    The dashboard and the security matrix originally shipped their own
+    `-apple-system` stack and their own surface colours, which is what made the
+    site read as assembled rather than designed.
+    """
+
+    def _heads(self):
+        from onet_scraper import dashboard, matrix3d, theme
+        return {
+            "dashboard": dashboard.TEMPLATE_HEAD,
+            "matrix": theme.head("t", matrix3d.CSS, root_class="m3-root",
+                                 extra_tokens=matrix3d.SEV_TOKENS,
+                                 extra_tokens_dark=matrix3d.SEV_TOKENS_DARK),
+        }
+
+    def test_every_page_loads_the_same_three_families(self):
+        for name, head in self._heads().items():
+            for family in ("Manrope", "DM Serif Display", "IBM Plex Mono"):
+                self.assertIn(family, head, f"{name} is missing {family}")
+
+    def test_no_page_falls_back_to_a_system_ui_stack(self):
+        for name, head in self._heads().items():
+            self.assertNotIn("-apple-system", head, name)
+            self.assertNotIn("BlinkMacSystemFont", head, name)
+
+    def test_pages_share_the_paper_and_ink_surfaces(self):
+        from onet_scraper import theme
+        for name, head in self._heads().items():
+            self.assertIn("#faf9f5", head, f"{name} lost the paper surface")
+            self.assertIn("#1c1c18", head, f"{name} lost the ink colour")
+        # the near-white surface the two pages used before
+        for name, head in self._heads().items():
+            self.assertNotIn("#fcfcfb", head, name)
+
+    def test_uppercase_labels_carry_tracking(self):
+        """Uppercase set at its natural letter-spacing is the defect the user
+        saw as bad kerning; the label class must declare tracking."""
+        from onet_scraper import theme
+        self.assertIn("text-transform: uppercase", theme.BASE)
+        self.assertRegex(theme.BASE, r"letter-spacing:\s*\.0[6-9]em|letter-spacing:\s*\.1em")
+
+    def test_figures_use_tabular_numerals(self):
+        from onet_scraper import theme
+        self.assertIn("font-variant-numeric: tabular-nums", theme.BASE)
+
+    def test_display_serif_is_not_negatively_tracked(self):
+        """DM Serif Display is already tightly fitted; the dashboard's
+        -0.01/-0.02em collided the terminals at display sizes."""
+        from onet_scraper import theme
+        self.assertNotIn("letter-spacing: -0.0", theme.BASE)
+        self.assertNotIn("letter-spacing:-0.0", theme.BASE)
+
+    def test_extra_tokens_reach_all_three_selectors(self):
+        from onet_scraper import theme
+        head = theme.head("t", extra_tokens="  --x: red;\n",
+                          extra_tokens_dark="  --x: blue;\n")
+        self.assertEqual(head.count("--x: red"), 1)      # light root
+        self.assertEqual(head.count("--x: blue"), 2)     # media query + data-theme
+
+    def test_dashboard_reads_data_not_window_data(self):
+        """const at script scope does not become a window property, so
+        window.DATA left the handoff columns blank."""
+        from onet_scraper import dashboard
+        import inspect
+        src = inspect.getsource(dashboard)
+        self.assertNotIn("window.DATA?.hand", src)
+        self.assertIn("new Map((DATA.hand || [])", src)

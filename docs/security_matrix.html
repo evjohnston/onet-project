@@ -2,57 +2,144 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>National security matrix &mdash; STEM work and AI</title>
+<title>National security matrix — STEM work and AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; }
-.m3-root {
-  color-scheme: light;
-  --surface-1: #fcfcfb; --surface-2: #f4f3f0; --surface-3: #eceae6;
-  --text-primary: #0b0b0b; --text-secondary: #52514e; --text-muted: #85837c;
-  --grid: #e2e0da; --axis: #c9c6be; --rule: #dddad3;
+.m3-root { color-scheme: light;
+  --serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --sans: 'Manrope', Helvetica, Arial, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --ink: #1c1c18; --paper: #faf9f5; --paper-2: #f2efe5; --paper-3: #f8f6f0;
+  --rust: #bf5540; --amber: #d9a43a; --blue: #5b8fc9; --violet: #4a3aa7;
+  --line: rgba(28, 28, 24, .15);
+
+  --surface-1: #faf9f5; --surface-2: #f2efe5; --surface-3: #ebe7da;
+  --text-primary: #1c1c18; --text-secondary: #55554d; --text-muted: #6e6e66;
+  --grid: #e2ded0; --axis: #c9c4b4;
+  --series-1: #2a78d6; --series-2: #bf5540; --series-3: #1baf7a;
+  --div-low: #2a78d6; --div-mid: #f2efe5; --div-high: #bf5540;
+  --seq-1: #cde2fb; --seq-2: #9ec5f4; --seq-3: #5598e7; --seq-4: #2a78d6;
+  --seq-5: #256abf; --seq-6: #184f95; --seq-7: #0d366b;
+
   --sev-0: #d4a499; --sev-1: #c87b6a; --sev-2: #b6513d; --sev-3: #98250e;
-  --accent: #2a78d6;
 }
 @media (prefers-color-scheme: dark) {
-  :root:where(:not([data-theme="light"])) .m3-root {
-    color-scheme: dark;
-    --surface-1: #1a1a19; --surface-2: #232321; --surface-3: #2d2d2a;
-    --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #918f85;
-    --grid: #333330; --axis: #4a4a45; --rule: #38383400;
-    --sev-0: #edc7be; --sev-1: #e29e8e; --sev-2: #d17561; --sev-3: #bc4b35;
-    --accent: #3987e5;
-  }
-}
-:root[data-theme="dark"] .m3-root {
-  color-scheme: dark;
-  --surface-1: #1a1a19; --surface-2: #232321; --surface-3: #2d2d2a;
-  --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #918f85;
-  --grid: #333330; --axis: #4a4a45; --rule: #383834;
+  :root:where(:not([data-theme="light"])) .m3-root { color-scheme: dark;
+  --ink: #faf9f5; --paper: #1c1c18; --paper-2: #26261f; --paper-3: #232321;
+  --line: rgba(250, 249, 245, .16);
+
+  --surface-1: #1c1c18; --surface-2: #16160f; --surface-3: #26261f;
+  --text-primary: #faf9f5; --text-secondary: #c3c2b7; --text-muted: #a9a9a0;
+  --grid: #333330; --axis: #4a4a45;
+  --series-1: #6fa4e6; --series-2: #d9765d; --series-3: #34c193;
+  --div-low: #6fa4e6; --div-mid: #26261f; --div-high: #d9765d;
+
   --sev-0: #edc7be; --sev-1: #e29e8e; --sev-2: #d17561; --sev-3: #bc4b35;
-  --accent: #3987e5;
 }
-body { margin: 0; background: var(--surface-2); }
-.m3-root {
-  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: var(--surface-2); color: var(--text-primary);
-  padding: 28px 32px 64px; min-height: 100vh;
 }
-h1 { font-size: 22px; margin: 0 0 4px; font-weight: 650; letter-spacing: -0.01em; }
-h2 { font-size: 15px; margin: 0 0 6px; font-weight: 620; }
+:root[data-theme="dark"] .m3-root { color-scheme: dark;
+  --ink: #faf9f5; --paper: #1c1c18; --paper-2: #26261f; --paper-3: #232321;
+  --line: rgba(250, 249, 245, .16);
+
+  --surface-1: #1c1c18; --surface-2: #16160f; --surface-3: #26261f;
+  --text-primary: #faf9f5; --text-secondary: #c3c2b7; --text-muted: #a9a9a0;
+  --grid: #333330; --axis: #4a4a45;
+  --series-1: #6fa4e6; --series-2: #d9765d; --series-3: #34c193;
+  --div-low: #6fa4e6; --div-mid: #26261f; --div-high: #d9765d;
+
+  --sev-0: #edc7be; --sev-1: #e29e8e; --sev-2: #d17561; --sev-3: #bc4b35;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+
+/* Body copy. Manrope needs no tracking adjustment at text sizes. */
+.viz-root, .m3-root {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.55;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color: var(--text-primary);
+}
+
+/* Page and card titles in the display serif. No negative tracking: DM Serif
+   Display is already tightly fitted and pulling it in collides the terminals. */
+.viz-root h1, .m3-root h1 {
+  font: 400 clamp(1.7rem, 3.2vw, 2.25rem)/1.1 var(--serif);
+  letter-spacing: 0;
+  margin: 0 0 6px;
+}
+.viz-root h2, .m3-root h2 {
+  font: 400 1.22rem/1.25 var(--serif);
+  letter-spacing: 0;
+  margin: 0 0 4px;
+}
+
+/* The eyebrow/label style: uppercase monospace WITH tracking. Uppercase set at
+   its natural spacing is the single most common "unfinished" tell. */
+.lbl, .viz-root .lbl, .m3-root .lbl,
+.axes b, .ctl > label {
+  font: 500 10px/1.5 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--text-muted);
+}
+
+/* Figures line up or they cannot be compared down a column. */
+.num, td.num, th.num, .kpi .v, .stat .v,
+[data-num], .tip dd, .tip .r span:last-child {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* Table headers are labels, so they get the label treatment. */
+.viz-root th, .m3-root th {
+  font: 500 10px/1.5 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: .085em;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Inline code hugs its punctuation: 3px of padding plus a matching negative
+   margin, so "(`?t=0`)" does not read as "( ?t=0 )". */
+code, .mono {
+  font: 500 .88em var(--mono);
+  font-variant-ligatures: none;
+}
+code {
+  background: var(--paper-2);
+  padding: 1px 3px;
+  margin: 0 -1px;
+  border-radius: 3px;
+}
+
+/* SVG text inherits nothing useful by default. */
+svg text { font-family: var(--sans); }
+svg text.mono, svg .axis-label, svg .corner-label {
+  font-family: var(--mono);
+  letter-spacing: .085em;
+}
+
+
+.m3-root { background: var(--surface-2); padding: 28px 32px 64px; min-height: 100vh; }
+body { background: var(--surface-2); }
 .sub { color: var(--text-secondary); font-size: 13px; margin: 0 0 20px; max-width: 82ch; }
 .axes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
         margin: 0 0 22px; max-width: 1080px; }
 .axes div { background: var(--surface-1); border: 1px solid var(--rule);
             border-radius: 8px; padding: 12px 14px; }
-.axes b { display: block; font-size: 12px; letter-spacing: .04em;
-          text-transform: uppercase; color: var(--text-muted); margin-bottom: 3px; }
 .axes span { font-size: 12.5px; color: var(--text-secondary); }
 /* Controls sit in one row above the plot. */
 .controls { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-end;
             margin: 0 0 16px; }
 .ctl { display: flex; flex-direction: column; gap: 5px; }
-.ctl > label { font-size: 11px; letter-spacing: .05em; text-transform: uppercase;
-               color: var(--text-muted); font-weight: 600; }
 .seg { display: inline-flex; border: 1px solid var(--axis); border-radius: 7px;
        overflow: hidden; background: var(--surface-1); }
 .seg button { font: inherit; font-size: 12.5px; padding: 6px 12px; border: 0;
@@ -64,7 +151,7 @@ h2 { font-size: 15px; margin: 0 0 6px; font-weight: 620; }
 select { font: inherit; font-size: 12.5px; padding: 6px 8px; border-radius: 7px;
          border: 1px solid var(--axis); background: var(--surface-1);
          color: var(--text-primary); }
-.layout { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 26px;
+.layout { display: grid; grid-template-columns: minmax(0,1fr) 336px; gap: 26px;
           align-items: start; max-width: 1260px; }
 @media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } }
 .plotwrap { background: var(--surface-1); border: 1px solid var(--rule);
@@ -82,9 +169,9 @@ svg.dragging { cursor: grabbing; }
 .side h2 { margin-top: 0; }
 table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
 th, td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--rule); }
-th { font-size: 11px; letter-spacing: .04em; text-transform: uppercase;
-     color: var(--text-muted); font-weight: 600; }
-td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+td.num, th.num { text-align: right; }
+/* The axis cards' term is a label, so it takes the label type. */
+.axes b { display: block; margin-bottom: 4px; }
 tr.oct { cursor: pointer; }
 tr.oct:hover td { background: var(--surface-3); }
 tr.oct[aria-selected="true"] td { background: var(--surface-3); font-weight: 600; }
@@ -112,8 +199,9 @@ summary { cursor: pointer; font-weight: 620; font-size: 14px; padding: 6px 0; }
                 color: var(--text-secondary); cursor: pointer; }
 .chips button[aria-pressed="true"] { background: var(--text-primary);
                                      color: var(--surface-1); border-color: var(--text-primary); }
-</style>
-</head><body><div class="m3-root">
+
+</style></head>
+<body><div class="m3-root">
 <h1>National security matrix</h1>
 <p class="sub">Every STEM occupation placed on three axes at once: what AI
 deployment buys, what it costs to take the human out of the loop, and how hard
@@ -330,7 +418,7 @@ function drawFrame(g){
     {axis: "y", from: [0,0,0], to: [0,100,0], title: AXES.removal_risk.short,
      tick: [-16, 3], titleAt: [-4, -16], titleT: 1, originTick: false},
     {axis: "z", from: [0,0,0], to: [0,0,100], title: zLabel,
-     tick: [-6, 16], titleAt: [66, 20], originTick: false},
+     tick: [-10, 17], titleAt: [74, 26], originTick: false},
   ];
   // Which axis is pointing at the camera in each face view.
   const HIDDEN = {xy: "z", xz: "y", yz: "x"};
@@ -477,7 +565,10 @@ function pick(mx, my){
   return best;
 }
 
-function fmt(n){ return n == null ? "—" : Number(n).toLocaleString("en-US"); }
+function fmt(n){ return n == null ? "n/a" : Number(n).toLocaleString("en-US"); }
+/* Axis values always carry one decimal: a column mixing "79" and "88.7" does
+   not line up, which defeats the tabular figures. */
+function ax(n){ return (n == null || isNaN(n)) ? "n/a" : Number(n).toFixed(1); }
 
 function showTip(o, ev){
   const r = o.r;
@@ -486,7 +577,7 @@ function showTip(o, ev){
     ["AI efficiency", r.efficiency],
     ["Removal risk", r.removal_risk],
     [AXES[S.zKey].short, r[S.zKey]],
-  ].map(([k, v]) => "<dt>" + k + "</dt><dd>" + (v == null ? "—" : v) + "</dd>").join("");
+  ].map(([k, v]) => "<dt>" + k + "</dt><dd>" + ax(v) + "</dd>").join("");
   tip.innerHTML = "<b>" + name + "</b>"
     + "<div style='color:var(--text-secondary)'>" + cell(r).name
     + " · " + SEV_LABELS[cell(r).severity] + "</div>"
@@ -597,10 +688,10 @@ function renderTraps(){
     const name = S.grain === "fields" ? r.field : r.title;
     tr.innerHTML = "<td class='sw'><span class='dot' style='background:var(--sev-"
       + cell(r).severity + ")'></span></td><td>" + name + "</td>"
-      + "<td class='num'>" + r.efficiency + "</td>"
-      + "<td class='num'>" + r.removal_risk + "</td>"
-      + "<td class='num'>" + (r[S.zKey] == null ? "—" : r[S.zKey]) + "</td>"
-      + "<td class='num'>" + r.trap_score + "</td>";
+      + "<td class='num'>" + ax(r.efficiency) + "</td>"
+      + "<td class='num'>" + ax(r.removal_risk) + "</td>"
+      + "<td class='num'>" + ax(r[S.zKey]) + "</td>"
+      + "<td class='num'>" + ax(r.trap_score) + "</td>";
     box.appendChild(tr);
   });
   document.getElementById("trapz").textContent = AXES[S.zKey].short;
@@ -616,9 +707,9 @@ function renderTable(){
       const tr = document.createElement("tr");
       tr.innerHTML = "<td>" + (S.grain === "fields" ? r.field : r.title) + "</td>"
         + "<td>" + (S.grain === "fields" ? r.occupations + " occ" : r.field) + "</td>"
-        + "<td class='num'>" + r.efficiency + "</td>"
-        + "<td class='num'>" + r.removal_risk + "</td>"
-        + "<td class='num'>" + r.reconstitution + "</td>"
+        + "<td class='num'>" + ax(r.efficiency) + "</td>"
+        + "<td class='num'>" + ax(r.removal_risk) + "</td>"
+        + "<td class='num'>" + ax(r.reconstitution) + "</td>"
         + "<td>" + cell(r).name + "</td>"
         + "<td>" + SEV_LABELS[cell(r).severity] + "</td>"
         + "<td class='num'>" + fmt(r.total_employment) + "</td>";

@@ -11,59 +11,18 @@ import logging
 from pathlib import Path
 from typing import Any, Sequence
 
+from . import theme
+
 log = logging.getLogger(__name__)
 
-TEMPLATE_HEAD = """<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>STEM work &amp; automation susceptibility</title>
-<style>
-/* Palette roles - light and dark are each selected steps, not an auto-flip. */
-.viz-root {
-  color-scheme: light;
-  --surface-1: #fcfcfb; --surface-2: #f4f3f0; --surface-3: #eceae6;
-  --text-primary: #0b0b0b; --text-secondary: #52514e; --text-muted: #85837c;
-  --grid: #e2e0da; --axis: #c9c6be;
-  --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a;
-  --div-low: #2a78d6; --div-mid: #f0efec; --div-high: #e34948;
-  --seq-1: #cde2fb; --seq-2: #9ec5f4; --seq-3: #5598e7; --seq-4: #2a78d6;
-  --seq-5: #256abf; --seq-6: #184f95; --seq-7: #0d366b;
-}
-@media (prefers-color-scheme: dark) {
-  :root:where(:not([data-theme="light"])) .viz-root {
-    color-scheme: dark;
-    --surface-1: #1a1a19; --surface-2: #232321; --surface-3: #2d2d2a;
-    --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #918f85;
-    --grid: #333330; --axis: #4a4a45;
-    --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70;
-    --div-low: #3987e5; --div-mid: #383835; --div-high: #e66767;
-  }
-}
-:root[data-theme="dark"] .viz-root {
-  color-scheme: dark;
-  --surface-1: #1a1a19; --surface-2: #232321; --surface-3: #2d2d2a;
-  --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #918f85;
-  --grid: #333330; --axis: #4a4a45;
-  --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70;
-  --div-low: #3987e5; --div-mid: #383835; --div-high: #e66767;
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--surface-2); }
-.viz-root {
-  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: var(--surface-2); color: var(--text-primary);
-  padding: 28px 32px 64px; min-height: 100vh;
-}
-h1 { font-size: 22px; margin: 0 0 4px; font-weight: 650; letter-spacing: -0.01em; }
-h2 { font-size: 15px; margin: 0 0 2px; font-weight: 620; }
-.sub { color: var(--text-secondary); font-size: 13px; margin: 0 0 22px; max-width: 78ch; }
+TEMPLATE_HEAD = theme.head(
+    "Which STEM work is susceptible to automation",
+    """.sub { color: var(--text-secondary); font-size: 13px; margin: 0 0 22px; max-width: 78ch; }
 .note { color: var(--text-muted); font-size: 12px; margin: 6px 0 0; max-width: 84ch; }
 .card { background: var(--surface-1); border: 1px solid var(--grid);
         border-radius: 10px; padding: 18px 20px; margin-bottom: 18px; }
 .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 18px; }
 .kpi { background: var(--surface-1); border: 1px solid var(--grid); border-radius: 10px; padding: 14px 16px; }
-.kpi .v { font-size: 30px; font-weight: 640; letter-spacing: -0.02em; line-height: 1.1; }
 .kpi .l { color: var(--text-secondary); font-size: 12px; margin-top: 3px; }
 .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 16px; }
 select, button, input { font: inherit; padding: 6px 10px; border-radius: 7px;
@@ -73,11 +32,7 @@ button.active { background: var(--series-1); color: #fff; border-color: var(--se
 .legend { display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
           font-size: 12px; color: var(--text-secondary); margin-bottom: 10px; }
 .sw { width: 11px; height: 11px; border-radius: 3px; display: inline-block; margin-right: 5px; vertical-align: -1px; }
-table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
 th, td { text-align: left; padding: 6px 9px; border-bottom: 1px solid var(--grid); }
-th { color: var(--text-secondary); font-weight: 600; cursor: pointer; user-select: none;
-     position: sticky; top: 0; background: var(--surface-1); }
-td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .scroll { max-height: 440px; overflow: auto; }
 .tip { position: fixed; pointer-events: none; opacity: 0; transition: opacity .1s;
   background: var(--surface-1); border: 1px solid var(--axis); border-radius: 8px;
@@ -96,8 +51,50 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
        opacity: .45; transition: opacity .15s; }
 .card:hover .png { opacity: 1; }
 .pending { color: var(--text-muted); font-size: 12.5px; padding: 26px 0; }
-text { font-family: inherit; }
-</style></head>
+
+/* Layout the theme does not own. */
+.viz-root { background: var(--surface-2); padding: 28px 32px 64px; min-height: 100vh; }
+body { background: var(--surface-2); }
+
+/* Figures get the display serif, sized down, so the KPI row reads as part of
+   the same family as the page titles rather than as bold UI text. */
+.kpi .v { font: 400 2rem/1.05 var(--serif); letter-spacing: 0; }
+
+/* Control labels are labels: uppercase mono with tracking, matching the table
+   headers. The text sits in the <label> itself (before the control), so the
+   label carries the type and the nested control resets back to body type. */
+.controls label {
+  display: inline-flex; align-items: center; gap: 7px;
+  font: 500 10px/1.5 var(--mono);
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--text-muted);
+}
+.controls label select, .controls label input,
+.controls > select, .controls > input {
+  font: 400 13px/1.4 var(--sans);
+  text-transform: none; letter-spacing: 0;
+  color: var(--text-primary);
+}
+/* A <select> sizes itself to its widest option, which made the STEM-type
+   control 360px wide for the word "All". */
+.controls select { max-width: 260px; }
+.controls select#a-metric { max-width: 330px; }
+.controls { gap: 8px 18px; }
+
+/* KPI captions use the same mono-caps as the landing page's stat row. */
+.kpi .l {
+  font: 500 10px/1.4 var(--mono);
+  text-transform: uppercase; letter-spacing: .09em;
+  color: var(--text-muted); margin-top: 6px;
+}
+
+/* Long lists need a sticky header; the label styling comes from the theme. */
+table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+th { cursor: pointer; user-select: none; position: sticky; top: 0;
+     background: var(--surface-1); z-index: 1; }
+td.num, th.num { text-align: right; }
+""",
+) + """
 <body><div class="viz-root">
 <div class="topbar">
   <div>
@@ -120,6 +117,14 @@ const el = (n, a = {}) => { const e = document.createElementNS(NS, n);
   for (const k in a) e.setAttribute(k, a[k]); return e; };
 const css = v => getComputedStyle($('.viz-root')).getPropertyValue(v).trim();
 const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+/* Cut at a word boundary. Slicing mid-word produced labels like
+   "Geographic Information System\u2026", which reads as a different job title. */
+const clip = (s, n) => {
+  if (s.length <= n) return s;
+  const cut = s.slice(0, n);
+  const sp = cut.lastIndexOf(' ');
+  return (sp > n * 0.55 ? cut.slice(0, sp) : cut).replace(/[ ,;:]+$/, '') + '\u2026';
+};
 
 /* Diverging blue->gray->red, anchored on the neutral midpoint. */
 function divergingColor(v, mid = 50, span = 26) {
@@ -625,7 +630,8 @@ function renderScatter() {
              ['Contested', m.l+iw-12, m.t+14, 'end']];
   for (const [lab,x,y,an] of q) {
     const t = el('text', {x, y, 'text-anchor': an, fill: css('--text-muted'),
-      'font-size': 11, 'font-weight': 600, 'letter-spacing': '.03em'});
+      'class': 'corner-label', 'font-size': 10, 'font-weight': 500,
+      'letter-spacing': '.1em'});
     t.textContent = lab.toUpperCase(); svg.appendChild(t);
   }
   const ax = el('text', {x: m.l+iw/2, y: H-6, 'text-anchor':'middle',
@@ -664,7 +670,7 @@ function renderScatter() {
     placed.push({x: xs(o.e), y});
     const t = el('text', {x: xs(o.e), y, 'text-anchor':'middle',
       fill: css('--text-secondary'), 'font-size': 10.5});
-    t.textContent = o.t.length > 30 ? o.t.slice(0,29) + '\\u2026' : o.t;
+    t.textContent = clip(o.t, 30);
     svg.appendChild(t);
   }
   host.appendChild(svg);
@@ -686,7 +692,7 @@ function barChart(hostId, rows, valueKey, labelKey) {
     const lt = el('text', {x: m.l-9, y: y+rowH/2+3, 'text-anchor':'end',
       fill: css('--text-primary'), 'font-size': 11.5});
     lt.textContent = d[labelKey].length > maxChars
-      ? d[labelKey].slice(0, maxChars-1)+'\\u2026' : d[labelKey];
+      ? clip(d[labelKey], maxChars) : d[labelKey];
     g.appendChild(lt);
     const vt = el('text', {x: m.l+w+7, y: y+rowH/2+3, fill: css('--text-secondary'),
       'font-size': 11.5}); vt.textContent = d[valueKey].toFixed(0); g.appendChild(vt);
@@ -733,7 +739,7 @@ function renderDumbbell() {
     const lt = el('text', {x: m.l-10, y: y+4, 'text-anchor':'end',
       fill: css('--text-primary'), 'font-size': 11.5});
     const dbMax = Math.max(14, Math.floor((m.l - 14) / 6.1));
-    lt.textContent = d.t.length > dbMax ? d.t.slice(0, dbMax-1)+'\\u2026' : d.t;
+    lt.textContent = clip(d.t, dbMax);
     g.appendChild(lt);
     const vt = el('text', {x: xs(d.e)+9, y: y+4, fill: css('--text-secondary'),
       'font-size': 11.5}); vt.textContent = '+' + d.g.toFixed(0); g.appendChild(vt);
@@ -914,7 +920,7 @@ function renderEmployment() {
       fill: divergingColor(d.s), stroke: css('--axis'), 'stroke-width': 1}));
     const lt = el('text', {x: m.l-9, y: y+rowH/2+3, 'text-anchor':'end',
       fill: css('--text-primary'), 'font-size': 11.5});
-    lt.textContent = d.t.length > maxChars ? d.t.slice(0, maxChars-1)+'\\u2026' : d.t;
+    lt.textContent = clip(d.t, maxChars);
     g.appendChild(lt);
     const vt = el('text', {x: m.l+w+7, y: y+rowH/2+3, fill: css('--text-secondary'),
       'font-size': 11.5});
@@ -999,7 +1005,7 @@ function scatterVs(hostId, pts, yKey, yLabel, highlight) {
     const lx = Math.min(Math.max(xs(d.s), m.l + 40), m.l + iw - 40);
     const t = el('text', {x: lx, y: ly, 'text-anchor':'middle',
       fill: css('--text-primary'), 'font-size': 11, 'font-weight': 600});
-    t.textContent = d.t.length>22 ? d.t.slice(0,21)+'\\u2026' : d.t;
+    t.textContent = clip(d.t, 22);
     svg.appendChild(t);
   }
   const rt = el('text', {x: m.l+8, y: m.t+16, fill: css('--text-primary'),
@@ -1112,7 +1118,7 @@ function renderLeverage() {
     const t = el('text', {x: near ? m.l+iw : xs(d.no),
       y, 'text-anchor': near ? 'end' : 'middle',
       fill: css('--text-primary'), 'font-size': 10.5, 'font-weight': 600});
-    t.textContent = d.t.length>40 ? d.t.slice(0,39)+'\\u2026' : d.t;
+    t.textContent = clip(d.t, 40);
     svg.appendChild(t);
   }
   const ax=el('text',{x:m.l+iw/2,y:H-6,'text-anchor':'middle',
@@ -1168,7 +1174,10 @@ const CLS_COLOR = {
   'Handed off': '--series-3', 'Human held': '--text-muted',
 };
 const CLS_ORDER = ['Watch point', 'Crossing now', 'Handed off', 'Human held'];
-const HAND = new Map((window.DATA?.hand || []).map(h => [h.c, h]));
+// DATA is declared with const at script scope, which - unlike var - does not
+// become a window property. Reading window.DATA left HAND empty, so every
+// handoff-derived column (workers, class, stage) rendered blank.
+const HAND = new Map((DATA.hand || []).map(h => [h.c, h]));
 
 function frontierR(T) { return Math.min(100, (53*53)/Math.max(T,1)); }
 
@@ -1208,12 +1217,14 @@ function renderFrontier() {
   svg.appendChild(el('line', {x1: xs(50), x2: xs(50), y1: m.t, y2: m.t+ih,
     stroke: css('--text-muted'), 'stroke-width': 1.5, 'stroke-dasharray': '4 4'}));
   const ft = el('text', {x: xs(50)-7, y: m.t+ih-8, 'text-anchor':'end',
-    fill: css('--text-muted'), 'font-size': 10.5});
-  ft.textContent = 'not yet tractable'; svg.appendChild(ft);
+    fill: css('--text-muted'), 'class': 'corner-label', 'font-size': 9.5,
+    'letter-spacing': '.1em'});
+  ft.textContent = 'NOT YET TRACTABLE'; svg.appendChild(ft);
   for (const [lab, tx, ty, an] of [['HUMAN HELD', m.l+12, m.t+16, 'start'],
                                    ['HANDED OFF', m.l+iw-12, m.t+ih-10, 'end']]) {
     const t = el('text', {x: tx, y: ty, 'text-anchor': an, fill: css('--text-muted'),
-      'font-size': 11, 'font-weight': 600, 'letter-spacing': '.04em'});
+      'class': 'corner-label', 'font-size': 10, 'font-weight': 500,
+      'letter-spacing': '.1em'});
     t.textContent = lab; svg.appendChild(t);
   }
 
@@ -1237,15 +1248,19 @@ function renderFrontier() {
   // Label the watch points - they are the point of the chart.
   const wp = shown.filter(h => h.cls === 'Watch point')
                   .sort((a,b) => b.gap - a.gap).slice(0, 5);
+  // De-collide on both axes: testing y alone pushed labels apart that were
+  // nowhere near each other horizontally, and still let neighbours at the same
+  // x sit a single line apart, where they read as one block.
   const used = [];
   for (const h of wp) {
+    const lx = Math.min(Math.max(xs(h.T), m.l+50), m.l+iw-50);
     let y = Math.max(m.t+11, ys(h.R) - 11);
-    while (used.some(u => Math.abs(u-y) < 12)) y += 12;
-    used.push(y);
-    const t = el('text', {x: Math.min(Math.max(xs(h.T), m.l+50), m.l+iw-50), y,
+    while (used.some(u => Math.abs(u.y-y) < 14 && Math.abs(u.x-lx) < 150)) y += 14;
+    used.push({x: lx, y});
+    const t = el('text', {x: lx, y,
       'text-anchor':'middle', fill: css('--text-primary'), 'font-size': 10.5,
       'font-weight': 600});
-    t.textContent = h.t.length>28 ? h.t.slice(0,27)+'\\u2026' : h.t;
+    t.textContent = clip(h.t, 28);
     svg.appendChild(t);
   }
   const ax=el('text',{x:m.l+iw/2,y:H-6,'text-anchor':'middle',fill:css('--text-secondary'),'font-size':12});
@@ -1263,7 +1278,7 @@ function renderStages() {
   host.innerHTML = '';
   const now = new Array(6).fill(0), reach = new Array(6).fill(0);
   for (const h of DATA.hand) { now[h.now]++; reach[h.reach]++; }
-  const W = host.clientWidth || 900, rowH = 42, m = {t: 8, r: 60, b: 24, l: 210};
+  const W = host.clientWidth || 900, rowH = 42, m = {t: 8, r: 60, b: 42, l: 210};
   const iw = W-m.l-m.r, max = Math.max(...now, ...reach, 1);
   const xs = v => m.l + v/max*iw;
   const svg = el('svg', {width: W, height: m.t + 6*rowH + m.b, role: 'img'});
@@ -1288,6 +1303,24 @@ function renderStages() {
       svg.appendChild(wx);
     }
   });
+
+  // The dots' horizontal position encodes a count, and nothing said so: this
+  // chart shipped with no axis, no ticks and no label. Add all three.
+  const axisY = m.t + 6*rowH + 2;
+  svg.appendChild(el('line', {x1: xs(0), x2: xs(max), y1: axisY, y2: axisY,
+    stroke: css('--axis'), 'stroke-width': 1}));
+  const step = max <= 40 ? 10 : max <= 100 ? 25 : 50;
+  for (let v = 0; v <= max; v += step) {
+    svg.appendChild(el('line', {x1: xs(v), x2: xs(v), y1: axisY, y2: axisY+4,
+      stroke: css('--axis'), 'stroke-width': 1}));
+    const tk = el('text', {x: xs(v), y: axisY+15, 'text-anchor': 'middle',
+      fill: css('--text-muted'), 'font-size': 10});
+    tk.textContent = v; svg.appendChild(tk);
+  }
+  const axl = el('text', {x: m.l-16, y: axisY+15, 'text-anchor': 'end',
+    fill: css('--text-muted'), 'class': 'corner-label', 'font-size': 9.5,
+    'letter-spacing': '.1em'});
+  axl.textContent = 'OCCUPATIONS'; svg.appendChild(axl);
   host.appendChild(svg);
 }
 
@@ -1319,9 +1352,13 @@ function renderAnswer() {
     : m === 'empatrisk' ? Math.round(v).toLocaleString() : (+v).toFixed(0);
   const t = $('#t-answer'); t.innerHTML = '';
   const head = document.createElement('tr');
+  // Ranking by susceptibility would otherwise print the same figure in the
+  // metric column and the susceptibility column.
+  const dupS = m === 's';
   head.innerHTML = '<th>#</th><th>Occupation</th>' +
     `<th class="num">${METRIC_LABEL[m]}</th>` +
-    '<th class="num">Suscept.</th><th class="num">Workers</th>' +
+    (dupS ? '' : '<th class="num">Susceptibility</th>') +
+    '<th class="num">Workers</th>' +
     '<th>Handoff class</th><th>Stage today &rarr; reachable</th>';
   t.appendChild(head);
   rows.slice(0, 120).forEach((r, i) => {
@@ -1331,10 +1368,15 @@ function renderAnswer() {
     tr.innerHTML = `<td class="num" style="color:var(--text-muted)">${i+1}</td>` +
       `<td>${esc(r.t)}</td>` +
       `<td class="num" style="font-weight:650">${fmt(r[m]||0)}</td>` +
-      `<td class="num" style="color:${divergingColor(r.s)}">${r.s.toFixed(0)}</td>` +
-      `<td class="num">${r.emp ? Math.round(r.emp).toLocaleString() : '\\u2014'}</td>` +
+      (dupS ? '' : `<td class="num" style="color:${divergingColor(r.s)}">${r.s.toFixed(0)}</td>`) +
+      `<td class="num">${r.emp ? Math.round(r.emp).toLocaleString()
+        : '<span title="No BLS employment match for this O*NET code">n/a</span>'}</td>` +
       `<td><span class="sw" style="background:var(${clsColor})"></span>${esc(r.cls)}</td>` +
-      `<td style="color:var(--text-secondary)">${esc(r.nowL)} &rarr; ${esc(r.reachL)}</td>`;
+      // An occupation with no pending crossing printed its stage label twice
+      // with an arrow between. Show the arrow only when the stage moves.
+      `<td style="color:var(--text-secondary)">${esc(r.nowL)}` +
+        (r.nowL && r.reachL && r.nowL !== r.reachL
+          ? ` &rarr; ${esc(r.reachL)}` : '') + `</td>`;
     tr.onclick = () => selectOcc(r.c);
     t.appendChild(tr);
   });

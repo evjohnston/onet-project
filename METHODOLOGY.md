@@ -260,7 +260,7 @@ Capability is roughly fixed and already measured; what differs between scenarios
 is willingness to hand over accountability:
 
 | Scenario | Automates when | Automated tasks |
-| --- | --- | --- |
+| --- | --- | ---: |
 | Modest | exposure ≥ 80 and anchoring < 38 | 1,193 (21%) |
 | Substantial | exposure ≥ 70 and anchoring < 52 | 2,522 (45%) |
 | Extreme | exposure ≥ 58 and anchoring < 70 | 3,852 (69%) |
@@ -336,7 +336,7 @@ work, people can cross-train in, and reconstitution is easier.
 The cube is split at 50 on each axis into eight named cells:
 
 | Cell | Modest | Substantial | Extreme |
-| --- | --- | --- | --- |
+| --- | ---: | ---: | ---: |
 | Strategic trap | 37 / 10.1% | 99 / 33.2% | 139 / 52.6% |
 | Guard the pipeline | 59 / 22.3% | 72 / 24.1% | 78 / 24.9% |
 | Protect | 130 / 50.4% | 68 / 27.3% | 28 / 8.0% |

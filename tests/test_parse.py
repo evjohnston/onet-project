@@ -242,3 +242,57 @@ class TestUnavailableScores(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+class TestMarkdownTableAlignment(unittest.TestCase):
+    """Numeric table columns must be right-aligned or they cannot be read down."""
+
+    def _render(self, md):
+        from onet_scraper.markdown import render
+        return render(md)
+
+    def test_numeric_column_is_detected_and_right_aligned(self):
+        html = self._render("| Thing | Count |\n| --- | --- |\n"
+                            "| a | 287 |\n| b | 5,717 |\n")
+        self.assertIn('<th class="num">Count</th>', html)
+        self.assertIn('<td class="num">287</td>', html)
+        self.assertIn("<td>a</td>", html)
+
+    def test_explicit_right_alignment_is_honoured(self):
+        """The separator row is read from its own line - an earlier version read
+        it after the parser had advanced past the body, so `---:` was ignored."""
+        html = self._render("| Cell | Modest |\n| --- | ---: |\n"
+                            "| trap | 37 / 10.1% |\n| protect | 130 / 50.4% |\n")
+        self.assertIn('<th class="num">Modest</th>', html)
+        self.assertIn('<td class="num">37 / 10.1%</td>', html)
+
+    def test_explicit_centre_alignment(self):
+        html = self._render("| A | B |\n| --- | :---: |\n| x | y |\n| p | q |\n")
+        self.assertIn('<th class="mid">B</th>', html)
+
+    def test_explicit_left_beats_numeric_detection(self):
+        html = self._render("| Year | Note |\n| :--- | --- |\n"
+                            "| 2019 | a |\n| 2024 | b |\n")
+        self.assertIn("<th>Year</th>", html)
+        self.assertNotIn('<th class="num">Year</th>', html)
+
+    def test_mixed_column_stays_left(self):
+        """A version column holding '31.0' and a comma-separated list is not a
+        figure column, and right-aligning it would be wrong."""
+        html = self._render("| Source | Version |\n| --- | --- |\n"
+                            "| a | 31.0 |\n| b | 20.1, 22.0, 24.0 |\n")
+        self.assertIn("<th>Version</th>", html)
+        self.assertNotIn('class="num">20.1, 22.0, 24.0', html)
+
+    def test_single_row_table_is_not_right_aligned_on_coincidence(self):
+        html = self._render("| Label | Value |\n| --- | --- |\n| only | 7 |\n")
+        self.assertIn("<th>Value</th>", html)
+
+    def test_percentages_and_negatives_count_as_numeric(self):
+        html = self._render("| K | V |\n| --- | --- |\n"
+                            "| a | 30% |\n| b | -2.5 |\n| c | 1,024 |\n")
+        self.assertIn('<th class="num">V</th>', html)
+
+    def test_short_row_does_not_raise(self):
+        html = self._render("| A | B | C |\n| --- | --- | --- |\n| 1 | 2 |\n")
+        self.assertIn("<table>", html)

@@ -138,16 +138,18 @@ h2{{font:400 clamp(1.5rem,3vw,2.1rem)/1.15 var(--serif);letter-spacing:-.018em;m
 .finds h3{{font:600 .95rem/1.4 var(--sans);margin:0 0 8px}}
 .finds p{{margin:0;color:var(--muted);font-size:.92rem;line-height:1.68}}
 .finds b{{color:var(--ink);font-weight:600}}
-.cards{{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}}
+.cards{{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:8px;align-items:stretch}}
 @media(max-width:760px){{.cards{{grid-template-columns:1fr}}}}
-.card{{display:block;text-decoration:none;background:var(--paper3);
+/* Flex column so the call-to-action pins to the bottom of every card. As
+   blocks, cards of unequal copy length left their links at ragged heights. */
+.card{{display:flex;flex-direction:column;text-decoration:none;background:var(--paper3);
   border:1px solid var(--line);border-radius:4px;padding:26px 26px 28px;
   transition:transform .15s ease,box-shadow .15s ease}}
 .card:hover{{transform:translateY(-2px);box-shadow:0 8px 26px rgba(28,28,24,.09)}}
 .card .t{{font:400 1.35rem/1.2 var(--serif);margin:0 0 8px}}
-.card .d{{color:var(--muted);font-size:.9rem;line-height:1.6;margin:0}}
+.card .d{{color:var(--muted);font-size:.9rem;line-height:1.6;margin:0;flex:1 1 auto}}
 .card .go{{font:500 10px/1 var(--mono);letter-spacing:.11em;text-transform:uppercase;
-  color:var(--rust);margin-top:18px;display:block}}
+  color:var(--rust);margin:18px 0 0;display:block}}
 .tint{{background:var(--paper2)}}
 .gal{{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}}
 .gal a{{display:block;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--paper)}}
@@ -317,12 +319,14 @@ article h3{font:600 .96rem/1.4 var(--sans);margin:30px 0 8px}
 article p{line-height:1.72;color:#333;margin:0 0 15px}
 article li{line-height:1.7;color:#333;margin-bottom:7px}
 article strong{color:var(--ink);font-weight:650}
-article code{font:500 .86em var(--mono);background:var(--paper2);padding:1px 5px;
+article code{font:500 .86em var(--mono);background:var(--paper2);padding:1px 3px;margin:0 -1px;
   border-radius:3px}
 article pre{background:var(--ink);color:#e9e6dd;padding:16px 18px;border-radius:4px;
   overflow:auto;font:500 12.5px/1.6 var(--mono)}
 article pre code{background:none;padding:0;color:inherit}
 article table{border-collapse:collapse;width:100%;margin:8px 0 22px;font-size:.87rem}
+article td.num,article th.num{text-align:right;font-variant-numeric:tabular-nums;font-feature-settings:'tnum' 1}
+article td.mid,article th.mid{text-align:center}
 article th{text-align:left;font:500 9.5px/1.6 var(--mono);letter-spacing:.09em;
   text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--ink);
   padding:8px 10px 8px 0;vertical-align:bottom}

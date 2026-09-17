@@ -38,6 +38,46 @@ def _inline(text: str) -> str:
     return "".join(parts)
 
 
+
+# A column of figures that is left-aligned cannot be read down, which is the
+# only reason to put figures in a column. Markdown's own `---:` syntax sets
+# alignment explicitly and is honoured first; where the author did not use it we
+# fall back to detecting a wholly numeric column, so existing documents get the
+# right result without every separator row being rewritten.
+_NUMERIC = re.compile(
+    r"^[(\s]*[+\u2212-]?[\d,]+(?:\.\d+)?\s*%?\s*\)?$")
+
+
+def _cls(align: str) -> str:
+    return f' class="{align}"' if align else ""
+
+
+def _align(sep_line: str, head: list[str], body: list[list[str]]) -> list[str]:
+    """One alignment per column: explicit if given, else numeric detection."""
+    marks = [c.strip() for c in sep_line.strip().strip("|").split("|")]
+    out: list[str] = []
+    for idx in range(len(head)):
+        mark = marks[idx] if idx < len(marks) else ""
+        if mark.endswith(":") and not mark.startswith(":"):
+            out.append("num")
+            continue
+        if mark.startswith(":") and mark.endswith(":"):
+            out.append("mid")
+            continue
+        if mark.startswith(":"):
+            out.append("")
+            continue
+        cells = [r[idx].strip() for r in body if idx < len(r) and r[idx].strip()]
+        # Require more than one value before calling a column numeric, so a
+        # single-row table of labels is not right-aligned on a coincidence.
+        numeric = [c for c in cells if _NUMERIC.match(_strip_tags(c))]
+        out.append("num" if len(cells) > 1 and len(numeric) == len(cells) else "")
+    return out
+
+
+def _strip_tags(text: str) -> str:
+    return re.sub(r"<[^>]+>", "", text).strip()
+
 def _row(line: str) -> list[str]:
     cells = line.strip().strip("|").split("|")
     return [_inline(c.strip()) for c in cells]
@@ -77,13 +117,18 @@ def render(md: str) -> str:
         if stripped.startswith("|") and i + 1 < len(lines) and set(
                 lines[i + 1].strip().replace("|", "").replace(" ", "")) <= {"-", ":"}:
             head = _row(line)
+            sep = lines[i + 1]          # capture before i moves past it
             i += 2
             body = []
             while i < len(lines) and lines[i].strip().startswith("|"):
                 body.append(_row(lines[i]))
                 i += 1
-            th = "".join(f"<th>{c}</th>" for c in head)
-            tr = "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in body)
+            align = _align(sep, head, body)
+            th = "".join(f'<th{_cls(a)}>{c}</th>' for c, a in zip(head, align))
+            tr = "".join(
+                "<tr>" + "".join(f'<td{_cls(a)}>{c}</td>'
+                                 for c, a in zip(r, align + [""] * len(r))) + "</tr>"
+                for r in body)
             out.append(f"<table><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table>")
             continue
 

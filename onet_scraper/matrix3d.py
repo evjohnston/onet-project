@@ -32,6 +32,7 @@ import logging
 from pathlib import Path
 from typing import Any, Sequence
 
+from . import theme
 from .security import OCTANTS, SEVERITY_LABELS
 
 log = logging.getLogger(__name__)
@@ -41,56 +42,26 @@ log = logging.getLogger(__name__)
 RAMP_LIGHT = ("#d4a499", "#c87b6a", "#b6513d", "#98250e")
 RAMP_DARK = ("#edc7be", "#e29e8e", "#d17561", "#bc4b35")
 
-CSS = """
-* { box-sizing: border-box; }
-.m3-root {
-  color-scheme: light;
-  --surface-1: #fcfcfb; --surface-2: #f4f3f0; --surface-3: #eceae6;
-  --text-primary: #0b0b0b; --text-secondary: #52514e; --text-muted: #85837c;
-  --grid: #e2e0da; --axis: #c9c6be; --rule: #dddad3;
+SEV_TOKENS = """
   --sev-0: #d4a499; --sev-1: #c87b6a; --sev-2: #b6513d; --sev-3: #98250e;
-  --accent: #2a78d6;
-}
-@media (prefers-color-scheme: dark) {
-  :root:where(:not([data-theme="light"])) .m3-root {
-    color-scheme: dark;
-    --surface-1: #1a1a19; --surface-2: #232321; --surface-3: #2d2d2a;
-    --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #918f85;
-    --grid: #333330; --axis: #4a4a45; --rule: #38383400;
-    --sev-0: #edc7be; --sev-1: #e29e8e; --sev-2: #d17561; --sev-3: #bc4b35;
-    --accent: #3987e5;
-  }
-}
-:root[data-theme="dark"] .m3-root {
-  color-scheme: dark;
-  --surface-1: #1a1a19; --surface-2: #232321; --surface-3: #2d2d2a;
-  --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #918f85;
-  --grid: #333330; --axis: #4a4a45; --rule: #383834;
+"""
+SEV_TOKENS_DARK = """
   --sev-0: #edc7be; --sev-1: #e29e8e; --sev-2: #d17561; --sev-3: #bc4b35;
-  --accent: #3987e5;
-}
-body { margin: 0; background: var(--surface-2); }
-.m3-root {
-  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: var(--surface-2); color: var(--text-primary);
-  padding: 28px 32px 64px; min-height: 100vh;
-}
-h1 { font-size: 22px; margin: 0 0 4px; font-weight: 650; letter-spacing: -0.01em; }
-h2 { font-size: 15px; margin: 0 0 6px; font-weight: 620; }
+"""
+
+CSS = """
+.m3-root { background: var(--surface-2); padding: 28px 32px 64px; min-height: 100vh; }
+body { background: var(--surface-2); }
 .sub { color: var(--text-secondary); font-size: 13px; margin: 0 0 20px; max-width: 82ch; }
 .axes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
         margin: 0 0 22px; max-width: 1080px; }
 .axes div { background: var(--surface-1); border: 1px solid var(--rule);
             border-radius: 8px; padding: 12px 14px; }
-.axes b { display: block; font-size: 12px; letter-spacing: .04em;
-          text-transform: uppercase; color: var(--text-muted); margin-bottom: 3px; }
 .axes span { font-size: 12.5px; color: var(--text-secondary); }
 /* Controls sit in one row above the plot. */
 .controls { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-end;
             margin: 0 0 16px; }
 .ctl { display: flex; flex-direction: column; gap: 5px; }
-.ctl > label { font-size: 11px; letter-spacing: .05em; text-transform: uppercase;
-               color: var(--text-muted); font-weight: 600; }
 .seg { display: inline-flex; border: 1px solid var(--axis); border-radius: 7px;
        overflow: hidden; background: var(--surface-1); }
 .seg button { font: inherit; font-size: 12.5px; padding: 6px 12px; border: 0;
@@ -102,7 +73,7 @@ h2 { font-size: 15px; margin: 0 0 6px; font-weight: 620; }
 select { font: inherit; font-size: 12.5px; padding: 6px 8px; border-radius: 7px;
          border: 1px solid var(--axis); background: var(--surface-1);
          color: var(--text-primary); }
-.layout { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 26px;
+.layout { display: grid; grid-template-columns: minmax(0,1fr) 336px; gap: 26px;
           align-items: start; max-width: 1260px; }
 @media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } }
 .plotwrap { background: var(--surface-1); border: 1px solid var(--rule);
@@ -120,9 +91,9 @@ svg.dragging { cursor: grabbing; }
 .side h2 { margin-top: 0; }
 table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
 th, td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--rule); }
-th { font-size: 11px; letter-spacing: .04em; text-transform: uppercase;
-     color: var(--text-muted); font-weight: 600; }
-td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+td.num, th.num { text-align: right; }
+/* The axis cards' term is a label, so it takes the label type. */
+.axes b { display: block; margin-bottom: 4px; }
 tr.oct { cursor: pointer; }
 tr.oct:hover td { background: var(--surface-3); }
 tr.oct[aria-selected="true"] td { background: var(--surface-3); font-weight: 600; }
@@ -283,7 +254,7 @@ function drawFrame(g){
     {axis: "y", from: [0,0,0], to: [0,100,0], title: AXES.removal_risk.short,
      tick: [-16, 3], titleAt: [-4, -16], titleT: 1, originTick: false},
     {axis: "z", from: [0,0,0], to: [0,0,100], title: zLabel,
-     tick: [-6, 16], titleAt: [66, 20], originTick: false},
+     tick: [-10, 17], titleAt: [74, 26], originTick: false},
   ];
   // Which axis is pointing at the camera in each face view.
   const HIDDEN = {xy: "z", xz: "y", yz: "x"};
@@ -430,7 +401,10 @@ function pick(mx, my){
   return best;
 }
 
-function fmt(n){ return n == null ? "—" : Number(n).toLocaleString("en-US"); }
+function fmt(n){ return n == null ? "n/a" : Number(n).toLocaleString("en-US"); }
+/* Axis values always carry one decimal: a column mixing "79" and "88.7" does
+   not line up, which defeats the tabular figures. */
+function ax(n){ return (n == null || isNaN(n)) ? "n/a" : Number(n).toFixed(1); }
 
 function showTip(o, ev){
   const r = o.r;
@@ -439,7 +413,7 @@ function showTip(o, ev){
     ["AI efficiency", r.efficiency],
     ["Removal risk", r.removal_risk],
     [AXES[S.zKey].short, r[S.zKey]],
-  ].map(([k, v]) => "<dt>" + k + "</dt><dd>" + (v == null ? "—" : v) + "</dd>").join("");
+  ].map(([k, v]) => "<dt>" + k + "</dt><dd>" + ax(v) + "</dd>").join("");
   tip.innerHTML = "<b>" + name + "</b>"
     + "<div style='color:var(--text-secondary)'>" + cell(r).name
     + " · " + SEV_LABELS[cell(r).severity] + "</div>"
@@ -553,10 +527,10 @@ function renderTraps(){
     const name = S.grain === "fields" ? r.field : r.title;
     tr.innerHTML = "<td class='sw'><span class='dot' style='background:var(--sev-"
       + cell(r).severity + ")'></span></td><td>" + name + "</td>"
-      + "<td class='num'>" + r.efficiency + "</td>"
-      + "<td class='num'>" + r.removal_risk + "</td>"
-      + "<td class='num'>" + (r[S.zKey] == null ? "—" : r[S.zKey]) + "</td>"
-      + "<td class='num'>" + r.trap_score + "</td>";
+      + "<td class='num'>" + ax(r.efficiency) + "</td>"
+      + "<td class='num'>" + ax(r.removal_risk) + "</td>"
+      + "<td class='num'>" + ax(r[S.zKey]) + "</td>"
+      + "<td class='num'>" + ax(r.trap_score) + "</td>";
     box.appendChild(tr);
   });
   document.getElementById("trapz").textContent = AXES[S.zKey].short;
@@ -572,9 +546,9 @@ function renderTable(){
       const tr = document.createElement("tr");
       tr.innerHTML = "<td>" + (S.grain === "fields" ? r.field : r.title) + "</td>"
         + "<td>" + (S.grain === "fields" ? r.occupations + " occ" : r.field) + "</td>"
-        + "<td class='num'>" + r.efficiency + "</td>"
-        + "<td class='num'>" + r.removal_risk + "</td>"
-        + "<td class='num'>" + r.reconstitution + "</td>"
+        + "<td class='num'>" + ax(r.efficiency) + "</td>"
+        + "<td class='num'>" + ax(r.removal_risk) + "</td>"
+        + "<td class='num'>" + ax(r.reconstitution) + "</td>"
         + "<td>" + cell(r).name + "</td>"
         + "<td>" + SEV_LABELS[cell(r).severity] + "</td>"
         + "<td class='num'>" + fmt(r.total_employment) + "</td>";
@@ -722,13 +696,11 @@ def build_matrix3d(
         f'<span><i style="background:var(--sev-{i})"></i>{lab}</span>'
         for i, lab in enumerate(SEVERITY_LABELS))
 
-    html = f"""<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>National security matrix &mdash; STEM work and AI</title>
-<style>{CSS}</style>
-</head><body><div class="m3-root">
+    head = theme.head(
+        "National security matrix \u2014 STEM work and AI",
+        CSS, root_class="m3-root",
+        extra_tokens=SEV_TOKENS, extra_tokens_dark=SEV_TOKENS_DARK)
+    html = f"""{head}<body><div class="m3-root">
 <h1>National security matrix</h1>
 <p class="sub">Every STEM occupation placed on three axes at once: what AI
 deployment buys, what it costs to take the human out of the loop, and how hard
