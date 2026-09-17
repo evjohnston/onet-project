@@ -139,6 +139,16 @@ button{color:inherit;font:inherit}
 .scroll-cue i{display:block; width:44px; height:1px; background:currentColor; transform-origin:left; animation:cue 2.6s ease-in-out infinite}
 @keyframes cue{0%,100%{transform:scaleX(.35)}50%{transform:scaleX(1)}}
 
+/* The inked rule under a heading. Sized in em so it tracks the heading it
+   belongs to, and allowed to overflow because the marker geometry puts the
+   bleed slightly outside the nominal box. */
+.headrule{
+  display:block; width:min(100%,4.6em); aspect-ratio:240/16; height:auto;
+  margin:.3em 0 0; overflow:visible;
+}
+.headrule .mk{fill:var(--coral)}
+[data-rule]{position:relative}
+
 /* Idle drift. Fields of marks keep breathing between scroll events, which is
    most of what separates a live graphic from a diagram. Composited, no
    per-frame script, and switched off by the reduced-motion rule below. */
@@ -673,7 +683,7 @@ button{color:inherit;font:inherit}
   <section class="scene" id="inversion" data-scene="inversion">
     <div class="scene-head">
       <p class="chapter-number">01 / The inversion</p>
-      <div><h2>The jobs most at risk in 2013 are not the jobs most at risk now.</h2><p class="standfirst">Frey and Osborne scored every US occupation for its probability of computerisation. Score the same occupations for exposure to large language models and the ordering does not weaken — it comes apart entirely.</p></div>
+      <div><h2 data-rule>The jobs most at risk in 2013 are not the jobs most at risk now.</h2><p class="standfirst">Frey and Osborne scored every US occupation for its probability of computerisation. Score the same occupations for exposure to large language models and the ordering does not weaken — it comes apart entirely.</p></div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -691,7 +701,7 @@ button{color:inherit;font:inherit}
   <section class="scene" id="vocabulary" data-scene="vocabulary">
     <div class="scene-head">
       <p class="chapter-number">02 / The vocabulary</p>
-      <div><h2>Five thousand tasks stand on a thousand shared activities.</h2><p class="standfirst">O*NET decomposes each occupation into tasks, and each task into standardised detailed work activities. The activities repeat across jobs, which is what makes the corpus tractable to score at all.</p></div>
+      <div><h2 data-rule>Five thousand tasks stand on a thousand shared activities.</h2><p class="standfirst">O*NET decomposes each occupation into tasks, and each task into standardised detailed work activities. The activities repeat across jobs, which is what makes the corpus tractable to score at all.</p></div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -709,7 +719,7 @@ button{color:inherit;font:inherit}
   <section class="scene" id="composition" data-scene="composition">
     <div class="scene-head">
       <p class="chapter-number">03 / Inside a job</p>
-      <div><h2>A job is a bundle of tasks, and the bundles differ.</h2><p class="standfirst">Asking whether an occupation is exposed hides the thing that matters. Almost every job has some tasks a model could take and some it could not. What separates one job from another is the mix.</p></div>
+      <div><h2 data-rule>A job is a bundle of tasks, and the bundles differ.</h2><p class="standfirst">Asking whether an occupation is exposed hides the thing that matters. Almost every job has some tasks a model could take and some it could not. What separates one job from another is the mix.</p></div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -728,7 +738,7 @@ button{color:inherit;font:inherit}
 <section class="explorer" id="explorer">
   <div class="xhead">
     <p class="chapter-number">Interlude / Work it through</p>
-    <h2>Pick a job. Decide what counts as exposed.</h2>
+    <h2 data-rule>Pick a job. Decide what counts as exposed.</h2>
     <p class="standfirst">Every task of every scored occupation, with the score it
     received. Move the threshold to set how capable you think a model has to be before a
     task is genuinely at risk — the share of the job it covers moves with you. The
@@ -773,7 +783,7 @@ button{color:inherit;font:inherit}
   <section class="scene" id="leverage" data-scene="leverage">
     <div class="scene-head">
       <p class="chapter-number">04 / The shared spine</p>
-      <div><h2>A few activities run through almost every job.</h2><p class="standfirst">The subtask vocabulary is not evenly used. Most activities belong to one occupation. A small number appear everywhere — and those are disproportionately the exposed ones.</p></div>
+      <div><h2 data-rule>A few activities run through almost every job.</h2><p class="standfirst">The subtask vocabulary is not evenly used. Most activities belong to one occupation. A small number appear everywhere — and those are disproportionately the exposed ones.</p></div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -793,7 +803,7 @@ button{color:inherit;font:inherit}
   <div class="cwrap">
     <div class="xhead" style="margin-bottom:26px">
       <p class="chapter-number">Interlude / Side by side</p>
-      <h2>Two jobs. What do they actually share?</h2>
+      <h2 data-rule>Two jobs. What do they actually share?</h2>
       <p class="standfirst">Occupations overlap through the activity vocabulary, not
       through their task statements. Put two side by side and the shared spine separates
       from the speciality — and you can see whether what they have in common is the
@@ -818,7 +828,7 @@ button{color:inherit;font:inherit}
   <section class="scene on-tint" id="axes" data-scene="axes">
     <div class="scene-head">
       <p class="chapter-number">03 / Two questions</p>
-      <div><h2>Whether a machine can do the work is not whether it will.</h2><p class="standfirst">The seven rated dimensions collapse into two that behave independently. Treating them as one number is the most common way this analysis goes wrong.</p></div>
+      <div><h2 data-rule>Whether a machine can do the work is not whether it will.</h2><p class="standfirst">The seven rated dimensions collapse into two that behave independently. Treating them as one number is the most common way this analysis goes wrong.</p></div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -836,7 +846,7 @@ button{color:inherit;font:inherit}
   <section class="scene" id="frontier" data-scene="frontier">
     <div class="scene-head">
       <p class="chapter-number">04 / The frontier</p>
-      <div><h2>Capability is not what is holding most of this work.</h2><p class="standfirst">Watson's handoff framework scores work on tractability — whether AI can lead it — and resistance — whether it will be permitted to. The interesting cases are where those two disagree.</p></div>
+      <div><h2 data-rule>Capability is not what is holding most of this work.</h2><p class="standfirst">Watson's handoff framework scores work on tractability — whether AI can lead it — and resistance — whether it will be permitted to. The interesting cases are where those two disagree.</p></div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -854,7 +864,7 @@ button{color:inherit;font:inherit}
   <section class="scene on-tint" id="ladder" data-scene="ladder">
     <div class="scene-head">
       <p class="chapter-number">05 / The ladder</p>
-      <div><h2>Eight occupations have crossed. A hundred and forty could.</h2><p class="standfirst">Watson scores cognitive leadership on six stages, from human-only to AI-led and unreviewed. A handoff is a crossing between stages. Scoring what is deployed and what is reachable separately shows how much travel is pending.</p></div>
+      <div><h2 data-rule>Eight occupations have crossed. A hundred and forty could.</h2><p class="standfirst">Watson scores cognitive leadership on six stages, from human-only to AI-led and unreviewed. A handoff is a crossing between stages. Scoring what is deployed and what is reachable separately shows how much travel is pending.</p></div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -872,7 +882,7 @@ button{color:inherit;font:inherit}
   <section class="scene" id="people" data-scene="people">
     <div class="scene-head">
       <p class="chapter-number">06 / The people</p>
-      <div><h2>Twenty-one million workers, pulling in opposite directions.</h2><p class="standfirst">Occupation counts weight a nurse the same as an actuary. Joining BLS employment asks a different question: not which jobs are exposed, but how many people are in them.</p></div>
+      <div><h2 data-rule>Twenty-one million workers, pulling in opposite directions.</h2><p class="standfirst">Occupation counts weight a nurse the same as an actuary. Joining BLS employment asks a different question: not which jobs are exposed, but how many people are in them.</p></div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -890,7 +900,7 @@ button{color:inherit;font:inherit}
   <section class="scene on-tint" id="wages" data-scene="wages">
     <div class="scene-head">
       <p class="chapter-number">08 / The premium</p>
-      <div><h2>What protects well-paid work is not that AI cannot do it.</h2><p class="standfirst">The Frey and Osborne era found automation risk falling as wages rose. Run the same test against LLM exposure and the two components of susceptibility pull in opposite directions.</p></div>
+      <div><h2 data-rule>What protects well-paid work is not that AI cannot do it.</h2><p class="standfirst">The Frey and Osborne era found automation risk falling as wages rose. Run the same test against LLM exposure and the two components of susceptibility pull in opposite directions.</p></div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -908,7 +918,7 @@ button{color:inherit;font:inherit}
   <section class="scene" id="pathways" data-scene="pathways">
     <div class="scene-head">
       <p class="chapter-number">09 / Nowhere adjacent</p>
-      <div><h2>The jobs next door are exposed too.</h2><p class="standfirst">The standard answer to displacement is to move into an adjacent occupation. That assumes adjacency and exposure are independent. In the activity network they are not.</p></div>
+      <div><h2 data-rule>The jobs next door are exposed too.</h2><p class="standfirst">The standard answer to displacement is to move into an adjacent occupation. That assumes adjacency and exposure are independent. In the activity network they are not.</p></div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -926,7 +936,7 @@ button{color:inherit;font:inherit}
   <section class="scene" id="churn" data-scene="churn">
     <div class="scene-head">
       <p class="chapter-number">10 / Has it moved yet</p>
-      <div><h2>The work has already started changing — where anyone looked.</h2><p class="standfirst">Every other measure here rests on a model’s judgment about what could happen. This one does not. O*NET archives every release, so the task statements attached to a job can be diffed across eleven years and the turnover counted directly.</p></div>
+      <div><h2 data-rule>The work has already started changing — where anyone looked.</h2><p class="standfirst">Every other measure here rests on a model’s judgment about what could happen. This one does not. O*NET archives every release, so the task statements attached to a job can be diffed across eleven years and the turnover counted directly.</p></div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -944,7 +954,7 @@ button{color:inherit;font:inherit}
   <section class="scene" id="taskgrid" data-scene="taskgrid">
     <div class="scene-head">
       <p class="chapter-number">11 / One job, task by task</p>
-      <div><h2>What happens to each task, and what is left.</h2><p class="standfirst">The same bundle, coloured by what becomes of each task under a chosen set of assumptions. Nothing here is a forecast — the scenario sets how much accountability an actor is willing to hand over, and everything else follows from the scores already measured.</p><div class="scenbar" id="tg-scen"></div><p class="scenblurb" data-scenblurb></p><label class="ctl">Occupation <select id="tg-occ"></select></label></div>
+      <div><h2 data-rule>What happens to each task, and what is left.</h2><p class="standfirst">The same bundle, coloured by what becomes of each task under a chosen set of assumptions. Nothing here is a forecast — the scenario sets how much accountability an actor is willing to hand over, and everything else follows from the scores already measured.</p><div class="scenbar" id="tg-scen"></div><p class="scenblurb" data-scenblurb></p><label class="ctl">Occupation <select id="tg-occ"></select></label></div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -962,7 +972,7 @@ button{color:inherit;font:inherit}
   <section class="scene on-tint" id="flows" data-scene="flows">
     <div class="scene-head">
       <p class="chapter-number">12 / Where people end up</p>
-      <div><h2>Reshaped is not the same as displaced.</h2><p class="standfirst">Weighted by employment, and crossed with whether a worker’s occupation has anywhere adjacent to go. Move the scenario and both halves move — but not by the same amount, which is the point.</p><div class="scenbar" id="fl-scen"></div><p class="scenblurb" data-scenblurb></p></div>
+      <div><h2 data-rule>Reshaped is not the same as displaced.</h2><p class="standfirst">Weighted by employment, and crossed with whether a worker’s occupation has anywhere adjacent to go. Move the scenario and both halves move — but not by the same amount, which is the point.</p><div class="scenbar" id="fl-scen"></div><p class="scenblurb" data-scenblurb></p></div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -980,7 +990,7 @@ button{color:inherit;font:inherit}
   <section class="scene on-tint" id="validation" data-scene="validation">
     <div class="scene-head">
       <p class="chapter-number">07 / The check</p>
-      <div><h2>A model rating work is an assertion until someone checks it.</h2><p class="standfirst">Every other number here is internally consistent by construction. This is the only part that could have come out wrong in a way the rest of the pipeline would not catch.</p></div>
+      <div><h2 data-rule>A model rating work is an assertion until someone checks it.</h2><p class="standfirst">Every other number here is internally consistent by construction. This is the only part that could have come out wrong in a way the rest of the pipeline would not catch.</p></div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -1002,7 +1012,7 @@ button{color:inherit;font:inherit}
        preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
   <div class="coda-inner">
     <p class="eyebrow">What this cannot tell you</p>
-    <h2>Three limits worth stating before anyone cites it.</h2>
+    <h2 data-rule>Three limits worth stating before anyone cites it.</h2>
     <p class="dek"><b>The unit is the task, not the decision.</b> Watson's framework scores
     recurring decisions, and he is explicit that identifying which tasks are decisions is
     the novel work. It has not been done here, so the stage numbers are provisional.</p>
@@ -1028,6 +1038,11 @@ const NS = 'http://www.w3.org/2000/svg';
 let DEFS = null;   /* one shared defs node for every reveal clip */
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
 const lerp  = (a,b,t)=> a+(b-a)*t;
+/* One place to ask whether motion is wanted at all. The CSS reduced-motion rule
+   cannot switch off something it never knew was applied, so the script has to
+   check too. */
+const AMBIENT = !(window.matchMedia &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 const eo    = t=> 1-Math.pow(1-clamp(t,0,1),3);            // easeOutCubic
 const eio   = t=> (t=clamp(t,0,1))<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2;
 const logis = (t,mid,k)=> 1/(1+Math.exp(-k*(t-mid)));
@@ -1167,6 +1182,24 @@ function Stroke(parent, pts, opt){
   }
   const core = S('path',{d: markerD(base, w, o.seed, o.closed),
                          class:'mk'+(tone?' '+tone:'')+extra}, g);
+
+  /* Idle life. The drift/breathe keyframes were written for this and then never
+     applied to anything, so every figure froze solid the moment scrolling
+     stopped - which is most of what separates a live graphic from a diagram.
+     Only the faintest marks breathe, and only their opacity: translating a
+     data point would move it off its own value. Seeded from the mark's seed so
+     the phase is scattered but the render stays deterministic. */
+  /* Ghost marks only, and only a third of those. Every Stroke group carries the
+     grain filter, and animating opacity on 1,400 filtered groups - which
+     tagging every ghost and soft mark produced - is a lot of style recalculation
+     for an effect that reads the same from a scattered subset. */
+  if(AMBIENT && /\bghost\b/.test(cl) && !/\bno-amb\b/.test(cl)
+     && (o.seed % 3) === 0){
+    const rr = prng(o.seed * 7 + 3);
+    g.classList.add('breathe');
+    g.style.setProperty('--dur', f2(4.6 + rr() * 3.2) + 's');
+    g.style.setProperty('--del', f2(rr() * 4.5) + 's');
+  }
   if(o.closed) core.setAttribute('fill-rule','evenodd');
   shapes.push(core);
 
@@ -2696,6 +2729,64 @@ requestAnimationFrame(loop);
    does not advance rAF under a virtual clock, so there is no way to capture a
    scene mid-story from the CLI. This drives every scene to a given progress
    directly, which is also how the still figures are exported. */
+/* Hand-inked rules under the headings.
+
+   The story's whole visual argument is that it was drawn rather than rendered,
+   and the chapter titles were the one place with nothing drawn anywhere near
+   them - plain type, then a hard jump to an inked figure. Each heading now
+   carries a rule in the same marker geometry as the figures, and it inks itself
+   when the heading arrives rather than being there from the start.
+
+   Built from the same roughPts/markerD pair the figures use, so it is the same
+   pen, not a CSS border pretending to be one. */
+function headingRules(){
+  const heads = document.querySelectorAll('[data-rule]');
+  if(!heads.length) return;
+  const drawn = [];
+  heads.forEach(function(h, i){
+    /* Uniform scaling. preserveAspectRatio="none" stretched the box to the
+       heading's width and flattened the marker geometry into a hairline - the
+       pen has a width, and a non-uniform scale destroys it. A short box keeps
+       the nib heavy relative to the stroke's length. */
+    const svg = S('svg', {class:'headrule', viewBox:'0 0 240 16',
+                          preserveAspectRatio:'xMinYMid meet', 'aria-hidden':'true'}, null);
+    h.appendChild(svg);
+    /* a rule that lifts slightly to the right, the way a hand does */
+    const r = prng(9000 + i * 37);
+    const pts = [];
+    for(let k=0;k<=6;k++){
+      const t = k/6;
+      pts.push([t*234 + 3, 10 - t*2.0 + (r()-0.5)*2.0]);
+    }
+    const mk = Stroke(svg, pts, {cls:'ink w3', amp:1.4, seed:9100+i*13, double:false});
+    mk.draw(0);
+    drawn.push(mk);
+  });
+
+  if(!AMBIENT || !('IntersectionObserver' in window)){
+    drawn.forEach(function(m){ m.full(); });
+    return;
+  }
+  /* Ink over ~420ms once the heading is properly in view. rAF rather than a CSS
+     transition because the reveal is a clip width, not an animatable property
+     the compositor can interpolate for us. */
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      const mk = drawn[+e.target.dataset.ruleIdx];
+      io.unobserve(e.target);
+      const t0 = performance.now();
+      (function step(now){
+        const t = clamp((now - t0) / 420, 0, 1);
+        mk.draw(eo(t));
+        if(t < 1) requestAnimationFrame(step);
+      })(t0);
+    });
+  }, {threshold: 0.6});
+  heads.forEach(function(h, i){ h.dataset.ruleIdx = i; io.observe(h); });
+}
+headingRules();
+
 window.__story = {
   scenes: reg.map(function(s){ return s.root.id; }),
   /* Stop the scroll loop before freezing. Otherwise the next frame recomputes

@@ -9,6 +9,11 @@ const NS = 'http://www.w3.org/2000/svg';
 let DEFS = null;   /* one shared defs node for every reveal clip */
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
 const lerp  = (a,b,t)=> a+(b-a)*t;
+/* One place to ask whether motion is wanted at all. The CSS reduced-motion rule
+   cannot switch off something it never knew was applied, so the script has to
+   check too. */
+const AMBIENT = !(window.matchMedia &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 const eo    = t=> 1-Math.pow(1-clamp(t,0,1),3);            // easeOutCubic
 const eio   = t=> (t=clamp(t,0,1))<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2;
 const logis = (t,mid,k)=> 1/(1+Math.exp(-k*(t-mid)));
@@ -148,6 +153,24 @@ function Stroke(parent, pts, opt){
   }
   const core = S('path',{d: markerD(base, w, o.seed, o.closed),
                          class:'mk'+(tone?' '+tone:'')+extra}, g);
+
+  /* Idle life. The drift/breathe keyframes were written for this and then never
+     applied to anything, so every figure froze solid the moment scrolling
+     stopped - which is most of what separates a live graphic from a diagram.
+     Only the faintest marks breathe, and only their opacity: translating a
+     data point would move it off its own value. Seeded from the mark's seed so
+     the phase is scattered but the render stays deterministic. */
+  /* Ghost marks only, and only a third of those. Every Stroke group carries the
+     grain filter, and animating opacity on 1,400 filtered groups - which
+     tagging every ghost and soft mark produced - is a lot of style recalculation
+     for an effect that reads the same from a scattered subset. */
+  if(AMBIENT && /\bghost\b/.test(cl) && !/\bno-amb\b/.test(cl)
+     && (o.seed % 3) === 0){
+    const rr = prng(o.seed * 7 + 3);
+    g.classList.add('breathe');
+    g.style.setProperty('--dur', f2(4.6 + rr() * 3.2) + 's');
+    g.style.setProperty('--del', f2(rr() * 4.5) + 's');
+  }
   if(o.closed) core.setAttribute('fill-rule','evenodd');
   shapes.push(core);
 
@@ -504,6 +527,64 @@ requestAnimationFrame(loop);
    does not advance rAF under a virtual clock, so there is no way to capture a
    scene mid-story from the CLI. This drives every scene to a given progress
    directly, which is also how the still figures are exported. */
+/* Hand-inked rules under the headings.
+
+   The story's whole visual argument is that it was drawn rather than rendered,
+   and the chapter titles were the one place with nothing drawn anywhere near
+   them - plain type, then a hard jump to an inked figure. Each heading now
+   carries a rule in the same marker geometry as the figures, and it inks itself
+   when the heading arrives rather than being there from the start.
+
+   Built from the same roughPts/markerD pair the figures use, so it is the same
+   pen, not a CSS border pretending to be one. */
+function headingRules(){
+  const heads = document.querySelectorAll('[data-rule]');
+  if(!heads.length) return;
+  const drawn = [];
+  heads.forEach(function(h, i){
+    /* Uniform scaling. preserveAspectRatio="none" stretched the box to the
+       heading's width and flattened the marker geometry into a hairline - the
+       pen has a width, and a non-uniform scale destroys it. A short box keeps
+       the nib heavy relative to the stroke's length. */
+    const svg = S('svg', {class:'headrule', viewBox:'0 0 240 16',
+                          preserveAspectRatio:'xMinYMid meet', 'aria-hidden':'true'}, null);
+    h.appendChild(svg);
+    /* a rule that lifts slightly to the right, the way a hand does */
+    const r = prng(9000 + i * 37);
+    const pts = [];
+    for(let k=0;k<=6;k++){
+      const t = k/6;
+      pts.push([t*234 + 3, 10 - t*2.0 + (r()-0.5)*2.0]);
+    }
+    const mk = Stroke(svg, pts, {cls:'ink w3', amp:1.4, seed:9100+i*13, double:false});
+    mk.draw(0);
+    drawn.push(mk);
+  });
+
+  if(!AMBIENT || !('IntersectionObserver' in window)){
+    drawn.forEach(function(m){ m.full(); });
+    return;
+  }
+  /* Ink over ~420ms once the heading is properly in view. rAF rather than a CSS
+     transition because the reveal is a clip width, not an animatable property
+     the compositor can interpolate for us. */
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      const mk = drawn[+e.target.dataset.ruleIdx];
+      io.unobserve(e.target);
+      const t0 = performance.now();
+      (function step(now){
+        const t = clamp((now - t0) / 420, 0, 1);
+        mk.draw(eo(t));
+        if(t < 1) requestAnimationFrame(step);
+      })(t0);
+    });
+  }, {threshold: 0.6});
+  heads.forEach(function(h, i){ h.dataset.ruleIdx = i; io.observe(h); });
+}
+headingRules();
+
 window.__story = {
   scenes: reg.map(function(s){ return s.root.id; }),
   /* Stop the scroll loop before freezing. Otherwise the next frame recomputes

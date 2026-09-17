@@ -128,6 +128,16 @@ button{color:inherit;font:inherit}
 .scroll-cue i{display:block; width:44px; height:1px; background:currentColor; transform-origin:left; animation:cue 2.6s ease-in-out infinite}
 @keyframes cue{0%,100%{transform:scaleX(.35)}50%{transform:scaleX(1)}}
 
+/* The inked rule under a heading. Sized in em so it tracks the heading it
+   belongs to, and allowed to overflow because the marker geometry puts the
+   bleed slightly outside the nominal box. */
+.headrule{
+  display:block; width:min(100%,4.6em); aspect-ratio:240/16; height:auto;
+  margin:.3em 0 0; overflow:visible;
+}
+.headrule .mk{fill:var(--coral)}
+[data-rule]{position:relative}
+
 /* Idle drift. Fields of marks keep breathing between scroll events, which is
    most of what separates a live graphic from a diagram. Composited, no
    per-frame script, and switched off by the reduced-motion rule below. */

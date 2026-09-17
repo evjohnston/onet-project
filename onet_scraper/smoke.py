@@ -131,6 +131,11 @@ PAGES: dict[str, Sequence[Assertion]] = {
     "story.html": (
         ("scenes drawn", lambda d: _count(r"<svg")(d) >= 8),
         ("marks drawn", lambda d: _count(r"<path")(d) >= 100),
+        # The stage viewBox is recomputed to the container's aspect ratio; if it
+        # is ever back to a literal 1600 900 the drawing is letterboxing again.
+        ("stage viewbox is fitted, not fixed",
+         lambda d: 'viewBox="0 0 1600 900"' not in d),
+        ("heading rules inked", lambda d: _count(r'class="headrule"')(d) >= 10),
     ),
 }
 

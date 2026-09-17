@@ -300,7 +300,7 @@ def _scene(sid: str, number: str, title: str, standfirst: str, fig: str,
   <section class="{cls}" id="{sid}" data-scene="{sid}">
     <div class="scene-head">
       <p class="chapter-number">{number}</p>
-      <div><h2>{title}</h2><p class="standfirst">{standfirst}</p>{controls}</div>
+      <div><h2 data-rule>{title}</h2><p class="standfirst">{standfirst}</p>{controls}</div>
     </div>
     <div class="scrolly">
       <div class="stage"><div class="stage-frame">
@@ -885,7 +885,7 @@ say about which work is exposed to automation, and which is held by accountabili
 <section class="explorer" id="explorer">
   <div class="xhead">
     <p class="chapter-number">Interlude / Work it through</p>
-    <h2>Pick a job. Decide what counts as exposed.</h2>
+    <h2 data-rule>Pick a job. Decide what counts as exposed.</h2>
     <p class="standfirst">Every task of every scored occupation, with the score it
     received. Move the threshold to set how capable you think a model has to be before a
     task is genuinely at risk \u2014 the share of the job it covers moves with you. The
@@ -932,7 +932,7 @@ say about which work is exposed to automation, and which is held by accountabili
   <div class="cwrap">
     <div class="xhead" style="margin-bottom:26px">
       <p class="chapter-number">Interlude / Side by side</p>
-      <h2>Two jobs. What do they actually share?</h2>
+      <h2 data-rule>Two jobs. What do they actually share?</h2>
       <p class="standfirst">Occupations overlap through the activity vocabulary, not
       through their task statements. Put two side by side and the shared spine separates
       from the speciality \u2014 and you can see whether what they have in common is the
@@ -961,7 +961,7 @@ say about which work is exposed to automation, and which is held by accountabili
        preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
   <div class="coda-inner">
     <p class="eyebrow">What this cannot tell you</p>
-    <h2>Three limits worth stating before anyone cites it.</h2>
+    <h2 data-rule>Three limits worth stating before anyone cites it.</h2>
     <p class="dek"><b>The unit is the task, not the decision.</b> Watson's framework scores
     recurring decisions, and he is explicit that identifying which tasks are decisions is
     the novel work. It has not been done here, so the stage numbers are provisional.</p>

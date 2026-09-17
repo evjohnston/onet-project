@@ -130,5 +130,17 @@
     "assertion": "marks drawn",
     "passed": true,
     "detail": ""
+  },
+  {
+    "page": "story.html",
+    "assertion": "stage viewbox is fitted, not fixed",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "story.html",
+    "assertion": "heading rules inked",
+    "passed": true,
+    "detail": ""
   }
 ]
