@@ -1,0 +1,233 @@
+﻿INAUGURAL RETREAT HIGHLIGHTS
+June 2026
+
+
+On June 23-24, 2026, the Hoover Institution’s Tech Futures Lab hosted its inaugural retreat, which brought together thought leaders from academia, industry, nonprofits, and governments to help anticipate and mitigate the risk of strategic technological surprises. Through a series of interconnected exercises, this brain trust identified possible technological breakthroughs, debated controversial assumptions about AI and national power, traced potential unplanned and unexpected applications of technology, and considered the long-term effects of technology on multiple domains, including health, economics, geopolitics, and questions what it means to be human. The retreat was not designed to make specific forecasts but to explore a broader range of plausible–not necessarily probable–trajectories for existing and emerging technologies to help set the agenda for the Lab in the coming year.  The retreat identified topics for future wargames and exercises as well as provocative questions to address in future analytic products. 
+
+
+The following summary is divided into four sections:
+1. Overarching themes and cross-cutting debates that surfaced organically during almost every discussion and exercise over the course of the two days;
+2. Short summaries and key takeaways from the individual exercises with graphical presentations of the content;
+3. Lessons learned about the structure and format of the retreat;
+4. Proposals for the year ahead for the Tech Futures Lab, including topics, types of activities, and products. 
+OVERARCHING THEMES AND CROSS-CUTTING DEBATES
+
+
+The Past May No Longer Be Prologue 
+Throughout the retreat, participants raised the possibility that we could be facing an unprecedented future in which events and dynamics have no historical analog. As a result, longstanding models and theoretical frameworks for analyzing and understanding strategic domains, including the economy, governance, and geopolitics, may no longer be relevant as the players change, sources of power expand and evolve, and humans are taken out of the equation. For instance, how do standard models of coercion and crisis management apply if the decision-maker is AI or is heavily reliant on AI in ways we might not know?
+
+
+Technological Advantages–Invention, Adoption, or Scale
+A key discussion running through the retreat was on technology and strategic advantage. Participants discussed what provides the most sustainable advantage–invention, adoption, or scale of production–and for whom.  From the debates, many participants seemed persuaded that diffusion and deployment may matter more to national strength than invention. A country that invents a technology may not be the country that manufactures, scales, or sells it most effectively. Similarly, within societies, adoption and adaptation may pay as many dividends as invention and without the high investment cost of research and development. Additional questions included: How might advantages in development vs. deployment be different in different technological areas? Where does it pay most to be first? Where do benefits accrue most from fast following – and why? Can advantage be sustained over time?
+
+
+AI as Foundation, Infrastructure, and Multiplier
+Artificial intelligence appeared in almost every discussion, even when the assigned subject was robotics, biotechnology, government, education, finance, or defense. Most participants believed that AI is likely to evolve from a distinct product into an operating layer that simply becomes part of underlying infrastructure. Much like electricity and the internet, AI was assumed to become part of the infrastructure upon which everything else is being built. However, many raised concerns about access and cost creating disparities within and between countries.
+
+
+The Future of Power
+Most participants agreed that technology has become a more important source of power, influence, and authority in the international system, but not just for states. Historically, communications networks, space capabilities, energy infrastructure, currencies, surveillance tools, weapons, and computational capabilities were built or controlled mainly by governments, but today and going forward, private companies and individuals lead, own, and operate these advanced systems at a scale that gives them direct influence over public decisions and international regimes, standards, and institutions. This network power gives nonstate actors influence that crosses national boundaries and in some cases, supersedes the power of the state.
+
+
+* US Power and Influence: Participants saw several ways the United States could lose its leading position in science and technology, including cuts to universities and basic science research, hostility toward foreign talent, weak manufacturing capacity, poor communication about technology, badly designed regulation, declining domestic public trust in technology that impedes adoption, eroding trust among allies, and excessive reliance on proprietary frontier models. The combination of these dynamics is likely to weaken both US hard and soft power. 
+
+
+* Role of Nonstate Actors: Participants considered how technologies are increasing the power and reach of nonstate actors in different domains, including a company controlling a satellite network affecting military communications; a model provider setting rules for access to information or analytical capability; and a firm with private energy, security; and digital infrastructure becoming less dependent on the state. In many ways, these nonstate actors have the potential to possess sovereignty without physical territory. Participants argued that such dynamics could limit the power of non-authoritarian states.
+
+
+The Future of Governance
+Participants were divided over the impact of technology on the effectiveness and legitimacy of governments and governing systems. On the one hand, automated systems might make public services faster and easier to use, leading to more efficient processes and benefits. Agencies could detect some forms of fraud, process information more quickly, and tailor services to individuals. On the other hand, the same systems could exclude eligible people, make errors that are difficult to appeal, or move public decisions behind trade-secret protections. Similarly, there was debate over surveillance and automation and whether they would make governments more effective but less legitimate. Cameras and data analysis could reduce crime and fraud and make people safer–as in authoritarian, security states–but at what cost to freedom and liberty.
+
+
+What is True
+Several participants anticipated that policy formulation could become increasingly unstable when agreement is eroding on even the most basic facts of many issues. The conversation went beyond concerns about synthetic media and deepfakes, describing the defining challenge as not only detecting fakery but establishing mechanisms of verification and accountability durable enough to function when truth itself is contested and/or emergent. Moreover, there is a risk that public debate among science and technology experts can blur the lines between evidence, opinion, and emotion, fueling public pessimism and distrust in science itself.
+
+
+The Role of Trust
+Connected to truth, trust emerged as one of the retreat’s main concerns. Specifically, how might technologies contribute to the ongoing erosion of trust in leaders, institutions, expertise and information more generally? Participants discussed synthetic media, cyberattacks, automated persuasion, biased models, opaque government systems, and information environments in which people cannot tell whether a source is genuine. The problem is broader than false content. A flood of generated material can weaken confidence in accurate information, and even authentic recordings can be dismissed as fake. Governments can use the presence of disinformation to justify more extensive controls. Private platforms can become the de facto arbiters of which claims are seen and which are suppressed, but private companies have competing agendas that do not necessarily reflect the public interest. 
+
+
+What May Be Lost 
+Many of the conversations raised the question of what we may be losing as we adopt more advanced technologies, especially AI. Participants raised concerns about the erosion of human capabilities, especially learning skills and critical thinking, both of which require a degree of friction rather than instant answers. Rather than augmenting and enhancing human capability, could we lose capacity and skills over time as we cede thinking processes to AI? Connected to this line of questioning were other debates about ethical decision-making, especially related to human life in warfare and in medical treatments, and about human purpose if AI and automation eliminate jobs. What remains distinctly human once machines can do the rest? Many participants were eager to continue these discussions.
+KEY TAKEAWAYS BY SESSION
+Session 1: Tech over the Horizon
+
+  
+
+
+
+The first exercise of the retreat provided a foundational understanding of what technological and scientific advancements are likely and what are plausible–including longshots–over the next decade. This session was designed to be a resource for the exercises the next day. Participants were divided into six tables and assigned broad domains to explore. 
+
+
+* Participants also discussed the key factors likely to drive or constrain the development of these new capabilities. Many participants doubted that technical feasibility would be the binding constraint. Some argued that the more significant limit will be trust; others pointed to physical inputs like energy, compute, and raw materials, and still others to the slower constraints of talent, adoption, and public willingness to let the technology in at all. Some tables examined developments through a geopolitical lens, noting that competition with China is likely to catalyze investment and focus. 
+
+
+* The discussion also highlighted some of the uncertainties about the future of technological innovation with most teams raising issues of cost, regulation, and accessibility. One set of variables which came up throughout the retreat was public opinion, acceptance, and adoption. Could public concerns slow or even reverse technological advancements? What are the economic and geopolitical  implications of significant gaps in AI optimism across countries, especially where the U.S. ranks among the least optimistic countries and China among the most optimistic in the world? 
+Session 2: Battle of the Assumptions
+  
+
+
+
+The Battle of the Assumptions session staged three debates over some commonly held propositions about technology. (See above.) With each proposition, the teams had to define key terms, including seemingly basic terms such as first, dominate, and cheating. Each of the debates would have benefitted from more time for research and data gathering, and with such limited time, the outcome hinged on logic, argumentation, examples, and the appeal of the delivery. 
+
+
+The first two debates presented different cuts at the broader question about what offers longer-term advantages–leading in frontier technologies or having the capacity to adopt and scale production. From the debates, many participants seemed persuaded that diffusion and deployment may matter more to national strength than invention. It was the most-cited takeaway of the retreat. The strongest cases emphasized whole ecosystems—research, manufacturing, talent, capital, regulation, and social trust in combination—rather than any single breakthrough.
+
+
+The third debate on whether AI is cheating was the most spirited and personal for many of the participants. The two sides drew on historical analogies and professional experiences to construct impassioned arguments. Interpretations of cheating varied by activity, goals, and expectations. The debate ended in a tie because of the strength of both arguments. 
+________________
+Session 3: Beyond the Obvious
+  
+
+
+The Beyond the Obvious session challenged participants to explore how technological advancements identified in the first two sessions could lead to major disruptions and even systemic changes within assigned domains, including the economy, healthcare, geopolitics, and more. Perhaps because of the prompt to explore systemic change, tables gravitated to a discussion of institutions. 
+
+
+* The economy table weighed wealth concentration and pension turmoil against a more diffuse, entrepreneurial future. 
+* The healthcare table converged on decentralized, hyper-personalized care and the moral hazard that follows when risk feels reversible. 
+* The society table envisioned scenarios where critical thinking erodes under widespread reliance on language models. 
+* The governance and information table returned repeatedly to deepfakes, surveillance, and the authentication of truth as the hinge on which public trust turns.
+
+
+The geopolitics table imagined the declining power of the nation-state as power atomizes into affinity-based communities and private actors amass capabilities governments cannot regulate. The dynamics in this scenario raised broader concerns among participants about the capacity of societies to govern themselves given the scope and speed of the technological changes underway.
+________________
+Session 4: The Problem Solved…Now What?
+  
+
+
+
+The final session, The Problem Solved…Now What?, presented each table with a breakthrough as an accomplished fact—universal translation, cheap electricity, self-driving fleets, synthetic food, potable water, slowed warming, personalized education—and asked participants to work through potential consequences. The exercise hit upon the same insights as the earlier debates: hard problems arise after the technology succeeds, including displacement, uneven distribution, and loss of control. A world with self-driving fleets still has to answer for the millions of commercial drivers who will need not only retraining but a way to maintain their sense of purpose; a world with synthetic food or engineered climate turns on who owns the capability and whether its benefits concentrate or disperse.
+
+
+The room kept landing on a paradox that ties these threads together: technological success tends to manufacture its own fragility. The more a society depends on a technology, the more damage its failure can cause, and the more attractive a target it becomes. The internet and GPS are current examples. In such cases, the strategic surprise is not that a novel technology will be adopted and have transformative effects, but how dependent on that technology – and how vulnerable to it – a society becomes. Even with these concerns, much of the conversation was optimistic.
+________________
+The Gallery Walk
+Throughout the event, seven general questions regarding technology were posted on easels for participants to offer individual responses.
+1. What is common now that will be rare/ non-existent in 10 yrs because of technology?
+2. What about emerging technologies gives you the most hope or most concern?        
+3. What is a taboo topic about technology?        
+4. How could the United States fall behind in the tech race?        
+5. What are critical but controversial assumptions about tech that need to be challenged?        
+6. What tech development is not getting enough attention given its potential impact?        
+7. What problem or challenge do you hope to solve with technology in the next decade?
+
+
+The responses converged around a few central themes. 
+
+
+The Talent Pipeline and the Research Base. The most crowded board was the one on the U.S. falling behind. Participants raised concerns about defunding universities and national-lab basic research, driving away foreign students and talent, eroding trust with allies. Others warned about overregulation. 
+
+
+Concentration of Power. One concern that emerged across several questions was that technology leadership and wealth are becoming too concentrated. Numerous participants warned that too few people were in the driver's seat guiding tech development, business leaders were not always aligned with the public interest, and commercialized tech is reinforcing wealth concentration rather than broad benefit. 
+
+
+What AI Does to Human Capacity. Participants recognized AI’s potential to democratize knowledge and advance medicine while worrying it would weaken critical thinking, truth discernment, education, happiness, and a sense of purpose. Ten years from now, they expected AI to reshape writing, reading, attention, independent thinking, and (only half in jest) friendships, democracy, and what it means to be human. 
+
+
+China and Sovereignty. While much of the event centered on the tech challenge that China poses for the US, a few participants critiqued the common portrayal of the US and China as locked in an increasingly high-stakes, zero-sum competition for technological domination. They argued that a more pragmatic perspective recognized that China cannot be contained, no country could achieve independent sovereignty in such an interconnected world, some joint efforts could yield win-win or lose-lose results rather than just win-lose outcomes, and that Chinese gains in some areas could potentially serve the world’s interests. 
+
+
+The Uncomfortable and the Unspoken. The taboo board raised questions often left out of mainstream debates: whether U.S. leadership in technology is achievable or even desirable; who benefits and who bears the costs of technological progress; and whether some technologies should be developed at all. Respondents brought up topics ranging from the ethics of autonomous weapons, dual-use technologies, and sex robots to AI-driven job displacement, governance failures, and questions about the taxation and regulation of technological wealth.
+
+
+Where People Want Technology Pointed. The problem-to-solve board was the most concrete and hopeful. Priorities included elder care, clean water and energy access, health-span inequality, traffic fatalities, tailored education, fertility decline, and killing surveillance business models.
+
+
+  
+  
+
+
+
+  
+
+
+
+
+
+________________
+FEEDBACK ON THE RETREAT
+
+
+When participants were asked what they would have done differently for this retreat or would like to have in a future retreat, their feedback had clear signals for more. More friction, more time for conversation, more ways to harness the deep expertise of participants. Below, we provide the feedback we found most helpful in setting the future direction of TFL. 
+
+
+
+
+* When asked which exercise resonated most or was most useful, participants responded:         
+   * Beyond the Obvious                        13
+   * Problem Solved…Now What?        7
+   * Battle of the Assumptions                6
+   * Over the Horizon Technology                4
+* Expand cross-generational participation: Future events could include more junior researchers. 
+* Go beyond the US and China: The retreat also challenged a narrow US-China framing. Competition between the two countries matters, but other states, firms, and non-state actors may shape adoption, standards, and supply chains. Assessments of geopolitical power and influence depend on how other states respond. Consider ways to incorporate a global perspective without diluting the Silicon Valley/Stanford expertise.
+* More on China: At the same time, some wanted a dedicated conversation about the US-China competition, specifically US reliance on China and how to change it. 
+* Create convergence scenarios: Many participants preferred the session on what happens after technology solves a problem. They suggested developing additional convergence scenarios to examine how technologies interact with institutions, other trends, and one another. There was significant interest in developing more layered, complex scenarios. 
+* More debate, contestation: Most participants enjoyed the debates over underlying assumptions. There was significant interest in holding more such debates which surfaced fault lines and illuminated aspects of issues that often get overlooked.
+* More free discussion time: Some participants felt the retreat was overly structured and did not allow for enough free time for exploration and conversations. 
+* Dancing: More movement, especially on Day 2.
+* Hold offsite: Leave campus. Hold a real retreat.
+________________
+THE WAY FORWARD
+The retreat generated a range of ideas to guide the TFL’s next steps.
+
+
+Analytic Approaches
+Three product formats or analytic approaches came out of the retreat. The first is point/counterpoint papers or podcasts structured as debates. Suggested initial topics included expanding the AI cheating debate and exploring whether modern information technology favors authoritarian or democratic governments. The second format is assumption checks, or "think again" papers, in which a core assumption is unpacked and tested. The third is challenge or contrarian papers that argue against a prevailing narrative, such as taking the claim that frontier technologies will improve society and arguing the opposite. 
+
+
+Topic Ideas
+To spur ideas for some ‘what if’ papers, we asked you each to nominate one you'd want to read. The responses fell into four clusters:
+
+
+AI's trajectory, control, and governance
+* What if recursive AI extended Moore's law another decade?
+* What if the AI boom busts?
+* What if AI were truly open source?
+* What if the US regulated AI in a way that strained its domestic growth?
+
+
+Information integrity
+* What if we could trace every media story back to its source and verify it?
+* What if deepfakes got convincing enough to power state-backed disinformation at scale?
+* What if the US made spreading misinformation illegal, extending the standard that bars falsely shouting "fire" in a crowded theater?
+Energy, computing, and physical abundance
+* What if we solved the energy crisis? 
+* What if fusion reached more than a quarter of humanity?
+* What if China built a cryptographically significant quantum computer before the US?
+* What if the physical world became programmable, from biological systems on up?
+* What if we fixed cybersecurity with advanced AI?
+Human health, demographics, and opportunity
+* What if Africa got rich fast on a demographic dividend?
+* What if we dramatically reduced global poverty and gave the whole world access to clean water?
+* What if the US lost its ability to attract top global talent?
+* What if we could read constant brain activity and design away the need for mental health medication in kids?
+
+
+Participants also raised a number of assumptions or propositions to interrogate further. Here are a few which we edited to read as assumptions.
+* Advancing frontier technologies will improve society
+* Energy use will constrain tech advancements
+* Critical thinking is important for survival and thriving in day-to-day life.
+* People want to receive factual, reliable information.
+* Countries want sovereignty more than other goals, even when it is costly
+* AI will boost productivity for everyone
+* China is going to win the advanced technology race over the long term
+* Robotics will ultimately be a force for good in the world 
+* The US is the best in whatever it does
+* We know what truth is 
+* More technology is bad for humans and the planet
+* US primacy will continue 
+* The growth of computing capability will match the projected demand driven by AI
+* The majority of Americans will adopt AI 
+* China is better positioned for biotechnological development
+
+
+Beyond papers, a few other activities came up. 
+
+
+* Dashboard: One is building a real-time dashboard to track technological development through indicators, meant to be a source of reliable factual information on tech advancements, with the tracking linked to scenarios. 
+
+
+* Small, focused meetings: Another is hosting small-group meetings and mini-events focused on a narrow topic with a small group of experts. 
+
+
+* Games and scenarios: There was also interest in experiences, including games, tabletop exercises, and scenarios.

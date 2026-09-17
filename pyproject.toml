@@ -22,3 +22,6 @@ onet-scraper = "onet_scraper.cli:main"
 
 [tool.setuptools]
 packages = ["onet_scraper"]
+
+[tool.setuptools.package-data]
+onet_scraper = ["assets/*"]

@@ -1,0 +1,1617 @@
+﻿TFL June Retreat - Full Notes
+
+
+Notes by Session        2
+Session 1: Tech on the Horizon (10 years)        3
+Session 2: Battle of the Assumptions        15
+Session 3: Beyond the Obvious        33
+Session 4: The Problem Solved. Now what?        45
+Gallery Walk Responses        57
+What is common now that will be rare/ non-existent in 10 yrs because of technology?        57
+What about emerging technologies gives you the most hope or most concern?        57
+What is a taboo topic about technology?        58
+How could the United States fall behind in the tech race?        59
+What are critical but controversial assumptions about tech that need to be challenged?        60
+What tech development is not getting enough attention given its potential impact?        61
+What problem or challenge do you hope to solve with technology in the next decade?        62
+Survey Responses - Consolidated        63
+Which session resonated most with you or is most useful to your work?        63
+What idea or insight did you find most interesting over the past two days?        63
+What potential disruption worries you the most? Why?        64
+Did the retreat change your mind about anything? If yes, what?        66
+Do you have an assumption that you'd like to interrogate further?        68
+In your field, what indicator or breakthrough are you watching most this year?        69
+Nominate a "What If" paper you would like to read.        71
+How could the lab be most useful over the next year?        72
+At the 2027 retreat, what should we include that we didn't this time?        74
+Nominate someone(s) who you'd like to see at the next Tech Futures Lab event.        75
+
+
+________________
+Notes by Session
+The four sessions:
+1. Tech on the Horizon (10 years)
+2. Battle of the Assumptions
+3. Beyond the Obvious
+4. The Problem Solved. Now What?
+
+
+
+
+________________
+
+
+Session 1: Tech on the Horizon (10 years)
+Table 1 - Robotics
+
+
+Three probable breakthroughs:
+1. Dark factory — unmanned, fully automated factory
+2. Surveillance / border control — vertically integrated supervised autonomy
+3. Infrastructure inspection for long-duration facilities (e.g., underground pipes, factory, nuclear plants) and its capitalization
+
+
+Three longshot breakthroughs:
+1. Programmable / personalized robot development environment
+2. Humanoids / practical applications
+3. Soft robotics in physical context
+
+
+Key drivers or variables: US vs China
+
+
+Key uncertainties: Political uncertainty (supply chain, tech company vs US gov., international cooperation)
+
+
+Session 1 misc notes:
+
+
+* K: flying car
+* Y: deployment location (air / ground / home)
+* N: (1) impact of unmanned factory (dark factory); (2) battlefield; (3) military as a service (mercenary?); (4) human augmentation (exo-skeleton, implants) → Olympic-ish competition?
+* J: humanoid in the home — (very) long shot; personally programmable robot by non-expert (without coding) … fine to be a specialist
+* C: border control — controlling how evil you can be, but at scale. Automated kinetic attack. Water, aerial surveillance (vertical integration). Tech exists — what ethics comes in?
+* N: automated target recognition / classification. Hierarchical stack is there (to the level we need) and moving.
+* N/C/P: specifically, terrain-relative navigation, comms, battery. No Starlink everywhere. Investment is also there — probably solved within the next decade?
+* P: medical assessment — can it be replaced by AI / robotics? What is the bottleneck for robotics?
+* J: adoption by general population … go to doctor for social interaction
+* B: companion robots — no purpose but just there
+* A: Paolo — to address the uncanny issue, no prior intention
+* A: tele-presence … doctor, military, and interaction with world model. Soft robotics … robotic fabrics, inflatable robotics. Industrial inspection … places difficult to inspect (snake, etc.)
+* N: digestible robotics?
+* B/A: constraints are tricky, magnetics? Advanced but fragile … robotic systems engineering problem
+* B: individual programmability of the robot … increasing accessibility for business → likely in the next decade
+* N: customer needs defining the technology vs. technology defines the needs. Software-defined war … physical world is rethought based on software-based innovation
+* B: manufacturing will be re-thought as a datacenter. Just like a logistics center (already adopted), translated to manufacturing
+* J: disaster fighting?
+* N: still an engineering problem
+* Y: how to solve the robotic systems' systems-engineering component?
+* B: agentic tooling for the systems engineering / orchestration
+________________
+Table 2 - Space
+
+
+Three probable breakthroughs:
+* Reusable heavy launch (4–5× lower cost per kg to space)
+* Habitation on the moon
+* Maneuverability without regret
+* Economic efficiency
+* Approaching / detection / rendering inert / countering / redirecting of space-based (nuclear) weapons
+
+
+Three longshot breakthroughs:
+* Satellite constellations really take off to another degree — high-power lasers for moving power / ubiquitous comms / orbital data centers / space-based solar power
+* Viable moon business models (self-sustaining economic generation that is also revenue-generating for Earth)
+* Breaking SpaceX monopoly — US, democratic-led space leadership is important, so the more viable US space companies the better
+* Ability to find signs of biological life on exoplanets
+
+
+Key drivers or variables:
+* Competition with China and its heavily subsidized space industry model
+* Space is different from the other tech areas because it is the only one where we aren't losing to China (according to the group)
+
+
+Key uncertainties:
+* What date/year will Starship (or other heavy-lift concepts) actually start working?
+* Which company will step up to compete with SpaceX (Blue Origin, Rocket Lab, TBD)?
+
+
+Miscellaneous notes:
+* MM — China's constellation could surpass Starlink. Developing/other nations could adopt Thousand Sails instead. China is heavily subsidizing its space programs.
+* SG — BRI has not been that successful (debt trap); Sri Lanka airport that doesn't work but is then used by China.
+* KB — China has struggled with reusable launch (explosions) and Thousand Sails; risk still exists because China is subsidizing.
+* DB — breakthroughs; humans inhabiting moon; Starship within 3–5 years; space is different because it's the only area we aren't losing to China.
+* SD — megaconstellations are old news, not breakthroughs. On-orbit servicing (in-space propulsion), reusable spacecraft, space-based solar power, orbital data centers, reusable heavy lift (Starship).
+* KB — high-energy lasers (for moving power), ground stations, multi-band.
+________________
+Table 3 - Medicine / Biotechnology
+
+
+Three probable breakthroughs:
+   1. Completely autonomous lab, full stack (drug discovery, hypothesis generation, testing, etc.)
+   2. Brain-computer interfaces, aka cybernetic enhancement
+   3. Widespread, accessible, accepted gene therapy
+
+
+Three longshot breakthroughs:
+   1. Home pharmacy / home hospital (monitoring, drug synthesis, surgery, enhancement)
+   2. Bioengineered organisms for climate
+   3. Production and xenotransplantation of organs on demand
+
+
+Key drivers or variables:
+   1. Artificial intelligence
+   2. Robotics
+   3. Science funding landscape (e.g., does this happen at a university or corporate scale only?)
+
+
+Key uncertainties:
+   1. Regulatory landscape (e.g., are home-manufactured drugs safe?)
+   2. How much automation actually cuts costs
+   3. Accessibility
+
+
+Group brainstorm: Automation of molecular experiments; personal therapeutic synthesis machine (Star Trek-esque); full-stack AI for experimentation through hypothesis testing; mirror enzymes orthogonality; BCI — digital integration, hyper-communications interrogation techniques; novel amoeba that solves climate change (sucks up greenhouse gas), programmable climate; gene therapy across all tissues; cybernetic enhancements; more drugs to treat behavioral problems; body augmentation with small molecules; ed-tech that actually works; continuous whole-body monitoring — all biologics; xenotransplantation more broadly accessible and viable; self-rejuvenation through cell reprogramming broadly; home electricity in every home.
+
+
+Loose notes from Table 3 (tech on the horizon):
+   * Lab automation (×2) — of established workflows; hard part is piecing the individual components together
+   * Personal bioreactors — protein therapeutics, drugs, etc.; personal drug maker
+   * Automated hypothesis generation — process of writing grants is already automatable; who turns ideas into experiments?
+   * Mirror DNA / mirror life happens because home bio is distributed
+   * Brain/computer interfaces are common (?) — telecommunication and instant knowledge (like the Matrix); this is the trickle-down from helping patients; notion of thought crime / thought surveillance
+   * Longshot: every household has electricity — handheld battery device? Energy coming from phone?
+   * Bioengineered organism that solves climate
+   * Cure all cancer
+   * Any desired gene edit — in vivo / in utero; human genome editing is commonplace
+   * Cybernetic enhancement
+   * Interventions for appetitive control
+   * Body optimization / sculpting tech replacing doctors
+   * Educational laptop
+   * Continuous whole-body monitoring — unanticipated knock-on: a community of people who opt out completely
+   * Xenotransplantation is commonplace — common scaffold for organ fabrication and supply
+   * Whole-body cell rejuvenation strategies / partial cell reprogramming — TF infusion
+   * By how much can we compress the drug development timeline? To less than 3 years
+   * Metric for ranking: can this be done for one billionaire, or will it be available to the developed world, or ~50% of the human population?
+________________
+Table 4 - AI
+
+
+Three probable breakthroughs:
+   * World models that enable multipurpose robots — lots of interesting use cases
+   * AI as an always-available intelligent infrastructure — don't have to be connected to the network; privacy concern as well; Apple invested in compression of language models; "supercomputer in my pocket and playing cat videos"; AI will be the solution to privacy, most likely way to achieve that; very feasible, but not sure about the market
+   * Intelligence in everything that we have — do I have a personal agent is one part of that; AI disappears into the infrastructure?; kids growing up thinking they can speak to every appliance; enable applications where you can access things without an internet connection
+   * People will reject AI — neo-Luddite movement
+
+
+Three longshot breakthroughs:
+   * Understanding the human brain + consciousness
+   * AI / machine-brain fusion — creates a new class of human, class-warfare problem (people who can afford it and those who can't); that person is more intelligent; intelligence coordinated with wealth or power; China does it first?
+   * Self-regulating AI — solves collective-action problems, etc.
+
+
+Key uncertainties:
+   * Will we understand how it works? Grown not built — high variance, 2
+   * Business model
+   * Government action that cripples or enables it
+   * Fickleness of public opinion
+
+
+First discussion — full brainstorm list (three likely and three long-term breakthroughs):
+   * Understand human consciousness
+   * World models that enable multipurpose robots
+   * AI that is self-regulating
+   * AI / machine-brain fusion
+   * People reject AI, AI stigma, no longer valuable
+   * AI that has the ability to detect deepfakes so the truth prevails
+   * Nuclear surveillance clutter management
+   * Edge frontier models that can run on your phone
+   * World models that allow VR and AR to scale for education
+   * Continual learning for personal-to-company AI model
+   * Human rights accountability
+   * AI will allow humans to map their disagreements, which will make better relationships
+   * Autonomous swarms on integrated air-defense systems, defense-dominant
+   * AGI with some coherent definition
+   * AI forces us to distill what is uniquely human ("rump of humanity")
+   * AI solves privacy problem
+   * AI language capability that nobody can tell if it's human or AI
+   * Quantum-accelerated AI (longshot)
+   * Cryptographically significant quantum computing that upends security
+   * AI can find a way to govern and lead economy — Gemini becomes Karl Marx
+   * Having a Chief Luddite Officer? Someone whose job is to say no and express the dangers of tech development
+   * DeepSeek and Z.ai as frontier open-weight Chinese models undermining American frontier models
+   * Neuromorphic architecture
+________________
+Table 5 - Cyber / Quantum
+
+
+Three probable breakthroughs:
+   * Cryptographically-relevant quantum computer
+   * People's loss of trust in security and truth and digital information
+   * Cost for software developers and deployers to vet their products for cybersecurity drops significantly
+
+
+Three longshot breakthroughs:
+   * Ubiquitous access to the internet across continents
+   * LLMs as provers for formal methods and whole-system properties
+   * A technology to counter decrease in trust
+
+
+Key drivers or variables:
+   * As Moore's law meets its end, we may become compute-constrained
+   * Variable regulation and liability regimes
+
+
+Key uncertainties:
+   * Bridging the gap between allocation of cost and socialization of risk
+
+
+Other discussed ideas: Optical computing; virtual digital twins; post-EUV lithography; 2D thin-film transistors
+________________
+Table 6 - Gen Sci
+
+
+Three probable breakthroughs:
+   * Quantum-enabled optimization in financial services for market prediction and market efficiency
+   * "The computer disappears from your awareness" → user interfaced entirely from observation of all cues giving intent (full user interface where you don't do anything except "thinking") → reads every cue, knows what you want. The next mass-market interface device.
+   * Militarizing a "takeover kill humans" attempt by AGI to then use against our adversaries
+   * Debate over whether geoengineering as a response to climate change is likely or a long shot; high demand for these technologies, more debate over whether its implementation is solid (the air delivery of the system is complicated … to do it right will be really hard; how do we put all this stuff up in the world?)
+
+
+Three longshot breakthroughs:
+   * Nuclear fusion at scale
+   * With automated materials-science research, we completely alter supply chains and localize research resources
+   * Space solar power
+   * Large-scale and effective CCS technology
+
+
+Key drivers or variables:
+   * Our table identified several areas with extremely high demand but low probability of success: nuclear fusion, geoengineering, and militarized AGI. Should we keep pursuing these technocratic paths over more proven but less politically viable options?
+   * Do "close calls" lead to weaponization or better harnessing of potentially salient technologies?
+   * Is the difference between a probable and a longshot breakthrough the "type" of change that happens — slow progress vs. a sharp kinetic change?
+
+
+Key uncertainties:
+   * Should geoengineering efforts focus on biological vs. physical processes?
+   * How do different types of breakthroughs empower autocracies vs. democracies? The book Red Plenty was cited as an example of what would happen if effective central planning were achieved using quantum computing. Would we see more Chinas?
+   * For something to be a breakthrough, should it be effective on a large scale? Or can it count as a breakthrough if we are on a probable path of implementation?
+
+
+Longer notes:
+   * Probable — full user interface from observation of all cues giving intent; the next mass-market interface device; the computer disappears from awareness
+   * Companies using digital-twin simulations to think about strategy in alternative scenarios — he sees extensive reliance on this → proven at scale for companies
+   * Militarizing a "takeover kill humans" attempt by AGI to then use against adversaries
+   * Decline of the four-year program (unbundled, potential for massive customization)
+   * Automated labs that could construct their own needs → dramatically different supply chains for lab materials; more flexible and customizable labs; not just confined to biological, would work on the full range of material sciences. What does this mean for research training?
+   * Quantum-enabled optimization in financial services for market prediction and efficiency … frontier causal-inference work to trade very complex markets (problem is compute power; upside is massive capital efficiency; big downside is flash-crash-type algorithms doing things we don't understand → short-term MASSIVE market disruption)
+   * Quantum would run things firms currently want to run, without the compute limitation they're facing
+   * Convergence of quantum optimization with algorithmic development for financial applications → very good and very bad implications
+   * Red Plenty → autocracy benefits from a strong central planner … many Chinas
+   * Flash crashes from a "bad" model can put people into a widespread depression, which could be catastrophic
+   * Geoengineering debate — is it where we have to go? Glacier securitization; scale is the question, scaling to a point where it lowers the temperature
+   * Longshot — defeat the takeover attempt by AGI, then use it to kill someone else
+   * Longshot — supply chains completely change for materials-science research; supply chain can be totally localized as we've cracked the bio-design component
+   * Nuclear fusion usable at scale (very surprising to some)
+   * CCS technology
+   * Space solar power (datacenters in space) — space capture and then beaming down will be extremely difficult; beaming in space vs. going through the atmosphere is much more viable; large surface area needed; cooling is a key issue
+   * Drivers — high-demand but hard-to-execute processes (fusion, geoengineering); close calls can be weaponized (nuclear history); a close call with AGI can militarize it; intent vs. "bad" AI; are changes kinetic and quick, or slow and progressing over time?
+   * Uncertainties — genetic engineering or newly discovered capability for carbon sequestration? Biological vs. physical sequestration? Political implications in democracies vs. autocracies (strong central-planning algorithm → more Chinas?); kinetic vs. long-building changes
+
+
+
+
+
+
+________________
+Session 2: Battle of the Assumptions
+
+
+Debate assignments (from the notes):
+   * Debate #1 — "Whoever is first in AI will dominate everything else": Affirm Table 1, Refute Table 6
+   * Debate #2 — "China is better positioned than the US to adopt advanced technology at scale": Affirm Table 2, Refute Table 5
+   * Debate #3 — "The use of AI is cheating": Affirm Table 3, Refute Table 4
+   * Table 7 appears to have observed/judged
+Results
+Debate 1 Winner: Opp
+Debate 2 Winner: Pro
+Debate 3 Winner: Draw 
+
+
+________________
+Debate 1
+"Whoever is first in AI will dominate everything else"
+
+
+Affirm: Table 1 · Refute: Table 6 
+Speakers: Phil + Greg Sands (affirm), Chris Manning (refute) 
+Also recorded by Tables 4, 5, 7
+Affirm side
+As recorded by Table 1 (affirm's own worksheet):
+   * First = compounding effect of forming an ecosystem
+   * Everything = economic + science (+ military)
+   * Although there are races within the same ecosystem (e.g., DeepMind, Anthropic), we can contain them in a single ecosystem
+As recorded by Table 6 (the refuting table's notes on affirm's claims):
+   * We have to question what we mean by "first"; is this AGI or something more specific?
+   * The definition that makes the most sense is being the first to achieve a durable and compounding advantage
+   * If you have a particular level of sophistication in AI, it will enable further development
+   * What does dominating mean?
+   * Economics, science, and the "things that matter" are where artificial intelligence will step into the places that need intelligence
+   * First movers will have what they are doing seen as a general technological enabler
+   * The first mover will establish the norms, geopolitical norms, and so being the first mover will enable faster technology and diffusion into other domains as well
+As recorded by Table 4 ("First movers have advantage" — PRO):
+   * What does being first mean?
+   * First to achieve a durable and compound advantage
+   * Reason to suspect that AI becomes an enabler of AI
+   * Dominating every single thing or just economics and science, the things that matter
+   * Reason for dominance: first movers are going to see what they are doing as a general technological enabler — electricity, computers, etc. AI can advance thinking in every domain
+   * Flywheel that happens when AI becomes the enabler, so the first mover will accelerate their advantage and set geopolitical standards and norms everyone else will have to follow
+   * Not just faster technology, but faster diffusion into every domain
+As recorded by Table 5 (supplementary, Debate 1):
+   * Phil: Being the first to achieve a durable and compounding advantage; with good-enough AI, AI becomes an enabler for AI; general technological enablement by AI; self-accelerating AI
+   * Greg: Assert compounding advantage; soft-power effect of AI on all sectors
+As recorded by Table 3 (notes on debates):
+   * Pro: durable and COMPOUNDING advantage — in spaces like economics, science, etc.; electricity, computers = general technological enabler; flywheel puts the mover in the advantage seat, sets geopolitical standards, etc.
+Refute side
+As recorded by Table 6 (refute's own worksheet):
+   * Let's take the proposition that whoever is first in AI will dominate everything else
+   * That is an incredibly strong, incredibly general claim, which on the face of it is just completely implausible
+   * "Dominate everything else." There is more to the world than economics and science. How likely are those two cases? There are a few examples of a single country or company dominating a single product. There is no precedent for one thing managing to dominate such varied industries.
+   * There are lots of types of AI. If you can't buy an American-made motor, what is the chance of American dominance in robotics? There would be multiple winners and important players, not dominance.
+   * Initially, DeepMind was the breakthrough. But this is no longer the dominant product. They are clearly behind Anthropic and OpenAI. So we've already disproved the extension of domination.
+As recorded by Table 1 (affirm's worksheet, recording refute's claims):
+   * Historically, dominance over "everything" has not been done
+   * E.g., China good at robotics / US wins in software
+As recorded by Table 4 ("First movers" — CON, "CM as the expert"):
+   * Take the proposition that whoever is first will dominate everything else; encourage people to think this is an incredibly strong and general claim that is completely implausible
+   * Break down the pieces
+   * Not only economics and science — but even if you bought that definition, how likely is that to happen?
+   * Few cases in history of a country or company dominating one thing — Bell in NA for decades, China dominates solar
+   * No precedent for anyone dominating EVERYTHING
+   * People think narrowly about AI, but there are things like robotics; if you can't build motors, what's the chance of winning in robotics?
+   * How are we defining first in AI? Reasonable definition = DeepMind in neuro AI
+   * Just not the case that Google DeepMind is dominating in this moment — SO ALREADY DISPROVEN
+As recorded by Table 5 (supplementary, Debate 1):
+   * Chris: Whoever dominates AI will dominate everything else — no, because there is more than technology and science; no, because AI domination does not mean domination in hard-technology sectors; the initial AI winners are already beginning to waver
+As recorded by Table 3 (notes on debates):
+   * Con: few historical examples of any technology enabling domination of multiple things
+Rebuttals
+Affirm rebuttal (Table 6):
+   * The leading group would be a nation-state, not a company
+   * Emphasizes the compounding effects within and between domains
+   * Flywheel effect of attracting talent and investment will compound
+   * Being "first" gives soft power to geopolitics and leadership. Leadership in AI sets language, writes history, educates children — and that is in fact everything else
+   * Durable, compounding is at the ecosystem level, not product or company
+Affirm rebuttal (Table 4 — PRO rebuttal):
+   * Fundamental argument that "everything else" is such a broad category
+   * AI has compounding advantage within and across domains
+   * Sparking ideas, setting standards, attracting capital
+   * Also matters in geopolitics and soft power — WW2 US power came from economic and military leadership; that in AI sets language and educates children
+   * Yes, DeepMind had a moment of leadership, but we defined it as a durable compounding advantage, which is at the ECOSYSTEM level, not just one company or person
+Refute rebuttal (Table 6):
+   * What the affirm has to rebut is what was put forward in the AI 2027 document, which outlines a rapid-takeoff scenario in which AI provides a compounding advantage. The thought was it compounded so quickly that next year would be the end of the world.
+   * This is inherently an "end of history" position
+   * Look what has happened everywhere else
+Refute rebuttal (Table 4 — CON rebuttal):
+   * What PRO has to argue is the AI 2027 document — outlines the rapid-takeoff scenario, a compound advantage of AI
+   * They thought it compounded so quickly that next year will be the end of the world (written last year) — pretty extreme beliefs
+   * Have to be arguing an "end of history" position
+   * SF AI APOCALYPTIC CULT
+   * Not plausible — yes, for a while people will have a compound advantage, but it doesn't last: American manufacturing, Italian glasswork, etc.
+Q&A (as recorded across Tables 2, 4, 5, 6)
+   * What does dominance mean in the military / what's the mechanism? Affirm: faster decision-making, targeting — "decision dominance"; weapons with better targeting, but ultimately creative solutions and decision dominance. Rebuttal: the military is another example of "everything else" — now in Ukraine, Russia has a dominance in humans, Ukraine has it in tech; different actors with different advantages on different things.
+   * Where does dominance come from? Affirm: the strength of dominance comes from being able to act like many when you are one — coordination, already happening at Anthropic; once you're 3–4 generations ahead, the ability to lead in these sectors will be difficult for others. Rebuttal (Chris / Con): illustrates the point of distributed dominance; both sides have advantages and power.
+   * Why is short-term dominance good or bad? Affirm: short-term dominance lets an ecosystem advance and facilitate the investments for sustainable growth; economic dominance provides the ability for a government to compensate, adapt, and sustain ongoing investments for global leadership (Anthropic and USG in the same ecosystem). Rebuttal: nothing wrong with short-term dominance, but in the long run of history, advantage has never lasted forever unless we're talking about an apocalyptic end-of-history story.
+Refute-side prep and discussion (Table 6, "Day 2" — DISAGREE)
+   * We need to define AI; it can be broad, but in recent discourse it's very narrowly thought to mean LLMs only. What does it mean to dominate? And "everything else"?
+   * Debates over how to define "dominate": number of users is a bad definition — some game companies in China could build a little game box and sell a billion versions, making it the most used but less powerful. There is space for everyone to dominate in certain categories, so how do you determine domination?
+   * To dominate everything else is going to be a large space. To dominate AI and the military, you need a separate military. If the US military has some fancy AI, this doesn't get to dominate spiritual life, for example. Domination fails between domains of competition; specific use cases are most important and allow for domination, but it's hard to translate success in one category to another (military to religion). We need AI + A to dominate in X — the "+ A" is required for category domination.
+   * We have no evidence that an AI is spurring the innovations RSI proposes. The idea that AI will accelerate so many fields hasn't been proven. Even protein-fold advances haven't changed in 10 years (from a recent paper J brought up).
+   * Historical precedent shows technological dominance doesn't translate to overall dominance. Railroads, telegraphs, etc., did not lead any one country to dominate overwhelmingly.
+   * WHO dominates? Is it the US government or Anthropic? How do we feel about using "domination" for a private company? Anthropic cannot dominate the US government — the state has the monopoly on violence. Maybe the monopoly on violence can be disputed — Anthropic could bring down planes and other systems. Just because a US company achieves AI domination does not mean it will align with US interests.
+   * There are material limits to domination independent of AI development — hardware and China's dominance there; maybe limits on natural resources. Time limits, diffusion of tech, etc., make it hard to isolate domination. All domination is temporary, and all domination is local. Other factors could come for you as you dominate in AI.
+   * First in AI: if we take modern AI, the first was clearly DeepMind — but right now they are not winning; so maybe being first isn't key, being the best? China dominates in hardware, so they could dominate in robotics.
+Affirm-side prep (Table 1, Group 1: Amy, Glenn, Greg Sands, Phil, Kharis)
+   * Definition of "first": P — definition? specific case/applications? GS — early leadership vs. sustaining the leadership (temporal). GT — win = discrete moment, vs. first = sustaining dominance. P — e.g., AI to recursively improve. GT — first is based on some metric? A — global diffusion; what is getting wasted (costly development)? P — tools of AI will be more important than humans in design processes (self-looping). GT — marginal return is shrinking due to AI based on investment? YT — we need only one "something" that is not dominated by the AI.
+   * Definition of "everything else": GS — everything = economically + military/geopolitical. Y/A — language/culture + CCP-oriented knowledge? GT — wall of (i) compute, (ii) energy, etc. that induces the ceiling. GS — AI = general economic input (~ energy = general economic input); the surprise of Hennessy is the fact that Moore's law is scaling.
+   * Potential counterarguments: A — (1) limitation of the energy/ceiling, (2) AI will not dominate something else (culture?). GS — focus on (2) because (1) is equally true. Y — political power (~ android mayor). P — certainly influences productivity; assume a small country with small natural resources but the best AI model — still requires the minerals, etc., to thrive (e.g., Singapore). A — models alone is not the definition, so this is ok. GT — regimes of liability to the AI vs. human. K — counterargument in AI diffusion (open vs. closed); how to sustain dominance? Is second better? GS — (1) diffusion (even with the best model, pushing into the economy can fail) and (2) being second. YT — shall we include (1) as part of the argument? GT — "computer is everywhere except for the productivity measure" … first = economic ecosystem. YT/A — flywheel for data + energy + optimism of society + talent. P — + branding effect; counterargument: disruptive technology, anti-trust, switching cost; durable compounding layer. GS — in reality the model is getting swapped, people use different models (APIs). GT — locking into a particular model might be a risk. P — OSS model (Wikipedia-style) could be the direct counterargument; what if the OSS is the best model?
+   * Who is "first" — company or nation-state? (open)
+Observer / judging notes (Table 7)
+   * Dominance — For: We're talking about science and technology; capacity to deploy it across domains; novelty of technology is its broad use case; ecosystem level, not an individual company; AI 2027 document (compounding take-off effect); job displacement can be skirted by the economic security that technological development provides.
+   * Dominance — Opposition: Chris Manning has 320k citations; incredibly broad and vague claim; how likely is it that AI even dominates science or technological development, notwithstanding societal or cultural concerns; how is "first" even defined; Google DeepMind (behind AlphaGo) is already behind Anthropic and OpenAI; transient nature of technological dominance; seems implausible that dominance is sustainable — cites many recent examples of developments that confer short-term but not long-term advantages.
+   * Strongest single argument (from Table 1's worksheet): An AI advantage cannot bridge gaps between industries or eliminate physical constraints.
+   * Strongest arguments (Table 7): Dominance — cons, easier to poke holes.
+   * Points of genuine disagreement (Table 1/6): Will nation-states continue to be the unit of analysis and hold the monopoly on power? Is the short-term advantage of compounding effects enough to build a long-standing advantage?
+   * Points of false disagreement: Semantics over short-term vs. long-term.
+   * Open question (Table 1/8): Whether we are discussing at the nation-state level (US vs China) or the company level (e.g., Anthropic vs US government).
+
+
+________________
+x
+Debate 2
+"China is better positioned than the US to adopt advanced technology at scale"
+
+
+Affirm: Table 2 · Refute: Table 5 
+Speaker: Jason (affirm), with Kazumi and Kirston (refute)
+ Also recorded by Tables 4, 7
+Affirm side
+As recorded by Table 2 (affirm's own worksheet):
+   * Ability to control societal behavior from the top down — video-game-ban anecdote
+   * Hardware and manufacturing infrastructure — US has offshored most of its scalability while China has been scaling up
+   * Access to resources to develop tech — capital, data flywheel, inputs (raw materials), global market, national datasets via surveillance collection
+As recorded by Table 4 (PRO):
+   * Two parts: adopt, scale
+   * First, China provides a favorable gov and policy environment — top-down regulatory control; Chinese law that children cannot play video games for more than 2 hours 2 days a week, enforced with facial recognition
+   * Command environment means they can push people toward/away from tech
+   * Favorable public opinion, access to lots of resources
+   * Command economy, capital movement, subsidy — solar
+   * No privacy concerns, global access to markets — in and out
+   * All the right ingredients are there to build on
+   * Spent the last decade building the workshop of the world — entire manufacturing pipeline, Shenzhen
+   * Right environments and access to all the resources
+As recorded by Table 5 (supplementary, Debate 2):
+   * Jason: "Adopt and scale"; China has top-down regulatory control, which allows them to push people toward technologies; they can subsidize development and scaling; less concern about security; they have a robust manufacturing pipeline; good regulatory, economic, and resource environment
+Affirm planning notes (Table 2):
+   * China top-down authoritarian regime better positioned to mitigate harms
+   * Example of countering video-game addiction through time limitation for minors via facial recognition
+   * Massive cheap labor force, better at teaching STEM
+   * Chinese education has made more efforts in the last 20 years to encourage out-of-the-box thinking and creativity that was previously stifled by the authoritarian culture
+   * US political/policy class has too many lawyers (and some businessmen) rather than engineers and scientists
+   * Top-down command economy — able to heavily subsidize things like solar panels, set legal framework
+   * Huge data ecosystem — surveillance state — data flywheel
+   * Hardware manufacturing ecosystem set up easily, even spatially
+   * US Stanford faculty use Chinese grad students to talk to Chinese companies to get parts for the lab from China — shows how Chinese companies are easily networked within
+   * PRC government can prop up companies long enough to outlast competitors
+   * 80% of Chinese people are pro-AI
+   * US sees new societal contracts as negative, but tech has improved quality in Chinese
+   * Less friction in Chinese market — no need to incentivize consumer uptake
+Refute side
+As recorded by Table 5 (refute's own worksheet):
+   * As a command-and-control economy, while they are effective at deploying resources, this ability to marshal can misdirect resources in an effort to guess where technology is heading, leading to misdirected resources and difficulty correcting course
+   * Where China is worse: inefficient allocation; single failure point; political risk
+   * Where the US is better: talent attraction; continuous innovation; resilience and redundancy; access to investable assets; rapid adjustments; culture of entrepreneurship; competition
+As recorded by Table 2 (affirm's worksheet, recording refute's claims):
+   * Command-and-control economy can develop at scale, yes, but it makes it difficult to correct course since resource allocation and all efforts are so completely focused in one direction — example that they are late to semiconductors — also rule of law/democracy/free markets reward innovation
+As recorded by Table 4 (CON):
+   * Command and control can be effective, but this ability means they can be directionally incorrect — enormous resources allocated to the wrong place; they must guess where tech is going
+   * Bad at correcting course — had they decided to attack semiconductors earlier, they might be better off now; chose other tech to prioritize (solar, electric cars, etc.)
+   * US better equipped for this
+   * TECH IS NOT STATIC — US can leverage its capabilities in an innovation ecosystem and dynamic economy
+   * Can't scale if you're directionally incorrect
+As recorded by Table 5 (supplementary, Debate 2):
+   * Opposing: Controlled economy means difficulty correcting course; huge resource allocation; US has the leverage of economic capabilities; can attract talent
+   * Kazumi: "Single point of failure" an issue for China; to adopt technologies you need technologies → the US has innovation advantages; every upside has a downside
+Refute counterpoints (Table 2):
+   * Lack of innovation, "all Chinese people think the same" — countered by recent revamps in the Chinese educational system
+   * Population dynamics — ahead of it with technology, ability to attract global talent
+   * Free market in US — being distorted by concentration of wealth
+Rebuttals
+Affirm rebuttal (Table 2):
+   * This may be true for development and innovation, but fast-following could be more important for scaling and adoption
+   * Fast scaling = fast adoption — TikTok example
+Affirm rebuttal (Table 4 — PRO rebuttal):
+   * More of a risk if you're talking about creating — this is about ADOPTION AND SCALE
+   * Argument for fast followers: they can see where it's going and then marshal all the resources
+   * Argument that mass shapes scale — don't need pre-vision (TikTok, they set direction)
+   * Rule of law and rewarding innovation
+   * We've been distorting those free markets over the last few decades
+Affirm rebuttal (Table 5, recorded):
+   * Jason: Risks outlined are not about adoption and scaling
+Refute rebuttal (Table 4 — CON rebuttal):
+   * LLMs as an example of what couldn't be scaled because they were scared of what people would say about those in power — Tiananmen Square — SINGLE POINT OF FAILURE
+   * COVID RESPONSE — when things go wrong, they go REALLY wrong
+   * Every upside has a significant downside that may play out horribly in the future
+   * They have to be able to develop and use the tech — the US has the advantage there
+   * Leadership risk running companies in China — Jack Ma; you risk threatening CCP leadership
+Q&A (as recorded across Tables 2, 4, 5, 7)
+   * Better positioning in social/political infrastructure — what if favorable opinion changes? Social/political disruptions? Affirm (Table 4): not an assumption — polling shows they are pro-AI; for better or worse, China has demonstrated the ability for effective censorship and the appearance of outward support for the regime; because of their control they can prevent it. Refute: 20% youth unemployment and it won't get better; white-collar neurosis; Americans stressed now, China in the future.
+   * Reliance on external supply chains? Affirm: China shoring up the supply chains in Africa; continue to see competition for access to those resources. Refute: China inaccurately predicted where technology is going, now hurt by supply chain and inability to get semiconductors.
+   * Judge question (Table 2/7): what if Chinese public opinion changes about AI? Aff response: China censorship can control information flows so it doesn't change. Neg response: 20% youth unemployment.
+Points of disagreement (Table 2's worksheet)
+   * Genuine disagreement: The other side claimed the Chinese authoritarian system doesn't foster innovation — we think TikTok proves the opposite since it was rapidly scaled worldwide despite content restrictions; and also the current US government is becoming more authoritarian and attacking innovation too by driving foreign/immigrant talent away and taking other unwise actions related to science and tech.
+   * Strongest single argument: Scaling and manufacturing chasm between US and China.
+Observer / judging notes (Table 7)
+   * China — For: Top-down regulatory control that enables rapid policy adoption and social-norm establishment; favorable public opinion of AI; capital movement is fast and scalable; manufacturing base; front-end and back-end of product development; this is an argument about scaling, and China due to its top-down direction has a massive advantage; free markets in the US are weakened by over-regulation; China is an effective regulator of social behavior in order to develop technology.
+   * China — Opposition: Easy to misplace resources by directing large amounts to the wrong technology; semiconductors as an example of resource misallocation; free markets reward innovators; failure modes like COVID management offer examples of severe consequences; white-collar neurosis, 20% youth unemployment in China will be of consequence.
+   * Meta-note (recorded by Tables 2 and 6): The China debate had many misconceptions on both sides — one participant noted there are many restrictions on data use in China that one side did not portray accurately. An expert-panel debate on this topic could be more informative for the audience (GW and JB both made this point).
+________________
+
+
+Debate 3
+"The use of AI is cheating"
+
+
+Affirm: Table 3 · Refute: Table 4 
+Speaker: Nand and Layla (affirm), Mark Horowitz (refute)
+Also recorded by Tables 5, 6, 7
+Affirm side
+As recorded by Table 3 (affirm's own worksheet):
+   * Cheating is a question of morality and humanity
+   * Defined as the systematic undermining of the goals and spirit of an exercise
+   * Cheating is a slippery slope on the way to illegality, but it is distinct from illegality — it is a question of fairness
+   * We want to start with an example comparing the purpose of bodybuilding vs. weightlifting to define cheating:
+   * Steroids allowed in bodybuilding because the goal is just whose muscles can be largest
+   * Steroids banned in weightlifting because it's about measuring unaided strength
+   * You might say using AI isn't cheating because it depends on how you use it — attack their argument: "the ends justify the means" is not a good way to go
+Affirm brainstorming (Table 3):
+   * What is cheating? Cheating implies a fair starting ground
+   * Educational sheet — a checkbox of which tools you used and where you applied them; the further up the checkbox you go, the lower your grade
+   * Cheating requires you to understand the purpose of the exercise — it is cheating if you are subverting the purpose
+   * Is cheating always bad? Cheating and asymmetric advantage are not the same
+   * Sure, AI can accelerate X, Y, Z
+   * Using AI is cheating because the definition of cheating is to subvert the intended purpose of an activity
+   * Three arguments:
+   * Bodybuilding vs. weightlifting (steroids allowed vs. banned depending on the goal)
+   * Goal of business: enable competition. In school: enable learning. Spirit of the activity (a fun card game, etc.). Everyone has entered into a social contract.
+   * "Using AI isn't cheating because it depends on how you use it" — attack: the ends justify the means
+   * AI is creating an unequal playing field — people who have access vs. those who don't, in business:
+   * If you don't think it's cheating, then access to AI tools doesn't matter
+   * Those who have it can do more with a limited amount of resources
+   * Laws equalize the playing field we work within
+   * Illusion of competence, but humanity as a species requires actual competence
+   * Tool makers and tool users
+As recorded by Table 5 (supplementary, Debate 3):
+   * Nand: Core argument is the difference between something being illegal and being unfair; this is about being unfair; cheating can easily slide toward illegality
+As recorded by Table 4 (PRO, from Table 4's full debate notes):
+   * Not a tech question, question of philosophy and humanity, fairness
+   * Core argument of debate is difference between legality vs. fairness
+   * In legality: jails, fines, etc. Cheating is about being wrong, about feelings and morality, right vs. wrong, humanity
+   * First distinction: this is about humanity and feelings
+   * "If it's legal to use it's ok" — but cheating is about making sure the game you're playing, you're playing in the true spirit of engagement as opposed to just trying to win
+   * Competition will creep toward breaking the law — you start cheating, then get more and more progressive (unleashing killer robots with AI in the future)
+   * Humans have been using tools forever, but it's always been HUMANS using tools, not having humans pass off work that isn't theirs
+Refute side
+As recorded by Table 4 (refute's own worksheet — extensive):
+   * What is cheating? Connotation is representing that you know something that you don't; you didn't generate the answer yourself
+   * For students, using AI is cheating if you are not producing everything. But if I'm a student and I use AI yet still know all the information — AI as a tool — that is not cheating
+   * What's the meta issue? What is the question really asking? Is AI good or bad for society? Ethical use of AI is any aspect you choose. Ethics vs. pragmatics.
+   * We need to make our own definition and argue the points to support it — no need to get into esoteric definitions. Beneficial to individuals and society.
+   * Student example — enables students to actually do more and build stronger arguments than they would without AI
+   * HL: Ok, but with an asterisk. High-level view that "desperate people do desperate things" — Donner party? Competition with China is an existential threat and we need to do what we have to.
+   * China distilled our AI models to make theirs, so the foundational premise is CHEATING. HL: I don't understand the word cheating in that context — taking all our IP, etc.; playing by a set of rules that they are not
+   * Definition of cheating is changing — 50/50 on cheating vs. not
+   * MH: By definition, cheating is not following somebody's rules, but who sets the rules that define whether we're cheating?
+   * HL: as a faculty member, if I tell students they can use AI, and they do, it's not cheating
+   * WHO MAKES THE RULES? Global order and the way we have lived is changing dramatically — different countries have different rules, so cheating to someone is not cheating to another; can be laws but can also be norms
+   * MH: Before AI, lots of people complained about China stealing IP, but EVERY country has stolen IP — you don't pay for IP because you don't need to; the US has a history of that
+   * What is the most important point on this question? Is or is not cheating?
+   * Cheating yourself — less cognitive ability, with the consequence that if someone uses your AI output to assess you, they are misled
+   * Cognitive abilities and reasoning skills get worse
+   * Not just a general decline in cognitive skills, but makes you less able to see problems with AI in the future; you become less questioning and too reliant
+   * Always the case that you lose how facile you are at some things, but increase your ability to work at a higher level
+   * "All abstractions leak" — they're not perfect; you end up having to learn the skills at a higher level (technological progress)
+   * Less cognitive load on one thing, more on another
+   * ANY NEW INNOVATION is "cheating":
+   * HL: Plato's argument about writing — writing is bad because you lose your memory
+   * Early days of newspapers in the US — people would post signs on the wall, but people couldn't read; was learning how to read cheating?
+   * ONE BIG CHEAT CODE in productivity. It makes me more vulnerable and less productive, but it makes the caveman exponentially more productive and capable — everyone has been cheating along the way
+   * DID APPLE CHEAT BLACKBERRY?
+   * Some people aren't having to work as hard. What about tech not being accessible to everybody? Is becoming more efficient cheating?
+   * No matter what, you still feel like you're cheating when you use AI in the office
+   * Question: What about the fact that now we don't get sucked into rabbit holes because of targeted searches with LLMs and not being distracted by Google results? Retention on ChatGPT is excellent, Google not so much
+   * "Average American who reads the NYT in the 1960s consumes more information in one day than the average English farmer did in his lifetime."
+   * New technology, so it's not cheating — just a knee-jerk. Don't fully appreciate how to use it yet.
+   * AI is SPECIAL: unlike every other information technology developed in the non-physical domain, AI purports to appear to displace higher-level cognition, and that is very different from the telephone or writing. Concern: AI is fundamentally different.
+   * Probably agree, because it is about human intelligence, but that doesn't mean it's cheating
+   * Means we cannot use historical analogies — in a class by itself. SO WHAT? HL: I rule out historical analogies.
+   * Skeptical of marketing claims, but it is quite good at a number of tasks — so what's the downside? Offloads to a machine processes that are more properly done by a human being, especially where it doesn't need to
+   * GOT CHATGPT'S ANSWER — depends on the rules of the situation: explaining concepts, checking grammar, tutoring with practice problems; turns to cheating when you submit AI work as your own. If you'd be expected to do the work by yourself but you're not, it may be cheating.
+   * Personal, geopolitical, economic. Here is where it is not cheating, then where it may be cheating.
+   * Passing off AI work as your own; if you're using AI it doesn't mean it's not your work. Spell check? Reword a sentence? WHERE'S THE LINE?
+   * Psychotherapy? — a place where the empathy you get ought to come from you or a friend, not a chatbot. Is that cheating? It's a fraud to say AI is providing you with connection. What is the value of authenticity? Script vs. reality — if you don't know, what's the difference?
+   * Start with a question about definition — we need to decide what cheating is, whose rules/norms. Cheating is not following someone's established norms, but who sets them? Also context.
+   * In history, every technology has been thought by people to be cheating — back to Plato. IS AI DIFFERENT? That's what everyone says about every technology, but this time it really is? Even then, so what? From the perspective of GPC, we NEED to do what we need to do.
+   * EVEN IF IT IS CHEATING — WHO CARES? We need to be on top. Shaped by our own democratic American interests.
+   * Education situation: if the student wants to learn, they will learn more and better using AI tools properly than without. They'll need these tools to be productive and competitive in the real world — a great opportunity in education. 45 years ago, solved homework with Maxima — was that cheating? Learned much more than all my peers.
+   * If I gave everyone an A in an undergraduate course, how many would come to class? A third of students just want the credential; about two-thirds would continue to show up.
+   * The liberal rules-based order was a really precious thing. Is China just proposing a different set of rules, or are there rules "whatever China wants, China gets"?
+   * "Lie flat" movement in China — China dramatically increased productivity and the size of universities; students finding it harder to find quality jobs; young people opting out of tech, moving out of cities, taking care of elderly, not joining the job market. Implicit bargain that you'll be taken care of in the job market, but that's not what's happening now; our young people have more negativity toward it than they do.
+As recorded by Table 3 (affirm's worksheet, recording refute's claims):
+   * Collecting grades is made easier by AI, but so is learning
+As recorded by Table 5 (supplementary, Debate 3):
+   * Mark: Cheating is often associated with novel technologies; it's not cheating to use AI to improve your learning
+   * Mark: The question is how we change the objectives to fit the role of AI; this does not mean AI is intrinsically cheating
+As recorded by Table 6 (Session 2 worksheet — refute claims):
+   * Evidence: collecting grades is made easier by AI, but so is learning
+Rebuttals
+Affirm rebuttal (Table 4 — PRO rebuttal):
+   * As an educator, cheating is undermining the goal and doing it unfairly
+   * AI is cheating
+   * Why we have honor codes; no consensus
+   * AI undermines the goal and does it unfairly
+   * Using AI to complete MIT homework is cheating
+   * Have to be aligned with the goals
+   * Bodybuilding vs. weight lifting — if the goal is aesthetics, steroids isn't cheating; if we want to see who is stronger naturally, steroids are cheating
+   * Uneven access to AI in education is unfair, cheating. About learning, not just "getting the job done."
+Affirm rebuttal (Table 5, recorded):
+   * Rebuttal: Cheating is undermining the goal and doing it unfairly; using AI is cheating because, in academic settings, it meets both criteria
+Refute rebuttal (Table 4 — CON rebuttal):
+   * Agree about undermining goals, but it doesn't have anything to do with using AI
+   * If we're going to use AI, we need to teach students how to use it and give everyone access to the tools — fairness is good
+   * The dilemma is about how do we change the objectives so we're more aligned
+   * Faculty are also using AI but not "cheating"
+   * Our ways of assessing students are ineffectual, but that's not a problem with AI, it's a problem of assessment
+Q&A (as recorded by Tables 4 and 5)
+   * No clear cheating or not? Can we be more absolute? PRO: AI is cheating because in the context where it matters, you are undermining the goals; in business, where it's about the goal, there is no cheating. CON: AI is a tool and it isn't intrinsically cheating — can be used to cheat, can be used to learn; AI by itself is not cheating. PRO: CON admitted current frameworks of how society operates were set before AI; yes they need to change, but at the moment of this debate, AI is cheating.
+   * Emotional context — is engaging with AI on an emotional level cheating? CON: Is using Google cheating so you don't end up going to the stacks? More directed searches — always a trade-off, but not cheating or bad at an emotional level. PRO: My human experience is having relationships with people, not just a chatbot. People need HUMAN interaction. Difference between Google vs. AI — using a tool vs. getting fully formed answers.
+   * What is the goal? Is the goal to have students learn how to write every individual word, or to communicate their ideas (kids with dyslexia, etc.)? AI as a tool for expression — different from using a Python library? PRO: The goal is not mere communication; it is critical thinking, thinking about other perspectives, and to care — to know what words to put into AI.
+   * (Table 5 recorded) What is the context? Pro: the only context where the question is relevant is where it is definitely cheating. Against: AI is a tool, so it is not inherently "cheating" in its use. Is using AI cheating the human experience?
+Points of disagreement and surprises (Table 3's worksheet)
+   * Genuine disagreement: AI undermines the human experience; some claim it enhances learning, understanding, etc.; some claim it siphons away opportunities for human-to-human interaction.
+   * False disagreement: That technology always changes the landscape/footing people operate under.
+   * Strongest single argument: Whether or not AI is cheating depends on the context and spirit within which it is used. No tool is inherently cheating, but within our systems for assessing learning, AI enables cheating because it enables subversion of the goal of learning independent critical-thinking skills.
+   * Open questions / evidence gaps: We didn't discuss the inherent biases built into AI that systematically obscure the crediting of ideas. Is it cheating if you get an idea from an LLM that actually came from someone else, unattributed — and is enforcing attribution sufficient? Is AI an accelerant of cheating? Yes, under our current frameworks. Even with equal access, there is a societal and gendered factor in use — studies show men adopting AI tools more than women; can this affect long-term outcomes?
+   * Surprises: Very emotional arguments. Spent a lot of time on the spirit of different human endeavors, focusing on the distinction between the goals of education and business. E.g., if the goal of your class is to learn how to articulate what you think, using an LLM undermines the process if it forms your argument, but not if it helps you find sources. If the goal is to build something and the AI helps you build it, it may not be cheating — unless you outsource the creative process. Did you come up with the idea, or did the AI? Is it creative to choose from a list of ideas, or does creativity require generating the list and choosing from it?
+Observer / judging notes (Table 7)
+   * Cheating — For: Question of humanity and fairness; difference between something being illegal and something being fair; cheating is about right and wrong, feelings, humanity; cheating is legal but not sportsmanly; undermining the goal and unfairness is cheating; unequal access in a learning environment is unfair.
+   * Cheating — Opposition: Cheating is not following the social norms and rules; who made the rules? Cheating is often associated with technological development; Plato thought writing was cheating; find the path to make it for learning; what does AI have to do with cheating?
+   * Strongest argument (Table 7): Cheating — contextual; nothing inherent about the use of AI.
+
+
+Table 3's strongest-argument note (recorded there too): No tool is inherently cheating, but within our systems for assessing learning, AI enables cheating because it enables subversion of the goal of learning independent critical-thinking skills.
+________________
+Session 3: Beyond the Obvious
+Table 1 — Economy
+Topics: market, employment, crypto, inequality, adversarial attacks on financial institutions, crypto/digital currency, taxes and retirement, housing.
+
+
+Disruption or systemic change (positive, negative, or both):
+
+
+Doomed scenario:
+
+
+   1. Massive concentration in wealth / political power
+   2. Massive layoffs, many design processes replaced by machines → induced political division, irreversibly
+   3. Overpriced stock-market volatility → pension / retirement-plan turmoil on a global scale
+   4. AI-induced climate change — change in how power is allocated (no longer cheap electricity)
+   5. Technological fragility — banking, timing, financial services (e.g., quantum tech) … nation-state loses its sovereignty
+
+
+Positive scenario:
+
+
+   1. Self-recursive growth without hurting employment (because many small businesses come up)
+   2. Tech diffuses widely → new market for everybody → flexible economy
+   3. Sustainably accelerating with AI? Innovation vs. efficiency
+   4. Health effect with AI — "catching up" with retirement / elderly
+   5. What if cheap electricity is coming? — affordable energy as a byproduct
+   6. US share becomes resilient (continuing over 10 years) regardless of AI and volatilities
+
+
+Technology responsible: Diffusion of AI technologies → AI is cost-effective for some things, wasteful in many places
+
+
+Tell the story / linkages: Will the overpriced market be justified / soft-land?
+
+
+Weak signals and how to track them: New employment — what kind of new job emerges? Stock market is extremely difficult to predict. Will there be any economically viable byproducts (e.g., massive scalable energy source) emerging?
+
+
+Group discussion:
+
+
+   * Market — K: overpriced stock market, too much leverage. P: Google valued fairly (relatively) but others? GT: depreciation of datacenters is really quick vs. other physical assets. P: LLMs could be less profitable due to open-source models. A: although more volatility is coming, financial people are getting good at handling it. K: compared to the financial crisis or the dot-com bubble?
+   * Employment — A: net employment increase or decrease? P: predicts net job reduction — more blue-collar workers (e.g., maintaining datacenters). GT: generates a new economic sphere because the boundary is smaller. P: people having a small business with an entrepreneurial mindset; personal LLMs fighting each other.
+   * Adversarial attacks → instability in financial firms — P: quantum tech could go well with a cyberattack on banks.
+   * Crypto / digital currency — GT: providing an alternative currency form will be hard to predict / make transparent in the US financial system; if a stablecoin breaks, huge crash. P: this is not uniquely vulnerable. A: not too much of a transformation, not seeing a whole scene. GT: the leverage itself is getting really big → liquidity crisis. P: maybe not the most important.
+   * Inequality — GT: inequality comes with new technology. P: do we see an increase? YT: basic income?
+   * Scarcity — GT: what's the bottleneck — energy, water, talent? A: talent changes (allocation) — basic math skills significantly enhance it. P: literacy and STEM devalued to some extent? Back then we needed to drive a stick shift, but now AVs are coming — this might happen. GT: it's becoming harder. GT: e.g., 3D printing + AI → lowering the barrier of entry → makes margins small.
+   * Tax / social security; houses (noted, not expanded)
+   * K: e.g., Google Gemini vs. Google browser. YT: does the AI get all API and become like electricity and water?
+   * Key questions: What is the major scarcity in the near future? How does the US position itself based on the economic scene?
+________________
+Table 2 — Healthcare
+Disruption or systemic change (positive, negative, or both):
+
+
+   * Healthcare goes from a centralized model to decentralized and super-personalized
+   * People will be more disconnected from each other if they don't have to depend on each other (neg)
+   * People will be more incentivized to do riskier things if they can already be fixed — moral hazard (neg)
+   * Marginalized communities will be the last to benefit from everything, especially life extension (neg)
+   * Macroeconomic effects — could go either way in increasing or decreasing healthcare costs
+
+
+Technology responsible:
+
+
+   * Self-help home healthcare in a box (all at low cost)
+   * Ubiquitous monitoring
+   * Designer drugs (GLP-1s)
+   * AI chatbots for mental health; reproductive needs; sexual needs; friendship needs
+   * Autonomous surgery
+   * Augment longevity (cell rejuvenation)
+   * Euthanasia options (possibly)
+   * Most of the inputs to this self-hospital will have to be delivered
+
+
+Group discussion: Significantly expanded lifespan; robots ↔ sex; human-brain interface (Neuralink); ubiquitous health monitoring (tracking everything); technology eliminating the need for each other and human connection; fiscal cliff led by increased lifespans (maybe it could be solved); affordable advanced healthcare; software is different — actual physical deployment in healthcare takes a long time; tech leaders think big transformations are possible over the next 2–3 years.
+________________
+Table 3 — Geopolitics
+Disruption or systemic change (positive, negative, or both):
+
+
+   * The role of the nation-state declines to irrelevance because our current industrial model of geopolitical power has collapsed. Atomization of power — tribal coalitions take precedence over traditional geography-based nations. Communities are based on shared interests and goals rather than place of birth (an IRL version of the online world).
+   * Self-interests take over from collective action, because the "haves" decide they want to disconnect from all the other "losers" who are holding them back or being subsidized. The state no longer offers much in the way of benefits, so it's better to disconnect than to keep investing in a loser system run by people who are not as smart as them.
+
+
+Technology responsible: Democratization and commoditization of technology puts it in the hands of non-state actors and citizens, enabling them to behave in ways that undermine state control.
+
+
+Tell the story / linkages:
+
+
+   * Technology scaling outpaces the ability of government to adapt to it.
+   * The state is still in denial that it actually "controls" the tech industry in some way — e.g., the flip-flopping on AI regulation, chips (export to China or not?), TSMC, etc.
+   * Companies decide they no longer feel the government is competent or can handle things and want to take control. They pick up and move, become self-sufficient on dollars, security/protection/military, don't want to pay taxes, etc.
+   * "Zuck on an island with nukes" — privatization and rental of military equipment, so the power of the nation-state is decentralized even further.
+
+
+Weak signals and how to track them: The signals aren't weak, but the discussion of their logical consequences is weak. The leading indicator is the collapse of government control. Examples of signals:
+
+
+   * Musk deciding to "buy" his way into the election and getting a seat at the table
+   * Deciding to turn off Starlink access for Russia and different parts of the world
+   * Anthropic deciding it was powerful enough to take on the DoW and fight that fight
+
+
+Upcoming signals: companies building nuclear power plants to disconnect from the grid; moving from Menlo Park to some remote Tahitian island; issuing their own currency; new countries declaring they're going to go nuclear.
+
+
+Tech transformation notes (Table 3):
+
+
+   * A three-layered problem of economic transformation from tech: economics designed around the industrial economy (industrial stakeholders are the ones at the table). What does the non-industrial economy look like? The industrial-state model no longer applies — and it is what the world's constitutional democracies are based on (what defines power and authority in the state).
+   * Stakeholder power has made the authority and control of the state less effective. Democratization of tech has put things formerly in the realm of government into other hands. Negative effects of unelected citizens who disenfranchise. Shift away from state-to-state power and relationships.
+   * Innovator's dilemma: commoditization concern that lets citizens take control from their government; also allows smaller or less powerful countries to project more power than they would "traditionally" have had; now you have new, risky stakeholders in the geopolitical scene.
+   * Massive empowerment of non-state actors and weak-state actors.
+   * The end of secrecy as we know it — geopolitics relies on secrecy; secrecy is good because it enables thinking through consequences and understanding them before things are shared.
+   * Breaking down traditional hierarchy — moving from a command-control model to an "atomized" / fragmented government. What are the elements of a state that allow command and control? Lack of transparency; monopolization of the use of force.
+   * Sources of control: laws and policies (eroded by Zuck or Pichai, who make the rules of engagement for the global online sphere — unofficial heads of state); printing money (crypto); bigger weapons than the other guy.
+   * Coalitions forming SOLELY on belief rather than geographical proximity.
+   * Elimination of the entire geopolitical system — governments and states completely abolished; the world is totally flat. The only thing in the way is that Meta doesn't have an army. Also a massive cultural shift — people like national identity … do they?
+   * Doesn't have to be a state actor to have experienced warfighters — you rent them; you live on a lawless island and fire things from there.
+   * The state is not protecting its citizens, which makes itself irrelevant. What makes it beneficial to obey laws? Why did we comply with atomic warfare — open season for nukes? Unable to meet the challenges of the present.
+   * Citizens can now amass enough personal power to be externally powerful relative to the government. Sovereign control over society, economy, and state depends on the democratic government — the people who make those decisions are accountable. So how do we make these independent actors accountable? How can democracy contend with stakeholder transformation? We have to have constitutional buy-in.
+________________
+Table 4 — Governance
+Disruption or systemic change (positive, negative, or both): (started with a ChatGPT search)
+
+
+   * Automated and more participatory
+   * Secure and democratically controlled is a concern
+   * AI as the operating layer for government
+   * Shift from "apply to help" to automatic entitlement; risk is exclusion
+   * Reduction of fraud
+   * API and AI as strategic state power
+   * Real-time regulation
+   * Cybersecurity will become a core governance function
+   * Democracy will be undermined by AI — public trust, deepfakes, etc.
+   * Less transparency
+   * Faster, personalized government
+   * Power shifts to big tech; companies as central governance actors
+   * Winners will be the ones that redesign agencies around AI
+
+
+Discussion:
+
+
+   * FRAUD, hopefully reduced. HL thinks the opposite — a question of definition. Lots of alleged fraud is a fight about who should be getting benefits. Cutting fraud can cut off many people who do deserve benefits. If you give benefits, you have to tolerate fraud to a certain extent; a focus on counter-fraud will hurt people who should get benefits.
+   * Increasing involvement of the private sector in government decisions — unauditable, trade secrets. Upside vs. downside; mechanisms and decision-making will be opaque; mistake vs. good thing; both in delivery and in governance process.
+   * Elon Musk satellite system — the US gov cannot do that. What happens if the US gov wants to do something with Starlink and they can't? What tools are available?
+   * Corruption of political process by deepfakes. Our trust in organizations and each other has been declining and will continue to. One of the biggest signs of whether a country can do a lot of things is TRUST.
+   * Migration to states that are "more like me," "birds of a feather flock together." Civil war? Secession? Also driven by tax policy (example: Texas) — money, not just political affiliation. Role of tech in creating migration — digital nomads. What's the driver? Pre-COVID you had to be in office; now you don't — but is it a tech problem? People moving are the wealthy founders, not the ones in supermarkets — not everyone has the choice. "Prompt to product" people choosing to do it in more favorable states because they can do it from everywhere.
+   * Does this enable more isolationist governance? Importing Chinese products now, but will we become more self-reliant if we can manufacture anything? Cost of capital to build manufacturing systems — China built its capability because it was paid for by US companies on the idea that China would produce things cheaply; through that they educated a workforce in Shenzhen. Doing that elsewhere won't be cheaper than before. We'd have to completely restructure the US economy. Companies are now leaving China because it's no longer the low-cost manufacturer. Much cheaper to import; would have to have a centrally driven economy.
+   * AI will increase or decrease fraud; the other side is efficiency, because that is what is being promised. Impression of China is that it is still extraordinarily bad at local governance.
+
+
+Technology responsible:
+
+
+   * Corruption of political process by deepfakes. There have always been different points of view; now you can select your community and stay in that echo chamber. Deep fakes. Chinese, Russian influence operations — heavily influenced by outside actors. Lose the mandate to govern; low election turnout. People invested in maintaining power have an incentive to keep it that way — incentives misaligned; tech is the enhancer. Government will rope the private sector in to keep that incentive structure. AI advisors in government.
+   * Surveillance — eBay was a good way to find bad guys; now it's even better with modern surveillance (traceability and accountability of bad actors). With cameras, we could easily be in a state where crime is greatly reduced but surveillance is rampant.
+   * Increasing friction — marshaling domestic support is harder than ever; governments spend more time on that before they can look at foreign policy.
+   * Companies are now deciding the international order "one business deal at a time." Seeing companies experiment with whether they want to participate. When things go bad, companies always ask the states to intervene. Is transactionalism actually an order?
+   * Challenge: we've described trendlines, but if you had to name that domain in 2036, what would you call it? "All-in-one at-home hospital ecosystem."
+________________
+Table 5 — Society
+Disruption or systemic change (positive, negative, or both): Forthcoming generations are less capable of critical thinking.
+
+
+Technology responsible: Proliferation of LLMs
+
+
+Tell the story / linkages: Since such voluminous information can be obtained from LLMs, people are less inclined to reach out to experts. As people put more faith in language models that may be wrong, their capacities for critical thinking decline.
+
+
+Miscellaneous notes:
+
+
+   * Role of religion in society — how does religion relate to technology? Is social media pushing people toward religion? Smartphone use is mobilizing religion in Indonesia; Russian Orthodoxy has sprung back under Putin.
+   * Gene therapies — how will these affect social divides? Who will have access and who will not?
+   * LLMs and information — what will the effect of people getting their information from LLMs be? The diffusion of LLMs can lead to intellectual handicapping. A generational effect where there are many young adults without experience and without proper education.
+________________
+Table 6 — (Session 3 template left blank)
+No sector or content was recorded in the Session 3 template. So Table 6's "Imagining Critical Transformations: Education" exercise is recorded under Session 2 above, where it appears in the notes.
+________________
+Table 7 — Information
+
+
+Disruption or systemic change (positive, negative, or both):
+
+
+   * Communication channels
+   * Information security
+   * Coordination on the basis of information — why do companies exist and not just distribute? Because it is cheaper to vertically integrate.
+   * Information blackouts enforced by aggressors in combat scenarios
+   * Is the free market the place to disseminate government information? Some objective-truth establishment.
+   * Collation of relevant government data? Publicly available information. Agentic AI uses the public information base.
+   * Tailored information enabling enhanced personal use.
+
+
+Technology responsible:
+
+
+   * Collated government database to disseminate and use information governments collect to full potential. Pressure influencing access to a democratized information database.
+   * Development of individual-use tools to engage with publicly accessible information. How to keep unbiased?
+   * Information regulation needs to change in response to disinformation campaigns. Continuous distrust of information provided by government via adversaries?
+   * Is information authentication the key technology that will transform public trust and government function? Eastern Europe, China, US versions of maintaining verifiable information. Not sure exactly what this looks like.
+   * Governments undergo a reckoning with free speech and access to information. Government centralized databases that are easy to engage with. Information access incentivized by economic forces as well as pressure from adversaries. Technology for information validation.
+
+
+Weak signals and how to track them: Continuous disinformation campaigns; constant mistrust of government-provided information. National division / polarization.
+
+
+Lunch exercise — how could the US fall behind in the tech race?
+
+
+   * Categories: stopping funding of universities / investment in expertise (foreign); over-regulation of emerging technologies out of fear (AI, biotechnology); failure of government to communicate effectively about emerging technologies and investments (COVID, fears over AI); lack of authority / effective policy.
+   * Surprising: failure to recognize legitimate desires for sovereignty — who is failing, who wants recognition, and why is this affecting technology development? Is this just Taiwan?
+________________
+Session 4: The Problem Solved. Now what?
+Table 1 — Universal real-time language translation (written / oral)
+Likely immediate impact: Translators
+
+
+Winners and losers / effects (discussion):
+
+
+   * K: translator is a loser
+   * A: winner is the US because it's bad at foreign languages
+   * GS: US could be a loser because it loses the de facto standard
+   * Y: data for LLMs coming from China more?
+   * GT: cultural subtlety will be missed; how about minority languages?
+   * P: mother tongue stays strong?
+   * GS: non-English / Chinese speakers — access to information is a huge push
+   * GT: How do states feel about it? How about the Chinese gov — wants to control the narrative? P: global communication.
+   * GT: intelligence collection — symmetry of information. A: information game could go worse — college slang? Real-time varying culture.
+   * A: cognitive degeneration — benefit of learning multiple languages. GS: maybe there are good aspects to freeing up time. YT: long shot — US science/technology might be weakened; the English barrier facilitated technological dominance.
+   * GS: risk of manipulating ideas (unintentionally / intentionally)
+   * P: low latency requires some locality
+   * P: censorship in the translation and ownership — 404 for the translation. How to know the translated sentence encapsulates the original intention? Is there a receiver-side device or sender-side?
+   * A: democratization of entertainment — YouTube (education)
+   * GS: access to many people — influencing. Y: copycat crime? GT: lower the bar of mobility — living in a particular place gets more desirable.
+   * GT: Spanish-speaking immigrant looking for medical care — basic services. K: economic opportunities — new jobs (geographic mobility).
+   * K: language and identity crisis → reinforcing identity. GT: community could fragment.
+   * K: word → word is not 1-to-1; importing new concepts.
+
+
+PRO: increased mobility (geographic / job); access to public service / political participation; entertainment democratization; first-gen immigrants do better.
+
+
+CON: fragmentation of identity; unintentional translation — cultural nuance (personal); deliberate manipulation due to censorship; cultural subtlety; US might be disadvantaged as we lose the scientific edge.
+
+
+Unintended: intelligence-information symmetry — an open society is more vulnerable to information; "classified."
+________________
+Table 2 — Electricity cheap and broadly available
+Likely immediate impact: Time savings for impoverished people who didn't have it before; access to appliances and other quality-of-life improvements.
+
+
+Winners and losers:
+
+
+   * Winners: people in third-world countries (those in subsistence living now); rural healthcare (better access, better epidemic detection/prevention); the environment (less fossil-fuel emissions)
+   * Losers: fossil-fuel companies; car companies that haven't pivoted to EVs
+
+
+Second and third-order effects / unintended consequences: Need mechanisms/logistics/mobility to deliver new demand for appliances and tech; environmental/climate costs — we'll consume more electricity since it costs less; electric aviation becomes more possible; more consumerism; localized environmental disruption from electronic junk vs. aerosolized emissions; more time online/on devices = more sleep deprivation and other possible health effects.
+
+
+What it means for the US: Some revision to the mean (economically/availability of goods) — US/rich countries will go down as poor countries go up. Resources may be scarce in the short term due to a demand surge until supply catches up.
+________________
+Table 3 — Most trucks, taxis, buses, cars self-driving
+Likely immediate impact: Reduced traffic, reduced commute and shipping times, reduced road fatalities.
+
+
+Winners and losers:
+
+
+   * Winners: software companies that make self-driving software; companies that manufacture self-driving-capable cars; people who live in cities
+   * Losers: drivers; car manufacturers; car-loan financers; used-car salespeople; people who live in rural areas (if access is uneven); local tourism (no driver rest stops needed)
+
+
+Second and third-order effects / unintended consequences:
+
+
+   * Human element — industry displacement is a huge problem (~4 million career transport drivers). Even if lateral job opportunities or retraining schemes open up, they have historically failed in the US because people are attached to the personal narrative related to their job.
+   * Infrastructure of cities — repurposing initially, then redesign
+   * Financing of car loans
+   * Restructuring of the auto industry (sales model, etc.)
+   * Liability for accidents
+
+
+New dependencies: AI chips; would fuel use increase or decrease? All electric? Battery dependence? Towing / car "round up" or rescue industries — automated or manual?
+
+
+What it means for the US: Displacement of a large contingent of the labor force.
+
+
+Policies or actions to take now: Most policy reactions are "stop the thing" or "everyone for themselves." There has to be a middle ground:
+
+
+   * Human element: say displaced people maintain their identity — here is an equally good job; need to show how they can maintain purpose and autonomy
+   * Liability regulation
+   * Infrastructure: ?
+   * Financing: ?
+
+
+Additional Table 3 notes ("problem solved" — no traffic!):
+
+
+   * Reconfiguration of the urban environment — getting even further into "streets are for cars"
+   * Do we even need retail? Cheap enough to have everything delivered? Or is retail better because it's easier to get there?
+   * Problem solved: road deaths; productivity; leisure; avoiding traffic; you can go faster because they're coordinated
+   * Ownership vs. rental society — if it's cheaper than it would be to own a car; avoiding the wait
+   * Restructuring of the financial order — financing cars, loans, etc.; car maintenance and repair
+   * Control and on-demand vehicle
+________________
+Table 4 — Synthetic lab-grown food becomes cheaper, tastier, and more nutritious than farm-raised food
+Likely immediate impact: Farming and fishing obsolete
+
+
+Winners and losers:
+
+
+   * Technology — large corporate actors that have trade secrets and patents; countries that have access to it (won't be equal access around the world)
+   * Countries will miss out — e.g., Ukraine grew a lot of wheat before the war; countries with agriculture-based economies
+   * Global agriculture employs about a billion people; in the US, about 50 million
+   * Wouldn't all go away — would change means of production but not necessarily kill the jobs; the food sector is already largely automated
+   * Very hard to create or destroy matter — even synthetically creating food needs enormous feedstock; not sure farmers go out of business, still need lots of organic material
+   * Scale might not actually get rid of all farming jobs; feedstock problem
+   * Concentration in just a few companies that will make extreme profits
+   * If used a lot more than agriculture, people in poorer countries will have access to cheaper food
+   * Wildlife will benefit; less pollution? Cleaner oceans? Cleaner atmosphere?
+   * Maybe it won't be proprietary and will be accessible to everyone
+
+
+Second and third-order effects / unintended consequences:
+
+
+   * Cleaner oceans, restoring ecosystems
+   * Driving down hunger rates across the world; a new Green Revolution
+   * Displace a tremendous number of people from primary food production; breaks an entire cycle of cultural traditions; whole groups of people who farm because they like it; large number of small farms
+   * Human civilization is organized around gathering or raising enough food to eat — now that problem goes away
+   * Q: Is food now equally abundant to everything, i.e., no food shortage? To have food you need water, energy, and "the atoms" (carbon)
+   * Countries become much more self-sufficient — don't need to send food across the ocean. Good and bad — less dependency, but less incentive for alliance and trade
+   * Amazon — its prominence is from low cost and high convenience; we can imagine an Amazon-like company controlling large fractions of the food supply. Who owns the technology?
+   * POLITICS IS EVERYTHING — proprietary to the developer or universal? Centralized or decentralized? "Track record is the bad one" — where all economic incentives are
+   * The PC became ubiquitous by giving individuals a computer for whatever they wanted, with an open ecosystem for software; same with the internet — centralized controlled protocols, but distribution made everybody want/get one. Centralization may or may not give a company huge control, depending on the value added; people may take the raw material and produce it themselves
+   * What percentage of food is pre-prepared by a major food company? 55% of adult calorie intake comes from ultra-processed and pre-prepared foods
+   * 5% of international trade weight is food — most food production is local. Raw feed should be gathered locally, too costly to ship. Get the nitrogen and carbon from the air. If we get rid of planes transporting food, carbon is greatly reduced
+   * Entire industries of cattle and pork gone would have net-positive effects on the environment (greenhouse-gas emissions, land use)
+
+
+New dependencies:
+
+
+   * The process requires material and energy, so it's a significant energy sink; would be a very large consumer of energy; enormous volume of production
+   * How many tons of food are produced daily for the world? ~10 billion metric tons per year
+   * Number of calories per gram is constant, so volume is constant; most food is water
+   * Still have transportation costs — but what if food is produced locally? Minimum plant size to produce efficiently
+   * Claim: you can cut the footprint needed to grow food by a factor of three and bring production closer to distribution — it would require a sixth of total current electrical capacity, just producing sugar
+
+
+What it means for the US:
+
+
+   * Only 10% of US exports are food; US would be a net winner (holds the IP rights), but manufacturing would probably be local
+   * Political pushback — some states are reliant on agriculture; reshuffle the allocation of political power; maybe just an acceleration of an existing trend; probably won't completely shift the political dynamic, but might make some states less powerful
+   * Volume of carbon from the air — 10% of food is carbon, so 1 ton of food gives 300 kg of carbon; 10 billion tons of food per year would extract a ton of carbon from the air, against the dozens of tons put into the air; pulling carbon out of the air is not a feasible solution now, but would be great if we could
+   * Roughly 40–50% of US land is used for agriculture, but only 3% actually grows crops — the rest is pasture for livestock; if we didn't need that land, what would it become? Methane and cows.
+________________
+Table 5 — Abundant potable water available
+Likely immediate impact: Higher quality of life in the global south
+
+
+Winners and losers:
+
+
+   * Losers: bottled-water companies; plastic companies and the oil companies that depend on them
+   * Winners: impoverished individuals
+
+
+Second and third-order effects / unintended consequences: Population growth in underdeveloped countries; decreased mortality rates; increased standard of living; overuse of potable water and strain on the industries it depends on.
+
+
+What it means for the US: Deallocated resources of human capital; potentially reduced migration.
+
+
+Open question: What is the method of delivering the water?
+________________
+Table 6 — Rising global temperatures significantly slowed
+Likely immediate impact:
+
+
+   * Rising global temperatures stop — an absolute gain for nearly everyone. Our group assumed this would be achieved via CCS, energy generation, and potential geoengineering.
+   * A global "sense of relief" similar to the end of the Cold War.
+   * Outcome is extremely path-dependent on "who" comes up with the solution: (1) the US alone, (2) a Chinese-driven process, or (3) a true global collaboration that lays the groundwork for future collaboration on existential issues.
+
+
+Winners and losers:
+
+
+   * Winners: the global south, and potentially China and India. Freeing up of energy — more widely available.
+   * Loser (comparatively): the US loses its "comparative advantage" of being less impacted than other regions, but still benefits if it led the process. Those focused on space colonization.
+
+
+Second and third-order effects / unintended consequences:
+
+
+   * Could usher in a new era of international cooperation (if achieved via the collaboration path)
+   * Could stoke a "drill baby drill" movement — if warming is masked, the case to cut emissions weakens
+   * On the other hand, a reinvigorated environmental-justice political movement, demanding reparations for disproportionately impacted communities
+   * Could lead to climatic warfare as a new domain of conflict (unilateral paths). If states possess geoengineering capabilities, it's hard to imagine they wouldn't use them against adversaries. In the '50s and '60s, the Soviet Union explored stoking tsunamis and earthquakes in the US — a similar example.
+   * Different impacts on global and local identities run through it all. State identities could become more salient as this existential threat is removed, or an international identity could be more salient if collaboration spurred the innovation.
+
+
+New dependencies:
+
+
+   * Operational dependency: the "system" (whatever paths stopped temperatures from rising) can't be safely switched off, so the world is locked into whoever runs it
+   * Technology and standards depend on the controlling power (US-led under the US, China-driven under China)
+   * Governance dependency in the collaboration path — a shared body that can't be exited without harm
+
+
+What it means for the US:
+
+
+   * US-led: short-term leverage, but a long-term target and blame magnet
+   * China-driven: double loss — forfeits both the comparative advantage and the leadership role
+   * Collaboration: one voice among many; relative decline, but managed
+   * Identity tension: "one sky" (global) pulls against "our thermostat, our terms" (local)
+
+
+Policies or actions to take now:
+
+
+   * Invest in the full stack (CCS, energy, governed geoengineering research) to be a rule-maker, not a rule-taker
+   * Lead on the rules — setpoint, attribution, climatic-warfare norms — before others set them
+   * Keep decarbonization incentives even if geoengineering exists, so "drill baby drill" doesn't win by default
+________________
+Table 7 — Personally tailored education available
+Likely immediate impact: Africa is now a major center of economic development
+
+
+Winners and losers:
+
+
+   * Losers: universities lose their monopoly on expertise; devaluation of college degrees
+   * Neutral: authoritarian regimes
+   * Winners: the poor; countries with young populations
+
+
+Second and third-order effects / unintended consequences: Africa development, economic interest; food-sustainability innovations / tech hub; political engagements with Africa.
+
+
+New dependencies: Africa for food technologies and green technologies. Heightened focus on national research / university ecosystems at the higher-tier institutions that already have these ecosystems in place.
+
+
+What it means for the US:
+
+
+   * More partnerships, economic interest in Africa
+   * Export of advanced technologies in exchange for access to US markets
+   * Lower-tier colleges fade away — do these undo a social fabric established by the college experience?
+   * US has lower soft power
+   * Invest in the accessibility of the technology
+
+
+Policies or actions to take now: Diplomatic / economic engagements with Africa and relevant populaces; exporting our ed-tech, open source.
+
+
+
+
+
+
+
+
+
+
+
+
+________________
+
+
+Gallery Walk Responses
+
+
+What is common now that will be rare/ non-existent in 10 yrs because of technology?
+   1. Human beings
+   2. Writing
+   3. Friends
+   4. Reading attention span
+   5. Handheld services (such as smartphones)
+   6. Tech that doesn’t originate in China or the US
+   7. Unsurveilance spaces (online or physical)
+   8. Critical thinking and problem solving without AI
+   9. Smartphones maybe also laptops
+   10. Cheap electricity
+   11. Undergraduate education as we know it 
+   12. Internal combustion for personal vehicles
+   13. Credit cards
+   14. Trusting government and trust between us companies and government
+   15. Delayed gratification
+   16. Human exceptionalism (ie robots that can suffer and life elsewhere)
+   17. Childhood disease
+   18. Cell phones
+   19. Routine medical sick / wellness care in person
+   20. A lot of how we educate and assess today 
+   21. democracy
+
+
+What about emerging technologies gives you the most hope or most concern?
+   1. One can hope that enormous AI compute can rebalance offense and defence and make cybersecurity much less of a problem in the future (ef., junk email)
+   2. Inability or newfound ability to discern truth
+   3. Hope-since historically increased understanding is good for society on average.
+   4. Confirmation bias, divide and isolation (social media)
+   5. Lower socio-economic groups use more tech while the rich abstain
+   6. Concern - power concentration
+   7. Further bifurcation of society into those who can access/use tools of opportunity and those who can’t 
+   8. Concern - the impact of AI on critical thinking and problem-solving abilities
+   9. Hope - medical advances for all
+   10. Innovation from unexpected sources
+   11. AI tech is far ahead of what people think
+   12. Concern - capabilities/breakthroughs could occur by actors or rogue states with little incentive to protect wider society.
+   13. Hope - improve human health and happy longevity
+   14. More universal access to knowledge
+   15. Hope - empowering people to use AI to solve their specific problems
+   16. Concern - business leaders are not aligned with our interests
+   17. Concern - the impact of AI on education
+   18. Hope - AI can work for people, not just biotech like social
+   1. Concern: the opposite is also true
+   19. Hope: democratizing knowledge
+   20. Too few people in the driver's seat
+   21. Thats usg has no systems for defending the nation
+   22. Government too far behind, lack of USG leadership / intl consensus
+
+
+What is a taboo topic about technology?
+   1. Emerging tech impacts diff people and communities differently, often putting users to harm at risk + marginalized communities.
+   2. China tech dev will be handicapped soon b/c of population aging
+   3. Sex robots
+   4. We rarely talk about the effects of technology on our understanding of history.
+   5. Genetic determinismm 
+   6. Technological restraint aka should this particular technology exist
+   7. Failure to involve diverse voices and civil society in how tech is governed and scaled (will lead to bad outcomes)
+   8. Technology and sex - what if 80% of young men only have sex with robots
+   9. Pornography
+   10. Who globally is being left behind? What is our obligation to prevent this? What are the risks of preventing it
+   11. China will not be contained
+   12. Wealth taxation
+   13. US-China dominance beinng political unsustainable and toxic
+   14. Limiting profits to rein in income inequality
+   15. Normalisation of sexualized children
+   16. Killer robots
+   17. Autonomous independent AI weaponry
+   18. Fully taxing tech-developers who get rich off their discussions
+   19. The US is the best to carry the tech torch
+   20. Dramatic income inequality
+   21. Dual-use
+   22. What if AI takes all the new jobs too
+   23. The cost of advancing it at the frontier as opposed to mass development of low-tech solutions
+   24. Technological leadership is the service of whom? Claimed Europe can’t lead but ranks higher in social wellbeing, happiness, access to healthcare, education, so who is being served by that leadership 
+   25. That China winning might be in the world's best interests.
+   26. Too often, following the science has become anti-scientific dogma not open to new evidence or…
+   27. Is technology progress good?
+   28. Commercialised tech does not optimize society benefit; rather reinforced plutocratic concentration of poverty and wealth. 
+   29. That technologists understand society and how tech will be used or abused
+   30. That current decision-making class best suited to understand + make decisions on emerging tech and society
+   31. Science and technology are not best governed democratically 
+
+
+How could the United States fall behind in the tech race? 
+
+
+   1. By not supporting an environment that supports research and draws people to these areas
+   2. Federal government defunding research
+   3. Trump admin-era policies that reduce influx of innovative students from outside the US
+   4. Laws don't keep up with turbulence: civil liberties + natsec
+   5. Keep doing what we’re doing
+   1. Thirded
+   2. This
+   6. Underfunding academic research
+   7. Too much development and legal regulation stops frontier AI tech being built.
+   8. Defund universities
+   9. Continue to incorporate ed tech in schools without discriminating
+   10. Let China annex Taiwan
+   11. Failure to recognize legitimate desires for sovereignty
+   12. Lack of rule of law undermines markets, unis, and soft power (not to mention our democracy)
+   13. Failure to invest in universities, talent pipeline, research ecosystem
+   14. Lack of authority on the moral ambiguities of certain technology development leading to overregulation out of fear
+   15. Failure to explain to American public + intervention in emerging tech regs and adoption etc
+   16. Lost biotech race to China (we already have)
+   17. Public fear and hatred of AI and robotics
+   18. Fail to recognize it's win-win or lose-lose rather than win-lose
+   19. Through monopolies and universities defunding
+   20. Failure to support US companies internationally
+   21. Insufficient education of seniors, who influence policy through their higher voting rates
+   22. Failure to recognize legitimate desires for sovereignty
+   23. Stop funding both public uni and national lab basic research
+   24. Overemphasis on closed foreigner ai companies causes loss to Chinese open source
+   25. Continue to alienate foreign talent
+   26. Continue to erode trust in allies and friends and partners 
+
+
+What are critical but controversial assumptions about tech that need to be challenged?
+
+
+   1. AI scaling laws
+   2. AI will advance enough that it will be indistinguishable from human output
+   3. Democracy / free market is more innovative than centralized system
+   4. Institutions and law can’t keep pace with technology
+   5. Tech is a net good and should be accelerated
+   6. Tech transcends laws + government (vs law + regulation controlling tech)
+   7. That innovation happens best under constraints
+   8. That rapid adoption is equal to value-add
+   9. That tech companies' leaders know what people actually want
+   10. That we can bust the companies
+   11. The sovereignty sota tradeoff
+   12. US will be engine of tech innovation + creation
+   13. Use of AI is cheating
+   14. “We must predict” we should be prospective in considering possible futures, not bet on one.
+
+
+What tech development is not getting enough attention given its potential impact?
+
+
+   1. Expanded prenatal genetic testing - social consequences re likelihood of heritable mutations (ex: Denmark)
+   2. Cryptographically significant quantum community (need to accelerate migration to PQC) - H 
+   3. Tech-driven emotional recognition and manipulation at scale
+   4. Biotech - h
+   5. The global lack of access to a very basic technology - electricity - electricity is essential to take advantage of many other technologies.
+   6. Lack of true PMF in enterprise tech
+   7. Our frameworks are typically a response to the last surprise
+   8. Robotics
+   9. Cascading impacts get a lot of air time as rhetoric, but investments in truly understanding them are thin.
+   10. Robot pets
+   11. Brain-machine interface - AI
+   12. How much can we disrupt education at all levels with learning (think something like Khan Academy)
+   13. Need for better battery power
+   14. Nuclear fusion
+   15. Network effects favor big tech
+   16. Weapons in space
+   17. Bioweapons
+   18. Killing each other at large scale is easier and easier and involves less human involvement.
+
+
+What problem or challenge do you hope to solve with technology in the next decade?
+
+
+   1. Better and lower-cost older adult care
+   2. Detection of toxins in the home (mold, viruses, containment)
+   3. Get rid of phones without privacy loss
+   4. Kill surveillance tech business model (power and privacy to people)
+   5. Small/medium state sovereignty
+   6. Health span inequality 
+   7. Decline in fertility
+   8. Pandemic surveillance 
+   9. Traffic safety (make like airplanes)
+   10. Find life in the universe
+   11. Autonomous space traffic coordination
+   12. Storage of food to avoid losses from farm to table 
+   13. improve/tailored education
+   14. Energy access
+   15. Decentralized renewable energy for decentralized water treatment and water distribution
+   1. Problem - lack of clean water
+   16. Access primary education
+   17. 90% reduction in traffic fatalities/accidents 
+   18. Middle school students struggle with algebra/math generally
+
+
+________________
+
+
+Survey Responses - Consolidated
+
+
+Which session resonated most with you or is most useful to your work?        
+Beyond the Obvious                        13
+Problem Solved: Now What?                7
+Battle of the Assumptions                6
+Over the Horizon Technology                4
+Expecting the Unexpected panel        1
+What idea or insight did you find most interesting over the past two days?        
+   * AI capabilities trajectory seems to be underestimated by many.
+   * Didn't realize how our already unusable geopolitics will fall apart and how quickly we will be at the next stage of companies that have limited and specific interests
+   * Diffusion of AI models into other parts of the economy is much more important for national power in the medium to long term than controlling cutting-edge technologies. 
+   * Dr Rice's 3 reasons for surprise: not knowing what to look for, gaps/silos, no consequences management. 
+   * Framing cheating as undermining the goal and doing so unfairly 
+   * Hearing from Amy about the man-woman difference on AI engagement was very interesting and honestly shocking 
+   * Home hospital of the future
+   * How “Information” changes in the future 
+   * I didn’t know there were gender disparities in AI use 
+   * I found myself resonating with the idea of societies forming as an organizing principle under limitations. Distance, geography, energy, communication, etc. Naturally, many companies and institutions exist because there are economic advantages to alleviating those limits. But that also eliminates the boundaries that bind societies together. Maybe we are moving towards people creating new societal forms because of affinities and relaxation of those limits. Or maybe they shouldn’t. 
+   * I found myself resonating with the idea of societies forming as an organizing principle under limitations. Distance, geography, energy, communication, etc. Naturally, many companies and institutions exist because there are economic advantages to alleviating those limits. But that also eliminates the boundaries that bind societies together. Maybe we are moving towards people creating new societal forms because of affinities and relaxation of those limits. Or maybe they shouldn’t. 
+   * I had expected to be challenged to work on some hard issues, but we really didn't do that.  Most of the discussion that I heard was not surprising to me. They were really things that I was aware of before
+   * I really liked the reframing of the work from “predicting the future” or “regulating tech” to thinking through the consequences of our actions and their logical conclusions, then having a more philosophical discussion about whether we like that potential future or not.
+   * I was fascinated by the concept of AI governance/politicians
+   * Sovereignty and technology companies
+   * That Americans are pessimistic about technology 
+   * That many of the pressing tech transformations are fundamentally moral questions about the nature of society and human relationships. 
+   * The bullishness regarding the rise of personalized, at-home medical products and services 
+   * The collective pessimism over the future implications of tech evolution; this did not feel like the historic Silicon Valley tech-will-save-everything thinking. Is that different than the past or reflective of a different grouping?
+   * The optimism of most in the room over the growth in use and capability of AI
+   * The possibility that critical thinking is not actually particularly useful for most people in day-to-day life.
+   * The potential for hyper-personalized at-home medical care 
+   * The potential of xenotransplantation 
+   * The practice of thinking about unlikely scenarios and the potential inflictions. In my world, we don’t often give ourselves that luxury. 
+   * The Self Help Home Hospital
+   * The sheer pace of technological change. 
+   * There are lots of positives that we take for granted, then focus on all the difficult and toxic effects. Weirdly, a bit of optimism.  
+   * Thinking about what a tech breakthrough means, and how it might be part of a larger constellation of causes for a change of interest. 
+   * Understanding dynamics of AI innovation with China
+   * Who develops technology and what are their incentives? How much weight should scientific insights have over social insights when it comes to decisions regarding technology?
+   * World models embedded in robots; extending everyone’s life by a meaningful margin. 
+What potential disruption worries you the most? Why?        
+   * (Already happening but) Acceleration of misinformation due to lower barriers to language translation. It quietly makes security much more fragile. 
+   * Agentic AI reinforced echo chambers — furthers political/societal divide, hinders progress.
+   * Autonomous killing as an instrument of power, especially non-state power.
+   * China's many advantages in the technology arms race
+   * Civilization-level risks from climate change, powerful technology in the wrong hands, and disruptions to basic infrastructure and needs that arise from those. 
+   * Climate issues and specifically mitigation versus adaptation efforts 
+   * Climate, because it can’t quickly be redressed and affects many domains. 
+   * Disempowerment of nation states, trend toward a global ruling corporatocracy
+   * Economic disruption from AI leading to (more) populist movements in country after country.  And the destabilizing economic and geopolitical effects of rapid AI progress and diffusion.  
+   * Humanoid robots. Cause ugh. In all seriousness, the things that worry me the most are being led by folks like Elon Musk to a proposed techno utopia that ends up being a techno dystopia.
+   * I am most worried about the collapse of nation-state power in democracies. If individual actors like Musk or Zuckerberg or Altman can amass personal weapons, dictate the flow of basic goods like internet or electricity or unbiased information, and we are unable to legislate that they cannot do that, we are headed for anarchy in a very scary way. Someone made the great point that America was established so that human beings could exist free of kings and dictators, but those power structures are being replaced by heads of corporations. I think Musk’s willful abuse of his control of Starlink and the assassination of the United Health CEO are both indicators that we are not on a good path here.
+   * I'm worried about the impact on critical thinking
+   * Inability to regulate technology and trusting companies too much 
+   * It will be very, very difficult to surpass China’s capabilities in scaling and adoption of technology.
+   * Life extension that actually works.
+   * Loss of US tech leadership (eroding research prowess, reduced talent attraction)
+   * Mass unemployment
+   * New tech captured and controlled by a small group of elites, further exacerbating economic and social inequalities. Threatens democracy.
+   * Noted above. Makes me wonder what I should focus on in my future work 
+   * Political polarization and erosion of democracy 
+   * Probably data leaks / massive cybersecurity breaches 
+   * social and personal relationships, education
+   * Still AI, as it seems most likely and we remain unprepared. 
+   * That we are fast adopters of tech and slow adopters of revolutionary ideas about how to use tech. And the net result is likely to be American decline geopolitically 
+   * The failure of governments to enable societal function and the technocratic replacements. 
+   * The failure of governments to enable societies and the technocratic replacements. 
+   * The near-term loss of human supremacy in critical thinking and planning, and what that enables.  
+   * The unregulated growth of AI. 
+   * There are many disruptions that worry me.  I guess that one I am most concerned about is democracy's ability to function as various actors, aided by technology, sow distrust in any organization that doesn't support their view.  This decreases social trust, which is the most important asset if you want to make major improvements.
+   * Too many to list…
+   * Unequal access to advances, particularly if centered in either totalitarian regimes or essentially unregulated for-profit businesses.
+   * While it's already a known concern, I call out the effects of AI on work and humanity's relationship to it. What sorts of jobs would remain, and what sorts of jobs would be created? How can the next generation be adequately prepared?
+Did the retreat change your mind about anything? If yes, what?        
+   * Chris Manning made me reflect on how durable first-mover advantages actually are.  
+   * Cyber vulnerability
+   * Didn’t change my mind but increased significantly the weight we should place on non-tech factors that shape and constrain tech - like trust and meaning. 
+   * Emphasized the national security implications of not just risk scenarios but also positive ones that have 2nd and 3rd consequences. 
+   * Facilitated exercises are a drag. I used to think that, but this was a counterexample.
+   * Far more concerned about us political scene and the revolution of geopolitics than I was coming in. 
+   * I am more open to the idea that the best way to understand and control the effects of technology is actually to develop and explore as much technology as possible (as bad actors may do it anyway)
+   * I changed my mind on whether AI is cheating.
+   * I finally saw a benefit to agentic AI for searching out information. People say they want factual and balanced information, but their information behavior does not reflect this. However, they are likely to tell their information-seeking AI agents that they want factual and balanced information, and they will be more likely to get it that way than if they search for it themselves.
+   * I just learned a lot.  New ideas. New language to express those ideas. It was intellectually fruitful and engaging.
+   * I learned many things not sure I changed my mind. 
+   * I leave with a stronger appreciation for how difficult it is to forecast where economic conditions and national power will be in a decade. The range of plausible outcomes seems larger than when I entered. 
+   * I think I am more pessimistic about the future than I was before. 
+   * It changed my mind about Hoover’s commitment to hearing out multiple perspectives. Historically, it has a conservative reputation, and I think establishing a reputation for it as a place where experts of all opinions can convene and challenge assumptions and provide policy advice grounded in humanist discussion would be a great future for the institution. I think this could also make its mission more effective and turn it into a truly powerful bipartisan source of policy that gets broad support in Congress and from the public.
+   * It changed my mind about the viability of foreign governments in shaping and controlling the future. I mean, I knew that was possible, but it was hard to see how it would work. Now I have a clearer set of thoughts about how that could come about and how it could work.
+   * It changed my mind about the viability of foreign governments in shaping and controlling the future. I mean, I knew that was possible, but it was hard to see how it would work. Now I have a clearer set of thoughts about how that could come about and how it could work.
+   * It showed me that there are many ways that the future could be very different than today…
+   * It was a good sequence of exercises, and I felt we built momentum as we went through. The importance of diffusion/deployment of AI, as much as building up the best frontier model, was something I realized was very intriguing. 
+   * Not specifically; I learned a lot but wasn't strategically or technically surprised by much of what was said.
+   * That I should do things like this retreat, in which I pull back from my day-to-day work, more often
+   * That people will be able to work less in the future (and actually already are)
+   * That while progress is real, the social risk has the potential (likelihood?) to swamp the gain. 
+   * The real danger of misinformation campaigns and how effective they are. I considered them to be relatively ineffective previously.
+   * There are incentives to get more factual information sharing in democratic countries. 
+   * Upside potential of rapidly advancing technology. 
+   * We are much further on autonomous weapons than I thought
+   * Weirdly, the concern that AI would diffuse unevenly to disadvantaged groups and countries made me realize how much extraordinary computing and communications capability has been delivered in the last 10-15 years. It is a triumph of delivery of capability to a very wide spectrum of  
+
+
+Do you have an assumption that you'd like to interrogate further?        
+   * Advancing frontier technologies will improve society (versus mid-to-low-end technologies with mass penetration capabilities)
+   * Are there now constraints on the speed of technological advances, particularly as a result of energy consumption?
+   * China is likely to try to “resolve” the Taiwan issue during XI’s reign.  
+   * Critical thinking is important for survival and thriving in day-to-day life.
+   * I enjoyed the task of debating why China might not win the scaling war. I would have come into that assuming China would win and, in having to defend the other side indentured real weaknesses and vulnerabilities. 
+   * I would like to interrogate industry more and debate some assumptions about who takes the blame for issues that go awry, if law can adequately respond to technology, etc.
+   * Impacts of democratizing education 
+   * I'd like to understand implications of AI on defense
+   * People want to receive factual, reliable information.
+   * Relative competitive position of US and China still needs more understanding. Likelihood of a mean reversion where other countries claim back sovereignty even at a cost of 
+   * See my answer to the first question. 
+   * See my insight/idea answer. 
+   * That AI will boost productivity for everyone
+   * That China is going to long-term win the advanced technology race
+   * That robotics (my field) will ultimately be a force for good in the world. The discussions with national security experts about the warfare applications (which I’ve always been aware of, but don’t think about regularly) give me pause. 
+   * That the US is the best in whatever it does
+   * That we know what truth is and that policy to combat mis and disinfo should be anchored on establishing truth. In reality, most truths are contested and emergent. Some falsehoods are clear. But what may seem “true” in one moment may look very different in a decade or century- as our understanding evolves and more information comes to light. These issues are central to policy discussions around “following the science” and tech development and political polarization. 
+   * That we've reached a tipping point where more technology is generally a bad thing, for humans and the planet.
+   * The assumption I want to interrogate is whether the purpose of existing in a society is economic activity of individuals. If we are truly moving towards such a heavily automated world, as was suggested in many of the discussions, does our value as humans then come from creative expression and human relationships rather than profit generation? Is that even possible? Can we recognize the dignity and sovereignty of every living human?
+   * The energy grid in light of AI power demand... Will access be throttled, how does this vary globally, and who will be the winners and losers?
+   * The idea of AI as cheating or tool. I think that was a fascinating discussion that merits more analysis and debate. I'd love to hear Goodfellow's debate, even though they're not techie.
+   * The one I think about was called out — ongoing US primacy. 
+   * There are two assumptions I would like to explore further. One is that modern information technologies are better for authoritarian regimes than democracies, since I would like to find a way for that not to be true. The other is the assumption about the growth of computing capability to match the projected demand driven by AI.
+   * "US reliance on China and how to change that. I wish there was a US-China relationship-specific session (maybe next time) 
+   * Also, the assumption of “majority of US people adopt AI at the end” is a big assumption; it seems like it will take a longer time to digest "
+   * We seem to often assume tech proof of concept is the moment and gloss over diffusion or distributional equity. Access to tech should not be assumed. 
+   * Why are we so afraid of China? Why has it posed primarily, almost solely, as an adversary? Seems like the bigger adversary of the people in the room is the Trump administration. Why don't we focus on how we can ensure that adversary doesn't prevent humans from thriving in America?
+   * Why China is seemingly better positioned for biotechnological development and where the US is specifically lagging.
+   * Would like more on assumptions behind economic growth: this event could have benefitted from more economics expertise, since much of the discussion was about cost tradeoffs and optimization over time, and general equilibrium models. 
+
+
+In your field, what indicator or breakthrough are you watching most this year?        
+   * Agentic AI systems
+   * AI in targeting and military deployment 
+   * AI model and harness development 
+   * Application of AI in warfare 
+   * Are practical uses of LLM-paradigm AI meaningfully greater for closed US models than open Chinese ones? How the heck will we know the answer?
+   * Autonomous weapons systems development in shaping the battlefield and great power competition. 
+   * "China’s moon race 
+   * Starship’s fuel resupply with docking 
+   * Results of the dogfight in orbit (Rocket Lab vs True anomaly) 
+   * Diffusion of AI into economies: which models, how, why. 
+   * Digital media addiction and other mental health harms resulting from tech
+   * Gene therapy delivery vehicles becoming cell type specific
+   * High-throughput screening technologies that vet the products of AI (particularly in the biosciences). 
+   * How the mess in the semiconductor space will come out
+   * I'm not holding my breath for breakthroughs. In my field, we need to universally deploy the technologies we already have and are known to work
+   * Impact on teaching
+   * In vivo cell engineering and cancer vaccines. In vivo cell engineering is the idea that you can edit cells within a person’s body rather than editing them in the lab and infusing or transplanting them back in. If this works well, gene therapy will explode in how much easier it is to do, and the cost will go way down. Cancer vaccines, I think, are also going to become more popular, but the long-term effects of targeting self-antigens are not yet known.
+   * Looking for the humanoids bubble to burst
+   * Nuclear employment as a means of denial at a tactical level. 
+   * Nuclear employment as a means of denial at the tactical level. Or threats to do so. The erosion of extended deterrence credibility. 
+   * Planner/Strategic capability advancement in AI and how that previously impacts work and jobs across different industries.  What does this mean for public perception of AI moving forward, and what will the civic response be?
+   * PQC 
+   * Recursive self-improvement (or the lack thereof)
+   * Recursive self-improvement of AI systems 
+   * Starship. But also the incorporation of AI by the Department of Defense. The DoW is moving at a pace not seen previously. It is questionable if it will be lasting and sustained. Especially as we see Democrats demonizing the current administration. If they come into power, would they throw out the good and positive accomplishments? It is sounding more possible. 
+   * The decentralization of production resulting from widespread access to efficient and effective physical automation 
+   * The development of autonomous weapons. 
+   * The launch of Mythos.
+   * Will be watching how China’s government handles growing geopolitical backlash against its massive trade surpluses. Exports are propping up the Chinese economy; likely to be significant political pushback in much of the democratic world. 
+   * World models that capture the physical world and enable multi-purpose (or general) robotics as opposed to single-purpose robotics, which are notoriously hard to make the economics work.  
+
+
+Nominate a "What If" paper you would like to read.        
+Responded ‘yes’ to ‘Would you be interested in working with the TFL team to write it?’
+   * Africa achieves a demographic dividend and gets rich fast as its population grows.  Becoming part of that growth is the key challenge for the ageing developed world in the 2030-2050 time period. 
+   * I loved the “what if we had global access to potable water” table’s discussion. It was the one version of the future put forward that was most compelling to me, and I’d love to think about steps to make it happen.
+   * Not sure what this is (sorry). If it is about a potential new technology, I would like something about what would happen if we could trace all media stories back to their roots and check their veracity.
+   * What if AI reduced polarization among democracies?
+   * What if AI, as the dominant technology of our day, were made available in a truly open source way, so that governments, organizations, and individuals can use, modify, and benefit from it without having to live in anyone’s walled garden, or fear for their sovereignty?
+   * What if China develops a cryptographically significant quantum computing capability first and before the US and allies transition to PQC?
+   * What if digital programming extended to biological systems and suddenly the physical world became entirely programmable?
+   * What if non-state actors had unmanned systems at scale? 
+   * What if deepfake/image generation gets convincing enough to have massive foreign state-backed media/disinformation campaign implications? "
+   * What if the US adopted laws that “curbed” free speech by making the spread of misinformation illegal (perhaps broadening the legal standard that prevents individuals from misleadingly screaming “fire” in a movie theater)?
+   * What if the US loses its ability to attract top global talent for innovation and research?
+   * What if we could find the political will and find ways to ensure collective action to dramatically reduce global poverty? 
+   * What if we could record constant brain activity and use it to eliminate the need for ADHD and/or anxiety medications, especially in kids?
+   * What if we figured out a way to reduce the demand for nonsense information?
+   * What if we had autonomous robots in the home to assist people
+   * What if... recursive AI were to enable the continuation of Moore's law for ten more years?  What applications would become possible?  What would be the capabilities of the resulting AI systems?
+
+
+Responded ‘not’ at this time
+   * Solving the energy crisis
+   * What if democratization of technology and its attendant consequences makes the US political system under the Constitution an anachronism? 
+   * What if fusion is available to >25% of humanity?
+   * What if Google, Meta, and Tesla are more powerful than the US gov? Are we already there? 
+   * What if humans made the right decisions on how to use AI
+   * What if the AI boom busts? What happens then? How much value will infrastructure and talent and models left behind still contribute to the broader economy? And what will geopolitical and social implications be of a major downturn in AI and upstream industries — e.g. chipmaking?
+   * What if energy becomes far more abundant and affordable even if the AI bubble bursts?
+   * What if the US regulated AI models and labs in a way that CJ strained their growth here? 
+   * What if we build a home euthanasia machine?
+   * What if we could fix cybersecurity with advanced AI 
+
+
+How could the lab be most useful over the next year?        
+   * As a platform for getting new ideas and scenarios to our country’s leaders. Making sure we have adequate Human Resources working on scenario analysis. 
+   * Based on group thinking, publish “think again” evaluations of common assumptions. 
+   * Build on work to date to strengthen the network of experts thinking about technological challenges. Produce relevant, proactive papers that will mobilize policymakers on emerging technology challenges.
+   * By publishing its products open access and promoting them to policy decision makers as well as the interested public (eg tech leaders)
+   * Continue surfacing creative thinking. Convene diverse experts. Challenge prevailing narratives and inform the public discourse. 
+   * Continue to challenge assumptions.
+   * Continue to study the advancements made in the scientific community to provide a bridge between what's been done and what it could signify, perhaps on an even more granular level.
+   * Develop ideas for how to advance manufacturing in the US to compete with China.
+   * Develop research projects and continue to engage the relevant experts to continue to write and think about problems of the future.
+   * Foresighting - based products. Scenarios and proactive consequence mitigation recommendations. 
+   * I think publishing the logical conclusions of the trends we’re on, to make the winners, losers, and consequences obvious, would be beneficial to policymakers and the public. People can say, “hey, I don’t like that trajectory and here’s how we can change that trend line.” Counter the sentiment of powerlessness and the inevitabilist narrative pushed by companies promoting their own growth.
+   * I would have more conversations among the participants.  I thought the opening sessions were not that useful.  While I really respect the panelists, I don't think they said anything that was that interesting, and the opening session also didn't provide me that much new information.  I would have preferred talking with the people in the room.
+   * I would love to bring a more global perspective and ensure that areas of the world like Eastern Europe, Central Asia, etc that are typically under-looked are examined since a lot of emerging tech implications affect those regions! 
+   * It's all about the scenarios.  We need to craft/develop and test many very specific scenarios and wargame them out.  
+   * Maybe as a forum to reconcile the things Silicon Valley leaders are saying with what the rest of society is believing, especially wrt the future of AI.
+   * More sessions like this. Pick up some of these big questions and interrogate them further through workshops that have similar features. Partner with others on issue areas. 
+   * Possible small-group meetings
+   * Publishing behind the obvious and problem-solved what’s next think pieces. 
+   * Raise important and difficult conversations, convene the right people to discuss in appropriate and interesting fora, and periodically publish thought pieces that are provocative and show the limits of our knowledge. 
+   * Short white papers
+   * This type of workshop is really nice! Hope to participate again 
+   * To who? To DC? Connect it to more diverse technology thinkers. Create a platform for exploring a broader range of tech futures. 
+   * Tracking developments beyond my intermediate area of expertise
+   * Understanding how companies will wield their power and how they can be influenced to consider the greater good, how they will handle short- and long-term tradeoffs between stock value and human well-being 
+
+
+At the 2027 retreat, what should we include that we didn't this time?        
+   * A discussion on the impact of novel technologies on global inequality. 
+   * As Maria noted, the perspective of historians and humanities scholars would add value to future iterations of this unconference.
+   * Dancing
+   * Deeper dive into AI and unemployment/economy.  What are risks and second-order effects, and what are policy alternatives that could actually work (help economy, not hurt it).
+   * Direct discussion about defense
+   * Do it offsite so people can’t leave as easily.
+   * Even more changing groups around to get to know more people :) Loved the table exercises and would be fun to have maybe one more table change 
+   * Explore combinations of eg 2 of the 'problem solved' scenarios. 
+   * Hard to say. I was really impressed. Perhaps a wargame or simulation or path game that allows the folks in attendance to really play out the evolution and implications of these areas in a step-wise fashion rather than just a 30 minute brainstorm. That's depth over breadth, however. 
+   * I had never been in a war-game, and was looking forward to that.  I don't think we did that.
+   * I thought it was great. Loved the interactive nature.
+   * Longer technical session (day1): it’s fun to do exercises in an unfamiliar domain, but we have great expertise, and we should leverage more 
+   * Maybe more explicit scenario planning: four quadrants, tech lead remains in the U.S. and/or the West, vs China, and how fragmented or integrated economic activity is across the world.  
+   * More attention to inequality of distribution of benefits/harms. Not just what’s possible but what’s right.
+   * More background facts on the various questions. 
+   * More debates!
+   * More physical movement in Day 2. (Day 1 was great for this.) Also, table switching during Day 2 (say, at lunchtime or between each exercise)
+   * Much more junior researchers challenging established thinkers 
+   * Perhaps a session on digging deep into the implications of specific breakthroughs (as a general example, Microsoft's development of a quantum chip)
+   * Philosophers and ethicists. 
+   * Somehow going deeper into combinatorial futures.  How do we dig into the likely simultaneous advancements of tech across multiple fields?
+   * This year was all AI all the time. That’s understandable, but there are other technology advances to be imagined. Stronger framing to think beyond AI would be helpful. 
+   * True scenario development. Teach non-futures folks the benefits of deeply doing this work so they are changed by it. 
+
+
+Nominate someone(s) who you'd like to see at the next Tech Futures Lab event.        
+   * Aaron Gitler, Stanford
+   * Annanda Barclay, Moral Repair podcast
+   * Brian Bingham, Naval Postgraduate School
+   * Carolyn Bertozzi, Stanford
+   * Chengjian Li, [affiliation unknown]
+   * Chris Piech, Stanford
+   * Cory Doctorow, EFF
+   * Daniel Lim, Salesforce
+   * Eli Collins, DeepMind
+   * Gary Guthart, Intuitive Surgical
+   * Hongbin Li, Stanford
+   * Jack Clark, Anthropic
+   * Kat Duffy, CFR
+   * Keisha McKenzie, Moral Repair podcast
+   * Larry Diamond, Stanford
+   * Leila Takayama, Google
+   * Leopold Aschenbrunner, ex-OpenAI
+   * Michael Fischbach, Stanford
+   * Mike Snyder, Stanford
+   * Nabiha Syed, Mozilla Foundation
+   * Nick Foster, [affiliation unknown]
+   * Nini Hamrick, Vannevar Labs
+   * Phil Reiner, Institute for Security and Technology
+   * Rob Reich, Stanford
+   * Scott Alexander, AstralCodexTen
+   * Steven Michael Crane, Stanford
+   * Torsten Kroeger, Intrinsic
+
+
+Not specific
+   * Someone currently working on cyber at the working level from the USIC
+   * Someone who works on brain-computer interfaces (Stanford has tremendous expertise here)
+   * Chinese scholars on China and Chinese tech (they also would need to be given airtime to share their views), more scholars on human behavior and human thriving
+   * Frontier Labs technical staff. 
+   * Technical staff from robotics and bio firms. 
+   * Maybe more policy people. 
+   * Maybe more representatives from ethics and various faith-based organizations.

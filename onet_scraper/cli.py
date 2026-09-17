@@ -33,6 +33,7 @@ from .stages import (
     run_figures,
     run_network,
     run_report,
+    run_scroller,
     run_score,
 )
 from .validate import log_report, validate
@@ -109,7 +110,7 @@ def build_parser() -> argparse.ArgumentParser:
         default="run",
         choices=["run", "fetch-stem", "fetch-occupations", "fetch-bulk",
                  "fetch-descriptors", "build", "validate", "network", "score",
-                 "report", "employment", "validate-external", "figures",
+                 "report", "employment", "validate-external", "figures", "story",
                  "clean-cache"],
         help="which stage to run (default: run = all of them)",
     )
@@ -186,6 +187,10 @@ def main(argv: list[str] | None = None) -> int:
         run_figures(settings, chrome=args.chrome, dark=args.dark,
                     scale=args.figure_scale,
                     only=tuple(o.strip() for o in args.only.split(",") if o.strip()))
+        return 0
+
+    if stage == "story":
+        run_scroller(settings)
         return 0
 
     if stage == "report":

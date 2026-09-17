@@ -391,6 +391,34 @@ cloud, and `TRACTABILITY_FLOOR` exists because a constant-product curve alone pu
 first is not a handoff, it is work AI cannot lead at any level of consequence. Both
 constants are fitted to this corpus; re-fit them if it changes.
 
+### The scrollable story (`story`)
+
+```bash
+.venv/bin/python -m onet_scraper story
+open data/out/story.html
+```
+
+A scroll-driven narrative over the same tables the dashboard reads. Seven chapters,
+each a sticky hand-inked figure that draws itself as you scroll past its beats:
+the inversion against Frey & Osborne, the subtask vocabulary, exposure versus
+anchoring, Watson's handoff frontier, the six-stage ladder, the employment weighting,
+and the external validation.
+
+Where the dashboard is for interrogating the data, this is for being walked through
+what it says. One self-contained file; the only external request is the Google Fonts
+link.
+
+The design system — tokens, type pairing, hand-inked SVG marks, the sticky-stage
+scroll mechanic — follows `sample_scroller/`. The scenes, copy and data are this
+project's. `window.__story.freeze(id, p)` drives any scene to a given progress, which
+is how the stills are captured.
+
+**One claim the data corrected.** The story originally opened "in 2013 the safest job
+in America was mathematician". Frey & Osborne did put mathematicians in their
+lowest-risk band at 4.7%, but within this STEM subset 85 of 150 occupations score
+*lower* — STEM is selected for being safe on that measure. The headline now leads
+with the r = 0.006 finding, which is what the data actually supports.
+
 ### Static figures (`figures`)
 
 ```bash
@@ -459,7 +487,7 @@ python -m onet_scraper [stage] [options]
 
 Stages:  run (default) | fetch-stem | fetch-occupations | fetch-bulk
          fetch-descriptors | build | validate | network | score | report
-         employment | validate-external | figures | clean-cache
+         employment | validate-external | figures | story | clean-cache
 ```
 
 | Option | Purpose |

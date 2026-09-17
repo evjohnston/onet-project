@@ -365,3 +365,26 @@ def run_figures(settings: Settings, *, chrome: str | None, dark: bool,
     written = render(dashboard, out_dir, chrome=chrome, dark=dark, scale=scale, only=only)
     log.info("%d figure(s) in %s", len(written), out_dir)
     return written
+
+
+def run_scroller(settings: Settings) -> Path:
+    """Render the scroll-driven narrative from the built tables."""
+    from .scroller import build_payload, build_scroller
+
+    occ = read_table(settings.out_dir, "occupation_susceptibility")
+    handoff = read_table(settings.out_dir, "occupation_handoff")
+    benchmarks = read_table(settings.out_dir, "external_benchmarks")
+    soc = read_table(settings.out_dir, "soc_susceptibility")
+    if not (occ and handoff):
+        raise SystemExit("run the report stage first (and score before that)")
+    for name, table in (("external_benchmarks", benchmarks), ("soc_susceptibility", soc)):
+        if not table:
+            log.warning("%s missing - that chapter will be thin", name)
+
+    emp_path = settings.out_dir / "employment_report.json"
+    emp = json.loads(emp_path.read_text()) if emp_path.exists() else {}
+    score_path = settings.out_dir / "scoring_report.json"
+    meta = json.loads(score_path.read_text()) if score_path.exists() else {}
+
+    payload = build_payload(occ, handoff, benchmarks, soc, emp)
+    return build_scroller(settings.out_dir / "story.html", payload, meta)

@@ -1,0 +1,1472 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1c1c18">
+<title>The safest job in 2013 — STEM work and the handoff to AI</title>
+<meta name="description" content="What 287 STEM occupations, 5,717 tasks and 963 subtasks
+say about which work is exposed to automation, and which is held by accountability.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --ink:#1c1c18;
+  --ink-2:#26261f;
+  --paper:#faf9f5;
+  --paper-2:#f2efe5;
+  --paper-3:#f8f6f0;
+  --amber:#d9a43a;
+  --amber-lt:#f0d78f;
+  --blue:#5b8fc9;
+  --blue-lt:#a9caea;
+  --rust:#bf5540;
+  --muted:#6e6e66;
+  --muted-dark:#a9a9a0;
+  --line:rgba(28,28,24,.15);
+  /* kept as aliases so every existing mark class keeps working */
+  --acid:var(--amber);
+  --coral:var(--rust);
+  --sans:'Manrope',Helvetica,Arial,sans-serif;
+  --serif:'DM Serif Display',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --rail:64px;
+}
+
+/* Typed custom properties so scroll progress computes cleanly in CSS */
+@property --p   { syntax:'<number>'; inherits:true; initial-value:0 }
+@property --bp  { syntax:'<number>'; inherits:true; initial-value:0 }
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--sans); overflow-x:hidden;
+  font-synthesis-weight:none;
+}
+a{color:inherit}
+button{color:inherit;font:inherit}
+::selection{background:var(--acid);color:var(--ink)}
+
+.u-mono{font-family:var(--mono)}
+.eyebrow,.kicker,.hud,.beat-tag,.chapter-number,.credit,.header-note,.mark,.scroll-cue,.stage-note{
+  font-family:var(--mono); text-transform:uppercase; letter-spacing:.11em;
+}
+
+/* ============================================================
+   CHROME: header, progress, chapter rail
+   ============================================================ */
+.site-header{
+  position:fixed; z-index:40; top:0; left:0; width:100%;
+  padding:20px clamp(18px,4vw,48px);
+  display:flex; align-items:center; justify-content:space-between;
+  pointer-events:none; transition:opacity .4s ease;
+}
+.site-header > *{pointer-events:auto}
+.mark{font-size:11px; font-weight:500; text-decoration:none; color:var(--paper)}
+.header-note{font-size:10px; color:rgba(243,240,232,.62)}
+.site-header.is-light .mark{color:var(--ink)}
+.site-header.is-light .header-note{color:var(--muted)}
+/* the hero headline scrolls up through the header, so stand down until it is past */
+.site-header.is-away{opacity:0; pointer-events:none}
+
+.progress{position:fixed; z-index:45; left:0; top:0; height:3px; width:100%; background:transparent}
+.progress i{display:block; height:100%; width:0; background:var(--coral)}
+
+.rail{
+  position:fixed; z-index:38; left:11px; top:50%;
+  transform:translateY(-50%); display:grid; gap:11px;
+  opacity:0; transition:opacity .5s ease; pointer-events:none;
+}
+.rail.is-on{opacity:1; pointer-events:auto}
+.rail a{
+  display:grid; grid-template-columns:auto auto; align-items:center; gap:10px;
+  text-decoration:none; color:var(--muted);
+}
+.rail .dot{
+  width:6px; height:6px; border-radius:50%; border:1px solid currentColor;
+  background:transparent; transition:background .3s ease, transform .3s ease;
+}
+/* labels would print over the figure, so the rail is dots only */
+.rail .rail-label{position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%)}
+.rail a.is-on{color:var(--coral)}
+.rail a.is-on .dot{background:var(--coral); transform:scale(1.35)}
+.rail.on-dark a{color:var(--muted-dark)}
+.rail.on-dark a.is-on{color:var(--acid)}
+.rail.on-dark a.is-on .dot{background:var(--acid)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative; min-height:100svh; overflow:hidden;
+  background:var(--ink); color:var(--paper);
+  display:grid; align-content:end;
+  padding:16vh clamp(22px,7vw,90px) 11vh;
+}
+.hero::before{
+  content:''; position:absolute; inset:0; opacity:.2;
+  background-image:linear-gradient(rgba(213,242,95,.18) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(213,242,95,.18) 1px,transparent 1px);
+  background-size:54px 54px;
+  mask-image:linear-gradient(to bottom,#000,transparent 78%);
+}
+.hero-canvas{
+  position:absolute; inset:0; width:100%; height:100%;
+  pointer-events:none; opacity:.95;
+}
+.hero-inner{position:relative; max-width:1280px; width:100%; margin:0 auto}
+.eyebrow{margin-bottom:26px; color:var(--acid); font-size:11px}
+.hero h1{
+  max-width:17ch; margin:0;
+  font:400 clamp(2.9rem,8.2vw,8.4rem)/.92 var(--serif);
+  letter-spacing:-.035em;
+}
+.hero-bottom{
+  display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end;
+  gap:clamp(24px,5vw,80px); margin-top:clamp(40px,9vh,110px);
+}
+.dek{max-width:56ch; margin:0; color:#d2d7cd; font-size:clamp(.98rem,1.5vw,1.2rem); line-height:1.6}
+.credit{margin:0; color:var(--acid); font-size:10px; line-height:1.9; text-align:right}
+.scroll-cue{
+  position:absolute; z-index:2; left:clamp(22px,7vw,90px); bottom:26px;
+  color:var(--acid); font-size:10px; display:flex; align-items:center; gap:12px;
+}
+.scroll-cue i{display:block; width:44px; height:1px; background:currentColor; transform-origin:left; animation:cue 2.6s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleX(.35)}50%{transform:scaleX(1)}}
+
+/* Idle drift. Fields of marks keep breathing between scroll events, which is
+   most of what separates a live graphic from a diagram. Composited, no
+   per-frame script, and switched off by the reduced-motion rule below. */
+@keyframes drift{
+  0%,100%{transform:translate(0,0)}
+  50%{transform:translate(var(--dx,0px),var(--dy,0px))}
+}
+.drift{animation:drift var(--dur,8s) ease-in-out infinite; animation-delay:var(--del,0s)}
+@keyframes breathe{0%,100%{opacity:.5}50%{opacity:1}}
+.breathe{animation:breathe var(--dur,5s) ease-in-out infinite; animation-delay:var(--del,0s)}
+/* pulses the size, not the alpha, so a script-driven opacity still wins */
+@keyframes pulsering{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.pulsering{
+  animation:pulsering var(--dur,3.4s) ease-in-out infinite;
+  transform-box:fill-box; transform-origin:center;
+}
+
+/* ============================================================
+   PROSE
+   ============================================================ */
+.prose{max-width:74ch; margin:0 auto; padding:clamp(70px,15vh,190px) clamp(22px,7vw,60px)}
+.prose p{font:400 clamp(1.1rem,1.9vw,1.6rem)/1.5 var(--serif); margin:0 0 1.1em}
+.prose p:last-child{margin-bottom:0}
+.prose .lede::first-letter{
+  float:left; margin:.1em .1em 0 0; color:var(--coral);
+  font:5.2rem/.72 var(--serif);
+}
+.kicker{display:block; margin-bottom:22px; color:var(--coral); font-size:10px}
+.pull{
+  display:block; margin:1.4em 0; padding-left:20px;
+  border-left:2px solid var(--coral);
+  font:500 .92rem/1.6 var(--sans); color:var(--muted); text-transform:none; letter-spacing:0;
+}
+
+/* ============================================================
+   SCENE (scrollytelling) — the core layout
+   ============================================================ */
+.scene{position:relative; border-top:1px solid var(--line)}
+.scene.on-tint{background:var(--paper-2)}
+
+.scene-head{
+  max-width:1280px; margin:0 auto;
+  padding:clamp(56px,11vh,140px) clamp(22px,7vw,60px) clamp(28px,6vh,64px);
+  display:grid; grid-template-columns:minmax(150px,.62fr) minmax(0,2fr); gap:clamp(20px,5vw,70px);
+}
+.chapter-number{color:var(--coral); font-size:11px; padding-top:.7em}
+.scene-head h2{
+  max-width:26ch; margin:0;
+  font:400 clamp(2.1rem,5.4vw,5.2rem)/.96 var(--serif); letter-spacing:-.025em;
+}
+.standfirst{max-width:62ch; margin:22px 0 0; color:var(--muted); font-size:clamp(.95rem,1.25vw,1.08rem); line-height:1.68}
+
+/* Wide format: the figure goes edge to edge and sticks, and the beat text
+   rides over it in a card. A figure boxed into a column can never feel wide. */
+.scrolly{position:relative; padding:0}
+.stage{position:sticky; top:0; height:100svh; z-index:1}
+.beats{position:relative; z-index:2; margin-top:-100svh; pointer-events:none}
+.beat{
+  min-height:88svh; display:flex; align-items:center;
+  padding:0 clamp(18px,5vw,72px);
+}
+.beat-card{
+  pointer-events:auto; max-width:min(400px,86vw);
+  padding:22px 24px 24px; border:1px solid var(--line); border-radius:3px;
+  background:color-mix(in srgb, var(--paper) 93%, transparent);
+  backdrop-filter:blur(3px); -webkit-backdrop-filter:blur(3px);
+}
+
+/* --- the figure panel itself --- */
+.stage-frame{
+  --stroke:var(--ink);
+  --stroke-soft:rgba(28,28,24,.44);
+  --stage-bg:var(--paper-3);
+  position:relative; width:100%; height:100%; overflow:hidden;
+  background:var(--stage-bg);
+}
+/* the graph-paper ground is drawn into each figure's own SVG, so it shares the
+   figure's coordinates and its ruling stays square at any viewport */
+.gridline{stroke:var(--ink); fill:none; stroke-width:1}
+.plot{position:absolute; inset:0; width:100%; height:100%; display:block; overflow:visible}
+
+.stage-hud{
+  position:absolute; z-index:2; top:0; left:0; right:0;
+  padding:74px clamp(18px,5vw,72px) 0;
+  display:grid; grid-template-columns:1fr auto 1fr; align-items:start; gap:12px;
+  font:500 10px/1.5 var(--mono);
+  letter-spacing:.08em; text-transform:uppercase; color:var(--stroke); opacity:.8;
+  pointer-events:none;
+}
+.hud-name{grid-column:2; text-align:center; font-weight:600; letter-spacing:.05em}
+.hud-count{grid-column:3; text-align:right; white-space:nowrap}
+.hud-count b{color:var(--coral); font-weight:500}
+.stage-readout{
+  position:absolute; z-index:2; left:clamp(18px,5vw,72px); bottom:clamp(16px,3.4vh,40px);
+  font:500 9.5px/1.6 var(--mono); letter-spacing:.09em; text-transform:uppercase;
+  color:var(--stroke); opacity:.8; pointer-events:none; max-width:60%;
+}
+.stage-readout b{display:block; font-size:16px; letter-spacing:.02em; color:var(--coral)}
+.stage-note{
+  position:absolute; z-index:2; right:clamp(18px,5vw,72px); bottom:clamp(16px,3.4vh,40px);
+  font-size:8.5px; letter-spacing:.09em; color:var(--stroke); opacity:.42;
+  pointer-events:none; text-align:right; max-width:42%;
+}
+
+/* --- beats --- */
+.beats{position:relative}
+.beat-card{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease}
+.beat.is-active .beat-card{opacity:1; transform:none}
+.beat-tag{
+  display:flex; align-items:center; gap:10px;
+  color:var(--coral); font-size:10px;
+}
+.beat-tag i{display:block; width:22px; height:1px; background:currentColor; opacity:.6}
+.beat h3{
+  max-width:24ch; margin:12px 0 10px;
+  font:400 clamp(1.3rem,1.9vw,1.62rem)/1.14 var(--serif); letter-spacing:-.012em;
+}
+.beat p{max-width:46ch; margin:0; color:var(--muted); font-size:.9rem; line-height:1.68}
+.beat .egs{
+  margin:14px 0 0; padding:12px 0 0; border-top:1px solid var(--line);
+  font:500 10px/1.8 var(--mono); letter-spacing:.07em; text-transform:uppercase; color:var(--muted);
+}
+.beat .egs b{color:var(--ink); font-weight:500}
+
+/* ============================================================
+   PROBES — the two places the reader drives the graphic instead of scrolling
+   ============================================================ */
+.probe{background:var(--ink); color:var(--paper); padding:clamp(52px,10vh,110px) 0}
+.probe.on-paper{background:var(--paper-2); color:var(--ink)}
+.probe-inner{
+  max-width:1180px; margin:0 auto; padding:0 clamp(22px,7vw,60px);
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(300px,1.1fr);
+  gap:clamp(26px,5vw,64px); align-items:center;
+}
+.probe .kicker{color:var(--acid)}
+.probe.on-paper .kicker{color:var(--coral)}
+.probe h3{max-width:22ch; margin:0 0 16px; font:400 clamp(1.7rem,3.4vw,3rem)/1.02 var(--serif); letter-spacing:-.02em}
+.probe p{max-width:46ch; margin:0; color:var(--muted-dark); font-size:.96rem; line-height:1.68}
+.probe.on-paper p{color:var(--muted)}
+.probe-ctl{margin:28px 0 0; display:grid; gap:6px}
+.probe-ctl label{
+  display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  font:500 10px var(--mono); letter-spacing:.1em; text-transform:uppercase;
+  color:var(--muted-dark); margin-top:14px;
+}
+.probe.on-paper .probe-ctl label{color:var(--muted)}
+.probe-ctl label b{font-size:15px; color:var(--acid); letter-spacing:.02em}
+.probe.on-paper .probe-ctl label b{color:var(--coral)}
+.probe-ctl input[type=range]{
+  -webkit-appearance:none; appearance:none; width:100%; height:26px;
+  background:transparent; cursor:ew-resize; margin:0;
+}
+.probe-ctl input[type=range]::-webkit-slider-runnable-track{height:2px; background:rgba(243,240,232,.3)}
+.probe-ctl input[type=range]::-moz-range-track{height:2px; background:rgba(243,240,232,.3)}
+.probe.on-paper .probe-ctl input[type=range]::-webkit-slider-runnable-track{background:var(--line)}
+.probe.on-paper .probe-ctl input[type=range]::-moz-range-track{background:var(--line)}
+.probe-ctl input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none; width:20px; height:20px; margin-top:-9px;
+  border-radius:50%; background:var(--acid); border:0;
+}
+.probe-ctl input[type=range]::-moz-range-thumb{width:20px; height:20px; border-radius:50%; background:var(--acid); border:0}
+.probe.on-paper .probe-ctl input[type=range]::-webkit-slider-thumb{background:var(--coral)}
+.probe.on-paper .probe-ctl input[type=range]::-moz-range-thumb{background:var(--coral)}
+.probe-ctl input[type=range]:focus-visible{outline:2px solid var(--acid); outline-offset:6px}
+.probe-out{
+  margin:26px 0 0 !important; padding-top:18px; border-top:1px solid rgba(243,240,232,.22);
+  font:500 11px/1.9 var(--mono) !important; letter-spacing:.07em; text-transform:uppercase;
+}
+.probe.on-paper .probe-out{border-top-color:var(--line)}
+.probe-out b{color:var(--acid); font-weight:500}
+.probe.on-paper .probe-out b{color:var(--coral)}
+.probe-out i{display:block; margin-top:10px; font-style:normal; text-transform:none; letter-spacing:0; font-family:var(--sans); font-size:.82rem; opacity:.62}
+.probe-fig{
+  --stroke:#efeade; --stroke-soft:rgba(239,234,222,.45); --stage-bg:var(--ink);
+  position:relative; border:1px solid rgba(239,234,222,.18);
+}
+.probe.on-paper .probe-fig{--stroke:var(--ink); --stroke-soft:rgba(16,25,22,.42); --stage-bg:var(--paper-2); border-color:var(--line)}
+.probe-fig svg{display:block; width:100%; height:auto; overflow:visible}
+@media (max-width:860px){
+  .probe-inner{grid-template-columns:1fr}
+  .probe-fig{order:-1}
+}
+
+/* ============================================================
+   CODINGS DISCLOSURE — the judgment calls behind the new figures
+   ============================================================ */
+.notes{background:var(--paper-2); padding:0 0 clamp(50px,10vh,120px)}
+.notes > details{max-width:86ch; margin:0 auto; padding:22px clamp(22px,7vw,60px) 0}
+.notes details{border-top:1px solid var(--line)}
+.notes summary{
+  cursor:pointer; color:var(--coral);
+  font:500 10px var(--mono); letter-spacing:.11em; text-transform:uppercase;
+}
+.notes summary::marker{color:var(--line)}
+.notes .intro{margin:20px 0 26px; color:var(--muted); font-size:.92rem; line-height:1.72}
+.notes .intro b{color:var(--ink); font-weight:600}
+.notes table{width:100%; border-collapse:collapse; margin-bottom:34px}
+.notes th{
+  text-align:left; padding:0 10px 9px 0; border-bottom:1px solid var(--line);
+  font:500 9px var(--mono); letter-spacing:.09em; text-transform:uppercase; color:var(--muted);
+}
+.notes th.num,.notes td.num{text-align:right; padding-right:16px; white-space:nowrap}
+.notes td{
+  padding:11px 10px 11px 0; border-bottom:1px solid var(--line);
+  vertical-align:top; color:var(--muted); font-size:.84rem; line-height:1.55;
+}
+.notes td.case{color:var(--ink); font-weight:600; white-space:nowrap; padding-right:16px}
+.notes td.num{font-family:var(--mono); font-size:.8rem; color:var(--ink)}
+.notes .flag{
+  display:inline-block; margin-left:6px; color:var(--coral);
+  font:500 8.5px var(--mono); letter-spacing:.08em; text-transform:uppercase;
+}
+.notes .added{color:var(--blue)}
+@media (max-width:700px){
+  .notes table,.notes thead,.notes tbody,.notes tr,.notes th,.notes td{display:block}
+  .notes thead{display:none}
+  .notes tr{padding:14px 0; border-bottom:1px solid var(--line)}
+  .notes td{border:0; padding:2px 0}
+  .notes td.num{text-align:left; display:inline-block; margin-right:18px}
+}
+
+/* ============================================================
+   QUOTE / STATIC BLOCKS
+   ============================================================ */
+.quote{
+  max-width:74ch; margin:0 auto; padding:clamp(56px,11vh,130px) clamp(22px,7vw,60px);
+  text-align:center; border-top:1px solid var(--line);
+}
+.quote p{margin:0; font:400 clamp(1.6rem,3.7vw,3.5rem)/1.1 var(--serif); letter-spacing:-.02em}
+.quote cite{display:block; margin-top:24px; color:var(--coral); font:500 10px var(--mono); font-style:normal; letter-spacing:.11em; text-transform:uppercase}
+
+.ending{
+  padding:clamp(80px,17vh,200px) clamp(22px,7vw,60px) clamp(48px,10vh,110px);
+  background:var(--ink); color:var(--paper); text-align:center; position:relative; overflow:hidden;
+}
+.ending h2{max-width:24ch; margin:0 auto 26px; font:400 clamp(2.4rem,6.6vw,6rem)/.94 var(--serif); letter-spacing:-.03em}
+.ending p{max-width:58ch; margin:0 auto; color:#b9c0b8; font-size:1rem; line-height:1.72}
+.ending .coda{
+  position:relative; width:min(100%,900px); height:170px; margin:clamp(34px,7vh,70px) auto 0;
+}
+.footer-meta{
+  display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between;
+  max-width:1280px; margin:clamp(60px,12vh,150px) auto 0; padding-top:22px;
+  border-top:1px solid rgba(243,240,232,.22);
+  color:var(--acid); font:500 10px var(--mono); letter-spacing:.1em; text-transform:uppercase;
+}
+
+/* ============================================================
+   SVG MARKS
+   .mk  = a filled marker outline. Its weight lives in the geometry, so there
+          is no stroke-width here; the script scales it instead.
+   .ink = the handful of marks that stay stroked because their `d` is rewritten
+          every frame, where rebuilding an outline would not pay for itself.
+   ============================================================ */
+.mk{stroke:none; fill:var(--stroke)}
+.mk.coral{fill:var(--coral)}
+.mk.acid{fill:var(--acid)}
+.mk.blue{fill:var(--blue)}
+.mk.soft{fill:var(--stroke); opacity:.4}
+.mk.ghost{fill:var(--stroke); opacity:.15}
+/* the two offset copies beneath each mark that read as ink bleed */
+.mk.bleed{opacity:.085}
+.mk.bleed.soft{opacity:.05}
+
+.ink{fill:none; stroke:var(--stroke); stroke-linecap:round; stroke-linejoin:round; stroke-width:3}
+.ink.w1{stroke-width:1.7}
+.ink.w3{stroke-width:4.6}
+.ink.w4{stroke-width:6.5}
+.ink.soft{stroke:var(--stroke-soft)}
+.ink.coral{stroke:var(--coral)}
+.ink.acid{stroke:var(--acid)}
+.ink.blue{stroke:var(--blue)}
+.ink.ghost{stroke:var(--stroke); opacity:.15}
+.ink.pass2{opacity:.4}
+
+.lbl{
+  fill:var(--stroke); font-family:var(--mono); font-size:16px; font-weight:500;
+  letter-spacing:.09em; text-transform:uppercase;
+}
+.lbl.sm{font-size:13.5px; letter-spacing:.08em}
+.lbl.lg{font-size:22px; letter-spacing:.05em}
+.lbl.serif{font-family:var(--serif); font-size:42px; letter-spacing:-.01em; text-transform:none}
+.lbl.dim{opacity:.5}
+.lbl.coral{fill:var(--coral)}
+.lbl.acid{fill:var(--acid)}
+.lbl.blue{fill:var(--blue)}
+.fill-coral{fill:var(--coral)}
+.fill-acid{fill:var(--acid)}
+.fill-blue{fill:var(--blue)}
+.fill-ink{fill:var(--stroke)}
+
+/* knockout halo so labels stay legible over the graphic beneath them */
+.lbl.halo{paint-order:stroke fill; stroke:var(--stage-bg); stroke-width:6.5px; stroke-linejoin:round}
+.fill-stage{fill:var(--stage-bg)}
+
+/* groups whose visibility is state-driven */
+.gg{transition:opacity .4s ease}
+.sig .lbl{transition:opacity .35s ease}
+.sig.is-ghost .ink{stroke:var(--stroke); opacity:.11; stroke-width:1.5}
+.sig.is-ghost .mk{fill:var(--stroke); opacity:.085}
+.sig.is-ghost .mk.bleed,.sig.is-ghost .pass2{display:none}
+.sig.is-ghost .lbl{opacity:0 !important}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1000px){
+  .rail{display:none}
+  /* the figure still pins full-bleed; the card drops to the foot of the screen
+     so the graphic has the upper two thirds to itself */
+  .site-header{position:absolute}
+  .beat{align-items:flex-end; padding-bottom:6vh}
+  .beat-card{max-width:none; width:100%}
+  .scene-head{grid-template-columns:1fr; gap:14px}
+  .hero-bottom{grid-template-columns:1fr}
+  .credit{text-align:left}
+  .criteria-grid,.horizon{grid-template-columns:1fr 1fr}
+  .response{grid-template-columns:40px 1fr; gap:12px 20px}
+  .response p{grid-column:2}
+  .footer-meta{display:block; line-height:2}
+}
+/* The figure is narrower on a phone, so its annotation has to thin out or it
+   collides with itself. Secondary notes drop; what remains is scaled to stay
+   legible. The card text carries the detail either way. */
+@media (max-width:1000px){
+  .lbl{font-size:27px}
+  .lbl.sm{font-size:23px}
+  .lbl.lg{font-size:34px}
+  .lbl.serif{font-size:56px}
+  .lbl.halo{stroke-width:10px}
+  .lbl.dim,.lbl.opt,.ink.opt,.mk.opt{display:none}
+  /* .mk weights are geometry, scaled by WMUL in the script */
+  .ink{stroke-width:4.4}
+  .ink.w1{stroke-width:2.6}
+  .ink.w3{stroke-width:6.6}
+  .ink.w4{stroke-width:9.2}
+}
+@media (max-width:640px){
+  .stage-hud{padding:12px 13px; font-size:8.5px}
+  .stage-readout{left:13px; bottom:12px}
+  .stage-readout b{font-size:13px}
+  .stage-note{display:none}
+  .prose .lede::first-letter{font-size:3.8rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .scroll-cue i{animation:none; transform:scaleX(1)}
+  .beat{transition:none}
+  .gg{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="progress"><i id="progressBar"></i></div>
+<header class="site-header" id="siteHeader">
+  <a class="mark" href="#hero">O*NET · STEM &amp; AUTOMATION</a>
+  <span class="header-note" id="headerNote">Scroll to draw the story</span>
+</header>
+<nav class="rail" id="rail" aria-label="Chapters"><a href="#inversion"><span class="dot"></span><span class="rail-label">The inversion</span></a><a href="#vocabulary"><span class="dot"></span><span class="rail-label">The vocabulary</span></a><a href="#axes"><span class="dot"></span><span class="rail-label">Two questions</span></a><a href="#frontier"><span class="dot"></span><span class="rail-label">The frontier</span></a><a href="#ladder"><span class="dot"></span><span class="rail-label">The ladder</span></a><a href="#people"><span class="dot"></span><span class="rail-label">The people</span></a><a href="#validation"><span class="dot"></span><span class="rail-label">The check</span></a></nav>
+
+<section class="hero" id="hero">
+  <svg class="hero-canvas" id="heroCanvas" viewBox="0 0 1200 800"
+       preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+  <div class="hero-inner">
+    <p class="eyebrow">287 STEM occupations · 5,717 tasks · 963 subtasks</p>
+    <h1>Two measures of automation risk. The same jobs. No relationship at all.</h1>
+    <div class="hero-bottom">
+      <p class="dek">Frey and Osborne put mathematicians in their lowest-risk band in
+      2013 — a 4.7 per cent chance of computerisation. Score the same occupations
+      for exposure to large language models and mathematicians ranks third of 268.
+      Across the 150 jobs carrying both measures the correlation is 0.006. Not weak
+      agreement. None.</p>
+      <div class="credit"><p>Scored by claude-opus-5<br>
+      Validated against human expert ratings at r&nbsp;=&nbsp;0.85</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="prose">
+  <p>This is what the data says. Every number below comes from a pipeline that scrapes
+  O*NET, scores the 963 distinct work activities underneath 5,717 STEM tasks, propagates
+  those scores back out to every task and occupation, joins BLS employment, and checks
+  itself against published human ratings. The dashboard alongside it lets you interrogate
+  the same tables directly.</p>
+</section>
+
+  <section class="scene" id="inversion" data-scene="inversion">
+    <div class="scene-head">
+      <p class="chapter-number">01 / The inversion</p>
+      <div><h2>The jobs most at risk in 2013 are not the jobs most at risk now.</h2><p class="standfirst">Frey and Osborne scored every US occupation for its probability of computerisation. Score the same occupations for exposure to large language models and the ordering does not weaken — it comes apart entirely.</p></div>
+    </div>
+    <div class="scrolly">
+      <div class="stage"><div class="stage-frame">
+        <div class="stage-hud"><span class="hud-name">Fig. 01 — Two measures, same occupations</span>
+          <span class="hud-count"><b data-hud-i>01</b> / 03</span></div>
+        <svg class="plot" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet"
+             role="img" aria-label="Occupations plotted by their 2013 computerisation probability on the left and their LLM susceptibility on the right; the connecting lines cross heavily, showing no relationship between the two."></svg>
+        <div class="stage-readout" data-readout><span data-readout-k>Mathematicians, 2013</span>
+          <b data-readout-v>4.7% chance</b></div>
+        <div class="stage-note">Left axis square-root scaled; right axis linear. 150 occupations.</div>
+      </div></div>
+      <div class="beats"><article class="beat" data-beat><span class="beat-tag"><i></i>01 / 2013</span><h3>Automation meant routine and manual</h3><p>Frey and Osborne built their measure on the bottlenecks of that era: perception and manipulation, creative intelligence, social intelligence. Repetitive physical work scored high. Analytical work scored low — mathematicians landed in their lowest-risk band.</p><p class="egs">Mathematicians — <b>4.7% probability of computerisation</b></p></article><article class="beat" data-beat><span class="beat-tag"><i></i>02 / 2026</span><h3>Language models run the other way</h3><p>Rate the same occupations for what a current model could do and the analytical professions move to the top. Mathematicians ranks third of 268. Nothing about the work changed; the capability arriving to meet it did.</p><p class="egs">Mathematicians — <b>3rd most exposed of 268</b></p></article><article class="beat" data-beat><span class="beat-tag"><i></i>03 / The disagreement</span><h3>And the old risk ordering does not survive</h3><p>The occupations Frey and Osborne rated most at risk — surveying technicians at 96 per cent, pharmacy technicians at 92 — sit in the middle of the LLM ranking. Across all 150 the correlation is 0.006. A measure written before 2020 tells you close to nothing about exposure now.</p><p class="egs">Pearson <b>r = 0.006</b> · Spearman 0.119</p></article></div>
+    </div>
+  </section>
+  <section class="scene" id="vocabulary" data-scene="vocabulary">
+    <div class="scene-head">
+      <p class="chapter-number">02 / The vocabulary</p>
+      <div><h2>Five thousand tasks stand on a thousand shared activities.</h2><p class="standfirst">O*NET decomposes each occupation into tasks, and each task into standardised detailed work activities. The activities repeat across jobs, which is what makes the corpus tractable to score at all.</p></div>
+    </div>
+    <div class="scrolly">
+      <div class="stage"><div class="stage-frame">
+        <div class="stage-hud"><span class="hud-name">Fig. 02 — Occupations, tasks, subtasks</span>
+          <span class="hud-count"><b data-hud-i>01</b> / 03</span></div>
+        <svg class="plot" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet"
+             role="img" aria-label="Three columns of marks: 287 occupations, 5,717 tasks, and 963 distinct subtasks, with the scoring flowing back out from the smallest column."></svg>
+        <div class="stage-readout" data-readout><span data-readout-k>Occupations</span>
+          <b data-readout-v>287</b></div>
+        <div class="stage-note">Counts are exact. Marks are illustrative.</div>
+      </div></div>
+      <div class="beats"><article class="beat" data-beat><span class="beat-tag"><i></i>01 / The corpus</span><h3>287 STEM occupations, 5,717 tasks</h3><p>Every occupation O*NET flags as STEM, scraped with its full task list — each task carrying an importance rating and a Core, Supplemental or New label from the incumbent survey.</p><p class="egs"><b>5,717</b> task statements</p></article><article class="beat" data-beat><span class="beat-tag"><i></i>02 / The shared layer</span><h3>Only 963 distinct activities underneath</h3><p>Those tasks map onto a much smaller vocabulary of detailed work activities. “Analyse data to inform operational decisions” is one activity appearing in dozens of different jobs.</p><p class="egs"><b>963</b> distinct subtasks · 7,215 links</p></article><article class="beat" data-beat><span class="beat-tag"><i></i>03 / Why it matters</span><h3>Score the vocabulary, not the tasks</h3><p>Rating 963 activities instead of 5,717 tasks is six times less work, and it removes an artefact: the same activity cannot be scored one way in nursing and another in engineering. Consistency comes from the structure rather than from discipline.</p><p class="egs">Every task inherits the score of its activities</p></article></div>
+    </div>
+  </section>
+  <section class="scene on-tint" id="axes" data-scene="axes">
+    <div class="scene-head">
+      <p class="chapter-number">03 / Two questions</p>
+      <div><h2>Whether a machine can do the work is not whether it will.</h2><p class="standfirst">The seven rated dimensions collapse into two that behave independently. Treating them as one number is the most common way this analysis goes wrong.</p></div>
+    </div>
+    <div class="scrolly">
+      <div class="stage"><div class="stage-frame">
+        <div class="stage-hud"><span class="hud-name">Fig. 03 — Exposure against anchoring</span>
+          <span class="hud-count"><b data-hud-i>01</b> / 04</span></div>
+        <svg class="plot" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet"
+             role="img" aria-label="Occupations plotted by exposure against anchoring, splitting into four quadrants at the observed medians."></svg>
+        <div class="stage-readout" data-readout><span data-readout-k>Exposure</span>
+          <b data-readout-v>can a machine do it</b></div>
+        <div class="stage-note">Positions are relative to other STEM occupations.</div>
+      </div></div>
+      <div class="beats"><article class="beat" data-beat><span class="beat-tag"><i></i>01 / Capability</span><h3>Exposure asks what a machine could do</h3><p>How much of the cognitive core of this work could a current model perform, given the right inputs and tools? Document handling, retrieval, drafting and analysis score high. Work requiring hands in the world scores low.</p><p class="egs">Highest — <b>proofread documents</b> · exposure 95</p></article><article class="beat" data-beat><span class="beat-tag"><i></i>02 / Permission</span><h3>Anchoring asks whether a human must own it</h3><p>Accountability, the cost and irreversibility of error, judgment under uncertainty, and whether the relationship is the substance of the work. A surgeon and a data analyst can both be highly capable targets and sit at opposite ends of this axis.</p><p class="egs">Highest — <b>operate on patients</b> · anchoring 80+</p></article><article class="beat" data-beat><span class="beat-tag"><i></i>03 / Independence</span><h3>The two barely correlate</h3><p>Drafting a legal opinion is almost entirely language work and still requires a named human to answer for it. Ninety-two of the 963 activities score high on both. A single “automation risk” number cannot represent them.</p><p class="egs">Exposure vs anchoring — <b>r = −0.03</b></p></article><article class="beat" data-beat><span class="beat-tag"><i></i>04 / The split</span><h3>The field divides almost in half</h3><p>Ninety-eight STEM occupations sit in the displaceable quadrant and a hundred in the human-anchored one. Which half a job lands in is decided more by accountability than by capability.</p><p class="egs"><b>98</b> displaceable · <b>100</b> human-anchored</p></article></div>
+    </div>
+  </section>
+  <section class="scene" id="frontier" data-scene="frontier">
+    <div class="scene-head">
+      <p class="chapter-number">04 / The frontier</p>
+      <div><h2>Capability is not what is holding most of this work.</h2><p class="standfirst">Watson's handoff framework scores work on tractability — whether AI can lead it — and resistance — whether it will be permitted to. The interesting cases are where those two disagree.</p></div>
+    </div>
+    <div class="scrolly">
+      <div class="stage"><div class="stage-frame">
+        <div class="stage-hud"><span class="hud-name">Fig. 04 — Tractability against resistance</span>
+          <span class="hud-count"><b data-hud-i>01</b> / 04</span></div>
+        <svg class="plot" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet"
+             role="img" aria-label="Occupations plotted by tractability against resistance with a frontier curve; watch points are highlighted above it."></svg>
+        <div class="stage-readout" data-readout><span data-readout-k>Tractability</span>
+          <b data-readout-v>can AI lead it</b></div>
+        <div class="stage-note">Framework: Watson 2026. Curve calibrated to this corpus.</div>
+      </div></div>
+      <div class="beats"><article class="beat" data-beat><span class="beat-tag"><i></i>01 / Two axes</span><h3>Can it, and will it be allowed to</h3><p>Recurrence, feedback, observability and structure decide whether AI can lead a decision. Stakes and legitimacy decide whether it is permitted to. The first four are engineering questions; the last two are not.</p><p class="egs">Six of Watson's eight properties are covered here</p></article><article class="beat" data-beat><span class="beat-tag"><i></i>02 / The line</span><h3>The frontier is where work crosses</h3><p>Below the curve, the handoff has happened. Above it, a human still leads. Highly tractable work crosses even at some consequence; work that is not tractable stays human-led however low the stakes.</p><p class="egs"><b>36</b> handed off · <b>98</b> crossing now</p></article><article class="beat" data-beat><span class="beat-tag"><i></i>03 / Watch points</span><h3>Capability present, accountability holding</h3><p>Twenty-nine occupations sit above the frontier with a wide gap between what AI could do and what is deployed. Watson reads that gap as willingness to permit the handoff — and an actor with looser norms can close it first.</p><p class="egs"><b>29</b> watch points</p></article><article class="beat" data-beat><span class="beat-tag"><i></i>04 / Who they are</span><h3>Mostly clinical judgment and risk</h3><p>Genetic counsellors, actuaries, preventive medicine physicians, epidemiologists. In each the analytical core is well within reach and a named human is still required to sign.</p><p class="egs">Mean willingness gap among them — <b>+45</b></p></article></div>
+    </div>
+  </section>
+  <section class="scene on-tint" id="ladder" data-scene="ladder">
+    <div class="scene-head">
+      <p class="chapter-number">05 / The ladder</p>
+      <div><h2>Eight occupations have crossed. A hundred and forty could.</h2><p class="standfirst">Watson scores cognitive leadership on six stages, from human-only to AI-led and unreviewed. A handoff is a crossing between stages. Scoring what is deployed and what is reachable separately shows how much travel is pending.</p></div>
+    </div>
+    <div class="scrolly">
+      <div class="stage"><div class="stage-frame">
+        <div class="stage-hud"><span class="hud-name">Fig. 05 — Stage today, stage reachable</span>
+          <span class="hud-count"><b data-hud-i>01</b> / 04</span></div>
+        <svg class="plot" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet"
+             role="img" aria-label="Six stages of cognitive leadership, each showing how many occupations sit there today against how many current capability could support."></svg>
+        <div class="stage-readout" data-readout><span data-readout-k>Six stages</span>
+          <b data-readout-v>of cognitive leadership</b></div>
+        <div class="stage-note">Stage is the lower of the capability and permission ceilings.</div>
+      </div></div>
+      <div class="beats"><article class="beat" data-beat><span class="beat-tag"><i></i>01 / The scale</span><h3>From informed to unreviewed</h3><p>Human only. AI informed. AI recommended. AI executed with a human veto. AI led with a human audit. AI led, unreviewed. Each step moves authority, not just capability.</p><p class="egs">Six stages · a handoff is a crossing</p></article><article class="beat" data-beat><span class="beat-tag"><i></i>02 / Today</span><h3>Most STEM work sits at recommendation</h3><p>On what is actually deployed, 158 occupations sit at “AI recommended” and 101 at “AI informed”. Eight have reached “AI executed with a human veto”.</p><p class="egs"><b>8</b> occupations at AI-executed today</p></article><article class="beat" data-beat><span class="beat-tag"><i></i>03 / Reachable</span><h3>Capability has already moved past that</h3><p>Rate the same occupations on what a current model could do rather than what is deployed, and 140 reach “AI executed with a human veto”. The distance between those two numbers is pending handoff.</p><p class="egs"><b>140</b> could be there now</p></article><article class="beat" data-beat><span class="beat-tag"><i></i>04 / The quiet one</span><h3>The second crossing has no event</h3><p>Watson expects two crossings to carry most of the weight: proposing action to taking it, and human veto to after-the-fact audit. The second happens by erosion — review thinning toward ceremony, with nothing to observe.</p><p class="egs"><b>120</b> occupations sit at one of the two</p></article></div>
+    </div>
+  </section>
+  <section class="scene" id="people" data-scene="people">
+    <div class="scene-head">
+      <p class="chapter-number">06 / The people</p>
+      <div><h2>Twenty-one million workers, pulling in opposite directions.</h2><p class="standfirst">Occupation counts weight a nurse the same as an actuary. Joining BLS employment asks a different question: not which jobs are exposed, but how many people are in them.</p></div>
+    </div>
+    <div class="scrolly">
+      <div class="stage"><div class="stage-frame">
+        <div class="stage-hud"><span class="hud-name">Fig. 06 — Workers by handoff quadrant</span>
+          <span class="hud-count"><b data-hud-i>01</b> / 04</span></div>
+        <svg class="plot" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet"
+             role="img" aria-label="A bar divided by share of employment in each quadrant, and the five largest STEM occupations by headcount."></svg>
+        <div class="stage-readout" data-readout><span data-readout-k>Workers covered</span>
+          <b data-readout-v>21.5 million</b></div>
+        <div class="stage-note">BLS OEWS national file. Employment counted once per SOC code.</div>
+      </div></div>
+      <div class="beats"><article class="beat" data-beat><span class="beat-tag"><i></i>01 / The count</span><h3>21.5 million across 195 occupation codes</h3><p>O*NET reports at a finer grain than BLS, so several O*NET occupations roll into one SOC code. Attaching employment to each would count 3.4 million registered nurses five times over. Susceptibility is averaged up first.</p><p class="egs"><b>195</b> SOC codes · 37 of them collapsed</p></article><article class="beat" data-beat><span class="beat-tag"><i></i>02 / The split</span><h3>Forty-three per cent in the displaceable half</h3><p>Weighted by headcount, 9.2 million STEM workers sit in the displaceable quadrant and 8.9 million in the human-anchored one — a wage bill of 1.1 trillion dollars on the exposed side.</p><p class="egs"><b>43%</b> displaceable · <b>41%</b> human-anchored</p></article><article class="beat" data-beat><span class="beat-tag"><i></i>03 / The cancellation</span><h3>The two largest occupations disagree</h3><p>Registered nurses, 3.4 million people, sit at the human-anchored end. Software developers, 1.7 million, sit near the top of the exposed end. They very nearly cancel.</p><p class="egs">Nurses susceptibility 50 · developers 69</p></article><article class="beat" data-beat><span class="beat-tag"><i></i>04 / The null result</span><h3>Weighting barely moves the answer</h3><p>Employment weighting shifts mean susceptibility by half a point. Headcount is not concentrated at either end, which means the unweighted ranking was not misleading. That is worth reporting precisely because it could have gone the other way.</p><p class="egs">Mean susceptibility <b>58.2 → 58.7</b></p></article></div>
+    </div>
+  </section>
+  <section class="scene on-tint" id="validation" data-scene="validation">
+    <div class="scene-head">
+      <p class="chapter-number">07 / The check</p>
+      <div><h2>A model rating work is an assertion until someone checks it.</h2><p class="standfirst">Every other number here is internally consistent by construction. This is the only part that could have come out wrong in a way the rest of the pipeline would not catch.</p></div>
+    </div>
+    <div class="scrolly">
+      <div class="stage"><div class="stage-frame">
+        <div class="stage-hud"><span class="hud-name">Fig. 07 — Against human expert ratings</span>
+          <span class="hud-count"><b data-hud-i>01</b> / 03</span></div>
+        <svg class="plot" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet"
+             role="img" aria-label="Our susceptibility index plotted against human expert exposure ratings, with a fitted line."></svg>
+        <div class="stage-readout" data-readout><span data-readout-k>A model rating work</span>
+          <b data-readout-v>is an assertion</b></div>
+        <div class="stage-note">Benchmark: Eloundou, Manning, Mishkin & Rock (2023).</div>
+      </div></div>
+      <div class="beats"><article class="beat" data-beat><span class="beat-tag"><i></i>01 / The problem</span><h3>Self-consistency is not evidence</h3><p>The scores order the model's own categorical verdicts monotonically, which is reassuring and proves nothing — both come from the same model. An external benchmark is the only thing that can fail.</p><p class="egs">Convergent validity <b>74.9 &gt; 65.9 &gt; 43.6 &gt; 40.3</b></p></article><article class="beat" data-beat><span class="beat-tag"><i></i>02 / The benchmark</span><h3>Human annotators rated the same occupations</h3><p>Eloundou and colleagues published exposure ratings keyed to the same O*NET codes, from human annotators as well as a model. All 268 of our occupations matched with no crosswalk.</p><p class="egs"><b>268 of 268</b> matched</p></article><article class="beat" data-beat><span class="beat-tag"><i></i>03 / The result</span><h3>They agree closely</h3><p>Correlation of 0.85 with the human ratings. The weaker agreement with their no-tools definition is expected: this rubric explicitly asks what a model could do given the right tools.</p><p class="egs"><b>r = 0.85</b> against human experts</p></article></div>
+    </div>
+  </section>
+
+<section class="ending coda">
+  <svg class="coda-canvas" id="codaCanvas" viewBox="0 0 1200 300"
+       preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+  <div class="coda-inner">
+    <p class="eyebrow">What this cannot tell you</p>
+    <h2>Three limits worth stating before anyone cites it.</h2>
+    <p class="dek"><b>The unit is the task, not the decision.</b> Watson's framework scores
+    recurring decisions, and he is explicit that identifying which tasks are decisions is
+    the novel work. It has not been done here, so the stage numbers are provisional.</p>
+    <p class="dek"><b>The scores are model judgment.</b> They agree with human annotators at
+    r&nbsp;=&nbsp;0.85, which is evidence of validity, not a substitute for it. No
+    reliability estimate exists yet — nobody has checked whether a second run agrees
+    with the first.</p>
+    <p class="dek"><b>Exposure is not displacement.</b> Nothing here measures what
+    employers will do, what regulation will permit, or how fast anything diffuses. It
+    measures the shape of the work and where accountability sits.</p>
+  </div>
+</section>
+
+<script>window.__STORY__ = {"inversion":[{"t":"Mathematicians","fo":0.8232,"ours":0.0,"hl":true},{"t":"Operations Research Analysts","fo":0.8552,"ours":0.1019,"hl":false},{"t":"Sales Engineers","fo":0.988,"ours":0.1699,"hl":false},{"t":"Pharmacy Technicians","fo":0.0223,"ours":0.4076,"hl":false},{"t":"Cartographers and Photogram\u2026","fo":0.045,"ours":0.4374,"hl":false},{"t":"Surveying and Mapping Techn\u2026","fo":0.0,"ours":0.4501,"hl":false},{"t":"","fo":0.551,"ours":0.0382,"hl":false},{"t":"","fo":0.551,"ours":0.0679,"hl":false},{"t":"","fo":0.5176,"ours":0.1253,"hl":false},{"t":"","fo":0.8611,"ours":0.1423,"hl":false},{"t":"","fo":0.5176,"ours":0.1444,"hl":false},{"t":"","fo":0.844,"ours":0.1465,"hl":false},{"t":"","fo":0.3496,"ours":0.1762,"hl":false},{"t":"","fo":0.1873,"ours":0.1868,"hl":false},{"t":"","fo":0.925,"ours":0.189,"hl":false},{"t":"","fo":0.8611,"ours":0.2038,"hl":false},{"t":"","fo":0.8413,"ours":0.2038,"hl":false},{"t":"","fo":0.174,"ours":0.2272,"hl":false},{"t":"","fo":0.7159,"ours":0.2293,"hl":false},{"t":"","fo":0.3496,"ours":0.2293,"hl":false},{"t":"","fo":0.5397,"ours":0.2293,"hl":false},{"t":"","fo":0.8496,"ours":0.2314,"hl":false},{"t":"","fo":0.9123,"ours":0.2357,"hl":false},{"t":"","fo":0.6681,"ours":0.2378,"hl":false},{"t":"","fo":0.8552,"ours":0.2442,"hl":false},{"t":"","fo":0.9294,"ours":0.2505,"hl":false},{"t":"","fo":0.8734,"ours":0.259,"hl":false},{"t":"","fo":0.7906,"ours":0.2611,"hl":false},{"t":"","fo":0.2145,"ours":0.2633,"hl":false},{"t":"","fo":0.795,"ours":0.2718,"hl":false},{"t":"","fo":0.8865,"ours":0.2781,"hl":false},{"t":"","fo":0.551,"ours":0.2803,"hl":false},{"t":"","fo":0.3496,"ours":0.2887,"hl":false},{"t":"","fo":0.2791,"ours":0.2909,"hl":false},{"t":"","fo":0.8282,"ours":0.2951,"hl":false},{"t":"","fo":0.9294,"ours":0.2951,"hl":false},{"t":"","fo":0.8766,"ours":0.2972,"hl":false},{"t":"","fo":0.925,"ours":0.2972,"hl":false},{"t":"","fo":0.1227,"ours":0.2994,"hl":false},{"t":"","fo":0.8611,"ours":0.2994,"hl":false},{"t":"","fo":0.9389,"ours":0.2994,"hl":false},{"t":"","fo":0.8734,"ours":0.3015,"hl":false},{"t":"","fo":0.8386,"ours":0.3015,"hl":false},{"t":"","fo":0.9084,"ours":0.3057,"hl":false},{"t":"","fo":0.9439,"ours":0.3057,"hl":false},{"t":"","fo":0.0861,"ours":0.3057,"hl":false},{"t":"","fo":0.925,"ours":0.3057,"hl":false},{"t":"","fo":0.392,"ours":0.3079,"hl":false},{"t":"","fo":0.9123,"ours":0.31,"hl":false},{"t":"","fo":0.2145,"ours":0.31,"hl":false},{"t":"","fo":0.8865,"ours":0.3121,"hl":false},{"t":"","fo":0.8734,"ours":0.3121,"hl":false}],"axes":[{"e":86.2,"a":26.0,"s":80.1},{"e":85.5,"a":27.0,"s":79.3},{"e":85.9,"a":31.1,"s":77.4},{"e":82.7,"a":28.3,"s":77.2},{"e":84.5,"a":30.2,"s":77.1},{"e":84.8,"a":31.0,"s":76.9},{"e":84.0,"a":30.4,"s":76.8},{"e":82.1,"a":29.7,"s":76.2},{"e":82.1,"a":29.7,"s":76.2},{"e":83.7,"a":31.6,"s":76.1},{"e":82.3,"a":30.5,"s":75.9},{"e":83.9,"a":32.6,"s":75.6},{"e":79.6,"a":30.1,"s":74.7},{"e":78.6,"a":29.5,"s":74.6},{"e":81.0,"a":32.2,"s":74.4},{"e":83.9,"a":35.6,"s":74.2},{"e":81.5,"a":33.2,"s":74.2},{"e":80.2,"a":32.6,"s":73.8},{"e":81.5,"a":34.2,"s":73.7},{"e":78.1,"a":32.1,"s":73.0},{"e":80.8,"a":35.6,"s":72.6},{"e":79.1,"a":36.0,"s":71.6},{"e":79.4,"a":36.4,"s":71.5},{"e":75.5,"a":32.6,"s":71.5},{"e":79.3,"a":37.0,"s":71.2},{"e":81.7,"a":40.2,"s":70.7},{"e":77.2,"a":35.9,"s":70.6},{"e":81.6,"a":40.6,"s":70.5},{"e":77.3,"a":36.7,"s":70.3},{"e":76.4,"a":36.8,"s":69.8},{"e":74.4,"a":35.6,"s":69.4},{"e":75.6,"a":37.0,"s":69.3},{"e":74.6,"a":36.2,"s":69.2},{"e":70.6,"a":32.3,"s":69.1},{"e":79.6,"a":41.4,"s":69.1},{"e":73.0,"a":35.1,"s":69.0},{"e":76.5,"a":38.6,"s":68.9},{"e":68.5,"a":30.9,"s":68.8},{"e":76.2,"a":38.6,"s":68.8},{"e":76.0,"a":38.6,"s":68.7},{"e":73.7,"a":36.4,"s":68.6},{"e":76.2,"a":39.1,"s":68.6},{"e":76.3,"a":39.2,"s":68.6},{"e":76.1,"a":38.9,"s":68.6},{"e":77.4,"a":40.4,"s":68.5},{"e":76.3,"a":39.5,"s":68.4},{"e":76.1,"a":39.2,"s":68.4},{"e":75.4,"a":38.9,"s":68.3},{"e":74.7,"a":38.4,"s":68.1},{"e":72.5,"a":36.6,"s":68.0},{"e":75.0,"a":39.0,"s":68.0},{"e":74.5,"a":38.6,"s":68.0},{"e":78.5,"a":42.8,"s":67.8},{"e":78.4,"a":42.9,"s":67.8},{"e":75.3,"a":39.9,"s":67.7},{"e":75.3,"a":39.8,"s":67.7},{"e":74.7,"a":39.6,"s":67.6},{"e":75.1,"a":40.4,"s":67.4},{"e":74.3,"a":39.9,"s":67.2},{"e":73.7,"a":39.7,"s":67.1},{"e":72.9,"a":39.5,"s":66.7},{"e":73.5,"a":40.3,"s":66.6},{"e":76.4,"a":43.2,"s":66.6},{"e":73.9,"a":40.8,"s":66.6},{"e":74.4,"a":41.3,"s":66.6},{"e":74.8,"a":41.7,"s":66.5},{"e":74.5,"a":41.6,"s":66.5},{"e":72.1,"a":39.5,"s":66.3},{"e":74.0,"a":41.4,"s":66.3},{"e":75.3,"a":42.9,"s":66.2},{"e":74.4,"a":42.6,"s":65.9},{"e":72.2,"a":40.6,"s":65.9},{"e":72.4,"a":40.7,"s":65.8},{"e":73.4,"a":41.9,"s":65.7},{"e":72.4,"a":41.1,"s":65.6},{"e":70.1,"a":38.8,"s":65.6},{"e":67.3,"a":36.0,"s":65.6},{"e":73.4,"a":42.5,"s":65.4},{"e":70.7,"a":40.3,"s":65.2},{"e":71.4,"a":41.2,"s":65.1},{"e":64.3,"a":34.3,"s":65.0},{"e":74.2,"a":45.0,"s":64.6},{"e":67.8,"a":39.3,"s":64.3},{"e":68.7,"a":40.4,"s":64.2},{"e":66.8,"a":39.2,"s":63.8},{"e":62.0,"a":34.6,"s":63.7},{"e":68.3,"a":41.3,"s":63.5},{"e":66.4,"a":39.5,"s":63.5},{"e":72.3,"a":45.5,"s":63.4},{"e":70.2,"a":43.4,"s":63.4},{"e":65.8,"a":39.3,"s":63.3},{"e":73.4,"a":46.7,"s":63.3},{"e":72.6,"a":46.1,"s":63.3},{"e":69.3,"a":42.8,"s":63.2},{"e":69.7,"a":43.2,"s":63.2},{"e":70.9,"a":44.9,"s":63.0},{"e":68.3,"a":42.2,"s":63.0},{"e":63.1,"a":37.1,"s":63.0},{"e":69.1,"a":43.1,"s":63.0},{"e":60.3,"a":34.5,"s":62.9},{"e":69.6,"a":44.1,"s":62.8},{"e":66.0,"a":40.4,"s":62.8},{"e":64.6,"a":39.1,"s":62.7},{"e":64.7,"a":39.2,"s":62.7},{"e":66.9,"a":41.5,"s":62.7},{"e":59.2,"a":33.9,"s":62.6},{"e":66.8,"a":42.1,"s":62.4},{"e":70.0,"a":45.4,"s":62.3},{"e":73.1,"a":48.5,"s":62.3},{"e":61.1,"a":36.5,"s":62.3},{"e":66.4,"a":42.0,"s":62.2},{"e":65.4,"a":40.9,"s":62.2},{"e":67.7,"a":43.5,"s":62.1},{"e":68.8,"a":44.8,"s":62.0},{"e":66.4,"a":42.5,"s":62.0},{"e":66.9,"a":43.3,"s":61.8},{"e":67.0,"a":43.5,"s":61.8},{"e":67.4,"a":43.9,"s":61.7},{"e":70.6,"a":47.1,"s":61.7},{"e":71.4,"a":47.9,"s":61.7},{"e":62.9,"a":40.2,"s":61.3},{"e":70.7,"a":48.2,"s":61.3},{"e":76.3,"a":53.9,"s":61.2},{"e":67.7,"a":45.4,"s":61.1},{"e":66.0,"a":43.9,"s":61.1},{"e":68.2,"a":46.3,"s":61.0},{"e":62.2,"a":40.3,"s":61.0},{"e":65.5,"a":44.2,"s":60.7},{"e":63.4,"a":42.1,"s":60.7},{"e":60.3,"a":38.9,"s":60.7},{"e":65.2,"a":44.4,"s":60.4},{"e":68.3,"a":47.9,"s":60.2},{"e":65.9,"a":45.6,"s":60.2},{"e":61.4,"a":41.4,"s":60.0},{"e":63.6,"a":43.9,"s":59.9},{"e":63.0,"a":43.5,"s":59.8},{"e":63.0,"a":43.4,"s":59.8},{"e":62.3,"a":42.7,"s":59.8},{"e":66.6,"a":47.1,"s":59.8},{"e":63.4,"a":44.3,"s":59.6},{"e":67.4,"a":48.4,"s":59.5},{"e":71.5,"a":52.5,"s":59.4},{"e":63.4,"a":45.3,"s":59.1},{"e":59.0,"a":41.4,"s":58.8},{"e":63.0,"a":45.8,"s":58.6},{"e":59.9,"a":43.4,"s":58.3},{"e":62.3,"a":46.0,"s":58.2},{"e":55.5,"a":39.0,"s":58.2},{"e":60.3,"a":44.1,"s":58.1},{"e":68.6,"a":52.3,"s":58.1},{"e":70.2,"a":53.9,"s":58.1},{"e":62.2,"a":46.2,"s":58.0},{"e":60.0,"a":44.2,"s":57.9},{"e":54.0,"a":38.8,"s":57.6},{"e":70.7,"a":55.9,"s":57.4},{"e":62.1,"a":47.7,"s":57.2},{"e":52.1,"a":38.0,"s":57.0},{"e":47.7,"a":34.2,"s":56.8},{"e":66.9,"a":53.3,"s":56.8},{"e":63.2,"a":49.9,"s":56.7},{"e":63.2,"a":50.0,"s":56.6},{"e":52.8,"a":39.9,"s":56.5},{"e":55.1,"a":42.3,"s":56.4},{"e":48.7,"a":36.4,"s":56.2},{"e":51.4,"a":39.7,"s":55.9},{"e":65.3,"a":53.5,"s":55.9},{"e":70.6,"a":59.3,"s":55.7},{"e":64.5,"a":53.5,"s":55.5},{"e":68.9,"a":57.8,"s":55.5},{"e":63.2,"a":52.3,"s":55.4},{"e":50.8,"a":40.6,"s":55.1},{"e":61.3,"a":51.2,"s":55.1},{"e":67.4,"a":57.2,"s":55.1},{"e":56.5,"a":46.9,"s":54.8},{"e":65.1,"a":55.5,"s":54.8},{"e":58.6,"a":49.3,"s":54.6},{"e":67.4,"a":58.5,"s":54.4},{"e":47.5,"a":38.9,"s":54.3},{"e":66.9,"a":58.3,"s":54.3},{"e":47.7,"a":40.0,"s":53.9},{"e":54.6,"a":47.0,"s":53.8},{"e":64.1,"a":56.4,"s":53.8},{"e":67.2,"a":59.6,"s":53.8},{"e":62.9,"a":55.4,"s":53.7},{"e":61.2,"a":54.1,"s":53.6},{"e":64.0,"a":56.9,"s":53.5},{"e":47.5,"a":40.6,"s":53.4},{"e":66.7,"a":60.1,"s":53.3},{"e":45.5,"a":39.2,"s":53.2},{"e":52.9,"a":46.6,"s":53.1},{"e":56.5,"a":50.7,"s":52.9},{"e":52.3,"a":47.0,"s":52.7},{"e":57.8,"a":52.4,"s":52.7},{"e":50.9,"a":45.4,"s":52.7},{"e":64.1,"a":59.1,"s":52.5},{"e":61.1,"a":56.1,"s":52.5},{"e":61.1,"a":56.4,"s":52.3},{"e":62.9,"a":58.5,"s":52.2},{"e":64.9,"a":61.0,"s":51.9},{"e":62.6,"a":59.2,"s":51.7},{"e":61.9,"a":58.4,"s":51.7},{"e":44.6,"a":41.5,"s":51.6},{"e":44.9,"a":41.8,"s":51.6},{"e":61.0,"a":57.7,"s":51.6},{"e":63.4,"a":60.3,"s":51.5},{"e":64.6,"a":61.6,"s":51.5},{"e":62.1,"a":59.1,"s":51.5},{"e":50.8,"a":48.0,"s":51.4},{"e":58.3,"a":56.8,"s":50.7},{"e":61.7,"a":60.8,"s":50.5},{"e":40.6,"a":39.8,"s":50.4},{"e":52.5,"a":51.8,"s":50.3},{"e":54.2,"a":53.7,"s":50.2},{"e":41.7,"a":41.5,"s":50.1},{"e":61.7,"a":61.7,"s":50.0},{"e":46.2,"a":46.4,"s":49.9},{"e":61.6,"a":61.9,"s":49.9},{"e":60.5,"a":61.0,"s":49.8},{"e":61.6,"a":62.1,"s":49.8},{"e":49.0,"a":49.7,"s":49.6},{"e":42.5,"a":44.4,"s":49.0},{"e":49.5,"a":51.5,"s":49.0},{"e":59.8,"a":62.0,"s":48.9},{"e":56.7,"a":59.2,"s":48.7},{"e":58.0,"a":61.1,"s":48.5},{"e":54.8,"a":58.2,"s":48.3},{"e":57.9,"a":61.6,"s":48.2},{"e":60.6,"a":64.3,"s":48.1},{"e":56.4,"a":60.1,"s":48.1},{"e":47.3,"a":51.1,"s":48.1},{"e":42.7,"a":47.8,"s":47.4},{"e":58.4,"a":64.0,"s":47.2},{"e":43.5,"a":49.0,"s":47.2},{"e":57.0,"a":63.1,"s":46.9},{"e":45.4,"a":51.5,"s":46.9},{"e":54.9,"a":61.7,"s":46.6},{"e":47.9,"a":54.7,"s":46.6},{"e":46.4,"a":53.4,"s":46.5},{"e":55.1,"a":62.3,"s":46.4},{"e":58.6,"a":66.0,"s":46.3},{"e":46.7,"a":54.4,"s":46.2},{"e":50.7,"a":58.3,"s":46.2},{"e":53.0,"a":61.1,"s":46.0},{"e":54.1,"a":62.7,"s":45.7},{"e":46.5,"a":55.8,"s":45.3},{"e":51.5,"a":61.0,"s":45.2},{"e":46.0,"a":56.4,"s":44.8},{"e":43.6,"a":54.7,"s":44.5},{"e":48.8,"a":60.4,"s":44.1},{"e":46.7,"a":59.7,"s":43.5},{"e":43.6,"a":57.0,"s":43.3},{"e":44.9,"a":58.2,"s":43.3},{"e":34.1,"a":48.7,"s":42.7},{"e":45.4,"a":61.1,"s":42.2},{"e":49.4,"a":65.9,"s":41.7},{"e":39.0,"a":55.6,"s":41.7},{"e":43.4,"a":61.4,"s":41.0},{"e":47.9,"a":67.6,"s":40.1},{"e":35.8,"a":57.3,"s":39.2},{"e":32.3,"a":54.5,"s":38.9},{"e":34.4,"a":57.2,"s":38.6},{"e":41.4,"a":66.5,"s":37.4},{"e":38.2,"a":63.4,"s":37.4},{"e":37.5,"a":62.6,"s":37.4},{"e":21.1,"a":49.5,"s":35.8},{"e":27.3,"a":65.5,"s":30.9},{"e":37.3,"a":76.4,"s":30.4},{"e":28.6,"a":67.9,"s":30.3}],"splits":{"x":65.3,"y":43.5},"quad":{"disp":98,"anch":100},"frontier":[{"T":65.0,"R":49.7,"cls":"Human held"},{"T":64.0,"R":69.7,"cls":"Watch point"},{"T":69.5,"R":46.3,"cls":"Human held"},{"T":68.6,"R":44.3,"cls":"Crossing now"},{"T":66.1,"R":61.7,"cls":"Watch point"},{"T":66.4,"R":49.3,"cls":"Human held"},{"T":65.1,"R":43.8,"cls":"Crossing now"},{"T":62.3,"R":65.1,"cls":"Watch point"},{"T":73.8,"R":41.7,"cls":"Crossing now"},{"T":74.8,"R":34.6,"cls":"Crossing now"},{"T":75.7,"R":38.0,"cls":"Crossing now"},{"T":74.9,"R":34.8,"cls":"Crossing now"},{"T":74.2,"R":37.4,"cls":"Crossing now"},{"T":60.1,"R":44.9,"cls":"Crossing now"},{"T":62.8,"R":44.1,"cls":"Crossing now"},{"T":66.4,"R":48.9,"cls":"Human held"},{"T":72.5,"R":38.0,"cls":"Crossing now"},{"T":70.6,"R":43.8,"cls":"Crossing now"},{"T":71.1,"R":39.3,"cls":"Crossing now"},{"T":58.2,"R":47.7,"cls":"Crossing now"},{"T":66.8,"R":49.5,"cls":"Human held"},{"T":57.3,"R":69.6,"cls":"Watch point"},{"T":72.8,"R":46.7,"cls":"Human held"},{"T":77.2,"R":37.1,"cls":"Crossing now"},{"T":66.0,"R":44.3,"cls":"Crossing now"},{"T":61.4,"R":55.9,"cls":"Watch point"},{"T":60.5,"R":50.9,"cls":"Watch point"},{"T":77.3,"R":37.5,"cls":"Crossing now"},{"T":74.5,"R":38.2,"cls":"Crossing now"},{"T":64.2,"R":51.9,"cls":"Watch point"},{"T":70.6,"R":45.6,"cls":"Human held"},{"T":62.9,"R":57.5,"cls":"Watch point"},{"T":65.2,"R":53.8,"cls":"Watch point"},{"T":73.5,"R":38.8,"cls":"Crossing now"},{"T":67.3,"R":49.4,"cls":"Human held"},{"T":76.9,"R":34.8,"cls":"Crossing now"},{"T":71.5,"R":43.0,"cls":"Crossing now"},{"T":64.3,"R":46.2,"cls":"Crossing now"},{"T":61.9,"R":51.8,"cls":"Watch point"},{"T":70.9,"R":45.0,"cls":"Human held"},{"T":70.8,"R":45.2,"cls":"Human held"},{"T":69.1,"R":45.9,"cls":"Human held"},{"T":70.6,"R":44.9,"cls":"Human held"},{"T":71.1,"R":44.3,"cls":"Crossing now"},{"T":69.2,"R":48.2,"cls":"Human held"},{"T":69.4,"R":44.9,"cls":"Crossing now"},{"T":71.1,"R":45.3,"cls":"Human held"},{"T":70.9,"R":44.5,"cls":"Crossing now"},{"T":70.2,"R":45.9,"cls":"Human held"},{"T":70.8,"R":44.2,"cls":"Crossing now"},{"T":70.9,"R":44.7,"cls":"Human held"},{"T":68.6,"R":47.7,"cls":"Human held"},{"T":70.1,"R":45.7,"cls":"Human held"},{"T":60.2,"R":62.6,"cls":"Watch point"},{"T":56.4,"R":67.5,"cls":"Watch point"},{"T":74.1,"R":38.6,"cls":"Crossing now"},{"T":70.8,"R":42.5,"cls":"Crossing now"},{"T":75.6,"R":35.5,"cls":"Crossing now"},{"T":63.3,"R":42.3,"cls":"Crossing now"},{"T":58.7,"R":50.8,"cls":"Watch point"},{"T":59.6,"R":64.8,"cls":"Human held"},{"T":68.8,"R":46.9,"cls":"Human held"},{"T":69.2,"R":45.2,"cls":"Crossing now"},{"T":70.0,"R":44.7,"cls":"Crossing now"},{"T":70.1,"R":45.8,"cls":"Human held"},{"T":59.1,"R":64.9,"cls":"Human held"},{"T":59.4,"R":64.2,"cls":"Watch point"},{"T":76.9,"R":35.3,"cls":"Crossing now"},{"T":71.4,"R":43.9,"cls":"Crossing now"},{"T":60.0,"R":48.3,"cls":"Crossing now"},{"T":60.4,"R":48.0,"cls":"Crossing now"},{"T":64.4,"R":54.6,"cls":"Human held"},{"T":69.1,"R":45.2,"cls":"Crossing now"},{"T":56.6,"R":69.5,"cls":"Human held"},{"T":68.4,"R":44.6,"cls":"Crossing now"},{"T":74.1,"R":35.5,"cls":"Crossing now"},{"T":66.0,"R":47.5,"cls":"Crossing now"},{"T":66.6,"R":44.5,"cls":"Crossing now"},{"T":56.6,"R":65.0,"cls":"Watch point"},{"T":68.2,"R":46.4,"cls":"Human held"},{"T":59.0,"R":50.5,"cls":"Watch point"},{"T":58.6,"R":37.5,"cls":"Handed off"},{"T":63.6,"R":47.6,"cls":"Crossing now"},{"T":69.7,"R":42.1,"cls":"Crossing now"},{"T":68.0,"R":49.3,"cls":"Human held"},{"T":69.4,"R":47.6,"cls":"Human held"},{"T":60.9,"R":47.6,"cls":"Crossing now"},{"T":62.4,"R":47.9,"cls":"Crossing now"},{"T":63.5,"R":40.7,"cls":"Crossing now"},{"T":54.9,"R":68.0,"cls":"Human held"},{"T":70.6,"R":48.7,"cls":"Human held"},{"T":62.7,"R":49.8,"cls":"Crossing now"},{"T":61.5,"R":47.2,"cls":"Crossing now"},{"T":54.3,"R":68.1,"cls":"Human held"},{"T":53.8,"R":65.0,"cls":"Human held"},{"T":67.8,"R":41.3,"cls":"Crossing now"},{"T":61.9,"R":48.8,"cls":"Crossing now"},{"T":56.8,"R":52.0,"cls":"Crossing now"},{"T":71.0,"R":40.6,"cls":"Crossing now"},{"T":71.1,"R":38.4,"cls":"Crossing now"},{"T":63.6,"R":45.1,"cls":"Crossing now"},{"T":63.9,"R":45.3,"cls":"Crossing now"},{"T":53.9,"R":59.0,"cls":"Human held"},{"T":61.4,"R":48.8,"cls":"Crossing now"},{"T":61.1,"R":47.4,"cls":"Crossing now"},{"T":56.1,"R":48.6,"cls":"Crossing now"},{"T":55.2,"R":67.4,"cls":"Human held"},{"T":64.9,"R":43.1,"cls":"Crossing now"},{"T":53.0,"R":43.4,"cls":"Handed off"},{"T":71.3,"R":39.2,"cls":"Crossing now"},{"T":69.2,"R":40.6,"cls":"Crossing now"},{"T":63.7,"R":43.6,"cls":"Crossing now"},{"T":59.1,"R":44.7,"cls":"Crossing now"},{"T":61.9,"R":43.3,"cls":"Crossing now"},{"T":58.8,"R":42.6,"cls":"Handed off"},{"T":54.5,"R":52.3,"cls":"Crossing now"},{"T":59.5,"R":51.9,"cls":"Crossing now"},{"T":60.2,"R":49.1,"cls":"Crossing now"},{"T":58.1,"R":41.4,"cls":"Handed off"},{"T":57.3,"R":44.6,"cls":"Crossing now"},{"T":49.6,"R":67.7,"cls":"Human held"},{"T":62.3,"R":44.4,"cls":"Crossing now"},{"T":60.1,"R":44.5,"cls":"Crossing now"},{"T":63.1,"R":43.9,"cls":"Crossing now"},{"T":56.8,"R":45.2,"cls":"Crossing now"},{"T":61.5,"R":40.6,"cls":"Handed off"},{"T":61.5,"R":44.3,"cls":"Crossing now"},{"T":69.0,"R":33.9,"cls":"Handed off"},{"T":58.5,"R":49.3,"cls":"Crossing now"},{"T":58.4,"R":45.6,"cls":"Crossing now"},{"T":65.0,"R":40.0,"cls":"Crossing now"},{"T":64.2,"R":42.8,"cls":"Crossing now"},{"T":58.6,"R":41.6,"cls":"Handed off"},{"T":63.1,"R":37.2,"cls":"Handed off"},{"T":51.8,"R":64.7,"cls":"Human held"},{"T":53.0,"R":53.6,"cls":"Crossing now"},{"T":57.1,"R":48.4,"cls":"Crossing now"},{"T":60.5,"R":40.5,"cls":"Handed off"},{"T":65.6,"R":40.7,"cls":"Crossing now"},{"T":52.1,"R":51.6,"cls":"Crossing now"},{"T":56.4,"R":43.4,"cls":"Handed off"},{"T":57.1,"R":46.5,"cls":"Crossing now"},{"T":54.9,"R":44.5,"cls":"Handed off"},{"T":63.0,"R":35.1,"cls":"Handed off"},{"T":58.8,"R":45.6,"cls":"Crossing now"},{"T":60.2,"R":42.2,"cls":"Crossing now"},{"T":61.6,"R":39.2,"cls":"Handed off"},{"T":49.6,"R":53.0,"cls":"Human held"},{"T":58.5,"R":40.9,"cls":"Handed off"},{"T":68.4,"R":51.4,"cls":"Watch point"},{"T":50.0,"R":44.3,"cls":"Handed off"},{"T":66.2,"R":52.3,"cls":"Human held"},{"T":68.6,"R":34.6,"cls":"Handed off"},{"T":78.0,"R":34.8,"cls":"Crossing now"},{"T":75.0,"R":35.1,"cls":"Crossing now"},{"T":76.8,"R":35.1,"cls":"Crossing now"},{"T":78.6,"R":30.7,"cls":"Handed off"},{"T":67.3,"R":50.1,"cls":"Human held"},{"T":69.2,"R":50.6,"cls":"Watch point"},{"T":79.8,"R":30.1,"cls":"Handed off"},{"T":56.5,"R":34.6,"cls":"Handed off"},{"T":57.3,"R":44.4,"cls":"Crossing now"},{"T":64.0,"R":39.6,"cls":"Crossing now"},{"T":60.4,"R":50.6,"cls":"Crossing now"},{"T":59.5,"R":51.6,"cls":"Crossing now"},{"T":62.4,"R":53.0,"cls":"Watch point"},{"T":60.7,"R":52.4,"cls":"Human held"},{"T":58.7,"R":50.1,"cls":"Crossing now"},{"T":51.3,"R":39.8,"cls":"Handed off"},{"T":52.9,"R":39.5,"cls":"Handed off"},{"T":47.7,"R":37.7,"cls":"Human held"},{"T":55.1,"R":44.3,"cls":"Handed off"},{"T":52.5,"R":37.4,"cls":"Handed off"},{"T":54.5,"R":37.3,"cls":"Handed off"},{"T":54.4,"R":36.6,"cls":"Handed off"},{"T":50.9,"R":37.8,"cls":"Handed off"},{"T":47.0,"R":34.5,"cls":"Human held"},{"T":56.3,"R":37.9,"cls":"Handed off"},{"T":50.7,"R":40.8,"cls":"Handed off"},{"T":45.1,"R":40.5,"cls":"Human held"},{"T":60.7,"R":40.1,"cls":"Handed off"},{"T":51.0,"R":47.1,"cls":"Handed off"},{"T":55.3,"R":70.7,"cls":"Watch point"},{"T":53.0,"R":44.9,"cls":"Handed off"},{"T":55.8,"R":38.2,"cls":"Handed off"},{"T":45.5,"R":34.3,"cls":"Human held"},{"T":47.8,"R":38.3,"cls":"Human held"},{"T":50.6,"R":33.9,"cls":"Handed off"},{"T":50.1,"R":43.6,"cls":"Handed off"},{"T":51.1,"R":47.6,"cls":"Handed off"},{"T":50.4,"R":36.3,"cls":"Handed off"},{"T":45.5,"R":47.3,"cls":"Human held"},{"T":48.9,"R":46.6,"cls":"Human held"},{"T":48.6,"R":45.7,"cls":"Human held"},{"T":43.1,"R":57.5,"cls":"Human held"},{"T":38.0,"R":74.3,"cls":"Human held"},{"T":27.5,"R":81.5,"cls":"Human held"},{"T":48.2,"R":70.6,"cls":"Human held"},{"T":30.0,"R":69.7,"cls":"Human held"},{"T":48.6,"R":75.8,"cls":"Human held"},{"T":59.9,"R":62.9,"cls":"Human held"},{"T":54.2,"R":72.0,"cls":"Human held"},{"T":37.2,"R":69.4,"cls":"Human held"},{"T":49.6,"R":71.8,"cls":"Human held"},{"T":50.5,"R":71.7,"cls":"Human held"},{"T":46.7,"R":67.0,"cls":"Human held"},{"T":57.6,"R":73.9,"cls":"Watch point"},{"T":45.7,"R":70.2,"cls":"Human held"},{"T":55.5,"R":70.9,"cls":"Watch point"},{"T":51.2,"R":70.8,"cls":"Human held"},{"T":51.4,"R":73.1,"cls":"Human held"},{"T":54.2,"R":74.0,"cls":"Human held"},{"T":46.9,"R":71.3,"cls":"Human held"},{"T":57.7,"R":72.5,"cls":"Watch point"},{"T":44.2,"R":69.1,"cls":"Human held"},{"T":52.4,"R":72.9,"cls":"Human held"},{"T":56.9,"R":72.7,"cls":"Watch point"},{"T":54.6,"R":70.5,"cls":"Human held"},{"T":47.8,"R":73.6,"cls":"Human held"},{"T":49.0,"R":72.9,"cls":"Human held"},{"T":52.5,"R":73.5,"cls":"Human held"},{"T":49.6,"R":77.7,"cls":"Human held"},{"T":60.0,"R":73.9,"cls":"Watch point"},{"T":53.0,"R":75.1,"cls":"Human held"},{"T":56.1,"R":74.5,"cls":"Watch point"},{"T":52.2,"R":75.4,"cls":"Human held"},{"T":52.3,"R":74.9,"cls":"Human held"},{"T":60.9,"R":71.8,"cls":"Watch point"},{"T":58.1,"R":71.0,"cls":"Human held"},{"T":57.4,"R":74.3,"cls":"Watch point"},{"T":62.4,"R":71.4,"cls":"Watch point"},{"T":48.9,"R":76.1,"cls":"Human held"},{"T":47.5,"R":77.2,"cls":"Human held"},{"T":51.5,"R":74.6,"cls":"Human held"},{"T":49.7,"R":72.2,"cls":"Human held"},{"T":48.4,"R":73.7,"cls":"Human held"},{"T":42.8,"R":73.5,"cls":"Human held"},{"T":46.3,"R":61.6,"cls":"Human held"},{"T":53.2,"R":71.3,"cls":"Human held"},{"T":47.5,"R":58.5,"cls":"Human held"},{"T":52.4,"R":57.0,"cls":"Crossing now"},{"T":50.1,"R":60.4,"cls":"Crossing now"},{"T":42.2,"R":50.6,"cls":"Human held"},{"T":46.8,"R":53.5,"cls":"Human held"},{"T":32.8,"R":44.7,"cls":"Human held"},{"T":47.5,"R":67.3,"cls":"Human held"},{"T":52.6,"R":61.7,"cls":"Human held"},{"T":51.1,"R":58.2,"cls":"Crossing now"},{"T":49.5,"R":64.4,"cls":"Human held"},{"T":48.7,"R":60.9,"cls":"Human held"},{"T":54.4,"R":59.6,"cls":"Human held"},{"T":42.7,"R":70.1,"cls":"Human held"},{"T":40.7,"R":76.9,"cls":"Human held"},{"T":59.2,"R":43.3,"cls":"Crossing now"},{"T":46.8,"R":69.8,"cls":"Human held"},{"T":40.4,"R":58.7,"cls":"Human held"},{"T":40.6,"R":62.4,"cls":"Human held"},{"T":39.8,"R":60.8,"cls":"Human held"},{"T":47.3,"R":61.3,"cls":"Human held"},{"T":50.0,"R":56.3,"cls":"Crossing now"},{"T":44.8,"R":65.1,"cls":"Human held"},{"T":38.7,"R":67.6,"cls":"Human held"},{"T":47.4,"R":66.7,"cls":"Human held"},{"T":43.1,"R":60.6,"cls":"Human held"},{"T":51.2,"R":58.4,"cls":"Crossing now"},{"T":32.1,"R":71.0,"cls":"Human held"},{"T":47.7,"R":72.1,"cls":"Human held"},{"T":74.4,"R":36.8,"cls":"Crossing now"}],"watch":[{"t":"Genetic Counselors","T":64.0,"R":69.7},{"t":"Actuaries","T":66.1,"R":61.7},{"t":"Preventive Medicine Physicians","T":62.3,"R":65.1},{"t":"Sports Medicine Physicians","T":57.3,"R":69.6},{"t":"Epidemiologists","T":61.4,"R":55.9},{"t":"Environmental Scientists and S","T":60.5,"R":50.9}],"counts":{"watch":29},"ladder":{"labels":["Human only","AI informed","AI recommended","AI executed, human veto","AI led, human audit","AI led, unreviewed"],"now":[1,101,158,8,0,0],"reach":[0,45,83,140,0,0]},"people":{"total_m":21.5,"quadrants":[{"name":"Displaceable","share":0.4278,"employment":9208420.0},{"name":"Human-anchored","share":0.4141,"employment":8913280.0},{"name":"Contested","share":0.0997,"employment":2145090.0},{"name":"Insulated","share":0.0584,"employment":1256310.0}],"top":[{"t":"Registered Nurses","emp":3379720.0,"s":49.9},{"t":"Software Developers","emp":1687890.0,"s":69.3},{"t":"Computer User Support Speciali","emp":717190.0,"s":69.1},{"t":"Computer and Information Syste","emp":670570.0,"s":65.9},{"t":"Licensed Practical and License","emp":648410.0,"s":44.5}],"shift":"+0.5"},"validation":[{"x":80.1,"y":0.939},{"x":79.3,"y":0.963},{"x":77.4,"y":1.0},{"x":77.2,"y":0.903},{"x":77.1,"y":1.0},{"x":76.9,"y":0.938},{"x":76.8,"y":1.0},{"x":76.2,"y":0.933},{"x":76.2,"y":0.962},{"x":76.1,"y":1.0},{"x":75.9,"y":0.951},{"x":75.6,"y":0.88},{"x":74.7,"y":0.967},{"x":74.6,"y":0.912},{"x":74.4,"y":0.75},{"x":74.2,"y":0.909},{"x":74.2,"y":0.947},{"x":73.8,"y":0.913},{"x":73.7,"y":0.824},{"x":73.0,"y":1.0},{"x":72.6,"y":1.0},{"x":71.6,"y":0.824},{"x":71.5,"y":0.864},{"x":71.5,"y":0.754},{"x":71.2,"y":1.0},{"x":70.7,"y":0.929},{"x":70.6,"y":0.769},{"x":70.5,"y":0.833},{"x":70.3,"y":0.929},{"x":69.8,"y":0.95},{"x":69.4,"y":0.75},{"x":69.3,"y":0.842},{"x":69.2,"y":0.81},{"x":69.1,"y":0.852},{"x":69.1,"y":1.0},{"x":69.0,"y":0.865},{"x":68.9,"y":0.659},{"x":68.8,"y":0.846},{"x":68.8,"y":0.619},{"x":68.7,"y":0.65},{"x":68.6,"y":0.848},{"x":68.6,"y":0.634},{"x":68.6,"y":0.63},{"x":68.6,"y":0.634},{"x":68.5,"y":0.939},{"x":68.4,"y":0.652},{"x":68.4,"y":0.644},{"x":68.3,"y":0.676},{"x":68.1,"y":0.906},{"x":68.0,"y":0.809},{"x":68.0,"y":0.682},{"x":68.0,"y":0.882},{"x":67.8,"y":0.971},{"x":67.8,"y":0.953},{"x":67.7,"y":0.733},{"x":67.7,"y":0.591},{"x":67.6,"y":0.6},{"x":67.4,"y":0.633},{"x":67.2,"y":0.592},{"x":67.1,"y":0.581},{"x":66.7,"y":0.87},{"x":66.6,"y":0.773},{"x":66.6,"y":0.583},{"x":66.6,"y":0.938},{"x":66.6,"y":0.595},{"x":66.5,"y":0.821},{"x":66.5,"y":0.608},{"x":66.3,"y":0.712},{"x":66.3,"y":0.62},{"x":66.2,"y":0.886},{"x":65.9,"y":0.818},{"x":65.9,"y":0.569},{"x":65.8,"y":0.75},{"x":65.7,"y":0.95},{"x":65.6,"y":0.857},{"x":65.6,"y":0.756},{"x":65.6,"y":0.773},{"x":65.4,"y":0.769},{"x":65.2,"y":0.895},{"x":65.1,"y":0.938},{"x":65.0,"y":0.806},{"x":64.6,"y":0.846},{"x":64.3,"y":0.676},{"x":64.2,"y":0.455},{"x":63.8,"y":0.739},{"x":63.7,"y":0.86},{"x":63.5,"y":0.684},{"x":63.5,"y":0.444},{"x":63.4,"y":0.692},{"x":63.4,"y":0.441},{"x":63.3,"y":0.682},{"x":63.3,"y":0.968},{"x":63.3,"y":0.822},{"x":63.2,"y":0.702},{"x":63.2,"y":0.594},{"x":63.0,"y":0.855},{"x":63.0,"y":0.84},{"x":63.0,"y":0.723},{"x":63.0,"y":0.767},{"x":62.9,"y":0.625},{"x":62.8,"y":0.707},{"x":62.8,"y":0.702},{"x":62.7,"y":0.667},{"x":62.7,"y":0.667},{"x":62.7,"y":0.667},{"x":62.6,"y":0.862},{"x":62.4,"y":0.586},{"x":62.3,"y":0.767},{"x":62.3,"y":0.852},{"x":62.3,"y":0.592},{"x":62.2,"y":0.744},{"x":62.2,"y":0.727},{"x":62.1,"y":0.698},{"x":62.0,"y":0.615},{"x":62.0,"y":0.686},{"x":61.8,"y":0.629},{"x":61.8,"y":0.593},{"x":61.7,"y":0.759},{"x":61.7,"y":0.72},{"x":61.7,"y":0.957},{"x":61.3,"y":0.848},{"x":61.3,"y":0.769},{"x":61.2,"y":0.895},{"x":61.1,"y":0.7},{"x":61.1,"y":0.771},{"x":61.0,"y":0.838},{"x":61.0,"y":0.812},{"x":60.7,"y":0.558},{"x":60.7,"y":0.605},{"x":60.7,"y":0.566},{"x":60.4,"y":0.762},{"x":60.2,"y":0.657},{"x":60.2,"y":0.75},{"x":60.0,"y":0.667},{"x":59.9,"y":0.488},{"x":59.8,"y":0.893},{"x":59.8,"y":0.795},{"x":59.8,"y":0.68},{"x":59.8,"y":0.826},{"x":59.6,"y":0.737},{"x":59.5,"y":0.773},{"x":59.4,"y":0.667},{"x":59.1,"y":0.769},{"x":58.8,"y":0.544},{"x":58.6,"y":0.682},{"x":58.3,"y":0.583},{"x":58.2,"y":0.667},{"x":58.2,"y":0.618},{"x":58.1,"y":0.778},{"x":58.1,"y":0.659},{"x":58.1,"y":0.643},{"x":58.0,"y":0.683},{"x":57.9,"y":0.656},{"x":57.6,"y":0.333},{"x":57.4,"y":0.783},{"x":57.2,"y":0.741},{"x":57.0,"y":0.467},{"x":56.8,"y":0.84},{"x":56.8,"y":0.783},{"x":56.7,"y":0.831},{"x":56.6,"y":0.514},{"x":56.5,"y":0.733},{"x":56.4,"y":0.632},{"x":56.2,"y":0.915},{"x":55.9,"y":0.553},{"x":55.9,"y":0.553},{"x":55.7,"y":0.6},{"x":55.5,"y":0.685},{"x":55.5,"y":0.585},{"x":55.4,"y":0.64},{"x":55.1,"y":0.366},{"x":55.1,"y":0.581},{"x":55.1,"y":0.542},{"x":54.8,"y":0.552},{"x":54.8,"y":0.711},{"x":54.6,"y":0.607},{"x":54.4,"y":0.533},{"x":54.3,"y":0.467},{"x":54.3,"y":0.556},{"x":53.9,"y":0.537},{"x":53.8,"y":0.52},{"x":53.8,"y":0.833},{"x":53.8,"y":0.609},{"x":53.7,"y":0.357},{"x":53.6,"y":0.576},{"x":53.5,"y":0.553},{"x":53.4,"y":0.45},{"x":53.3,"y":0.636},{"x":53.2,"y":0.552},{"x":53.1,"y":0.6},{"x":52.9,"y":0.5},{"x":52.7,"y":0.542},{"x":52.7,"y":0.559},{"x":52.7,"y":0.5},{"x":52.5,"y":0.683},{"x":52.5,"y":0.41},{"x":52.3,"y":0.545},{"x":52.2,"y":0.682},{"x":51.9,"y":0.471},{"x":51.7,"y":0.333},{"x":51.7,"y":0.25},{"x":51.6,"y":0.421},{"x":51.6,"y":0.464},{"x":51.6,"y":0.667},{"x":51.5,"y":0.578},{"x":51.5,"y":0.457},{"x":51.5,"y":0.562},{"x":51.4,"y":0.431},{"x":50.7,"y":0.4},{"x":50.5,"y":0.488},{"x":50.4,"y":0.4},{"x":50.3,"y":0.447},{"x":50.2,"y":0.488},{"x":50.1,"y":0.222},{"x":50.0,"y":0.559},{"x":49.9,"y":0.538},{"x":49.9,"y":0.429},{"x":49.8,"y":0.531},{"x":49.8,"y":0.5},{"x":49.6,"y":0.355},{"x":49.0,"y":0.485},{"x":49.0,"y":0.333},{"x":48.9,"y":0.375},{"x":48.7,"y":0.571},{"x":48.5,"y":0.381},{"x":48.3,"y":0.432},{"x":48.2,"y":0.385},{"x":48.1,"y":0.529},{"x":48.1,"y":0.4},{"x":48.1,"y":0.32},{"x":47.4,"y":0.429},{"x":47.2,"y":0.1},{"x":47.2,"y":0.19},{"x":46.9,"y":0.357},{"x":46.9,"y":0.321},{"x":46.6,"y":0.389},{"x":46.6,"y":0.456},{"x":46.5,"y":0.311},{"x":46.4,"y":0.4},{"x":46.3,"y":0.267},{"x":46.2,"y":0.323},{"x":46.2,"y":0.25},{"x":46.0,"y":0.4},{"x":45.7,"y":0.529},{"x":45.3,"y":0.188},{"x":45.2,"y":0.345},{"x":44.8,"y":0.229},{"x":44.5,"y":0.447},{"x":44.1,"y":0.286},{"x":43.5,"y":0.25},{"x":43.3,"y":0.317},{"x":43.3,"y":0.379},{"x":42.7,"y":0.062},{"x":42.2,"y":0.52},{"x":41.7,"y":0.444},{"x":41.7,"y":0.133},{"x":41.0,"y":0.417},{"x":40.1,"y":0.385},{"x":39.2,"y":0.23},{"x":38.9,"y":0.033},{"x":38.6,"y":0.184},{"x":37.4,"y":0.3},{"x":37.4,"y":0.19},{"x":37.4,"y":0.1},{"x":35.8,"y":0.0},{"x":30.9,"y":0.078},{"x":30.4,"y":0.16},{"x":30.3,"y":0.182}],"fit":{"a":-0.4868,"b":0.01899}};</script>
+<script>
+(function(){
+"use strict";
+
+/* ============================================================
+   0. MATH + UTILITY
+   ============================================================ */
+const NS = 'http://www.w3.org/2000/svg';
+let DEFS = null;   /* one shared defs node for every reveal clip */
+const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
+const lerp  = (a,b,t)=> a+(b-a)*t;
+const eo    = t=> 1-Math.pow(1-clamp(t,0,1),3);            // easeOutCubic
+const eio   = t=> (t=clamp(t,0,1))<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2;
+const logis = (t,mid,k)=> 1/(1+Math.exp(-k*(t-mid)));
+const f2    = n=> Math.round(n*100)/100;
+const pad   = n=> String(n).padStart(2,'0');
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- drawing helpers (design system from sample_scroller) ---------- */
+function prng(seed){
+  let a = seed>>>0;
+  return function(){
+    a += 0x6D2B79F5; let t = a;
+    t = Math.imul(t ^ t>>>15, t|1);
+    t ^= t + Math.imul(t ^ t>>>7, t|61);
+    return ((t ^ t>>>14)>>>0) / 4294967296;
+  };
+}
+
+function S(tag, attrs, parent){
+  const n = document.createElementNS(NS, tag);
+  if(attrs) for(const k in attrs) n.setAttribute(k, attrs[k]);
+  if(parent) parent.appendChild(n);
+  return n;
+}
+
+/* Catmull-Rom through points -> cubic bezier path, for a fluid hand-drawn line */
+function smoothD(p, closed){
+  const n = p.length;
+  if(n < 2) return '';
+  if(n === 2) return 'M'+f2(p[0][0])+' '+f2(p[0][1])+'L'+f2(p[1][0])+' '+f2(p[1][1]);
+  const get = i => closed ? p[(i+n)%n] : p[clamp(i,0,n-1)];
+  let d = 'M'+f2(p[0][0])+' '+f2(p[0][1]);
+  const last = closed ? n : n-1;
+  for(let i=0;i<last;i++){
+    const p0=get(i-1), p1=get(i), p2=get(i+1), p3=get(i+2);
+    d += 'C'+f2(p1[0]+(p2[0]-p0[0])/6)+' '+f2(p1[1]+(p2[1]-p0[1])/6)
+        +' '+f2(p2[0]-(p3[0]-p1[0])/6)+' '+f2(p2[1]-(p3[1]-p1[1])/6)
+        +' '+f2(p2[0])+' '+f2(p2[1]);
+  }
+  return d + (closed ? 'Z' : '');
+}
+
+/* Jitter the points so the stroke reads as inked by hand, not plotted */
+function roughPts(pts, amp, seed){
+  const r = prng(seed || 7);
+  const a = amp == null ? 2.2 : amp;
+  return pts.map(function(pt,i){
+    const k = (i===0 || i===pts.length-1) ? a*0.45 : a;
+    return [pt[0]+(r()-.5)*k, pt[1]+(r()-.5)*k];
+  });
+}
+function roughD(pts, amp, seed, closed){ return smoothD(roughPts(pts, amp, seed), closed); }
+
+/* Sample n points from a parametric function */
+function samp(n, fn){ const o=[]; for(let i=0;i<=n;i++) o.push(fn(i/n)); return o; }
+
+/* ---- marker geometry -----------------------------------------------------
+   Every mark is a FILLED OUTLINE, not a stroked line: trace the centreline
+   out to half-width on each side, wobble both edges, taper toward the ends,
+   close the path and fill it.  Stack two translucent offset copies so ink
+   reads as having built up where marks cross.  This is what separates a
+   drawn mark from a plotted one.
+   ------------------------------------------------------------------------ */
+const WMUL = matchMedia('(max-width:1000px)').matches ? 1.4 : 1;
+const WIDTH = {w1:1.9, w3:5.0, w4:7.2, base:3.2};
+
+function polyLen(p){
+  let L=0; for(let i=1;i<p.length;i++) L += Math.hypot(p[i][0]-p[i-1][0], p[i][1]-p[i-1][1]);
+  return L;
+}
+function resample(p, n){
+  if(p.length < 2) return p.slice();
+  const segs=[]; let acc=0;
+  for(let i=1;i<p.length;i++){
+    const d = Math.hypot(p[i][0]-p[i-1][0], p[i][1]-p[i-1][1]);
+    if(d > 1e-6){ segs.push([acc, acc+d, p[i-1], p[i]]); acc += d; }
+  }
+  if(!segs.length) return p.slice();
+  const out=[];
+  for(let k=0;k<n;k++){
+    const d = (k/(n-1))*acc;
+    let sg = segs[segs.length-1];
+    for(let i=0;i<segs.length;i++) if(d <= segs[i][1]){ sg = segs[i]; break; }
+    const u = (d - sg[0]) / Math.max(1e-6, sg[1]-sg[0]);
+    out.push([lerp(sg[2][0],sg[3][0],u), lerp(sg[2][1],sg[3][1],u)]);
+  }
+  return out;
+}
+/* centreline -> filled marker outline */
+function markerD(pts, w, seed, closed){
+  const n = clamp(Math.round(polyLen(pts)/7), 10, 96);
+  const P = closed ? pts.slice() : resample(pts, n);
+  const m = P.length;
+  if(m < 2) return '';
+  const r = prng(seed||3);
+  const L=[], R=[];
+  for(let i=0;i<m;i++){
+    const t = m>1 ? i/(m-1) : 0;
+    const a = P[closed ? (i-1+m)%m : Math.max(0,i-1)];
+    const b = P[closed ? (i+1)%m   : Math.min(m-1,i+1)];
+    let tx = b[0]-a[0], ty = b[1]-a[1];
+    const mag = Math.hypot(tx,ty) || 1; tx/=mag; ty/=mag;
+    const nx = -ty, ny = tx;
+    /* thin at the ends, with a slow swell along the length */
+    const taper = closed ? 1 : Math.max(0.2, Math.pow(Math.sin(Math.PI*clamp(t,0,1)), 0.32));
+    const wob = 1 + 0.2*Math.sin(t*10 + (seed||0)) + 0.16*(r()-0.5);
+    const hw = (w/2) * taper * wob;
+    L.push([P[i][0]+nx*hw + (r()-.5)*0.45, P[i][1]+ny*hw + (r()-.5)*0.45]);
+    R.push([P[i][0]-nx*hw + (r()-.5)*0.45, P[i][1]-ny*hw + (r()-.5)*0.45]);
+  }
+  R.reverse();
+  if(closed) return smoothD(L,true) + smoothD(R,true);           /* ring, even-odd */
+  return smoothD(L,false) + smoothD(R,false).replace('M','L') + 'Z';
+}
+
+/* ---- Stroke: a revealable marker mark ---------------------------------- */
+let SID = 0, CID = 0;
+function Stroke(parent, pts, opt){
+  const o = Object.assign({amp:2.2, seed:(SID+=17), cls:'ink', w:null, closed:false, double:true}, opt||{});
+  const cl = String(o.cls);
+  const wKey = /\bw1\b/.test(cl) ? 'w1' : /\bw3\b/.test(cl) ? 'w3' : /\bw4\b/.test(cl) ? 'w4' : 'base';
+  const w = (o.w != null ? o.w : WIDTH[wKey]) * WMUL;
+  const tone = (cl.match(/\b(coral|acid|blue|soft|ghost)\b/) || [,''])[1];
+  const extra = /\bopt\b/.test(cl) ? ' opt' : '';   /* survives into the mark's class */
+  const base = roughPts(pts, o.amp, o.seed);
+
+  const g = S('g',{filter:'url(#grain)'}, parent);
+  const shapes = [];
+  /* bleed first, so the solid mark sits on top of it */
+  if(o.double){
+    for(let k=0;k<2;k++){
+      const b = S('path',{d: markerD(base, w*(1.35+k*0.3), o.seed+71+k*29, o.closed),
+                          class:'mk bleed'+(tone?' '+tone:'')+extra}, g);
+      if(o.closed) b.setAttribute('fill-rule','evenodd');
+      shapes.push(b);
+    }
+  }
+  const core = S('path',{d: markerD(base, w, o.seed, o.closed),
+                         class:'mk'+(tone?' '+tone:'')+extra}, g);
+  if(o.closed) core.setAttribute('fill-rule','evenodd');
+  shapes.push(core);
+
+  /* reveal along the mark's own direction, lazily — a clip is only built if
+     something actually animates this mark */
+  let clipRect = null, drawn = -1;
+  const first = base[0], last = base[base.length-1];
+  function buildClip(){
+    let dx = last[0]-first[0], dy = last[1]-first[1];
+    if(o.closed || Math.hypot(dx,dy) < 1){ dx = 1; dy = 0; }
+    const mg = Math.hypot(dx,dy); dx/=mg; dy/=mg;
+    let s0=Infinity, s1=-Infinity, q0=Infinity, q1=-Infinity;
+    for(let i=0;i<base.length;i++){
+      const vx = base[i][0]-first[0], vy = base[i][1]-first[1];
+      const sp = vx*dx + vy*dy, qp = -vx*dy + vy*dx;
+      if(sp<s0) s0=sp; if(sp>s1) s1=sp; if(qp<q0) q0=qp; if(qp>q1) q1=qp;
+    }
+    const pad = w*2 + 6;
+    const id = 'mkc'+(++CID);
+    const cp = S('clipPath',{id:id}, DEFS);
+    clipRect = S('rect',{x:f2(s0-pad), y:f2(q0-pad), width:0, height:f2(q1-q0+pad*2),
+      transform:'translate('+f2(first[0])+' '+f2(first[1])+') rotate('+f2(Math.atan2(dy,dx)*180/Math.PI)+')'}, cp);
+    clipRect._span = (s1-s0) + pad*2;
+    g.setAttribute('clip-path','url(#'+id+')');
+  }
+  return {
+    g: g,
+    draw: function(t){
+      const k = clamp(t,0,1);
+      if(Math.abs(k-drawn) < 0.002) return;
+      drawn = k;
+      if(k >= 0.999){ if(clipRect) clipRect.setAttribute('width', f2(clipRect._span)); return; }
+      if(!clipRect) buildClip();
+      clipRect.setAttribute('width', f2(clipRect._span * k));
+    },
+    full: function(){ this.draw(1); },
+    opacity: function(v){ g.style.opacity = v; }
+  };
+}
+
+function Txt(parent, x, y, str, opt){
+  opt = opt || {};
+  const t = S('text', {x:x, y:y, class:'lbl '+(opt.cls||''), 'text-anchor':opt.anchor||'start'}, parent);
+  t.textContent = str;
+  if(opt.rot) t.setAttribute('transform','rotate('+opt.rot+' '+x+' '+y+')');
+  t.style.opacity = opt.op != null ? opt.op : 0;
+  return t;
+}
+
+/* Fade registry: [node, from, to] windows against scene progress */
+function Fades(){
+  const list = [];
+  return {
+    add: function(node, from, to){ list.push([node, from, to]); return node; },
+    apply: function(p){
+      for(let i=0;i<list.length;i++){
+        const it = list[i];
+        it[0].style.opacity = eo(clamp((p-it[1])/Math.max(0.0001,it[2]-it[1]),0,1));
+      }
+    }
+  };
+}
+
+/* ============================================================
+   1. SCENE BUILDERS
+   Each returns tick(p, idx, local) and may set ctx.readout()
+   ============================================================ */
+const BUILD = {};
+
+
+(function(){
+  const sv = S('svg',{width:0, height:0, 'aria-hidden':'true',
+                      style:'position:absolute'}, document.body);
+  DEFS = S('defs', null, sv);
+  /* Stipple. Noise luminance is subtracted from each mark's alpha, so a fill
+     breaks up the way pigment does on paper instead of sitting flat. Applied
+     to the mark group, which never changes once built — the reveal animates a
+     clip above it — so the browser caches the filtered result. */
+  const f = S('filter',{id:'grain', x:'-6%', y:'-6%', width:'112%', height:'112%',
+                        'color-interpolation-filters':'sRGB'}, DEFS);
+  S('feTurbulence',{type:'fractalNoise', baseFrequency:'0.62', numOctaves:'2', seed:'7', result:'n'}, f);
+  S('feColorMatrix',{in:'n', type:'luminanceToAlpha', result:'a'}, f);
+  S('feComposite',{in:'SourceGraphic', in2:'a', operator:'arithmetic',
+                   k1:'0', k2:'1', k3:'-0.34', k4:'0'}, f);
+})();
+
+/* Graph-paper ruling, drawn into the figure's own SVG so it shares the figure's
+   coordinates and its squares stay square at any viewport. Ruled by hand, not
+   by a repeating background: the lines wander and a few bear down harder. */
+
+function paperGrid(svg, W, H){
+  const g = S('g',{'aria-hidden':'true'}, null);
+  svg.insertBefore(g, svg.firstChild);
+  const r = prng(31);
+  const line = (x1,y1,x2,y2,op) => {
+    const n = S('line',{x1:f2(x1), y1:f2(y1), x2:f2(x2), y2:f2(y2), class:'gridline'}, g);
+    n.style.opacity = f2(op);
+    return n;
+  };
+  const STEP = 42;
+  for(let x=0; x<=W; x+=STEP)  line(x+(r()-.5)*2, 0, x+(r()-.5)*2, H, 0.05+r()*0.028);
+  for(let y=0; y<=H; y+=STEP)  line(0, y+(r()-.5)*2, W, y+(r()-.5)*2, 0.05+r()*0.028);
+  for(let x=0; x<=W; x+=STEP*5) line(x+(r()-.5)*2, 0, x+(r()-.5)*2, H, 0.085+r()*0.03);
+  for(let y=0; y<=H; y+=STEP*5) line(0, y+(r()-.5)*2, W, y+(r()-.5)*2, 0.085+r()*0.03);
+  /* the few rulings that got pressed harder */
+  for(let i=0;i<8;i++){
+    const x = Math.round(r()*(W/STEP))*STEP;
+    line(x+(r()-.5)*2.5, r()*H*0.2, x+(r()-.5)*2.5, H-r()*H*0.2, 0.1+r()*0.07);
+  }
+  return g;
+}
+
+
+/* ============================================================
+   SCENES — one builder per chapter. Each returns tick(p, idx, local).
+   D is the data payload written in by scroller.py.
+   ============================================================ */
+const D = window.__STORY__;
+const W = 1600, H = 900;
+
+/* An inked dot. A two-point Stroke renders as a sliver, not a mark, so a dot is
+   a small closed polygon run through the same marker geometry as every other
+   stroke - it picks up the same wobble, bleed and grain. */
+function Dot(parent, cx, cy, r, cls, seed){
+  const pts = [];
+  for(let i=0;i<8;i++){
+    const a = i/8*Math.PI*2;
+    pts.push([cx + Math.cos(a)*r, cy + Math.sin(a)*r]);
+  }
+  return Stroke(parent, pts, {cls:cls, amp:r*0.22, seed:seed, closed:true, w:r*0.9});
+}
+
+/* ---------- 01 INVERSION: the same jobs, two measures, no agreement -------- */
+BUILD.inversion = function(ctx){
+  const g = S('g', null, ctx.svg);
+  const L = 430, R = 1170, TOP = 170, BOT = 790;
+  const y = r => TOP + r * (BOT - TOP);
+  const rows = D.inversion;
+
+  Txt(g, L, TOP - 46, 'P(COMPUTERISATION), 2013', {cls:'sm', anchor:'middle', op:0});
+  Txt(g, R, TOP - 46, 'LLM SUSCEPTIBILITY, 2026', {cls:'sm', anchor:'middle', op:0});
+  const heads = [g.lastChild.previousSibling, g.lastChild];
+  const axisL = Stroke(g, [[L, TOP-22],[L, BOT+22]], {cls:'ink w1 soft', amp:1.6});
+  const axisR = Stroke(g, [[R, TOP-22],[R, BOT+22]], {cls:'ink w1 soft', amp:1.6});
+  Txt(g, L - 26, TOP - 6, 'HIGH', {cls:'sm dim', anchor:'end', op:0});
+  Txt(g, L - 26, BOT + 16, 'LOW', {cls:'sm dim', anchor:'end', op:0});
+  const sideLabels = [g.childNodes[g.childNodes.length-2], g.lastChild];
+
+  const placed = [];
+  const links = rows.map(function(d, i){
+    const hl = d.hl;
+    const pts = [[L, y(d.fo)], [L+150, y(d.fo)], [R-150, y(d.ours)], [R, y(d.ours)]];
+    const s = Stroke(g, pts, {cls: hl ? 'ink coral w3' : 'ink w1 ghost', amp: hl ? 2.0 : 1.4,
+                              seed: 200+i*13});
+    const dotL = Dot(g, L, y(d.fo), hl?7:4, hl?'ink coral':'ink soft', 400+i);
+    const dotR = Dot(g, R, y(d.ours), hl?7:4, hl?'ink coral':'ink soft', 600+i);
+    let ly = y(d.ours) + 5;
+    if(d.t){
+      while(placed.some(function(v){ return Math.abs(v-ly) < 26; })) ly += 26;
+      placed.push(ly);
+    }
+    const lab = Txt(g, R + 26, ly, d.t, {cls: hl ? 'sm' : 'sm dim', op:0});
+    return {s:s, dotL:dotL, dotR:dotR, lab:lab, hl:hl, d:d};
+  });
+
+  const note = Txt(g, 800, 862, 'r = 0.006  —  ACROSS 150 OCCUPATIONS WITH BOTH SCORES',
+                   {cls:'sm', anchor:'middle', op:0});
+
+  return function(p, idx, local){
+    axisL.draw(clamp(p*7,0,1)); axisR.draw(clamp(p*7-.4,0,1));
+    heads.forEach(function(h,i){ h.style.opacity = eo(clamp(p*8-i*.3,0,1)); });
+    sideLabels.forEach(function(h){ h.style.opacity = eo(clamp(p*6-.5,0,1))*.7; });
+
+    links.forEach(function(k, i){
+      const hl = k.hl;
+      /* beat 1: the 2013 column only. beat 2: the highlighted job crosses.
+         beat 3: every other line follows. */
+      const dotIn = eo(clamp(p*6 - i*0.012, 0, 1));
+      k.dotL.draw(dotIn);
+      const start = hl ? 0.30 : 0.56 + (i % 9) * 0.012;
+      const t = eo(clamp((p - start) / 0.20, 0, 1));
+      k.s.draw(t);
+      k.dotR.draw(t);
+      k.s.opacity(hl ? 1 : 0.55);
+      k.lab.style.opacity = hl ? eo(clamp((p-start-.05)/.12,0,1))
+                               : eo(clamp((p-start-.05)/.12,0,1)) * 0.45;
+    });
+    note.style.opacity = eo(clamp((p-0.80)/0.12,0,1));
+
+    if(idx === 0) ctx.readout('Mathematicians, 2013', '4.7% chance');
+    else if(idx === 1) ctx.readout('Mathematicians, 2026', 'most exposed in STEM');
+    else ctx.readout('Agreement between the two', 'r = 0.006');
+  };
+};
+
+/* ---------- 02 VOCABULARY: 5,717 tasks stand on 963 subtasks -------------- */
+BUILD.vocabulary = function(ctx){
+  const g = S('g', null, ctx.svg);
+  const cols = [
+    {n:'287',   k:'STEM OCCUPATIONS', x:300,  count:26},
+    {n:'5,717', k:'TASKS',            x:800,  count:64},
+    {n:'963',   k:'DISTINCT SUBTASKS',x:1300, count:18},
+  ];
+  const marks = [], heads = [];
+  cols.forEach(function(c, ci){
+    const per = Math.ceil(Math.sqrt(c.count)), gap = 26;
+    for(let i=0;i<c.count;i++){
+      const cx = c.x - (per*gap)/2 + (i%per)*gap + gap/2;
+      const cy = 340 + Math.floor(i/per)*gap;
+      marks.push({s: Dot(g, cx, cy, 6, ci===2 ? 'ink coral' : 'ink soft', 900+ci*97+i),
+                  ci:ci, i:i, n:c.count});
+    }
+    const big = Txt(g, c.x, 250, c.n, {cls:'big', anchor:'middle', op:0});
+    const lab = Txt(g, c.x, 286, c.k, {cls:'sm dim', anchor:'middle', op:0});
+    heads.push([big, lab]);
+  });
+  const a1 = Stroke(g, [[470,300],[630,300]], {cls:'ink w1 soft', amp:1.4});
+  const a2 = Stroke(g, [[970,300],[1130,300]], {cls:'ink w1 soft', amp:1.4});
+  const back = Stroke(g, [[1300,640],[1300,700],[800,700],[800,640]],
+                      {cls:'ink coral w1', amp:1.6});
+  const backLab = Txt(g, 1050, 736, 'SCORE 963 ONCE → EVERY TASK AND JOB INHERITS IT',
+                      {cls:'sm', anchor:'middle', op:0});
+
+  return function(p, idx){
+    marks.forEach(function(m){
+      const start = m.ci * 0.22 + (m.i / m.n) * 0.16;
+      m.s.draw(eo(clamp((p - start) / 0.10, 0, 1)));
+    });
+    heads.forEach(function(h, i){
+      const o = eo(clamp((p - i*0.22 - 0.05)/0.08, 0, 1));
+      h[0].style.opacity = o; h[1].style.opacity = o * 0.7;
+    });
+    a1.draw(eo(clamp((p-0.20)/0.08,0,1)));
+    a2.draw(eo(clamp((p-0.42)/0.08,0,1)));
+    back.draw(eo(clamp((p-0.72)/0.16,0,1)));
+    backLab.style.opacity = eo(clamp((p-0.84)/0.10,0,1));
+    ctx.readout(['Occupations','Tasks','Distinct subtasks','Scored once'][Math.min(idx,3)],
+                ['287','5,717','963','6× less work'][Math.min(idx,3)]);
+  };
+};
+
+/* ---------- 03 AXES: capability and permission are different questions ---- */
+BUILD.axes = function(ctx){
+  const g = S('g', null, ctx.svg);
+  const X0=320, X1=1330, Y0=180, Y1=790;
+  const xs = v => X0 + (v-10)/80*(X1-X0);
+  const ys = v => Y1 - (v-10)/70*(Y1-Y0);
+  const ax = Stroke(g, [[X0,Y1],[X1,Y1]], {cls:'ink w1', amp:1.6});
+  const ay = Stroke(g, [[X0,Y1],[X0,Y0]], {cls:'ink w1', amp:1.6});
+  Txt(g, (X0+X1)/2, Y1+52, 'EXPOSURE — CAN A MACHINE DO IT', {cls:'sm', anchor:'middle', op:0});
+  const xlab = g.lastChild;
+  Txt(g, X0-40, (Y0+Y1)/2, 'ANCHORING — MUST A HUMAN', {cls:'sm', anchor:'middle', op:0, rot:-90});
+  const ylab = g.lastChild;
+
+  const vsplit = Stroke(g, [[xs(D.splits.x),Y0],[xs(D.splits.x),Y1]], {cls:'ink w1 ghost', amp:1.2});
+  const hsplit = Stroke(g, [[X0,ys(D.splits.y)],[X1,ys(D.splits.y)]], {cls:'ink w1 ghost', amp:1.2});
+  const dots = D.axes.map(function(d,i){
+    return {s: Dot(g, xs(d.e), ys(d.a), 6,
+              d.s>=62 ? 'ink coral' : (d.s<=45 ? 'ink blue' : 'ink soft'), 1500+i*7),
+            d:d, i:i};
+  });
+  const qs = [
+    Txt(g, xs(80), ys(18), 'DISPLACEABLE', {cls:'sm', anchor:'end', op:0}),
+    Txt(g, xs(16), ys(74), 'HUMAN-ANCHORED', {cls:'sm', anchor:'start', op:0}),
+  ];
+  const counts = [
+    Txt(g, xs(80), ys(18)+30, D.quad.disp + ' OCCUPATIONS', {cls:'sm dim', anchor:'end', op:0}),
+    Txt(g, xs(16), ys(74)+30, D.quad.anch + ' OCCUPATIONS', {cls:'sm dim', anchor:'start', op:0}),
+  ];
+
+  return function(p, idx){
+    ax.draw(clamp(p*6,0,1)); ay.draw(clamp(p*6-.2,0,1));
+    xlab.style.opacity = eo(clamp(p*6-.3,0,1))*.8;
+    ylab.style.opacity = eo(clamp(p*6-.6,0,1))*.8;
+    dots.forEach(function(k){
+      /* beat 1 draws everything faintly; colour arrives with beat 3 */
+      k.s.draw(eo(clamp((p - 0.10 - (k.i%40)*0.004)/0.10, 0, 1)));
+      k.s.opacity(p < 0.52 ? 0.34 : 1);
+    });
+    vsplit.draw(eo(clamp((p-0.52)/0.10,0,1)));
+    hsplit.draw(eo(clamp((p-0.58)/0.10,0,1)));
+    qs.forEach(function(q,i){ q.style.opacity = eo(clamp((p-0.68-i*.04)/0.08,0,1)); });
+    counts.forEach(function(q,i){ q.style.opacity = eo(clamp((p-0.78-i*.04)/0.08,0,1))*.7; });
+    ctx.readout(['Exposure','Anchoring','Correlation between them','Split'][Math.min(idx,3)],
+                ['can a machine do it','must a human own it','−0.03 — independent',
+                 D.quad.disp+' vs '+D.quad.anch][Math.min(idx,3)]);
+  };
+};
+
+/* ---------- 04 FRONTIER: Watson's two axes and the crossing line ---------- */
+BUILD.frontier = function(ctx){
+  const g = S('g', null, ctx.svg);
+  const X0=330, X1=1330, Y0=170, Y1=780;
+  const xs = v => X0 + (v-24)/58*(X1-X0);
+  const ys = v => Y1 - (v-26)/60*(Y1-Y0);
+  const ax = Stroke(g, [[X0,Y1],[X1,Y1]], {cls:'ink w1', amp:1.6});
+  const ay = Stroke(g, [[X0,Y1],[X0,Y0]], {cls:'ink w1', amp:1.6});
+  Txt(g, (X0+X1)/2, Y1+52, 'TRACTABILITY — CAN AI LEAD IT', {cls:'sm', anchor:'middle', op:0});
+  const xlab = g.lastChild;
+  Txt(g, X0-40, (Y0+Y1)/2, 'RESISTANCE — WILL IT BE PERMITTED', {cls:'sm', anchor:'middle', op:0, rot:-90});
+  const ylab = g.lastChild;
+
+  const curvePts = [];
+  for(let T=28; T<=80; T+=2){ const R = Math.min(96,(53*53)/T); if(R>=26&&R<=86) curvePts.push([xs(T),ys(R)]); }
+  const curve = Stroke(g, curvePts, {cls:'ink coral w3', amp:2.0});
+  const curveLab = Txt(g, xs(40)+14, ys(Math.min(96,2809/40))-18, 'THE FRONTIER TODAY',
+                       {cls:'sm', op:0});
+
+  const CLS = {'Watch point':'ink coral', 'Crossing now':'ink blue',
+               'Handed off':'ink', 'Human held':'ink ghost'};
+  const dots = D.frontier.map(function(d,i){
+    return {s: Dot(g, xs(d.T), ys(d.R), d.cls === 'Watch point' ? 8 : 6,
+              CLS[d.cls]||'ink soft', 2200+i*11), d:d, i:i};
+  });
+  const wpUsed = [];
+  const wpLabels = D.watch.slice(0,4).map(function(d,i){
+    let ly = ys(d.R) + 4;
+    while(wpUsed.some(function(v){ return Math.abs(v-ly) < 30; })) ly -= 30;
+    wpUsed.push(ly);
+    return Txt(g, xs(d.T)+20, ly, d.t.toUpperCase(), {cls:'sm', op:0});
+  });
+  const wpCount = Txt(g, 800, 860, D.counts.watch + ' WATCH POINTS — CAPABILITY PRESENT, ACCOUNTABILITY HOLDING THE LINE',
+                      {cls:'sm', anchor:'middle', op:0});
+
+  return function(p, idx){
+    ax.draw(clamp(p*6,0,1)); ay.draw(clamp(p*6-.2,0,1));
+    xlab.style.opacity = eo(clamp(p*6-.3,0,1))*.8;
+    ylab.style.opacity = eo(clamp(p*6-.6,0,1))*.8;
+    dots.forEach(function(k){
+      k.s.draw(eo(clamp((p - 0.08 - (k.i%40)*0.004)/0.10, 0, 1)));
+      /* the classes only mean anything once the frontier is on screen */
+      k.s.opacity(p < 0.40 ? 0.3 : (k.d.cls === 'Watch point' && p > 0.62 ? 1 : 0.72));
+    });
+    curve.draw(eo(clamp((p-0.38)/0.18,0,1)));
+    curveLab.style.opacity = eo(clamp((p-0.50)/0.10,0,1));
+    wpLabels.forEach(function(l,i){ l.style.opacity = eo(clamp((p-0.66-i*.035)/0.08,0,1)); });
+    wpCount.style.opacity = eo(clamp((p-0.84)/0.10,0,1));
+    ctx.readout(['Tractability','Resistance','The frontier','Watch points'][Math.min(idx,3)],
+                ['can AI lead it','will it be permitted','where work crosses',
+                 D.counts.watch + ' occupations'][Math.min(idx,3)]);
+  };
+};
+
+/* ---------- 05 LADDER: six stages, and the distance still to travel ------- */
+BUILD.ladder = function(ctx){
+  const g = S('g', null, ctx.svg);
+  const X0 = 620, X1 = 1330, TOP = 210, GAP = 104;
+  const max = Math.max.apply(null, D.ladder.now.concat(D.ladder.reach), 1);
+  const xs = v => X0 + v/max*(X1-X0);
+  const rows = D.ladder.labels.map(function(name, i){
+    const y = TOP + i*GAP;
+    const lab = Txt(g, X0-32, y+6, (i+'. '+name).toUpperCase(), {cls:'sm', anchor:'end', op:0});
+    const bar = Stroke(g, [[xs(0),y],[xs(Math.max(D.ladder.now[i], D.ladder.reach[i])),y]],
+                       {cls:'ink w1 soft', amp:1.2, seed:3100+i*9});
+    const dNow = Dot(g, xs(D.ladder.now[i]), y, 9, 'ink soft', 3200+i);
+    const dRe  = Dot(g, xs(D.ladder.reach[i]), y, 9, 'ink coral', 3300+i);
+    const num  = Txt(g, xs(Math.max(D.ladder.now[i], D.ladder.reach[i]))+26, y+6,
+                     D.ladder.now[i] + ' → ' + D.ladder.reach[i], {cls:'sm', op:0});
+    return {lab:lab, bar:bar, dNow:dNow, dRe:dRe, num:num, i:i};
+  });
+  const cross = Txt(g, X0-32, TOP+3*GAP+34, 'HANDOFF BY EROSION — NO EVENT TO OBSERVE',
+                    {cls:'sm', anchor:'end', op:0});
+
+  return function(p, idx){
+    rows.forEach(function(r){
+      const t0 = 0.06 + r.i*0.055;
+      r.lab.style.opacity = eo(clamp((p-t0)/0.06,0,1));
+      r.bar.draw(eo(clamp((p-t0-0.02)/0.08,0,1)));
+      r.dNow.draw(eo(clamp((p-t0-0.04)/0.06,0,1)));
+      r.dRe.draw(eo(clamp((p-0.52-r.i*0.04)/0.08,0,1)));
+      r.num.style.opacity = eo(clamp((p-0.60-r.i*0.03)/0.08,0,1));
+    });
+    cross.style.opacity = eo(clamp((p-0.86)/0.10,0,1));
+    ctx.readout(['Six stages','Today','Reachable now','Erosion'][Math.min(idx,3)],
+                ['of cognitive leadership', D.ladder.now[3]+' at AI-executed',
+                 D.ladder.reach[3]+' at AI-executed', 'the quiet crossing'][Math.min(idx,3)]);
+  };
+};
+
+/* ---------- 06 PEOPLE: weight it by who actually does the work ------------ */
+BUILD.people = function(ctx){
+  const g = S('g', null, ctx.svg);
+  const BX0 = 300, BX1 = 1330, BY = 300, BH = 92;
+  let acc = 0;
+  const segs = D.people.quadrants.map(function(q, i){
+    const w = q.share * (BX1-BX0);
+    const x0 = BX0 + acc; acc += w;
+    const cls = ['ink coral w3','ink blue w3','ink w3','ink w3 ghost'][i] || 'ink w3 soft';
+    const box = Stroke(g, [[x0,BY],[x0+w,BY],[x0+w,BY+BH],[x0,BY+BH]],
+                       {cls:cls, amp:1.8, seed:4100+i*13, closed:true});
+    const lab = Txt(g, x0+w/2, BY+BH+34, q.name.toUpperCase(), {cls:'sm', anchor:'middle', op:0});
+    const pct = Txt(g, x0+w/2, BY-18, Math.round(q.share*100)+'%', {cls:'sm', anchor:'middle', op:0});
+    return {box:box, lab:lab, pct:pct, i:i, w:w};
+  });
+  const total = Txt(g, 800, 200, D.people.total_m + ' MILLION WORKERS',
+                    {cls:'big', anchor:'middle', op:0});
+
+  const BY2 = 560;
+  const bars = D.people.top.map(function(o, i){
+    const y = BY2 + i*62;
+    const w = (o.emp / D.people.top[0].emp) * 560;
+    const bar = Stroke(g, [[720,y],[720+w,y]], {cls: o.s>=60?'ink coral w4':'ink blue w4',
+                                                amp:1.4, seed:4400+i*7});
+    const lab = Txt(g, 700, y+6, o.t.toUpperCase(), {cls:'sm', anchor:'end', op:0});
+    const val = Txt(g, 720+w+22, y+6, (o.emp/1e6).toFixed(2)+'M · SUSC ' + Math.round(o.s),
+                    {cls:'sm dim', op:0});
+    return {bar:bar, lab:lab, val:val, i:i};
+  });
+  const shift = Txt(g, 800, 862, 'WEIGHTING BY HEADCOUNT MOVES THE MEAN BY ' + D.people.shift,
+                    {cls:'sm', anchor:'middle', op:0});
+
+  return function(p, idx){
+    total.style.opacity = eo(clamp(p*6,0,1));
+    segs.forEach(function(s){
+      s.box.draw(eo(clamp((p-0.10-s.i*0.05)/0.10,0,1)));
+      s.lab.style.opacity = eo(clamp((p-0.16-s.i*0.05)/0.08,0,1));
+      s.pct.style.opacity = eo(clamp((p-0.18-s.i*0.05)/0.08,0,1));
+    });
+    bars.forEach(function(b){
+      b.bar.draw(eo(clamp((p-0.52-b.i*0.05)/0.10,0,1)));
+      b.lab.style.opacity = eo(clamp((p-0.52-b.i*0.05)/0.08,0,1));
+      b.val.style.opacity = eo(clamp((p-0.58-b.i*0.05)/0.08,0,1))*.75;
+    });
+    shift.style.opacity = eo(clamp((p-0.86)/0.10,0,1));
+    ctx.readout(['Workers covered','Displaceable','The two biggest jobs','Net effect'][Math.min(idx,3)],
+                [D.people.total_m+' million', Math.round(D.people.quadrants[0].share*100)+'%',
+                 'pull opposite ways', D.people.shift][Math.min(idx,3)]);
+  };
+};
+
+/* ---------- 07 VALIDATION: does anyone else agree ------------------------- */
+BUILD.validation = function(ctx){
+  const g = S('g', null, ctx.svg);
+  const X0=360, X1=1280, Y0=180, Y1=770;
+  const xs = v => X0 + (v-15)/70*(X1-X0);
+  const ys = v => Y1 - v*(Y1-Y0);
+  const ax = Stroke(g, [[X0,Y1],[X1,Y1]], {cls:'ink w1', amp:1.6});
+  const ay = Stroke(g, [[X0,Y1],[X0,Y0]], {cls:'ink w1', amp:1.6});
+  Txt(g, (X0+X1)/2, Y1+52, 'OUR SUSCEPTIBILITY INDEX', {cls:'sm', anchor:'middle', op:0});
+  const xlab = g.lastChild;
+  Txt(g, X0-40, (Y0+Y1)/2, 'HUMAN EXPERT RATING', {cls:'sm', anchor:'middle', op:0, rot:-90});
+  const ylab = g.lastChild;
+  const dots = D.validation.map(function(d,i){
+    return {s: Dot(g, xs(d.x), ys(d.y), 6, 'ink blue', 5200+i*7), i:i};
+  });
+  const fit = Stroke(g, [[xs(20),ys(D.fit.a+D.fit.b*20)],[xs(82),ys(D.fit.a+D.fit.b*82)]],
+                     {cls:'ink coral w3', amp:1.8});
+  const rlab = Txt(g, X0+40, Y0+40, 'r = 0.85', {cls:'big', op:0});
+  const sub = Txt(g, X0+40, Y0+76, 'AGAINST INDEPENDENT HUMAN ANNOTATORS', {cls:'sm dim', op:0});
+
+  return function(p, idx){
+    ax.draw(clamp(p*6,0,1)); ay.draw(clamp(p*6-.2,0,1));
+    xlab.style.opacity = eo(clamp(p*6-.3,0,1))*.8;
+    ylab.style.opacity = eo(clamp(p*6-.6,0,1))*.8;
+    dots.forEach(function(k){
+      k.s.draw(eo(clamp((p - 0.12 - (k.i%40)*0.005)/0.10, 0, 1)));
+    });
+    fit.draw(eo(clamp((p-0.50)/0.16,0,1)));
+    rlab.style.opacity = eo(clamp((p-0.62)/0.10,0,1));
+    sub.style.opacity = eo(clamp((p-0.68)/0.10,0,1))*.7;
+    ctx.readout(['A model rating work','Published human ratings','Agreement'][Math.min(idx,2)],
+                ['is an assertion','268 of 268 matched','r = 0.85'][Math.min(idx,2)]);
+  };
+};
+
+/* ---------- hero + coda ---------------------------------------------------- */
+function buildHero(){
+  const svg = document.getElementById('heroCanvas');
+  if(!svg) return function(){};
+  const g = S('g', null, svg);
+  const pts = [];
+  for(let i=0;i<=60;i++){ const t=i/60; pts.push([120+t*960, 640 - Math.pow(t,2.6)*470]); }
+  const flat = [];
+  for(let i=0;i<=60;i++){ const t=i/60; flat.push([120+t*960, 640 - t*90]); }
+  const a = Stroke(g, flat, {cls:'ink w1 soft', amp:2.4, seed:11});
+  const b = Stroke(g, pts, {cls:'ink acid w3', amp:2.6, seed:23});
+  return function(t){ a.draw(clamp(t*2.2,0,1)); b.draw(clamp(t*1.7-0.12,0,1)); };
+}
+
+function buildCoda(){
+  const svg = document.getElementById('codaCanvas');
+  if(!svg) return function(){};
+  const g = S('g', null, svg);
+  const s = Stroke(g, [[80,150],[420,150],[760,150],[1100,150]], {cls:'ink acid w1', amp:2.2});
+  return function(t){ s.draw(clamp(t,0,1)); };
+}
+
+
+/* ---------- scroll driver ---------- */
+const reg = [];
+document.querySelectorAll('[data-scene]').forEach(function(root){
+  const build = BUILD[root.dataset.scene];
+  if(!build) return;
+  const ctx = {
+    root: root,
+    svg: root.querySelector('.plot'),
+    frame: root.querySelector('.stage-frame'),
+    beatsEl: root.querySelector('.beats'),
+    beats: [].slice.call(root.querySelectorAll('[data-beat]')),
+    hud: root.querySelector('[data-hud-i]'),
+    rk: root.querySelector('[data-readout-k]'),
+    rv: root.querySelector('[data-readout-v]'),
+    idx: -1, lastK:'', lastV:''
+  };
+  ctx.readout = function(k, v){
+    if(k !== ctx.lastK){ ctx.lastK = k; if(ctx.rk) ctx.rk.textContent = k; }
+    if(v !== ctx.lastV){ ctx.lastV = v; if(ctx.rv) ctx.rv.textContent = v; }
+  };
+  /* the ruling goes down before the figure does */
+  if(ctx.svg){
+    const vb = (ctx.svg.getAttribute('viewBox')||'0 0 1600 900').split(/\s+/).map(Number);
+    paperGrid(ctx.svg, vb[2], vb[3]);
+    ctx.svg.setAttribute('viewBox', vb.join(' '));
+  }
+  /* beat copy rides over the figure in a card, so wrap what the markup declared */
+  ctx.beats.forEach(function(b){
+    const card = document.createElement('div');
+    card.className = 'beat-card';
+    while(b.firstChild) card.appendChild(b.firstChild);
+    b.appendChild(card);
+  });
+  ctx.tick = build(ctx) || function(){};
+  reg.push(ctx);
+});
+
+const railLinks = [].slice.call(document.querySelectorAll('#rail a'));
+const rail = document.getElementById('rail');
+const bar = document.getElementById('progressBar');
+const header = document.getElementById('siteHeader');
+const heroTick = buildHero();
+const codaTick = buildCoda();
+const heroEl = document.getElementById('hero');
+const codaEl = document.querySelector('.coda');
+const darkZones = [].slice.call(document.querySelectorAll('.hero, .ending'));
+/* On phones the figure pins to the top of the viewport and the beats scroll
+   underneath it, so the reading line has to sit below the figure — not at the
+   middle of the viewport, which is behind it. */
+const narrow = matchMedia('(max-width:1000px)');
+
+const headerNote = document.getElementById('headerNote');
+let lastY = -1, lastVH = -1, force = true, lastNote = '';
+
+function update(y, vh){
+  /* ---- read phase ---- */
+  let anchor = vh * 0.5;
+  if(narrow.matches && reg.length && reg[0].frame){
+    const fh = reg[0].frame.getBoundingClientRect().height;
+    anchor = Math.min(fh + (vh - fh) * 0.5, vh * 0.86);
+  }
+  const reads = [];
+  for(let s=0; s<reg.length; s++){
+    const sc = reg[s];
+    const r = sc.root.getBoundingClientRect();
+    if(r.bottom < -160 || r.top > vh + 160){ reads.push(null); continue; }
+    const cr = sc.beatsEl.getBoundingClientRect();
+    const p = clamp((anchor - cr.top) / Math.max(1, cr.height), 0, 1);
+    let idx = 0, best = Infinity;
+    for(let i=0;i<sc.beats.length;i++){
+      const br = sc.beats[i].getBoundingClientRect();
+      const d = Math.abs(br.top + br.height/2 - anchor);
+      if(d < best){ best = d; idx = i; }
+    }
+    const br = sc.beats[idx].getBoundingClientRect();
+    const local = clamp((anchor - br.top) / Math.max(1, br.height), 0, 1);
+    /* the last beat's centre sits at (n-0.5)/n of the way down the list */
+    const span = (sc.beats.length - 0.5) / sc.beats.length;
+    reads.push({p:clamp(p/span,0,1), idx:idx, local:local, top:r.top, bottom:r.bottom});
+  }
+  const heroR = heroEl ? heroEl.getBoundingClientRect() : null;
+  const codaR = codaEl ? codaEl.getBoundingClientRect() : null;
+  let onDark = false;
+  for(let i=0;i<darkZones.length;i++){
+    const r = darkZones[i].getBoundingClientRect();
+    if(r.top <= 52 && r.bottom >= 52){ onDark = true; break; }
+  }
+  const docMax = document.documentElement.scrollHeight - vh;
+
+  /* ---- write phase ---- */
+  bar.style.width = (docMax > 0 ? clamp(y/docMax,0,1)*100 : 0) + '%';
+  header.classList.toggle('is-light', !onDark);
+  header.classList.toggle('is-away', heroR ? (y > vh*0.1 && heroR.bottom > 90) : false);
+  rail.classList.toggle('on-dark', onDark);
+  rail.classList.toggle('is-on', y > vh*0.9);
+
+  if(heroR) heroTick(clamp(-heroR.top / Math.max(1, heroR.height*0.9), 0, 1));
+  if(codaR) codaTick(clamp((vh*0.92 - codaR.top) / Math.max(1, vh*0.5), 0, 1));
+
+  for(let s=0; s<reg.length; s++){
+    const rd = reads[s]; if(!rd) continue;
+    const sc = reg[s];
+    if(rd.idx !== sc.idx){
+      sc.idx = rd.idx;
+      for(let i=0;i<sc.beats.length;i++) sc.beats[i].classList.toggle('is-active', i === rd.idx);
+      if(sc.hud) sc.hud.textContent = pad(rd.idx+1);
+    }
+    sc.tick(rd.p, rd.idx, rd.local);
+  }
+
+  /* rail active state */
+  let active = -1;
+  for(let i=0;i<reg.length;i++){
+    const rd = reads[i];
+    if(rd && rd.top < vh*0.5 && rd.bottom > vh*0.5) active = i;
+  }
+  for(let i=0;i<railLinks.length;i++) railLinks[i].classList.toggle('is-on', i === active);
+  const note = active >= 0
+    ? railLinks[active].querySelector('.rail-label').textContent
+    : (y > vh*0.5 ? 'A provisional framework' : 'Scroll to draw the story');
+  if(note !== lastNote){ lastNote = note; headerNote.textContent = note; }
+}
+
+function loop(){
+  const y = window.scrollY || window.pageYOffset || 0;
+  const vh = window.innerHeight;
+  if(force || y !== lastY || vh !== lastVH){
+    lastY = y; lastVH = vh; force = false;
+    update(y, vh);
+  }
+  requestAnimationFrame(loop);
+}
+
+addEventListener('resize', function(){ force = true; }, {passive:true});
+addEventListener('load', function(){ force = true; }, {passive:true});
+document.fonts && document.fonts.ready.then(function(){ force = true; });
+
+requestAnimationFrame(loop);
+
+/* Static-render hook. Headless Chrome screenshots before a scroll settles and
+   does not advance rAF under a virtual clock, so there is no way to capture a
+   scene mid-story from the CLI. This drives every scene to a given progress
+   directly, which is also how the still figures are exported. */
+window.__story = {
+  scenes: reg.map(function(s){ return s.root.id; }),
+  freeze: function(id, p){
+    for(let i=0;i<reg.length;i++){
+      const sc = reg[i];
+      if(id && sc.root.id !== id) continue;
+      const last = sc.beats.length - 1;
+      const idx = Math.min(last, Math.floor(p * sc.beats.length));
+      for(let b=0;b<sc.beats.length;b++)
+        sc.beats[b].classList.toggle('is-active', b === idx);
+      if(sc.hud) sc.hud.textContent = pad(idx+1);
+      sc.tick(p, idx, 1);
+    }
+  },
+  freezeAll: function(p){ this.freeze(null, p == null ? 1 : p); }
+};
+})();
+</script>
+</body></html>
