@@ -387,5 +387,7 @@ def run_scroller(settings: Settings) -> Path:
     meta = json.loads(score_path.read_text()) if score_path.exists() else {}
 
     tasks = read_table(settings.out_dir, "task_susceptibility")
-    payload = build_payload(occ, tasks, handoff, benchmarks, soc, emp)
+    subtasks = read_table(settings.out_dir, "subtask_susceptibility")
+    links = read_table(settings.out_dir, "task_subtasks")
+    payload = build_payload(occ, tasks, subtasks, links, handoff, benchmarks, soc, emp)
     return build_scroller(settings.out_dir / "story.html", payload, meta)

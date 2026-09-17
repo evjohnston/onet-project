@@ -398,11 +398,13 @@ constants are fitted to this corpus; re-fit them if it changes.
 open data/out/story.html
 ```
 
-A scroll-driven narrative over the same tables the dashboard reads. Eight chapters,
+A scroll-driven narrative over the same tables the dashboard reads. Nine chapters
+and two interactives,
 each a sticky hand-inked figure that draws itself as you scroll past its beats:
 the inversion against Frey & Osborne, the subtask vocabulary, **the task composition
-inside a job**, exposure versus anchoring, Watson's handoff frontier, the six-stage
-ladder, the employment weighting, and the external validation.
+inside a job**, **the shared activity spine**, exposure versus anchoring, Watson's
+handoff frontier, the six-stage ladder, the employment weighting, and the external
+validation.
 
 **Chapter 03 is the one that answers "how much of this job".** Asking whether an
 occupation is exposed hides the mix. Business intelligence analysts have 17 tasks in
@@ -413,11 +415,27 @@ the top, examining a patient at the bottom. Across 268 occupations, 121 have few
 than a fifth of their tasks highly exposed and 11 have more than four fifths. The
 common case is partial: a job reshaped around what is left, not one that disappears.
 
+**Chapter 04, "The shared spine", is where the leverage is.** The activity vocabulary
+is not evenly used: 261 of 963 activities appear in exactly one occupation, while
+"Record patient medical histories" appears in 56. The widely shared ones are
+documentation, reporting, literature review and grant writing — which are also
+the highest-scoring. The 100 most widely used activities carry **38% of every
+job-to-activity link in the corpus**, so automating that set touches most of STEM at
+once — and a scoring error there propagates furthest.
+
 **The explorer breaks the story in the middle.** Every task of every scored occupation
 with the score it received, a threshold slider for how capable a model has to be
 before a task counts as at risk, and the share of the job that moves with it. The
 ranking of occupations is not fixed — it depends where you draw that line, and the
 strip shows where the chosen job sits against all 268.
+
+**The comparison follows the leverage chapter.** Two occupations side by side, split
+into shared activities and each one's speciality, sorted by susceptibility. It answers
+whether what two jobs have in common is the exposed part or the protected one: database
+administrators and database architects share 14 activities and **13 of them score 70 or
+above**, so automating the overlap hits both at once. Presets avoid the postsecondary
+teaching occupations, whose O*NET profiles are near-identical and would make any
+overlap look profound.
 
 Where the dashboard is for interrogating the data, this is for being walked through
 what it says. One self-contained file; the only external request is the Google Fonts

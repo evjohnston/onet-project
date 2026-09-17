@@ -511,3 +511,174 @@ BUILD.composition = function(ctx){
   });
   render();
 })();
+
+/* ---------- 03b LEVERAGE: a few activities run through everything --------- */
+BUILD.leverage = function(ctx){
+  const g = S('g', null, ctx.svg);
+  const X0=340, X1=1290, Y0=180, Y1=700;
+  const maxN = Math.max.apply(null, D.lev.map(function(r){ return r.n; }));
+  /* reach is heavily long-tailed - 27% of subtasks touch one job - so the
+     axis is square-root scaled or the whole field stacks on the left edge */
+  const xs = v => X0 + Math.sqrt(v/maxN)*(X1-X0);
+  const ys = v => Y1 - (v-10)/85*(Y1-Y0);
+  const ax = Stroke(g, [[X0,Y1],[X1,Y1]], {cls:'ink w1', amp:1.6});
+  const ay = Stroke(g, [[X0,Y1],[X0,Y0]], {cls:'ink w1', amp:1.6});
+  Txt(g, (X0+X1)/2, Y1+50, 'JOBS THAT USE THIS ACTIVITY →', {cls:'sm', anchor:'middle', op:0});
+  const xlab = g.lastChild;
+  Txt(g, X0-42, (Y0+Y1)/2, 'SUSCEPTIBILITY →', {cls:'sm', anchor:'middle', op:0, rot:-90});
+  const ylab = g.lastChild;
+  [1,5,10,20,40].forEach(function(v){
+    if(v>maxN) return;
+    const t=Txt(g, xs(v), Y1+24, String(v), {cls:'sm dim', anchor:'middle', op:0});
+    t.dataset.tick='1';
+  });
+  [25,50,75].forEach(function(v){
+    const t=Txt(g, X0-14, ys(v)+4, String(v), {cls:'sm dim', anchor:'end', op:0});
+    t.dataset.tick='1';
+  });
+  const ticks = [].slice.call(g.querySelectorAll('[data-tick]'));
+
+  const dots = D.lev.map(function(r,i){
+    const lever = r.n >= 12 && r.s >= 65;
+    return {s: Dot(g, xs(r.n), ys(r.s), lever?8:5,
+             lever ? 'ink coral' : (r.n===1 ? 'ink ghost' : 'ink soft'), 8200+i*5),
+            r:r, i:i, lever:lever};
+  });
+  /* The high-leverage dots sit in one dense cluster, so labelling them in place
+     overprints both the cluster and each other. They go in the empty lower-left
+     as a ranked callout instead - the chart carries the pattern, the list
+     carries the names. */
+  const top = D.lev.filter(function(r){ return r.n>=12 && r.s>=65; })
+                   .sort(function(a,b){ return b.n*b.s - a.n*a.s; }).slice(0,5);
+  const LX = X0 + 24, LY = Y1 - 210;
+  const listHead = Txt(g, LX, LY - 26, 'HIGHEST LEVERAGE \u2014 REACH \u00d7 EXPOSURE',
+                       {cls:'sm', op:0});
+  const labels = top.map(function(r, i){
+    const txt = r.n + ' JOBS \u00b7 ' + r.s + ' \u00b7 ' +
+                (r.t.length > 42 ? r.t.slice(0,41) + '\u2026' : r.t).toUpperCase();
+    return Txt(g, LX, LY + i*30, txt, {cls: i===0 ? 'sm' : 'sm dim', op:0});
+  });
+
+  /* beat 4 replaces the scatter rather than sharing the panel with it */
+  const CX0=420, CX1=1240, CY0=250, CY1=700;
+  const cpts = [[CX0, CY1]].concat(D.cum.map(function(c){
+    return [CX0 + Math.sqrt(c.k/D.levStats.total)*(CX1-CX0), CY1 - c.share*(CY1-CY0)];
+  }));
+  const curve = Stroke(g, cpts, {cls:'ink coral w3', amp:1.6});
+  const cAxX = Stroke(g, [[CX0,CY1],[CX1,CY1]], {cls:'ink w1 soft', amp:1.4});
+  const cAxY = Stroke(g, [[CX0,CY1],[CX0,CY0]], {cls:'ink w1 soft', amp:1.4});
+  const cMark = Dot(g, CX0 + Math.sqrt(100/D.levStats.total)*(CX1-CX0),
+                    CY1 - D.levStats.top100*(CY1-CY0), 9, 'ink coral', 8800);
+  const cNote = Txt(g, CX0 + Math.sqrt(100/D.levStats.total)*(CX1-CX0) + 18,
+                    CY1 - D.levStats.top100*(CY1-CY0) - 8,
+                    '100 ACTIVITIES \u2192 ' + Math.round(D.levStats.top100*100) + '%',
+                    {cls:'sm', op:0});
+  const cX = Txt(g, (CX0+CX1)/2, CY1+44, 'ACTIVITIES, MOST WIDELY USED FIRST \u2192',
+                 {cls:'sm', anchor:'middle', op:0});
+  const cY = Txt(g, CX0-40, (CY0+CY1)/2, 'SHARE OF ALL LINKS \u2192',
+                 {cls:'sm', anchor:'middle', op:0, rot:-90});
+  const clab = Txt(g, 800, 862,
+    'THE 100 MOST WIDELY USED ACTIVITIES CARRY ' +
+    Math.round(D.levStats.top100*100) + '% OF EVERY JOB\u2013ACTIVITY LINK',
+    {cls:'sm', anchor:'middle', op:0});
+
+  return function(p, idx){
+    ax.draw(clamp(p*6,0,1)); ay.draw(clamp(p*6-.2,0,1));
+    xlab.style.opacity = eo(clamp(p*6-.3,0,1))*.8;
+    ylab.style.opacity = eo(clamp(p*6-.6,0,1))*.8;
+    ticks.forEach(function(t,i){ t.style.opacity = eo(clamp(p*6-.4-i*.05,0,1))*.6; });
+    dots.forEach(function(k){
+      k.s.draw(eo(clamp((p - 0.06 - (k.i%50)*0.003)/0.10, 0, 1)));
+      /* beat 1 is about the singletons; the levers only light up at beat 3 */
+      k.s._o = p < 0.30 ? (k.r.n === 1 ? 1 : 0.22) : (p < 0.58 ? 0.62 : (k.lever ? 1 : 0.34));
+      k.s.opacity(k.s._o);
+    });
+    const outro = eo(clamp((p-0.74)/0.08,0,1));      // scatter steps aside
+    const fade = 1 - outro;
+    listHead.style.opacity = eo(clamp((p-0.58)/0.06,0,1)) * fade;
+    labels.forEach(function(l,i){
+      l.style.opacity = eo(clamp((p-0.60-i*.035)/0.08,0,1)) * fade;
+    });
+    dots.forEach(function(k){ if(outro > 0) k.s.opacity(k.s._o * fade); });
+    [ax, ay].forEach(function(a){ a.opacity(fade); });
+    ticks.forEach(function(t){ t.style.opacity = (t.style.opacity||0) * (fade||0.001); });
+    xlab.style.opacity *= fade; ylab.style.opacity *= fade;
+
+    cAxX.draw(outro); cAxY.draw(outro);
+    curve.draw(eo(clamp((p-0.78)/0.14,0,1)));
+    cMark.draw(eo(clamp((p-0.88)/0.06,0,1)));
+    cNote.style.opacity = eo(clamp((p-0.90)/0.06,0,1));
+    cX.style.opacity = outro*.8; cY.style.opacity = outro*.8;
+    clab.style.opacity = eo(clamp((p-0.92)/0.06,0,1));
+    ctx.readout(['Used by one job only','The widest reach','High leverage','Concentration'][Math.min(idx,3)],
+                [D.levStats.unique + ' of ' + D.levStats.total,
+                 (D.levStats.widest ? D.levStats.widest.n + ' jobs' : '—'),
+                 'reach × exposure',
+                 Math.round(D.levStats.top100*100) + '% from 100'][Math.min(idx,3)]);
+  };
+};
+
+/* ---------- COMPARE: two jobs, what they share ---------------------------- */
+(function compare(){
+  const aSel = document.getElementById('c-a'), bSel = document.getElementById('c-b');
+  if(!aSel || !D.occDwa) return;
+  const out = document.getElementById('c-out');
+  const sum = document.getElementById('c-sum');
+  const opts = D.comp.slice().sort(function(a,b){ return a.t.localeCompare(b.t); })
+    .map(function(c){ return '<option value="'+c.c+'">'+c.t+'</option>'; }).join('');
+  aSel.innerHTML = opts; bSel.innerHTML = opts;
+  aSel.value = D.exemplars.pairA || D.exemplars.all;
+  bSel.value = D.exemplars.pairB || D.exemplars.none;
+
+  function esc2(x){ return String(x).replace(/[&<>]/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
+
+  function col(title, ids, cls){
+    return '<div class="ccol"><h4>' + esc2(title) + '</h4>' +
+      (ids.length ? ids.map(function(d){
+        const s = D.dwaSusc[d] || 0;
+        return '<div class="crow ' + cls + (s>=70?' hot':'') + '">' +
+          '<span class="cs">' + s + '</span>' +
+          '<span class="ct">' + esc2(D.dwaTitle[d] || d) + '</span></div>';
+      }).join('') : '<p class="cnone">None.</p>') + '</div>';
+  }
+
+  function render(){
+    const A = D.occDwa[aSel.value] || [], B = D.occDwa[bSel.value] || [];
+    const setB = new Set(B);
+    const shared = A.filter(function(d){ return setB.has(d); });
+    const onlyA = A.filter(function(d){ return !setB.has(d); });
+    const onlyB = B.filter(function(d){ return A.indexOf(d) < 0; });
+    const union = new Set(A.concat(B)).size || 1;
+    const bySusc = function(a,b){ return (D.dwaSusc[b]||0) - (D.dwaSusc[a]||0); };
+    shared.sort(bySusc); onlyA.sort(bySusc); onlyB.sort(bySusc);
+
+    const aName = aSel.options[aSel.selectedIndex].text;
+    const bName = bSel.options[bSel.selectedIndex].text;
+    const hotShared = shared.filter(function(d){ return (D.dwaSusc[d]||0) >= 70; }).length;
+    sum.innerHTML =
+      '<div class="cstat"><div class="n">' + Math.round(shared.length/union*100) + '%</div>' +
+      '<div class="k">of their combined activities are shared</div></div>' +
+      '<p class="sub"><b>' + shared.length + '</b> activities in common, <b>' +
+      onlyA.length + '</b> unique to ' + esc2(aName) + ', <b>' + onlyB.length +
+      '</b> unique to ' + esc2(bName) + '. ' +
+      (hotShared
+        ? '<b>' + hotShared + '</b> of the shared ones score 70 or above — automating those touches both jobs at once.'
+        : 'None of the shared activities are highly exposed.') + '</p>';
+
+    out.innerHTML = col('Shared — ' + shared.length, shared, 'sh') +
+                    col('Only ' + aName, onlyA, 'oa') +
+                    col('Only ' + bName, onlyB, 'ob');
+  }
+  aSel.addEventListener('change', render);
+  bSel.addEventListener('change', render);
+  document.querySelectorAll('[data-cpick]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      const pair = btn.dataset.cpick.split(',');
+      aSel.value = D.exemplars[pair[0]] || aSel.value;
+      bSel.value = D.exemplars[pair[1]] || bSel.value;
+      render();
+    });
+  });
+  render();
+})();

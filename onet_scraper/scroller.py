@@ -32,6 +32,8 @@ def _f(row: dict[str, Any], key: str, default: float = 0.0) -> float:
 def build_payload(
     occ_susc: Sequence[dict[str, Any]],
     tasks: Sequence[dict[str, Any]],
+    subtasks: Sequence[dict[str, Any]],
+    links: Sequence[dict[str, Any]],
     handoff: Sequence[dict[str, Any]],
     benchmarks: Sequence[dict[str, Any]],
     soc: Sequence[dict[str, Any]],
@@ -109,6 +111,46 @@ def build_payload(
         })
     comp.sort(key=lambda r: -r["hi"])
 
+    # --- 03b leverage: how far each subtask reaches across the field -------
+    reach: dict[str, set[str]] = {}
+    task_hits: dict[str, int] = {}
+    for link in links:
+        dwa = link.get("dwa_id")
+        if not dwa:
+            continue
+        reach.setdefault(dwa, set()).add(link["onet_soc_code"])
+        task_hits[dwa] = task_hits.get(dwa, 0) + 1
+    sub_by_id = {r["dwa_id"]: r for r in subtasks}
+    lev = []
+    for dwa, codes in reach.items():
+        row = sub_by_id.get(dwa)
+        if not row:
+            continue
+        title = row["dwa_title"]
+        lev.append({"d": dwa,
+                    "t": (title[:54] + "\u2026") if len(title) > 55 else title,
+                    "n": len(codes), "k": task_hits[dwa],
+                    "s": round(_f(row, "susceptibility"))})
+    lev.sort(key=lambda r: -r["n"])
+    by_reach = sorted((r["n"] for r in lev), reverse=True)
+    total_links = sum(by_reach) or 1
+    cum = []
+    run = 0
+    for i, v in enumerate(by_reach, 1):
+        run += v
+        if i in (10, 25, 50, 100, 200, 400, len(by_reach)):
+            cum.append({"k": i, "share": round(run / total_links, 4)})
+
+    # occupation -> its subtask ids, for the side-by-side comparison
+    occ_dwa: dict[str, list[str]] = {}
+    for link in links:
+        if link.get("dwa_id"):
+            bucket = occ_dwa.setdefault(link["onet_soc_code"], [])
+            if link["dwa_id"] not in bucket:
+                bucket.append(link["dwa_id"])
+    dwa_title = {r["d"]: r["t"] for r in lev}
+    dwa_susc = {r["d"]: r["s"] for r in lev}
+
     # --- 03 axes ------------------------------------------------------------
     axes = [{"e": _f(o, "exposure"), "a": _f(o, "anchoring"), "s": _f(o, "susceptibility")}
             for o in occ_susc]
@@ -159,9 +201,21 @@ def build_payload(
     slope = num / den
 
     return {
+        "lev": lev,
+        "cum": cum,
+        "levStats": {
+            "unique": sum(1 for r in lev if r["n"] == 1),
+            "total": len(lev),
+            "top100": next((c["share"] for c in cum if c["k"] == 100), 0),
+            "widest": lev[0] if lev else None,
+        },
+        "occDwa": occ_dwa,
+        "dwaTitle": dwa_title,
+        "dwaSusc": dwa_susc,
         "comp": comp,
         "tasks": tasks_by_occ,
         "exemplars": {
+            "pairA": "15-1242.00", "pairB": "15-1243.00",
             "all": next((c["c"] for c in comp if c["hi"] >= 0.99), comp[0]["c"]),
             "none": next((c["c"] for c in reversed(comp) if c["n"] >= 12), comp[-1]["c"]),
             "split": max(comp, key=lambda c: c["spread"])["c"],
@@ -310,6 +364,42 @@ SCENES: list[dict[str, Any]] = [
               "highly exposed. Eleven have more than four fifths. The common case is "
               "partial \u2014 a job reshaped around what is left, not one that disappears.",
               "<b>121</b> under 20% \u00b7 <b>11</b> over 80%"),
+         ]),
+    dict(sid="leverage", number="04 / The shared spine", rail="The shared spine",
+         title="A few activities run through almost every job.",
+         standfirst="The subtask vocabulary is not evenly used. Most activities belong to "
+                    "one occupation. A small number appear everywhere \u2014 and those "
+                    "are disproportionately the exposed ones.",
+         fig="Fig. 04 \u2014 Reach against susceptibility",
+         aria="Each subtask plotted by how many occupations use it against its "
+              "susceptibility, with a concentration curve beneath.",
+         rk="Used by one job only", rv="261 of 963",
+         note="Reach axis square-root scaled. 963 distinct activities.",
+         beats=[
+             ("01 / The tail", "Most activities belong to a single job",
+              "Two hundred and sixty-one of the 963 activities \u2014 more than a "
+              "quarter \u2014 appear in exactly one occupation. These are the "
+              "specialised core of a profession, and automating one of them changes "
+              "that profession and nothing else.",
+              "<b>261</b> of 963 used by one job"),
+             ("02 / The spine", "A handful appear almost everywhere",
+              "\u201cRecord patient medical histories\u201d appears in 56 different "
+              "occupations. \u201cPrepare scientific or technical reports\u201d in 40. "
+              "\u201cTrain medical providers\u201d in 49. These are the connective "
+              "tissue of STEM work rather than anyone\u2019s speciality.",
+              "Widest reach \u2014 <b>56 occupations</b>"),
+             ("03 / The overlap", "And the shared ones are the exposed ones",
+              "The activities with the widest reach are documentation, reporting, "
+              "literature review and grant writing \u2014 exactly the work that scores "
+              "highest. \u201cResearch topics in area of expertise\u201d reaches 27 "
+              "jobs at a susceptibility of 84.",
+              "Reach and exposure point the same way"),
+             ("04 / The concentration", "So a hundred activities carry most of the field",
+              "The 100 most widely used activities account for 38 per cent of every "
+              "job-to-activity link in the corpus. Automating that set would touch most "
+              "of STEM work at once \u2014 which is where the leverage sits, and where "
+              "a single scoring error propagates furthest.",
+              "<b>100</b> activities \u00b7 <b>38%</b> of all links"),
          ]),
     dict(sid="axes", number="03 / Two questions", rail="Two questions", tint=True,
          title="Whether a machine can do the work is not whether it will.",
@@ -487,9 +577,13 @@ def build_scroller(path: Path, payload: dict[str, Any], meta: dict[str, Any]) ->
 
     # The explorer breaks the story after the within-job chapter: the reader has
     # just been shown three bundles and should get to open the rest themselves.
-    cut = next(i for i, sc in enumerate(SCENES) if sc["sid"] == "composition") + 1
-    sections_before = "".join(render_scene(sc) for sc in SCENES[:cut])
-    sections_after = "".join(render_scene(sc) for sc in SCENES[cut:])
+    # Each interactive follows the chapter that motivates it: the explorer after
+    # the within-job chapter, the comparison after the shared-activity one.
+    cut1 = next(i for i, sc in enumerate(SCENES) if sc["sid"] == "composition") + 1
+    cut2 = next(i for i, sc in enumerate(SCENES) if sc["sid"] == "leverage") + 1
+    sections_before = "".join(render_scene(sc) for sc in SCENES[:cut1])
+    sections_mid = "".join(render_scene(sc) for sc in SCENES[cut1:cut2])
+    sections_after = "".join(render_scene(sc) for sc in SCENES[cut2:])
     rail = "".join(
         f'<a href="#{s["sid"]}"><span class="dot"></span>'
         f'<span class="rail-label">{s["rail"]}</span></a>' for s in SCENES
@@ -587,7 +681,35 @@ say about which work is exposed to automation, and which is held by accountabili
   </div>
 </section>
 
+{sections_mid}
+
+<section class="compare" id="compare">
+  <div class="cwrap">
+    <div class="xhead" style="margin-bottom:26px">
+      <p class="chapter-number">Interlude / Side by side</p>
+      <h2>Two jobs. What do they actually share?</h2>
+      <p class="standfirst">Occupations overlap through the activity vocabulary, not
+      through their task statements. Put two side by side and the shared spine separates
+      from the speciality \u2014 and you can see whether what they have in common is the
+      exposed part or the protected one.</p>
+    </div>
+    <div class="cpick">
+      <select id="c-a"></select>
+      <select id="c-b"></select>
+    </div>
+    <div class="xlegend" style="margin:-6px 0 16px">
+      Try &mdash;
+      <a href="#compare" data-cpick="pairA,pairB">two database roles</a> &middot;
+      <a href="#compare" data-cpick="all,none">opposite ends</a> &middot;
+      <a href="#compare" data-cpick="all,split">exposed vs split</a>
+    </div>
+    <div class="csum" id="c-sum"></div>
+    <div class="ccols" id="c-out"></div>
+  </div>
+</section>
+
 {sections_after}
+
 
 <section class="ending coda">
   <svg class="coda-canvas" id="codaCanvas" viewBox="0 0 1200 300"
