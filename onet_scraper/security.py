@@ -175,10 +175,21 @@ def reconstitution(
     similarity: float | None,
     lo: float,
     hi: float,
+    education_depth: float | None = None,
 ) -> dict[str, float]:
-    """How hard it is to rebuild this human capability once it has thinned."""
+    """How hard it is to rebuild this human capability once it has thinned.
+
+    Training depth prefers `education_depth` - the mean years of required
+    schooling from O*NET's RL distribution, rescaled - over Job Zone. Job Zone
+    is the same question at a fifth of the resolution: it has five levels, only
+    three of which occur across this corpus, so it assigned the identical depth
+    to an ophthalmic technician and a neuropsychologist. The RL scale separates
+    them by ten years of schooling. Job Zone stays as the fallback for the 44
+    occupations O*NET has not surveyed for education.
+    """
     zone = int(job_zone) if job_zone else 0
-    depth = JOB_ZONE_DEPTH.get(zone, MIDPOINT)
+    depth = (education_depth if education_depth is not None
+             else JOB_ZONE_DEPTH.get(zone, MIDPOINT))
     scarce = _scarcity(employment, lo, hi)
     # mean_similarity is share of activities shared with neighbouring
     # occupations: high similarity means people can convert in, so isolation -
@@ -188,8 +199,9 @@ def reconstitution(
     total = (RECONSTITUTION_WEIGHTS["training_depth"] * depth
              + RECONSTITUTION_WEIGHTS["scarcity"] * scarce
              + RECONSTITUTION_WEIGHTS["isolation"] * isolation)
-    return {"training_depth": depth, "scarcity": scarce,
-            "isolation": isolation, "reconstitution": round(total, 1)}
+    return {"training_depth": round(depth, 1), "scarcity": scarce,
+            "isolation": isolation, "reconstitution": round(total, 1),
+            "depth_source": "education" if education_depth is not None else "job_zone"}
 
 
 # ---------------------------------------------------------------------------
@@ -290,9 +302,11 @@ def employment_shares(codes: Sequence[str], employment: dict[str, float],
 
 SECURITY_COLUMNS = (
     "onet_soc_code", "title", "stem_occupation_types", "field", "job_zone",
-    "total_employment", "employment_share", "n_tasks", "scenario", "efficiency", "removal_risk",
-    "risk_at_stake", "reconstitution", "training_depth", "scarcity", "isolation",
-    "octant", "trap_score", "erosion_risk", "willingness_gap",
+    "total_employment", "employment_share", "n_tasks", "scenario",
+    "efficiency", "removal_risk", "risk_at_stake",
+    "reconstitution", "training_depth", "depth_source", "scarcity", "isolation",
+    "octant", "severity", "severity_label", "trap_score",
+    "erosion_risk", "willingness_gap",
 )
 
 FIELD_COLUMNS = (
@@ -349,6 +363,7 @@ def build(
     handoff: dict[str, dict[str, Any]] | None = None,
     fields: dict[str, str] | None = None,
     soc_of: dict[str, str] | None = None,
+    education: dict[str, float] | None = None,
     scenarios: Sequence[str] = ("modest", "substantial", "extreme"),
 ) -> list[dict[str, Any]]:
     """One row per occupation per scenario."""
@@ -357,6 +372,7 @@ def build(
     handoff = handoff or {}
     fields = fields or {}
     soc_of = soc_of or {}
+    education = education or {}
 
     # Join the risk components onto the fate rows by task id. task_fates carries
     # importance and the per-scenario verdict; the raw dimensions live in
@@ -385,7 +401,8 @@ def build(
             continue
         emp = employment.get(code)
         parts = reconstitution(
-            _f(occ, "job_zone") or None, emp, similarity.get(code), lo, hi)
+            _f(occ, "job_zone") or None, emp, similarity.get(code), lo, hi,
+            education.get(code))
         hand = handoff.get(code) or {}
         risk = removal_risk(tasks)
         for scenario in scenarios:
@@ -406,6 +423,7 @@ def build(
                 "risk_at_stake": risk_at_stake(tasks, scenario),
                 "reconstitution": parts["reconstitution"],
                 "training_depth": parts["training_depth"],
+                "depth_source": parts["depth_source"],
                 "scarcity": parts["scarcity"],
                 "isolation": parts["isolation"],
                 "octant": name,

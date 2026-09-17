@@ -123,6 +123,56 @@ is verified per release rather than assumed: `db_20_0` does not exist (that seri
 begins at 20.1) and an unpublished release is dropped from the span with a warning
 instead of failing the run.
 
+### 4.4 Optional measurement files
+
+Three files that are free but large, fetched by `fetch-bulk --with-ratings`.
+Every measure below degrades to what it did before if they are absent, so the
+pipeline runs without them.
+
+| File | Scale | What it gives |
+| --- | --- | --- |
+| `task_ratings.csv` | FT, 7 bands | frequency of each task, i.e. recurrence |
+| `education.csv` | RL, 12 categories | required level of education, as a distribution |
+| `job_zones.csv` | 1–5 | job zone at bulk grain rather than scraped |
+
+**Recurrence** is the FT distribution collapsed to one number per task. The bands
+are named, not numbered — "yearly or less" through "hourly or more" — so each is
+mapped to an approximate rate per year and the **logs** are averaged. Averaging
+the band numbers instead would treat the step from monthly to weekly as equal to
+the step from daily to hourly, which is wrong by a factor of twenty in the
+quantity being measured. The per-year rates are ours, not O\*NET's, and a test
+asserts the ranking does not depend on them.
+
+Recurrence is **measured and reported but deliberately not folded into
+tractability** (§6.2). Against the three terms already on that axis it
+correlates at **r = −0.53**, and the components say why:
+
+| | r with recurrence |
+| --- | ---: |
+| `llm_exposure` | −0.53 |
+| `physical_embodiment_required` | +0.53 |
+| `judgment_under_uncertainty` | −0.04 |
+
+The most repetitive work in this corpus is the most physically embodied and the
+least exposed to language models. Emergency medicine physicians, physician
+assistants and orthodontists score highest because they repeat procedures;
+anthropologists and nuclear engineers score lowest because their work is rare.
+That is a result worth stating on its own, and it is also the reason not to
+average the term in: at r = −0.53 it cancels much of the existing signal, the
+axis spread falls by a third, and because `TRACTABILITY_FLOOR` and `FRONTIER_K`
+were calibrated against the wider distribution, 24 occupations shift out of
+"human held" and 24 into "handed off" — which would read as AI having taken over
+a quarter more of the corpus when nothing about the world had changed. Using it
+properly requires re-deriving the frontier, which is a judgment, so it is left
+undone and visible.
+
+**Measurement precision.** Every descriptor table in this dataset carries `n` and
+`standard_error` and nothing read them: an importance rating from 4 incumbents
+was treated exactly like one from 225. `onet_ratings.rating_precision` now
+reports both. The result is reassuring rather than alarming — the median STEM
+occupation rests on 27 respondents and **none** falls below ten — but that was
+worth establishing rather than assuming.
+
 ## 5. Scoring
 
 ### 5.1 Unit of analysis
@@ -338,8 +388,11 @@ Including them produces a general "human-centred work" index; excluding them is
 what makes this a risk index. That single choice is the main thing to argue with
 here, and the weights themselves are a calibrated judgment, not a measurement.
 
-Training depth comes from O\*NET's **Job Zone** (1–5, education and experience
-required), mapped linearly to 0–100. Scarcity is log-scaled employment — the
+Training depth comes from the **Required Level of Education** distribution
+(§4.4), averaged as years of schooling and rescaled so 10 years is 0 and
+post-doctoral training is 100. It yields 191 distinct values across 268
+occupations. **Job Zone** is the fallback for the 44 occupations O\*NET has not
+surveyed for education, and `depth_source` on every row records which was used. Scarcity is log-scaled employment — the
 corpus spans four orders of magnitude, and a linear read would call everything
 except registered nurses scarce. Isolation is the inverse of `mean_similarity`
 from the shared-activity network: where many neighbouring occupations share the
@@ -349,28 +402,34 @@ The cube is split at 50 on each axis into eight named cells:
 
 | Cell | Modest | Substantial | Extreme |
 | --- | ---: | ---: | ---: |
-| Strategic trap | 38 / 10.3% | 99 / 33.3% | 143 / 52.9% |
-| Guard the pipeline | 60 / 22.4% | 73 / 24.1% | 80 / 25.0% |
-| Protect | 134 / 51.4% | 73 / 28.4% | 29 / 8.8% |
-| Reversible gamble | 0 / 0.0% | 0 / 0.0% | 0 / 0.0% |
-| Quiet attrition | 27 / 3.5% | 14 / 1.7% | 7 / 0.9% |
-| Clear win | 4 / 5.7% | 4 / 5.7% | 5 / 7.9% |
-| Hold the line | 4 / 4.6% | 4 / 4.6% | 4 / 4.6% |
-| Low stakes | 1 / 2.2% | 1 / 2.2% | 0 / 0.0% |
+| Strategic trap | 30 / 4.5% | 78 / 17.0% | 113 / 22.6% |
+| Guard the pipeline | 42 / 5.6% | 54 / 7.3% | 61 / 8.1% |
+| Protect | 101 / 22.7% | 53 / 10.1% | 18 / 4.6% |
+| Reversible gamble | 8 / 5.8% | 21 / 16.2% | 30 / 30.3% |
+| Quiet attrition | 22 / 2.8% | 10 / 1.1% | 3 / 0.3% |
+| Clear win | 22 / 22.4% | 23 / 22.5% | 24 / 24.7% |
+| Hold the line | 37 / 33.3% | 24 / 22.9% | 15 / 8.8% |
+| Low stakes | 6 / 2.9% | 5 / 2.8% | 4 / 0.6% |
 
 *(occupations / share of the 21,523,100 workers)*
 
-**The empty cell is a finding about the frame, not the workforce.** No occupation
-anywhere in this corpus is a "reversible gamble", and that is because the
-reconstitution axis has a **floor of 44.3** — every STEM occupation here is Job
-Zone 3 or above, so none is genuinely easy to rebuild. An absolute split at 50
-therefore leaves four of eight cells holding 9 occupations between them. The
-matrix page offers a second threshold, the corpus median (efficiency 60, risk 54,
-reconstitution 70), which populates all eight — 20 strategic traps rather than 99.
-Neither reading is the correct one. The absolute split answers "is this
-occupation dangerous on an interpretable scale"; the median split answers "which
-of these occupations is most dangerous relative to the others". They are
-different questions and the page does not choose.
+**A correction, and why it is instructive.** An earlier version of this section
+reported that no occupation anywhere in the corpus was a "reversible gamble", and
+read that empty cell as a finding: the reconstitution axis had a floor of 44.3,
+so nothing was genuinely easy to rebuild. That was an artefact of the
+measurement, not a fact about the workforce. Training depth came from **Job
+Zone**, which has five levels of which only three occur here, so it assigned the
+same depth to an ophthalmic medical technician and a clinical neuropsychologist.
+Replacing it with the **Required Level of Education** distribution (§4.4) — the
+same question at twelve categories instead of five — drops the floor to 33.2 and
+populates the cell with 21 occupations at the substantial scenario, 30 at the
+extreme. A coarse input had manufactured a finding, and the finding was about
+Job Zone.
+
+The absolute split at 50 and the corpus median remain different questions, and
+the matrix page still offers both: the first asks whether an occupation is
+dangerous on an interpretable scale, the second which of these occupations is
+most dangerous relative to the others.
 
 **Employment partitions on a per-occupation share, not the SOC figure.** §6.3
 collapses O\*NET occupations to SOC before summing, which is right for a total

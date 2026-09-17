@@ -31,6 +31,47 @@ from .score import (
 log = logging.getLogger(__name__)
 
 
+
+def _optional_ratings(settings: Settings) -> dict[str, Any]:
+    """Load the opt-in bulk files, if --with-ratings ever fetched them.
+
+    Absent, every caller falls back to what it did before: the three-term
+    tractability average and Job Zone for training depth. Returning empty dicts
+    rather than raising is deliberate - the pipeline has to run for someone who
+    has not spent the 30 MB.
+    """
+    import csv as _csv
+
+    from .onet_ratings import (
+        education_depth,
+        occupation_recurrence,
+        rating_precision,
+        recurrence,
+    )
+
+    bulk = settings.raw_dir / "bulk"
+    out: dict[str, Any] = {"recurrence": {}, "education": {}, "precision": {}}
+
+    ratings_path = bulk / "task_ratings.csv"
+    if ratings_path.exists():
+        rows = list(_csv.DictReader(ratings_path.open()))
+        importance = {(r["O*NET-SOC Code"], r["Task ID"]): float(r["Data Value"] or 0)
+                      for r in rows if r.get("Scale ID") == "IM"}
+        out["recurrence"] = occupation_recurrence(recurrence(rows), importance)
+        out["precision"] = rating_precision(rows)
+        log.info("task frequency (FT) available for %d occupations",
+                 len(out["recurrence"]))
+
+    edu_path = bulk / "education.csv"
+    if edu_path.exists():
+        depth = education_depth(list(_csv.DictReader(edu_path.open())))
+        out["education"] = {c: v["depth"] for c, v in depth.items()}
+        out["education_years"] = {c: v["years"] for c, v in depth.items()}
+        log.info("education distribution available for %d occupations",
+                 len(out["education"]))
+    return out
+
+
 def run_network(settings: Settings, *, min_shared: int, min_co_occurring: int,
                 exclude_soc: tuple[str, ...]) -> dict[str, Any]:
     tasks = read_table(settings.out_dir, "tasks")
@@ -197,7 +238,13 @@ def run_report(settings: Settings) -> dict[str, Any]:
         meta = occ_titles.get(row["onet_soc_code"], {})
         row.setdefault("title", meta.get("title", ""))
         row["stem_occupation_types"] = meta.get("stem_occupation_types", "")
+    extra = _optional_ratings(settings)
+    # Recurrence is reported, not folded into tractability: it is orthogonal to
+    # the existing terms, so averaging it in compresses the axis by a third and
+    # invalidates the frontier calibration. See handoff.axes().
     handoff_rows = build_handoff(occ_scores, employment=emp_by_onet)
+    for row in handoff_rows:
+        row["recurrence"] = extra["recurrence"].get(row["onet_soc_code"])
     COLUMNS["occupation_handoff"] = HANDOFF_COLUMNS
     write_csv(settings.out_dir / "occupation_handoff.csv", handoff_rows, HANDOFF_COLUMNS)
     append_sqlite(settings.out_dir / "onet_stem.sqlite",
@@ -660,7 +707,9 @@ def run_security(settings: Settings) -> dict[str, Any]:
 
     fields = field_map(read_table(settings.out_dir, "occupation_stem_categories"),
                        read_table(settings.out_dir, "stem_categories"))
-    rows = build(fates, task_scores, occ, employment, similarity, hand, fields, soc_of)
+    extra = _optional_ratings(settings)
+    rows = build(fates, task_scores, occ, employment, similarity, hand,
+                 fields, soc_of, extra['education'])
     fields = by_field(rows, soc_of)
     report = summarise(rows, soc_of)
 

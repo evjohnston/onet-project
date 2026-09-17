@@ -352,3 +352,71 @@ class TestSmokeAssertions(unittest.TestCase):
                      "methodology.html", "security_matrix.html"):
             self.assertIn(page, PAGES)
             self.assertTrue(PAGES[page], f"{page} has no assertions")
+
+
+class TestIngestionBaseline(unittest.TestCase):
+    """Row counts are compared against the previous run."""
+
+    def test_catches_the_green_task_statements_swap(self):
+        """Release 24.0 read Green Task Statements.txt - a 140-occupation
+        subset - instead of the full file, and parsed it cleanly. The counts
+        were a seventh of normal and nothing noticed."""
+        from onet_scraper.baseline import compare
+        before = {"occupations": 923, "tasks": 19259}
+        after = {"occupations": 140, "tasks": 1386}
+        drift = compare(before, after)
+        self.assertEqual(len(drift), 2)
+        self.assertTrue(all(d["severity"] == "error" for d in drift))
+        self.assertAlmostEqual(
+            next(d for d in drift if d["table"] == "occupations")["change"],
+            -0.8484, places=3)
+
+    def test_catches_the_employment_double_count_scale(self):
+        from onet_scraper.baseline import compare
+        drift = compare({"soc_susceptibility": 195}, {"soc_susceptibility": 400})
+        self.assertEqual(drift[0]["severity"], "error")
+
+    def test_ordinary_release_drift_only_warns(self):
+        """O*NET moves counts every release; a tight check would be switched
+        off within a quarter."""
+        from onet_scraper.baseline import compare
+        drift = compare({"tasks": 19259}, {"tasks": 18838})   # 30.0 -> 31.0, -2%
+        self.assertEqual(drift, [])
+        drift = compare({"tasks": 19259}, {"tasks": 16500})   # -14%
+        self.assertEqual(drift[0]["severity"], "warn")
+
+    def test_a_new_table_is_not_a_drift(self):
+        from onet_scraper.baseline import compare
+        self.assertEqual(compare({"a": 10}, {"a": 10, "security_matrix": 804}), [])
+
+    def test_a_table_that_stopped_being_written_is_an_error(self):
+        """The count comparison cannot see a table that vanished."""
+        from onet_scraper.baseline import compare
+        drift = compare({"tasks": 5612}, {})
+        self.assertEqual(drift[0]["table"], "tasks")
+        self.assertEqual(drift[0]["severity"], "error")
+
+    def test_a_zero_baseline_does_not_divide(self):
+        from onet_scraper.baseline import compare
+        self.assertEqual(compare({"a": 0}, {"a": 500}), [])
+
+    def test_counts_of_flattens_tables_and_bulk_files(self):
+        from onet_scraper.baseline import counts_of
+        got = counts_of({
+            "row_counts": {"tasks": 5612, "release": "31_0"},
+            "bulk_provenance": {"task_statements.csv": {"rows": "18838"}},
+            "descriptor_provenance": {"work_context.csv": {"rows": "305389"}},
+        })
+        self.assertEqual(got["tasks"], 5612)
+        self.assertEqual(got["bulk:task_statements.csv"], 18838)
+        self.assertEqual(got["descriptor:work_context.csv"], 305389)
+        self.assertNotIn("release", got)   # not a count
+
+    def test_the_real_manifest_flattens_without_error(self):
+        from pathlib import Path
+        from onet_scraper.baseline import counts_of, load
+        if not Path("data/out/manifest.json").exists():
+            self.skipTest("no manifest")
+        counts = counts_of(load(Path("data/out")))
+        self.assertGreater(len(counts), 5)
+        self.assertTrue(all(isinstance(v, int) for v in counts.values()))

@@ -1228,3 +1228,143 @@ class TestDerivedValidation(unittest.TestCase):
         for needle, *_ in RISK_ANCHORS + EXPOSURE_ANCHORS:
             self.assertTrue(any(needle.lower() in t.lower() for t in titles),
                             f"anchor {needle!r} no longer matches any occupation")
+
+
+class TestOnetRatings(unittest.TestCase):
+    """Recurrence, precision and education depth from O*NET's own scales."""
+
+    def _ft(self, code, task, dist):
+        return [{"O*NET-SOC Code": code, "Task ID": task, "Scale ID": "FT",
+                 "Category": str(c), "Data Value": str(v), "N": "40",
+                 "Standard Error": "1.0"} for c, v in dist.items()]
+
+    def test_recurrence_is_log_scaled_not_a_category_average(self):
+        """FT bands are roughly log-spaced in frequency. Averaging the band
+        numbers would make monthly-to-weekly the same step as daily-to-hourly,
+        which is wrong by more than an order of magnitude in the thing being
+        measured."""
+        from onet_scraper.onet_ratings import recurrence
+        # Band 4 is "more than weekly", ~100 times a year. On the category
+        # numbers it is the midpoint of 1-7, so a linear scale puts it at 50.
+        # On frequency it is 100 of a possible 2000, and the log scale puts it
+        # at 61 - the bands are not evenly spaced in the thing they measure.
+        got = recurrence(self._ft("X", "1", {4: 100.0}))[("X", "1")]
+        self.assertAlmostEqual(got, 60.6, places=0)
+        self.assertGreater(got, 55.0)
+        # a symmetric split of the two endpoints does land on the midpoint, by
+        # construction of the rescaling - that is not evidence either way
+        ends = recurrence(self._ft("X", "2", {1: 50.0, 7: 50.0}))[("X", "2")]
+        self.assertAlmostEqual(ends, 50.0, places=1)
+
+    def test_recurrence_endpoints_anchor_the_scale(self):
+        from onet_scraper.onet_ratings import recurrence
+        self.assertEqual(recurrence(self._ft("X", "1", {1: 100.0}))[("X", "1")], 0.0)
+        self.assertEqual(recurrence(self._ft("X", "2", {7: 100.0}))[("X", "2")], 100.0)
+
+    def test_recurrence_ranking_survives_the_rate_estimates(self):
+        """The per-year rates are ours, not O*NET's - O*NET names the bands. The
+        ordering must not depend on the exact numbers."""
+        from onet_scraper import onet_ratings as R
+        rare = self._ft("A", "1", {2: 100.0})
+        often = self._ft("B", "1", {6: 100.0})
+        original = dict(R.FT_PER_YEAR)
+        try:
+            for scale in (0.5, 1.0, 3.0):
+                R.FT_PER_YEAR = {k: v * scale for k, v in original.items()}
+                self.assertLess(R.recurrence(rare)[("A", "1")],
+                                R.recurrence(often)[("B", "1")])
+        finally:
+            R.FT_PER_YEAR = original
+
+    def test_occupation_recurrence_is_importance_weighted(self):
+        from onet_scraper.onet_ratings import occupation_recurrence
+        task = {("X", "1"): 20.0, ("X", "2"): 80.0}
+        even = occupation_recurrence(task)["X"]
+        weighted = occupation_recurrence(task, {("X", "1"): 90.0, ("X", "2"): 10.0})["X"]
+        self.assertAlmostEqual(even, 50.0, places=1)
+        self.assertLess(weighted, even)   # the rare task now dominates
+
+    def test_education_depth_uses_years_not_category_numbers(self):
+        """RL categories are unevenly spaced in time: associate's to bachelor's
+        is two years, master's to post-master's certificate is one."""
+        from onet_scraper.onet_ratings import education_depth
+        rows = [{"O*NET-SOC Code": "X", "Scale ID": "RL", "Category": "6",
+                 "Data Value": "100.0"}]
+        got = education_depth(rows)["X"]
+        self.assertEqual(got["years"], 16.0)          # bachelor's
+        self.assertGreater(got["depth"], 40.0)
+
+    def test_education_depth_averages_the_distribution(self):
+        from onet_scraper.onet_ratings import education_depth
+        rows = [{"O*NET-SOC Code": "X", "Scale ID": "RL", "Category": "2",
+                 "Data Value": "50.0"},
+                {"O*NET-SOC Code": "X", "Scale ID": "RL", "Category": "11",
+                 "Data Value": "50.0"}]
+        self.assertAlmostEqual(education_depth(rows)["X"]["years"], 16.5, places=2)
+
+    def test_education_beats_job_zone_on_resolution(self):
+        """Job Zone gave three distinct values across this corpus and assigned
+        an ophthalmic technician the same training depth as a
+        neuropsychologist."""
+        from onet_scraper.onet_ratings import EDUCATION_YEARS, education_depth
+        self.assertGreaterEqual(len(EDUCATION_YEARS), 12)
+        rows = []
+        for i, cat in enumerate(range(1, 13)):
+            rows.append({"O*NET-SOC Code": f"X{i}", "Scale ID": "RL",
+                         "Category": str(cat), "Data Value": "100.0"})
+        depths = {v["depth"] for v in education_depth(rows).values()}
+        self.assertGreaterEqual(len(depths), 10)
+
+    def test_reconstitution_prefers_education_and_falls_back_to_job_zone(self):
+        from onet_scraper.security import reconstitution
+        with_ed = reconstitution(3, 10_000, 0.3, 3.0, 6.0, education_depth=90.0)
+        fallback = reconstitution(3, 10_000, 0.3, 3.0, 6.0)
+        self.assertEqual(with_ed["depth_source"], "education")
+        self.assertEqual(fallback["depth_source"], "job_zone")
+        self.assertEqual(with_ed["training_depth"], 90.0)
+        self.assertGreater(with_ed["reconstitution"], fallback["reconstitution"])
+
+    def test_precision_reports_the_median_respondent_count(self):
+        from onet_scraper.onet_ratings import rating_precision
+        rows = [{"O*NET-SOC Code": "X", "Scale ID": "IM", "N": n,
+                 "Standard Error": "1.0"} for n in ("4", "40", "200")]
+        got = rating_precision(rows)["X"]
+        self.assertEqual(got["respondents"], 40.0)
+        self.assertEqual(got["respondents_min"], 4.0)
+
+    def test_thin_samples_are_flagged(self):
+        from onet_scraper.onet_ratings import rating_precision
+        rows = [{"O*NET-SOC Code": "X", "Scale ID": "IM", "N": "5",
+                 "Standard Error": "2.0"}]
+        self.assertEqual(rating_precision(rows)["X"]["thin_sample"], 1)
+
+    def test_other_scales_are_ignored(self):
+        """task_ratings.csv carries IM, RT and FT in one file."""
+        from onet_scraper.onet_ratings import recurrence
+        rows = self._ft("X", "1", {5: 100.0})
+        rows.append({"O*NET-SOC Code": "X", "Task ID": "1", "Scale ID": "IM",
+                     "Category": "", "Data Value": "77.0", "N": "40"})
+        self.assertEqual(len(recurrence(rows)), 1)
+
+    def test_recurrence_opposes_the_existing_tractability_terms(self):
+        """The reason it is measured but not folded in. Repetitive STEM work is
+        hands-on work: recurrence runs against llm_exposure and with physical
+        embodiment, so averaging it in cancels signal rather than adding it."""
+        import csv
+        import statistics
+        from pathlib import Path
+        path = Path("data/out/occupation_handoff.csv")
+        if not path.exists():
+            self.skipTest("no built dataset")
+            return
+        rows = [r for r in csv.DictReader(path.open()) if r.get("recurrence")]
+        if len(rows) < 50:
+            self.skipTest("recurrence not populated; run fetch-bulk --with-ratings")
+            return
+        t = [float(r["tractability"]) for r in rows]
+        c = [float(r["recurrence"]) for r in rows]
+        mt, mc = statistics.fmean(t), statistics.fmean(c)
+        cov = sum((a - mt) * (b - mc) for a, b in zip(t, c)) / len(t)
+        r = cov / (statistics.pstdev(t) * statistics.pstdev(c))
+        self.assertLess(r, -0.3, f"expected a negative correlation, got r={r:.2f}")
+        self.assertGreater(r, -0.8, f"r={r:.2f} would make it near-redundant")

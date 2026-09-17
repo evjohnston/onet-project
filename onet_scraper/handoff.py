@@ -18,8 +18,13 @@ and measures six of Watson's properties, not all eight:
     machine-readable state   <- 100 - physical_embodiment_required
     formalizable options     <- 100 - judgment_under_uncertainty
     (general capability)     <- llm_exposure
-    recurrence               MISSING - available as O*NET's FT scale in
-                             task_ratings.csv (--with-ratings), not yet used
+    recurrence               MEASURED but not folded in. O*NET's FT scale, via
+                             --with-ratings, for 262 of 268 occupations, and
+                             reported in occupation_handoff.csv. Averaging it
+                             into tractability compresses the axis by a third
+                             and invalidates the frontier calibration - see
+                             axes(). Closing this properly needs the frontier
+                             re-derived.
     feedback speed/clarity   MISSING - not in O*NET at all; needs new scoring
   resistance
     stakes / irreversibility <- error_cost
@@ -62,7 +67,7 @@ WEIGHTY_CROSSINGS = {2: "proposing action to taking it",
                      3: "human veto to after-the-fact audit (erosion)"}
 
 HANDOFF_COLUMNS = ("onet_soc_code", "title", "stem_occupation_types",
-                   "total_employment", "tractability", "resistance",
+                   "total_employment", "tractability", "resistance", "recurrence",
                    "frontier_distance", "stage_now", "stage_now_label",
                    "stage_reachable", "stage_reachable_label", "pending_crossings",
                    "willingness_gap", "classification", "erosion_risk",
@@ -77,13 +82,54 @@ def _f(row: dict[str, Any], key: str, default: float = 0.0) -> float:
         return default
 
 
-def axes(row: dict[str, Any]) -> tuple[float, float]:
-    """(tractability, resistance) on 0-100, from the rated dimensions."""
-    tractability = statistics.fmean([
+def axes(row: dict[str, Any], recurrence: float | None = None) -> tuple[float, float]:
+    """(tractability, resistance) on 0-100, from the rated dimensions.
+
+    `recurrence` is O*NET's FT scale, and the pipeline does NOT pass it.
+
+    It is one of the two tractability properties Watson names and our rubric
+    never measured, so measuring it was worth doing - onet_ratings.recurrence
+    now does, for 262 of 268 occupations, and occupation_handoff.csv reports it.
+    Folding it into this average is a separate decision, and not a free one.
+
+    Recurrence does not point the same way as the terms already here. Against
+    the 3-term axis it correlates at r = -0.53, and the components explain why:
+
+        r(recurrence, llm_exposure)                = -0.53
+        r(recurrence, physical_embodiment_required) = +0.53
+        r(recurrence, judgment_under_uncertainty)   = -0.04
+
+    The most repetitive work in this corpus is the most physically embodied and
+    the least exposed to language models. Emergency medicine physicians,
+    physician assistants and orthodontists score highest on recurrence because
+    they repeat the same procedures; anthropologists and nuclear engineers score
+    lowest because their work is rare and novel. That is a finding about STEM
+    work, and it is also a warning: averaging a term in at r = -0.53 cancels
+    much of the existing signal rather than adding to it. The axis spread falls
+    by a third (sd 9.95 -> 6.44, range 27.5-79.8 -> 35.3-72.7), and since
+    TRACTABILITY_FLOOR and FRONTIER_K were calibrated against the wider
+    distribution, 24 occupations move out of "Human held" and 24 into "Handed
+    off" - which would be reported as AI having quietly taken over a quarter
+    more of the corpus, when nothing about the world changed.
+
+    Whether Watson's recurrence *should* raise tractability for hands-on
+    procedural work is a real question and not one the arithmetic can settle.
+
+    Using it properly means re-deriving the frontier against the new
+    distribution, or expressing the constants as percentiles of the observed
+    axis rather than absolutes so that adding a term cannot silently
+    reclassify. That is analytical work with a judgment in it, so it is left
+    undone and visible rather than done badly. The parameter exists so the
+    comparison can be run.
+    """
+    terms = [
         _f(row, "llm_exposure"),
         100 - _f(row, "physical_embodiment_required"),
         100 - _f(row, "judgment_under_uncertainty"),
-    ])
+    ]
+    if recurrence is not None:
+        terms.append(recurrence)
+    tractability = statistics.fmean(terms)
     resistance = statistics.fmean([
         _f(row, "accountability_requirement"),
         _f(row, "error_cost"),
@@ -159,13 +205,15 @@ def build(
     scored: Sequence[dict[str, Any]],
     employment: dict[str, float] | None = None,
     reach: dict[str, float] | None = None,
+    recurrence: dict[str, float] | None = None,
 ) -> list[dict[str, Any]]:
     employment = employment or {}
     reach = reach or {}
+    recurrence = recurrence or {}
     rows = []
     for row in scored:
         code = row["onet_soc_code"]
-        tract, resist = axes(row)
+        tract, resist = axes(row, recurrence.get(code))
         deployed = _f(row, "automation_feasibility_today")
         capability = _f(row, "llm_exposure")
         gap = round(capability - deployed, 1)
@@ -198,6 +246,7 @@ def build(
             "total_employment": employment.get(code),
             "tractability": tract,
             "resistance": resist,
+            "recurrence": recurrence.get(code),
             "frontier_distance": round(frontier_resistance(tract) - resist, 1),
             "stage_now": now,
             "stage_now_label": STAGES[now],

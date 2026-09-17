@@ -43,6 +43,7 @@ from .stages import (
     run_scroller,
     run_score,
 )
+from . import baseline
 from .validate import log_report, validate
 
 log = logging.getLogger("onet_scraper")
@@ -112,6 +113,10 @@ def build_parser() -> argparse.ArgumentParser:
                         help="comma-separated top-level STEM page ids (default: all). "
                              f"Valid: {','.join(TOP_LEVEL_CATEGORIES)}. Sub-disciplines "
                              "are sections of these pages and are captured automatically.")
+    parser.add_argument("--accept-baseline", action="store_true",
+                        help="adopt this run's row counts even where they moved "
+                             "sharply from the previous run (use when a new "
+                             "O*NET release genuinely changed them)")
     parser.add_argument("-v", "--verbose", action="store_true")
     parser.add_argument("-q", "--quiet", action="store_true")
 
@@ -316,6 +321,22 @@ def main(argv: list[str] | None = None) -> int:
 
     checks, summary = validate(tables, index, records, failures, settings.out_dir)
     errors = log_report(checks, summary)
+
+    # Compare row counts with the previous run before the manifest is
+    # overwritten. The Green-Task-Statements swap in release 24.0 read a
+    # 140-occupation subset instead of the full file and nothing noticed,
+    # because the manifest recorded the counts and nobody read them back.
+    previous = baseline.load(settings.out_dir)
+    drift = baseline.compare(baseline.counts_of(previous),
+                             baseline.counts_of({
+                                 "row_counts": {k: len(v) for k, v in tables.items()},
+                                 "bulk_provenance": bulk["provenance"] if bulk else {},
+                                 "descriptor_provenance": (
+                                     augment["provenance"] if augment else {}),
+                             }))
+    drift_errors = baseline.log_report(drift, bool(previous))
+    if drift_errors and not args.accept_baseline:
+        errors += drift_errors
 
     write_manifest(settings, {
         "tool": f"onet-job-taskings {__version__}",
