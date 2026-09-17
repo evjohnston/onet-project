@@ -1,5 +1,9 @@
 # onet-job-taskings
 
+**Live at [onet.emersonjohnston.org](https://onet.emersonjohnston.org)** — the story,
+the dashboard, the figures and the result tables.
+
+
 Builds a research dataset of **which tasks belong to which STEM jobs, and which
 subtasks belong to which tasks**, from [O*NET OnLine's STEM occupation
 list](https://www.onetonline.org/find/stem?t=0).
@@ -391,6 +395,19 @@ cloud, and `TRACTABILITY_FLOOR` exists because a constant-product curve alone pu
 first is not a handoff, it is work AI cannot lead at any level of consequence. Both
 constants are fitted to this corpus; re-fit them if it changes.
 
+### Publishing (`publish`)
+
+```bash
+.venv/bin/python -m onet_scraper publish          # assembles docs/
+.venv/bin/python -m onet_scraper publish --domain example.org
+```
+
+GitHub Pages serves a directory rather than running a build, so this copies the
+finished artefacts out of `data/out` into `docs/` and generates a landing page around
+them, with a `CNAME` for the custom domain. `data/out` stays the working directory the
+stages write to; `docs/` is what the world sees, refreshed explicitly rather than on
+every run.
+
 ### Longitudinal task churn (`churn`)
 
 ```bash
@@ -596,7 +613,7 @@ python -m onet_scraper [stage] [options]
 Stages:  run (default) | fetch-stem | fetch-occupations | fetch-bulk
          fetch-descriptors | build | validate | network | score | report
          employment | validate-external | pathways | churn | figures | story
-         clean-cache
+         publish | clean-cache
 ```
 
 | Option | Purpose |

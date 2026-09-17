@@ -34,6 +34,7 @@ from .stages import (
     run_figures,
     run_network,
     run_pathways,
+    run_publish,
     run_report,
     run_scroller,
     run_score,
@@ -85,6 +86,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--score-chunk-size", type=int, default=12,
                         help="subtasks rated per request (default: 12)")
     parser.add_argument("--score-workers", type=int, default=4)
+    parser.add_argument("--domain", default=None,
+                        help="custom domain for the publish stage (writes docs/CNAME)")
     parser.add_argument("--chrome", default=None,
                         help="path to a Chrome/Chromium binary for the figures stage")
     parser.add_argument("--dark", action="store_true",
@@ -112,7 +115,7 @@ def build_parser() -> argparse.ArgumentParser:
         default="run",
         choices=["run", "fetch-stem", "fetch-occupations", "fetch-bulk",
                  "fetch-descriptors", "build", "validate", "network", "score",
-                 "report", "employment", "validate-external", "figures", "story", "churn", "pathways",
+                 "report", "employment", "validate-external", "figures", "story", "churn", "pathways", "publish",
                  "clean-cache"],
         help="which stage to run (default: run = all of them)",
     )
@@ -193,6 +196,10 @@ def main(argv: list[str] | None = None) -> int:
 
     if stage == "story":
         run_scroller(settings)
+        return 0
+
+    if stage == "publish":
+        run_publish(settings, args.domain)
         return 0
 
     if stage == "pathways":

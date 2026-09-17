@@ -1,0 +1,269 @@
+onet_soc_code,title,stem_occupation_types,job_zone,n_tasks_scored,susceptibility,exposure,anchoring,deployment_gap,share_tasks_high_susceptibility,share_largely_automatable,share_human_anchored,quadrant
+15-2051.01,Business Intelligence Analysts,"Research, Development, Design, and Practitioners",4,17,80.1,86.2,26.0,32.9,1.0,0.588,0.0,Displaceable
+15-1299.02,Geographic Information Systems Technologists and Technicians,"Research, Development, Design, and Practitioners; Technologists and Technicians",4,29,79.3,85.5,27.0,32.1,0.862,0.517,0.0,Displaceable
+15-2021.00,Mathematicians,"Research, Development, Design, and Practitioners",5,12,77.4,85.9,31.1,41.5,0.833,0.25,0.083,Displaceable
+15-1242.00,Database Administrators,"Research, Development, Design, and Practitioners",4,18,77.2,82.7,28.3,29.5,0.833,0.556,0.0,Displaceable
+15-1299.03,Document Management Specialists,"Research, Development, Design, and Practitioners; Technologists and Technicians",4,23,77.1,84.5,30.2,35.0,0.913,0.217,0.0,Displaceable
+15-2051.00,Data Scientists,"Research, Development, Design, and Practitioners",4,16,76.9,84.8,31.0,40.8,0.812,0.125,0.062,Displaceable
+15-1255.00,Web and Digital Interface Designers,"Research, Development, Design, and Practitioners",4,30,76.8,84.0,30.4,36.7,0.833,0.333,0.0,Displaceable
+15-1251.00,Computer Programmers,"Research, Development, Design, and Practitioners",4,17,76.2,82.1,29.7,32.1,0.765,0.353,0.0,Displaceable
+15-1254.00,Web Developers,"Research, Development, Design, and Practitioners",3,29,76.2,82.1,29.7,31.2,0.793,0.276,0.0,Displaceable
+15-1243.01,Data Warehousing Specialists,"Research, Development, Design, and Practitioners",4,18,76.1,83.7,31.6,40.8,0.889,0.222,0.0,Displaceable
+15-1243.00,Database Architects,"Research, Development, Design, and Practitioners",4,25,75.9,82.3,30.5,36.3,0.84,0.36,0.0,Displaceable
+15-2041.01,Biostatisticians,"Research, Development, Design, and Practitioners",5,25,75.6,83.9,32.6,38.5,0.68,0.28,0.08,Displaceable
+15-2099.01,Bioinformatics Technicians,"Research, Development, Design, and Practitioners; Technologists and Technicians",4,19,74.7,79.6,30.1,35.8,0.789,0.263,0.0,Displaceable
+15-1253.00,Software Quality Assurance Analysts and Testers,"Research, Development, Design, and Practitioners",4,30,74.6,78.6,29.5,24.5,0.867,0.5,0.0,Displaceable
+15-2051.02,Clinical Data Managers,"Research, Development, Design, and Practitioners",4,21,74.4,81.0,32.2,38.0,0.81,0.095,0.048,Displaceable
+15-1211.01,Health Informatics Specialists,"Research, Development, Design, and Practitioners",5,17,74.2,83.9,35.6,42.9,0.882,0.176,0.0,Displaceable
+15-2041.00,Statisticians,"Research, Development, Design, and Practitioners",5,19,74.2,81.5,33.2,38.9,0.737,0.158,0.158,Displaceable
+15-1299.01,Web Administrators,"Research, Development, Design, and Practitioners; Technologists and Technicians",4,35,73.8,80.2,32.6,33.1,0.771,0.257,0.0,Displaceable
+15-1211.00,Computer Systems Analysts,"Research, Development, Design, and Practitioners",4,22,73.7,81.5,34.2,37.4,0.682,0.273,0.045,Displaceable
+15-1255.01,Video Game Designers,"Research, Development, Design, and Practitioners",4,24,73.0,78.1,32.1,37.0,0.583,0.292,0.0,Displaceable
+15-2031.00,Operations Research Analysts,"Research, Development, Design, and Practitioners",5,17,72.6,80.8,35.6,42.1,0.706,0.059,0.059,Displaceable
+15-1299.07,Blockchain Engineers,"Research, Development, Design, and Practitioners; Technologists and Technicians",4,17,71.6,79.1,36.0,35.6,0.588,0.176,0.0,Displaceable
+15-1299.04,Penetration Testers,"Research, Development, Design, and Practitioners; Technologists and Technicians",4,22,71.5,79.4,36.4,37.3,0.636,0.091,0.045,Displaceable
+41-4011.00,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",Sales,4,33,71.5,75.5,32.6,21.2,0.606,0.576,0.0,Displaceable
+15-1212.00,Information Security Analysts,"Research, Development, Design, and Practitioners",4,11,71.2,79.3,37.0,34.2,0.545,0.182,0.0,Displaceable
+19-2041.01,Climate Change Policy Analysts,"Research, Development, Design, and Practitioners",5,14,70.7,81.7,40.2,49.2,0.643,0.071,0.0,Displaceable
+41-4011.07,Solar Sales Representatives and Assessors,Sales,3,13,70.6,77.2,35.9,31.1,0.615,0.385,0.0,Displaceable
+19-3094.00,Political Scientists,"Research, Development, Design, and Practitioners",5,14,70.5,81.6,40.6,50.2,0.571,0.0,0.143,Displaceable
+15-1299.08,Computer Systems Engineers/Architects,"Research, Development, Design, and Practitioners; Technologists and Technicians",3,28,70.3,77.3,36.7,36.9,0.75,0.179,0.036,Displaceable
+15-1299.06,Digital Forensics Analysts,"Research, Development, Design, and Practitioners; Technologists and Technicians",4,20,69.8,76.4,36.8,32.6,0.55,0.15,0.0,Displaceable
+41-9031.00,Sales Engineers,Sales,4,25,69.4,74.4,35.6,29.1,0.64,0.36,0.08,Displaceable
+15-1252.00,Software Developers,"Research, Development, Design, and Practitioners",4,17,69.3,75.6,37.0,35.0,0.588,0.176,0.059,Displaceable
+29-2099.08,Patient Representatives,Technologists and Technicians,3,13,69.2,74.6,36.2,33.9,0.615,0.308,0.077,Displaceable
+15-1232.00,Computer User Support Specialists,Technologists and Technicians,3,16,69.1,70.6,32.3,25.7,0.688,0.312,0.062,Displaceable
+19-3011.01,Environmental Economists,"Research, Development, Design, and Practitioners",5,20,69.1,79.6,41.4,48.9,0.4,0.05,0.0,Displaceable
+15-1244.00,Network and Computer Systems Administrators,"Research, Development, Design, and Practitioners",3,20,69.0,73.0,35.1,24.2,0.55,0.25,0.0,Displaceable
+25-1063.00,"Economics Teachers, Postsecondary",Postsecondary Teaching,5,22,68.9,76.5,38.6,39.6,0.5,0.091,0.182,Displaceable
+15-1231.00,Computer Network Support Specialists,Technologists and Technicians,4,26,68.8,68.5,30.9,15.3,0.615,0.5,0.0,Displaceable
+25-1032.00,"Engineering Teachers, Postsecondary",Postsecondary Teaching,5,24,68.8,76.2,38.6,39.0,0.542,0.125,0.167,Displaceable
+25-1051.00,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",Postsecondary Teaching,5,26,68.7,76.0,38.6,38.9,0.577,0.115,0.154,Displaceable
+19-4061.00,Social Science Research Assistants,Technologists and Technicians,4,22,68.6,73.7,36.4,32.8,0.5,0.182,0.045,Displaceable
+25-1031.00,"Architecture Teachers, Postsecondary",Postsecondary Teaching,5,22,68.6,76.2,39.1,39.6,0.5,0.091,0.182,Displaceable
+25-1043.00,"Forestry and Conservation Science Teachers, Postsecondary",Postsecondary Teaching,5,25,68.6,76.3,39.2,40.1,0.56,0.08,0.16,Displaceable
+25-1065.00,"Political Science Teachers, Postsecondary",Postsecondary Teaching,5,22,68.6,76.1,38.9,39.5,0.5,0.091,0.182,Displaceable
+19-1029.01,Bioinformatics Scientists,"Research, Development, Design, and Practitioners",5,20,68.5,77.4,40.4,46.8,0.6,0.0,0.05,Displaceable
+25-1053.00,"Environmental Science Teachers, Postsecondary",Postsecondary Teaching,5,25,68.4,76.3,39.5,40.4,0.56,0.08,0.16,Displaceable
+25-1062.00,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",Postsecondary Teaching,5,23,68.4,76.1,39.2,40.0,0.478,0.087,0.174,Displaceable
+25-1022.00,"Mathematical Science Teachers, Postsecondary",Postsecondary Teaching,5,23,68.3,75.4,38.9,37.6,0.565,0.13,0.217,Displaceable
+15-1241.00,Computer Network Architects,"Research, Development, Design, and Practitioners",4,33,68.1,74.7,38.4,36.1,0.485,0.091,0.061,Displaceable
+15-1241.01,Telecommunications Engineering Specialists,"Research, Development, Design, and Practitioners",3,26,68.0,72.5,36.6,31.3,0.423,0.192,0.0,Displaceable
+25-1064.00,"Geography Teachers, Postsecondary",Postsecondary Teaching,5,25,68.0,75.0,39.0,38.2,0.52,0.12,0.16,Displaceable
+29-2072.00,Medical Records Specialists,Technologists and Technicians,3,16,68.0,74.5,38.6,28.6,0.75,0.25,0.188,Displaceable
+19-2041.03,Industrial Ecologists,"Research, Development, Design, and Practitioners",5,38,67.8,78.5,42.8,48.3,0.263,0.0,0.0,Displaceable
+19-3099.01,Transportation Planners,"Research, Development, Design, and Practitioners",4,22,67.8,78.4,42.9,48.4,0.5,0.045,0.136,Displaceable
+25-1041.00,"Agricultural Sciences Teachers, Postsecondary",Postsecondary Teaching,5,23,67.7,75.3,39.9,39.9,0.522,0.087,0.174,Displaceable
+25-1067.00,"Sociology Teachers, Postsecondary",Postsecondary Teaching,5,24,67.7,75.3,39.8,39.7,0.458,0.083,0.167,Displaceable
+25-1071.00,"Health Specialties Teachers, Postsecondary",Postsecondary Teaching,5,22,67.6,74.7,39.6,38.6,0.545,0.091,0.182,Displaceable
+25-1061.00,"Anthropology and Archeology Teachers, Postsecondary",Postsecondary Teaching,5,27,67.4,75.1,40.4,40.9,0.481,0.074,0.185,Displaceable
+25-1042.00,"Biological Science Teachers, Postsecondary",Postsecondary Teaching,5,27,67.2,74.3,39.9,39.6,0.481,0.074,0.148,Displaceable
+25-1054.00,"Physics Teachers, Postsecondary",Postsecondary Teaching,5,24,67.1,73.7,39.7,38.2,0.5,0.083,0.167,Displaceable
+19-2021.00,Atmospheric and Space Scientists,"Research, Development, Design, and Practitioners",4,27,66.7,72.9,39.5,38.0,0.593,0.037,0.037,Displaceable
+19-2012.00,Physicists,"Research, Development, Design, and Practitioners",5,16,66.6,73.5,40.3,42.8,0.5,0.0,0.062,Displaceable
+19-3011.00,Economists,"Research, Development, Design, and Practitioners",5,14,66.6,76.4,43.2,45.7,0.429,0.0,0.286,Displaceable
+19-3022.00,Survey Researchers,"Research, Development, Design, and Practitioners",5,16,66.6,73.9,40.8,37.8,0.438,0.125,0.062,Displaceable
+25-1021.00,"Computer Science Teachers, Postsecondary",Postsecondary Teaching,5,26,66.6,74.4,41.3,40.3,0.462,0.038,0.192,Displaceable
+17-2031.00,Bioengineers and Biomedical Engineers,"Research, Development, Design, and Practitioners",4,30,66.5,74.8,41.7,44.5,0.333,0.1,0.1,Displaceable
+25-1072.00,"Nursing Instructors and Teachers, Postsecondary",Postsecondary Teaching,5,29,66.5,74.5,41.6,41.5,0.483,0.069,0.172,Displaceable
+11-9121.01,Clinical Research Coordinators,Managerial,4,33,66.3,72.1,39.5,31.8,0.424,0.212,0.091,Displaceable
+25-1066.00,"Psychology Teachers, Postsecondary",Postsecondary Teaching,5,29,66.3,74.0,41.4,40.2,0.483,0.069,0.241,Displaceable
+19-3051.00,Urban and Regional Planners,"Research, Development, Design, and Practitioners",5,25,66.2,75.3,42.9,43.0,0.28,0.12,0.12,Displaceable
+11-3021.00,Computer and Information Systems Managers,Managerial,4,17,65.9,74.4,42.6,43.7,0.412,0.118,0.118,Displaceable
+25-1052.00,"Chemistry Teachers, Postsecondary",Postsecondary Teaching,5,28,65.9,72.2,40.6,37.2,0.464,0.071,0.214,Displaceable
+29-9021.00,Health Information Technologists and Medical Registrars,"Research, Development, Design, and Practitioners; Technologists and Technicians",3,16,65.8,72.4,40.7,33.3,0.562,0.188,0.25,Displaceable
+15-1299.05,Information Security Engineers,"Research, Development, Design, and Practitioners; Technologists and Technicians",4,20,65.7,73.4,41.9,38.7,0.5,0.1,0.05,Displaceable
+15-1299.09,Information Technology Project Managers,"Research, Development, Design, and Practitioners; Technologists and Technicians",4,21,65.6,72.4,41.1,40.4,0.429,0.095,0.19,Displaceable
+17-2199.03,"Energy Engineers, Except Wind and Solar","Research, Development, Design, and Practitioners",4,21,65.6,70.1,38.8,28.6,0.429,0.238,0.0,Displaceable
+19-4012.01,Precision Agriculture Technicians,Technologists and Technicians,3,22,65.6,67.3,36.0,25.8,0.455,0.182,0.0,Displaceable
+15-1221.00,Computer and Information Research Scientists,"Research, Development, Design, and Practitioners",5,15,65.4,73.4,42.5,41.2,0.267,0.2,0.067,Displaceable
+17-2112.00,Industrial Engineers,"Research, Development, Design, and Practitioners",4,20,65.2,70.7,40.3,36.2,0.3,0.1,0.05,Displaceable
+19-1011.00,Animal Scientists,"Research, Development, Design, and Practitioners",5,9,65.1,71.4,41.2,43.1,0.111,0.0,0.0,Displaceable
+19-4099.03,Remote Sensing Technicians,Technologists and Technicians,4,21,65.0,64.3,34.3,22.4,0.476,0.143,0.0,Insulated
+19-3041.00,Sociologists,"Research, Development, Design, and Practitioners",5,15,64.6,74.2,45.0,45.0,0.267,0.0,0.267,Contested
+17-2072.00,"Electronics Engineers, Except Computer","Research, Development, Design, and Practitioners",4,20,64.3,67.8,39.3,30.1,0.4,0.2,0.0,Displaceable
+17-2061.00,Computer Hardware Engineers,"Research, Development, Design, and Practitioners",4,18,64.2,68.7,40.4,34.1,0.333,0.0,0.056,Displaceable
+19-2099.01,Remote Sensing Scientists and Technologists,"Research, Development, Design, and Practitioners",4,24,63.8,66.8,39.2,31.1,0.333,0.125,0.0,Displaceable
+17-3011.00,Architectural and Civil Drafters,Technologists and Technicians,3,26,63.7,62.0,34.6,21.0,0.308,0.038,0.038,Insulated
+17-1012.00,Landscape Architects,"Research, Development, Design, and Practitioners",4,19,63.5,68.3,41.3,36.3,0.211,0.053,0.158,Displaceable
+17-2199.07,Photonics Engineers,"Research, Development, Design, and Practitioners",4,26,63.5,66.4,39.5,33.1,0.346,0.038,0.0,Displaceable
+17-2111.02,Fire-Prevention and Protection Engineers,"Research, Development, Design, and Practitioners",4,14,63.4,72.3,45.5,42.1,0.357,0.0,0.143,Contested
+19-1029.04,Biologists,"Research, Development, Design, and Practitioners",5,22,63.4,70.2,43.4,40.5,0.364,0.045,0.136,Displaceable
+17-3022.00,Civil Engineering Technologists and Technicians,Technologists and Technicians,3,14,63.3,65.8,39.3,25.8,0.429,0.071,0.071,Displaceable
+19-2041.00,"Environmental Scientists and Specialists, Including Health","Research, Development, Design, and Practitioners",4,22,63.3,73.4,46.7,44.7,0.227,0.045,0.045,Contested
+19-3032.00,Industrial-Organizational Psychologists,"Research, Development, Design, and Practitioners",5,25,63.3,72.6,46.1,43.9,0.28,0.0,0.24,Contested
+17-2112.03,Manufacturing Engineers,"Research, Development, Design, and Practitioners",4,24,63.2,69.3,42.8,38.1,0.25,0.042,0.042,Displaceable
+19-2011.00,Astronomers,"Research, Development, Design, and Practitioners",5,17,63.2,69.7,43.2,38.5,0.471,0.0,0.294,Displaceable
+17-2051.02,Water/Wastewater Engineers,"Research, Development, Design, and Practitioners",4,28,63.0,70.9,44.9,41.6,0.25,0.0,0.143,Contested
+17-2141.02,Automotive Engineers,"Research, Development, Design, and Practitioners",4,25,63.0,68.3,42.2,38.2,0.28,0.08,0.0,Displaceable
+17-3012.00,Electrical and Electronics Drafters,Technologists and Technicians,3,30,63.0,63.1,37.1,26.8,0.267,0.133,0.067,Insulated
+19-1029.03,Geneticists,"Research, Development, Design, and Practitioners",5,24,63.0,69.1,43.1,38.2,0.208,0.042,0.125,Displaceable
+17-1022.01,Geodetic Surveyors,Technologists and Technicians,4,16,62.9,60.3,34.5,7.9,0.312,0.375,0.0,Insulated
+11-9121.02,Water Resource Specialists,Managerial,4,21,62.8,69.6,44.1,36.9,0.333,0.143,0.095,Contested
+19-4099.01,Quality Control Analysts,Technologists and Technicians,3,26,62.8,66.0,40.4,25.1,0.423,0.192,0.154,Displaceable
+17-2072.01,Radio Frequency Identification Device Specialists,"Research, Development, Design, and Practitioners",4,21,62.7,64.6,39.1,28.9,0.381,0.048,0.0,Insulated
+17-2112.02,Validation Engineers,"Research, Development, Design, and Practitioners",4,21,62.7,64.7,39.2,28.4,0.333,0.143,0.0,Insulated
+19-2042.00,"Geoscientists, Except Hydrologists and Geographers","Research, Development, Design, and Practitioners",4,32,62.7,66.9,41.5,32.7,0.25,0.031,0.0,Displaceable
+17-3013.00,Mechanical Drafters,Technologists and Technicians,3,16,62.6,59.2,33.9,18.8,0.188,0.125,0.062,Insulated
+19-2032.00,Materials Scientists,"Research, Development, Design, and Practitioners",4,16,62.4,66.8,42.1,30.0,0.312,0.0,0.062,Displaceable
+11-9121.00,Natural Sciences Managers,Managerial,5,16,62.3,70.0,45.4,40.9,0.188,0.062,0.188,Contested
+15-2011.00,Actuaries,"Research, Development, Design, and Practitioners",4,15,62.3,73.1,48.5,45.6,0.4,0.133,0.533,Contested
+17-3027.00,Mechanical Engineering Technologists and Technicians,Technologists and Technicians,3,30,62.3,61.1,36.5,18.6,0.333,0.067,0.0,Insulated
+17-2199.06,Microsystems Engineers,"Research, Development, Design, and Practitioners",5,31,62.2,66.4,42.0,33.3,0.226,0.0,0.0,Displaceable
+17-2199.08,Robotics Engineers,"Research, Development, Design, and Practitioners",4,24,62.2,65.4,40.9,30.8,0.292,0.125,0.042,Displaceable
+17-1011.00,"Architects, Except Landscape and Naval","Research, Development, Design, and Practitioners",5,25,62.1,67.7,43.5,35.1,0.32,0.0,0.12,Contested
+17-2041.00,Chemical Engineers,"Research, Development, Design, and Practitioners",4,14,62.0,68.8,44.8,39.5,0.143,0.071,0.0,Contested
+17-2141.01,Fuel Cell Engineers,"Research, Development, Design, and Practitioners",4,26,62.0,66.4,42.5,34.6,0.231,0.038,0.0,Displaceable
+11-9111.00,Medical and Health Services Managers,Managerial,4,18,61.8,66.9,43.3,35.1,0.222,0.167,0.333,Displaceable
+17-2151.00,"Mining and Geological Engineers, Including Mining Safety Engineers","Research, Development, Design, and Practitioners",4,18,61.8,67.0,43.5,33.6,0.333,0.167,0.222,Contested
+17-2081.00,Environmental Engineers,"Research, Development, Design, and Practitioners",4,29,61.7,67.4,43.9,36.3,0.276,0.103,0.103,Contested
+17-2112.01,Human Factors Engineers and Ergonomists,"Research, Development, Design, and Practitioners",5,26,61.7,70.6,47.1,43.2,0.154,0.0,0.077,Contested
+19-2041.02,Environmental Restoration Planners,"Research, Development, Design, and Practitioners",5,23,61.7,71.4,47.9,44.9,0.261,0.043,0.0,Contested
+19-1031.03,Park Naturalists,"Research, Development, Design, and Practitioners",4,20,61.3,62.9,40.2,22.1,0.45,0.25,0.1,Insulated
+19-1041.00,Epidemiologists,"Research, Development, Design, and Practitioners",5,16,61.3,70.7,48.2,45.3,0.312,0.0,0.312,Contested
+29-9092.00,Genetic Counselors,"Research, Development, Design, and Practitioners",5,19,61.2,76.3,53.9,50.9,0.211,0.0,0.526,Contested
+17-2161.00,Nuclear Engineers,"Research, Development, Design, and Practitioners",4,20,61.1,67.7,45.4,36.9,0.4,0.0,0.1,Contested
+19-2043.00,Hydrologists,"Research, Development, Design, and Practitioners",4,25,61.1,66.0,43.9,33.6,0.24,0.08,0.12,Contested
+19-3034.00,School Psychologists,"Research, Development, Design, and Practitioners",5,19,61.0,68.2,46.3,39.8,0.368,0.053,0.263,Contested
+19-4044.00,Hydrologic Technicians,Technologists and Technicians,3,16,61.0,62.2,40.3,24.0,0.438,0.25,0.062,Insulated
+17-2141.00,Mechanical Engineers,"Research, Development, Design, and Practitioners",4,28,60.7,65.5,44.2,35.9,0.25,0.071,0.036,Contested
+17-2199.05,Mechatronics Engineers,"Research, Development, Design, and Practitioners",4,23,60.7,63.4,42.1,33.6,0.217,0.087,0.043,Insulated
+17-3023.00,Electrical and Electronic Engineering Technologists and Technicians,Technologists and Technicians,3,28,60.7,60.3,38.9,25.6,0.321,0.179,0.036,Insulated
+19-1023.00,Zoologists and Wildlife Biologists,"Research, Development, Design, and Practitioners",4,14,60.4,65.2,44.4,33.0,0.143,0.0,0.071,Human-anchored
+11-9041.00,Architectural and Engineering Managers,Managerial,5,19,60.2,68.3,47.9,41.8,0.263,0.053,0.263,Contested
+17-2051.01,Transportation Engineers,"Research, Development, Design, and Practitioners",4,26,60.2,65.9,45.6,35.7,0.192,0.0,0.115,Contested
+19-3092.00,Geographers,"Research, Development, Design, and Practitioners",4,12,60.0,61.4,41.4,29.8,0.25,0.083,0.083,Insulated
+17-2131.00,Materials Engineers,"Research, Development, Design, and Practitioners",4,21,59.9,63.6,43.9,31.3,0.238,0.048,0.095,Human-anchored
+17-2011.00,Aerospace Engineers,"Research, Development, Design, and Practitioners",4,14,59.8,63.0,43.5,31.7,0.143,0.143,0.0,Human-anchored
+17-2199.09,Nanosystems Engineers,"Research, Development, Design, and Practitioners",5,25,59.8,63.0,43.4,32.2,0.24,0.08,0.04,Insulated
+17-2199.11,Solar Energy Systems Engineers,"Research, Development, Design, and Practitioners",4,13,59.8,62.3,42.7,30.8,0.154,0.077,0.0,Insulated
+19-1013.00,Soil and Plant Scientists,"Research, Development, Design, and Practitioners",5,27,59.8,66.6,47.1,41.4,0.296,0.037,0.037,Contested
+17-2199.10,Wind Energy Engineers,"Research, Development, Design, and Practitioners",4,16,59.6,63.4,44.3,32.8,0.25,0.0,0.0,Human-anchored
+19-1042.00,"Medical Scientists, Except Epidemiologists","Research, Development, Design, and Practitioners",5,14,59.5,67.4,48.4,39.1,0.214,0.0,0.286,Contested
+29-1229.05,Preventive Medicine Physicians,"Research, Development, Design, and Practitioners",5,15,59.4,71.5,52.5,46.6,0.333,0.0,0.4,Contested
+19-1012.00,Food Scientists and Technologists,"Research, Development, Design, and Practitioners",4,13,59.1,63.4,45.3,33.0,0.154,0.077,0.154,Human-anchored
+17-2121.00,Marine Engineers and Naval Architects,"Research, Development, Design, and Practitioners",4,30,58.8,59.0,41.4,23.9,0.267,0.133,0.133,Insulated
+19-1021.00,Biochemists and Biophysicists,"Research, Development, Design, and Practitioners",5,24,58.6,63.0,45.8,34.7,0.125,0.0,0.083,Human-anchored
+17-3026.00,Industrial Engineering Technologists and Technicians,Technologists and Technicians,3,30,58.3,59.9,43.4,24.9,0.167,0.067,0.0,Insulated
+17-2021.00,Agricultural Engineers,"Research, Development, Design, and Practitioners",4,14,58.2,62.3,46.0,33.8,0.143,0.0,0.0,Human-anchored
+29-2052.00,Pharmacy Technicians,Technologists and Technicians,3,21,58.2,55.5,39.0,6.9,0.333,0.143,0.19,Insulated
+17-2171.00,Petroleum Engineers,"Research, Development, Design, and Practitioners",4,23,58.1,60.3,44.1,27.7,0.217,0.13,0.043,Human-anchored
+29-1031.00,Dietitians and Nutritionists,"Research, Development, Design, and Practitioners",5,28,58.1,68.6,52.3,41.6,0.143,0.036,0.357,Contested
+29-1229.02,Hospitalists,"Research, Development, Design, and Practitioners",5,14,58.1,70.2,53.9,49.8,0.214,0.071,0.5,Contested
+19-1029.02,Molecular and Cellular Biologists,"Research, Development, Design, and Practitioners",5,22,58.0,62.2,46.2,33.0,0.227,0.091,0.227,Human-anchored
+17-2071.00,Electrical Engineers,"Research, Development, Design, and Practitioners",4,22,57.9,60.0,44.2,26.7,0.227,0.091,0.0,Human-anchored
+17-3027.01,Automotive Engineering Technicians,Technologists and Technicians,3,18,57.6,54.0,38.8,12.7,0.333,0.111,0.056,Insulated
+29-1223.00,Psychiatrists,"Research, Development, Design, and Practitioners",5,12,57.4,70.7,55.9,47.1,0.167,0.0,0.583,Contested
+19-3091.00,Anthropologists and Archeologists,"Research, Development, Design, and Practitioners",5,30,57.2,62.1,47.7,35.3,0.167,0.067,0.1,Human-anchored
+17-3028.00,Calibration Technologists and Technicians,Technologists and Technicians,3,14,57.0,52.1,38.0,15.9,0.286,0.143,0.0,Insulated
+17-1021.00,Cartographers and Photogrammetrists,Technologists and Technicians,4,14,56.8,47.7,34.2,-1.3,0.0,0.214,0.0,Insulated
+29-2051.00,Dietetic Technicians,Technologists and Technicians,3,13,56.8,66.9,53.3,41.3,0.154,0.0,0.308,Contested
+19-1031.00,Conservation Scientists,"Research, Development, Design, and Practitioners",4,30,56.7,63.2,49.9,38.1,0.067,0.067,0.133,Human-anchored
+29-1051.00,Pharmacists,"Research, Development, Design, and Practitioners",5,21,56.6,63.2,50.0,32.8,0.238,0.143,0.476,Human-anchored
+17-1022.00,Surveyors,Technologists and Technicians,4,24,56.5,52.8,39.9,7.8,0.167,0.167,0.042,Insulated
+17-3025.00,Environmental Engineering Technologists and Technicians,Technologists and Technicians,4,23,56.4,55.1,42.3,16.4,0.217,0.13,0.174,Insulated
+17-3031.00,Surveying and Mapping Technicians,Technologists and Technicians,3,30,56.2,48.7,36.4,-1.3,0.167,0.2,0.067,Insulated
+17-3026.01,Nanotechnology Engineering Technologists and Technicians,Technologists and Technicians,4,25,55.9,51.4,39.7,10.2,0.28,0.08,0.0,Insulated
+29-1129.01,Art Therapists,"Research, Development, Design, and Practitioners",5,25,55.9,65.3,53.5,39.6,0.16,0.04,0.48,Human-anchored
+29-1229.01,Allergists and Immunologists,"Research, Development, Design, and Practitioners",5,16,55.7,70.6,59.3,51.1,0.125,0.0,0.688,Contested
+19-3033.00,Clinical and Counseling Psychologists,"Research, Development, Design, and Practitioners",5,30,55.5,64.5,53.5,39.8,0.2,0.033,0.533,Human-anchored
+29-1229.06,Sports Medicine Physicians,"Research, Development, Design, and Practitioners",5,27,55.5,68.9,57.8,44.9,0.074,0.0,0.519,Contested
+17-2111.00,"Health and Safety Engineers, Except Mining Safety Engineers and Inspectors","Research, Development, Design, and Practitioners",4,27,55.4,63.2,52.3,39.8,0.111,0.037,0.296,Human-anchored
+17-3024.00,Electro-Mechanical and Mechatronics Technologists and Technicians,Technologists and Technicians,3,28,55.1,50.8,40.6,14.6,0.179,0.071,0.036,Insulated
+19-1031.02,Range Managers,"Research, Development, Design, and Practitioners",4,18,55.1,61.3,51.2,39.2,0.056,0.0,0.111,Human-anchored
+29-1215.00,Family Medicine Physicians,"Research, Development, Design, and Practitioners",5,12,55.1,67.4,57.2,44.8,0.083,0.0,0.5,Contested
+11-9041.01,Biofuels/Biodiesel Technology and Product Development Managers,Managerial,4,18,54.8,56.5,46.9,33.8,0.167,0.0,0.0,Human-anchored
+29-1224.00,Radiologists,"Research, Development, Design, and Practitioners",5,30,54.8,65.1,55.5,38.7,0.1,0.033,0.6,Human-anchored
+17-2051.00,Civil Engineers,"Research, Development, Design, and Practitioners",4,16,54.6,58.6,49.3,29.9,0.188,0.0,0.188,Human-anchored
+29-1141.04,Clinical Nurse Specialists,"Research, Development, Design, and Practitioners",5,30,54.4,67.4,58.5,50.6,0.1,0.0,0.5,Contested
+19-4021.00,Biological Technicians,Technologists and Technicians,4,18,54.3,47.5,38.9,6.9,0.056,0.222,0.0,Insulated
+29-1171.00,Nurse Practitioners,"Research, Development, Design, and Practitioners",5,27,54.3,66.9,58.3,46.9,0.185,0.074,0.667,Contested
+19-4043.00,"Geological Technicians, Except Hydrologic Technicians",Technologists and Technicians,4,29,53.9,47.7,40.0,9.0,0.069,0.138,0.103,Insulated
+19-2031.00,Chemists,"Research, Development, Design, and Practitioners",4,12,53.8,54.6,47.0,24.8,0.0,0.0,0.167,Human-anchored
+29-1129.02,Music Therapists,"Research, Development, Design, and Practitioners",4,30,53.8,64.1,56.4,42.7,0.167,0.0,0.633,Human-anchored
+29-1217.00,Neurologists,"Research, Development, Design, and Practitioners",5,24,53.8,67.2,59.6,45.8,0.083,0.0,0.625,Contested
+19-3039.02,Neuropsychologists,"Research, Development, Design, and Practitioners",5,14,53.7,62.9,55.4,43.1,0.071,0.0,0.643,Human-anchored
+29-1222.00,"Physicians, Pathologists","Research, Development, Design, and Practitioners",5,19,53.6,61.2,54.1,32.6,0.105,0.0,0.421,Human-anchored
+29-1123.00,Physical Therapists,"Research, Development, Design, and Practitioners",5,24,53.5,64.0,56.9,38.9,0.125,0.042,0.708,Human-anchored
+17-3021.00,Aerospace Engineering and Operations Technologists and Technicians,Technologists and Technicians,3,11,53.4,47.5,40.6,9.6,0.182,0.091,0.0,Insulated
+29-1125.00,Recreational Therapists,"Research, Development, Design, and Practitioners",4,11,53.3,66.7,60.1,45.6,0.0,0.0,0.727,Contested
+17-3029.01,Non-Destructive Testing Specialists,Technologists and Technicians,,16,53.2,45.5,39.2,-0.4,0.125,0.062,0.062,Insulated
+19-4042.00,"Environmental Science and Protection Technicians, Including Health",Technologists and Technicians,4,25,53.1,52.9,46.6,21.7,0.12,0.04,0.16,Human-anchored
+29-2036.00,Medical Dosimetrists,Technologists and Technicians,4,19,52.9,56.5,50.7,23.2,0.158,0.053,0.263,Human-anchored
+19-1022.00,Microbiologists,"Research, Development, Design, and Practitioners",4,14,52.7,52.3,47.0,20.9,0.071,0.071,0.071,Human-anchored
+19-1032.00,Foresters,"Research, Development, Design, and Practitioners",4,25,52.7,57.8,52.4,35.2,0.12,0.0,0.0,Human-anchored
+19-4031.00,Chemical Technicians,Technologists and Technicians,3,16,52.7,50.9,45.4,20.6,0.125,0.062,0.125,Human-anchored
+29-1127.00,Speech-Language Pathologists,"Research, Development, Design, and Practitioners",5,23,52.5,64.1,59.1,44.1,0.087,0.043,0.609,Human-anchored
+29-1299.01,Naturopathic Physicians,"Research, Development, Design, and Practitioners",5,20,52.5,61.1,56.1,38.8,0.3,0.05,0.5,Human-anchored
+29-1011.00,Chiropractors,"Research, Development, Design, and Practitioners",5,13,52.3,61.1,56.4,32.0,0.077,0.154,0.538,Human-anchored
+29-1181.00,Audiologists,"Research, Development, Design, and Practitioners",5,22,52.2,62.9,58.5,40.0,0.182,0.0,0.545,Human-anchored
+29-1213.00,Dermatologists,"Research, Development, Design, and Practitioners",5,18,51.9,64.9,61.0,47.8,0.111,0.0,0.722,Human-anchored
+19-3039.03,Clinical Neuropsychologists,"Research, Development, Design, and Practitioners",5,18,51.7,62.6,59.2,44.9,0.056,0.0,0.778,Human-anchored
+29-1071.00,Physician Assistants,"Research, Development, Design, and Practitioners",5,12,51.7,61.9,58.4,38.7,0.083,0.083,0.667,Human-anchored
+17-3024.01,Robotics Technicians,Technologists and Technicians,3,22,51.6,44.6,41.5,8.4,0.091,0.045,0.091,Insulated
+19-4013.00,Food Science Technicians,Technologists and Technicians,3,16,51.6,44.9,41.8,-0.4,0.0,0.188,0.0,Insulated
+29-1122.00,Occupational Therapists,"Research, Development, Design, and Practitioners",5,17,51.6,61.0,57.7,38.3,0.059,0.0,0.471,Human-anchored
+29-1141.02,Advanced Practice Psychiatric Nurses,"Research, Development, Design, and Practitioners",5,24,51.5,63.4,60.3,44.4,0.083,0.0,0.708,Human-anchored
+29-1216.00,General Internal Medicine Physicians,"Research, Development, Design, and Practitioners",5,19,51.5,64.6,61.6,45.6,0.053,0.0,0.684,Human-anchored
+29-1299.02,Orthoptists,"Research, Development, Design, and Practitioners",5,16,51.5,62.1,59.1,38.4,0.062,0.0,0.5,Human-anchored
+29-2011.01,Cytogenetic Technologists,Technologists and Technicians,4,30,51.4,50.8,48.0,11.1,0.133,0.0,0.3,Human-anchored
+29-1128.00,Exercise Physiologists,"Research, Development, Design, and Practitioners",4,25,50.7,58.3,56.8,31.3,0.08,0.0,0.44,Human-anchored
+29-1161.00,Nurse Midwives,"Research, Development, Design, and Practitioners",5,21,50.5,61.7,60.8,40.3,0.143,0.0,0.571,Human-anchored
+17-3029.08,Photonics Technicians,Technologists and Technicians,3,24,50.4,40.6,39.8,2.6,0.167,0.0,0.042,Insulated
+29-2032.00,Diagnostic Medical Sonographers,Technologists and Technicians,3,19,50.3,52.5,51.8,16.2,0.158,0.053,0.263,Human-anchored
+29-9091.00,Athletic Trainers,"Research, Development, Design, and Practitioners",5,23,50.2,54.2,53.7,26.0,0.174,0.0,0.348,Human-anchored
+19-4012.00,Agricultural Technicians,Technologists and Technicians,3,26,50.1,41.7,41.5,4.0,0.231,0.077,0.0,Insulated
+29-1241.00,"Ophthalmologists, Except Pediatric","Research, Development, Design, and Practitioners",5,18,50.0,61.7,61.7,41.4,0.056,0.0,0.611,Human-anchored
+19-4071.00,Forest and Conservation Technicians,Technologists and Technicians,3,20,49.9,46.2,46.4,14.1,0.1,0.05,0.2,Human-anchored
+29-1218.00,Obstetricians and Gynecologists,"Research, Development, Design, and Practitioners",5,15,49.9,61.6,61.9,41.8,0.067,0.0,0.6,Human-anchored
+29-1141.01,Acute Care Nurses,"Research, Development, Design, and Practitioners",4,27,49.8,60.5,61.0,39.6,0.148,0.074,0.667,Human-anchored
+29-1221.00,"Pediatricians, General","Research, Development, Design, and Practitioners",5,17,49.8,61.6,62.1,44.3,0.059,0.0,0.588,Human-anchored
+29-2033.00,Nuclear Medicine Technologists,Technologists and Technicians,3,17,49.6,49.0,49.7,10.9,0.176,0.176,0.412,Human-anchored
+19-4051.02,Nuclear Monitoring Technicians,Technologists and Technicians,3,16,49.0,42.5,44.4,-0.0,0.125,0.188,0.188,Human-anchored
+29-2081.00,"Opticians, Dispensing",Technologists and Technicians,3,21,49.0,49.5,51.5,16.7,0.19,0.048,0.19,Human-anchored
+29-1122.01,"Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists","Research, Development, Design, and Practitioners",5,21,48.9,59.8,62.0,42.3,0.143,0.0,0.714,Human-anchored
+29-1141.00,Registered Nurses,"Research, Development, Design, and Practitioners",4,27,48.7,56.7,59.2,33.9,0.074,0.0,0.519,Human-anchored
+29-1081.00,Podiatrists,"Research, Development, Design, and Practitioners",5,11,48.5,58.0,61.1,38.3,0.091,0.0,0.545,Human-anchored
+29-1131.00,Veterinarians,"Research, Development, Design, and Practitioners",5,21,48.3,54.8,58.2,37.8,0.143,0.0,0.524,Human-anchored
+29-1212.00,Cardiologists,"Research, Development, Design, and Practitioners",5,25,48.2,57.9,61.6,35.2,0.04,0.04,0.64,Human-anchored
+29-1214.00,Emergency Medicine Physicians,"Research, Development, Design, and Practitioners",5,17,48.1,60.6,64.3,41.8,0.0,0.0,0.882,Human-anchored
+29-1242.00,"Orthopedic Surgeons, Except Pediatric","Research, Development, Design, and Practitioners",5,15,48.1,56.4,60.1,35.0,0.067,0.067,0.667,Human-anchored
+29-2011.02,Cytotechnologists,Technologists and Technicians,5,13,48.1,47.3,51.1,9.8,0.077,0.0,0.231,Human-anchored
+19-4051.00,Nuclear Technicians,Technologists and Technicians,3,18,47.4,42.7,47.8,9.6,0.056,0.0,0.167,Human-anchored
+29-1041.00,Optometrists,"Research, Development, Design, and Practitioners",5,10,47.2,58.4,64.0,39.8,0.0,0.0,0.7,Human-anchored
+29-2012.00,Medical and Clinical Laboratory Technicians,Technologists and Technicians,3,14,47.2,43.5,49.0,3.6,0.0,0.0,0.071,Human-anchored
+29-1229.03,Urologists,"Research, Development, Design, and Practitioners",5,14,46.9,57.0,63.1,40.2,0.071,0.0,0.643,Human-anchored
+29-2011.00,Medical and Clinical Laboratory Technologists,Technologists and Technicians,4,15,46.9,45.4,51.5,10.4,0.067,0.0,0.333,Human-anchored
+29-1243.00,Pediatric Surgeons,"Research, Development, Design, and Practitioners",5,18,46.6,54.9,61.7,33.7,0.056,0.056,0.722,Human-anchored
+29-2034.00,Radiologic Technologists and Technicians,Technologists and Technicians,3,30,46.6,47.9,54.7,18.6,0.167,0.067,0.467,Human-anchored
+29-2035.00,Magnetic Resonance Imaging Technologists,Technologists and Technicians,3,24,46.5,46.4,53.4,16.4,0.083,0.125,0.333,Human-anchored
+29-9099.01,Midwives,"Research, Development, Design, and Practitioners; Technologists and Technicians",5,36,46.4,55.1,62.3,33.8,0.111,0.0,0.667,Human-anchored
+29-1229.04,Physical Medicine and Rehabilitation Physicians,"Research, Development, Design, and Practitioners",5,15,46.3,58.6,66.0,41.0,0.067,0.0,0.867,Human-anchored
+19-4092.00,Forensic Science Technicians,Technologists and Technicians,3,24,46.2,46.7,54.4,19.0,0.125,0.0,0.667,Human-anchored
+29-2099.01,Neurodiagnostic Technologists,Technologists and Technicians,3,16,46.2,50.7,58.3,23.5,0.062,0.0,0.5,Human-anchored
+29-1023.00,Orthodontists,"Research, Development, Design, and Practitioners",5,11,46.0,53.0,61.1,31.4,0.091,0.0,0.818,Human-anchored
+29-1211.00,Anesthesiologists,"Research, Development, Design, and Practitioners",5,20,45.7,54.1,62.7,33.7,0.05,0.05,0.7,Human-anchored
+29-1292.00,Dental Hygienists,"Research, Development, Design, and Practitioners",3,16,45.3,46.5,55.8,17.3,0.188,0.125,0.562,Human-anchored
+29-1141.03,Critical Care Nurses,"Research, Development, Design, and Practitioners",4,29,45.2,51.5,61.0,29.0,0.103,0.0,0.655,Human-anchored
+29-2031.00,Cardiovascular Technologists and Technicians,Technologists and Technicians,3,21,44.8,46.0,56.4,15.3,0.143,0.095,0.476,Human-anchored
+29-2061.00,Licensed Practical and Licensed Vocational Nurses,Technologists and Technicians,3,22,44.5,43.6,54.7,13.7,0.136,0.045,0.409,Human-anchored
+29-1126.00,Respiratory Therapists,"Research, Development, Design, and Practitioners",3,23,44.1,48.8,60.4,26.6,0.087,0.0,0.652,Human-anchored
+29-1151.00,Nurse Anesthetists,"Research, Development, Design, and Practitioners",5,24,43.5,46.7,59.7,25.9,0.125,0.083,0.667,Human-anchored
+29-1124.00,Radiation Therapists,"Research, Development, Design, and Practitioners",3,22,43.3,43.6,57.0,16.1,0.091,0.136,0.591,Human-anchored
+29-2091.00,Orthotists and Prosthetists,Technologists and Technicians,5,15,43.3,44.9,58.2,20.6,0.133,0.0,0.333,Human-anchored
+29-2011.04,Histotechnologists,Technologists and Technicians,4,16,42.7,34.1,48.7,-6.1,0.062,0.0,0.188,Human-anchored
+29-2053.00,Psychiatric Technicians,Technologists and Technicians,3,16,42.2,45.4,61.1,26.3,0.062,0.0,0.562,Human-anchored
+29-1291.00,Acupuncturists,"Research, Development, Design, and Practitioners",5,18,41.7,49.4,65.9,32.9,0.056,0.0,0.778,Human-anchored
+29-2099.05,Ophthalmic Medical Technologists,Technologists and Technicians,3,31,41.7,39.0,55.6,1.1,0.032,0.032,0.226,Human-anchored
+29-2042.00,Emergency Medical Technicians,Technologists and Technicians,3,12,41.0,43.4,61.4,23.4,0.083,0.0,0.5,Human-anchored
+29-2043.00,Paramedics,Technologists and Technicians,3,13,40.1,47.9,67.6,34.8,0.077,0.0,0.769,Human-anchored
+29-2056.00,Veterinary Technologists and Technicians,Technologists and Technicians,3,31,39.2,35.8,57.3,10.5,0.097,0.065,0.548,Human-anchored
+29-2055.00,Surgical Technologists,Technologists and Technicians,3,18,38.9,32.3,54.5,1.6,0.167,0.167,0.5,Human-anchored
+29-2057.00,Ophthalmic Medical Technicians,Technologists and Technicians,3,20,38.6,34.4,57.2,-0.5,0.0,0.0,0.25,Human-anchored
+29-1021.00,"Dentists, General","Research, Development, Design, and Practitioners",5,20,37.4,41.4,66.5,28.6,0.05,0.0,0.85,Human-anchored
+29-1071.01,Anesthesiologist Assistants,"Research, Development, Design, and Practitioners",5,16,37.4,38.2,63.4,19.9,0.125,0.0,0.75,Human-anchored
+29-2092.00,Hearing Aid Specialists,Technologists and Technicians,3,11,37.4,37.5,62.6,17.4,0.091,0.0,0.545,Human-anchored
+29-2012.01,Histology Technicians,Technologists and Technicians,3,8,35.8,21.1,49.5,-15.1,0.0,0.0,0.125,Human-anchored
+29-9093.00,Surgical Assistants,"Research, Development, Design, and Practitioners",3,28,30.9,27.3,65.5,10.3,0.0,0.036,0.821,Human-anchored
+29-1022.00,Oral and Maxillofacial Surgeons,"Research, Development, Design, and Practitioners",5,15,30.4,37.3,76.4,29.4,0.0,0.0,1.0,Human-anchored
+29-1024.00,Prosthodontists,"Research, Development, Design, and Practitioners",5,12,30.3,28.6,67.9,14.6,0.0,0.0,0.917,Human-anchored

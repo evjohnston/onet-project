@@ -550,3 +550,10 @@ def run_pathways(settings: Settings) -> dict[str, Any]:
     append_sqlite(settings.out_dir / "onet_stem.sqlite", tables)
     (settings.out_dir / "pathways_report.json").write_text(json.dumps(report, indent=2))
     return report
+
+
+def run_publish(settings: Settings, domain: str | None = None) -> Path:
+    """Assemble docs/ for GitHub Pages."""
+    from .publish import DOMAIN, publish
+
+    return publish(settings.out_dir, Path("docs"), domain or DOMAIN)
