@@ -789,7 +789,7 @@ def run_smoke(settings: Settings, *, chrome: str | None = None,
 
 
 def run_retest(settings: Settings, *, model: str = "claude-sonnet-5",
-               chunk_size: int = 25, workers: int = 4,
+               chunk_size: int = 0, workers: int = 4,
                budget_usd: float = 4.0) -> dict[str, Any]:
     """Score the catalogue a second time and report agreement with the first.
 
@@ -803,8 +803,18 @@ def run_retest(settings: Settings, *, model: str = "claude-sonnet-5",
     from .reliability import compare, log_report
     from .score import estimate_cost, load_scores, score_subtasks, subtask_catalogue
 
+    # Chunk size drives cost as well as latency: the system prompt is re-sent
+    # per request, so 12 per chunk costs 81 requests and $3.28 where 25 costs 39
+    # and $2.53 for the same 963 subtasks. The retest defaults to the larger
+    # chunk rather than inheriting the scoring default.
+    chunk_size = chunk_size or 25
     links = read_table(settings.out_dir, "task_subtasks")
-    catalogue = subtask_catalogue(links)
+    hierarchy = read_table(settings.out_dir, "subtask_hierarchy")
+    if not links:
+        raise SystemExit("no task_subtasks table - run the build stage first")
+    # Same catalogue the first pass scored, built the same way: a retest that
+    # scored a differently-assembled catalogue would not be comparing raters.
+    catalogue = subtask_catalogue(links, hierarchy)
     if not catalogue:
         raise SystemExit("no subtask catalogue; run the build stage first")
 
@@ -827,8 +837,24 @@ def run_retest(settings: Settings, *, model: str = "claude-sonnet-5",
     if failures:
         log.warning("%d chunk(s) failed to score", len(failures))
 
+    # A run with no API key reaches this point having scored nothing, and the
+    # comparison below will happily report r = 0.000 over n = 0 - a failed run
+    # presented as a finished measurement, which is the exact failure mode this
+    # project keeps meeting. Refuse to write a report there is no evidence for.
+    if not scores:
+        raise SystemExit(
+            f"the retest scored nothing ({len(failures)} chunk(s) failed). "
+            f"No report written. Check ANTHROPIC_API_KEY and the model name.")
+    if len(scores) < len(catalogue) * 0.9:
+        raise SystemExit(
+            f"the retest scored only {len(scores)} of {len(catalogue)} subtasks; "
+            f"agreement over a partial catalogue is not comparable to the first "
+            f"pass. No report written.")
+
     kind = "test-retest" if model == first[next(iter(first))].get("model") else "cross-model"
     report = compare(list(first.values()), scores, kind=kind)
+    if not report["subtasks_compared"]:
+        raise SystemExit("no subtask appears in both passes; nothing to compare")
     report["first_model"] = first[next(iter(first))].get("model")
     report["second_model"] = model
     report["failures"] = len(failures)

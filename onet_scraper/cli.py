@@ -114,6 +114,11 @@ def build_parser() -> argparse.ArgumentParser:
                         help="comma-separated top-level STEM page ids (default: all). "
                              f"Valid: {','.join(TOP_LEVEL_CATEGORIES)}. Sub-disciplines "
                              "are sections of these pages and are captured automatically.")
+    parser.add_argument("--retest-model", default="claude-sonnet-5",
+                        help="model for the retest stage. A different model from "
+                             "the one that produced the first pass measures "
+                             "cross-model agreement; the same model measures "
+                             "test-retest reliability")
     parser.add_argument("--budget", type=float, default=4.0,
                         help="hard cost ceiling for the retest stage in USD "
                              "(default 4.00); the run refuses to start above it")
@@ -234,9 +239,11 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if stage == "retest":
-        run_retest(settings, model=args.model, chunk_size=args.chunk_size,
-                   workers=args.workers, budget_usd=args.budget)
-        return 0
+        report = run_retest(settings, model=args.retest_model,
+                            chunk_size=(args.score_chunk_size
+                                        if "--score-chunk-size" in sys.argv else 0),
+                            workers=args.score_workers, budget_usd=args.budget)
+        return 1 if report.get("failures") else 0
 
     if stage == "pathways":
         run_pathways(settings)

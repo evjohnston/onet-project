@@ -494,3 +494,63 @@ class TestMainIsImportable(unittest.TestCase):
         from pathlib import Path
         src = Path("onet_scraper/__main__.py").read_text()
         self.assertIn('if __name__ == "__main__":', src)
+
+
+class TestCliDispatchArguments(unittest.TestCase):
+    """Every args.* a stage reads must be an argument the parser declares.
+
+    `retest` shipped reading args.model, args.chunk_size and args.workers when
+    the parser declares --score-model, --score-chunk-size and --score-workers.
+    argparse rejected the flag outright and the dispatch would have thrown
+    AttributeError if reached - a break that only shows up when someone runs
+    that one stage, which is exactly when it is least welcome.
+    """
+
+    def _declared_and_used(self):
+        import inspect
+        import re
+
+        from onet_scraper import cli
+        src = inspect.getsource(cli)
+        declared = {"stage", "verbose", "quiet", "version"}
+        for m in re.finditer(r'add_argument\(\s*"(--[a-z0-9-]+)"', src):
+            declared.add(m.group(1).lstrip("-").replace("-", "_"))
+        for m in re.finditer(r'add_argument\(\s*"-[a-z]",\s*"(--[a-z0-9-]+)"', src):
+            declared.add(m.group(1).lstrip("-").replace("-", "_"))
+        used = set(re.findall(r"args\.([a-z_]+)", src))
+        return declared, used
+
+    def test_no_stage_reads_an_undeclared_argument(self):
+        declared, used = self._declared_and_used()
+        self.assertEqual(sorted(used - declared), [])
+
+    def test_every_stage_choice_has_a_dispatch(self):
+        """A stage listed in the choices but never dispatched falls through to
+        whatever runs last, which is worse than not offering it."""
+        import inspect
+        import re
+
+        from onet_scraper import cli
+        src = inspect.getsource(cli)
+        m = re.search(r"choices=\[(.*?)\]", src, re.S)
+        self.assertIsNotNone(m)
+        choices = re.findall(r'"([a-z-]+)"', m.group(1))
+        dispatched = set(re.findall(r'stage == "([a-z-]+)"', src))
+        # run, build and validate are the terminal fall-through: main() ends by
+        # calling build_all() and validate(), which is what all three want, so
+        # they are correct without an explicit `stage ==` branch. Every stage
+        # added after them needs one, which is what this guards.
+        TERMINAL = {"run", "build", "validate"}
+        undispatched = [c for c in choices
+                        if c not in dispatched and c not in TERMINAL]
+        self.assertEqual(undispatched, [], f"no dispatch for: {undispatched}")
+
+    def test_the_parser_accepts_every_stage_name(self):
+        from onet_scraper.cli import build_parser
+        import re, inspect
+        from onet_scraper import cli
+        m = re.search(r"choices=\[(.*?)\]", inspect.getsource(cli), re.S)
+        parser = build_parser()
+        for name in re.findall(r'"([a-z-]+)"', m.group(1)):
+            args = parser.parse_args([name])
+            self.assertEqual(args.stage, name)

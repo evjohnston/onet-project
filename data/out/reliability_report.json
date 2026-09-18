@@ -1,0 +1,35 @@
+{
+  "kind": "cross-model",
+  "subtasks_compared": 0,
+  "only_in_first": 963,
+  "only_in_second": 0,
+  "dimensions": {
+    "automation_feasibility_today": {
+      "n": 0
+    },
+    "llm_exposure": {
+      "n": 0
+    },
+    "physical_embodiment_required": {
+      "n": 0
+    },
+    "interpersonal_demand": {
+      "n": 0
+    },
+    "judgment_under_uncertainty": {
+      "n": 0
+    },
+    "accountability_requirement": {
+      "n": 0
+    },
+    "error_cost": {
+      "n": 0
+    }
+  },
+  "mean_pearson": null,
+  "mean_icc": null,
+  "mean_abs_diff": null,
+  "first_model": "claude-opus-5",
+  "second_model": "claude-sonnet-5",
+  "failures": 963
+}

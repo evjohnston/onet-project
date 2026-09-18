@@ -1490,3 +1490,86 @@ class TestFrontierCalibration(unittest.TestCase):
         cal = calibrate(t, r, [10.0])
         self.assertGreater(cal.frontier_k, 45.0)
         self.assertLess(cal.frontier_k, 60.0)
+
+
+class TestReliability(unittest.TestCase):
+    """Agreement between two scoring passes."""
+
+    def _rows(self, vals, key="dwa_id"):
+        from onet_scraper.reliability import DIMENSIONS
+        return [{key: f"d{i}", **{d: v for d in DIMENSIONS}}
+                for i, v in enumerate(vals)]
+
+    def test_identical_passes_agree_perfectly(self):
+        from onet_scraper.reliability import compare
+        vals = [10, 25, 40, 55, 70, 85, 95]
+        rep = compare(self._rows(vals), self._rows(vals))
+        self.assertEqual(rep["subtasks_compared"], 7)
+        self.assertAlmostEqual(rep["mean_pearson"], 1.0, places=4)
+        self.assertAlmostEqual(rep["mean_icc"], 1.0, places=4)
+        self.assertEqual(rep["mean_abs_diff"], 0.0)
+
+    def test_icc_punishes_a_constant_offset_where_r_does_not(self):
+        """Two raters who disagree by a flat 20 points correlate at 1.0. For
+        scores meant to be interchangeable that is the wrong answer, which is
+        why ICC is reported alongside."""
+        from onet_scraper.reliability import compare
+        vals = [10, 25, 40, 55, 70, 85, 95]
+        rep = compare(self._rows(vals), self._rows([v + 20 for v in vals]))
+        self.assertAlmostEqual(rep["mean_pearson"], 1.0, places=4)
+        # The claim is the relationship, not a threshold: how far ICC falls
+        # depends on the offset relative to the spread of the targets, so a
+        # fixed cutoff is an arbitrary one. Here it lands at 0.907; on a
+        # narrower spread the same offset gives 0.824.
+        self.assertLess(rep["mean_icc"], rep["mean_pearson"] - 0.05)
+        self.assertEqual(rep["mean_abs_diff"], 20.0)
+
+        # and the penalty grows as the offset grows
+        worse = compare(self._rows(vals), self._rows([v + 45 for v in vals]))
+        self.assertLess(worse["mean_icc"], rep["mean_icc"])
+
+    def test_signed_difference_separates_bias_from_noise(self):
+        from onet_scraper.reliability import compare
+        vals = [10, 25, 40, 55, 70, 85, 95]
+        rep = compare(self._rows(vals), self._rows([v + 12 for v in vals]))
+        d = rep["dimensions"]["llm_exposure"]
+        self.assertAlmostEqual(d["mean_signed_diff"], 12.0, places=1)
+        self.assertAlmostEqual(d["mean_abs_diff"], 12.0, places=1)
+
+    def test_no_overlap_reports_nothing_rather_than_zero_agreement(self):
+        """A run that scored nothing must not surface as r = 0.000 over n = 0 -
+        a failed measurement presented as a finished one."""
+        from onet_scraper.reliability import compare
+        rep = compare(self._rows([10, 20, 30]), [])
+        self.assertEqual(rep["subtasks_compared"], 0)
+        self.assertIsNone(rep["mean_pearson"])
+
+    def test_partial_overlap_is_counted_honestly(self):
+        from onet_scraper.reliability import compare
+        a = self._rows([10, 20, 30, 40])
+        b = self._rows([10, 20, 30, 40])[:2]
+        rep = compare(a, b)
+        self.assertEqual(rep["subtasks_compared"], 2)
+        self.assertEqual(rep["only_in_first"], 2)
+
+    def test_kind_is_recorded_so_the_report_cannot_mislabel_itself(self):
+        """test-retest and cross-model do not license the same claim."""
+        from onet_scraper.reliability import compare
+        vals = [10, 30, 50, 70]
+        self.assertEqual(compare(self._rows(vals), self._rows(vals),
+                                 kind="test-retest")["kind"], "test-retest")
+        self.assertEqual(compare(self._rows(vals), self._rows(vals))["kind"],
+                         "cross-model")
+
+    def test_a_flat_rater_yields_no_correlation_rather_than_a_crash(self):
+        from onet_scraper.reliability import compare
+        rep = compare(self._rows([10, 20, 30, 40]), self._rows([50, 50, 50, 50]))
+        self.assertIsNone(rep["dimensions"]["llm_exposure"]["pearson"])
+
+    def test_within_bands_are_reported(self):
+        from onet_scraper.reliability import compare
+        a = self._rows([10, 20, 30, 40, 50])
+        b = self._rows([15, 28, 30, 65, 52])
+        d = compare(a, b)["dimensions"]["error_cost"]
+        self.assertEqual(d["within_10"], 0.8)     # four of five within 10
+        self.assertEqual(d["within_20"], 0.8)
