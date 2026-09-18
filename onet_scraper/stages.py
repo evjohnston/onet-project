@@ -786,3 +786,58 @@ def run_smoke(settings: Settings, *, chrome: str | None = None,
     log.info("%d assertions passed across %d pages", len(results),
              len({r["page"] for r in results}))
     return {"results": results, "failed": failed}
+
+
+def run_retest(settings: Settings, *, model: str = "claude-sonnet-5",
+               chunk_size: int = 25, workers: int = 4,
+               budget_usd: float = 4.0) -> dict[str, Any]:
+    """Score the catalogue a second time and report agreement with the first.
+
+    Writes into its own checkpoint directory so the original pass is never
+    touched - the whole point is to have two independent sets to compare, and a
+    run that overwrote the first would destroy the measurement it was made for.
+
+    `budget_usd` is a hard stop, not a warning. An estimate is cheap to get
+    wrong and this spends real money.
+    """
+    from .reliability import compare, log_report
+    from .score import estimate_cost, load_scores, score_subtasks, subtask_catalogue
+
+    links = read_table(settings.out_dir, "task_subtasks")
+    catalogue = subtask_catalogue(links)
+    if not catalogue:
+        raise SystemExit("no subtask catalogue; run the build stage first")
+
+    first = load_scores(settings.raw_dir)
+    if not first:
+        raise SystemExit("no first pass to compare against; run the score stage first")
+
+    est = estimate_cost(catalogue, chunk_size, model)
+    log.info("retest with %s: %d subtasks, %d requests, estimated $%.2f",
+             model, est["subtasks"], est["requests"], est["est_cost_usd"])
+    if est["est_cost_usd"] > budget_usd:
+        raise SystemExit(
+            f"estimated ${est['est_cost_usd']:.2f} exceeds the ${budget_usd:.2f} "
+            f"budget for this run; pass --budget to raise it deliberately")
+
+    retest_dir = settings.raw_dir / "retest"
+    retest_dir.mkdir(parents=True, exist_ok=True)
+    scores, failures = score_subtasks(catalogue, retest_dir, model=model,
+                                      chunk_size=chunk_size, workers=workers)
+    if failures:
+        log.warning("%d chunk(s) failed to score", len(failures))
+
+    kind = "test-retest" if model == first[next(iter(first))].get("model") else "cross-model"
+    report = compare(list(first.values()), scores, kind=kind)
+    report["first_model"] = first[next(iter(first))].get("model")
+    report["second_model"] = model
+    report["failures"] = len(failures)
+    log_report(report)
+
+    (settings.out_dir / "reliability_report.json").write_text(
+        json.dumps(report, indent=2))
+    COLUMNS["subtask_scores_retest"] = tuple(scores[0].keys()) if scores else ()
+    if scores:
+        write_csv(settings.out_dir / "subtask_scores_retest.csv", scores,
+                  COLUMNS["subtask_scores_retest"])
+    return report

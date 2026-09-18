@@ -21,3 +21,13 @@ data/out/occupation_essential_skills.csv
 __pycache__/
 *.pyc
 .DS_Store
+
+# Secrets. Nothing here is committable: this repo is public, and the scoring and
+# retest stages both want an ANTHROPIC_API_KEY. Without these lines a key
+# dropped in .env would be picked up by the next `git add -A`.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json

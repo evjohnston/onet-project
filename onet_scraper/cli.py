@@ -40,6 +40,7 @@ from .stages import (
     run_security,
     run_validate_derived,
     run_smoke,
+    run_retest,
     run_scroller,
     run_score,
 )
@@ -113,6 +114,9 @@ def build_parser() -> argparse.ArgumentParser:
                         help="comma-separated top-level STEM page ids (default: all). "
                              f"Valid: {','.join(TOP_LEVEL_CATEGORIES)}. Sub-disciplines "
                              "are sections of these pages and are captured automatically.")
+    parser.add_argument("--budget", type=float, default=4.0,
+                        help="hard cost ceiling for the retest stage in USD "
+                             "(default 4.00); the run refuses to start above it")
     parser.add_argument("--accept-baseline", action="store_true",
                         help="adopt this run's row counts even where they moved "
                              "sharply from the previous run (use when a new "
@@ -126,7 +130,7 @@ def build_parser() -> argparse.ArgumentParser:
         default="run",
         choices=["run", "fetch-stem", "fetch-occupations", "fetch-bulk",
                  "fetch-descriptors", "build", "validate", "network", "score",
-                 "report", "employment", "validate-external", "figures", "story", "churn", "pathways", "publish", "scenarios", "security", "validate-derived", "smoke",
+                 "report", "employment", "validate-external", "figures", "story", "churn", "pathways", "publish", "scenarios", "security", "validate-derived", "smoke", "retest",
                  "clean-cache"],
         help="which stage to run (default: run = all of them)",
     )
@@ -227,6 +231,11 @@ def main(argv: list[str] | None = None) -> int:
 
     if stage == "smoke":
         run_smoke(settings, chrome=args.chrome)
+        return 0
+
+    if stage == "retest":
+        run_retest(settings, model=args.model, chunk_size=args.chunk_size,
+                   workers=args.workers, budget_usd=args.budget)
         return 0
 
     if stage == "pathways":
