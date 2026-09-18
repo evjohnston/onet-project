@@ -201,11 +201,28 @@ BUILD.frontier = function(ctx){
               CLS[d.cls]||'ink soft', 2200+i*11), d:d, i:i};
   });
   const wpUsed = [];
+  /* The de-collision pushes a label up to 90 units off the dot it names, and
+     with four of them stacked in the busiest corner of the chart there was no
+     way to tell which label belonged to which occupation. A leader line from
+     the dot to the start of its label closes that, and is only drawn when the
+     label actually had to move - a leader to a label already sitting beside its
+     dot is noise. */
   const wpLabels = D.watch.slice(0,4).map(function(d,i){
-    let ly = ys(d.R) + 4;
+    const dy0 = ys(d.R) + 4;
+    let ly = dy0;
     while(wpUsed.some(function(v){ return Math.abs(v-ly) < 30; })) ly -= 30;
     wpUsed.push(ly);
-    return Txt(g, xs(d.T)+20, ly, d.t.toUpperCase(), {cls:'sm', op:0});
+    const t = Txt(g, xs(d.T)+20, ly, d.t.toUpperCase(), {cls:'sm', op:0});
+    let lead = null;
+    if(Math.abs(ly - dy0) > 12){
+      lead = Stroke(g, [[xs(d.T)+7, dy0 - 4],
+                        [xs(d.T)+13, (dy0 + ly)/2 - 4],
+                        [xs(d.T)+17, ly - 4]],
+                    {cls:'ink w1 ghost', amp:1.1, seed:9400+i, double:false});
+      lead.draw(0);
+    }
+    t._lead = lead;
+    return t;
   });
   const wpCount = Txt(g, 800, 860, D.counts.watch + ' WATCH POINTS — CAPABILITY PRESENT, ACCOUNTABILITY HOLDING THE LINE',
                       {cls:'sm', anchor:'middle', op:0});
@@ -226,7 +243,12 @@ BUILD.frontier = function(ctx){
        moving boundary. */
     if(cd > 0.98 && !curveLit){ curveLit = true; curve.flow(true, {dur: 6.4, len: 70, gap: 300}); }
     curveLab.style.opacity = eo(clamp((p-0.50)/0.10,0,1));
-    wpLabels.forEach(function(l,i){ l.style.opacity = eo(clamp((p-0.66-i*.035)/0.08,0,1)); });
+    wpLabels.forEach(function(l,i){
+      const t = eo(clamp((p-0.66-i*.035)/0.08,0,1));
+      l.style.opacity = t;
+      /* the leader inks in with its label, a touch behind it */
+      if(l._lead){ l._lead.draw(t); l._lead.opacity(t * 0.7); }
+    });
     wpCount.style.opacity = eo(clamp((p-0.84)/0.10,0,1));
     ctx.readout(['Tractability','Resistance','The frontier','Watch points'][Math.min(idx,3)],
                 ['can AI lead it','will it be permitted','where work crosses',
@@ -441,7 +463,7 @@ BUILD.composition = function(ctx){
                 {cls: sc>=70 ? 'ink coral w3' : (sc<50 ? 'ink blue w3' : 'ink w3 soft'),
                  amp:1.0, seed:7000+ci*211+i}), i:i, n:n};
     });
-    const name = Txt(g, CX[ci], 186, c.t.length>26 ? c.t.slice(0,25)+'…' : c.t,
+    const name = Txt(g, CX[ci], 186, clipLabel(c.t, 26),
                      {cls:'sm', anchor:'middle', op:0});
     const stat = Txt(g, CX[ci], 216, Math.round(c.hi*100) + '% OF ' + n + ' TASKS EXPOSED',
                      {cls:'sm dim', anchor:'middle', op:0});
@@ -606,7 +628,7 @@ BUILD.leverage = function(ctx){
                        {cls:'sm', op:0});
   const labels = top.map(function(r, i){
     const txt = r.n + ' JOBS \u00b7 ' + r.s + ' \u00b7 ' +
-                (r.t.length > 42 ? r.t.slice(0,41) + '\u2026' : r.t).toUpperCase();
+                clipLabel(r.t, 42).toUpperCase();
     return Txt(g, LX, LY + i*30, txt, {cls: i===0 ? 'sm' : 'sm dim', op:0});
   });
 

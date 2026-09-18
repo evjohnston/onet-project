@@ -577,6 +577,18 @@ requestAnimationFrame(loop);
    does not advance rAF under a virtual clock, so there is no way to capture a
    scene mid-story from the CLI. This drives every scene to a given progress
    directly, which is also how the still figures are exported. */
+/* Shorten on a word boundary. Two scenes sliced titles mid-word, producing
+   labels like "Geographic Information Systems Technologi\u2026" that read as a
+   different occupation - the same defect already fixed in the payload builder
+   and the dashboard. Third copy, same rule. */
+function clipLabel(s, n){
+  s = String(s);
+  if(s.length <= n) return s;
+  const cut = s.slice(0, n);
+  const sp = cut.lastIndexOf(' ');
+  return (sp > n * 0.55 ? cut.slice(0, sp) : cut).replace(/[ ,;:]+$/, '') + '\u2026';
+}
+
 /* ============================================================
    SANKEY: hand-drawn ribbons, and dots that travel along them
    ============================================================ */
