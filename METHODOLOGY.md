@@ -673,6 +673,61 @@ change would have moved them by a quarter to a half. The frontier constants
 adapted too — `frontier_k` from 53.0 to 51.1, the watch-point willingness gap
 from 40 to 35.4 — which is why a few occupations changed handoff class.
 
+### 7.2 Error bars
+
+§7.1 measured how much a score moves between two runs of the same model. This
+pushes that noise back through the derivation so the published figures carry
+intervals and the published classifications carry stabilities.
+`uncertainty_report.json` and `occupation_uncertainty.csv` hold the result.
+
+**Method.** A parametric bootstrap: 400 resamples, seeded. Each resample jitters
+every subtask score by its dimension's sampling sd, then re-runs the real
+derivation — propagation to tasks and occupations, the susceptibility index, the
+quadrant split, the handoff axes with their frontier recalibrated, and the
+scenario cuts with theirs. An analytic interval is not available because the
+quadrant and frontier thresholds are corpus medians and quantiles, which makes
+every occupation's classification depend on every other occupation's score.
+
+**The noise comes from the two same-model passes**, not from the three-rater
+spread. Their disagreement is 59% calibration (§7.1), and calibration is not
+something a re-run resamples. The difference of two independent draws has sd
+√2·σ, so σ is sd(difference)/√2 — between 3.13 and 4.18 points depending on the
+dimension, mean 3.65.
+
+| Result | |
+| --- | --- |
+| Median 90% interval on occupation susceptibility | **1.8 points** (min 1.2, max 4.1) |
+| Quadrant label holds in ≥90% of resamples | 235 of 268 |
+| Quadrant label holds in ≥50% | 265 of 268 |
+| Handoff class holds in ≥90% | 218 of 268 |
+| Automated tasks, substantial | 2,585 · 90% interval 2,533–2,628 |
+
+**The conclusions survive the noise.** A 1.8-point interval on a 0–100 index is
+narrow enough that occupation rankings are not in question, and only three
+occupations have a quadrant label that fails to survive half the resamples:
+**Hydrologists** (35% — modal label *Insulated*, not the published
+*Human-anchored*), **Zoologists and Wildlife Biologists** (40%) and **Medical
+and Health Services Managers** (47% — modal *Displaceable*, not *Contested*).
+Those three should not be cited at the quadrant level. Thirty-three more hold
+between 50% and 90% of the time and deserve a hedge.
+
+This corrects an estimate made before the bootstrap was run. A crude proxy —
+jittering occupation-level values directly rather than resampling the subtask
+scores and re-deriving — suggested 63 of 268 quadrant labels were coin-flips.
+The real figure is three. The proxy was wrong in three ways at once: it used the
+sd of the *difference* rather than σ, it applied that at occupation level where
+the true noise has already averaged down through two aggregation steps, and it
+used stale threshold constants. The lesson is the ordinary one — a shortcut
+estimate of an uncertainty is itself uncertain, and in this case by a factor of
+twenty.
+
+**What this interval is not.** It is run-to-run variation in one model and
+nothing else. It says nothing about whether the rubric asks the right questions,
+whether the model reads the activity text correctly, or whether O\*NET's task
+list is complete. Those are larger sources of error and none is quantified
+anywhere in this document. Treat an interval here as a lower bound on how wrong
+a number could be.
+
 ## 8. Limitations
 
 1. **The scores are model judgment**, not survey data and not human expert
@@ -717,7 +772,7 @@ The scroller's network layout is seeded, so the drawing is identical on every ru
 
 A full rebuild from scratch is `python -m onet_scraper --refresh` followed by the
 `score`, `report`, `employment`, `validate-external`, `pathways`, `churn`,
-`figures`, `story`, `security` and `publish` stages. 219 tests run in CI on
+`figures`, `story`, `security` and `publish` stages. 226 tests run in CI on
 Python 3.10 and 3.13, and a sixth job opens every published page in headless
 Chrome and asserts it rendered.
 

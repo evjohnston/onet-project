@@ -1787,3 +1787,76 @@ class TestCohenKappa(unittest.TestCase):
         from onet_scraper.reliability import cohen_kappa
         self.assertIsNone(cohen_kappa([1,0],[1]))
         self.assertIsNone(cohen_kappa([],[]))
+
+
+class TestUncertainty(unittest.TestCase):
+    """The bootstrap, and the noise model behind it."""
+
+    def test_sigma_is_the_difference_sd_over_root_two(self):
+        """Two independent draws differ with sd sqrt(2)*sigma. Using the
+        difference sd directly overstates the noise by 41%, which is one of the
+        three errors in the proxy estimate this replaced."""
+        import random
+        from onet_scraper.uncertainty import DIMENSIONS, noise_model
+        rng = random.Random(3)
+        SIGMA = 6.0
+        a = [{"dwa_id": f"d{i}", **{d: 50.0 for d in DIMENSIONS}} for i in range(400)]
+        b = [{"dwa_id": f"d{i}",
+              **{d: 50.0 + rng.gauss(0, SIGMA) - rng.gauss(0, SIGMA) if False
+                 else 50.0 + rng.gauss(0, SIGMA * (2 ** 0.5)) for d in DIMENSIONS}}
+             for i in range(400)]
+        got = noise_model(a, b)
+        for d in DIMENSIONS:
+            self.assertAlmostEqual(got[d], SIGMA, delta=1.0)
+
+    def test_perturbation_stays_on_the_scale(self):
+        import random
+        from onet_scraper.uncertainty import DIMENSIONS, perturb
+        rows = [{"dwa_id": "d1", **{d: v for d in DIMENSIONS}} for v in (0.0, 100.0)]
+        out = perturb(rows, {d: 40.0 for d in DIMENSIONS}, random.Random(1))
+        for r in out:
+            for d in DIMENSIONS:
+                self.assertGreaterEqual(r[d], 0.0)
+                self.assertLessEqual(r[d], 100.0)
+
+    def test_coerce_makes_csv_rows_arithmetic(self):
+        """read_table hands back strings and propagate() averages without
+        coercing, which raises inside statistics.fmean."""
+        from onet_scraper.uncertainty import coerce
+        out = coerce([{"dwa_id": "d1", "llm_exposure": "80", "importance": "55.5"}])
+        self.assertEqual(out[0]["llm_exposure"], 80.0)
+        self.assertEqual(out[0]["importance"], 55.5)
+
+    def test_stability_flags_a_coin_flip(self):
+        from onet_scraper.uncertainty import stability
+        s = stability(["a"] * 4 + ["b"] * 6, "a")
+        self.assertTrue(s["unstable"])
+        self.assertEqual(s["modal"], "b")
+        self.assertAlmostEqual(s["holds"], 0.4)
+
+    def test_stability_accepts_a_solid_label(self):
+        from onet_scraper.uncertainty import stability
+        s = stability(["a"] * 39 + ["b"], "a")
+        self.assertFalse(s["unstable"])
+        self.assertAlmostEqual(s["holds"], 0.975)
+
+    def test_summarise_brackets_the_draws(self):
+        from onet_scraper.uncertainty import summarise
+        s = summarise([float(i) for i in range(101)])
+        self.assertAlmostEqual(s["mean"], 50.0, places=1)
+        self.assertLessEqual(s["p05"], 10)
+        self.assertGreaterEqual(s["p95"], 90)
+        self.assertGreater(s["width"], 0)
+
+    def test_the_real_report_is_internally_consistent(self):
+        import json
+        from pathlib import Path
+        p = Path("data/out/uncertainty_report.json")
+        if not p.exists():
+            self.skipTest("bootstrap not run")
+        r = json.loads(p.read_text())
+        self.assertEqual(r["trials"], 400)
+        self.assertLess(r["quadrant_unstable"], r["occupations"] * 0.1)
+        for name, s in r["scenarios"].items():
+            self.assertLessEqual(s["p05"], s["mean"])
+            self.assertLessEqual(s["mean"], s["p95"])

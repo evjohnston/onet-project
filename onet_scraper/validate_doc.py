@@ -202,8 +202,28 @@ def _landing_page(md: str, out: Path) -> list[tuple[str, str, str]]:
     return bad
 
 
+def _uncertainty(md: str, out: Path) -> list[tuple[str, str, str]]:
+    """The error-bar figures in 7.2."""
+    rep = _json(out, "uncertainty_report")
+    if not rep:
+        return []
+    bad = []
+    m = re.search(r"Median 90% interval on occupation susceptibility \| \*\*([\d.]+) points",
+                  md)
+    if m and abs(float(m.group(1)) - rep["median_susceptibility_ci_width"]) > 0.05:
+        bad.append(("7.2 median CI width",
+                    str(rep["median_susceptibility_ci_width"]), m.group(1)))
+    m = re.search(r"Quadrant label holds in ≥50% \| ([\d]+) of ([\d]+)", md)
+    if m:
+        stable = rep["occupations"] - rep["quadrant_unstable"]
+        if int(m.group(1)) != stable:
+            bad.append(("7.2 quadrant stable at 50%", str(stable), m.group(1)))
+    return bad
+
+
 CHECKS: tuple[tuple[str, Callable[[str, Path], list[tuple[str, str, str]]]], ...] = (
     ("landing page", _landing_page),
+    ("uncertainty figures", _uncertainty),
     ("counts table", _counts_table),
     ("scenarios table", _scenarios_table),
     ("security cells", _security_cells),

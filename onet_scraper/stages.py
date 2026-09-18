@@ -1006,3 +1006,77 @@ def run_validate_doc(settings: Settings, *, fix: bool = False) -> dict[str, Any]
         raise SystemExit(1)
     log.info("every registered figure is in step with the data")
     return {"results": results, "stale": stale}
+
+
+def run_uncertainty(settings: Settings, *, trials: int = 400) -> dict[str, Any]:
+    """Push the measured sampling noise back through the whole derivation."""
+    from .uncertainty import bootstrap, coerce, noise_model, report
+    from .score import load_scores
+
+    base = load_scores(settings.raw_dir)
+    same_model = None
+    for d in sorted((settings.raw_dir / "retest").iterdir()) \
+            if (settings.raw_dir / "retest").exists() else []:
+        if not d.is_dir():
+            continue
+        scores = load_scores(d)
+        if scores and next(iter(scores.values())).get("model") == \
+                next(iter(base.values())).get("model"):
+            same_model = scores
+            break
+    if not base or not same_model:
+        raise SystemExit(
+            "the noise model needs two passes of the SAME model. Two different "
+            "models would overstate it - most of their disagreement is "
+            "calibration, which a re-run does not resample. Run: retest "
+            "--retest-model <the model that produced the first pass> "
+            "--retest-label <something else>")
+
+    noise = noise_model(list(base.values()), list(same_model.values()))
+    log.info("sampling noise sd by dimension: %s",
+             {k: round(v, 2) for k, v in noise.items()})
+
+    scores = coerce(read_table(settings.out_dir, "subtask_automation_scores"))
+    raw = bootstrap(scores,
+                    read_table(settings.out_dir, "tasks"),
+                    read_table(settings.out_dir, "task_subtasks"),
+                    read_table(settings.out_dir, "occupations"),
+                    noise, trials=trials)
+    rep = report(raw,
+                 read_table(settings.out_dir, "occupation_susceptibility"),
+                 read_table(settings.out_dir, "occupation_handoff"),
+                 json.loads((settings.out_dir / "scenarios_report.json").read_text())
+                 if (settings.out_dir / "scenarios_report.json").exists() else {})
+
+    per_occ = rep.pop("per_occupation")
+    (settings.out_dir / "uncertainty_report.json").write_text(json.dumps(rep, indent=2))
+    flat = [{
+        "onet_soc_code": o["onet_soc_code"], "title": o["title"],
+        **{f"susceptibility_{k}": o.get("susceptibility", {}).get(k)
+           for k in ("mean", "sd", "p05", "p95")},
+        "exposure_p05": o.get("exposure", {}).get("p05"),
+        "exposure_p95": o.get("exposure", {}).get("p95"),
+        "quadrant_published": o["quadrant"]["published"],
+        "quadrant_holds": o["quadrant"]["holds"],
+        "handoff_published": o["handoff"]["published"],
+        "handoff_holds": o["handoff"]["holds"],
+    } for o in per_occ]
+    COLUMNS["occupation_uncertainty"] = tuple(flat[0].keys()) if flat else ()
+    write_csv(settings.out_dir / "occupation_uncertainty.csv", flat,
+              COLUMNS["occupation_uncertainty"])
+    append_sqlite(settings.out_dir / "onet_stem.sqlite",
+                  {"occupation_uncertainty": flat})
+
+    log.info("-" * 72)
+    log.info("%d resamples of %d occupations", rep["trials"], rep["occupations"])
+    log.info("  median 90%% interval on susceptibility: %.1f points wide",
+             rep["median_susceptibility_ci_width"] or 0)
+    log.info("  quadrant label survives under half the time for %d occupations",
+             rep["quadrant_unstable"])
+    log.info("  handoff class survives under half the time for %d occupations",
+             rep["handoff_unstable"])
+    for name, s in rep["scenarios"].items():
+        log.info("  %-12s automated %d, 90%% interval %d-%d (published %s)",
+                 name, round(s["mean"]), round(s["p05"]), round(s["p95"]),
+                 s["published"])
+    return rep

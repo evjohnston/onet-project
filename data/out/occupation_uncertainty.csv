@@ -1,0 +1,269 @@
+onet_soc_code,title,susceptibility_mean,susceptibility_sd,susceptibility_p05,susceptibility_p95,exposure_p05,exposure_p95,quadrant_published,quadrant_holds,handoff_published,handoff_holds
+15-2051.01,Business Intelligence Analysts,78.85,0.86,77.3,80.3,79.5,84.9,Displaceable,1.0,Crossing now,0.5525
+15-1299.02,Geographic Information Systems Technologists and Technicians,78.66,0.61,77.7,79.7,80.7,84.3,Displaceable,1.0,Crossing now,0.5725
+15-2051.00,Data Scientists,77.08,0.55,76.2,78.0,80.9,84.2,Displaceable,1.0,Crossing now,0.9975
+15-2021.00,Mathematicians,77.16,0.73,76.1,78.4,80.8,85.2,Displaceable,1.0,Crossing now,0.94
+15-1242.00,Database Administrators,76.41,0.5,75.5,77.2,77.3,80.3,Displaceable,1.0,Crossing now,1.0
+15-1299.03,Document Management Specialists,77.12,0.59,76.1,78.0,79.8,83.3,Displaceable,1.0,Crossing now,1.0
+15-1243.01,Data Warehousing Specialists,75.63,0.64,74.6,76.7,78.7,82.7,Displaceable,1.0,Crossing now,1.0
+15-1243.00,Database Architects,75.36,0.53,74.4,76.2,76.8,80.2,Displaceable,1.0,Crossing now,1.0
+15-1255.00,Web and Digital Interface Designers,75.83,0.55,74.9,76.7,78.3,81.7,Displaceable,1.0,Crossing now,1.0
+15-2041.01,Biostatisticians,75.51,0.5,74.6,76.3,79.6,82.7,Displaceable,1.0,Crossing now,1.0
+15-1211.01,Health Informatics Specialists,73.98,0.6,73.0,75.0,78.4,82.1,Displaceable,1.0,Crossing now,1.0
+15-2051.02,Clinical Data Managers,74.89,0.54,74.1,75.8,77.7,80.9,Displaceable,1.0,Crossing now,1.0
+15-2099.01,Bioinformatics Technicians,74.58,0.75,73.3,75.8,74.9,79.4,Displaceable,1.0,Crossing now,1.0
+15-1211.00,Computer Systems Analysts,73.63,0.48,72.9,74.4,77.1,80.0,Displaceable,1.0,Crossing now,1.0
+15-1251.00,Computer Programmers,74.22,0.64,73.1,75.3,74.8,78.7,Displaceable,1.0,Crossing now,1.0
+15-1254.00,Web Developers,74.8,0.54,73.9,75.6,75.5,78.8,Displaceable,1.0,Crossing now,1.0
+15-2041.00,Statisticians,74.4,0.6,73.4,75.4,77.6,81.2,Displaceable,1.0,Crossing now,1.0
+15-1255.01,Video Game Designers,73.1,0.82,71.6,74.4,73.0,77.8,Displaceable,1.0,Crossing now,0.9975
+15-1253.00,Software Quality Assurance Analysts and Testers,73.65,0.55,72.7,74.5,72.8,76.2,Displaceable,1.0,Crossing now,0.9975
+15-1299.01,Web Administrators,72.46,0.43,71.7,73.1,74.0,76.6,Displaceable,1.0,Crossing now,1.0
+15-1299.04,Penetration Testers,70.97,0.58,70.0,71.9,74.4,77.9,Displaceable,1.0,Crossing now,0.9875
+15-2031.00,Operations Research Analysts,71.98,0.59,71.0,72.9,75.2,78.9,Displaceable,1.0,Crossing now,1.0
+19-1029.01,Bioinformatics Scientists,68.48,0.98,66.9,70.1,71.5,77.7,Displaceable,1.0,Crossing now,1.0
+15-1299.07,Blockchain Engineers,70.54,0.6,69.5,71.5,72.6,76.4,Displaceable,1.0,Crossing now,0.9975
+19-3094.00,Political Scientists,69.69,0.59,68.6,70.7,75.6,79.4,Displaceable,1.0,Crossing now,0.995
+41-4011.00,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",70.32,0.44,69.6,71.1,70.3,73.0,Displaceable,1.0,Crossing now,1.0
+15-1299.06,Digital Forensics Analysts,68.7,0.6,67.6,69.7,70.5,74.1,Displaceable,1.0,Crossing now,0.9075
+15-1299.08,Computer Systems Engineers/Architects,69.83,0.42,69.1,70.5,72.4,75.1,Displaceable,1.0,Crossing now,1.0
+19-2041.01,Climate Change Policy Analysts,69.63,0.64,68.6,70.6,74.8,78.8,Displaceable,1.0,Crossing now,0.8825
+15-1252.00,Software Developers,69.78,0.61,68.7,70.7,71.2,75.1,Displaceable,1.0,Crossing now,0.995
+19-4061.00,Social Science Research Assistants,67.93,0.59,67.0,68.9,68.8,72.4,Displaceable,1.0,Crossing now,1.0
+41-9031.00,Sales Engineers,68.45,0.48,67.6,69.2,69.3,72.2,Displaceable,1.0,Crossing now,1.0
+15-1212.00,Information Security Analysts,68.77,0.77,67.5,70.0,70.1,74.7,Displaceable,1.0,Human held,0.9925
+15-1231.00,Computer Network Support Specialists,67.56,0.55,66.6,68.4,62.0,65.3,Displaceable,0.92,Handed off,0.995
+15-1232.00,Computer User Support Specialists,68.49,0.49,67.7,69.3,65.6,68.8,Displaceable,1.0,Handed off,0.9475
+25-1063.00,"Economics Teachers, Postsecondary",67.94,0.47,67.2,68.7,70.4,73.2,Displaceable,1.0,Crossing now,0.96
+29-2099.08,Patient Representatives,68.33,0.67,67.2,69.5,68.6,72.8,Displaceable,1.0,Crossing now,1.0
+15-1244.00,Network and Computer Systems Administrators,68.15,0.54,67.2,69.0,66.7,70.1,Displaceable,1.0,Crossing now,1.0
+25-1031.00,"Architecture Teachers, Postsecondary",67.55,0.46,66.8,68.3,70.0,72.8,Displaceable,1.0,Crossing now,0.9025
+29-2072.00,Medical Records Specialists,67.95,0.67,66.8,69.1,69.8,74.2,Displaceable,1.0,Human held,1.0
+41-4011.07,Solar Sales Representatives and Assessors,68.26,0.63,67.2,69.3,69.7,73.8,Displaceable,1.0,Crossing now,1.0
+19-3011.01,Environmental Economists,67.7,0.55,66.8,68.6,73.2,76.4,Displaceable,1.0,Crossing now,1.0
+15-1241.00,Computer Network Architects,67.73,0.43,67.0,68.4,69.9,72.5,Displaceable,1.0,Crossing now,1.0
+19-1011.00,Animal Scientists,66.98,1.15,65.0,69.0,67.6,74.9,Displaceable,1.0,Handed off,1.0
+25-1032.00,"Engineering Teachers, Postsecondary",67.59,0.44,66.9,68.3,70.1,72.8,Displaceable,1.0,Crossing now,0.8775
+25-1051.00,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",67.34,0.43,66.6,68.1,69.5,72.1,Displaceable,1.0,Crossing now,0.9675
+25-1053.00,"Environmental Science Teachers, Postsecondary",67.17,0.45,66.4,67.9,69.9,72.7,Displaceable,1.0,Crossing now,0.4275
+25-1062.00,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",67.39,0.45,66.6,68.1,69.9,72.7,Displaceable,1.0,Crossing now,0.965
+25-1065.00,"Political Science Teachers, Postsecondary",67.6,0.48,66.8,68.4,69.9,72.8,Displaceable,1.0,Crossing now,0.9275
+19-3099.01,Transportation Planners,66.91,0.51,66.1,67.8,72.8,76.1,Displaceable,0.895,Watch point,0.6175
+25-1043.00,"Forestry and Conservation Science Teachers, Postsecondary",67.29,0.46,66.5,68.1,69.9,72.8,Displaceable,1.0,Crossing now,0.5525
+15-1241.01,Telecommunications Engineering Specialists,67.07,0.44,66.4,67.8,66.8,69.5,Displaceable,1.0,Crossing now,1.0
+25-1022.00,"Mathematical Science Teachers, Postsecondary",67.22,0.46,66.4,68.0,69.4,72.1,Displaceable,1.0,Crossing now,0.6175
+25-1067.00,"Sociology Teachers, Postsecondary",66.69,0.45,66.0,67.5,69.1,71.9,Displaceable,1.0,Crossing now,0.575
+19-3022.00,Survey Researchers,65.77,0.61,64.7,66.7,68.7,72.4,Displaceable,1.0,Crossing now,0.995
+25-1041.00,"Agricultural Sciences Teachers, Postsecondary",66.52,0.46,65.7,67.3,69.0,71.8,Displaceable,1.0,Human held,0.64
+25-1061.00,"Anthropology and Archeology Teachers, Postsecondary",66.51,0.44,65.8,67.3,69.5,72.2,Displaceable,1.0,Crossing now,0.6475
+25-1064.00,"Geography Teachers, Postsecondary",66.69,0.44,66.0,67.4,68.6,71.3,Displaceable,1.0,Crossing now,0.9925
+19-3011.00,Economists,66.39,0.62,65.3,67.4,71.6,75.3,Displaceable,0.86,Human held,0.92
+19-3051.00,Urban and Regional Planners,65.57,0.52,64.7,66.4,69.5,72.8,Displaceable,0.995,Human held,0.765
+19-2012.00,Physicists,65.95,0.61,65.0,66.9,68.2,71.8,Displaceable,1.0,Crossing now,1.0
+19-2041.03,Industrial Ecologists,66.88,0.69,65.8,68.0,72.4,76.4,Displaceable,0.855,Crossing now,1.0
+25-1071.00,"Health Specialties Teachers, Postsecondary",66.35,0.46,65.6,67.1,68.4,71.2,Displaceable,1.0,Human held,0.5825
+25-1042.00,"Biological Science Teachers, Postsecondary",65.93,0.41,65.2,66.6,68.2,70.7,Displaceable,1.0,Crossing now,0.9725
+15-1299.05,Information Security Engineers,66.02,0.56,65.1,67.0,69.2,72.7,Displaceable,1.0,Human held,0.985
+15-1299.09,Information Technology Project Managers,65.9,0.57,65.0,66.8,68.9,72.4,Displaceable,1.0,Human held,0.6675
+17-3011.00,Architectural and Civil Drafters,65.38,0.68,64.3,66.5,60.8,64.7,Displaceable,0.6325,Crossing now,1.0
+17-3013.00,Mechanical Drafters,65.93,0.96,64.3,67.6,59.9,65.8,Displaceable,0.6475,Crossing now,1.0
+19-4012.01,Precision Agriculture Technicians,65.43,0.68,64.4,66.6,62.0,65.9,Displaceable,0.9075,Handed off,1.0
+15-1221.00,Computer and Information Research Scientists,65.66,0.51,64.8,66.5,68.9,72.1,Displaceable,1.0,Human held,0.9875
+25-1054.00,"Physics Teachers, Postsecondary",65.8,0.44,65.0,66.6,67.5,70.2,Displaceable,1.0,Crossing now,0.98
+17-2112.00,Industrial Engineers,65.73,0.53,64.9,66.6,67.6,70.9,Displaceable,1.0,Crossing now,0.74
+25-1066.00,"Psychology Teachers, Postsecondary",65.21,0.41,64.5,65.9,68.1,70.7,Displaceable,1.0,Human held,0.9975
+25-1072.00,"Nursing Instructors and Teachers, Postsecondary",65.14,0.43,64.4,65.8,68.4,71.0,Displaceable,1.0,Human held,0.9975
+19-2021.00,Atmospheric and Space Scientists,65.42,0.56,64.5,66.3,67.1,70.5,Displaceable,1.0,Crossing now,1.0
+17-2072.00,"Electronics Engineers, Except Computer",64.36,0.55,63.5,65.3,63.9,67.3,Displaceable,1.0,Crossing now,1.0
+25-1021.00,"Computer Science Teachers, Postsecondary",65.54,0.47,64.7,66.3,68.3,71.1,Displaceable,1.0,Human held,0.665
+19-4099.03,Remote Sensing Technicians,64.62,0.57,63.7,65.5,59.3,62.8,Insulated,0.875,Handed off,1.0
+29-9021.00,Health Information Technologists and Medical Registrars,65.62,0.5,64.8,66.5,67.7,70.9,Displaceable,1.0,Human held,1.0
+17-2031.00,Bioengineers and Biomedical Engineers,65.14,0.55,64.3,66.1,68.5,71.8,Displaceable,1.0,Crossing now,1.0
+17-2199.03,"Energy Engineers, Except Wind and Solar",64.3,0.64,63.3,65.4,63.7,67.7,Displaceable,1.0,Crossing now,1.0
+19-3041.00,Sociologists,64.06,0.59,63.1,65.0,69.3,73.0,Contested,1.0,Watch point,0.975
+11-9121.01,Clinical Research Coordinators,65.9,0.46,65.1,66.6,67.6,70.5,Displaceable,1.0,Human held,1.0
+25-1052.00,"Chemistry Teachers, Postsecondary",64.73,0.42,64.1,65.5,66.4,68.9,Displaceable,1.0,Crossing now,0.5075
+17-2199.07,Photonics Engineers,63.62,0.79,62.4,64.8,62.4,67.1,Displaceable,0.9675,Crossing now,1.0
+19-1029.03,Geneticists,63.51,0.65,62.5,64.6,65.1,69.2,Displaceable,0.9925,Crossing now,0.925
+17-2061.00,Computer Hardware Engineers,64.07,0.61,63.0,65.0,63.8,67.6,Displaceable,1.0,Crossing now,1.0
+19-2099.01,Remote Sensing Scientists and Technologists,63.37,0.53,62.5,64.3,61.4,64.6,Displaceable,0.755,Handed off,0.865
+17-2111.02,Fire-Prevention and Protection Engineers,64.01,0.59,63.1,64.9,68.8,72.6,Contested,1.0,Watch point,0.9575
+17-2072.01,Radio Frequency Identification Device Specialists,63.62,0.55,62.7,64.5,61.5,64.8,Displaceable,0.8525,Handed off,0.865
+19-2011.00,Astronomers,63.23,0.55,62.4,64.1,65.2,68.5,Displaceable,0.96,Crossing now,0.9825
+11-3021.00,Computer and Information Systems Managers,65.82,0.56,64.9,66.7,69.7,73.0,Displaceable,0.9975,Watch point,0.975
+17-1022.01,Geodetic Surveyors,63.08,0.68,61.9,64.2,55.3,59.4,Insulated,1.0,Crossing now,0.8575
+17-3012.00,Electrical and Electronics Drafters,63.61,0.57,62.7,64.6,60.1,63.6,Insulated,0.6725,Crossing now,1.0
+19-2042.00,"Geoscientists, Except Hydrologists and Geographers",62.85,0.48,62.1,63.7,62.6,65.6,Displaceable,0.975,Handed off,0.9475
+19-3032.00,Industrial-Organizational Psychologists,62.33,0.61,61.3,63.4,66.7,70.7,Contested,1.0,Watch point,1.0
+19-1029.04,Biologists,63.65,0.44,62.9,64.4,66.3,69.0,Displaceable,0.995,Crossing now,1.0
+17-1012.00,Landscape Architects,63.13,0.62,62.1,64.1,63.5,67.1,Displaceable,0.9975,Crossing now,1.0
+17-2141.02,Automotive Engineers,62.38,0.49,61.6,63.2,63.4,66.3,Displaceable,0.995,Crossing now,1.0
+19-2041.00,"Environmental Scientists and Specialists, Including Health",63.35,0.56,62.4,64.3,68.9,72.3,Contested,1.0,Watch point,1.0
+11-9121.02,Water Resource Specialists,63.07,0.57,62.2,64.0,65.3,68.6,Displaceable,0.86,Crossing now,1.0
+17-3022.00,Civil Engineering Technologists and Technicians,62.99,0.56,62.1,64.0,62.1,65.6,Displaceable,0.955,Crossing now,1.0
+17-2199.08,Robotics Engineers,62.36,0.56,61.4,63.2,62.0,65.5,Displaceable,0.9125,Crossing now,1.0
+17-2112.03,Manufacturing Engineers,63.59,0.45,62.9,64.3,65.8,68.4,Displaceable,1.0,Crossing now,1.0
+17-2051.02,Water/Wastewater Engineers,62.43,0.58,61.5,63.4,65.4,69.2,Contested,1.0,Watch point,0.93
+17-3027.00,Mechanical Engineering Technologists and Technicians,62.37,0.49,61.6,63.1,58.6,61.5,Insulated,0.99,Crossing now,0.77
+19-4099.01,Quality Control Analysts,62.36,0.48,61.6,63.2,61.6,64.3,Displaceable,0.79,Crossing now,1.0
+17-2112.02,Validation Engineers,62.22,0.52,61.4,63.1,60.7,63.8,Insulated,0.505,Crossing now,1.0
+17-2141.01,Fuel Cell Engineers,61.47,0.47,60.7,62.3,61.8,64.6,Displaceable,0.83,Crossing now,1.0
+19-1031.03,Park Naturalists,61.37,0.66,60.3,62.5,58.6,62.5,Insulated,0.9075,Crossing now,0.76
+19-3092.00,Geographers,61.42,0.79,60.1,62.6,58.3,63.1,Insulated,0.84,Handed off,1.0
+17-2151.00,"Mining and Geological Engineers, Including Mining Safety Engineers",61.84,0.52,61.0,62.7,63.4,66.5,Contested,0.6825,Crossing now,1.0
+17-2199.06,Microsystems Engineers,61.62,0.44,60.9,62.3,62.3,65.0,Displaceable,0.945,Crossing now,1.0
+19-2032.00,Materials Scientists,62.16,0.65,61.1,63.3,62.4,66.3,Displaceable,0.94,Crossing now,0.67
+19-4044.00,Hydrologic Technicians,61.19,0.54,60.3,62.0,58.1,61.4,Insulated,0.9975,Handed off,0.9925
+17-2081.00,Environmental Engineers,61.12,0.53,60.3,62.0,62.5,65.6,Contested,0.9425,Crossing now,0.9875
+19-2041.02,Environmental Restoration Planners,61.52,0.54,60.6,62.4,65.6,69.0,Contested,1.0,Watch point,0.6675
+19-1023.00,Zoologists and Wildlife Biologists,60.89,0.58,60.0,61.8,61.2,64.7,Contested,0.395,Crossing now,1.0
+19-2043.00,Hydrologists,60.23,0.5,59.4,61.0,60.1,63.0,Human-anchored,0.355,Crossing now,0.9325
+17-2112.01,Human Factors Engineers and Ergonomists,60.93,0.69,59.8,62.1,64.9,69.0,Contested,0.9975,Watch point,0.8575
+17-2199.05,Mechatronics Engineers,60.66,0.61,59.7,61.8,59.6,63.3,Insulated,0.8,Crossing now,1.0
+19-1041.00,Epidemiologists,60.94,0.56,60.0,61.9,66.2,69.7,Contested,1.0,Watch point,1.0
+17-1011.00,"Architects, Except Landscape and Naval",61.0,0.6,59.9,61.9,61.8,65.6,Contested,0.8575,Human held,0.54
+17-3023.00,Electrical and Electronic Engineering Technologists and Technicians,60.95,0.48,60.2,61.7,56.7,59.5,Insulated,1.0,Crossing now,0.715
+17-2141.00,Mechanical Engineers,61.03,0.45,60.3,61.8,62.4,65.0,Contested,0.89,Crossing now,1.0
+17-2051.01,Transportation Engineers,60.58,0.46,59.8,61.4,62.5,65.5,Contested,0.9875,Crossing now,0.9225
+11-9121.00,Natural Sciences Managers,61.6,0.48,60.8,62.4,65.0,68.0,Contested,1.0,Watch point,0.9725
+19-1013.00,Soil and Plant Scientists,60.43,0.6,59.4,61.5,62.5,66.3,Contested,0.975,Handed off,1.0
+19-3034.00,School Psychologists,59.63,0.57,58.7,60.5,62.1,65.5,Contested,0.9475,Watch point,0.575
+29-9092.00,Genetic Counselors,60.69,0.55,59.8,61.6,71.0,74.4,Contested,1.0,Watch point,1.0
+11-9111.00,Medical and Health Services Managers,61.38,0.47,60.6,62.2,62.4,65.3,Contested,0.4725,Human held,1.0
+15-2011.00,Actuaries,61.11,0.92,59.7,62.7,66.4,72.1,Contested,1.0,Watch point,0.9925
+17-2041.00,Chemical Engineers,60.35,0.62,59.4,61.3,62.5,66.2,Contested,0.9725,Crossing now,1.0
+17-2121.00,Marine Engineers and Naval Architects,59.32,0.48,58.6,60.2,56.5,59.4,Insulated,1.0,Crossing now,1.0
+17-2199.11,Solar Energy Systems Engineers,60.26,0.67,59.2,61.4,58.4,62.6,Insulated,0.905,Crossing now,1.0
+17-2011.00,Aerospace Engineers,59.82,0.58,58.8,60.8,58.5,62.2,Insulated,0.8175,Crossing now,0.9975
+19-1021.00,Biochemists and Biophysicists,59.36,0.75,58.1,60.6,59.2,63.7,Human-anchored,0.6925,Handed off,1.0
+17-2131.00,Materials Engineers,59.75,0.48,59.0,60.5,60.0,62.8,Human-anchored,0.8425,Crossing now,1.0
+17-2161.00,Nuclear Engineers,60.07,0.54,59.2,60.9,61.9,65.1,Contested,0.905,Human held,0.905
+11-9041.00,Architectural and Engineering Managers,59.97,0.47,59.2,60.7,64.2,67.0,Contested,1.0,Watch point,0.8975
+17-2199.09,Nanosystems Engineers,59.24,0.5,58.4,60.1,58.0,61.3,Human-anchored,0.6575,Handed off,0.805
+17-2199.10,Wind Energy Engineers,58.94,0.68,57.9,60.0,58.1,62.2,Human-anchored,0.945,Crossing now,1.0
+19-1042.00,"Medical Scientists, Except Epidemiologists",59.59,0.61,58.6,60.6,62.7,66.5,Contested,0.985,Crossing now,0.84
+29-1229.05,Preventive Medicine Physicians,58.67,0.6,57.8,59.6,65.0,68.6,Contested,1.0,Watch point,1.0
+17-2021.00,Agricultural Engineers,58.63,0.55,57.8,59.5,59.2,62.6,Human-anchored,0.915,Human held,0.8225
+29-2052.00,Pharmacy Technicians,58.93,0.66,57.7,60.0,52.3,56.6,Insulated,1.0,Crossing now,1.0
+17-2071.00,Electrical Engineers,57.97,0.44,57.2,58.7,56.2,58.9,Human-anchored,0.9675,Crossing now,1.0
+17-3027.01,Automotive Engineering Technicians,57.58,0.55,56.7,58.6,50.7,54.1,Insulated,1.0,Handed off,1.0
+17-3028.00,Calibration Technologists and Technicians,57.93,0.55,57.0,58.8,49.9,53.5,Insulated,1.0,Handed off,1.0
+29-1229.02,Hospitalists,57.4,0.6,56.3,58.4,64.4,68.2,Contested,1.0,Watch point,1.0
+17-1021.00,Cartographers and Photogrammetrists,57.51,0.92,56.0,59.0,43.6,48.8,Insulated,1.0,Handed off,1.0
+17-2171.00,Petroleum Engineers,57.87,0.46,57.1,58.7,56.5,59.3,Human-anchored,0.9975,Crossing now,1.0
+19-1029.02,Molecular and Cellular Biologists,58.13,0.49,57.3,58.9,58.6,61.5,Human-anchored,0.9875,Crossing now,1.0
+19-3091.00,Anthropologists and Archeologists,57.48,0.51,56.6,58.4,58.4,61.5,Human-anchored,0.9925,Handed off,0.875
+17-3026.00,Industrial Engineering Technologists and Technicians,58.04,0.45,57.3,58.8,55.7,58.4,Insulated,0.6825,Crossing now,1.0
+29-1031.00,Dietitians and Nutritionists,57.55,0.47,56.7,58.3,63.7,66.7,Contested,1.0,Watch point,0.9825
+17-1022.00,Surveyors,56.56,0.74,55.3,57.8,48.0,52.2,Insulated,1.0,Crossing now,0.815
+17-3031.00,Surveying and Mapping Technicians,56.64,0.68,55.5,57.7,44.7,48.7,Insulated,1.0,Handed off,1.0
+29-1051.00,Pharmacists,57.16,0.46,56.4,58.0,60.4,63.2,Human-anchored,0.705,Human held,1.0
+19-1031.00,Conservation Scientists,57.07,0.48,56.3,57.8,58.6,61.6,Human-anchored,0.9925,Crossing now,0.955
+19-1012.00,Food Scientists and Technologists,57.67,0.82,56.4,59.0,56.5,61.8,Human-anchored,0.97,Handed off,0.9175
+29-2051.00,Dietetic Technicians,55.25,0.58,54.3,56.2,60.6,64.2,Contested,0.5375,Watch point,0.85
+17-2051.00,Civil Engineers,55.56,0.56,54.6,56.5,55.5,58.8,Human-anchored,1.0,Crossing now,1.0
+17-3024.00,Electro-Mechanical and Mechatronics Technologists and Technicians,55.83,0.48,55.0,56.7,48.5,51.6,Insulated,1.0,Handed off,1.0
+29-1223.00,Psychiatrists,56.37,0.51,55.6,57.2,65.5,68.8,Contested,1.0,Watch point,1.0
+17-3025.00,Environmental Engineering Technologists and Technicians,55.82,0.47,55.0,56.5,50.7,53.6,Insulated,0.97,Handed off,0.92
+19-1031.02,Range Managers,55.81,0.66,54.8,56.8,56.7,60.6,Human-anchored,0.9975,Crossing now,0.9925
+17-3026.01,Nanotechnology Engineering Technologists and Technicians,54.71,0.53,53.9,55.5,45.7,48.9,Insulated,1.0,Handed off,1.0
+19-3033.00,Clinical and Counseling Psychologists,54.96,0.62,53.9,56.0,59.6,63.5,Human-anchored,0.71,Watch point,0.7525
+11-9041.01,Biofuels/Biodiesel Technology and Product Development Managers,55.69,0.94,54.1,57.2,52.7,58.7,Human-anchored,1.0,Handed off,0.885
+19-4043.00,"Geological Technicians, Except Hydrologic Technicians",53.75,0.51,52.9,54.6,43.7,46.7,Insulated,1.0,Handed off,0.9925
+29-1229.06,Sports Medicine Physicians,54.57,0.52,53.6,55.4,63.2,66.5,Contested,1.0,Watch point,1.0
+19-1022.00,Microbiologists,53.26,0.67,52.1,54.3,48.3,52.5,Human-anchored,1.0,Human held,1.0
+29-1129.01,Art Therapists,54.47,0.53,53.6,55.4,58.8,62.0,Human-anchored,0.9725,Watch point,0.4975
+29-1229.01,Allergists and Immunologists,54.3,0.51,53.4,55.1,64.5,67.5,Contested,1.0,Watch point,1.0
+19-4021.00,Biological Technicians,54.17,0.52,53.3,55.0,43.1,46.3,Insulated,1.0,Handed off,0.995
+17-2111.00,"Health and Safety Engineers, Except Mining Safety Engineers and Inspectors",54.56,0.6,53.5,55.5,57.3,61.1,Human-anchored,1.0,Human held,0.98
+19-3039.02,Neuropsychologists,53.6,0.67,52.5,54.6,58.2,62.1,Human-anchored,0.9475,Watch point,0.9525
+19-2031.00,Chemists,53.32,0.64,52.2,54.3,49.3,53.2,Human-anchored,1.0,Handed off,0.9275
+29-1222.00,"Physicians, Pathologists",53.13,0.52,52.2,54.0,56.5,59.7,Human-anchored,1.0,Human held,1.0
+17-3021.00,Aerospace Engineering and Operations Technologists and Technicians,53.61,0.64,52.6,54.6,44.5,48.3,Insulated,1.0,Handed off,0.98
+29-1215.00,Family Medicine Physicians,52.98,0.55,52.1,53.9,60.6,63.9,Human-anchored,0.545,Watch point,1.0
+19-4042.00,"Environmental Science and Protection Technicians, Including Health",52.57,0.43,51.9,53.3,48.3,50.9,Human-anchored,1.0,Handed off,1.0
+29-1224.00,Radiologists,53.39,0.4,52.6,54.0,59.4,61.9,Human-anchored,0.985,Human held,0.805
+19-1032.00,Foresters,53.09,0.56,52.2,54.0,52.9,56.3,Human-anchored,1.0,Crossing now,0.9275
+29-1217.00,Neurologists,52.77,0.48,52.0,53.5,62.1,65.2,Contested,0.9525,Watch point,0.96
+29-1171.00,Nurse Practitioners,53.18,0.45,52.4,53.8,61.3,64.0,Contested,0.6675,Watch point,1.0
+29-1141.04,Clinical Nurse Specialists,52.64,0.49,51.9,53.4,60.7,63.6,Human-anchored,0.5825,Watch point,1.0
+17-3024.01,Robotics Technicians,52.65,0.71,51.5,53.8,42.6,46.9,Insulated,1.0,Human held,0.915
+29-1123.00,Physical Therapists,52.24,0.47,51.5,53.0,58.4,61.1,Human-anchored,0.995,Human held,0.8675
+17-3029.01,Non-Destructive Testing Specialists,52.88,0.77,51.6,54.2,41.7,46.4,Insulated,1.0,Handed off,0.8975
+19-4031.00,Chemical Technicians,52.16,0.56,51.2,53.0,45.9,49.2,Human-anchored,1.0,Handed off,0.685
+29-1127.00,Speech-Language Pathologists,51.8,0.54,50.9,52.7,58.0,61.5,Human-anchored,0.995,Watch point,0.9525
+29-1181.00,Audiologists,51.29,0.46,50.6,52.1,57.2,60.0,Human-anchored,1.0,Human held,0.9175
+29-2011.01,Cytogenetic Technologists,50.72,0.69,49.5,51.9,45.5,49.8,Human-anchored,1.0,Crossing now,0.805
+29-1129.02,Music Therapists,52.16,0.58,51.2,53.2,57.3,60.9,Human-anchored,0.9975,Watch point,0.89
+29-2036.00,Medical Dosimetrists,51.33,0.45,50.6,52.1,51.0,53.8,Human-anchored,1.0,Human held,1.0
+29-1216.00,General Internal Medicine Physicians,50.4,0.54,49.5,51.2,58.5,61.7,Human-anchored,0.9925,Human held,1.0
+19-3039.03,Clinical Neuropsychologists,51.07,0.76,49.8,52.3,56.9,61.6,Human-anchored,0.9825,Watch point,0.75
+29-1213.00,Dermatologists,50.45,0.64,49.4,51.4,58.2,62.1,Human-anchored,0.9675,Human held,1.0
+29-1299.01,Naturopathic Physicians,50.75,0.47,50.0,51.5,54.4,57.5,Human-anchored,1.0,Human held,1.0
+29-1125.00,Recreational Therapists,50.95,0.65,49.8,52.0,58.8,62.6,Human-anchored,0.9225,Watch point,0.9925
+19-4012.00,Agricultural Technicians,50.11,0.51,49.3,51.0,37.6,40.7,Insulated,1.0,Human held,1.0
+29-1299.02,Orthoptists,50.29,0.59,49.3,51.2,55.6,59.3,Human-anchored,1.0,Human held,1.0
+17-3029.08,Photonics Technicians,50.09,0.56,49.2,51.0,37.3,40.5,Insulated,1.0,Human held,1.0
+19-4013.00,Food Science Technicians,50.39,0.64,49.3,51.4,38.5,42.3,Insulated,1.0,Human held,1.0
+19-4071.00,Forest and Conservation Technicians,49.9,0.67,48.8,51.0,41.6,45.6,Human-anchored,1.0,Human held,0.87
+29-1011.00,Chiropractors,50.43,0.54,49.6,51.3,54.9,58.2,Human-anchored,1.0,Human held,1.0
+29-1122.00,Occupational Therapists,50.31,0.53,49.4,51.2,54.6,57.6,Human-anchored,1.0,Human held,0.9975
+29-9091.00,Athletic Trainers,49.9,0.51,49.1,50.8,49.9,53.0,Human-anchored,1.0,Human held,0.5225
+29-1141.02,Advanced Practice Psychiatric Nurses,50.23,0.51,49.4,51.0,57.8,60.8,Human-anchored,1.0,Human held,0.9975
+29-1218.00,Obstetricians and Gynecologists,48.57,0.51,47.7,49.4,55.6,58.5,Human-anchored,1.0,Human held,1.0
+29-2011.02,Cytotechnologists,48.48,0.7,47.3,49.7,43.0,47.5,Human-anchored,1.0,Human held,0.7525
+19-4051.02,Nuclear Monitoring Technicians,49.01,0.65,48.0,50.1,37.7,41.5,Human-anchored,0.7975,Handed off,0.7725
+29-1128.00,Exercise Physiologists,49.49,0.46,48.8,50.3,52.4,55.3,Human-anchored,1.0,Human held,1.0
+29-1081.00,Podiatrists,48.81,0.65,47.7,49.9,53.1,57.3,Human-anchored,1.0,Human held,1.0
+29-1071.00,Physician Assistants,49.44,0.6,48.5,50.4,54.5,58.1,Human-anchored,1.0,Human held,1.0
+29-2012.00,Medical and Clinical Laboratory Technicians,47.11,0.53,46.3,48.0,39.2,42.4,Human-anchored,1.0,Human held,1.0
+29-1122.01,"Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists",49.3,0.63,48.2,50.4,55.0,59.0,Human-anchored,1.0,Human held,1.0
+29-1221.00,"Pediatricians, General",48.3,0.5,47.4,49.1,55.5,58.4,Human-anchored,1.0,Human held,1.0
+29-2011.00,Medical and Clinical Laboratory Technologists,46.9,0.65,45.8,48.0,40.6,44.6,Human-anchored,1.0,Human held,1.0
+29-1141.01,Acute Care Nurses,48.75,0.42,48.0,49.4,55.3,58.0,Human-anchored,1.0,Human held,1.0
+29-1161.00,Nurse Midwives,48.2,0.51,47.4,49.1,54.8,58.1,Human-anchored,1.0,Human held,1.0
+29-1141.00,Registered Nurses,47.7,0.38,47.1,48.3,51.0,53.4,Human-anchored,1.0,Human held,1.0
+29-2033.00,Nuclear Medicine Technologists,47.26,0.51,46.4,48.1,42.3,45.5,Human-anchored,1.0,Human held,0.9325
+19-4051.00,Nuclear Technicians,47.49,0.65,46.3,48.5,38.2,42.1,Human-anchored,1.0,Human held,1.0
+29-1242.00,"Orthopedic Surgeons, Except Pediatric",47.42,0.51,46.6,48.2,51.1,54.3,Human-anchored,1.0,Human held,1.0
+29-2081.00,"Opticians, Dispensing",48.42,0.64,47.4,49.5,44.8,48.7,Human-anchored,1.0,Human held,0.395
+29-1131.00,Veterinarians,47.67,0.46,46.9,48.4,49.6,52.4,Human-anchored,1.0,Human held,1.0
+29-2032.00,Diagnostic Medical Sonographers,47.2,0.45,46.4,47.9,45.1,47.7,Human-anchored,1.0,Human held,1.0
+19-4092.00,Forensic Science Technicians,46.92,1.0,45.1,48.5,42.2,48.5,Human-anchored,1.0,Human held,1.0
+29-1241.00,"Ophthalmologists, Except Pediatric",47.92,0.55,47.0,48.8,54.6,57.7,Human-anchored,1.0,Human held,1.0
+29-1214.00,Emergency Medicine Physicians,47.26,0.57,46.3,48.2,55.2,58.7,Human-anchored,1.0,Human held,1.0
+29-1243.00,Pediatric Surgeons,45.93,0.51,45.1,46.8,49.8,53.0,Human-anchored,1.0,Human held,1.0
+29-1212.00,Cardiologists,46.53,0.45,45.8,47.3,51.5,54.1,Human-anchored,1.0,Human held,1.0
+29-1229.03,Urologists,45.26,0.6,44.3,46.3,49.9,53.5,Human-anchored,1.0,Human held,1.0
+29-9099.01,Midwives,45.42,0.43,44.7,46.2,49.9,52.5,Human-anchored,1.0,Human held,1.0
+29-2034.00,Radiologic Technologists and Technicians,45.33,0.5,44.5,46.1,42.0,45.0,Human-anchored,1.0,Human held,1.0
+29-1041.00,Optometrists,45.68,0.63,44.6,46.7,50.8,54.9,Human-anchored,1.0,Human held,1.0
+29-2099.01,Neurodiagnostic Technologists,44.69,0.64,43.6,45.7,44.5,48.3,Human-anchored,1.0,Human held,1.0
+29-2035.00,Magnetic Resonance Imaging Technologists,44.87,0.48,44.1,45.6,39.9,42.7,Human-anchored,1.0,Human held,1.0
+29-2031.00,Cardiovascular Technologists and Technicians,43.58,0.48,42.8,44.3,40.0,42.9,Human-anchored,1.0,Human held,1.0
+29-1023.00,Orthodontists,44.51,0.67,43.4,45.7,47.9,52.0,Human-anchored,1.0,Human held,1.0
+29-1211.00,Anesthesiologists,43.99,0.51,43.2,44.8,48.1,51.3,Human-anchored,1.0,Human held,1.0
+29-1292.00,Dental Hygienists,43.23,0.72,42.1,44.4,39.4,44.0,Human-anchored,1.0,Human held,1.0
+29-2061.00,Licensed Practical and Licensed Vocational Nurses,43.32,0.48,42.6,44.1,38.2,40.9,Human-anchored,1.0,Human held,1.0
+29-1229.04,Physical Medicine and Rehabilitation Physicians,44.11,0.64,43.0,45.1,51.8,55.6,Human-anchored,1.0,Human held,1.0
+29-1124.00,Radiation Therapists,43.24,0.43,42.5,43.9,39.9,42.6,Human-anchored,1.0,Human held,1.0
+29-2011.04,Histotechnologists,41.47,0.78,40.3,42.8,27.2,31.6,Human-anchored,1.0,Human held,1.0
+29-1141.03,Critical Care Nurses,42.85,0.43,42.1,43.6,44.4,47.0,Human-anchored,1.0,Human held,1.0
+29-1291.00,Acupuncturists,42.32,0.78,41.1,43.7,44.4,49.1,Human-anchored,1.0,Human held,1.0
+29-1126.00,Respiratory Therapists,42.65,0.48,41.9,43.5,43.3,46.3,Human-anchored,1.0,Human held,1.0
+29-2091.00,Orthotists and Prosthetists,42.9,0.68,41.8,44.1,40.7,44.9,Human-anchored,1.0,Human held,1.0
+29-2053.00,Psychiatric Technicians,41.46,0.51,40.6,42.3,40.3,43.4,Human-anchored,1.0,Human held,1.0
+29-1151.00,Nurse Anesthetists,41.72,0.49,40.9,42.4,40.2,43.1,Human-anchored,1.0,Human held,1.0
+29-2042.00,Emergency Medical Technicians,40.98,0.66,40.0,42.1,39.3,43.3,Human-anchored,1.0,Human held,1.0
+29-2055.00,Surgical Technologists,38.66,0.64,37.6,39.7,27.4,31.2,Human-anchored,1.0,Human held,1.0
+29-2099.05,Ophthalmic Medical Technologists,39.17,0.87,37.8,40.6,30.0,35.1,Human-anchored,1.0,Human held,1.0
+29-2056.00,Veterinary Technologists and Technicians,38.73,0.43,38.0,39.4,30.9,33.5,Human-anchored,1.0,Human held,1.0
+29-2092.00,Hearing Aid Specialists,38.7,0.8,37.3,40.0,33.5,38.5,Human-anchored,1.0,Human held,1.0
+29-2043.00,Paramedics,38.67,0.69,37.5,39.9,41.3,45.6,Human-anchored,1.0,Human held,1.0
+29-1021.00,"Dentists, General",36.5,0.67,35.4,37.6,34.8,38.9,Human-anchored,1.0,Human held,1.0
+29-2012.01,Histology Technicians,34.69,1.3,32.6,36.7,13.0,20.4,Human-anchored,1.0,Human held,1.0
+29-1071.01,Anesthesiologist Assistants,35.84,0.59,34.9,36.8,31.4,35.1,Human-anchored,1.0,Human held,1.0
+29-2057.00,Ophthalmic Medical Technicians,36.75,0.88,35.4,38.2,26.2,31.5,Human-anchored,1.0,Human held,1.0
+29-1024.00,Prosthodontists,30.17,0.9,28.6,31.6,23.8,29.5,Human-anchored,1.0,Human held,1.0
+29-9093.00,Surgical Assistants,30.57,0.45,29.8,31.3,22.2,25.0,Human-anchored,1.0,Human held,1.0
+29-1022.00,Oral and Maxillofacial Surgeons,29.92,0.87,28.6,31.5,30.5,35.9,Human-anchored,1.0,Human held,1.0

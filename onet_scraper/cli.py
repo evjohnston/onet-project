@@ -43,6 +43,7 @@ from .stages import (
     run_smoke,
     run_retest,
     run_consolidate,
+    run_uncertainty,
     run_scroller,
     run_score,
 )
@@ -116,6 +117,8 @@ def build_parser() -> argparse.ArgumentParser:
                         help="comma-separated top-level STEM page ids (default: all). "
                              f"Valid: {','.join(TOP_LEVEL_CATEGORIES)}. Sub-disciplines "
                              "are sections of these pages and are captured automatically.")
+    parser.add_argument("--trials", type=int, default=400,
+                        help="resamples for the uncertainty stage (default 400)")
     parser.add_argument("--fix-figures", action="store_true",
                         help="with the validate-doc stage, regenerate the "
                              "registered tables from the data before checking")
@@ -144,7 +147,7 @@ def build_parser() -> argparse.ArgumentParser:
         default="run",
         choices=["run", "fetch-stem", "fetch-occupations", "fetch-bulk",
                  "fetch-descriptors", "build", "validate", "network", "score",
-                 "report", "employment", "validate-external", "figures", "story", "churn", "pathways", "publish", "scenarios", "security", "validate-derived", "validate-doc", "smoke", "retest", "consolidate",
+                 "report", "employment", "validate-external", "figures", "story", "churn", "pathways", "publish", "scenarios", "security", "validate-derived", "validate-doc", "smoke", "retest", "consolidate", "uncertainty",
                  "clean-cache"],
         help="which stage to run (default: run = all of them)",
     )
@@ -249,6 +252,10 @@ def main(argv: list[str] | None = None) -> int:
 
     if stage == "smoke":
         run_smoke(settings, chrome=args.chrome)
+        return 0
+
+    if stage == "uncertainty":
+        run_uncertainty(settings, trials=args.trials)
         return 0
 
     if stage == "consolidate":

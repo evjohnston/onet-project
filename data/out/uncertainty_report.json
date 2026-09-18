@@ -1,0 +1,117 @@
+{
+  "trials": 400,
+  "seed": 20260918,
+  "noise": {
+    "automation_feasibility_today": 4.1823,
+    "llm_exposure": 4.0202,
+    "physical_embodiment_required": 3.5645,
+    "interpersonal_demand": 3.3857,
+    "judgment_under_uncertainty": 3.1286,
+    "accountability_requirement": 3.8526,
+    "error_cost": 3.3835
+  },
+  "occupations": 268,
+  "median_susceptibility_ci_width": 1.8,
+  "quadrant_unstable": 3,
+  "handoff_unstable": 3,
+  "scenarios": {
+    "modest": {
+      "mean": 1163.46,
+      "sd": 31.62,
+      "p05": 1108,
+      "p95": 1212,
+      "width": 104,
+      "published": 1166
+    },
+    "substantial": {
+      "mean": 2584.61,
+      "sd": 27.99,
+      "p05": 2533,
+      "p95": 2628,
+      "width": 95,
+      "published": 2621
+    },
+    "extreme": {
+      "mean": 3837.05,
+      "sd": 23.15,
+      "p05": 3798,
+      "p95": 3872,
+      "width": 74,
+      "published": 3860
+    }
+  },
+  "least_stable_quadrant": [
+    {
+      "title": "Hydrologists",
+      "published": "Human-anchored",
+      "holds": 0.355,
+      "modal": "Insulated"
+    },
+    {
+      "title": "Zoologists and Wildlife Biologists",
+      "published": "Contested",
+      "holds": 0.395,
+      "modal": "Contested"
+    },
+    {
+      "title": "Medical and Health Services Managers",
+      "published": "Contested",
+      "holds": 0.4725,
+      "modal": "Displaceable"
+    },
+    {
+      "title": "Validation Engineers",
+      "published": "Insulated",
+      "holds": 0.505,
+      "modal": "Insulated"
+    },
+    {
+      "title": "Dietetic Technicians",
+      "published": "Contested",
+      "holds": 0.5375,
+      "modal": "Contested"
+    },
+    {
+      "title": "Family Medicine Physicians",
+      "published": "Human-anchored",
+      "holds": 0.545,
+      "modal": "Human-anchored"
+    },
+    {
+      "title": "Clinical Nurse Specialists",
+      "published": "Human-anchored",
+      "holds": 0.5825,
+      "modal": "Human-anchored"
+    },
+    {
+      "title": "Architectural and Civil Drafters",
+      "published": "Displaceable",
+      "holds": 0.6325,
+      "modal": "Displaceable"
+    },
+    {
+      "title": "Mechanical Drafters",
+      "published": "Displaceable",
+      "holds": 0.6475,
+      "modal": "Displaceable"
+    },
+    {
+      "title": "Nanosystems Engineers",
+      "published": "Human-anchored",
+      "holds": 0.6575,
+      "modal": "Human-anchored"
+    },
+    {
+      "title": "Nurse Practitioners",
+      "published": "Contested",
+      "holds": 0.6675,
+      "modal": "Contested"
+    },
+    {
+      "title": "Electrical and Electronics Drafters",
+      "published": "Insulated",
+      "holds": 0.6725,
+      "modal": "Insulated"
+    }
+  ]
+}
