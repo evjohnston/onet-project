@@ -443,13 +443,14 @@ def run_scroller(settings: Settings) -> Path:
         moves = read_table(settings.out_dir, "transitions")
         stranded = read_table(settings.out_dir, "stranded_occupations")
         # a handful of each, biggest first, for the figure
+        from .scroller import _clip
         pathways["moveSample"] = [
-            {"t": m["title"][:28], "d": m["destination"][:28],
+            {"t": _clip(m["title"], 28), "d": _clip(m["destination"], 28),
              "s": float(m["susceptibility"]), "ds": float(m["destination_susceptibility"]),
              "v": m["verdict"]}
             for m in moves[:6]]
         pathways["strandedSample"] = [
-            {"t": r["title"][:28], "s": float(r["susceptibility"])}
+            {"t": _clip(r["title"], 28), "s": float(r["susceptibility"])}
             for r in stranded[:6]]
     ch_path = settings.out_dir / "churn_report.json"
     churn = json.loads(ch_path.read_text()) if ch_path.exists() else {}

@@ -249,7 +249,15 @@ BUILD.ladder = function(ctx){
     const dRe  = Dot(g, xs(D.ladder.reach[i]), y, 9, 'ink coral', 3300+i);
     const num  = Txt(g, xs(Math.max(D.ladder.now[i], D.ladder.reach[i]))+26, y+6,
                      D.ladder.now[i] + ' → ' + D.ladder.reach[i], {cls:'sm', op:0});
-    return {lab:lab, bar:bar, dNow:dNow, dRe:dRe, num:num, i:i};
+    /* The gap between the two markers IS the pending handoff, so the dots run
+       exactly that distance and no further - and in the direction the
+       occupations would travel, which is not always rightward: a stage can lose
+       population to the one above it. */
+    const a = xs(D.ladder.now[i]), b = xs(D.ladder.reach[i]);
+    const run = Runners(g, [[a, y],[b, y]], 0,
+      {cls: b > a ? 'coral' : 'soft', dur: 3.8 + i*0.4, r: 2.8});
+    return {lab:lab, bar:bar, dNow:dNow, dRe:dRe, num:num, i:i,
+            run:run, span: Math.abs(b - a)};
   });
   const cross = Txt(g, X0-32, TOP+3*GAP+34, 'HANDOFF BY EROSION — NO EVENT TO OBSERVE',
                     {cls:'sm', anchor:'end', op:0});
@@ -257,6 +265,12 @@ BUILD.ladder = function(ctx){
   return function(p, idx){
     rows.forEach(function(r){
       const t0 = 0.06 + r.i*0.055;
+      /* Dot count scales with the distance still to cross, so the stages with
+         the most pending movement are the busiest. Under ~24 units apart there
+         is no room for a stream and the markers say it better. */
+      const t = eo(clamp((p-t0-0.06)/0.08,0,1));
+      r.run.set(t > 0.94 && r.span > 24 ? Math.max(2, Math.round(r.span / 58)) : 0);
+      r.run.opacity(t);
       r.lab.style.opacity = eo(clamp((p-t0)/0.06,0,1));
       r.bar.draw(eo(clamp((p-t0-0.02)/0.08,0,1)));
       r.dNow.draw(eo(clamp((p-t0-0.04)/0.06,0,1)));
@@ -802,7 +816,14 @@ BUILD.pathways = function(ctx){
                    {cls:'sm', anchor:'end', op:0});
     const lb = Txt(g, R+20, y+5, m.d.toUpperCase() + '  ' + Math.round(m.ds),
                    {cls:'sm dim', op:0});
-    return {arrow:arrow, a:a, b:b, la:la, lb:lb, i:i};
+    /* Each row is a move that exists, so the dots travel it. Only the real
+       moves carry a stream: a row marked "Real move" clears all three of the
+       transition bars, and one that does not is drawn to show it was tested and
+       failed - putting workers on it would say the opposite. */
+    const real = m.v === 'Real move';
+    const run = Runners(g, [[L+16, y],[R-16, y]], 0,
+      {cls: real ? 'blue' : 'coral', dur: 4.4 + i*0.5, r: 3.0});
+    return {arrow:arrow, a:a, b:b, la:la, lb:lb, i:i, run:run, real:real};
   });
   const head = Txt(g, 800, 196, 'THE MOVES THAT EXIST', {cls:'sm', anchor:'middle', op:0});
   const big = Txt(g, 800, 690, String(T.stranded || 0), {cls:'big', anchor:'middle', op:0});
@@ -820,6 +841,11 @@ BUILD.pathways = function(ctx){
 
   return function(p, idx){
     head.style.opacity = eo(clamp(p*6,0,1));
+    rows.forEach(function(r){
+      const shown = eo(clamp((p - 0.10 - r.i*0.06)/0.10, 0, 1));
+      r.run.set(shown > 0.94 && r.real ? 4 : 0);
+      r.run.opacity(shown);
+    });
     rows.forEach(function(r){
       const t0 = 0.08 + r.i*0.06;
       r.la.style.opacity = eo(clamp((p-t0)/0.06,0,1));

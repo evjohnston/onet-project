@@ -154,5 +154,11 @@
     "assertion": "motion is gated on scroll",
     "passed": true,
     "detail": ""
+  },
+  {
+    "page": "story.html",
+    "assertion": "runners traverse their paths",
+    "passed": true,
+    "detail": ""
   }
 ]

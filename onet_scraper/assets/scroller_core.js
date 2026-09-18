@@ -673,6 +673,51 @@ function Ribbon(parent, x0, y0, h0, x1, y1, h1, cls, seed){
   };
 }
 
+/* Dots travelling an arbitrary path.
+
+   Ribbon.dots() is the same mechanism bound to a band's centreline; this is the
+   loose version, for any run of points - an arrow between two jobs, the gap
+   between where a stage is and where it could be. Kept separate rather than
+   bolted onto Stroke because the interesting cases want to run along only PART
+   of a mark: the ladder's dots travel the distance still to be crossed, not the
+   whole bar.
+
+   CSS offset-path again, so N dots cost about what one does and the stagger is
+   an animation-delay. */
+function Runners(parent, pts, n, opt){
+  opt = opt || {};
+  const tone = (String(opt.cls || '').match(/\b(coral|acid|blue|violet|soft|ghost)\b/) || [,''])[1];
+  const holder = S('g', {class: 'sankey-dots' + (tone ? ' ' + tone : '')}, parent);
+  let count = -1;
+
+  function build(k, pathPts){
+    holder.textContent = '';
+    count = k;
+    if(!AMBIENT || k <= 0 || !pathPts || pathPts.length < 2) return;
+    const d = smoothD(pathPts, false);
+    const dur = opt.dur != null ? opt.dur : 5.4;
+    for(let i=0;i<k;i++){
+      const c = S('circle', {r: f2(opt.r != null ? opt.r : 3.2), class:'sankey-dot'}, holder);
+      c.style.offsetPath = 'path("' + d + '")';
+      c.style.animationDuration = f2(dur) + 's';
+      c.style.animationDelay = f2(-(i / k) * dur) + 's';
+    }
+  }
+  build(n, pts);
+
+  return {
+    g: holder,
+    /* Re-seed only when the count or the route actually changes - rebuilding
+       these every frame would restart every animation from zero. */
+    set: function(k, pathPts){
+      if(k === count && !pathPts) return;
+      build(k, pathPts || pts);
+    },
+    opacity: function(v){ holder.style.opacity = v; },
+    clear: function(){ holder.textContent = ''; count = 0; }
+  };
+}
+
 /* Motion only runs where it can be seen.
 
    Ambient drift, breathing and the travelling ink were animating in every one

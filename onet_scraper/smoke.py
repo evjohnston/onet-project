@@ -75,6 +75,22 @@ def _cells(column_header: str) -> Callable[[str], list[str]]:
     return extract
 
 
+
+def _runners_traverse(dom: str) -> bool:
+    """Read the probe's verdict out of the dumped DOM."""
+    m = re.search(r'data-probe="([^"]*)"', dom)
+    if not m:
+        return False
+    entries = [e for e in m.group(1).split() if ":" in e]
+    if not entries:
+        return False                    # the probe ran and found no runners
+    for entry in entries:
+        moved, _, total = entry.partition(":")[2].partition("/")
+        if not total or int(moved) != int(total):
+            return False
+    return True
+
+
 Assertion = tuple[str, Callable[[str], bool]]
 
 # Some occupations genuinely have no BLS employment match, so a column is not
@@ -143,17 +159,79 @@ PAGES: dict[str, Sequence[Assertion]] = {
         ("sankey ribbons built", lambda d: _count(r'class="ribbon')(d) >= 3),
         ("motion is gated on scroll",
          lambda d: "animation-play-state:paused" in d.replace(" ", "")),
+        # Every scene that builds runners must have them traversing their path.
+        # "n/n" for each scene the probe found dots in; a scene reporting 0/n
+        # has dots that are wired but going nowhere.
+        ("runners traverse their paths", _runners_traverse),
     ),
 }
 
 
-def render(binary: str, path: Path, wait_ms: int = RENDER_WAIT_MS) -> tuple[str, list[str]]:
-    """Return (post-JS DOM, console errors)."""
-    proc = subprocess.run(
-        [binary, "--headless", "--disable-gpu", "--no-sandbox", "--hide-scrollbars",
-         "--enable-logging=stderr", "--log-level=0",
-         f"--virtual-time-budget={wait_ms}", "--dump-dom", path.as_uri()],
-        capture_output=True, text=True, timeout=180)
+# Headless Chrome does not advance the animation clock - a plain translateX
+# keyframe reports the same position a second later, and getAnimations()
+# currentTime stays at 0. So "does it animate" cannot be observed by waiting.
+# It CAN be observed by driving the timeline: setting an animation's currentTime
+# forces the computed style at that moment, so sampling a mark's position at two
+# points on its own timeline proves the animation is wired and traverses its
+# path. That is what this probe does, and it is the only way to catch an
+# animation regression in CI.
+ANIMATION_PROBE = """
+(function(){
+  var out = [];
+  /* Runners are created when a scene reaches the progress that reveals them,
+     so at page load - every scene at 0 - there are none to sample. Drive them
+     all to the end first. Without this the probe found nothing and reported
+     success by vacuity, which is the one result a check must never give. */
+  if(window.__story){ window.__story.pause(); window.__story.freezeAll(1); }
+  document.querySelectorAll('[data-scene]').forEach(function(sec){
+    var dots = sec.querySelectorAll('.sankey-dot');
+    if(!dots.length) return;
+    var moved = 0;
+    dots.forEach(function(d){
+      var a = d.getAnimations()[0];
+      if(!a || !a.effect) return;
+      var dur = a.effect.getTiming().duration;
+      if(!dur) return;
+      a.currentTime = 0;       var p0 = d.getBoundingClientRect();
+      a.currentTime = dur*0.4; var p1 = d.getBoundingClientRect();
+      a.currentTime = 0;
+      if(Math.abs(p1.left-p0.left) + Math.abs(p1.top-p0.top) > 1) moved++;
+    });
+    out.push(sec.id + ':' + moved + '/' + dots.length);
+  });
+  document.body.setAttribute('data-probe', out.join(' '));
+})();
+"""
+
+
+def render(binary: str, path: Path, wait_ms: int = RENDER_WAIT_MS,
+           probe: str = "") -> tuple[str, list[str]]:
+    """Return (post-JS DOM, console errors).
+
+    `probe` is script run against the loaded page before the DOM is dumped; it
+    is expected to record its findings in an attribute so they survive into the
+    dump. Injected by rewriting the page into a temporary copy, because
+    --dump-dom offers no way to evaluate script.
+    """
+    target = path
+    tmp = None
+    if probe:
+        html = path.read_text()
+        if "</body>" in html:
+            tmp = path.parent / (".smoke-probe-" + path.name)
+            tmp.write_text(html.replace(
+                "</body>", "<script>addEventListener('load', function(){"
+                           "setTimeout(function(){" + probe + "}, 400);});</script></body>", 1))
+            target = tmp
+    try:
+        proc = subprocess.run(
+            [binary, "--headless", "--disable-gpu", "--no-sandbox", "--hide-scrollbars",
+             "--enable-logging=stderr", "--log-level=0",
+             f"--virtual-time-budget={wait_ms}", "--dump-dom", target.as_uri()],
+            capture_output=True, text=True, timeout=180)
+    finally:
+        if tmp and tmp.exists():
+            tmp.unlink()
     errors = [ln for ln in proc.stderr.splitlines()
               if "Uncaught" in ln or "SEVERE:" in ln]
     return proc.stdout, errors
@@ -169,7 +247,8 @@ def check(binary: str, docs: Path,
             results.append({"page": name, "assertion": "file exists",
                             "passed": False, "detail": f"{path} not found"})
             continue
-        dom, errors = render(binary, path)
+        dom, errors = render(binary, path,
+                             probe=ANIMATION_PROBE if name == "story.html" else "")
         results.append({"page": name, "assertion": "no uncaught console errors",
                         "passed": not errors,
                         "detail": "; ".join(errors[:3]) or "clean"})

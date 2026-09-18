@@ -29,6 +29,23 @@ def _f(row: dict[str, Any], key: str, default: float = 0.0) -> float:
         return default
 
 
+def _clip(title: str, n: int) -> str:
+    """Shorten to n characters on a word boundary.
+
+    Slicing mid-word produced figure labels like "BUSINESS INTELLIGENCE ANALYS"
+    and "INFORMATION TECHNOLOGY PROJE", which read as different occupations
+    rather than as shortened ones. One of the three sites did not even append an
+    ellipsis, so its label was simply wrong instead of visibly truncated.
+    """
+    if len(title) <= n:
+        return title
+    cut = title[:n]
+    space = cut.rfind(" ")
+    if space > n * 0.55:
+        cut = cut[:space]
+    return cut.rstrip(" ,;:") + "\u2026"
+
+
 def build_payload(
     occ_susc: Sequence[dict[str, Any]],
     tasks: Sequence[dict[str, Any]],
@@ -67,7 +84,7 @@ def build_payload(
 
     def entry(b, highlight=False):
         title = b["title"]
-        return {"t": (title[:27] + "\u2026") if len(title) > 28 else title,
+        return {"t": _clip(title, 28),
                 "fo": nsqrt(_f(b, "frey_osborne"), fo_lo, fo_hi),
                 "ours": norm(_f(b, "our_susceptibility"), us_lo, us_hi),
                 "hl": highlight}
@@ -165,7 +182,7 @@ def build_payload(
     # --- 04 frontier --------------------------------------------------------
     frontier = [{"T": _f(h, "tractability"), "R": _f(h, "resistance"),
                  "cls": h.get("classification", "")} for h in handoff]
-    watch = [{"t": h["title"][:30], "T": _f(h, "tractability"), "R": _f(h, "resistance")}
+    watch = [{"t": _clip(h["title"], 30), "T": _f(h, "tractability"), "R": _f(h, "resistance")}
              for h in handoff if h.get("classification") == "Watch point"][:6]
 
     # --- 05 ladder ----------------------------------------------------------
@@ -189,7 +206,7 @@ def build_payload(
     people = {
         "total_m": round(head.get("total_employment", 0) / 1e6, 1),
         "quadrants": quadrants,
-        "top": [{"t": s["soc_title"][:30], "emp": _f(s, "total_employment"),
+        "top": [{"t": _clip(s["soc_title"], 30), "emp": _f(s, "total_employment"),
                  "s": _f(s, "susceptibility")} for s in top],
         "shift": f"{head.get('weighting_shifts_result_by', 0):+.1f}",
     }
