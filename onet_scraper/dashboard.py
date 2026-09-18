@@ -51,6 +51,8 @@ th, td { text-align: left; padding: 6px 9px; border-bottom: 1px solid var(--grid
        opacity: .45; transition: opacity .15s; }
 .card:hover .png { opacity: 1; }
 .pending { color: var(--text-muted); font-size: 12.5px; padding: 26px 0; }
+abbr { text-decoration: none; border-bottom: 1px dotted var(--text-muted);
+       font-size: 10px; color: var(--text-muted); cursor: help; margin-left: 4px; }
 
 /* Layout the theme does not own. */
 .viz-root { background: var(--surface-2); padding: 28px 32px 64px; min-height: 100vh; }
@@ -258,6 +260,7 @@ def build_dashboard(
     net_nodes: Sequence[dict[str, Any]] | None = None,
     handoff: Sequence[dict[str, Any]] | None = None,
     dimensions: Sequence[dict[str, Any]] | None = None,
+    uncertainty: Sequence[dict[str, Any]] | None = None,
 ) -> Path:
     layout = {n["onet_soc_code"]: (_f(n, "layout_x", -1), _f(n, "layout_y", -1))
               for n in (net_nodes or [])}
@@ -330,6 +333,12 @@ def build_dashboard(
             "accountability_requirement", "error_cost")
     dims = {d["onet_soc_code"]: [_f(d, k) for k in DIMS] for d in (dimensions or [])}
 
+    # Per-occupation stability, so a reader looking up one job is told whether
+    # its label survives the measured noise. Three occupations' quadrants hold
+    # in under half the resamples and thirty-three more between 50% and 90%;
+    # without this the table presents all 268 with equal confidence.
+    unc = {u["onet_soc_code"]: u for u in (uncertainty or [])}
+
     hand = [
         {"c": h["onet_soc_code"], "t": h["title"],
          "T": _f(h, "tractability"), "R": _f(h, "resistance"),
@@ -338,7 +347,9 @@ def build_dashboard(
          "gap": _f(h, "willingness_gap"), "cls": h.get("classification", ""),
          "ero": _f(h, "erosion_risk"), "sur": _f(h, "surprise_potential"),
          "emp": _f(h, "total_employment", 0), "wx": h.get("weighty_crossing", ""),
-         "ty": (h.get("stem_occupation_types") or "").split(";")[0].strip()}
+         "ty": (h.get("stem_occupation_types") or "").split(";")[0].strip(),
+         "qh": _f(unc.get(h["onet_soc_code"], {}), "quadrant_holds", -1),
+         "hh": _f(unc.get(h["onet_soc_code"], {}), "handoff_holds", -1)}
         for h in (handoff or [])
     ]
     payload = {"hand": hand,
@@ -351,7 +362,8 @@ def build_dashboard(
 
     subtitle = (
         f"{len(occ)} STEM occupations &middot; {len(tsk):,} tasks &middot; {len(sub)} distinct subtasks. "
-        f"Every task rated through the subtask it belongs to, by {meta.get('model','a model')}. "
+        f"Every task rated through the subtask it belongs to; scores are "
+        f"{meta.get('provenance', meta.get('model','model-generated'))}. "
         "<strong>Exposure</strong> is whether a machine could do the work; "
         "<strong>anchoring</strong> is whether a human must. Susceptibility is the gap between them "
         "&mdash; positions are relative to other STEM occupations, not absolute risk."
@@ -1332,8 +1344,14 @@ const METRIC_LABEL = {s:'Susceptibility', gap:'Willingness gap', ero:'Erosion ri
 function answerRows() {
   return DATA.occ.map(o => {
     const h = HAND.get(o.c) || {};
+    // hh/qh are the stability of the handoff class and quadrant under the noise
+    // bootstrap. This function enumerates the fields it carries rather than
+    // spreading h, so a field added to the payload and not to this list arrives
+    // as undefined - which is how the stability flag silently rendered on
+    // nothing, including on row 1, whose class holds in only 55% of resamples.
     return {...o, gap: h.gap ?? o.g, ero: h.ero ?? 0, sur: h.sur ?? 0,
             emp: h.emp ?? 0, cls: h.cls ?? '', nowL: h.nowL ?? '', reachL: h.reachL ?? '',
+            hh: h.hh ?? -1, qh: h.qh ?? -1,
             empatrisk: (h.emp ?? 0) * o.s / 100};
   }).filter(r =>
       (!FILTER.cls || r.cls === FILTER.cls) &&
@@ -1371,7 +1389,15 @@ function renderAnswer() {
       (dupS ? '' : `<td class="num" style="color:${divergingColor(r.s)}">${r.s.toFixed(0)}</td>`) +
       `<td class="num">${r.emp ? Math.round(r.emp).toLocaleString()
         : '<span title="No BLS employment match for this O*NET code">n/a</span>'}</td>` +
-      `<td><span class="sw" style="background:var(${clsColor})"></span>${esc(r.cls)}</td>` +
+      `<td><span class="sw" style="background:var(${clsColor})"></span>${esc(r.cls)}` +
+        // Flag a label the measured noise does not support. 400 resamples;
+        // under half means the published label loses to another one more often
+        // than it wins, which a bare label would never tell the reader.
+        (r.hh >= 0 && r.hh < 0.5
+          ? ` <abbr title="Holds in only ${Math.round(100*r.hh)}% of 400 noise resamples — do not cite at this level">unstable</abbr>`
+          : r.hh >= 0 && r.hh < 0.9
+          ? ` <abbr title="Holds in ${Math.round(100*r.hh)}% of 400 noise resamples">~</abbr>`
+          : '') + `</td>` +
       // An occupation with no pending crossing printed its stage label twice
       // with an arrow between. Show the arrow only when the stage moves.
       `<td style="color:var(--text-secondary)">${esc(r.nowL)}` +

@@ -15,5 +15,15 @@
     "est_cost_usd": 8.2,
     "model": "claude-opus-5",
     "note": "estimate only; adaptive thinking makes output tokens variable"
-  }
+  },
+  "raters": [
+    "claude-opus-5",
+    "claude-sonnet-5"
+  ],
+  "passes": 3,
+  "rater_counts": {
+    "claude-opus-5": 963,
+    "claude-sonnet-5": 963
+  },
+  "provenance": "the mean of 3 independent scoring passes (claude-opus-5, claude-sonnet-5)"
 }

@@ -884,7 +884,7 @@ say about which work is exposed to automation, and which is held by accountabili
       for exposure to large language models and mathematicians ranks third of 268.
       Across the 150 jobs carrying both measures the correlation is 0.006. Not weak
       agreement. None.</p>
-      <div class="credit"><p>Scored by {meta.get('model','a model')}<br>
+      <div class="credit"><p>Scores are {meta.get('provenance', meta.get('model','model-generated'))}<br>
       Validated against human expert ratings at r&nbsp;=&nbsp;0.85</p></div>
     </div>
   </div>

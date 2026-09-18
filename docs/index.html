@@ -146,7 +146,7 @@ footer a{color:var(--ink)}
     <a class="card" href="https://github.com/evjohnston/onet-project/blob/main/METHODOLOGY.md">
       <p class="t">On GitHub</p>
       <p class="d">The same document as markdown, alongside the pipeline that produced
-      every figure in it, the 226 tests, and <code>manifest.json</code> with per-file row
+      every figure in it, the 229 tests, and <code>manifest.json</code> with per-file row
       counts and content hashes for each run.</p>
       <span class="go">View source &rarr;</span>
     </a>
@@ -168,10 +168,17 @@ footer a{color:var(--ink)}
 </div></section>
 
 <footer><div class="wrap">
-  <p><b>Scores are model-generated.</b> The 963 subtask ratings come from
-  claude-opus-5 under a versioned rubric, not from a survey. They
-  correlate with independent human expert ratings at r&nbsp;=&nbsp;0.85,
-  which is evidence of validity rather than a substitute for it.</p>
+  <p><b>Scores are model-generated.</b> The 963 subtask ratings are
+  the mean of 3 independent scoring passes (claude-opus-5, claude-sonnet-5) under a versioned rubric, not a
+  survey. They correlate with independent human expert ratings at
+  r&nbsp;=&nbsp;0.85, which is evidence of validity rather than a
+  substitute for it. Two passes of the same model differ by
+  3.8 points on average, and that noise carried through
+  the whole derivation leaves a 90% interval of about
+  1.8 points on an occupation's
+  susceptibility &mdash; but 3 occupations have a quadrant label
+  that survives fewer than half of those resamples and should not be cited at that level. See
+  <a href="methodology.html#7-2-error-bars">&sect;7.2</a>.</p>
   <p>O*NET data is provided by the U.S. Department of Labor under
   <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; O*NET® is a
   trademark of USDOL/ETA. Employment and wages from the BLS Occupational Employment and

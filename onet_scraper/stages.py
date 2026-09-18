@@ -292,10 +292,14 @@ def run_report(settings: Settings) -> dict[str, Any]:
         result["subtask_susceptibility"],
         splits,
         {"model": scoring_meta.get("model", ""),
-         "rubric_version": scoring_meta.get("rubric_version", "")},
+         "rubric_version": scoring_meta.get("rubric_version", ""),
+         # written by the consolidate stage; the display surfaces say "scored
+         # by X" and X stopped being one model
+         "provenance": scoring_meta.get("provenance", "")},
         soc=soc_rows,
         employment=employment_meta,
         benchmarks=read_table(settings.out_dir, "external_benchmarks"),
+        uncertainty=read_table(settings.out_dir, "occupation_uncertainty"),
         net_edges=read_table(settings.out_dir, "network_occupation_edges"),
         net_nodes=read_table(settings.out_dir, "network_occupation_nodes"),
         handoff=handoff_rows,
@@ -967,6 +971,31 @@ def run_consolidate(settings: Settings) -> dict[str, Any]:
              len(task_scores), len(occ_scores))
     (settings.out_dir / "consolidation_report.json").write_text(
         json.dumps(summary, indent=2))
+
+    # Record the real provenance where the display surfaces already look for it.
+    # Three pages said "scored by claude-opus-5" after consolidation had made the
+    # canonical scores a mean over three passes, and nothing could have caught
+    # it because each was reading a field the score stage wrote and the
+    # consolidate stage did not update.
+    raters = sorted({r for row in rows for r in
+                     str(row.get("raters", "")).split(";") if r and r != "?"})
+    counts = {}
+    for row in rows:
+        for r in str(row.get("raters", "")).split(";"):
+            if r and r != "?":
+                counts[r] = counts.get(r, 0) + 1
+    report_path = settings.out_dir / "scoring_report.json"
+    if report_path.exists():
+        meta = json.loads(report_path.read_text())
+        meta["raters"] = raters
+        meta["passes"] = max((row.get("n_raters") or 1) for row in rows)
+        meta["rater_counts"] = counts
+        meta["provenance"] = (
+            f"the mean of {meta['passes']} independent scoring passes "
+            f"({', '.join(raters)})" if meta["passes"] > 1 else raters[0]
+            if raters else "a model")
+        report_path.write_text(json.dumps(meta, indent=2))
+        log.info("provenance recorded: %s", meta["provenance"])
 
     log.info("-" * 72)
     log.info("consolidated %d subtasks by rater count: %s",

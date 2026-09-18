@@ -44,6 +44,8 @@ def build_index(out_dir: Path) -> str:
     pw = _read(out_dir, "pathways_report.json")
     ch = _read(out_dir, "churn_report.json")
     sc = _read(out_dir, "scoring_report.json")
+    unc = _read(out_dir, "uncertainty_report.json")
+    rel = _read(out_dir, "reliability_report.json")
 
     human = next((c for c in ext.get("susceptibility_vs", [])
                   if c["measure"] == "human_gamma"), {})
@@ -249,7 +251,7 @@ footer a{{color:var(--ink)}}
     <a class="card" href="{REPO}/blob/main/METHODOLOGY.md">
       <p class="t">On GitHub</p>
       <p class="d">The same document as markdown, alongside the pipeline that produced
-      every figure in it, the 226 tests, and <code>manifest.json</code> with per-file row
+      every figure in it, the 229 tests, and <code>manifest.json</code> with per-file row
       counts and content hashes for each run.</p>
       <span class="go">View source &rarr;</span>
     </a>
@@ -271,10 +273,17 @@ footer a{{color:var(--ink)}}
 </div></section>
 
 <footer><div class="wrap">
-  <p><b>Scores are model-generated.</b> The {v.get('distinct_subtasks', 0)} subtask ratings come from
-  {sc.get('model', 'a language model')} under a versioned rubric, not from a survey. They
-  correlate with independent human expert ratings at r&nbsp;=&nbsp;{human.get('pearson', 0):.2f},
-  which is evidence of validity rather than a substitute for it.</p>
+  <p><b>Scores are model-generated.</b> The {v.get('distinct_subtasks', 0)} subtask ratings are
+  {sc.get('provenance', sc.get('model', 'model-generated'))} under a versioned rubric, not a
+  survey. They correlate with independent human expert ratings at
+  r&nbsp;=&nbsp;{human.get('pearson', 0):.2f}, which is evidence of validity rather than a
+  substitute for it. Two passes of the same model differ by
+  {rel.get('test_retest_abs_diff', 3.8):.1f} points on average, and that noise carried through
+  the whole derivation leaves a 90% interval of about
+  {unc.get('median_susceptibility_ci_width', 1.8):.1f} points on an occupation's
+  susceptibility &mdash; but {unc.get('quadrant_unstable', 0)} occupations have a quadrant label
+  that survives fewer than half of those resamples and should not be cited at that level. See
+  <a href="methodology.html#7-2-error-bars">&sect;7.2</a>.</p>
   <p>O*NET data is provided by the U.S. Department of Labor under
   <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; O*NET® is a
   trademark of USDOL/ETA. Employment and wages from the BLS Occupational Employment and

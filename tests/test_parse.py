@@ -657,3 +657,44 @@ class TestFigureRefresh(unittest.TestCase):
             if marker in before:
                 self.assertIn(marker, after)
             self.assertEqual(before.count("## "), after.count("## "))
+
+
+class TestDashboardRowFields(unittest.TestCase):
+    """answerRows() enumerates the fields it carries, so a field added to the
+    payload and not to that list arrives as undefined. That is how the
+    stability flag rendered on nothing - including on row 1, whose handoff
+    class holds in only 55% of resamples."""
+
+    def test_stability_fields_reach_the_row(self):
+        import inspect
+        from onet_scraper import dashboard
+        src = inspect.getsource(dashboard)
+        i = src.index("function answerRows()")
+        body = src[i:src.index("function renderAnswer()", i)]
+        for field in ("hh:", "qh:"):
+            self.assertIn(field, body,
+                          f"answerRows() does not carry {field} into the row")
+
+    def test_the_table_reads_those_fields(self):
+        import inspect
+        from onet_scraper import dashboard
+        src = inspect.getsource(dashboard)
+        self.assertIn("r.hh", src)
+
+    def test_every_payload_field_the_table_reads_is_carried(self):
+        """Generalises it: any r.<field> in the row template must appear in
+        answerRows' object literal or come from DATA.occ via the spread."""
+        import inspect, re
+        from onet_scraper import dashboard
+        src = inspect.getsource(dashboard)
+        i = src.index("function answerRows()")
+        rows_body = src[i:src.index("function renderAnswer()", i)]
+        j = src.index("function renderAnswer()")
+        table_body = src[j:j + 3000]
+        carried = set(re.findall(r"(\w+):", rows_body))
+        occ_fields = {"c", "t", "s", "e", "a", "g", "hi", "n", "q", "z", "x", "y",
+                      "ty", "emp", "wage"}
+        for field in set(re.findall(r"\br\.(\w+)\b", table_body)):
+            self.assertTrue(field in carried or field in occ_fields,
+                            f"the table reads r.{field} but answerRows() does "
+                            f"not carry it")
