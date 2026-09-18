@@ -1,6 +1,23 @@
 # Scraped pages and upstream bulk files - large, and re-fetched on demand.
 data/cache/
-data/raw/
+# data/raw holds two very different kinds of thing, and blanket-ignoring it was
+# treating them the same.
+#
+#   re-fetchable   data/raw/bulk is 132 MB of O*NET release archives and
+#                  occupations.jsonl is scraped HTML. Both cost only time and
+#                  politeness to reproduce, and neither belongs in git.
+#   irreproducible the scoring checkpoints. Three passes, 1.8 MB, $8.86 of API
+#                  spend - and a re-run would NOT give the same numbers, because
+#                  sampling noise between two passes of the same model is 3.8
+#                  points (METHODOLOGY.md 7.1). Losing these means losing the
+#                  measurement, not just the money.
+data/raw/*
+!data/raw/subtask_scores.jsonl
+!data/raw/retest/
+data/raw/retest/*
+!data/raw/retest/*/
+data/raw/retest/*/*
+!data/raw/retest/*/subtask_scores.jsonl
 
 # Regenerable outputs. Everything here is rebuilt from the committed CSVs:
 #   python -m onet_scraper report      -> sqlite tables, dashboard
