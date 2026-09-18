@@ -140,7 +140,19 @@ function Stroke(parent, pts, opt){
   const extra = /\bopt\b/.test(cl) ? ' opt' : '';   /* survives into the mark's class */
   const base = roughPts(pts, o.amp, o.seed);
 
-  const g = S('g',{filter:'url(#grain)'}, parent);
+  /* Ambient motion goes on a WRAPPER, not on the mark's own group.
+
+     drift animates transform and breathe animates opacity - which are exactly
+     the two things scale() and opacity() write to. A CSS animation beats an
+     inline style, so animating the same group the script controls would have
+     let the ambience silently override a scene's own state. Today no drifting
+     mark is also scaled (drift is ghost-only; the scaled squares are soft,
+     violet, blue and acid) but that is a coincidence, not a design. Nesting
+     makes the two transforms compose instead of compete. */
+  const ambient = AMBIENT && /\bghost\b/.test(cl)
+    && !/\bno-amb\b/.test(cl) && (o.seed % 3) === 0;
+  const host = ambient ? S('g', {class:'drift breathe'}, parent) : parent;
+  const g = S('g',{filter:'url(#grain)'}, host);
   const shapes = [];
   /* bleed first, so the solid mark sits on top of it */
   if(o.double){
@@ -164,19 +176,27 @@ function Stroke(parent, pts, opt){
      grain filter, and animating opacity on 1,400 filtered groups - which
      tagging every ghost and soft mark produced - is a lot of style recalculation
      for an effect that reads the same from a scattered subset. */
-  if(AMBIENT && /\bghost\b/.test(cl) && !/\bno-amb\b/.test(cl)
-     && (o.seed % 3) === 0){
+  if(ambient){
     const rr = prng(o.seed * 7 + 3);
-    g.classList.add('breathe');
-    g.style.setProperty('--dur', f2(4.6 + rr() * 3.2) + 's');
-    g.style.setProperty('--del', f2(rr() * 4.5) + 's');
+    host.style.setProperty('--dur', f2(4.6 + rr() * 3.2) + 's');
+    host.style.setProperty('--del', f2(rr() * 4.5) + 's');
+    /* And a slow wander, which is the other half of a field that looks alive.
+       Amplitude is in the drawing's own units - up to about 7 of 1600, so four
+       or five screen pixels at a typical width. Enough to catch the eye at the
+       edge of vision, not enough to read as a point relocating: these are the
+       faintest background marks and they carry context, not a value anyone
+       measures off the page. Composited transform, so it costs nothing per
+       frame. */
+    const ang = rr() * Math.PI * 2, mag = 3.4 + rr() * 3.6;
+    host.style.setProperty('--dx', f2(Math.cos(ang) * mag) + 'px');
+    host.style.setProperty('--dy', f2(Math.sin(ang) * mag) + 'px');
   }
   if(o.closed) core.setAttribute('fill-rule','evenodd');
   shapes.push(core);
 
   /* reveal along the mark's own direction, lazily — a clip is only built if
      something actually animates this mark */
-  let clipRect = null, drawn = -1;
+  let clipRect = null, drawn = -1, flowPath = null;
   let first = base[0], last = base[base.length-1];
   function buildClip(){
     let dx = last[0]-first[0], dy = last[1]-first[1];
@@ -253,7 +273,37 @@ function Stroke(parent, pts, opt){
       clipRect.setAttribute('width', f2(clipRect._span * k));
     },
     full: function(){ this.draw(1); },
-    opacity: function(v){ g.style.opacity = v; }
+    opacity: function(v){ g.style.opacity = v; },
+
+    /* An ink highlight that travels along the mark, continuously.
+
+       The marker geometry is a filled outline, not a strokable centreline, so a
+       dashed overlay cannot reuse it - this lays a separate stroked path down
+       the middle (the same Catmull-Rom curve the outline was built around) and
+       animates its dash offset. Motion along a path, rather than motion OF the
+       path: nothing moves off its own value, which is why this is safe to put
+       on an axis or a fitted curve.
+
+       Composited by the browser as a dash-offset animation, and it lives inside
+       the same reveal clip, so it stays hidden until the mark has been drawn. */
+    flow: function(on, opt){
+      opt = opt || {};
+      if(!on){ if(flowPath){ flowPath.remove(); flowPath = null; } return; }
+      if(!AMBIENT) return;
+      if(!flowPath){
+        flowPath = S('path', {d: smoothD(curPts, o.closed), class: 'inkflow'
+          + (curTone ? ' ' + curTone : '')}, g);
+      } else {
+        flowPath.setAttribute('d', smoothD(curPts, o.closed));
+      }
+      const len = opt.len != null ? opt.len : 46;
+      const gap = opt.gap != null ? opt.gap : 320;
+      flowPath.style.strokeWidth = f2((opt.w != null ? opt.w : w * 0.8));
+      flowPath.style.strokeDasharray = f2(len) + ' ' + f2(gap);
+      flowPath.style.setProperty('--flow-span', f2(len + gap));
+      flowPath.style.setProperty('--flow-dur', f2(opt.dur != null ? opt.dur : 5.2) + 's');
+      flowPath.style.setProperty('--flow-del', f2(opt.delay != null ? opt.delay : 0) + 's');
+    }
   };
 }
 

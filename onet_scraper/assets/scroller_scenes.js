@@ -190,6 +190,7 @@ BUILD.frontier = function(ctx){
   const curvePts = [];
   for(let T=28; T<=80; T+=2){ const R = Math.min(96,(53*53)/T); if(R>=26&&R<=86) curvePts.push([xs(T),ys(R)]); }
   const curve = Stroke(g, curvePts, {cls:'ink coral w3', amp:2.0});
+  let curveLit = false;
   const curveLab = Txt(g, xs(40)+14, ys(Math.min(96,2809/40))-18, 'THE FRONTIER TODAY',
                        {cls:'sm', op:0});
 
@@ -218,7 +219,12 @@ BUILD.frontier = function(ctx){
       /* the classes only mean anything once the frontier is on screen */
       k.s.opacity(p < 0.40 ? 0.3 : (k.d.cls === 'Watch point' && p > 0.62 ? 1 : 0.72));
     });
-    curve.draw(eo(clamp((p-0.38)/0.18,0,1)));
+    const cd = eo(clamp((p-0.38)/0.18,0,1));
+    curve.draw(cd);
+    /* Once the frontier is drawn, ink keeps travelling along it. The curve is
+       the claim this chapter is making, and a still line does not read as a
+       moving boundary. */
+    if(cd > 0.98 && !curveLit){ curveLit = true; curve.flow(true, {dur: 6.4, len: 70, gap: 300}); }
     curveLab.style.opacity = eo(clamp((p-0.50)/0.10,0,1));
     wpLabels.forEach(function(l,i){ l.style.opacity = eo(clamp((p-0.66-i*.035)/0.08,0,1)); });
     wpCount.style.opacity = eo(clamp((p-0.84)/0.10,0,1));
@@ -361,7 +367,34 @@ function buildHero(){
   for(let i=0;i<=60;i++){ const t=i/60; flat.push([120+t*960, 640 - t*90]); }
   const a = Stroke(g, flat, {cls:'ink w1 soft', amp:2.4, seed:11});
   const b = Stroke(g, pts, {cls:'ink acid w3', amp:2.6, seed:23});
-  return function(t){ a.draw(clamp(t*2.2,0,1)); b.draw(clamp(t*1.7-0.12,0,1)); };
+  /* Both hero curves keep ink running along them once they are drawn - this is
+     the first thing on the page and it was completely still. The flat line
+     moves slowly, the rising one faster, so the pair reads as two rates rather
+     than two lines. */
+  /* The hero is driven by scroll, so at scroll 0 - which is what everyone sees
+     first - both curves were undrawn and the page opened completely still.
+     They now ink themselves on arrival and then keep ink running along them, so
+     there is motion before the reader has done anything. Scroll still drives
+     the draw once it starts; the entrance only ever sets a floor. */
+  let intro = 0, lit = false;
+  const t0 = performance.now();
+  function entrance(now){
+    intro = eo(clamp((now - t0 - 260) / 1500, 0, 1));
+    render(0);
+    if(intro < 1) requestAnimationFrame(entrance);
+  }
+  function render(t){
+    const u = Math.max(t, intro);
+    a.draw(clamp(u*2.2,0,1));
+    b.draw(clamp(u*1.7-0.12,0,1));
+    if(!lit && u > 0.42){
+      lit = true;
+      a.flow(true, {dur: 9.5, len: 30, gap: 300, w: 2.4});
+      b.flow(true, {dur: 5.6, len: 60, gap: 260, w: 3.4});
+    }
+  }
+  if(AMBIENT) requestAnimationFrame(entrance); else { intro = 1; render(0); }
+  return render;
 }
 
 function buildCoda(){
@@ -369,7 +402,11 @@ function buildCoda(){
   if(!svg) return function(){};
   const g = S('g', null, svg);
   const s = Stroke(g, [[80,150],[420,150],[760,150],[1100,150]], {cls:'ink acid w1', amp:2.2});
-  return function(t){ s.draw(clamp(t,0,1)); };
+  let lit = false;
+  return function(t){
+    s.draw(clamp(t,0,1));
+    if(!lit && t > 0.8){ lit = true; s.flow(true, {dur: 7.4, len: 42, gap: 380}); }
+  };
 }
 
 /* ---------- 02b COMPOSITION: a job is a bundle of tasks ------------------- */
