@@ -835,7 +835,9 @@ def run_retest(settings: Settings, *, model: str = "claude-sonnet-5",
     scores, failures = score_subtasks(catalogue, retest_dir, model=model,
                                       chunk_size=chunk_size, workers=workers)
     if failures:
-        log.warning("%d chunk(s) failed to score", len(failures))
+        # `failures` carries one entry per SUBTASK in a failed chunk, so calling
+        # it a chunk count reported 963 failures for 39 failed requests.
+        log.warning("%d subtask(s) failed to score", len(failures))
 
     # A run with no API key reaches this point having scored nothing, and the
     # comparison below will happily report r = 0.000 over n = 0 - a failed run
@@ -843,7 +845,7 @@ def run_retest(settings: Settings, *, model: str = "claude-sonnet-5",
     # project keeps meeting. Refuse to write a report there is no evidence for.
     if not scores:
         raise SystemExit(
-            f"the retest scored nothing ({len(failures)} chunk(s) failed). "
+            f"the retest scored nothing ({len(failures)} subtask(s) failed). "
             f"No report written. Check ANTHROPIC_API_KEY and the model name.")
     if len(scores) < len(catalogue) * 0.9:
         raise SystemExit(

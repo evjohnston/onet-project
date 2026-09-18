@@ -284,6 +284,24 @@ def score_subtasks(
             raise RuntimeError(f"model omitted {len(missing)} of {len(expected)} ids")
         return rows
 
+    def _fatal(exc: Exception) -> str:
+        """Errors that no amount of retrying will fix.
+
+        A bad key returns 401 on every request, so submitting the remaining
+        chunks against it just prints the same message once per chunk - the
+        retest run reported the failure 39 times and then again as a total. Same
+        for 403 and for a model name the account cannot reach: the condition is
+        about the caller, not the request, so the first one should stop the run.
+        """
+        text = str(exc)
+        if "authentication_error" in text or "401" in text:
+            return "the API key was rejected (401)"
+        if "permission_error" in text or "403" in text:
+            return "the API key is not permitted to use this model (403)"
+        if "not_found_error" in text and "model" in text:
+            return "the model name was not recognised"
+        return ""
+
     try:
         with ThreadPoolExecutor(max_workers=workers) as pool:
             futures = {pool.submit(run, chunk): chunk for chunk in chunks}
@@ -292,6 +310,14 @@ def score_subtasks(
                 try:
                     rows = future.result()
                 except Exception as exc:
+                    reason = _fatal(exc)
+                    if reason:
+                        for f in futures:
+                            f.cancel()
+                        raise RuntimeError(
+                            f"{reason}; abandoning the run after the first "
+                            f"failure rather than repeating it for every "
+                            f"remaining chunk. Nothing was charged.") from exc
                     log.error("chunk of %d failed: %s", len(chunk), exc)
                     failures.extend({"dwa_id": i["dwa_id"], "error": str(exc)} for i in chunk)
                     continue

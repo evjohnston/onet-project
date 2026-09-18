@@ -546,6 +546,69 @@ positive correlation there would have been the warning sign.** These three
 expectations were written down as "moderate positive" before the test and the data
 refuted them; the code records that.
 
+### 7.4 Scoring reliability
+
+Every number in this dataset came from a single scoring pass, so until now none
+of it had a measure of its own stability. `reliability_report.json` closes that.
+
+The catalogue of 963 subtasks was scored a second time under the **same rubric**
+(`2026-09-16.1`) by a **different model**, `claude-sonnet-5`, against the
+original `claude-opus-5` pass. That makes this a measure of **cross-model
+agreement**, not test-retest reliability: it isolates how much of a score is the
+rubric and how much is the disposition of the model that produced it. A separate
+same-model pass would be needed for sampling noise, and has not been run.
+
+| Dimension | r | ICC | mean │d│ | within 10 | bias |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Automation feasibility today | 0.908 | 0.952 | 6.6 | 83% | −0.2 |
+| LLM exposure | 0.935 | 0.926 | 10.7 | 59% | −9.7 |
+| Physical embodiment required | 0.963 | 0.966 | 8.4 | 76% | −7.6 |
+| Interpersonal demand | 0.946 | 0.945 | 9.3 | 69% | −8.4 |
+| Judgment under uncertainty | 0.920 | 0.948 | 6.2 | 87% | −3.7 |
+| Accountability requirement | 0.932 | 0.951 | 6.9 | 82% | −4.9 |
+| Error cost | 0.933 | 0.945 | 6.8 | 83% | −5.5 |
+
+Mean **r = 0.934**, mean **ICC = 0.948**, mean absolute difference **7.9 points**
+on a 0–100 scale, over all 963 subtasks with no failures. Both statistics are
+reported because Pearson's *r* is invariant to a constant offset — two raters
+who differ by a flat twenty points correlate at 1.000 — while ICC(2,1)
+(two-way random effects, absolute agreement) penalises exactly that.
+
+**The rubric is doing the work.** Agreement at that level across two different
+models is the strongest validity evidence in this document: the scores are a
+property of the rubric and the activity text, not of one model's temperament.
+
+**But the two models disagree about the level of the scale, not the ranking.**
+Every dimension carries a negative bias — Sonnet reads lower — and on
+`llm_exposure`, the dimension that drives the most, the gap is **9.7 points**.
+The exposure distributions have almost the same shape (sd 23.9 against 23.4) and
+a different centre (median 68 against 55). It is a calibration offset, not a
+disagreement about which work is exposed.
+
+**That offset does not move the indices, and does move the scenario counts.**
+
+| Measure | Behaviour under the second pass |
+| --- | --- |
+| Susceptibility index | r = 0.951, mean shift −1.7 points |
+| Automated subtasks, modest | **−51.4%** |
+| Automated subtasks, substantial | **−34.9%** |
+| Automated subtasks, extreme | **−25.9%** |
+
+A continuous average absorbs a uniform shift; a hard threshold does not. The
+scenario definitions in §6.6 cut on absolute exposure values (80, 70, 58), so a
+ten-point shift in the level of the scale walks a large fraction of the
+catalogue across a fixed line. **The scenario counts are therefore conditional
+on the scoring model in a way the susceptibility index is not, and should be
+read as such.**
+
+Re-expressing the same thresholds as percentiles of each pass's own exposure
+distribution — the treatment §6.2 already applies to the frontier, for the same
+reason — cuts the disagreement to **+15.9%, +13.8% and +4.8%**. This is the
+identical fragility that was found and fixed on the handoff frontier, left in
+place next door because nothing had yet measured the scale's calibration. The
+fix is not applied here: it would move published figures, and the decision
+belongs to whoever cites them.
+
 ## 8. Limitations
 
 1. **The scores are model judgment**, not survey data and not human expert
