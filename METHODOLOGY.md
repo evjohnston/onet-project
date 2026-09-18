@@ -347,13 +347,18 @@ forecasts.**
 
 The mechanism is deliberately the variable Watson identifies as the real one.
 Capability is roughly fixed and already measured; what differs between scenarios
-is willingness to hand over accountability:
+is willingness to hand over accountability.
+
+The cuts are **quantiles of the corpus's own distribution**, not absolute points
+on the scale — see §7.1 for the measurement that forced that change, and the
+`REFERENCE_QUANTILES` constants in `scenarios.py` for the values. On this corpus
+they resolve to roughly exposure 75, 65 and 54:
 
 | Scenario | Automates when | Automated tasks |
 | --- | --- | ---: |
-| Modest | exposure ≥ 80 and anchoring < 38 | 1,193 (21%) |
-| Substantial | exposure ≥ 70 and anchoring < 52 | 2,522 (45%) |
-| Extreme | exposure ≥ 58 and anchoring < 70 | 3,852 (69%) |
+| Modest | 68th pct exposure, anchoring under the 32nd | 1,215 (22%) |
+| Substantial | 47th pct exposure, anchoring under the 68th | 2,650 (47%) |
+| Extreme | 31st pct exposure, anchoring under the 94th | 3,864 (69%) |
 
 Tasks below the augment threshold are unchanged at every setting — for a nurse
 midwife, 7 of 21 tasks never move regardless of scenario, which is the point the
@@ -442,14 +447,14 @@ The cube is split at 50 on each axis into eight named cells:
 
 | Cell | Modest | Substantial | Extreme |
 | --- | ---: | ---: | ---: |
-| Strategic trap | 30 / 4.5% | 78 / 17.0% | 113 / 22.6% |
-| Guard the pipeline | 42 / 5.6% | 54 / 7.3% | 61 / 8.1% |
-| Protect | 101 / 22.7% | 53 / 10.1% | 18 / 4.6% |
-| Reversible gamble | 8 / 5.8% | 21 / 16.2% | 30 / 30.3% |
-| Quiet attrition | 22 / 2.8% | 10 / 1.1% | 3 / 0.3% |
-| Clear win | 22 / 22.4% | 23 / 22.5% | 24 / 24.7% |
-| Hold the line | 37 / 33.3% | 24 / 22.9% | 15 / 8.8% |
-| Low stakes | 6 / 2.9% | 5 / 2.8% | 4 / 0.6% |
+| Strategic trap | 16 / 2.0% | 60 / 12.5% | 95 / 19.5% |
+| Guard the pipeline | 59 / 8.2% | 71 / 10.2% | 80 / 11.2% |
+| Protect | 96 / 22.1% | 52 / 11.5% | 17 / 4.5% |
+| Reversible gamble | 8 / 6.0% | 18 / 12.9% | 24 / 23.9% |
+| Quiet attrition | 24 / 3.4% | 12 / 1.3% | 3 / 0.3% |
+| Clear win | 25 / 25.8% | 26 / 25.9% | 29 / 28.4% |
+| Hold the line | 32 / 29.5% | 22 / 22.6% | 16 / 11.6% |
+| Low stakes | 8 / 3.1% | 7 / 3.0% | 4 / 0.5% |
 
 *(occupations / share of the 21,523,100 workers)*
 
@@ -527,13 +532,13 @@ crosswalk needed**.
 
 | Benchmark | Pearson | n |
 | --- | --- | --- |
-| **Human expert ratings, γ** | **0.846** | 268 |
-| **Human expert ratings, β** | **0.831** | 268 |
-| Human expert ratings, α (no tools) | 0.605 | 268 |
-| GPT-4, β | 0.847 | 268 |
-| Frey & Osborne (2017) | 0.006 | 150 |
-| Felten, Raj & Seamans | −0.178 | 188 |
-| Brynjolfsson/Mitchell/Rock SML | −0.088 | 188 |
+| **Human expert ratings, γ** | **0.853** | 268 |
+| **Human expert ratings, β** | **0.837** | 268 |
+| Human expert ratings, α (no tools) | 0.607 | 268 |
+| GPT-4, β | 0.842 | 268 |
+| Frey & Osborne (2017) | 0.024 | 150 |
+| Felten, Raj & Seamans | −0.153 | 188 |
+| Brynjolfsson/Mitchell/Rock SML | −0.110 | 188 |
 
 Both halves matter. Agreement with human experts at r ≈ 0.85 is the evidence the
 index measures what it claims. The weaker agreement with α is expected: α
@@ -682,7 +687,7 @@ The scroller's network layout is seeded, so the drawing is identical on every ru
 
 A full rebuild from scratch is `python -m onet_scraper --refresh` followed by the
 `score`, `report`, `employment`, `validate-external`, `pathways`, `churn`,
-`figures`, `story`, `security` and `publish` stages. 200 tests run in CI on
+`figures`, `story`, `security` and `publish` stages. 205 tests run in CI on
 Python 3.10 and 3.13, and a sixth job opens every published page in headless
 Chrome and asserts it rendered.
 

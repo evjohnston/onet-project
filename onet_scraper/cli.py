@@ -39,6 +39,7 @@ from .stages import (
     run_scenarios,
     run_security,
     run_validate_derived,
+    run_validate_doc,
     run_smoke,
     run_retest,
     run_consolidate,
@@ -136,7 +137,7 @@ def build_parser() -> argparse.ArgumentParser:
         default="run",
         choices=["run", "fetch-stem", "fetch-occupations", "fetch-bulk",
                  "fetch-descriptors", "build", "validate", "network", "score",
-                 "report", "employment", "validate-external", "figures", "story", "churn", "pathways", "publish", "scenarios", "security", "validate-derived", "smoke", "retest", "consolidate",
+                 "report", "employment", "validate-external", "figures", "story", "churn", "pathways", "publish", "scenarios", "security", "validate-derived", "validate-doc", "smoke", "retest", "consolidate",
                  "clean-cache"],
         help="which stage to run (default: run = all of them)",
     )
@@ -233,6 +234,10 @@ def main(argv: list[str] | None = None) -> int:
 
     if stage == "validate-derived":
         run_validate_derived(settings)
+        return 0
+
+    if stage == "validate-doc":
+        run_validate_doc(settings)
         return 0
 
     if stage == "smoke":

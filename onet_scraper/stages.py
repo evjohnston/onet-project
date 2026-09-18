@@ -939,3 +939,21 @@ def run_consolidate(settings: Settings) -> dict[str, Any]:
              summary["above_15_points"], 100 * (summary["share_above_15"] or 0))
     log.info("  re-run the report stage to propagate these into every index")
     return summary
+
+
+def run_validate_doc(settings: Settings) -> dict[str, Any]:
+    """Check METHODOLOGY.md's figures against the data they describe."""
+    from .validate_doc import log_report, validate_doc
+
+    md = Path(__file__).resolve().parents[1] / "METHODOLOGY.md"
+    if not md.exists():
+        raise SystemExit(f"{md} not found")
+    results = validate_doc(md, settings.out_dir)
+    stale = log_report(results)
+    (settings.out_dir / "validation_doc.json").write_text(json.dumps(results, indent=2))
+    if stale:
+        log.error("%d figure(s) in METHODOLOGY.md disagree with data/out. Either the "
+                  "document is out of date or a stage has not been re-run.", stale)
+        raise SystemExit(1)
+    log.info("every registered figure is in step with the data")
+    return {"results": results, "stale": stale}

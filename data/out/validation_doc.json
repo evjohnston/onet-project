@@ -1,0 +1,32 @@
+[
+  {
+    "check": "counts table",
+    "passed": true,
+    "detail": "in step with the data",
+    "rows": []
+  },
+  {
+    "check": "scenarios table",
+    "passed": true,
+    "detail": "in step with the data",
+    "rows": []
+  },
+  {
+    "check": "security cells",
+    "passed": true,
+    "detail": "in step with the data",
+    "rows": []
+  },
+  {
+    "check": "benchmark table",
+    "passed": true,
+    "detail": "in step with the data",
+    "rows": []
+  },
+  {
+    "check": "quoted test count",
+    "passed": true,
+    "detail": "in step with the data",
+    "rows": []
+  }
+]

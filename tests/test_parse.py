@@ -554,3 +554,54 @@ class TestCliDispatchArguments(unittest.TestCase):
         for name in re.findall(r'"([a-z-]+)"', m.group(1)):
             args = parser.parse_args([name])
             self.assertEqual(args.stage, name)
+
+
+class TestDocFigureAudit(unittest.TestCase):
+    """The audit must catch a stale figure, and must not pass vacuously."""
+
+    def _run(self, md_text):
+        import tempfile
+        from pathlib import Path
+        from onet_scraper.validate_doc import validate_doc
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "M.md"
+            p.write_text(md_text)
+            return {r["check"]: r for r in validate_doc(p, Path("data/out"))}
+
+    def test_it_catches_a_stale_count(self):
+        from pathlib import Path
+        if not Path("data/out/occupations.csv").exists():
+            self.skipTest("no dataset")
+        res = self._run("| STEM occupations | 999 |\n")
+        self.assertFalse(res["counts table"]["passed"])
+
+    def test_it_catches_a_stale_benchmark_correlation(self):
+        """This check originally read the correlations out of PROSE and passed
+        while the table beside it was stale - a false pass, which is worse than
+        no check."""
+        from pathlib import Path
+        if not Path("data/out/external_validation.json").exists():
+            self.skipTest("no validation report")
+        res = self._run("| Frey & Osborne (2017) | 0.006 | 150 |\n")
+        self.assertFalse(res["benchmark table"]["passed"])
+        self.assertTrue(any("frey" in r["figure"] for r in res["benchmark table"]["rows"]))
+
+    def test_a_document_with_no_recognised_rows_does_not_pass(self):
+        """Silence on a renamed or moved table would be the same false pass."""
+        res = self._run("nothing quantitative here at all\n")
+        self.assertFalse(res["benchmark table"]["passed"])
+
+    def test_the_real_document_is_in_step(self):
+        from pathlib import Path
+        from onet_scraper.validate_doc import validate_doc
+        if not Path("data/out/scenarios_report.json").exists():
+            self.skipTest("no dataset")
+        results = validate_doc(Path("METHODOLOGY.md"), Path("data/out"))
+        stale = [(r["check"], row) for r in results for row in r["rows"]]
+        self.assertEqual(stale, [], f"{len(stale)} figures disagree with the data")
+
+    def test_every_check_is_registered(self):
+        from onet_scraper.validate_doc import CHECKS
+        self.assertGreaterEqual(len(CHECKS), 5)
+        names = [c[0] for c in CHECKS]
+        self.assertEqual(len(names), len(set(names)))

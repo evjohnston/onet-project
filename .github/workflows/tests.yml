@@ -43,6 +43,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install -q --upgrade pip
+          pip install -q -r requirements.txt
+      - name: METHODOLOGY.md figures are in step with data/out
+        # The document quotes several hundred figures and nothing verified any
+        # of them. They rotted twice in one session - a test count that drifted
+        # to 66 against a suite of 170, and every security-matrix cell after the
+        # two scoring passes were consolidated. Both times it looked fine.
+        run: python -m onet_scraper validate-doc
       - name: docs/ is in step with data/out
         # publish is a manual stage, so it is easy to ship a site that lags the
         # data it was built from. Compare the two copies rather than trusting it.

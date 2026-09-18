@@ -1,196 +1,196 @@
 soc_code,soc_title,n_onet_occupations,onet_codes,total_employment,annual_mean_wage,annual_median_wage,susceptibility,susceptibility_sd_within_soc,exposure,anchoring,deployment_gap,quadrant,wage_bill_usd,stem_occupation_types
-29-1141,Registered Nurses,5,29-1141.04;29-1141.02;29-1141.01;29-1141.00;29-1141.03,3379720.0,101420.0,97550.0,49.9,3.4,59.9,60.0,39.5,Human-anchored,342771202400,"Research, Development, Design, and Practitioners"
-15-1252,Software Developers,1,15-1252.00,1687890.0,148100.0,135980.0,69.3,0.0,75.6,37.0,35.0,Displaceable,249976509000,"Research, Development, Design, and Practitioners"
-15-1232,Computer User Support Specialists,1,15-1232.00,717190.0,67330.0,61860.0,69.1,0.0,70.6,32.3,25.7,Displaceable,48288402700,Technologists and Technicians
-11-3021,Computer and Information Systems Managers,1,11-3021.00,670570.0,192160.0,175140.0,65.9,0.0,74.4,42.6,43.7,Displaceable,128856731200,Managerial
-29-2061,Licensed Practical and Licensed Vocational Nurses,1,29-2061.00,648410.0,67050.0,64400.0,44.5,0.0,43.6,54.7,13.7,Human-anchored,43475890500,Technologists and Technicians
-11-9111,Medical and Health Services Managers,1,11-9111.00,597080.0,140970.0,123860.0,61.8,0.0,66.9,43.3,35.1,Displaceable,84170367600,Managerial
-15-1211,Computer Systems Analysts,2,15-1211.01;15-1211.00,519530.0,114610.0,105850.0,74.0,0.4,82.7,34.9,40.1,Displaceable,59543333300,"Research, Development, Design, and Practitioners"
-29-2052,Pharmacy Technicians,1,29-2052.00,471680.0,46620.0,45750.0,58.2,0.0,55.5,39.0,6.9,Insulated,21989721600,Technologists and Technicians
-15-1299,"Computer Occupations, All Other",9,15-1299.02;15-1299.03;15-1299.01;15-1299.07;15-1299.04;15-1299.08;15-1299.06;15-1299.05;15-1299.09,435370.0,122230.0,116580.0,71.6,4.6,78.7,35.4,35.7,Displaceable,53215275100,"Research, Development, Design, and Practitioners; Technologists and Technicians"
-17-2051,Civil Engineers,3,17-2051.02;17-2051.01;17-2051.00,367840.0,108670.0,100840.0,59.3,4.3,65.1,46.6,35.7,Contested,39973172800,"Research, Development, Design, and Practitioners"
-17-2112,Industrial Engineers,4,17-2112.00;17-2112.03;17-2112.02;17-2112.01,365740.0,109900.0,102440.0,63.2,1.5,68.8,42.4,36.5,Displaceable,40194826000,"Research, Development, Design, and Practitioners"
-29-1229,"Physicians, All Other",6,29-1229.05;29-1229.02;29-1229.01;29-1229.06;29-1229.03;29-1229.04,342720.0,262040.0,265930.0,53.6,5.7,66.1,58.8,45.6,Contested,89806348800,"Research, Development, Design, and Practitioners"
-29-2010,Clinical Laboratory Technologists and Technicians,6,29-2011.01;29-2011.02;29-2012.00;29-2011.00;29-2011.04;29-2012.01,332940.0,67350.0,62930.0,45.4,5.4,40.4,49.6,2.3,Human-anchored,22423509000,Technologists and Technicians
-29-1171,Nurse Practitioners,1,29-1171.00,323040.0,137300.0,132300.0,54.3,0.0,66.9,58.3,46.9,Contested,44353392000,"Research, Development, Design, and Practitioners"
-29-1051,Pharmacists,1,29-1051.00,321970.0,140920.0,140910.0,56.6,0.0,63.2,50.0,32.8,Human-anchored,45372012400,"Research, Development, Design, and Practitioners"
-15-1244,Network and Computer Systems Administrators,1,15-1244.00,314340.0,103680.0,99130.0,69.0,0.0,73.0,35.1,24.2,Displaceable,32590771200,"Research, Development, Design, and Practitioners"
-17-2141,Mechanical Engineers,3,17-2141.02;17-2141.01;17-2141.00,296810.0,113610.0,104110.0,61.9,1.2,66.7,43.0,36.2,Displaceable,33720584100,"Research, Development, Design, and Practitioners"
-41-4011,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",2,41-4011.00;41-4011.07,284800.0,119730.0,104920.0,71.0,0.6,76.3,34.2,26.1,Displaceable,34099104000,Sales
-29-1123,Physical Therapists,1,29-1123.00,267330.0,105280.0,102760.0,53.5,0.0,64.0,56.9,38.9,Human-anchored,28144502400,"Research, Development, Design, and Practitioners"
-15-2051,Data Scientists,3,15-2051.01;15-2051.00;15-2051.02,262440.0,126800.0,120230.0,77.1,2.9,84.0,29.7,37.2,Displaceable,33277392000,"Research, Development, Design, and Practitioners"
-29-2034,Radiologic Technologists and Technicians,1,29-2034.00,230490.0,83840.0,80110.0,46.6,0.0,47.9,54.7,18.6,Human-anchored,19324281600,Technologists and Technicians
-29-1292,Dental Hygienists,1,29-1292.00,222740.0,98990.0,98100.0,45.3,0.0,46.5,55.8,17.3,Human-anchored,22049032600,"Research, Development, Design, and Practitioners"
-25-1071,"Health Specialties Teachers, Postsecondary",1,25-1071.00,221270.0,147570.0,107310.0,67.6,0.0,74.7,39.6,38.6,Displaceable,32652813900,Postsecondary Teaching
-11-9041,Architectural and Engineering Managers,2,11-9041.00;11-9041.01,220260.0,181540.0,171270.0,57.5,3.8,62.4,47.4,37.8,Contested,39986000400,Managerial
-17-2071,Electrical Engineers,1,17-2071.00,198750.0,125100.0,120630.0,57.9,0.0,60.0,44.2,26.7,Human-anchored,24863625000,"Research, Development, Design, and Practitioners"
-29-2072,Medical Records Specialists,1,29-2072.00,194720.0,56790.0,51140.0,68.0,0.0,74.5,38.6,28.6,Displaceable,11058148800,Technologists and Technicians
-15-1212,Information Security Analysts,1,15-1212.00,190650.0,132510.0,129180.0,71.2,0.0,79.3,37.0,34.2,Displaceable,25263031500,"Research, Development, Design, and Practitioners"
-15-1253,Software Quality Assurance Analysts and Testers,1,15-1253.00,186740.0,111490.0,104300.0,74.6,0.0,78.6,29.5,24.5,Displaceable,20819642600,"Research, Development, Design, and Practitioners"
-29-1127,Speech-Language Pathologists,1,29-1127.00,183390.0,98170.0,97870.0,52.5,0.0,64.1,59.1,44.1,Human-anchored,18003396300,"Research, Development, Design, and Practitioners"
-29-2099,"Health Technologists and Technicians, All Other",3,29-2099.08;29-2099.01;29-2099.05,182610.0,58710.0,50290.0,52.4,14.8,54.8,50.0,19.5,Human-anchored,10721033100,Technologists and Technicians
-29-2042,Emergency Medical Technicians,1,29-2042.00,180510.0,46830.0,44470.0,41.0,0.0,43.4,61.4,23.4,Human-anchored,8453283300,Technologists and Technicians
-15-1241,Computer Network Architects,2,15-1241.00;15-1241.01,179740.0,139580.0,134050.0,68.0,0.1,73.6,37.5,33.7,Displaceable,25088109200,"Research, Development, Design, and Practitioners"
-19-1042,"Medical Scientists, Except Epidemiologists",1,19-1042.00,172340.0,116840.0,103410.0,59.5,0.0,67.4,48.4,39.1,Contested,20136205600,"Research, Development, Design, and Practitioners"
-29-1122,Occupational Therapists,2,29-1122.00;29-1122.01,162450.0,101280.0,100330.0,50.2,1.9,60.4,59.9,40.3,Human-anchored,16452936000,"Research, Development, Design, and Practitioners"
-29-1071,Physician Assistants,2,29-1071.00;29-1071.01,162150.0,141280.0,135880.0,44.5,10.1,50.0,60.9,29.3,Human-anchored,22908552000,"Research, Development, Design, and Practitioners"
-29-2053,Psychiatric Technicians,1,29-2053.00,156960.0,46610.0,45130.0,42.2,0.0,45.4,61.1,26.3,Human-anchored,7315905600,Technologists and Technicians
-17-2199,"Engineers, All Other",8,17-2199.03;17-2199.07;17-2199.06;17-2199.08;17-2199.05;17-2199.09;17-2199.11;17-2199.10,154070.0,125330.0,122930.0,61.7,2.1,65.0,41.7,31.9,Displaceable,19309593100,"Research, Development, Design, and Practitioners"
-15-1231,Computer Network Support Specialists,1,15-1231.00,146190.0,81870.0,76220.0,68.8,0.0,68.5,30.9,15.3,Displaceable,11968575300,Technologists and Technicians
-29-1126,Respiratory Therapists,1,29-1126.00,139790.0,87300.0,82280.0,44.1,0.0,48.8,60.4,26.6,Human-anchored,12203667000,"Research, Development, Design, and Practitioners"
-29-2056,Veterinary Technologists and Technicians,1,29-2056.00,129140.0,49120.0,47380.0,39.2,0.0,35.8,57.3,10.5,Human-anchored,6343356800,Technologists and Technicians
-29-1021,"Dentists, General",1,29-1021.00,124390.0,191350.0,170950.0,37.4,0.0,41.4,66.5,28.6,Human-anchored,23802026500,"Research, Development, Design, and Practitioners"
-29-2055,Surgical Technologists,1,29-2055.00,117460.0,68710.0,64650.0,38.9,0.0,32.3,54.5,1.6,Human-anchored,8070676600,Technologists and Technicians
-15-1255,Web and Digital Interface Designers,2,15-1255.00;15-1255.01,113330.0,117490.0,104000.0,74.9,2.7,81.0,31.2,36.9,Displaceable,13315141700,"Research, Development, Design, and Practitioners"
-11-9121,Natural Sciences Managers,3,11-9121.01;11-9121.02;11-9121.00,108690.0,180250.0,167220.0,63.8,2.2,70.6,43.0,36.5,Contested,19591372500,Managerial
-15-2031,Operations Research Analysts,1,15-2031.00,108510.0,99730.0,88940.0,72.6,0.0,80.8,35.6,42.1,Displaceable,10821702300,"Research, Development, Design, and Practitioners"
-29-1215,Family Medicine Physicians,1,29-1215.00,107510.0,255820.0,244180.0,55.1,0.0,67.4,57.2,44.8,Contested,27503208200,"Research, Development, Design, and Practitioners"
-17-1011,"Architects, Except Landscape and Naval",1,17-1011.00,106770.0,106260.0,99280.0,62.1,0.0,67.7,43.5,35.1,Contested,11345380200,"Research, Development, Design, and Practitioners"
-17-3011,Architectural and Civil Drafters,1,17-3011.00,103700.0,70740.0,66150.0,63.7,0.0,62.0,34.6,21.0,Insulated,7335738000,Technologists and Technicians
-29-2043,Paramedics,1,29-2043.00,100610.0,63360.0,60600.0,40.1,0.0,47.9,67.6,34.8,Human-anchored,6374649600,Technologists and Technicians
-17-2072,"Electronics Engineers, Except Computer",2,17-2072.00;17-2072.01,96900.0,137280.0,130220.0,63.5,1.1,66.2,39.2,29.5,Displaceable,13302432000,"Research, Development, Design, and Practitioners"
-17-3023,Electrical and Electronic Engineering Technologists and Technicians,1,17-3023.00,95130.0,80680.0,78190.0,60.7,0.0,60.3,38.9,25.6,Insulated,7675088400,Technologists and Technicians
-15-1251,Computer Programmers,1,15-1251.00,92230.0,105170.0,100390.0,76.2,0.0,82.1,29.7,32.1,Displaceable,9699829100,"Research, Development, Design, and Practitioners"
-29-2032,Diagnostic Medical Sonographers,1,29-2032.00,90160.0,97240.0,96590.0,50.3,0.0,52.5,51.8,16.2,Human-anchored,8767158400,Technologists and Technicians
-19-2041,"Environmental Scientists and Specialists, Including Health",4,19-2041.01;19-2041.03;19-2041.00;19-2041.02,89250.0,91680.0,82220.0,65.9,4.1,76.2,44.4,46.8,Displaceable,8182440000,"Research, Development, Design, and Practitioners"
-29-1131,Veterinarians,1,29-1131.00,83900.0,142680.0,130100.0,48.3,0.0,54.8,58.2,37.8,Human-anchored,11970852000,"Research, Development, Design, and Practitioners"
-19-2031,Chemists,1,19-2031.00,82770.0,100450.0,91240.0,53.8,0.0,54.6,47.0,24.8,Human-anchored,8314246500,"Research, Development, Design, and Practitioners"
-25-1072,"Nursing Instructors and Teachers, Postsecondary",1,25-1072.00,77960.0,86410.0,80250.0,66.5,0.0,74.5,41.6,41.5,Displaceable,6736523600,Postsecondary Teaching
-29-1031,Dietitians and Nutritionists,1,29-1031.00,77570.0,77130.0,76400.0,58.1,0.0,68.6,52.3,41.6,Contested,5982974100,"Research, Development, Design, and Practitioners"
-17-2061,Computer Hardware Engineers,1,17-2061.00,76660.0,162670.0,161740.0,64.2,0.0,68.7,40.4,34.1,Displaceable,12470282200,"Research, Development, Design, and Practitioners"
-19-3033,Clinical and Counseling Psychologists,1,19-3033.00,75990.0,112750.0,100580.0,55.5,0.0,64.5,53.5,39.8,Human-anchored,8567872500,"Research, Development, Design, and Practitioners"
-17-3026,Industrial Engineering Technologists and Technicians,2,17-3026.00;17-3026.01,75570.0,70700.0,66120.0,57.1,1.7,55.6,41.5,17.5,Insulated,5342799000,Technologists and Technicians
-19-4099,"Life, Physical, and Social Science Technicians, All Other",2,19-4099.03;19-4099.01,73910.0,66280.0,62280.0,63.9,1.6,65.2,37.3,23.8,Insulated,4898754800,Technologists and Technicians
-29-2081,"Opticians, Dispensing",1,29-2081.00,73530.0,51770.0,47260.0,49.0,0.0,49.5,51.5,16.7,Human-anchored,3806648100,Technologists and Technicians
-29-2057,Ophthalmic Medical Technicians,1,29-2057.00,71010.0,47060.0,45570.0,38.6,0.0,34.4,57.2,-0.5,Human-anchored,3341730600,Technologists and Technicians
-15-1254,Web Developers,1,15-1254.00,70190.0,98770.0,92650.0,76.2,0.0,82.1,29.7,31.2,Displaceable,6932666300,"Research, Development, Design, and Practitioners"
-15-1242,Database Administrators,1,15-1242.00,69990.0,110090.0,104620.0,77.2,0.0,82.7,28.3,29.5,Displaceable,7705199100,"Research, Development, Design, and Practitioners"
-19-4021,Biological Technicians,1,19-4021.00,69620.0,61380.0,57510.0,54.3,0.0,47.5,38.9,6.9,Insulated,4273275600,Technologists and Technicians
-17-3022,Civil Engineering Technologists and Technicians,1,17-3022.00,68520.0,68990.0,64950.0,63.3,0.0,65.8,39.3,25.8,Displaceable,4727194800,Technologists and Technicians
-17-2011,Aerospace Engineers,1,17-2011.00,67710.0,142060.0,134960.0,59.8,0.0,63.0,43.5,31.7,Human-anchored,9618882600,"Research, Development, Design, and Practitioners"
-29-1216,General Internal Medicine Physicians,1,29-1216.00,67150.0,267200.0,256560.0,51.5,0.0,64.6,61.6,45.6,Human-anchored,17942480000,"Research, Development, Design, and Practitioners"
-15-1243,Database Architects,2,15-1243.01;15-1243.00,67140.0,144440.0,139500.0,76.0,0.1,83.0,31.1,38.5,Displaceable,9697701600,"Research, Development, Design, and Practitioners"
-19-3034,School Psychologists,1,19-3034.00,63940.0,99160.0,95990.0,61.0,0.0,68.2,46.3,39.8,Contested,6340290400,"Research, Development, Design, and Practitioners"
-29-2031,Cardiovascular Technologists and Technicians,1,29-2031.00,62960.0,76940.0,74310.0,44.8,0.0,46.0,56.4,15.3,Human-anchored,4844142400,Technologists and Technicians
-17-3029,"Engineering Technologists and Technicians, Except Drafters, All Other",2,17-3029.01;17-3029.08,59930.0,80960.0,78350.0,51.8,2.0,43.0,39.5,1.1,Insulated,4851932800,Technologists and Technicians
-17-3031,Surveying and Mapping Technicians,1,17-3031.00,58010.0,58000.0,54240.0,56.2,0.0,48.7,36.4,-1.3,Insulated,3364580000,Technologists and Technicians
-19-4031,Chemical Technicians,1,19-4031.00,57540.0,63900.0,60390.0,52.7,0.0,50.9,45.4,20.6,Human-anchored,3676806000,Technologists and Technicians
-19-1029,"Biological Scientists, All Other",4,19-1029.01;19-1029.04;19-1029.03;19-1029.02,55850.0,106330.0,98920.0,63.2,4.3,69.7,43.3,39.6,Displaceable,5938530500,"Research, Development, Design, and Practitioners"
-29-1151,Nurse Anesthetists,1,29-1151.00,51840.0,248320.0,236590.0,43.5,0.0,46.7,59.7,25.9,Human-anchored,12872908800,"Research, Development, Design, and Practitioners"
-41-9031,Sales Engineers,1,41-9031.00,51790.0,130140.0,124900.0,69.4,0.0,74.4,35.6,29.1,Displaceable,6739950600,Sales
-17-1022,Surveyors,2,17-1022.01;17-1022.00,50830.0,80570.0,75440.0,59.7,4.5,56.5,37.2,7.8,Insulated,4095373100,Technologists and Technicians
-25-1042,"Biological Science Teachers, Postsecondary",1,25-1042.00,50190.0,102840.0,84620.0,67.2,0.0,74.3,39.9,39.6,Displaceable,5161539600,Postsecondary Teaching
-25-1022,"Mathematical Science Teachers, Postsecondary",1,25-1022.00,47670.0,91550.0,79940.0,68.3,0.0,75.4,38.9,37.6,Displaceable,4364188500,Postsecondary Teaching
-19-3051,Urban and Regional Planners,1,19-3051.00,44230.0,94750.0,89320.0,66.2,0.0,75.3,42.9,43.0,Displaceable,4190792500,"Research, Development, Design, and Practitioners"
-29-2035,Magnetic Resonance Imaging Technologists,1,29-2035.00,43390.0,96120.0,95480.0,46.5,0.0,46.4,53.4,16.4,Human-anchored,4170646800,Technologists and Technicians
-29-1041,Optometrists,1,29-1041.00,42790.0,141550.0,136570.0,47.2,0.0,58.4,64.0,39.8,Human-anchored,6056924500,"Research, Development, Design, and Practitioners"
-25-1066,"Psychology Teachers, Postsecondary",1,25-1066.00,41530.0,93860.0,80340.0,66.3,0.0,74.0,41.4,40.2,Displaceable,3898005800,Postsecondary Teaching
-25-1032,"Engineering Teachers, Postsecondary",1,25-1032.00,40270.0,124520.0,109270.0,68.8,0.0,76.2,38.6,39.0,Displaceable,5014420400,Postsecondary Teaching
-17-3013,Mechanical Drafters,1,17-3013.00,39960.0,75060.0,71550.0,62.6,0.0,59.2,33.9,18.8,Insulated,2999397600,Technologists and Technicians
-29-1011,Chiropractors,1,29-1011.00,39630.0,90520.0,79200.0,52.3,0.0,61.1,56.4,32.0,Human-anchored,3587307600,"Research, Development, Design, and Practitioners"
-29-1221,"Pediatricians, General",1,29-1221.00,39390.0,212110.0,210040.0,49.8,0.0,61.6,62.1,44.3,Human-anchored,8355012900,"Research, Development, Design, and Practitioners"
-29-1211,Anesthesiologists,1,29-1211.00,38760.0,360570.0,391490.0,45.7,0.0,54.1,62.7,33.7,Human-anchored,13975693200,"Research, Development, Design, and Practitioners"
-17-2081,Environmental Engineers,1,17-2081.00,38340.0,112910.0,107110.0,61.7,0.0,67.4,43.9,36.3,Contested,4328969400,"Research, Development, Design, and Practitioners"
-29-9021,Health Information Technologists and Medical Registrars,1,29-9021.00,38100.0,74970.0,68020.0,65.8,0.0,72.4,40.7,33.3,Displaceable,2856357000,"Research, Development, Design, and Practitioners; Technologists and Technicians"
-15-1221,Computer and Information Research Scientists,1,15-1221.00,37200.0,153930.0,140300.0,65.4,0.0,73.4,42.5,41.2,Displaceable,5726196000,"Research, Development, Design, and Practitioners"
-19-3099,"Social Scientists and Related Workers, All Other",1,19-3099.01,37100.0,107690.0,101110.0,67.8,0.0,78.4,42.9,48.4,Displaceable,3995299000,"Research, Development, Design, and Practitioners"
-17-3027,Mechanical Engineering Technologists and Technicians,2,17-3027.00;17-3027.01,36190.0,76380.0,74510.0,60.0,3.3,57.5,37.6,15.7,Insulated,2764192200,Technologists and Technicians
-25-1021,"Computer Science Teachers, Postsecondary",1,25-1021.00,35480.0,104420.0,96980.0,66.6,0.0,74.4,41.3,40.3,Displaceable,3704821600,Postsecondary Teaching
-29-9099,"Healthcare Practitioners and Technical Workers, All Other",1,29-9099.01,35010.0,76720.0,65790.0,46.4,0.0,55.1,62.3,33.8,Human-anchored,2685967200,"Research, Development, Design, and Practitioners; Technologists and Technicians"
-19-4042,"Environmental Science and Protection Technicians, Including Health",1,19-4042.00,34670.0,60800.0,55090.0,53.1,0.0,52.9,46.6,21.7,Human-anchored,2107936000,Technologists and Technicians
-19-1021,Biochemists and Biophysicists,1,19-1021.00,33830.0,129840.0,127410.0,58.6,0.0,63.0,45.8,34.7,Human-anchored,4392487200,"Research, Development, Design, and Practitioners"
-29-1214,Emergency Medicine Physicians,1,29-1214.00,32880.0,317480.0,335550.0,48.1,0.0,60.6,64.3,41.8,Human-anchored,10438742400,"Research, Development, Design, and Practitioners"
-29-2051,Dietetic Technicians,1,29-2051.00,31560.0,40630.0,37640.0,56.8,0.0,66.9,53.3,41.3,Contested,1282282800,Technologists and Technicians
-19-4061,Social Science Research Assistants,1,19-4061.00,30640.0,66140.0,61990.0,68.6,0.0,73.7,36.4,32.8,Displaceable,2026529600,Technologists and Technicians
-29-9091,Athletic Trainers,1,29-9091.00,30500.0,66620.0,62520.0,50.2,0.0,54.2,53.7,26.0,Human-anchored,2031910000,"Research, Development, Design, and Practitioners"
-19-4071,Forest and Conservation Technicians,1,19-4071.00,30410.0,59060.0,54560.0,49.9,0.0,46.2,46.4,14.1,Human-anchored,1796014600,Technologists and Technicians
-15-2041,Statisticians,2,15-2041.01;15-2041.00,29030.0,115700.0,105650.0,74.9,1.0,82.7,32.9,38.7,Displaceable,3358771000,"Research, Development, Design, and Practitioners"
-29-1299,"Healthcare Diagnosing or Treating Practitioners, All Other",2,29-1299.01;29-1299.02,28630.0,127660.0,115210.0,52.0,0.7,61.6,57.6,38.6,Human-anchored,3654905800,"Research, Development, Design, and Practitioners"
-29-1223,Psychiatrists,1,29-1223.00,27980.0,269940.0,281870.0,57.4,0.0,70.7,55.9,47.1,Contested,7552921200,"Research, Development, Design, and Practitioners"
-29-1224,Radiologists,1,29-1224.00,26770.0,381530.0,420860.0,54.8,0.0,65.1,55.5,38.7,Human-anchored,10213558100,"Research, Development, Design, and Practitioners"
-15-2011,Actuaries,1,15-2011.00,26670.0,141480.0,130000.0,62.3,0.0,73.1,48.5,45.6,Contested,3773271600,"Research, Development, Design, and Practitioners"
-19-1031,Conservation Scientists,3,19-1031.03;19-1031.00;19-1031.02,25950.0,77130.0,73010.0,57.7,3.2,62.5,47.1,33.1,Human-anchored,2001523500,"Research, Development, Design, and Practitioners"
-17-2031,Bioengineers and Biomedical Engineers,1,17-2031.00,23480.0,116890.0,109370.0,66.5,0.0,74.8,41.7,44.5,Displaceable,2744577200,"Research, Development, Design, and Practitioners"
-19-2042,"Geoscientists, Except Hydrologists and Geographers",1,19-2042.00,23470.0,116150.0,101920.0,62.7,0.0,66.9,41.5,32.7,Displaceable,2726040500,"Research, Development, Design, and Practitioners"
-17-2131,Materials Engineers,1,17-2131.00,22770.0,120250.0,112860.0,59.9,0.0,63.6,43.9,31.3,Human-anchored,2738092500,"Research, Development, Design, and Practitioners"
-29-1129,"Therapists, All Other",2,29-1129.01;29-1129.02,22640.0,90420.0,77930.0,54.8,1.5,64.7,55.0,41.2,Human-anchored,2047108800,"Research, Development, Design, and Practitioners"
-19-2099,"Physical Scientists, All Other",1,19-2099.01,22300.0,129230.0,122570.0,63.8,0.0,66.8,39.2,31.1,Displaceable,2881829000,"Research, Development, Design, and Practitioners"
-29-9093,Surgical Assistants,1,29-9093.00,22270.0,72710.0,66800.0,30.9,0.0,27.3,65.5,10.3,Human-anchored,1619251700,"Research, Development, Design, and Practitioners"
-17-2111,"Health and Safety Engineers, Except Mining Safety Engineers and Inspectors",2,17-2111.02;17-2111.00,21450.0,119770.0,115160.0,59.4,5.7,67.8,48.9,41.0,Contested,2569066500,"Research, Development, Design, and Practitioners"
-29-1218,Obstetricians and Gynecologists,1,29-1218.00,21260.0,279040.0,292910.0,49.9,0.0,61.6,61.9,41.8,Human-anchored,5932390400,"Research, Development, Design, and Practitioners"
-17-2041,Chemical Engineers,1,17-2041.00,21070.0,129980.0,125040.0,62.0,0.0,68.8,44.8,39.5,Contested,2738678600,"Research, Development, Design, and Practitioners"
-19-2012,Physicists,1,19-2012.00,20430.0,171180.0,172250.0,66.6,0.0,73.5,40.3,42.8,Displaceable,3497207400,"Research, Development, Design, and Practitioners"
-25-1052,"Chemistry Teachers, Postsecondary",1,25-1052.00,19980.0,105210.0,93250.0,65.9,0.0,72.2,40.6,37.2,Displaceable,2102095800,Postsecondary Teaching
-17-1012,Landscape Architects,1,17-1012.00,19600.0,88780.0,79870.0,63.5,0.0,68.3,41.3,36.3,Displaceable,1740088000,"Research, Development, Design, and Practitioners"
-19-4092,Forensic Science Technicians,1,19-4092.00,19120.0,79200.0,72060.0,46.2,0.0,46.7,54.4,19.0,Human-anchored,1514304000,Technologists and Technicians
-19-1022,Microbiologists,1,19-1022.00,18940.0,97600.0,87990.0,52.7,0.0,52.3,47.0,20.9,Human-anchored,1848544000,"Research, Development, Design, and Practitioners"
-19-3039,"Psychologists, All Other",2,19-3039.02;19-3039.03,18820.0,111210.0,110840.0,52.7,1.4,62.8,57.3,44.0,Human-anchored,2092972200,"Research, Development, Design, and Practitioners"
-19-1023,Zoologists and Wildlife Biologists,1,19-1023.00,18120.0,83020.0,76780.0,60.4,0.0,65.2,44.4,33.0,Human-anchored,1504322400,"Research, Development, Design, and Practitioners"
-17-2171,Petroleum Engineers,1,17-2171.00,18060.0,157150.0,144910.0,58.1,0.0,60.3,44.1,27.7,Human-anchored,2838129000,"Research, Development, Design, and Practitioners"
-17-3012,Electrical and Electronics Drafters,1,17-3012.00,17920.0,81280.0,76870.0,63.0,0.0,63.1,37.1,26.8,Insulated,1456537600,Technologists and Technicians
-19-3011,Economists,2,19-3011.01;19-3011.00,17790.0,142130.0,124720.0,67.8,1.8,78.0,42.3,47.3,Displaceable,2528492700,"Research, Development, Design, and Practitioners"
-29-1212,Cardiologists,1,29-1212.00,17290.0,454940.0,496010.0,48.2,0.0,57.9,61.6,35.2,Human-anchored,7865912600,"Research, Development, Design, and Practitioners"
-29-2033,Nuclear Medicine Technologists,1,29-2033.00,17080.0,105160.0,101370.0,49.6,0.0,49.0,49.7,10.9,Human-anchored,1796132800,Technologists and Technicians
-29-1124,Radiation Therapists,1,29-1124.00,17070.0,114990.0,105310.0,43.3,0.0,43.6,57.0,16.1,Human-anchored,1962879300,"Research, Development, Design, and Practitioners"
-25-1065,"Political Science Teachers, Postsecondary",1,25-1065.00,16970.0,108100.0,98070.0,68.6,0.0,76.1,38.9,39.5,Displaceable,1834457000,Postsecondary Teaching
-17-3028,Calibration Technologists and Technicians,1,17-3028.00,16540.0,74170.0,67820.0,57.0,0.0,52.1,38.0,15.9,Insulated,1226771800,Technologists and Technicians
-19-1013,Soil and Plant Scientists,1,19-1013.00,15730.0,87720.0,78850.0,59.8,0.0,66.6,47.1,41.4,Contested,1379835600,"Research, Development, Design, and Practitioners"
-17-3024,Electro-Mechanical and Mechatronics Technologists and Technicians,2,17-3024.00;17-3024.01,15520.0,76420.0,73900.0,53.4,2.5,47.7,41.0,11.5,Insulated,1186038400,Technologists and Technicians
-17-2161,Nuclear Engineers,1,17-2161.00,15280.0,140420.0,133970.0,61.1,0.0,67.7,45.4,36.9,Contested,2145617600,"Research, Development, Design, and Practitioners"
-19-4012,Agricultural Technicians,2,19-4012.01;19-4012.00,15130.0,53840.0,49630.0,57.8,11.0,54.5,38.8,14.9,Displaceable,814599200,Technologists and Technicians
-29-1125,Recreational Therapists,1,29-1125.00,14930.0,67630.0,61960.0,53.3,0.0,66.7,60.1,45.6,Contested,1009715900,"Research, Development, Design, and Practitioners"
-19-4013,Food Science Technicians,1,19-4013.00,14600.0,56660.0,52130.0,51.6,0.0,44.9,41.8,-0.4,Insulated,827236000,Technologists and Technicians
-17-1021,Cartographers and Photogrammetrists,1,17-1021.00,14260.0,86690.0,81390.0,56.8,0.0,47.7,34.2,-1.3,Insulated,1236199400,Technologists and Technicians
-29-1242,"Orthopedic Surgeons, Except Pediatric",1,29-1242.00,14100.0,373570.0,358550.0,48.1,0.0,56.4,60.1,35.0,Human-anchored,5267337000,"Research, Development, Design, and Practitioners"
-29-1181,Audiologists,1,29-1181.00,13660.0,97740.0,95780.0,52.2,0.0,62.9,58.5,40.0,Human-anchored,1335128400,"Research, Development, Design, and Practitioners"
-25-1054,"Physics Teachers, Postsecondary",1,25-1054.00,13090.0,111460.0,100310.0,67.1,0.0,73.7,39.7,38.2,Displaceable,1459011400,Postsecondary Teaching
-19-1012,Food Scientists and Technologists,1,19-1012.00,13060.0,95360.0,88720.0,59.1,0.0,63.4,45.3,33.0,Human-anchored,1245401600,"Research, Development, Design, and Practitioners"
-17-3025,Environmental Engineering Technologists and Technicians,1,17-3025.00,12190.0,64870.0,59920.0,56.4,0.0,55.1,42.3,16.4,Insulated,790765300,Technologists and Technicians
-19-1041,Epidemiologists,1,19-1041.00,12090.0,97890.0,87220.0,61.3,0.0,70.7,48.2,45.3,Contested,1183490100,"Research, Development, Design, and Practitioners"
-25-1067,"Sociology Teachers, Postsecondary",1,25-1067.00,11850.0,96980.0,84290.0,67.7,0.0,75.3,39.8,39.7,Displaceable,1149213000,Postsecondary Teaching
-25-1063,"Economics Teachers, Postsecondary",1,25-1063.00,11560.0,138850.0,123920.0,68.9,0.0,76.5,38.6,39.6,Displaceable,1605106000,Postsecondary Teaching
-29-1213,Dermatologists,1,29-1213.00,11370.0,323530.0,328730.0,51.9,0.0,64.9,61.0,47.8,Human-anchored,3678536100,"Research, Development, Design, and Practitioners"
-25-1062,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",1,25-1062.00,11300.0,98330.0,85020.0,68.4,0.0,76.1,39.2,40.0,Displaceable,1111129000,Postsecondary Teaching
-17-3021,Aerospace Engineering and Operations Technologists and Technicians,1,17-3021.00,11280.0,91310.0,82890.0,53.4,0.0,47.5,40.6,9.6,Insulated,1029976800,Technologists and Technicians
-29-2092,Hearing Aid Specialists,1,29-2092.00,11270.0,66370.0,65160.0,37.4,0.0,37.5,62.6,17.4,Human-anchored,747989900,Technologists and Technicians
-29-1222,"Physicians, Pathologists",1,29-1222.00,11110.0,285420.0,312400.0,53.6,0.0,61.2,54.1,32.6,Human-anchored,3171016200,"Research, Development, Design, and Practitioners"
-29-1217,Neurologists,1,29-1217.00,10590.0,267630.0,248560.0,53.8,0.0,67.2,59.6,45.8,Contested,2834201700,"Research, Development, Design, and Practitioners"
-19-1032,Foresters,1,19-1032.00,10430.0,79170.0,76400.0,52.7,0.0,57.8,52.4,35.2,Human-anchored,825743100,"Research, Development, Design, and Practitioners"
-19-2021,Atmospheric and Space Scientists,1,19-2021.00,10000.0,106110.0,99070.0,66.7,0.0,72.9,39.5,38.0,Displaceable,1061100000,"Research, Development, Design, and Practitioners"
-25-1051,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",1,25-1051.00,9900.0,116020.0,103170.0,68.7,0.0,76.0,38.6,38.9,Displaceable,1148598000,Postsecondary Teaching
-29-1081,Podiatrists,1,29-1081.00,9680.0,175480.0,160300.0,48.5,0.0,58.0,61.1,38.3,Human-anchored,1698646400,"Research, Development, Design, and Practitioners"
-29-2091,Orthotists and Prosthetists,1,29-2091.00,9390.0,83740.0,81110.0,43.3,0.0,44.9,58.2,20.6,Human-anchored,786318600,Technologists and Technicians
-19-3091,Anthropologists and Archeologists,1,19-3091.00,8990.0,75620.0,70770.0,57.2,0.0,62.1,47.7,35.3,Human-anchored,679823800,"Research, Development, Design, and Practitioners"
-29-1241,"Ophthalmologists, Except Pediatric",1,29-1241.00,8950.0,304650.0,300080.0,50.0,0.0,61.7,61.7,41.4,Human-anchored,2726617500,"Research, Development, Design, and Practitioners"
-25-1041,"Agricultural Sciences Teachers, Postsecondary",1,25-1041.00,8920.0,102050.0,98700.0,67.7,0.0,75.3,39.9,39.9,Displaceable,910286000,Postsecondary Teaching
-29-1128,Exercise Physiologists,1,29-1128.00,8560.0,60940.0,59460.0,50.7,0.0,58.3,56.8,31.3,Human-anchored,521646400,"Research, Development, Design, and Practitioners"
-19-2032,Materials Scientists,1,19-2032.00,8470.0,126180.0,117790.0,62.4,0.0,66.8,42.1,30.0,Displaceable,1068744600,"Research, Development, Design, and Practitioners"
-19-3022,Survey Researchers,1,19-3022.00,8290.0,79580.0,69460.0,66.6,0.0,73.9,40.8,37.8,Displaceable,659718200,"Research, Development, Design, and Practitioners"
-17-2121,Marine Engineers and Naval Architects,1,17-2121.00,8250.0,124180.0,112230.0,58.8,0.0,59.0,41.4,23.9,Insulated,1024485000,"Research, Development, Design, and Practitioners"
-29-1161,Nurse Midwives,1,29-1161.00,7920.0,136980.0,134040.0,50.5,0.0,61.7,60.8,40.3,Human-anchored,1084881600,"Research, Development, Design, and Practitioners"
-29-1291,Acupuncturists,1,29-1291.00,7830.0,87020.0,76040.0,41.7,0.0,49.4,65.9,32.9,Human-anchored,681366600,"Research, Development, Design, and Practitioners"
-25-1031,"Architecture Teachers, Postsecondary",1,25-1031.00,7700.0,101250.0,96870.0,68.6,0.0,76.2,39.1,39.6,Displaceable,779625000,Postsecondary Teaching
-19-4043,"Geological Technicians, Except Hydrologic Technicians",1,19-4043.00,6980.0,61870.0,53350.0,53.9,0.0,47.7,40.0,9.0,Insulated,431852600,Technologists and Technicians
-25-1053,"Environmental Science Teachers, Postsecondary",1,25-1053.00,6690.0,103610.0,94980.0,68.4,0.0,76.3,39.5,40.4,Displaceable,693150900,Postsecondary Teaching
-19-4051,Nuclear Technicians,2,19-4051.02;19-4051.00,6470.0,108940.0,110240.0,48.2,1.1,42.6,46.1,4.8,Human-anchored,704841800,Technologists and Technicians
-29-1023,Orthodontists,1,29-1023.00,6210.0,259400.0,289140.0,46.0,0.0,53.0,61.1,31.4,Human-anchored,1610874000,"Research, Development, Design, and Practitioners"
-17-2151,"Mining and Geological Engineers, Including Mining Safety Engineers",1,17-2151.00,6080.0,115410.0,106220.0,61.8,0.0,67.0,43.5,33.6,Contested,701692800,"Research, Development, Design, and Practitioners"
-19-2043,Hydrologists,1,19-2043.00,5850.0,103600.0,96600.0,61.1,0.0,66.0,43.9,33.6,Contested,606060000,"Research, Development, Design, and Practitioners"
-19-3094,Political Scientists,1,19-3094.00,5540.0,142510.0,142080.0,70.5,0.0,81.6,40.6,50.2,Displaceable,789505400,"Research, Development, Design, and Practitioners"
-25-1061,"Anthropology and Archeology Teachers, Postsecondary",1,25-1061.00,5240.0,106880.0,99650.0,67.4,0.0,75.1,40.4,40.9,Displaceable,560051200,Postsecondary Teaching
-29-1022,Oral and Maxillofacial Surgeons,1,29-1022.00,4910.0,346490.0,352220.0,30.4,0.0,37.3,76.4,29.4,Human-anchored,1701265900,"Research, Development, Design, and Practitioners"
-29-9092,Genetic Counselors,1,29-9092.00,3740.0,104620.0,100040.0,61.2,0.0,76.3,53.9,50.9,Contested,391278800,"Research, Development, Design, and Practitioners"
-15-2099,"Mathematical Science Occupations, All Other",1,15-2099.01,3720.0,91550.0,81490.0,74.7,0.0,79.6,30.1,35.8,Displaceable,340566000,"Research, Development, Design, and Practitioners; Technologists and Technicians"
-29-2036,Medical Dosimetrists,1,29-2036.00,3410.0,148500.0,147470.0,52.9,0.0,56.5,50.7,23.2,Human-anchored,506385000,Technologists and Technicians
-25-1064,"Geography Teachers, Postsecondary",1,25-1064.00,3330.0,102350.0,97590.0,68.0,0.0,75.0,39.0,38.2,Displaceable,340825500,Postsecondary Teaching
-19-1011,Animal Scientists,1,19-1011.00,3100.0,88350.0,68940.0,65.1,0.0,71.4,41.2,43.1,Displaceable,273885000,"Research, Development, Design, and Practitioners"
-19-4044,Hydrologic Technicians,1,19-4044.00,2840.0,69530.0,64790.0,61.0,0.0,62.2,40.3,24.0,Insulated,197465200,Technologists and Technicians
-19-3041,Sociologists,1,19-3041.00,2260.0,114920.0,106030.0,64.6,0.0,74.2,45.0,45.0,Contested,259719200,"Research, Development, Design, and Practitioners"
-19-2011,Astronomers,1,19-2011.00,2120.0,132920.0,128820.0,63.2,0.0,69.7,43.2,38.5,Displaceable,281790400,"Research, Development, Design, and Practitioners"
-15-2021,Mathematicians,1,15-2021.00,2030.0,129260.0,126710.0,77.4,0.0,85.9,31.1,41.5,Displaceable,262397800,"Research, Development, Design, and Practitioners"
-25-1043,"Forestry and Conservation Science Teachers, Postsecondary",1,25-1043.00,1520.0,102450.0,101420.0,68.6,0.0,76.3,39.2,40.1,Displaceable,155724000,Postsecondary Teaching
-17-2021,Agricultural Engineers,1,17-2021.00,1480.0,108230.0,98590.0,58.2,0.0,62.3,46.0,33.8,Human-anchored,160180400,"Research, Development, Design, and Practitioners"
-19-3092,Geographers,1,19-3092.00,1400.0,102350.0,102040.0,60.0,0.0,61.4,41.4,29.8,Insulated,143290000,"Research, Development, Design, and Practitioners"
-29-1243,Pediatric Surgeons,1,29-1243.00,1190.0,502050.0,559030.0,46.6,0.0,54.9,61.7,33.7,Human-anchored,597439500,"Research, Development, Design, and Practitioners"
-29-1024,Prosthodontists,1,29-1024.00,870.0,268630.0,311180.0,30.3,0.0,28.6,67.9,14.6,Human-anchored,233708100,"Research, Development, Design, and Practitioners"
-19-3032,Industrial-Organizational Psychologists,1,19-3032.00,790.0,170230.0,193950.0,63.3,0.0,72.6,46.1,43.9,Contested,134481700,"Research, Development, Design, and Practitioners"
+29-1141,Registered Nurses,5,29-1141.04;29-1141.02;29-1141.01;29-1141.00;29-1141.03,3379720.0,101420.0,97550.0,47.9,3.6,53.2,57.3,33.7,Human-anchored,342771202400,"Research, Development, Design, and Practitioners"
+15-1252,Software Developers,1,15-1252.00,1687890.0,148100.0,135980.0,68.8,0.0,70.6,33.0,29.1,Displaceable,249976509000,"Research, Development, Design, and Practitioners"
+15-1232,Computer User Support Specialists,1,15-1232.00,717190.0,67330.0,61860.0,67.6,0.0,64.9,29.8,18.7,Displaceable,48288402700,Technologists and Technicians
+11-3021,Computer and Information Systems Managers,1,11-3021.00,670570.0,192160.0,175140.0,65.5,0.0,69.9,38.9,39.6,Displaceable,128856731200,Managerial
+29-2061,Licensed Practical and Licensed Vocational Nurses,1,29-2061.00,648410.0,67050.0,64400.0,42.9,0.0,37.7,51.9,7.5,Human-anchored,43475890500,Technologists and Technicians
+11-9111,Medical and Health Services Managers,1,11-9111.00,597080.0,140970.0,123860.0,61.2,0.0,62.3,40.0,30.7,Displaceable,84170367600,Managerial
+15-1211,Computer Systems Analysts,2,15-1211.01;15-1211.00,519530.0,114610.0,105850.0,73.2,0.2,77.6,31.3,36.6,Displaceable,59543333300,"Research, Development, Design, and Practitioners"
+29-2052,Pharmacy Technicians,1,29-2052.00,471680.0,46620.0,45750.0,58.1,0.0,51.8,35.6,-0.7,Insulated,21989721600,Technologists and Technicians
+15-1299,"Computer Occupations, All Other",9,15-1299.02;15-1299.03;15-1299.01;15-1299.04;15-1299.07;15-1299.08;15-1299.06;15-1299.05;15-1299.09,435370.0,122230.0,116580.0,70.5,4.5,73.5,32.6,30.6,Displaceable,53215275100,"Research, Development, Design, and Practitioners; Technologists and Technicians"
+17-2051,Civil Engineers,3,17-2051.02;17-2051.01;17-2051.00,367840.0,108670.0,100840.0,59.2,3.9,61.2,42.7,32.7,Contested,39973172800,"Research, Development, Design, and Practitioners"
+17-2112,Industrial Engineers,4,17-2112.00;17-2112.03;17-2112.02;17-2112.01,365740.0,109900.0,102440.0,62.4,2.4,64.1,39.4,32.5,Displaceable,40194826000,"Research, Development, Design, and Practitioners"
+29-1229,"Physicians, All Other",6,29-1229.05;29-1229.02;29-1229.06;29-1229.01;29-1229.03;29-1229.04,342720.0,262040.0,265930.0,51.6,6.3,58.7,55.6,39.2,Contested,89806348800,"Research, Development, Design, and Practitioners"
+29-2010,Clinical Laboratory Technologists and Technicians,6,29-2011.01;29-2011.02;29-2012.00;29-2011.00;29-2011.04;29-2012.01,332940.0,67350.0,62930.0,44.5,5.9,35.8,46.8,-1.0,Human-anchored,22423509000,Technologists and Technicians
+29-1171,Nurse Practitioners,1,29-1171.00,323040.0,137300.0,132300.0,52.4,0.0,60.0,55.2,40.2,Human-anchored,44353392000,"Research, Development, Design, and Practitioners"
+29-1051,Pharmacists,1,29-1051.00,321970.0,140920.0,140910.0,56.4,0.0,59.3,46.5,26.1,Human-anchored,45372012400,"Research, Development, Design, and Practitioners"
+15-1244,Network and Computer Systems Administrators,1,15-1244.00,314340.0,103680.0,99130.0,67.6,0.0,66.5,31.3,17.7,Displaceable,32590771200,"Research, Development, Design, and Practitioners"
+17-2141,Mechanical Engineers,3,17-2141.02;17-2141.01;17-2141.00,296810.0,113610.0,104110.0,61.1,0.7,62.1,39.9,32.3,Displaceable,33720584100,"Research, Development, Design, and Practitioners"
+41-4011,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",2,41-4011.00;41-4011.07,284800.0,119730.0,104920.0,68.6,1.1,69.7,32.5,22.4,Displaceable,34099104000,Sales
+29-1123,Physical Therapists,1,29-1123.00,267330.0,105280.0,102760.0,51.9,0.0,57.7,53.9,33.1,Human-anchored,28144502400,"Research, Development, Design, and Practitioners"
+15-2051,Data Scientists,3,15-2051.01;15-2051.00;15-2051.02,262440.0,126800.0,120230.0,76.3,2.0,79.6,27.0,32.8,Displaceable,33277392000,"Research, Development, Design, and Practitioners"
+29-2034,Radiologic Technologists and Technicians,1,29-2034.00,230490.0,83840.0,80110.0,44.9,0.0,42.1,52.3,12.2,Human-anchored,19324281600,Technologists and Technicians
+29-1292,Dental Hygienists,1,29-1292.00,222740.0,98990.0,98100.0,42.1,0.0,38.9,54.7,11.9,Human-anchored,22049032600,"Research, Development, Design, and Practitioners"
+25-1071,"Health Specialties Teachers, Postsecondary",1,25-1071.00,221270.0,147570.0,107310.0,65.7,0.0,67.7,36.3,34.4,Displaceable,32652813900,Postsecondary Teaching
+11-9041,Architectural and Engineering Managers,2,11-9041.00;11-9041.01,220260.0,181540.0,171270.0,57.4,3.3,59.2,44.5,34.3,Contested,39986000400,Managerial
+17-2071,Electrical Engineers,1,17-2071.00,198750.0,125100.0,120630.0,57.1,0.0,55.5,41.3,23.4,Human-anchored,24863625000,"Research, Development, Design, and Practitioners"
+29-2072,Medical Records Specialists,1,29-2072.00,194720.0,56790.0,51140.0,67.9,0.0,70.8,35.1,22.5,Displaceable,11058148800,Technologists and Technicians
+15-1212,Information Security Analysts,1,15-1212.00,190650.0,132510.0,129180.0,68.1,0.0,70.3,34.0,27.5,Displaceable,25263031500,"Research, Development, Design, and Practitioners"
+15-1253,Software Quality Assurance Analysts and Testers,1,15-1253.00,186740.0,111490.0,104300.0,72.3,0.0,72.0,27.3,17.3,Displaceable,20819642600,"Research, Development, Design, and Practitioners"
+29-1127,Speech-Language Pathologists,1,29-1127.00,183390.0,98170.0,97870.0,51.7,0.0,58.0,54.7,37.9,Human-anchored,18003396300,"Research, Development, Design, and Practitioners"
+29-2099,"Health Technologists and Technicians, All Other",3,29-2099.08;29-2099.01;29-2099.05,182610.0,58710.0,50290.0,50.3,15.8,48.1,47.5,13.8,Human-anchored,10721033100,Technologists and Technicians
+29-2042,Emergency Medical Technicians,1,29-2042.00,180510.0,46830.0,44470.0,40.5,0.0,39.5,58.5,19.3,Human-anchored,8453283300,Technologists and Technicians
+15-1241,Computer Network Architects,2,15-1241.00;15-1241.01,179740.0,139580.0,134050.0,66.8,0.5,67.9,34.2,28.6,Displaceable,25088109200,"Research, Development, Design, and Practitioners"
+19-1042,"Medical Scientists, Except Epidemiologists",1,19-1042.00,172340.0,116840.0,103410.0,58.4,0.0,62.2,45.3,33.8,Contested,20136205600,"Research, Development, Design, and Practitioners"
+29-1122,Occupational Therapists,2,29-1122.00;29-1122.01,162450.0,101280.0,100330.0,49.6,0.6,54.8,55.5,35.0,Human-anchored,16452936000,"Research, Development, Design, and Practitioners"
+29-1071,Physician Assistants,2,29-1071.00;29-1071.01,162150.0,141280.0,135880.0,41.9,9.8,42.1,58.3,22.5,Human-anchored,22908552000,"Research, Development, Design, and Practitioners"
+29-2053,Psychiatric Technicians,1,29-2053.00,156960.0,46610.0,45130.0,41.1,0.0,39.5,57.3,20.4,Human-anchored,7315905600,Technologists and Technicians
+17-2199,"Engineers, All Other",8,17-2199.03;17-2199.07;17-2199.08;17-2199.06;17-2199.05;17-2199.11;17-2199.10;17-2199.09,154070.0,125330.0,122930.0,60.8,1.8,60.7,39.1,28.6,Displaceable,19309593100,"Research, Development, Design, and Practitioners"
+15-1231,Computer Network Support Specialists,1,15-1231.00,146190.0,81870.0,76220.0,67.0,0.0,61.9,27.9,9.2,Displaceable,11968575300,Technologists and Technicians
+29-1126,Respiratory Therapists,1,29-1126.00,139790.0,87300.0,82280.0,42.1,0.0,42.7,58.5,21.0,Human-anchored,12203667000,"Research, Development, Design, and Practitioners"
+29-2056,Veterinary Technologists and Technicians,1,29-2056.00,129140.0,49120.0,47380.0,38.3,0.0,30.6,54.0,3.4,Human-anchored,6343356800,Technologists and Technicians
+29-1021,"Dentists, General",1,29-1021.00,124390.0,191350.0,170950.0,36.2,0.0,35.4,63.1,21.8,Human-anchored,23802026500,"Research, Development, Design, and Practitioners"
+29-2055,Surgical Technologists,1,29-2055.00,117460.0,68710.0,64650.0,38.0,0.0,27.4,51.3,-4.3,Human-anchored,8070676600,Technologists and Technicians
+15-1255,Web and Digital Interface Designers,2,15-1255.00;15-1255.01,113330.0,117490.0,104000.0,73.6,2.3,75.9,28.7,31.9,Displaceable,13315141700,"Research, Development, Design, and Practitioners"
+11-9121,Natural Sciences Managers,3,11-9121.01;11-9121.02;11-9121.00,108690.0,180250.0,167220.0,63.1,2.3,65.8,39.6,33.2,Contested,19591372500,Managerial
+15-2031,Operations Research Analysts,1,15-2031.00,108510.0,99730.0,88940.0,71.3,0.0,75.5,32.9,38.0,Displaceable,10821702300,"Research, Development, Design, and Practitioners"
+29-1215,Family Medicine Physicians,1,29-1215.00,107510.0,255820.0,244180.0,52.5,0.0,60.0,55.0,39.3,Human-anchored,27503208200,"Research, Development, Design, and Practitioners"
+17-1011,"Architects, Except Landscape and Naval",1,17-1011.00,106770.0,106260.0,99280.0,61.4,0.0,63.0,40.1,32.5,Contested,11345380200,"Research, Development, Design, and Practitioners"
+17-3011,Architectural and Civil Drafters,1,17-3011.00,103700.0,70740.0,66150.0,65.7,0.0,62.4,31.0,21.0,Displaceable,7335738000,Technologists and Technicians
+29-2043,Paramedics,1,29-2043.00,100610.0,63360.0,60600.0,38.5,0.0,42.2,65.2,29.4,Human-anchored,6374649600,Technologists and Technicians
+17-2072,"Electronics Engineers, Except Computer",2,17-2072.00;17-2072.01,96900.0,137280.0,130220.0,62.9,0.6,61.8,36.0,24.4,Displaceable,13302432000,"Research, Development, Design, and Practitioners"
+17-3023,Electrical and Electronic Engineering Technologists and Technicians,1,17-3023.00,95130.0,80680.0,78190.0,60.2,0.0,56.3,35.9,20.1,Insulated,7675088400,Technologists and Technicians
+15-1251,Computer Programmers,1,15-1251.00,92230.0,105170.0,100390.0,73.3,0.0,74.9,28.3,24.3,Displaceable,9699829100,"Research, Development, Design, and Practitioners"
+29-2032,Diagnostic Medical Sonographers,1,29-2032.00,90160.0,97240.0,96590.0,46.8,0.0,44.5,50.9,11.3,Human-anchored,8767158400,Technologists and Technicians
+19-2041,"Environmental Scientists and Specialists, Including Health",4,19-2041.01;19-2041.03;19-2041.00;19-2041.02,89250.0,91680.0,82220.0,65.3,3.5,70.8,40.3,42.7,Displaceable,8182440000,"Research, Development, Design, and Practitioners"
+29-1131,Veterinarians,1,29-1131.00,83900.0,142680.0,130100.0,47.2,0.0,48.9,54.5,30.6,Human-anchored,11970852000,"Research, Development, Design, and Practitioners"
+19-2031,Chemists,1,19-2031.00,82770.0,100450.0,91240.0,52.3,0.0,49.1,44.5,16.1,Human-anchored,8314246500,"Research, Development, Design, and Practitioners"
+25-1072,"Nursing Instructors and Teachers, Postsecondary",1,25-1072.00,77960.0,86410.0,80250.0,64.4,0.0,67.5,38.8,37.3,Displaceable,6736523600,Postsecondary Teaching
+29-1031,Dietitians and Nutritionists,1,29-1031.00,77570.0,77130.0,76400.0,57.0,0.0,63.2,49.1,37.9,Contested,5982974100,"Research, Development, Design, and Practitioners"
+17-2061,Computer Hardware Engineers,1,17-2061.00,76660.0,162670.0,161740.0,63.2,0.0,63.4,36.9,28.5,Displaceable,12470282200,"Research, Development, Design, and Practitioners"
+19-3033,Clinical and Counseling Psychologists,1,19-3033.00,75990.0,112750.0,100580.0,54.3,0.0,59.4,50.8,36.4,Human-anchored,8567872500,"Research, Development, Design, and Practitioners"
+17-3026,Industrial Engineering Technologists and Technicians,2,17-3026.00;17-3026.01,75570.0,70700.0,66120.0,55.6,2.5,50.2,38.8,12.8,Human-anchored,5342799000,Technologists and Technicians
+19-4099,"Life, Physical, and Social Science Technicians, All Other",2,19-4099.03;19-4099.01,73910.0,66280.0,62280.0,62.8,2.0,60.1,34.4,18.1,Insulated,4898754800,Technologists and Technicians
+29-2081,"Opticians, Dispensing",1,29-2081.00,73530.0,51770.0,47260.0,48.1,0.0,44.7,48.4,11.7,Human-anchored,3806648100,Technologists and Technicians
+29-2057,Ophthalmic Medical Technicians,1,29-2057.00,71010.0,47060.0,45570.0,36.5,0.0,27.7,54.8,-7.2,Human-anchored,3341730600,Technologists and Technicians
+15-1254,Web Developers,1,15-1254.00,70190.0,98770.0,92650.0,74.3,0.0,75.7,27.2,24.4,Displaceable,6932666300,"Research, Development, Design, and Practitioners"
+15-1242,Database Administrators,1,15-1242.00,69990.0,110090.0,104620.0,75.6,0.0,77.0,25.7,23.2,Displaceable,7705199100,"Research, Development, Design, and Practitioners"
+19-4021,Biological Technicians,1,19-4021.00,69620.0,61380.0,57510.0,53.2,0.0,42.2,35.7,0.4,Insulated,4273275600,Technologists and Technicians
+17-3022,Civil Engineering Technologists and Technicians,1,17-3022.00,68520.0,68990.0,64950.0,62.3,0.0,61.9,37.3,23.0,Displaceable,4727194800,Technologists and Technicians
+17-2011,Aerospace Engineers,1,17-2011.00,67710.0,142060.0,134960.0,58.9,0.0,57.6,39.8,25.9,Insulated,9618882600,"Research, Development, Design, and Practitioners"
+29-1216,General Internal Medicine Physicians,1,29-1216.00,67150.0,267200.0,256560.0,49.6,0.0,57.5,58.4,39.0,Human-anchored,17942480000,"Research, Development, Design, and Practitioners"
+15-1243,Database Architects,2,15-1243.01;15-1243.00,67140.0,144440.0,139500.0,74.8,0.4,77.9,28.4,32.8,Displaceable,9697701600,"Research, Development, Design, and Practitioners"
+19-3034,School Psychologists,1,19-3034.00,63940.0,99160.0,95990.0,58.7,0.0,61.4,43.9,35.9,Contested,6340290400,"Research, Development, Design, and Practitioners"
+29-2031,Cardiovascular Technologists and Technicians,1,29-2031.00,62960.0,76940.0,74310.0,43.2,0.0,39.7,53.4,9.4,Human-anchored,4844142400,Technologists and Technicians
+17-3029,"Engineering Technologists and Technicians, Except Drafters, All Other",2,17-3029.01;17-3029.08,59930.0,80960.0,78350.0,50.5,1.5,39.2,38.1,-4.0,Insulated,4851932800,Technologists and Technicians
+17-3031,Surveying and Mapping Technicians,1,17-3031.00,58010.0,58000.0,54240.0,56.1,0.0,45.1,32.8,-4.4,Insulated,3364580000,Technologists and Technicians
+19-4031,Chemical Technicians,1,19-4031.00,57540.0,63900.0,60390.0,51.4,0.0,45.9,43.1,14.6,Human-anchored,3676806000,Technologists and Technicians
+19-1029,"Biological Scientists, All Other",4,19-1029.01;19-1029.04;19-1029.03;19-1029.02,55850.0,106330.0,98920.0,62.7,4.3,65.5,40.1,35.1,Displaceable,5938530500,"Research, Development, Design, and Practitioners"
+29-1151,Nurse Anesthetists,1,29-1151.00,51840.0,248320.0,236590.0,41.2,0.0,39.9,57.5,19.1,Human-anchored,12872908800,"Research, Development, Design, and Practitioners"
+41-9031,Sales Engineers,1,41-9031.00,51790.0,130140.0,124900.0,67.6,0.0,68.6,33.4,26.5,Displaceable,6739950600,Sales
+17-1022,Surveyors,2,17-1022.01;17-1022.00,50830.0,80570.0,75440.0,59.0,4.5,51.6,33.5,3.6,Insulated,4095373100,Technologists and Technicians
+25-1042,"Biological Science Teachers, Postsecondary",1,25-1042.00,50190.0,102840.0,84620.0,65.2,0.0,67.2,36.7,35.3,Displaceable,5161539600,Postsecondary Teaching
+25-1022,"Mathematical Science Teachers, Postsecondary",1,25-1022.00,47670.0,91550.0,79940.0,66.4,0.0,68.6,35.7,33.2,Displaceable,4364188500,Postsecondary Teaching
+19-3051,Urban and Regional Planners,1,19-3051.00,44230.0,94750.0,89320.0,65.5,0.0,70.0,39.0,38.6,Displaceable,4190792500,"Research, Development, Design, and Practitioners"
+29-2035,Magnetic Resonance Imaging Technologists,1,29-2035.00,43390.0,96120.0,95480.0,44.5,0.0,40.0,51.0,10.1,Human-anchored,4170646800,Technologists and Technicians
+29-1041,Optometrists,1,29-1041.00,42790.0,141550.0,136570.0,45.1,0.0,50.3,60.1,31.7,Human-anchored,6056924500,"Research, Development, Design, and Practitioners"
+25-1066,"Psychology Teachers, Postsecondary",1,25-1066.00,41530.0,93860.0,80340.0,64.6,0.0,67.2,38.0,36.2,Displaceable,3898005800,Postsecondary Teaching
+25-1032,"Engineering Teachers, Postsecondary",1,25-1032.00,40270.0,124520.0,109270.0,67.0,0.0,69.4,35.5,35.0,Displaceable,5014420400,Postsecondary Teaching
+17-3013,Mechanical Drafters,1,17-3013.00,39960.0,75060.0,71550.0,65.6,0.0,61.7,30.6,20.5,Displaceable,2999397600,Technologists and Technicians
+29-1011,Chiropractors,1,29-1011.00,39630.0,90520.0,79200.0,49.4,0.0,53.8,55.1,27.1,Human-anchored,3587307600,"Research, Development, Design, and Practitioners"
+29-1221,"Pediatricians, General",1,29-1221.00,39390.0,212110.0,210040.0,47.3,0.0,53.9,59.3,37.2,Human-anchored,8355012900,"Research, Development, Design, and Practitioners"
+29-1211,Anesthesiologists,1,29-1211.00,38760.0,360570.0,391490.0,43.4,0.0,47.4,60.6,28.2,Human-anchored,13975693200,"Research, Development, Design, and Practitioners"
+17-2081,Environmental Engineers,1,17-2081.00,38340.0,112910.0,107110.0,60.7,0.0,62.4,41.0,31.6,Contested,4328969400,"Research, Development, Design, and Practitioners"
+29-9021,Health Information Technologists and Medical Registrars,1,29-9021.00,38100.0,74970.0,68020.0,65.2,0.0,67.7,37.2,27.6,Displaceable,2856357000,"Research, Development, Design, and Practitioners; Technologists and Technicians"
+15-1221,Computer and Information Research Scientists,1,15-1221.00,37200.0,153930.0,140300.0,65.3,0.0,69.1,38.6,36.7,Displaceable,5726196000,"Research, Development, Design, and Practitioners"
+19-3099,"Social Scientists and Related Workers, All Other",1,19-3099.01,37100.0,107690.0,101110.0,66.9,0.0,73.7,39.8,45.1,Displaceable,3995299000,"Research, Development, Design, and Practitioners"
+17-3027,Mechanical Engineering Technologists and Technicians,2,17-3027.00;17-3027.01,36190.0,76380.0,74510.0,59.1,3.5,54.0,35.8,12.3,Insulated,2764192200,Technologists and Technicians
+25-1021,"Computer Science Teachers, Postsecondary",1,25-1021.00,35480.0,104420.0,96980.0,64.8,0.0,67.5,37.9,36.6,Displaceable,3704821600,Postsecondary Teaching
+29-9099,"Healthcare Practitioners and Technical Workers, All Other",1,29-9099.01,35010.0,76720.0,65790.0,44.8,0.0,48.9,59.3,28.3,Human-anchored,2685967200,"Research, Development, Design, and Practitioners; Technologists and Technicians"
+19-4042,"Environmental Science and Protection Technicians, Including Health",1,19-4042.00,34670.0,60800.0,55090.0,52.0,0.0,47.7,43.6,16.4,Human-anchored,2107936000,Technologists and Technicians
+19-1021,Biochemists and Biophysicists,1,19-1021.00,33830.0,129840.0,127410.0,58.5,0.0,59.6,42.7,30.9,Human-anchored,4392487200,"Research, Development, Design, and Practitioners"
+29-1214,Emergency Medicine Physicians,1,29-1214.00,32880.0,317480.0,335550.0,46.6,0.0,54.5,61.3,37.1,Human-anchored,10438742400,"Research, Development, Design, and Practitioners"
+29-2051,Dietetic Technicians,1,29-2051.00,31560.0,40630.0,37640.0,54.7,0.0,60.0,50.5,36.3,Human-anchored,1282282800,Technologists and Technicians
+19-4061,Social Science Research Assistants,1,19-4061.00,30640.0,66140.0,61990.0,67.5,0.0,68.4,33.4,27.9,Displaceable,2026529600,Technologists and Technicians
+29-9091,Athletic Trainers,1,29-9091.00,30500.0,66620.0,62520.0,49.6,0.0,49.8,50.5,23.2,Human-anchored,2031910000,"Research, Development, Design, and Practitioners"
+19-4071,Forest and Conservation Technicians,1,19-4071.00,30410.0,59060.0,54560.0,49.5,0.0,41.3,42.3,8.2,Human-anchored,1796014600,Technologists and Technicians
+15-2041,Statisticians,2,15-2041.01;15-2041.00,29030.0,115700.0,105650.0,74.4,0.8,78.7,29.9,35.0,Displaceable,3358771000,"Research, Development, Design, and Practitioners"
+29-1299,"Healthcare Diagnosing or Treating Practitioners, All Other",2,29-1299.01;29-1299.02,28630.0,127660.0,115210.0,49.8,0.1,54.1,54.6,31.8,Human-anchored,3654905800,"Research, Development, Design, and Practitioners"
+29-1223,Psychiatrists,1,29-1223.00,27980.0,269940.0,281870.0,55.6,0.0,64.6,53.4,43.0,Contested,7552921200,"Research, Development, Design, and Practitioners"
+29-1224,Radiologists,1,29-1224.00,26770.0,381530.0,420860.0,52.7,0.0,58.6,53.2,34.0,Human-anchored,10213558100,"Research, Development, Design, and Practitioners"
+15-2011,Actuaries,1,15-2011.00,26670.0,141480.0,130000.0,60.8,0.0,68.2,46.6,42.6,Contested,3773271600,"Research, Development, Design, and Practitioners"
+19-1031,Conservation Scientists,3,19-1031.03;19-1031.00;19-1031.02,25950.0,77130.0,73010.0,57.9,2.5,58.0,42.1,28.3,Human-anchored,2001523500,"Research, Development, Design, and Practitioners"
+17-2031,Bioengineers and Biomedical Engineers,1,17-2031.00,23480.0,116890.0,109370.0,64.5,0.0,68.2,39.2,39.4,Displaceable,2744577200,"Research, Development, Design, and Practitioners"
+19-2042,"Geoscientists, Except Hydrologists and Geographers",1,19-2042.00,23470.0,116150.0,101920.0,62.9,0.0,63.1,37.2,27.3,Displaceable,2726040500,"Research, Development, Design, and Practitioners"
+17-2131,Materials Engineers,1,17-2131.00,22770.0,120250.0,112860.0,59.3,0.0,59.5,40.9,27.5,Human-anchored,2738092500,"Research, Development, Design, and Practitioners"
+29-1129,"Therapists, All Other",2,29-1129.01;29-1129.02,22640.0,90420.0,77930.0,53.1,1.9,58.0,51.7,36.5,Human-anchored,2047108800,"Research, Development, Design, and Practitioners"
+19-2099,"Physical Scientists, All Other",1,19-2099.01,22300.0,129230.0,122570.0,63.2,0.0,61.9,35.5,26.4,Displaceable,2881829000,"Research, Development, Design, and Practitioners"
+29-9093,Surgical Assistants,1,29-9093.00,22270.0,72710.0,66800.0,30.0,0.0,22.0,62.0,3.4,Human-anchored,1619251700,"Research, Development, Design, and Practitioners"
+17-2111,"Health and Safety Engineers, Except Mining Safety Engineers and Inspectors",2,17-2111.02;17-2111.00,21450.0,119770.0,115160.0,58.2,6.7,62.2,45.8,35.8,Contested,2569066500,"Research, Development, Design, and Practitioners"
+29-1218,Obstetricians and Gynecologists,1,29-1218.00,21260.0,279040.0,292910.0,48.0,0.0,54.9,58.9,36.1,Human-anchored,5932390400,"Research, Development, Design, and Practitioners"
+17-2041,Chemical Engineers,1,17-2041.00,21070.0,129980.0,125040.0,59.6,0.0,61.7,42.6,32.2,Contested,2738678600,"Research, Development, Design, and Practitioners"
+19-2012,Physicists,1,19-2012.00,20430.0,171180.0,172250.0,65.6,0.0,68.8,37.6,37.9,Displaceable,3497207400,"Research, Development, Design, and Practitioners"
+25-1052,"Chemistry Teachers, Postsecondary",1,25-1052.00,19980.0,105210.0,93250.0,64.1,0.0,65.5,37.3,33.1,Displaceable,2102095800,Postsecondary Teaching
+17-1012,Landscape Architects,1,17-1012.00,19600.0,88780.0,79870.0,63.5,0.0,64.6,37.7,31.7,Displaceable,1740088000,"Research, Development, Design, and Practitioners"
+19-4092,Forensic Science Technicians,1,19-4092.00,19120.0,79200.0,72060.0,46.4,0.0,43.9,51.2,17.6,Human-anchored,1514304000,Technologists and Technicians
+19-1022,Microbiologists,1,19-1022.00,18940.0,97600.0,87990.0,52.4,0.0,48.6,43.8,16.0,Human-anchored,1848544000,"Research, Development, Design, and Practitioners"
+19-3039,"Psychologists, All Other",2,19-3039.02;19-3039.03,18820.0,111210.0,110840.0,51.7,1.8,57.7,54.2,38.8,Human-anchored,2092972200,"Research, Development, Design, and Practitioners"
+19-1023,Zoologists and Wildlife Biologists,1,19-1023.00,18120.0,83020.0,76780.0,60.7,0.0,61.5,40.1,28.4,Contested,1504322400,"Research, Development, Design, and Practitioners"
+17-2171,Petroleum Engineers,1,17-2171.00,18060.0,157150.0,144910.0,57.4,0.0,56.2,41.3,24.0,Human-anchored,2838129000,"Research, Development, Design, and Practitioners"
+17-3012,Electrical and Electronics Drafters,1,17-3012.00,17920.0,81280.0,76870.0,63.0,0.0,60.3,34.2,23.7,Displaceable,1456537600,Technologists and Technicians
+19-3011,Economists,2,19-3011.01;19-3011.00,17790.0,142130.0,124720.0,66.7,1.4,72.5,39.1,43.0,Displaceable,2528492700,"Research, Development, Design, and Practitioners"
+29-1212,Cardiologists,1,29-1212.00,17290.0,454940.0,496010.0,46.1,0.0,51.1,59.0,28.6,Human-anchored,7865912600,"Research, Development, Design, and Practitioners"
+29-2033,Nuclear Medicine Technologists,1,29-2033.00,17080.0,105160.0,101370.0,46.1,0.0,41.6,49.3,6.9,Human-anchored,1796132800,Technologists and Technicians
+29-1124,Radiation Therapists,1,29-1124.00,17070.0,114990.0,105310.0,42.5,0.0,39.0,54.1,10.5,Human-anchored,1962879300,"Research, Development, Design, and Practitioners"
+25-1065,"Political Science Teachers, Postsecondary",1,25-1065.00,16970.0,108100.0,98070.0,66.8,0.0,69.1,35.6,35.2,Displaceable,1834457000,Postsecondary Teaching
+17-3028,Calibration Technologists and Technicians,1,17-3028.00,16540.0,74170.0,67820.0,56.9,0.0,49.4,35.6,10.8,Insulated,1226771800,Technologists and Technicians
+19-1013,Soil and Plant Scientists,1,19-1013.00,15730.0,87720.0,78850.0,60.4,0.0,63.1,42.2,37.1,Contested,1379835600,"Research, Development, Design, and Practitioners"
+17-3024,Electro-Mechanical and Mechatronics Technologists and Technicians,2,17-3024.00;17-3024.01,15520.0,76420.0,73900.0,53.6,2.0,45.5,38.2,7.3,Insulated,1186038400,Technologists and Technicians
+17-2161,Nuclear Engineers,1,17-2161.00,15280.0,140420.0,133970.0,59.5,0.0,61.9,42.9,32.8,Contested,2145617600,"Research, Development, Design, and Practitioners"
+19-4012,Agricultural Technicians,2,19-4012.01;19-4012.00,15130.0,53840.0,49630.0,57.5,11.1,50.1,35.1,9.2,Displaceable,814599200,Technologists and Technicians
+29-1125,Recreational Therapists,1,29-1125.00,14930.0,67630.0,61960.0,50.4,0.0,58.3,57.5,40.0,Human-anchored,1009715900,"Research, Development, Design, and Practitioners"
+19-4013,Food Science Technicians,1,19-4013.00,14600.0,56660.0,52130.0,49.2,0.0,37.9,39.6,-8.2,Insulated,827236000,Technologists and Technicians
+17-1021,Cartographers and Photogrammetrists,1,17-1021.00,14260.0,86690.0,81390.0,57.2,0.0,45.0,30.6,-7.2,Insulated,1236199400,Technologists and Technicians
+29-1242,"Orthopedic Surgeons, Except Pediatric",1,29-1242.00,14100.0,373570.0,358550.0,46.7,0.0,50.2,56.8,28.4,Human-anchored,5267337000,"Research, Development, Design, and Practitioners"
+29-1181,Audiologists,1,29-1181.00,13660.0,97740.0,95780.0,50.8,0.0,56.3,54.8,33.5,Human-anchored,1335128400,"Research, Development, Design, and Practitioners"
+25-1054,"Physics Teachers, Postsecondary",1,25-1054.00,13090.0,111460.0,100310.0,65.1,0.0,66.7,36.5,33.9,Displaceable,1459011400,Postsecondary Teaching
+19-1012,Food Scientists and Technologists,1,19-1012.00,13060.0,95360.0,88720.0,56.8,0.0,56.6,42.9,26.4,Human-anchored,1245401600,"Research, Development, Design, and Practitioners"
+17-3025,Environmental Engineering Technologists and Technicians,1,17-3025.00,12190.0,64870.0,59920.0,55.2,0.0,50.1,39.8,11.4,Insulated,790765300,Technologists and Technicians
+19-1041,Epidemiologists,1,19-1041.00,12090.0,97890.0,87220.0,60.2,0.0,66.2,45.7,42.9,Contested,1183490100,"Research, Development, Design, and Practitioners"
+25-1067,"Sociology Teachers, Postsecondary",1,25-1067.00,11850.0,96980.0,84290.0,66.0,0.0,68.3,36.4,35.5,Displaceable,1149213000,Postsecondary Teaching
+25-1063,"Economics Teachers, Postsecondary",1,25-1063.00,11560.0,138850.0,123920.0,67.1,0.0,69.6,35.3,35.3,Displaceable,1605106000,Postsecondary Teaching
+29-1213,Dermatologists,1,29-1213.00,11370.0,323530.0,328730.0,49.5,0.0,57.0,58.0,40.2,Human-anchored,3678536100,"Research, Development, Design, and Practitioners"
+25-1062,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",1,25-1062.00,11300.0,98330.0,85020.0,66.6,0.0,69.0,35.8,35.7,Displaceable,1111129000,Postsecondary Teaching
+17-3021,Aerospace Engineering and Operations Technologists and Technicians,1,17-3021.00,11280.0,91310.0,82890.0,52.0,0.0,43.0,39.1,4.1,Insulated,1029976800,Technologists and Technicians
+29-2092,Hearing Aid Specialists,1,29-2092.00,11270.0,66370.0,65160.0,38.6,0.0,34.7,57.5,12.2,Human-anchored,747989900,Technologists and Technicians
+29-1222,"Physicians, Pathologists",1,29-1222.00,11110.0,285420.0,312400.0,52.7,0.0,56.5,51.2,29.1,Human-anchored,3171016200,"Research, Development, Design, and Practitioners"
+29-1217,Neurologists,1,29-1217.00,10590.0,267630.0,248560.0,52.0,0.0,60.7,56.7,41.2,Contested,2834201700,"Research, Development, Design, and Practitioners"
+19-1032,Foresters,1,19-1032.00,10430.0,79170.0,76400.0,52.8,0.0,52.2,46.7,28.1,Human-anchored,825743100,"Research, Development, Design, and Practitioners"
+19-2021,Atmospheric and Space Scientists,1,19-2021.00,10000.0,106110.0,99070.0,65.3,0.0,67.9,37.2,33.4,Displaceable,1061100000,"Research, Development, Design, and Practitioners"
+25-1051,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",1,25-1051.00,9900.0,116020.0,103170.0,66.6,0.0,68.7,35.4,34.0,Displaceable,1148598000,Postsecondary Teaching
+29-1081,Podiatrists,1,29-1081.00,9680.0,175480.0,160300.0,48.1,0.0,52.3,56.2,30.9,Human-anchored,1698646400,"Research, Development, Design, and Practitioners"
+29-2091,Orthotists and Prosthetists,1,29-2091.00,9390.0,83740.0,81110.0,42.5,0.0,40.3,55.2,17.9,Human-anchored,786318600,Technologists and Technicians
+19-3091,Anthropologists and Archeologists,1,19-3091.00,8990.0,75620.0,70770.0,56.9,0.0,57.7,43.9,30.9,Human-anchored,679823800,"Research, Development, Design, and Practitioners"
+29-1241,"Ophthalmologists, Except Pediatric",1,29-1241.00,8950.0,304650.0,300080.0,47.3,0.0,53.8,59.2,35.2,Human-anchored,2726617500,"Research, Development, Design, and Practitioners"
+25-1041,"Agricultural Sciences Teachers, Postsecondary",1,25-1041.00,8920.0,102050.0,98700.0,65.8,0.0,68.2,36.6,35.7,Displaceable,910286000,Postsecondary Teaching
+29-1128,Exercise Physiologists,1,29-1128.00,8560.0,60940.0,59460.0,49.0,0.0,51.7,53.6,26.4,Human-anchored,521646400,"Research, Development, Design, and Practitioners"
+19-2032,Materials Scientists,1,19-2032.00,8470.0,126180.0,117790.0,61.3,0.0,62.2,39.5,26.6,Displaceable,1068744600,"Research, Development, Design, and Practitioners"
+19-3022,Survey Researchers,1,19-3022.00,8290.0,79580.0,69460.0,65.5,0.0,68.7,37.6,35.0,Displaceable,659718200,"Research, Development, Design, and Practitioners"
+17-2121,Marine Engineers and Naval Architects,1,17-2121.00,8250.0,124180.0,112230.0,58.9,0.0,56.3,38.5,21.1,Insulated,1024485000,"Research, Development, Design, and Practitioners"
+29-1161,Nurse Midwives,1,29-1161.00,7920.0,136980.0,134040.0,47.4,0.0,53.6,58.8,34.2,Human-anchored,1084881600,"Research, Development, Design, and Practitioners"
+29-1291,Acupuncturists,1,29-1291.00,7830.0,87020.0,76040.0,41.7,0.0,44.0,60.6,27.3,Human-anchored,681366600,"Research, Development, Design, and Practitioners"
+25-1031,"Architecture Teachers, Postsecondary",1,25-1031.00,7700.0,101250.0,96870.0,66.8,0.0,69.2,35.6,35.4,Displaceable,779625000,Postsecondary Teaching
+19-4043,"Geological Technicians, Except Hydrologic Technicians",1,19-4043.00,6980.0,61870.0,53350.0,53.7,0.0,44.3,36.9,6.0,Insulated,431852600,Technologists and Technicians
+25-1053,"Environmental Science Teachers, Postsecondary",1,25-1053.00,6690.0,103610.0,94980.0,66.5,0.0,69.1,36.2,36.1,Displaceable,693150900,Postsecondary Teaching
+19-4051,Nuclear Technicians,2,19-4051.02;19-4051.00,6470.0,108940.0,110240.0,47.4,1.1,37.4,42.6,-2.2,Human-anchored,704841800,Technologists and Technicians
+29-1023,Orthodontists,1,29-1023.00,6210.0,259400.0,289140.0,43.9,0.0,47.3,59.4,28.8,Human-anchored,1610874000,"Research, Development, Design, and Practitioners"
+17-2151,"Mining and Geological Engineers, Including Mining Safety Engineers",1,17-2151.00,6080.0,115410.0,106220.0,61.3,0.0,62.7,39.9,29.7,Displaceable,701692800,"Research, Development, Design, and Practitioners"
+19-2043,Hydrologists,1,19-2043.00,5850.0,103600.0,96600.0,60.2,0.0,60.4,40.1,28.9,Contested,606060000,"Research, Development, Design, and Practitioners"
+19-3094,Political Scientists,1,19-3094.00,5540.0,142510.0,142080.0,69.1,0.0,75.8,37.6,45.9,Displaceable,789505400,"Research, Development, Design, and Practitioners"
+25-1061,"Anthropology and Archeology Teachers, Postsecondary",1,25-1061.00,5240.0,106880.0,99650.0,65.7,0.0,68.4,37.0,36.8,Displaceable,560051200,Postsecondary Teaching
+29-1022,Oral and Maxillofacial Surgeons,1,29-1022.00,4910.0,346490.0,352220.0,29.4,0.0,31.8,72.9,23.7,Human-anchored,1701265900,"Research, Development, Design, and Practitioners"
+29-9092,Genetic Counselors,1,29-9092.00,3740.0,104620.0,100040.0,60.1,0.0,70.3,50.1,46.5,Contested,391278800,"Research, Development, Design, and Practitioners"
+15-2099,"Mathematical Science Occupations, All Other",1,15-2099.01,3720.0,91550.0,81490.0,74.2,0.0,76.0,27.6,30.8,Displaceable,340566000,"Research, Development, Design, and Practitioners; Technologists and Technicians"
+29-2036,Medical Dosimetrists,1,29-2036.00,3410.0,148500.0,147470.0,51.1,0.0,51.0,48.8,19.3,Human-anchored,506385000,Technologists and Technicians
+25-1064,"Geography Teachers, Postsecondary",1,25-1064.00,3330.0,102350.0,97590.0,66.1,0.0,67.9,35.8,34.1,Displaceable,340825500,Postsecondary Teaching
+19-1011,Animal Scientists,1,19-1011.00,3100.0,88350.0,68940.0,67.1,0.0,69.7,35.6,38.3,Displaceable,273885000,"Research, Development, Design, and Practitioners"
+19-4044,Hydrologic Technicians,1,19-4044.00,2840.0,69530.0,64790.0,60.9,0.0,58.6,36.8,20.7,Insulated,197465200,Technologists and Technicians
+19-3041,Sociologists,1,19-3041.00,2260.0,114920.0,106030.0,63.4,0.0,68.7,41.7,41.0,Contested,259719200,"Research, Development, Design, and Practitioners"
+19-2011,Astronomers,1,19-2011.00,2120.0,132920.0,128820.0,62.7,0.0,65.3,39.9,34.1,Displaceable,281790400,"Research, Development, Design, and Practitioners"
+15-2021,Mathematicians,1,15-2021.00,2030.0,129260.0,126710.0,76.6,0.0,81.5,28.3,36.5,Displaceable,262397800,"Research, Development, Design, and Practitioners"
+25-1043,"Forestry and Conservation Science Teachers, Postsecondary",1,25-1043.00,1520.0,102450.0,101420.0,66.6,0.0,69.1,36.0,35.9,Displaceable,155724000,Postsecondary Teaching
+17-2021,Agricultural Engineers,1,17-2021.00,1480.0,108230.0,98590.0,58.2,0.0,59.4,43.0,32.2,Human-anchored,160180400,"Research, Development, Design, and Practitioners"
+19-3092,Geographers,1,19-3092.00,1400.0,102350.0,102040.0,60.9,0.0,59.2,37.4,26.2,Insulated,143290000,"Research, Development, Design, and Practitioners"
+29-1243,Pediatric Surgeons,1,29-1243.00,1190.0,502050.0,559030.0,45.2,0.0,48.9,58.6,27.7,Human-anchored,597439500,"Research, Development, Design, and Practitioners"
+29-1024,Prosthodontists,1,29-1024.00,870.0,268630.0,311180.0,29.2,0.0,24.2,65.8,11.1,Human-anchored,233708100,"Research, Development, Design, and Practitioners"
+19-3032,Industrial-Organizational Psychologists,1,19-3032.00,790.0,170230.0,193950.0,61.9,0.0,67.2,43.3,41.1,Contested,134481700,"Research, Development, Design, and Practitioners"
