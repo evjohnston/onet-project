@@ -152,7 +152,58 @@ def _test_count(md: str, out: Path) -> list[tuple[str, str, str]]:
     return bad
 
 
+def _landing_page(md: str, out: Path) -> list[tuple[str, str, str]]:
+    """The landing page's headline figures.
+
+    Not part of METHODOLOGY.md, but the same rot and the more public surface: it
+    carried a hardcoded Frey correlation of 0.006 against an actual 0.024, and a
+    hardcoded "9% of STEM workers" that matched no quantity the dataset computes
+    - the nearest readings being 31%, 20% and 46%. Both are derived now, and
+    this is what keeps them derived.
+    """
+    page = out.parent.parent / "docs" / "index.html"
+    if not page.exists():
+        page = Path("docs/index.html")
+    if not page.exists():
+        return []
+    html = page.read_text()
+    ev = _json(out, "external_validation")
+    by = {r["measure"]: r for r in ev.get("susceptibility_vs", [])}
+    hand = _json(out, "handoff_report")
+    bad = []
+
+    frey = by.get("frey_osborne")
+    if frey:
+        m = re.search(r"exposure at <b>r&nbsp;=&nbsp;([\d.]+)</b> across the (\d+)", html)
+        if not m:
+            bad.append(("landing/frey", f"{frey['pearson']:.3f}", "pattern absent"))
+        else:
+            if abs(float(m.group(1)) - frey["pearson"]) > 0.0005:
+                bad.append(("landing/frey r", f"{frey['pearson']:.3f}", m.group(1)))
+            if int(m.group(2)) != frey["n"]:
+                bad.append(("landing/frey n", str(frey["n"]), m.group(2)))
+
+    share = hand.get("employment_share_at_watch_points")
+    if share is not None:
+        m = re.search(r"<b>(\d+)%</b> of STEM workers are at a watch point", html)
+        if not m:
+            bad.append(("landing/watch share", f"{100*share:.0f}%", "pattern absent"))
+        elif int(m.group(1)) != round(100 * share):
+            bad.append(("landing/watch share", f"{100*share:.0f}%", m.group(1) + "%"))
+
+    stranded = len(_csv(out, "stranded_occupations"))
+    scored = len(_csv(out, "occupation_susceptibility"))
+    m = re.search(r"<b>(\d+) of (\d+)</b>\s*occupations have no close", html)
+    if m:
+        if int(m.group(1)) != stranded:
+            bad.append(("landing/stranded", str(stranded), m.group(1)))
+        if int(m.group(2)) != scored:
+            bad.append(("landing/scored", str(scored), m.group(2)))
+    return bad
+
+
 CHECKS: tuple[tuple[str, Callable[[str, Path], list[tuple[str, str, str]]]], ...] = (
+    ("landing page", _landing_page),
     ("counts table", _counts_table),
     ("scenarios table", _scenarios_table),
     ("security cells", _security_cells),

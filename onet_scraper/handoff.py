@@ -362,13 +362,29 @@ def build(
     return sorted(rows, key=lambda r: -r["surprise_potential"])
 
 
-def summarise(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
+def summarise(rows: Sequence[dict[str, Any]],
+              soc_of: dict[str, str] | None = None) -> dict[str, Any]:
     import collections
     by_class = collections.Counter(r["classification"] for r in rows)
     by_stage = collections.Counter(r["stage_now_label"] for r in rows)
     pending = [r for r in rows if r["pending_crossings"] > 0]
     weighty = [r for r in pending if r["weighty_crossing"]]
-    emp = lambda rs: sum(r["total_employment"] or 0 for r in rs)
+
+    # Collapse to 6-digit SOC before summing. Employment is published at SOC and
+    # several O*NET occupations can share one, each carrying that SOC's full
+    # figure - so summing the rows double-counts. This is the third place in the
+    # project to have had that bug (see METHODOLOGY.md 6.3); without the map the
+    # behaviour is unchanged, so a caller that does not pass one is no worse off
+    # than before but is not fixed either.
+    soc_of = soc_of or {}
+
+    def emp(rs: Sequence[dict[str, Any]]) -> float:
+        seen: dict[str, float] = {}
+        for r in rs:
+            if r.get("total_employment"):
+                key = soc_of.get(r["onet_soc_code"], r["onet_soc_code"])
+                seen[key] = float(r["total_employment"])
+        return sum(seen.values())
     return {
         "occupations": len(rows),
         "by_classification": dict(by_class),
@@ -378,6 +394,10 @@ def summarise(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
         "employment_at_weighty_crossing": emp(weighty),
         "employment_at_watch_points": emp([r for r in rows
                                            if r["classification"] == "Watch point"]),
+        "employment_total": emp(rows),
+        "employment_share_at_watch_points": (
+            round(emp([r for r in rows if r["classification"] == "Watch point"])
+                  / emp(rows), 4) if emp(rows) else None),
         "mean_willingness_gap": round(
             statistics.fmean(r["willingness_gap"] for r in rows), 1) if rows else 0,
     }

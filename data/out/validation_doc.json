@@ -1,5 +1,11 @@
 [
   {
+    "check": "landing page",
+    "passed": true,
+    "detail": "in step with the data",
+    "rows": []
+  },
+  {
     "check": "counts table",
     "passed": true,
     "detail": "in step with the data",

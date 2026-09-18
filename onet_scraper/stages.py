@@ -249,8 +249,19 @@ def run_report(settings: Settings) -> dict[str, Any]:
     write_csv(settings.out_dir / "occupation_handoff.csv", handoff_rows, HANDOFF_COLUMNS)
     append_sqlite(settings.out_dir / "onet_stem.sqlite",
                   {"occupation_handoff": handoff_rows})
-    handoff_summary = sum_handoff(handoff_rows)
+    # The SOC map, so the summary's employment figures collapse before summing.
+    soc_of_h: dict[str, str] = {}
+    for r in read_table(settings.out_dir, "soc_susceptibility"):
+        for c in (r.get("onet_codes") or "").split(";"):
+            if c:
+                soc_of_h[c] = r["soc_code"]
+    handoff_summary = sum_handoff(handoff_rows, soc_of_h)
+    (settings.out_dir / "handoff_report.json").write_text(
+        json.dumps(handoff_summary, indent=2))
     log.info("handoff framing: %s", handoff_summary["by_classification"])
+    if handoff_summary.get("employment_share_at_watch_points") is not None:
+        log.info("  %.1f%% of workers are at a watch point",
+                 100 * handoff_summary["employment_share_at_watch_points"])
     log.info("  %d occupations have a pending crossing, %d of them at one of the "
              "two weighty crossings", handoff_summary["with_pending_crossing"],
              handoff_summary["at_a_weighty_crossing"])

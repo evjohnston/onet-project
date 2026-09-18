@@ -47,6 +47,16 @@ def build_index(out_dir: Path) -> str:
 
     human = next((c for c in ext.get("susceptibility_vs", [])
                   if c["measure"] == "human_gamma"), {})
+    # Both of these were hardcoded literals and both had gone stale: Frey at
+    # 0.006 against an actual 0.024, and a "9%" that corresponds to no quantity
+    # the dataset computes under any plausible reading - the nearest candidates
+    # are 30.7% (watch points), 20.3% (a wide willingness gap) and 45.8% (at a
+    # weighty crossing). A figure in prose that nothing derives will rot, so
+    # these are derived.
+    frey = next((c for c in ext.get("susceptibility_vs", [])
+                 if c["measure"] == "frey_osborne"), {})
+    hand = _read(out_dir, "handoff_report.json")
+    watch_share = hand.get("employment_share_at_watch_points")
     trans = pw.get("transitions", {})
     wages = pw.get("wages", {})
 
@@ -64,15 +74,16 @@ def build_index(out_dir: Path) -> str:
 
     findings = [
         ("The old measure does not survive",
-         "Frey &amp; Osborne&rsquo;s 2013 computerisation scores correlate with LLM "
-         "exposure at <b>r&nbsp;=&nbsp;0.006</b> across the 150 occupations carrying "
-         "both. Not weak agreement — none."),
+         f"Frey &amp; Osborne&rsquo;s 2013 computerisation scores correlate with LLM "
+         f"exposure at <b>r&nbsp;=&nbsp;{frey.get('pearson', 0):.3f}</b> across the "
+         f"{frey.get('n', 0)} occupations carrying both. Not weak agreement — none."),
         ("Capability is not what holds most work",
          f"Pay barely correlates with exposure (r&nbsp;=&nbsp;"
          f"{wages.get('wage_vs_exposure', 0)}) but does with accountability "
-         f"(r&nbsp;=&nbsp;{wages.get('wage_vs_anchoring', 0)}). Only "
-         f"<b>9%</b> of STEM workers are in work a model could do but is not "
-         f"permitted to."),
+         f"(r&nbsp;=&nbsp;{wages.get('wage_vs_anchoring', 0)})."
+         + (f" <b>{100*watch_share:.0f}%</b> of STEM workers are at a watch point: "
+            f"capability is present and accountability is what holds the line."
+            if watch_share is not None else "")),
         ("Exposure is clustered, so there is nowhere to go",
          f"<b>{trans.get('stranded', 0)} of "
          f"{trans.get('stranded', 0) + trans.get('with_a_destination', 0)}</b> "
