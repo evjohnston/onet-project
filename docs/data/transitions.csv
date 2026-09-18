@@ -1,112 +1,113 @@
 onet_soc_code,title,susceptibility,total_employment,destination_code,destination,destination_susceptibility,relief,overlap,shared_activities,shared_protected,carries_exposure,verdict
-15-2051.01,Business Intelligence Analysts,78.3,262440.0,15-1299.09,Information Technology Project Managers,65.2,13.1,0.204,3,0,3,Carries its exposure
-15-1299.02,Geographic Information Systems Technologists and Technicians,78.2,435370.0,15-1221.00,Computer and Information Research Scientists,65.3,12.9,0.283,6,4,2,Real move
-15-2021.00,Mathematicians,76.6,2030.0,19-2011.00,Astronomers,62.7,13.9,0.195,3,1,2,Carries its exposure
-15-2041.01,Biostatisticians,75.0,29030.0,15-2011.00,Actuaries,60.8,14.2,0.189,3,0,3,Carries its exposure
-15-1299.04,Penetration Testers,70.2,435370.0,17-3024.00,Electro-Mechanical and Mechatronics Technologists and Technicians,55.0,15.2,0.131,3,3,0,Real move
-19-3094.00,Political Scientists,69.1,5540.0,19-3039.03,Clinical Neuropsychologists,50.4,18.7,0.2,3,1,2,Carries its exposure
-29-2072.00,Medical Records Specialists,67.9,194720.0,29-2034.00,Radiologic Technologists and Technicians,44.9,23.0,0.293,6,2,4,Carries its exposure
-19-1029.01,Bioinformatics Scientists,67.7,55850.0,19-4092.00,Forensic Science Technicians,46.4,21.3,0.202,3,2,1,Real move
-19-3011.01,Environmental Economists,67.7,17790.0,19-4042.00,"Environmental Science and Protection Technicians, Including Health",52.0,15.7,0.203,5,4,1,Real move
-19-4061.00,Social Science Research Assistants,67.5,30640.0,19-3033.00,Clinical and Counseling Psychologists,54.3,13.2,0.279,6,5,1,Real move
-19-2041.03,Industrial Ecologists,67.0,89250.0,19-1032.00,Foresters,52.8,14.2,0.236,6,6,0,Real move
-19-3099.01,Transportation Planners,66.9,37100.0,19-4092.00,Forensic Science Technicians,46.4,20.5,0.146,3,0,3,Carries its exposure
-17-3011.00,Architectural and Civil Drafters,65.7,103700.0,17-3029.08,Photonics Technicians,49.5,16.2,0.13,3,1,2,Carries its exposure
-19-3011.00,Economists,65.7,17790.0,19-3039.03,Clinical Neuropsychologists,50.4,15.3,0.207,3,1,2,Carries its exposure
-19-2012.00,Physicists,65.6,20430.0,19-4092.00,Forensic Science Technicians,46.4,19.2,0.137,3,2,1,Real move
-19-3022.00,Survey Researchers,65.5,8290.0,19-4092.00,Forensic Science Technicians,46.4,19.1,0.217,4,3,1,Real move
-19-3051.00,Urban and Regional Planners,65.5,44230.0,19-4012.00,Agricultural Technicians,49.6,15.9,0.178,4,2,2,Real move
-19-2021.00,Atmospheric and Space Scientists,65.3,10000.0,19-4092.00,Forensic Science Technicians,46.4,18.9,0.129,3,1,2,Carries its exposure
-19-4012.01,Precision Agriculture Technicians,65.3,15130.0,19-4051.02,Nuclear Monitoring Technicians,48.1,17.2,0.303,5,3,2,Real move
-17-2112.00,Industrial Engineers,65.2,365740.0,17-3029.08,Photonics Technicians,49.5,15.7,0.137,3,2,1,Real move
-29-9021.00,Health Information Technologists and Medical Registrars,65.2,38100.0,29-2091.00,Orthotists and Prosthetists,42.5,22.7,0.171,3,3,0,Real move
-17-2031.00,Bioengineers and Biomedical Engineers,64.5,23480.0,17-3029.08,Photonics Technicians,49.5,15.0,0.174,4,2,2,Real move
-19-4099.03,Remote Sensing Technicians,64.2,73910.0,19-4071.00,Forest and Conservation Technicians,49.5,14.7,0.25,5,3,2,Real move
-19-3041.00,Sociologists,63.4,2260.0,19-3039.03,Clinical Neuropsychologists,50.4,13.0,0.258,4,3,1,Real move
-17-2072.00,"Electronics Engineers, Except Computer",63.3,96900.0,17-3029.08,Photonics Technicians,49.5,13.8,0.13,3,3,0,Real move
-19-2041.00,"Environmental Scientists and Specialists, Including Health",63.3,89250.0,19-4012.00,Agricultural Technicians,49.6,13.7,0.147,3,2,1,Real move
-17-2061.00,Computer Hardware Engineers,63.2,76660.0,17-3029.08,Photonics Technicians,49.5,13.7,0.303,6,5,1,Real move
-17-2112.03,Manufacturing Engineers,63.2,365740.0,17-3029.08,Photonics Technicians,49.5,13.7,0.197,5,3,2,Real move
-19-1029.04,Biologists,63.2,55850.0,19-4012.00,Agricultural Technicians,49.6,13.6,0.205,5,3,2,Real move
-19-2099.01,Remote Sensing Scientists and Technologists,63.2,22300.0,19-4071.00,Forest and Conservation Technicians,49.5,13.7,0.228,5,4,1,Real move
-19-2042.00,"Geoscientists, Except Hydrologists and Geographers",62.9,23470.0,19-4071.00,Forest and Conservation Technicians,49.5,13.4,0.125,3,2,1,Real move
-17-2051.02,Water/Wastewater Engineers,62.7,367840.0,17-3029.08,Photonics Technicians,49.5,13.2,0.137,3,2,1,Real move
-17-2199.07,Photonics Engineers,62.6,154070.0,17-3029.08,Photonics Technicians,49.5,13.1,0.319,7,6,1,Real move
-19-1029.03,Geneticists,62.6,55850.0,19-4092.00,Forensic Science Technicians,46.4,16.2,0.3,6,4,2,Real move
-17-2072.01,Radio Frequency Identification Device Specialists,62.5,96900.0,17-3029.08,Photonics Technicians,49.5,13.0,0.326,7,6,1,Real move
-17-2199.08,Robotics Engineers,62.3,154070.0,17-3029.08,Photonics Technicians,49.5,12.8,0.14,3,3,0,Real move
-17-2141.02,Automotive Engineers,61.9,296810.0,17-3029.08,Photonics Technicians,49.5,12.4,0.17,4,3,1,Real move
-19-3032.00,Industrial-Organizational Psychologists,61.9,790.0,19-4092.00,Forensic Science Technicians,46.4,15.5,0.154,3,2,1,Real move
-17-3027.00,Mechanical Engineering Technologists and Technicians,61.6,36190.0,17-3029.08,Photonics Technicians,49.5,12.1,0.321,8,5,3,Real move
-19-2041.02,Environmental Restoration Planners,61.5,89250.0,19-4071.00,Forest and Conservation Technicians,49.5,12.0,0.28,6,5,1,Real move
-19-4099.01,Quality Control Analysts,61.4,73910.0,19-4092.00,Forensic Science Technicians,46.4,15.0,0.228,5,3,2,Real move
-19-4044.00,Hydrologic Technicians,60.9,2840.0,19-4051.02,Nuclear Monitoring Technicians,48.1,12.8,0.177,3,2,1,Real move
-19-1041.00,Epidemiologists,60.2,12090.0,19-4092.00,Forensic Science Technicians,46.4,13.8,0.158,3,2,1,Real move
-19-2043.00,Hydrologists,60.2,5850.0,19-4051.02,Nuclear Monitoring Technicians,48.1,12.1,0.228,5,4,1,Real move
-29-9092.00,Genetic Counselors,60.1,3740.0,29-2043.00,Paramedics,38.5,21.6,0.327,6,5,1,Real move
-19-1021.00,Biochemists and Biophysicists,58.5,33830.0,19-4092.00,Forensic Science Technicians,46.4,12.1,0.179,3,2,1,Real move
-19-1042.00,"Medical Scientists, Except Epidemiologists",58.4,172340.0,19-4092.00,Forensic Science Technicians,46.4,12.0,0.154,3,2,1,Real move
-29-1229.05,Preventive Medicine Physicians,58.3,342720.0,29-1071.01,Anesthesiologist Assistants,35.0,23.3,0.242,4,4,0,Real move
-29-2052.00,Pharmacy Technicians,58.1,471680.0,29-2056.00,Veterinary Technologists and Technicians,38.3,19.8,0.295,8,6,2,Real move
-29-1031.00,Dietitians and Nutritionists,57.0,77570.0,29-2091.00,Orthotists and Prosthetists,42.5,14.5,0.244,5,5,0,Real move
-29-1229.02,Hospitalists,56.9,342720.0,29-1229.03,Urologists,44.5,12.4,0.5,8,8,0,Real move
-29-1051.00,Pharmacists,56.4,321970.0,29-2056.00,Veterinary Technologists and Technicians,38.3,18.1,0.251,8,5,3,Real move
-29-1223.00,Psychiatrists,55.6,27980.0,29-2091.00,Orthotists and Prosthetists,42.5,13.1,0.441,7,6,1,Real move
-29-2051.00,Dietetic Technicians,54.7,31560.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,25.3,0.229,3,3,0,Real move
-29-1129.01,Art Therapists,54.5,22640.0,29-2043.00,Paramedics,38.5,16.0,0.298,6,5,1,Real move
-29-1229.06,Sports Medicine Physicians,53.5,342720.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,24.1,0.315,5,5,0,Real move
-29-1229.01,Allergists and Immunologists,53.2,342720.0,29-1151.00,Nurse Anesthetists,41.2,12.0,0.363,8,7,1,Real move
-29-1222.00,"Physicians, Pathologists",52.7,11110.0,29-1071.01,Anesthesiologist Assistants,35.0,17.7,0.167,3,2,1,Real move
-29-1224.00,Radiologists,52.7,26770.0,29-1071.01,Anesthesiologist Assistants,35.0,17.7,0.257,6,5,1,Real move
-29-1215.00,Family Medicine Physicians,52.5,107510.0,29-1071.01,Anesthesiologist Assistants,35.0,17.5,0.229,4,4,0,Real move
-29-1171.00,Nurse Practitioners,52.4,323040.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,23.0,0.257,4,4,0,Real move
-29-1141.04,Clinical Nurse Specialists,52.3,3379720.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,22.9,0.257,4,4,0,Real move
-29-1217.00,Neurologists,52.0,10590.0,29-2043.00,Paramedics,38.5,13.5,0.334,6,5,1,Real move
-29-1123.00,Physical Therapists,51.9,267330.0,29-1021.00,"Dentists, General",36.2,15.7,0.309,7,7,0,Real move
-29-1129.02,Music Therapists,51.8,22640.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,22.4,0.262,4,4,0,Real move
-29-1127.00,Speech-Language Pathologists,51.7,183390.0,29-2043.00,Paramedics,38.5,13.2,0.262,5,4,1,Real move
-29-2036.00,Medical Dosimetrists,51.1,3410.0,29-2099.05,Ophthalmic Medical Technologists,38.8,12.3,0.235,6,5,1,Real move
-29-1181.00,Audiologists,50.8,13660.0,29-2043.00,Paramedics,38.5,12.3,0.315,6,5,1,Real move
-29-1125.00,Recreational Therapists,50.4,14930.0,29-1071.01,Anesthesiologist Assistants,35.0,15.4,0.202,3,3,0,Real move
-29-2011.01,Cytogenetic Technologists,50.4,332940.0,29-2012.01,Histology Technicians,34.2,16.2,0.4,4,4,0,Real move
-29-1122.00,Occupational Therapists,50.0,162450.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,20.6,0.213,3,3,0,Real move
-29-1299.01,Naturopathic Physicians,49.9,28630.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,20.5,0.218,3,3,0,Real move
-29-1216.00,General Internal Medicine Physicians,49.6,67150.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,20.2,0.213,3,3,0,Real move
-29-9091.00,Athletic Trainers,49.6,30500.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,20.2,0.196,3,3,0,Real move
-29-1141.02,Advanced Practice Psychiatric Nurses,49.5,3379720.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,20.1,0.213,3,3,0,Real move
-29-1213.00,Dermatologists,49.5,11370.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,20.1,0.267,3,3,0,Real move
-29-1011.00,Chiropractors,49.4,39630.0,29-2057.00,Ophthalmic Medical Technicians,36.5,12.9,0.179,3,3,0,Real move
-29-1122.01,"Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists",49.2,162450.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,19.8,0.242,3,3,0,Real move
-29-1128.00,Exercise Physiologists,49.0,8560.0,29-2057.00,Ophthalmic Medical Technicians,36.5,12.5,0.214,4,4,0,Real move
-29-1071.00,Physician Assistants,48.8,162150.0,29-9093.00,Surgical Assistants,30.0,18.8,0.149,3,3,0,Real move
-29-1141.01,Acute Care Nurses,48.2,3379720.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,18.8,0.378,6,6,0,Real move
-29-2011.02,Cytotechnologists,48.1,332940.0,29-1071.01,Anesthesiologist Assistants,35.0,13.1,0.202,3,2,1,Real move
-29-2081.00,"Opticians, Dispensing",48.1,73530.0,29-1071.01,Anesthesiologist Assistants,35.0,13.1,0.172,3,3,0,Real move
-29-1218.00,Obstetricians and Gynecologists,48.0,21260.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,18.6,0.218,3,3,0,Real move
-29-1161.00,Nurse Midwives,47.4,7920.0,29-1071.01,Anesthesiologist Assistants,35.0,12.4,0.202,4,3,1,Real move
-29-1221.00,"Pediatricians, General",47.3,39390.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,17.9,0.208,3,3,0,Real move
-29-1241.00,"Ophthalmologists, Except Pediatric",47.3,8950.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,17.9,0.229,3,3,0,Real move
-29-1131.00,Veterinarians,47.2,83900.0,29-1071.01,Anesthesiologist Assistants,35.0,12.2,0.145,3,2,1,Real move
-29-1141.00,Registered Nurses,47.1,3379720.0,29-9093.00,Surgical Assistants,30.0,17.1,0.285,9,9,0,Real move
-29-2032.00,Diagnostic Medical Sonographers,46.8,90160.0,29-9093.00,Surgical Assistants,30.0,16.8,0.346,10,10,0,Real move
-29-1242.00,"Orthopedic Surgeons, Except Pediatric",46.7,14100.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,17.3,0.224,3,3,0,Real move
-29-1214.00,Emergency Medicine Physicians,46.6,32880.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,17.2,0.306,4,4,0,Real move
-29-2012.00,Medical and Clinical Laboratory Technicians,46.6,332940.0,29-2012.01,Histology Technicians,34.2,12.4,0.39,4,4,0,Real move
-29-2011.00,Medical and Clinical Laboratory Technologists,46.5,332940.0,29-2012.01,Histology Technicians,34.2,12.3,0.447,4,4,0,Real move
-29-2033.00,Nuclear Medicine Technologists,46.1,17080.0,29-9093.00,Surgical Assistants,30.0,16.1,0.126,3,3,0,Real move
-29-1243.00,Pediatric Surgeons,45.2,1190.0,29-9093.00,Surgical Assistants,30.0,15.2,0.164,4,4,0,Real move
-29-1041.00,Optometrists,45.1,42790.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,15.7,0.277,3,3,0,Real move
-29-2034.00,Radiologic Technologists and Technicians,44.9,230490.0,29-9093.00,Surgical Assistants,30.0,14.9,0.255,7,7,0,Real move
-29-9099.01,Midwives,44.8,35010.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,15.4,0.299,5,5,0,Real move
-29-2035.00,Magnetic Resonance Imaging Technologists,44.5,43390.0,29-9093.00,Surgical Assistants,30.0,14.5,0.231,6,6,0,Real move
-29-1023.00,Orthodontists,43.9,6210.0,29-1024.00,Prosthodontists,29.2,14.7,0.385,4,4,0,Real move
-29-2099.01,Neurodiagnostic Technologists,43.8,182610.0,29-9093.00,Surgical Assistants,30.0,13.8,0.227,5,5,0,Real move
-29-1211.00,Anesthesiologists,43.4,38760.0,29-9093.00,Surgical Assistants,30.0,13.4,0.314,8,8,0,Real move
-29-1229.04,Physical Medicine and Rehabilitation Physicians,43.2,342720.0,29-1022.00,Oral and Maxillofacial Surgeons,29.4,13.8,0.267,3,3,0,Real move
-29-2031.00,Cardiovascular Technologists and Technicians,43.2,62960.0,29-9093.00,Surgical Assistants,30.0,13.2,0.333,9,9,0,Real move
-29-2061.00,Licensed Practical and Licensed Vocational Nurses,42.9,648410.0,29-9093.00,Surgical Assistants,30.0,12.9,0.364,10,10,0,Real move
-29-1124.00,Radiation Therapists,42.5,17070.0,29-9093.00,Surgical Assistants,30.0,12.5,0.327,9,9,0,Real move
-29-1141.03,Critical Care Nurses,42.5,3379720.0,29-9093.00,Surgical Assistants,30.0,12.5,0.301,9,9,0,Real move
-29-2091.00,Orthotists and Prosthetists,42.5,9390.0,29-1024.00,Prosthodontists,29.2,13.3,0.356,4,4,0,Real move
-29-1126.00,Respiratory Therapists,42.1,139790.0,29-9093.00,Surgical Assistants,30.0,12.1,0.37,10,10,0,Real move
-29-1292.00,Dental Hygienists,42.1,222740.0,29-9093.00,Surgical Assistants,30.0,12.1,0.149,3,3,0,Real move
+15-2051.01,Business Intelligence Analysts,79.0,262440.0,15-1299.09,Information Technology Project Managers,65.9,13.1,0.204,3,0,3,Carries its exposure
+15-1299.02,Geographic Information Systems Technologists and Technicians,78.7,435370.0,15-1221.00,Computer and Information Research Scientists,65.7,13.0,0.283,6,4,2,Real move
+15-2021.00,Mathematicians,77.2,2030.0,19-2011.00,Astronomers,63.3,13.9,0.195,3,1,2,Carries its exposure
+15-2041.01,Biostatisticians,75.6,29030.0,15-2011.00,Actuaries,61.1,14.5,0.189,3,0,3,Carries its exposure
+15-1299.04,Penetration Testers,71.0,435370.0,17-3024.00,Electro-Mechanical and Mechatronics Technologists and Technicians,55.8,15.2,0.131,3,3,0,Real move
+19-3094.00,Political Scientists,69.8,5540.0,19-3039.03,Clinical Neuropsychologists,51.1,18.7,0.2,3,1,2,Carries its exposure
+19-1029.01,Bioinformatics Scientists,68.5,55850.0,19-4092.00,Forensic Science Technicians,46.9,21.6,0.202,3,2,1,Real move
+19-4061.00,Social Science Research Assistants,68.0,30640.0,19-3033.00,Clinical and Counseling Psychologists,55.0,13.0,0.279,6,5,1,Real move
+29-2072.00,Medical Records Specialists,68.0,194720.0,29-2034.00,Radiologic Technologists and Technicians,45.3,22.7,0.293,6,2,4,Carries its exposure
+19-3011.01,Environmental Economists,67.7,17790.0,19-4042.00,"Environmental Science and Protection Technicians, Including Health",52.6,15.1,0.203,5,4,1,Real move
+19-3099.01,Transportation Planners,67.0,37100.0,19-4092.00,Forensic Science Technicians,46.9,20.1,0.146,3,0,3,Carries its exposure
+19-2041.03,Industrial Ecologists,66.9,89250.0,19-1032.00,Foresters,53.1,13.8,0.236,6,6,0,Real move
+19-3011.00,Economists,66.5,17790.0,19-3039.03,Clinical Neuropsychologists,51.1,15.4,0.207,3,1,2,Carries its exposure
+19-2012.00,Physicists,66.0,20430.0,19-4092.00,Forensic Science Technicians,46.9,19.1,0.137,3,2,1,Real move
+19-3022.00,Survey Researchers,65.8,8290.0,19-4092.00,Forensic Science Technicians,46.9,18.9,0.217,4,3,1,Real move
+17-2112.00,Industrial Engineers,65.7,365740.0,17-3029.08,Photonics Technicians,50.1,15.6,0.137,3,2,1,Real move
+29-9021.00,Health Information Technologists and Medical Registrars,65.7,38100.0,29-2091.00,Orthotists and Prosthetists,42.9,22.8,0.171,3,3,0,Real move
+19-3051.00,Urban and Regional Planners,65.6,44230.0,19-4012.00,Agricultural Technicians,50.1,15.5,0.178,4,2,2,Real move
+17-3011.00,Architectural and Civil Drafters,65.4,103700.0,17-3029.08,Photonics Technicians,50.1,15.3,0.13,3,1,2,Carries its exposure
+19-2021.00,Atmospheric and Space Scientists,65.4,10000.0,19-4092.00,Forensic Science Technicians,46.9,18.5,0.129,3,1,2,Carries its exposure
+19-4012.01,Precision Agriculture Technicians,65.4,15130.0,19-4051.02,Nuclear Monitoring Technicians,49.1,16.3,0.303,5,3,2,Real move
+17-2031.00,Bioengineers and Biomedical Engineers,65.1,23480.0,17-3029.08,Photonics Technicians,50.1,15.0,0.174,4,2,2,Real move
+19-4099.03,Remote Sensing Technicians,64.6,73910.0,19-4071.00,Forest and Conservation Technicians,49.9,14.7,0.25,5,4,1,Real move
+17-2072.00,"Electronics Engineers, Except Computer",64.3,96900.0,17-3029.08,Photonics Technicians,50.1,14.2,0.13,3,3,0,Real move
+19-3041.00,Sociologists,64.1,2260.0,19-3039.03,Clinical Neuropsychologists,51.1,13.0,0.258,4,3,1,Real move
+17-2061.00,Computer Hardware Engineers,64.0,76660.0,17-3029.08,Photonics Technicians,50.1,13.9,0.303,6,5,1,Real move
+19-1029.04,Biologists,63.7,55850.0,19-4012.00,Agricultural Technicians,50.1,13.6,0.205,5,3,2,Real move
+17-2072.01,Radio Frequency Identification Device Specialists,63.6,96900.0,17-3029.08,Photonics Technicians,50.1,13.5,0.326,7,6,1,Real move
+17-2112.03,Manufacturing Engineers,63.6,365740.0,17-3029.08,Photonics Technicians,50.1,13.5,0.197,5,3,2,Real move
+17-2199.07,Photonics Engineers,63.6,154070.0,17-3029.08,Photonics Technicians,50.1,13.5,0.319,7,6,1,Real move
+19-1029.03,Geneticists,63.5,55850.0,19-4092.00,Forensic Science Technicians,46.9,16.6,0.3,6,4,2,Real move
+19-2041.00,"Environmental Scientists and Specialists, Including Health",63.4,89250.0,19-4012.00,Agricultural Technicians,50.1,13.3,0.147,3,2,1,Real move
+19-2099.01,Remote Sensing Scientists and Technologists,63.4,22300.0,19-4071.00,Forest and Conservation Technicians,49.9,13.5,0.228,5,4,1,Real move
+19-2042.00,"Geoscientists, Except Hydrologists and Geographers",62.9,23470.0,19-4071.00,Forest and Conservation Technicians,49.9,13.0,0.125,3,3,0,Real move
+17-2051.02,Water/Wastewater Engineers,62.4,367840.0,17-3029.08,Photonics Technicians,50.1,12.3,0.137,3,2,1,Real move
+17-2141.02,Automotive Engineers,62.4,296810.0,17-3029.08,Photonics Technicians,50.1,12.3,0.17,4,3,1,Real move
+17-2199.08,Robotics Engineers,62.4,154070.0,17-3029.08,Photonics Technicians,50.1,12.3,0.14,3,3,0,Real move
+17-3027.00,Mechanical Engineering Technologists and Technicians,62.4,36190.0,17-3029.08,Photonics Technicians,50.1,12.3,0.321,8,5,3,Real move
+19-3032.00,Industrial-Organizational Psychologists,62.4,790.0,19-4092.00,Forensic Science Technicians,46.9,15.5,0.154,3,2,1,Real move
+19-4099.01,Quality Control Analysts,62.4,73910.0,19-4092.00,Forensic Science Technicians,46.9,15.5,0.228,5,3,2,Real move
+17-2112.02,Validation Engineers,62.2,365740.0,17-3029.08,Photonics Technicians,50.1,12.1,0.143,3,2,1,Real move
+19-2041.02,Environmental Restoration Planners,61.6,89250.0,19-4051.02,Nuclear Monitoring Technicians,49.1,12.5,0.156,3,2,1,Real move
+19-4044.00,Hydrologic Technicians,61.2,2840.0,19-4051.02,Nuclear Monitoring Technicians,49.1,12.1,0.177,3,2,1,Real move
+19-1041.00,Epidemiologists,60.9,12090.0,19-4092.00,Forensic Science Technicians,46.9,14.0,0.158,3,2,1,Real move
+29-9092.00,Genetic Counselors,60.8,3740.0,29-2043.00,Paramedics,38.7,22.1,0.327,6,5,1,Real move
+19-2043.00,Hydrologists,60.3,5850.0,19-4092.00,Forensic Science Technicians,46.9,13.4,0.122,3,2,1,Real move
+19-1042.00,"Medical Scientists, Except Epidemiologists",59.6,172340.0,19-4092.00,Forensic Science Technicians,46.9,12.7,0.154,3,2,1,Real move
+19-1021.00,Biochemists and Biophysicists,59.4,33830.0,19-4092.00,Forensic Science Technicians,46.9,12.5,0.179,3,2,1,Real move
+29-2052.00,Pharmacy Technicians,58.9,471680.0,29-2056.00,Veterinary Technologists and Technicians,38.7,20.2,0.295,8,6,2,Real move
+29-1229.05,Preventive Medicine Physicians,58.6,342720.0,29-1071.01,Anesthesiologist Assistants,35.8,22.8,0.242,4,4,0,Real move
+29-1031.00,Dietitians and Nutritionists,57.6,77570.0,29-2091.00,Orthotists and Prosthetists,42.9,14.7,0.244,5,5,0,Real move
+29-1229.02,Hospitalists,57.4,342720.0,29-1229.03,Urologists,45.3,12.1,0.5,8,8,0,Real move
+29-1051.00,Pharmacists,57.2,321970.0,29-2056.00,Veterinary Technologists and Technicians,38.7,18.5,0.251,8,5,3,Real move
+29-1223.00,Psychiatrists,56.4,27980.0,29-2091.00,Orthotists and Prosthetists,42.9,13.5,0.441,7,6,1,Real move
+29-2051.00,Dietetic Technicians,55.3,31560.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,25.5,0.229,3,3,0,Real move
+29-1229.06,Sports Medicine Physicians,54.5,342720.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,24.7,0.315,5,5,0,Real move
+29-1129.01,Art Therapists,54.4,22640.0,29-2043.00,Paramedics,38.7,15.7,0.298,6,5,1,Real move
+29-1229.01,Allergists and Immunologists,54.3,342720.0,29-1151.00,Nurse Anesthetists,41.7,12.6,0.363,8,7,1,Real move
+29-1224.00,Radiologists,53.4,26770.0,29-1071.01,Anesthesiologist Assistants,35.8,17.6,0.257,6,5,1,Real move
+29-1171.00,Nurse Practitioners,53.2,323040.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,23.4,0.257,4,4,0,Real move
+29-1222.00,"Physicians, Pathologists",53.1,11110.0,29-1071.01,Anesthesiologist Assistants,35.8,17.3,0.167,3,2,1,Real move
+29-1215.00,Family Medicine Physicians,53.0,107510.0,29-1071.01,Anesthesiologist Assistants,35.8,17.2,0.229,4,4,0,Real move
+29-1217.00,Neurologists,52.8,10590.0,29-2043.00,Paramedics,38.7,14.1,0.334,6,5,1,Real move
+29-1141.04,Clinical Nurse Specialists,52.6,3379720.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,22.8,0.257,4,4,0,Real move
+29-1123.00,Physical Therapists,52.3,267330.0,29-1021.00,"Dentists, General",36.5,15.8,0.309,7,7,0,Real move
+29-1129.02,Music Therapists,52.1,22640.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,22.3,0.262,4,4,0,Real move
+29-1127.00,Speech-Language Pathologists,51.8,183390.0,29-2043.00,Paramedics,38.7,13.1,0.262,5,4,1,Real move
+29-1181.00,Audiologists,51.3,13660.0,29-2043.00,Paramedics,38.7,12.6,0.315,6,5,1,Real move
+29-2036.00,Medical Dosimetrists,51.3,3410.0,29-2099.05,Ophthalmic Medical Technologists,39.2,12.1,0.235,6,5,1,Real move
+29-1125.00,Recreational Therapists,51.0,14930.0,29-2043.00,Paramedics,38.7,12.3,0.296,4,4,0,Real move
+29-1299.01,Naturopathic Physicians,50.7,28630.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,20.9,0.218,3,3,0,Real move
+29-2011.01,Cytogenetic Technologists,50.7,332940.0,29-2012.01,Histology Technicians,34.6,16.1,0.4,4,4,0,Real move
+29-1213.00,Dermatologists,50.5,11370.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,20.7,0.267,3,3,0,Real move
+29-1011.00,Chiropractors,50.4,39630.0,29-2057.00,Ophthalmic Medical Technicians,36.7,13.7,0.179,3,3,0,Real move
+29-1216.00,General Internal Medicine Physicians,50.4,67150.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,20.6,0.213,3,3,0,Real move
+29-1122.00,Occupational Therapists,50.3,162450.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,20.5,0.213,3,3,0,Real move
+29-1141.02,Advanced Practice Psychiatric Nurses,50.2,3379720.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,20.4,0.213,3,3,0,Real move
+29-9091.00,Athletic Trainers,49.9,30500.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,20.1,0.196,3,3,0,Real move
+29-1128.00,Exercise Physiologists,49.5,8560.0,29-2057.00,Ophthalmic Medical Technicians,36.7,12.8,0.214,4,4,0,Real move
+29-1071.00,Physician Assistants,49.4,162150.0,29-9093.00,Surgical Assistants,30.5,18.9,0.149,3,3,0,Real move
+29-1122.01,"Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists",49.3,162450.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,19.5,0.242,3,3,0,Real move
+29-1081.00,Podiatrists,48.8,9680.0,29-1021.00,"Dentists, General",36.5,12.3,0.287,5,5,0,Real move
+29-1141.01,Acute Care Nurses,48.8,3379720.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,19.0,0.378,6,6,0,Real move
+29-1218.00,Obstetricians and Gynecologists,48.6,21260.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,18.8,0.218,3,3,0,Real move
+29-2011.02,Cytotechnologists,48.5,332940.0,29-1071.01,Anesthesiologist Assistants,35.8,12.7,0.202,3,2,1,Real move
+29-2081.00,"Opticians, Dispensing",48.4,73530.0,29-1071.01,Anesthesiologist Assistants,35.8,12.6,0.172,3,3,0,Real move
+29-1221.00,"Pediatricians, General",48.3,39390.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,18.5,0.208,3,3,0,Real move
+29-1161.00,Nurse Midwives,48.2,7920.0,29-1071.01,Anesthesiologist Assistants,35.8,12.4,0.202,4,3,1,Real move
+29-1241.00,"Ophthalmologists, Except Pediatric",47.9,8950.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,18.1,0.229,3,3,0,Real move
+29-1141.00,Registered Nurses,47.7,3379720.0,29-9093.00,Surgical Assistants,30.5,17.2,0.285,9,9,0,Real move
+29-1242.00,"Orthopedic Surgeons, Except Pediatric",47.4,14100.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,17.6,0.224,3,3,0,Real move
+29-1214.00,Emergency Medicine Physicians,47.2,32880.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,17.4,0.306,4,4,0,Real move
+29-2032.00,Diagnostic Medical Sonographers,47.2,90160.0,29-9093.00,Surgical Assistants,30.5,16.7,0.346,10,10,0,Real move
+29-2033.00,Nuclear Medicine Technologists,47.2,17080.0,29-2012.01,Histology Technicians,34.6,12.6,0.293,3,3,0,Real move
+29-2012.00,Medical and Clinical Laboratory Technicians,47.1,332940.0,29-2012.01,Histology Technicians,34.6,12.5,0.39,4,4,0,Real move
+29-2011.00,Medical and Clinical Laboratory Technologists,46.9,332940.0,29-2012.01,Histology Technicians,34.6,12.3,0.447,4,4,0,Real move
+29-1243.00,Pediatric Surgeons,45.9,1190.0,29-9093.00,Surgical Assistants,30.5,15.4,0.164,4,4,0,Real move
+29-1041.00,Optometrists,45.7,42790.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,15.9,0.277,3,3,0,Real move
+29-9099.01,Midwives,45.4,35010.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,15.6,0.299,5,5,0,Real move
+29-2034.00,Radiologic Technologists and Technicians,45.3,230490.0,29-9093.00,Surgical Assistants,30.5,14.8,0.255,7,7,0,Real move
+29-2035.00,Magnetic Resonance Imaging Technologists,44.8,43390.0,29-9093.00,Surgical Assistants,30.5,14.3,0.231,6,6,0,Real move
+29-2099.01,Neurodiagnostic Technologists,44.6,182610.0,29-9093.00,Surgical Assistants,30.5,14.1,0.227,5,5,0,Real move
+29-1023.00,Orthodontists,44.5,6210.0,29-1024.00,Prosthodontists,30.2,14.3,0.385,4,4,0,Real move
+29-1229.04,Physical Medicine and Rehabilitation Physicians,44.1,342720.0,29-1022.00,Oral and Maxillofacial Surgeons,29.8,14.3,0.267,3,3,0,Real move
+29-1211.00,Anesthesiologists,43.9,38760.0,29-9093.00,Surgical Assistants,30.5,13.4,0.314,8,8,0,Real move
+29-2031.00,Cardiovascular Technologists and Technicians,43.6,62960.0,29-9093.00,Surgical Assistants,30.5,13.1,0.333,9,9,0,Real move
+29-2061.00,Licensed Practical and Licensed Vocational Nurses,43.3,648410.0,29-9093.00,Surgical Assistants,30.5,12.8,0.364,10,10,0,Real move
+29-1124.00,Radiation Therapists,43.2,17070.0,29-9093.00,Surgical Assistants,30.5,12.7,0.327,9,9,0,Real move
+29-1292.00,Dental Hygienists,43.2,222740.0,29-9093.00,Surgical Assistants,30.5,12.7,0.149,3,3,0,Real move
+29-1141.03,Critical Care Nurses,42.9,3379720.0,29-9093.00,Surgical Assistants,30.5,12.4,0.301,9,9,0,Real move
+29-2091.00,Orthotists and Prosthetists,42.9,9390.0,29-1024.00,Prosthodontists,30.2,12.7,0.356,4,4,0,Real move
+29-1126.00,Respiratory Therapists,42.7,139790.0,29-9093.00,Surgical Assistants,30.5,12.2,0.37,10,10,0,Real move

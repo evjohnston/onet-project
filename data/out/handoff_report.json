@@ -1,22 +1,22 @@
 {
   "occupations": 268,
   "by_classification": {
-    "Watch point": 32,
-    "Crossing now": 106,
-    "Human held": 101,
-    "Handed off": 29
+    "Crossing now": 109,
+    "Watch point": 33,
+    "Human held": 95,
+    "Handed off": 31
   },
   "by_current_stage": {
-    "AI informed": 108,
-    "AI recommended": 147,
-    "AI executed, human veto": 12,
+    "AI informed": 101,
+    "AI recommended": 153,
+    "AI executed, human veto": 13,
     "Human only": 1
   },
-  "with_pending_crossing": 198,
-  "at_a_weighty_crossing": 111,
-  "employment_at_weighty_crossing": 9856780.0,
+  "with_pending_crossing": 197,
+  "at_a_weighty_crossing": 123,
+  "employment_at_weighty_crossing": 9856450.0,
   "employment_at_watch_points": 6606850.0,
   "employment_total": 21523100.0,
   "employment_share_at_watch_points": 0.307,
-  "mean_willingness_gap": 26.7
+  "mean_willingness_gap": 28.3
 }

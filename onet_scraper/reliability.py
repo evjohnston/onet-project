@@ -231,7 +231,12 @@ def consolidate(*passes: Sequence[dict[str, Any]],
 
 
 def consolidation_summary(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
-    both = [r for r in rows if r.get("n_raters") == 2]
+    # Any row with more than one rater has a measurable spread. This tested
+    # `n_raters == 2` from when two was the only possibility, so the moment a
+    # third pass arrived it reported 963 subtasks scored by one rater and a
+    # disagreement of zero - while the table it had just written carried a
+    # median of 6.2. The data was right and the summary describing it was not.
+    both = [r for r in rows if (r.get("n_raters") or 0) > 1]
     spread = [r["score_disagreement"] for r in both
               if r.get("score_disagreement") is not None]
     spread_sorted = sorted(spread)
@@ -240,9 +245,12 @@ def consolidation_summary(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
             return 0.0
         i = min(len(spread_sorted) - 1, int(p * len(spread_sorted)))
         return spread_sorted[i]
+    import collections
+    by_count = collections.Counter(r.get("n_raters") or 0 for r in rows)
     return {
         "subtasks": len(rows),
-        "scored_by_two": len(both),
+        "by_rater_count": dict(sorted(by_count.items())),
+        "scored_by_multiple": len(both),
         "scored_by_one": len(rows) - len(both),
         "median_disagreement": round(statistics.median(spread), 1) if spread else None,
         "p90_disagreement": round(pct(0.9), 1),

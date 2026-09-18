@@ -10,35 +10,35 @@
   "headline": {
     "soc_codes": 195,
     "total_employment": 21523100.0,
-    "employment_weighted_susceptibility": 57.4,
-    "unweighted_susceptibility": 57.0,
+    "employment_weighted_susceptibility": 58.0,
+    "unweighted_susceptibility": 57.6,
     "weighting_shifts_result_by": 0.4,
-    "employment_weighted_exposure": 58.7,
-    "employment_weighted_anchoring": 43.9,
+    "employment_weighted_exposure": 60.7,
+    "employment_weighted_anchoring": 44.7,
     "workers_in_high_susceptibility_occupations": 1960250.0,
     "share_workers_high_susceptibility": 0.0911,
-    "workers_in_low_susceptibility_occupations": 7187110.0,
+    "workers_in_low_susceptibility_occupations": 7025730.0,
     "annual_wage_bill_usd": 2479221723300,
     "by_quadrant": {
       "Human-anchored": {
-        "employment": 9380060.0,
-        "wage_bill_usd": 990359276900,
-        "share_of_employment": 0.4358
+        "employment": 8955740.0,
+        "wage_bill_usd": 939986863100,
+        "share_of_employment": 0.4161
       },
       "Displaceable": {
-        "employment": 9376080.0,
-        "wage_bill_usd": 1152672905600,
-        "share_of_employment": 0.4356
-      },
-      "Insulated": {
-        "employment": 1086870.0,
-        "wage_bill_usd": 71625881600,
-        "share_of_employment": 0.0505
+        "employment": 8863690.0,
+        "wage_bill_usd": 1085935680100,
+        "share_of_employment": 0.4118
       },
       "Contested": {
-        "employment": 1680090.0,
-        "wage_bill_usd": 264563659200,
-        "share_of_employment": 0.0781
+        "employment": 2523310.0,
+        "wage_bill_usd": 374873961900,
+        "share_of_employment": 0.1172
+      },
+      "Insulated": {
+        "employment": 1180360.0,
+        "wage_bill_usd": 78425218200,
+        "share_of_employment": 0.0548
       }
     }
   }

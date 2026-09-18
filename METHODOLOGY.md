@@ -356,9 +356,9 @@ they resolve to roughly exposure 75, 65 and 54:
 
 | Scenario | Automates when | Automated tasks |
 | --- | --- | ---: |
-| Modest | 68th pct exposure, anchoring under the 32nd | 1,215 (22%) |
-| Substantial | 47th pct exposure, anchoring under the 68th | 2,650 (47%) |
-| Extreme | 31st pct exposure, anchoring under the 94th | 3,864 (69%) |
+| Modest | 68th pct exposure, anchoring under the 32nd | 1,166 (21%) |
+| Substantial | 47th pct exposure, anchoring under the 68th | 2,621 (47%) |
+| Extreme | 31st pct exposure, anchoring under the 94th | 3,860 (69%) |
 
 Tasks below the augment threshold are unchanged at every setting — for a nurse
 midwife, 7 of 21 tasks never move regardless of scenario, which is the point the
@@ -447,14 +447,14 @@ The cube is split at 50 on each axis into eight named cells:
 
 | Cell | Modest | Substantial | Extreme |
 | --- | ---: | ---: | ---: |
-| Strategic trap | 16 / 2.0% | 60 / 12.5% | 95 / 19.5% |
-| Guard the pipeline | 59 / 8.2% | 71 / 10.2% | 80 / 11.2% |
-| Protect | 96 / 22.1% | 52 / 11.5% | 17 / 4.5% |
-| Reversible gamble | 8 / 6.0% | 18 / 12.9% | 24 / 23.9% |
-| Quiet attrition | 24 / 3.4% | 12 / 1.3% | 3 / 0.3% |
-| Clear win | 25 / 25.8% | 26 / 25.9% | 29 / 28.4% |
-| Hold the line | 32 / 29.5% | 22 / 22.6% | 16 / 11.6% |
-| Low stakes | 8 / 3.1% | 7 / 3.0% | 4 / 0.5% |
+| Strategic trap | 15 / 2.0% | 63 / 12.8% | 97 / 19.7% |
+| Guard the pipeline | 59 / 8.3% | 69 / 10.0% | 79 / 11.2% |
+| Protect | 99 / 22.3% | 51 / 11.5% | 17 / 4.5% |
+| Reversible gamble | 6 / 5.3% | 18 / 12.9% | 26 / 24.3% |
+| Quiet attrition | 22 / 3.0% | 12 / 1.3% | 2 / 0.1% |
+| Clear win | 23 / 22.3% | 27 / 28.0% | 29 / 28.4% |
+| Hold the line | 34 / 30.2% | 22 / 22.6% | 14 / 11.2% |
+| Low stakes | 10 / 6.6% | 6 / 0.9% | 4 / 0.5% |
 
 *(occupations / share of the 21,523,100 workers)*
 
@@ -532,13 +532,13 @@ crosswalk needed**.
 
 | Benchmark | Pearson | n |
 | --- | --- | --- |
-| **Human expert ratings, γ** | **0.853** | 268 |
-| **Human expert ratings, β** | **0.837** | 268 |
-| Human expert ratings, α (no tools) | 0.607 | 268 |
-| GPT-4, β | 0.842 | 268 |
-| Frey & Osborne (2017) | 0.024 | 150 |
-| Felten, Raj & Seamans | −0.153 | 188 |
-| Brynjolfsson/Mitchell/Rock SML | −0.110 | 188 |
+| **Human expert ratings, γ** | **0.850** | 268 |
+| **Human expert ratings, β** | **0.834** | 268 |
+| Human expert ratings, α (no tools) | 0.604 | 268 |
+| GPT-4, β | 0.844 | 268 |
+| Frey & Osborne (2017) | 0.027 | 150 |
+| Felten, Raj & Seamans | −0.152 | 188 |
+| Brynjolfsson/Mitchell/Rock SML | −0.103 | 188 |
 
 Both halves matter. Agreement with human experts at r ≈ 0.85 is the evidence the
 index measures what it claims. The weaker agreement with α is expected: α
@@ -556,12 +556,24 @@ refuted them; the code records that.
 Every number in this dataset came from a single scoring pass, so until now none
 of it had a measure of its own stability. `reliability_report.json` closes that.
 
-The catalogue of 963 subtasks was scored a second time under the **same rubric**
-(`2026-09-16.1`) by a **different model**, `claude-sonnet-5`, against the
-original `claude-opus-5` pass. That makes this a measure of **cross-model
-agreement**, not test-retest reliability: it isolates how much of a score is the
-rubric and how much is the disposition of the model that produced it. A separate
-same-model pass would be needed for sampling noise, and has not been run.
+The catalogue of 963 subtasks has now been scored **three times** under the same
+rubric (`2026-09-16.1`): twice by `claude-opus-5` and once by
+`claude-sonnet-5`. Two passes of the same model isolate **sampling noise**; a
+pass by a different model isolates how much of a score is the rubric rather than
+the disposition of one model. Both are reported, because they license different
+claims.
+
+| | mean r | mean ICC | mean │d│ |
+| --- | ---: | ---: | ---: |
+| **Test-retest** — opus against opus | **0.972** | **0.985** | **3.8** |
+| Cross-model — opus against sonnet | 0.934 | 0.948 | 7.9 |
+| Cross-model — opus #2 against sonnet | 0.936 | 0.951 | 7.6 |
+
+The two cross-model figures are independent measurements of the same quantity
+and agree to within 0.002, which is some assurance that neither is an accident
+of one run.
+
+Cross-model, by dimension:
 
 | Dimension | r | ICC | mean │d│ | within 10 | bias |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -573,11 +585,26 @@ same-model pass would be needed for sampling noise, and has not been run.
 | Accountability requirement | 0.932 | 0.951 | 6.9 | 82% | −4.9 |
 | Error cost | 0.933 | 0.945 | 6.8 | 83% | −5.5 |
 
-Mean **r = 0.934**, mean **ICC = 0.948**, mean absolute difference **7.9 points**
-on a 0–100 scale, over all 963 subtasks with no failures. Both statistics are
-reported because Pearson's *r* is invariant to a constant offset — two raters
-who differ by a flat twenty points correlate at 1.000 — while ICC(2,1)
-(two-way random effects, absolute agreement) penalises exactly that.
+Both statistics are reported because Pearson's *r* is invariant to a constant
+offset — two raters who differ by a flat twenty points correlate at 1.000 —
+while ICC(2,1) (two-way random effects, absolute agreement) penalises exactly
+that.
+
+**The two measurements separate noise from calibration, which the cross-model
+figure alone could not.** Two runs of the same model differ by 3.8 points on
+average with a bias of at most 1.5 in any dimension; two different models differ
+by 7.9 with a bias reaching 10.1 on `llm_exposure`. Decomposing the standard
+deviations dimension by dimension:
+
+| | mean sd, points |
+| --- | ---: |
+| Sampling noise — the same model against itself | 5.16 |
+| Model difference — sonnet against the mean of both opus runs | 7.49 |
+
+So roughly **41% of the disagreement between two different models is noise
+either would show against itself**, and 59% is a real difference between them.
+That is the number that was missing: the 9.7-point exposure offset in §6.6 is
+now known to be mostly calibration rather than mostly chance.
 
 **The rubric is doing the work.** Agreement at that level across two different
 models is the strongest validity evidence in this document: the scores are a
@@ -615,15 +642,18 @@ scale sits. The quantiles are fixed constants inverted against the single-model
 reference corpus, so on that corpus they reproduce the previous cuts to within
 one task of 5,612.
 
-And the two passes are now **averaged into the canonical scores** rather than
-one being discarded. Averaging two raters raises reliability by the
-Spearman–Brown relation, from r = 0.934 to **0.966**, so the mean is a better
-estimate than either pass alone. `subtask_automation_scores.csv` carries
-`n_raters`, `raters` and `score_disagreement` — the last being the project's
-first per-subtask uncertainty measure: **median 7.6 points, p90 11.9, maximum
-22.9**, with **17 of 963 subtasks (1.8%)** above 15 points. Those seventeen are
-mostly physical patient-care activities, which is where the embodiment bias
-concentrates, and a score there should carry a caveat.
+And all three passes are **averaged into the canonical scores** rather than any
+being discarded. `subtask_automation_scores.csv` carries `n_raters`, `raters`
+and `score_disagreement` — the mean pairwise spread, and the project's only
+per-subtask uncertainty measure. Across three raters it is **median 6.2 points,
+p90 9.0, maximum 17.0**, tighter than the 7.6 / 11.9 / 22.9 of two raters
+because the two same-model passes agree closely with each other.
+
+Spearman–Brown puts the reliability of a k-rater mean at kr/(1+(k−1)r), which
+at r = 0.934 gives 0.977 for three. **That figure is an upper bound rather than
+a measurement**: two passes of the same model share whatever bias that model
+has, so they are not three independent raters. The scores genuinely improve; the
+number flatters itself.
 
 What this moved, with the thresholds now adaptive:
 
@@ -687,7 +717,7 @@ The scroller's network layout is seeded, so the drawing is identical on every ru
 
 A full rebuild from scratch is `python -m onet_scraper --refresh` followed by the
 `score`, `report`, `employment`, `validate-external`, `pathways`, `churn`,
-`figures`, `story`, `security` and `publish` stages. 211 tests run in CI on
+`figures`, `story`, `security` and `publish` stages. 214 tests run in CI on
 Python 3.10 and 3.13, and a sixth job opens every published page in headless
 Chrome and asserts it rendered.
 

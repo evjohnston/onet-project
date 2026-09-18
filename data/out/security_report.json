@@ -4,19 +4,19 @@
     "extreme": {
       "by_octant": {
         "Strategic trap": {
-          "occupations": 95,
-          "employment": 4195065.555555556,
-          "share_employment": 0.1949
+          "occupations": 97,
+          "employment": 4246465.555555556,
+          "share_employment": 0.1973
         },
         "Reversible gamble": {
-          "occupations": 24,
-          "employment": 5148165.722222222,
-          "share_employment": 0.2392
+          "occupations": 26,
+          "employment": 5228155.722222222,
+          "share_employment": 0.2429
         },
         "Guard the pipeline": {
-          "occupations": 80,
-          "employment": 2422071.9444444445,
-          "share_employment": 0.1125
+          "occupations": 79,
+          "employment": 2408456.9444444445,
+          "share_employment": 0.1119
         },
         "Clear win": {
           "occupations": 29,
@@ -29,14 +29,14 @@
           "share_employment": 0.0453
         },
         "Hold the line": {
-          "occupations": 16,
-          "employment": 2502394.0,
-          "share_employment": 0.1163
+          "occupations": 14,
+          "employment": 2422404.0,
+          "share_employment": 0.1125
         },
         "Quiet attrition": {
-          "occupations": 3,
-          "employment": 59950.0,
-          "share_employment": 0.0028
+          "occupations": 2,
+          "employment": 22165.0,
+          "share_employment": 0.001
         },
         "Low stakes": {
           "occupations": 4,
@@ -45,208 +45,208 @@
         }
       },
       "total_employment": 21523100.0,
-      "mean_efficiency": 75.5,
-      "mean_removal_risk": 54.4,
+      "mean_efficiency": 75.3,
+      "mean_removal_risk": 54.8,
       "mean_reconstitution": 58.6,
       "top_traps": [
         {
           "title": "Neurologists",
-          "trap_score": 49.9,
-          "efficiency": 80.9,
-          "removal_risk": 77.8,
+          "trap_score": 50.7,
+          "efficiency": 81.3,
+          "removal_risk": 78.6,
           "reconstitution": 79.3
         },
         {
           "title": "Psychiatrists",
-          "trap_score": 47.8,
+          "trap_score": 48.3,
           "efficiency": 83.6,
-          "removal_risk": 74.2,
+          "removal_risk": 74.9,
           "reconstitution": 77.1
         },
         {
           "title": "Genetic Counselors",
-          "trap_score": 46.2,
+          "trap_score": 46.8,
           "efficiency": 94.0,
-          "removal_risk": 70.2,
+          "removal_risk": 71.1,
           "reconstitution": 70.0
         },
         {
           "title": "Pediatric Surgeons",
-          "trap_score": 45.6,
-          "efficiency": 63.9,
-          "removal_risk": 77.2,
+          "trap_score": 44.1,
+          "efficiency": 61.1,
+          "removal_risk": 78.0,
           "reconstitution": 92.5
         },
         {
           "title": "Actuaries",
-          "trap_score": 44.4,
+          "trap_score": 43.9,
           "efficiency": 95.7,
-          "removal_risk": 65.0,
+          "removal_risk": 64.4,
           "reconstitution": 71.3
         },
         {
-          "title": "Emergency Medicine Physicians",
-          "trap_score": 44.4,
-          "efficiency": 69.7,
-          "removal_risk": 82.2,
-          "reconstitution": 77.5
-        },
-        {
           "title": "Physicians, Pathologists",
-          "trap_score": 43.6,
+          "trap_score": 43.9,
           "efficiency": 74.0,
-          "removal_risk": 71.7,
+          "removal_risk": 72.1,
           "reconstitution": 82.2
         },
         {
-          "title": "Obstetricians and Gynecologists",
-          "trap_score": 43.6,
-          "efficiency": 70.9,
-          "removal_risk": 77.2,
-          "reconstitution": 79.7
+          "title": "Emergency Medicine Physicians",
+          "trap_score": 42.8,
+          "efficiency": 66.8,
+          "removal_risk": 82.6,
+          "reconstitution": 77.5
         },
         {
           "title": "Radiologists",
-          "trap_score": 43.4,
-          "efficiency": 76.5,
-          "removal_risk": 75.7,
+          "trap_score": 42.5,
+          "efficiency": 74.8,
+          "removal_risk": 75.9,
           "reconstitution": 74.9
         },
         {
-          "title": "Hospitalists",
-          "trap_score": 43.1,
-          "efficiency": 86.6,
-          "removal_risk": 73.9,
-          "reconstitution": 67.3
+          "title": "Obstetricians and Gynecologists",
+          "trap_score": 42.1,
+          "efficiency": 67.8,
+          "removal_risk": 78.0,
+          "reconstitution": 79.7
+        },
+        {
+          "title": "Art Therapists",
+          "trap_score": 42.0,
+          "efficiency": 78.1,
+          "removal_risk": 64.3,
+          "reconstitution": 83.7
         }
       ]
     },
     "modest": {
       "by_octant": {
         "Strategic trap": {
-          "occupations": 16,
-          "employment": 423168.8888888889,
+          "occupations": 15,
+          "employment": 424860.1388888889,
           "share_employment": 0.0197
         },
         "Reversible gamble": {
-          "occupations": 8,
-          "employment": 1300407.2222222222,
-          "share_employment": 0.0604
+          "occupations": 6,
+          "employment": 1140838.888888889,
+          "share_employment": 0.053
         },
         "Guard the pipeline": {
           "occupations": 59,
-          "employment": 1758454.4444444445,
-          "share_employment": 0.0817
+          "employment": 1778638.1944444445,
+          "share_employment": 0.0826
         },
         "Clear win": {
-          "occupations": 25,
-          "employment": 5545937.777777778,
-          "share_employment": 0.2577
+          "occupations": 23,
+          "employment": 4802667.777777778,
+          "share_employment": 0.2231
         },
         "Protect": {
-          "occupations": 96,
-          "employment": 4747061.666666667,
-          "share_employment": 0.2206
+          "occupations": 99,
+          "employment": 4796770.416666667,
+          "share_employment": 0.2229
         },
         "Hold the line": {
-          "occupations": 32,
-          "employment": 6350152.5,
-          "share_employment": 0.295
+          "occupations": 34,
+          "employment": 6509720.833333333,
+          "share_employment": 0.3025
         },
         "Quiet attrition": {
-          "occupations": 24,
-          "employment": 723567.5,
-          "share_employment": 0.0336
+          "occupations": 22,
+          "employment": 651983.75,
+          "share_employment": 0.0303
         },
         "Low stakes": {
-          "occupations": 8,
-          "employment": 674350.0,
-          "share_employment": 0.0313
+          "occupations": 10,
+          "employment": 1417620.0,
+          "share_employment": 0.0659
         }
       },
       "total_employment": 21523100.0,
-      "mean_efficiency": 44.1,
-      "mean_removal_risk": 54.4,
+      "mean_efficiency": 43.3,
+      "mean_removal_risk": 54.8,
       "mean_reconstitution": 58.6,
       "top_traps": [
         {
           "title": "Genetic Counselors",
-          "trap_score": 25.0,
+          "trap_score": 25.3,
           "efficiency": 50.8,
-          "removal_risk": 70.2,
+          "removal_risk": 71.1,
           "reconstitution": 70.0
         },
         {
           "title": "Architects, Except Landscape and Naval",
-          "trap_score": 23.1,
-          "efficiency": 55.9,
-          "removal_risk": 52.9,
+          "trap_score": 21.5,
+          "efficiency": 50.5,
+          "removal_risk": 54.4,
           "reconstitution": 78.2
         },
         {
-          "title": "Digital Forensics Analysts",
-          "trap_score": 21.1,
-          "efficiency": 65.3,
-          "removal_risk": 52.1,
-          "reconstitution": 61.9
-        },
-        {
-          "title": "Environmental Economists",
-          "trap_score": 20.8,
-          "efficiency": 57.9,
-          "removal_risk": 51.3,
-          "reconstitution": 69.9
-        },
-        {
-          "title": "Transportation Planners",
-          "trap_score": 20.6,
-          "efficiency": 62.3,
-          "removal_risk": 56.0,
-          "reconstitution": 59.0
-        },
-        {
-          "title": "Economists",
-          "trap_score": 19.9,
-          "efficiency": 59.4,
-          "removal_risk": 50.0,
-          "reconstitution": 67.0
-        },
-        {
           "title": "Penetration Testers",
-          "trap_score": 19.3,
-          "efficiency": 60.1,
-          "removal_risk": 52.0,
+          "trap_score": 21.2,
+          "efficiency": 66.7,
+          "removal_risk": 51.5,
           "reconstitution": 61.7
         },
         {
+          "title": "Economists",
+          "trap_score": 20.1,
+          "efficiency": 59.4,
+          "removal_risk": 50.4,
+          "reconstitution": 67.0
+        },
+        {
+          "title": "Transportation Planners",
+          "trap_score": 20.0,
+          "efficiency": 60.8,
+          "removal_risk": 55.8,
+          "reconstitution": 59.0
+        },
+        {
+          "title": "Environmental Economists",
+          "trap_score": 19.9,
+          "efficiency": 55.4,
+          "removal_risk": 51.5,
+          "reconstitution": 69.9
+        },
+        {
+          "title": "Digital Forensics Analysts",
+          "trap_score": 19.0,
+          "efficiency": 58.4,
+          "removal_risk": 52.5,
+          "reconstitution": 61.9
+        },
+        {
           "title": "Fire-Prevention and Protection Engineers",
-          "trap_score": 19.1,
+          "trap_score": 18.9,
           "efficiency": 55.7,
-          "removal_risk": 58.9,
+          "removal_risk": 58.5,
           "reconstitution": 58.1
         },
         {
-          "title": "Industrial Ecologists",
-          "trap_score": 17.8,
-          "efficiency": 57.9,
-          "removal_risk": 52.1,
-          "reconstitution": 58.9
+          "title": "Bioengineers and Biomedical Engineers",
+          "trap_score": 17.9,
+          "efficiency": 54.6,
+          "removal_risk": 51.5,
+          "reconstitution": 63.5
         },
         {
-          "title": "Bioengineers and Biomedical Engineers",
-          "trap_score": 17.8,
-          "efficiency": 54.6,
-          "removal_risk": 51.3,
-          "reconstitution": 63.5
+          "title": "Industrial Ecologists",
+          "trap_score": 17.7,
+          "efficiency": 56.9,
+          "removal_risk": 52.9,
+          "reconstitution": 58.9
         }
       ]
     },
     "substantial": {
       "by_octant": {
         "Strategic trap": {
-          "occupations": 60,
-          "employment": 2690275.5555555555,
-          "share_employment": 0.125
+          "occupations": 63,
+          "employment": 2751085.5555555555,
+          "share_employment": 0.1278
         },
         "Reversible gamble": {
           "occupations": 18,
@@ -254,19 +254,19 @@
           "share_employment": 0.1292
         },
         "Guard the pipeline": {
-          "occupations": 71,
-          "employment": 2204106.9444444445,
-          "share_employment": 0.1024
+          "occupations": 69,
+          "employment": 2152706.9444444445,
+          "share_employment": 0.1
         },
         "Clear win": {
-          "occupations": 26,
-          "employment": 5564032.777777778,
-          "share_employment": 0.2585
+          "occupations": 27,
+          "employment": 6035712.777777778,
+          "share_employment": 0.2804
         },
         "Protect": {
-          "occupations": 52,
-          "employment": 2479955.0,
-          "share_employment": 0.1152
+          "occupations": 51,
+          "employment": 2470545.0,
+          "share_employment": 0.1148
         },
         "Hold the line": {
           "occupations": 22,
@@ -279,85 +279,85 @@
           "share_employment": 0.0129
         },
         "Low stakes": {
-          "occupations": 7,
-          "employment": 656255.0,
-          "share_employment": 0.0305
+          "occupations": 6,
+          "employment": 184575.0,
+          "share_employment": 0.0086
         }
       },
       "total_employment": 21523100.0,
-      "mean_efficiency": 61.1,
-      "mean_removal_risk": 54.4,
+      "mean_efficiency": 60.9,
+      "mean_removal_risk": 54.8,
       "mean_reconstitution": 58.6,
       "top_traps": [
         {
           "title": "Psychiatrists",
-          "trap_score": 35.9,
-          "efficiency": 62.8,
-          "removal_risk": 74.2,
+          "trap_score": 38.1,
+          "efficiency": 65.9,
+          "removal_risk": 74.9,
           "reconstitution": 77.1
         },
         {
           "title": "Environmental Economists",
-          "trap_score": 33.6,
+          "trap_score": 33.7,
           "efficiency": 93.7,
-          "removal_risk": 51.3,
+          "removal_risk": 51.5,
           "reconstitution": 69.9
         },
         {
           "title": "Genetic Counselors",
-          "trap_score": 32.8,
+          "trap_score": 33.2,
           "efficiency": 66.7,
-          "removal_risk": 70.2,
+          "removal_risk": 71.1,
           "reconstitution": 70.0
         },
         {
           "title": "Hospitalists",
-          "trap_score": 32.2,
+          "trap_score": 32.5,
           "efficiency": 64.8,
-          "removal_risk": 73.9,
+          "removal_risk": 74.6,
           "reconstitution": 67.3
         },
         {
-          "title": "Neurologists",
-          "trap_score": 31.9,
-          "efficiency": 51.7,
-          "removal_risk": 77.8,
-          "reconstitution": 79.3
-        },
-        {
           "title": "Obstetricians and Gynecologists",
-          "trap_score": 31.9,
+          "trap_score": 32.3,
           "efficiency": 51.9,
-          "removal_risk": 77.2,
+          "removal_risk": 78.0,
           "reconstitution": 79.7
         },
         {
+          "title": "Neurologists",
+          "trap_score": 32.2,
+          "efficiency": 51.7,
+          "removal_risk": 78.6,
+          "reconstitution": 79.3
+        },
+        {
           "title": "Actuaries",
-          "trap_score": 31.8,
+          "trap_score": 31.5,
           "efficiency": 68.7,
-          "removal_risk": 65.0,
+          "removal_risk": 64.4,
           "reconstitution": 71.3
         },
         {
-          "title": "Preventive Medicine Physicians",
-          "trap_score": 31.6,
-          "efficiency": 69.7,
-          "removal_risk": 63.3,
-          "reconstitution": 71.7
-        },
-        {
           "title": "Physicians, Pathologists",
-          "trap_score": 31.2,
+          "trap_score": 31.4,
           "efficiency": 52.9,
-          "removal_risk": 71.7,
+          "removal_risk": 72.1,
           "reconstitution": 82.2
         },
         {
           "title": "Industrial-Organizational Psychologists",
-          "trap_score": 30.8,
-          "efficiency": 77.5,
-          "removal_risk": 50.7,
+          "trap_score": 31.2,
+          "efficiency": 78.4,
+          "removal_risk": 50.8,
           "reconstitution": 78.4
+        },
+        {
+          "title": "Epidemiologists",
+          "trap_score": 31.2,
+          "efficiency": 72.4,
+          "removal_risk": 59.4,
+          "reconstitution": 72.6
         }
       ]
     }

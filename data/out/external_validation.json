@@ -8,64 +8,64 @@
     {
       "measure": "human_beta",
       "n": 268,
-      "pearson": 0.837,
-      "spearman": 0.825,
+      "pearson": 0.834,
+      "spearman": 0.82,
       "expectation": "strong - closest definition to our rubric"
     },
     {
       "measure": "human_gamma",
       "n": 268,
-      "pearson": 0.853,
-      "spearman": 0.83,
+      "pearson": 0.85,
+      "spearman": 0.823,
       "expectation": "strong - closest definition to our rubric"
     },
     {
       "measure": "human_alpha",
       "n": 268,
-      "pearson": 0.607,
-      "spearman": 0.622,
+      "pearson": 0.604,
+      "spearman": 0.619,
       "expectation": "moderate - excludes tools, which our rubric assumes"
     },
     {
       "measure": "gpt4_beta",
       "n": 268,
-      "pearson": 0.842,
-      "spearman": 0.848,
+      "pearson": 0.844,
+      "spearman": 0.849,
       "expectation": "strong - but model-to-model, so less independent"
     },
     {
       "measure": "gpt4_gamma",
       "n": 268,
-      "pearson": 0.808,
-      "spearman": 0.778,
+      "pearson": 0.806,
+      "spearman": 0.772,
       "expectation": "strong - but model-to-model, so less independent"
     },
     {
       "measure": "gpt4_alpha",
       "n": 268,
-      "pearson": 0.569,
-      "spearman": 0.566,
+      "pearson": 0.575,
+      "spearman": 0.577,
       "expectation": "moderate - excludes tools"
     },
     {
       "measure": "frey_osborne",
       "n": 150,
-      "pearson": 0.024,
-      "spearman": 0.126,
+      "pearson": 0.027,
+      "spearman": 0.129,
       "expectation": "near zero or negative - pre-LLM, scored the routine gradient"
     },
     {
       "measure": "felten_raj_seamans",
       "n": 188,
-      "pearson": -0.153,
-      "spearman": -0.24,
+      "pearson": -0.152,
+      "spearman": -0.243,
       "expectation": "near zero or negative - pre-LLM AI-capability exposure"
     },
     {
       "measure": "brynjolfsson_sml",
       "n": 188,
-      "pearson": -0.11,
-      "spearman": -0.104,
+      "pearson": -0.103,
+      "spearman": -0.092,
       "expectation": "near zero or negative - pre-LLM machine-learning suitability"
     }
   ],
@@ -73,64 +73,64 @@
     {
       "measure": "human_beta",
       "n": 268,
-      "pearson": 0.841,
-      "spearman": 0.826,
+      "pearson": 0.835,
+      "spearman": 0.82,
       "expectation": "strong - closest definition to our rubric"
     },
     {
       "measure": "human_gamma",
       "n": 268,
-      "pearson": 0.842,
-      "spearman": 0.815,
+      "pearson": 0.836,
+      "spearman": 0.806,
       "expectation": "strong - closest definition to our rubric"
     },
     {
       "measure": "human_alpha",
       "n": 268,
-      "pearson": 0.635,
-      "spearman": 0.656,
+      "pearson": 0.631,
+      "spearman": 0.655,
       "expectation": "moderate - excludes tools, which our rubric assumes"
     },
     {
       "measure": "gpt4_beta",
       "n": 268,
-      "pearson": 0.806,
-      "spearman": 0.82,
+      "pearson": 0.803,
+      "spearman": 0.815,
       "expectation": "strong - but model-to-model, so less independent"
     },
     {
       "measure": "gpt4_gamma",
       "n": 268,
-      "pearson": 0.831,
-      "spearman": 0.806,
+      "pearson": 0.827,
+      "spearman": 0.798,
       "expectation": "strong - but model-to-model, so less independent"
     },
     {
       "measure": "gpt4_alpha",
       "n": 268,
-      "pearson": 0.479,
-      "spearman": 0.462,
+      "pearson": 0.48,
+      "spearman": 0.466,
       "expectation": "moderate - excludes tools"
     },
     {
       "measure": "frey_osborne",
       "n": 150,
-      "pearson": -0.207,
-      "spearman": -0.07,
+      "pearson": -0.212,
+      "spearman": -0.08,
       "expectation": "near zero or negative - pre-LLM, scored the routine gradient"
     },
     {
       "measure": "felten_raj_seamans",
       "n": 188,
-      "pearson": -0.112,
-      "spearman": -0.203,
+      "pearson": -0.115,
+      "spearman": -0.205,
       "expectation": "near zero or negative - pre-LLM AI-capability exposure"
     },
     {
       "measure": "brynjolfsson_sml",
       "n": 188,
-      "pearson": -0.285,
-      "spearman": -0.281,
+      "pearson": -0.282,
+      "spearman": -0.276,
       "expectation": "near zero or negative - pre-LLM machine-learning suitability"
     }
   ]

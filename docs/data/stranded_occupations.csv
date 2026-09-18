@@ -1,158 +1,157 @@
 onet_soc_code,title,susceptibility,total_employment,neighbours,best_relief,reason
-15-1299.03,Document Management Specialists,76.5,435370.0,23,11.1,every close neighbour is about as exposed
-15-2051.00,Data Scientists,76.4,262440.0,7,5.1,every close neighbour is about as exposed
-15-1242.00,Database Administrators,75.6,69990.0,27,10.4,every close neighbour is about as exposed
-15-1255.00,Web and Digital Interface Designers,75.2,113330.0,25,10.0,every close neighbour is about as exposed
-15-1243.01,Data Warehousing Specialists,75.1,67140.0,22,9.9,every close neighbour is about as exposed
-15-1243.00,Database Architects,74.5,67140.0,27,9.3,every close neighbour is about as exposed
-15-1254.00,Web Developers,74.3,70190.0,28,9.1,every close neighbour is about as exposed
-15-2051.02,Clinical Data Managers,74.3,262440.0,30,9.1,every close neighbour is about as exposed
-15-2099.01,Bioinformatics Technicians,74.2,3720.0,1,5.9,every close neighbour is about as exposed
-15-2041.00,Statisticians,73.8,29030.0,25,8.6,every close neighbour is about as exposed
-15-1211.01,Health Informatics Specialists,73.3,519530.0,22,7.9,every close neighbour is about as exposed
-15-1251.00,Computer Programmers,73.3,92230.0,23,8.1,every close neighbour is about as exposed
-15-1211.00,Computer Systems Analysts,73.0,519530.0,27,7.8,every close neighbour is about as exposed
-15-1253.00,Software Quality Assurance Analysts and Testers,72.3,186740.0,31,7.1,every close neighbour is about as exposed
-15-1255.01,Video Game Designers,72.0,113330.0,15,4.8,every close neighbour is about as exposed
-15-1299.01,Web Administrators,71.8,435370.0,30,6.6,every close neighbour is about as exposed
-15-2031.00,Operations Research Analysts,71.3,108510.0,21,6.1,every close neighbour is about as exposed
-15-1299.07,Blockchain Engineers,69.7,435370.0,20,4.3,every close neighbour is about as exposed
-41-4011.00,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",69.4,284800.0,2,1.8,every close neighbour is about as exposed
-19-2041.01,Climate Change Policy Analysts,69.3,89250.0,8,9.1,every close neighbour is about as exposed
-15-1299.08,Computer Systems Engineers/Architects,69.1,435370.0,33,3.9,every close neighbour is about as exposed
-15-1252.00,Software Developers,68.8,1687890.0,21,3.6,every close neighbour is about as exposed
-29-2099.08,Patient Representatives,68.3,182610.0,1,-5.9,every close neighbour is about as exposed
-15-1299.06,Digital Forensics Analysts,68.2,435370.0,7,2.8,every close neighbour is about as exposed
-15-1212.00,Information Security Analysts,68.1,190650.0,19,2.8,every close neighbour is about as exposed
-41-4011.07,Solar Sales Representatives and Assessors,67.8,284800.0,2,0.2,every close neighbour is about as exposed
-15-1232.00,Computer User Support Specialists,67.6,717190.0,26,2.4,every close neighbour is about as exposed
-15-1244.00,Network and Computer Systems Administrators,67.6,314340.0,25,2.4,every close neighbour is about as exposed
-41-9031.00,Sales Engineers,67.6,51790.0,2,-0.2,every close neighbour is about as exposed
-15-1241.00,Computer Network Architects,67.2,179740.0,28,2.0,every close neighbour is about as exposed
-19-1011.00,Animal Scientists,67.1,3100.0,1,-0.6,every close neighbour is about as exposed
-25-1063.00,"Economics Teachers, Postsecondary",67.1,11560.0,21,6.9,every close neighbour is about as exposed
-15-1231.00,Computer Network Support Specialists,67.0,146190.0,23,1.7,every close neighbour is about as exposed
-25-1032.00,"Engineering Teachers, Postsecondary",67.0,40270.0,21,6.8,every close neighbour is about as exposed
-25-1031.00,"Architecture Teachers, Postsecondary",66.8,7700.0,21,6.6,every close neighbour is about as exposed
-25-1065.00,"Political Science Teachers, Postsecondary",66.8,16970.0,21,6.6,every close neighbour is about as exposed
-25-1043.00,"Forestry and Conservation Science Teachers, Postsecondary",66.6,1520.0,21,6.4,every close neighbour is about as exposed
-25-1051.00,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",66.6,9900.0,21,6.4,every close neighbour is about as exposed
-25-1062.00,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",66.6,11300.0,21,6.4,every close neighbour is about as exposed
-15-1241.01,Telecommunications Engineering Specialists,66.5,179740.0,26,1.2,every close neighbour is about as exposed
-25-1053.00,"Environmental Science Teachers, Postsecondary",66.5,6690.0,21,6.3,every close neighbour is about as exposed
-25-1022.00,"Mathematical Science Teachers, Postsecondary",66.4,47670.0,21,6.2,every close neighbour is about as exposed
-25-1064.00,"Geography Teachers, Postsecondary",66.1,3330.0,21,5.9,every close neighbour is about as exposed
-25-1067.00,"Sociology Teachers, Postsecondary",66.0,11850.0,21,5.8,every close neighbour is about as exposed
-25-1041.00,"Agricultural Sciences Teachers, Postsecondary",65.8,8920.0,21,5.6,every close neighbour is about as exposed
-11-9121.01,Clinical Research Coordinators,65.7,108690.0,4,6.0,every close neighbour is about as exposed
-25-1061.00,"Anthropology and Archeology Teachers, Postsecondary",65.7,5240.0,22,8.8,every close neighbour is about as exposed
-25-1071.00,"Health Specialties Teachers, Postsecondary",65.7,221270.0,21,5.5,every close neighbour is about as exposed
-17-3013.00,Mechanical Drafters,65.6,39960.0,8,8.5,every close neighbour is about as exposed
-11-3021.00,Computer and Information Systems Managers,65.5,670570.0,5,5.8,every close neighbour is about as exposed
-15-1299.05,Information Security Engineers,65.4,435370.0,24,0.2,every close neighbour is about as exposed
-15-1221.00,Computer and Information Research Scientists,65.3,37200.0,20,0.1,every close neighbour is about as exposed
-15-1299.09,Information Technology Project Managers,65.2,435370.0,21,-0.1,every close neighbour is about as exposed
-25-1042.00,"Biological Science Teachers, Postsecondary",65.2,50190.0,21,5.0,every close neighbour is about as exposed
-25-1054.00,"Physics Teachers, Postsecondary",65.1,13090.0,21,4.9,every close neighbour is about as exposed
-25-1021.00,"Computer Science Teachers, Postsecondary",64.8,35480.0,21,4.6,every close neighbour is about as exposed
-25-1066.00,"Psychology Teachers, Postsecondary",64.6,41530.0,21,4.4,every close neighbour is about as exposed
-25-1072.00,"Nursing Instructors and Teachers, Postsecondary",64.4,77960.0,22,5.7,every close neighbour is about as exposed
-25-1052.00,"Chemistry Teachers, Postsecondary",64.1,19980.0,21,3.9,every close neighbour is about as exposed
-17-1012.00,Landscape Architects,63.5,19600.0,27,10.0,every close neighbour is about as exposed
-17-2199.03,"Energy Engineers, Except Wind and Solar",63.5,154070.0,19,6.1,every close neighbour is about as exposed
-17-2111.02,Fire-Prevention and Protection Engineers,63.0,21450.0,10,9.5,every close neighbour is about as exposed
-17-3012.00,Electrical and Electronics Drafters,63.0,17920.0,37,11.0,every close neighbour is about as exposed
-19-2011.00,Astronomers,62.7,2120.0,40,11.3,every close neighbour is about as exposed
-11-9121.02,Water Resource Specialists,62.4,108690.0,2,2.7,every close neighbour is about as exposed
-17-3022.00,Civil Engineering Technologists and Technicians,62.3,68520.0,21,8.8,every close neighbour is about as exposed
-17-1022.01,Geodetic Surveyors,62.2,50830.0,19,8.7,every close neighbour is about as exposed
-17-1011.00,"Architects, Except Landscape and Naval",61.4,106770.0,27,7.9,every close neighbour is about as exposed
-11-9121.00,Natural Sciences Managers,61.3,108690.0,6,1.6,every close neighbour is about as exposed
-17-2151.00,"Mining and Geological Engineers, Including Mining Safety Engineers",61.3,6080.0,38,7.8,every close neighbour is about as exposed
-19-2032.00,Materials Scientists,61.3,8470.0,13,9.0,every close neighbour is about as exposed
-11-9111.00,Medical and Health Services Managers,61.2,597080.0,6,1.5,every close neighbour is about as exposed
-17-2112.02,Validation Engineers,61.2,365740.0,36,11.7,every close neighbour is about as exposed
-17-2141.01,Fuel Cell Engineers,60.9,296810.0,41,11.4,every close neighbour is about as exposed
-19-3092.00,Geographers,60.9,1400.0,9,7.2,every close neighbour is about as exposed
-15-2011.00,Actuaries,60.8,26670.0,3,-0.5,every close neighbour is about as exposed
-17-2199.06,Microsystems Engineers,60.8,154070.0,44,11.3,every close neighbour is about as exposed
-17-2081.00,Environmental Engineers,60.7,38340.0,39,11.2,every close neighbour is about as exposed
-19-1023.00,Zoologists and Wildlife Biologists,60.7,18120.0,24,11.1,every close neighbour is about as exposed
-19-1031.03,Park Naturalists,60.7,25950.0,7,7.0,every close neighbour is about as exposed
-17-2141.00,Mechanical Engineers,60.5,296810.0,48,11.0,every close neighbour is about as exposed
-19-1013.00,Soil and Plant Scientists,60.4,15730.0,26,10.9,every close neighbour is about as exposed
-17-3023.00,Electrical and Electronic Engineering Technologists and Technicians,60.2,95130.0,43,10.7,every close neighbour is about as exposed
-17-2199.05,Mechatronics Engineers,60.1,154070.0,43,10.6,every close neighbour is about as exposed
-17-2051.01,Transportation Engineers,60.0,367840.0,35,6.5,every close neighbour is about as exposed
-17-2112.01,Human Factors Engineers and Ergonomists,59.8,365740.0,42,10.3,every close neighbour is about as exposed
-17-2199.11,Solar Energy Systems Engineers,59.8,154070.0,20,4.8,every close neighbour is about as exposed
-11-9041.00,Architectural and Engineering Managers,59.7,220260.0,5,-1.5,every close neighbour is about as exposed
-17-2041.00,Chemical Engineers,59.6,21070.0,18,4.6,every close neighbour is about as exposed
-17-2161.00,Nuclear Engineers,59.5,15280.0,35,10.0,every close neighbour is about as exposed
-17-2131.00,Materials Engineers,59.3,22770.0,39,9.8,every close neighbour is about as exposed
-17-2011.00,Aerospace Engineers,58.9,67710.0,20,6.7,every close neighbour is about as exposed
-17-2121.00,Marine Engineers and Naval Architects,58.9,8250.0,46,9.4,every close neighbour is about as exposed
-17-2199.10,Wind Energy Engineers,58.7,154070.0,13,9.2,every close neighbour is about as exposed
-19-3034.00,School Psychologists,58.7,63940.0,13,8.3,every close neighbour is about as exposed
-17-2199.09,Nanosystems Engineers,58.6,154070.0,30,9.1,every close neighbour is about as exposed
-17-2021.00,Agricultural Engineers,58.2,1480.0,32,4.3,every close neighbour is about as exposed
-17-2171.00,Petroleum Engineers,57.4,18060.0,43,5.8,every close neighbour is about as exposed
-17-3026.00,Industrial Engineering Technologists and Technicians,57.4,75570.0,42,7.9,every close neighbour is about as exposed
-19-1029.02,Molecular and Cellular Biologists,57.3,55850.0,33,10.9,every close neighbour is about as exposed
-17-1021.00,Cartographers and Photogrammetrists,57.2,14260.0,6,2.2,every close neighbour is about as exposed
-19-1031.00,Conservation Scientists,57.2,25950.0,24,9.1,every close neighbour is about as exposed
-17-2071.00,Electrical Engineers,57.1,198750.0,37,5.1,every close neighbour is about as exposed
-17-3028.00,Calibration Technologists and Technicians,56.9,16540.0,17,7.4,every close neighbour is about as exposed
-19-3091.00,Anthropologists and Archeologists,56.9,8990.0,37,10.5,every close neighbour is about as exposed
-19-1012.00,Food Scientists and Technologists,56.8,13060.0,4,7.6,every close neighbour is about as exposed
-17-3027.01,Automotive Engineering Technicians,56.6,36190.0,28,7.1,every close neighbour is about as exposed
-17-3031.00,Surveying and Mapping Technicians,56.1,58010.0,16,6.6,every close neighbour is about as exposed
-19-1031.02,Range Managers,55.9,25950.0,8,6.3,every close neighbour is about as exposed
-17-1022.00,Surveyors,55.8,50830.0,8,-0.3,every close neighbour is about as exposed
-17-3025.00,Environmental Engineering Technologists and Technicians,55.2,12190.0,39,5.7,every close neighbour is about as exposed
-11-9041.01,Biofuels/Biodiesel Technology and Product Development Managers,55.0,220260.0,0,,no neighbours above the overlap floor
-17-2051.00,Civil Engineers,55.0,367840.0,23,-2.1,every close neighbour is about as exposed
-17-3024.00,Electro-Mechanical and Mechatronics Technologists and Technicians,55.0,15520.0,43,5.5,every close neighbour is about as exposed
-19-3033.00,Clinical and Counseling Psychologists,54.3,75990.0,19,3.9,every close neighbour is about as exposed
-17-3026.01,Nanotechnology Engineering Technologists and Technicians,53.9,75570.0,33,4.4,every close neighbour is about as exposed
-19-4043.00,"Geological Technicians, Except Hydrologic Technicians",53.7,6980.0,30,7.3,every close neighbour is about as exposed
-17-2111.00,"Health and Safety Engineers, Except Mining Safety Engineers and Inspectors",53.5,21450.0,33,4.0,every close neighbour is about as exposed
-19-4021.00,Biological Technicians,53.2,69620.0,17,6.8,every close neighbour is about as exposed
-19-3039.02,Neuropsychologists,53.0,18820.0,14,2.6,every close neighbour is about as exposed
-19-1032.00,Foresters,52.8,10430.0,12,3.3,every close neighbour is about as exposed
-19-1022.00,Microbiologists,52.4,18940.0,17,6.0,every close neighbour is about as exposed
-19-2031.00,Chemists,52.3,82770.0,21,5.9,every close neighbour is about as exposed
-17-3024.01,Robotics Technicians,52.2,15520.0,24,2.7,every close neighbour is about as exposed
-17-3021.00,Aerospace Engineering and Operations Technologists and Technicians,52.0,11280.0,26,2.5,every close neighbour is about as exposed
-19-4042.00,"Environmental Science and Protection Technicians, Including Health",52.0,34670.0,38,5.4,every close neighbour is about as exposed
-17-3029.01,Non-Destructive Testing Specialists,51.6,59930.0,18,2.1,every close neighbour is about as exposed
-19-4031.00,Chemical Technicians,51.4,57540.0,27,5.0,every close neighbour is about as exposed
-19-3039.03,Clinical Neuropsychologists,50.4,18820.0,14,-2.6,every close neighbour is about as exposed
-29-1299.02,Orthoptists,49.7,28630.0,60,11.1,every close neighbour is about as exposed
-19-4012.00,Agricultural Technicians,49.6,15130.0,31,3.2,every close neighbour is about as exposed
-17-3029.08,Photonics Technicians,49.5,59930.0,35,-2.1,every close neighbour is about as exposed
-19-4071.00,Forest and Conservation Technicians,49.5,30410.0,25,1.4,every close neighbour is about as exposed
-19-4013.00,Food Science Technicians,49.2,14600.0,11,2.8,every close neighbour is about as exposed
-19-4051.02,Nuclear Monitoring Technicians,48.1,6470.0,19,1.7,every close neighbour is about as exposed
-29-1081.00,Podiatrists,48.1,9680.0,40,11.9,every close neighbour is about as exposed
-19-4051.00,Nuclear Technicians,46.6,6470.0,5,-1.5,every close neighbour is about as exposed
-19-4092.00,Forensic Science Technicians,46.4,19120.0,25,-1.7,every close neighbour is about as exposed
-29-1212.00,Cardiologists,46.1,17290.0,73,16.1,every close neighbour is about as exposed
-29-1229.03,Urologists,44.5,342720.0,63,9.5,every close neighbour is about as exposed
-29-1291.00,Acupuncturists,41.7,7830.0,44,0.6,every close neighbour is about as exposed
-29-1151.00,Nurse Anesthetists,41.2,51840.0,79,11.8,every close neighbour is about as exposed
-29-2011.04,Histotechnologists,41.1,332940.0,10,6.9,every close neighbour is about as exposed
-29-2053.00,Psychiatric Technicians,41.1,156960.0,66,11.1,every close neighbour is about as exposed
-29-2042.00,Emergency Medical Technicians,40.5,180510.0,55,11.1,every close neighbour is about as exposed
-29-2099.05,Ophthalmic Medical Technologists,38.8,182610.0,66,8.8,every close neighbour is about as exposed
-29-2092.00,Hearing Aid Specialists,38.6,11270.0,24,2.4,every close neighbour is about as exposed
-29-2043.00,Paramedics,38.5,100610.0,61,9.1,every close neighbour is about as exposed
-29-2056.00,Veterinary Technologists and Technicians,38.3,129140.0,64,8.9,every close neighbour is about as exposed
-29-2055.00,Surgical Technologists,38.0,117460.0,32,8.0,every close neighbour is about as exposed
-29-2057.00,Ophthalmic Medical Technicians,36.5,71010.0,40,6.5,every close neighbour is about as exposed
-29-1021.00,"Dentists, General",36.2,124390.0,45,7.0,every close neighbour is about as exposed
-29-1071.01,Anesthesiologist Assistants,35.0,162150.0,62,5.0,every close neighbour is about as exposed
-29-2012.01,Histology Technicians,34.2,332940.0,5,-6.9,every close neighbour is about as exposed
-29-9093.00,Surgical Assistants,30.0,22270.0,52,0.6,every close neighbour is about as exposed
-29-1022.00,Oral and Maxillofacial Surgeons,29.4,4910.0,31,0.2,every close neighbour is about as exposed
-29-1024.00,Prosthodontists,29.2,870.0,5,-0.2,every close neighbour is about as exposed
+15-1299.03,Document Management Specialists,77.2,435370.0,23,11.2,every close neighbour is about as exposed
+15-2051.00,Data Scientists,77.1,262440.0,7,5.1,every close neighbour is about as exposed
+15-1242.00,Database Administrators,76.5,69990.0,27,10.8,every close neighbour is about as exposed
+15-1255.00,Web and Digital Interface Designers,75.8,113330.0,25,9.9,every close neighbour is about as exposed
+15-1243.01,Data Warehousing Specialists,75.7,67140.0,22,10.0,every close neighbour is about as exposed
+15-1243.00,Database Architects,75.4,67140.0,27,9.7,every close neighbour is about as exposed
+15-2051.02,Clinical Data Managers,74.9,262440.0,30,9.2,every close neighbour is about as exposed
+15-1254.00,Web Developers,74.8,70190.0,28,9.1,every close neighbour is about as exposed
+15-2099.01,Bioinformatics Technicians,74.6,3720.0,1,6.3,every close neighbour is about as exposed
+15-2041.00,Statisticians,74.4,29030.0,25,8.5,every close neighbour is about as exposed
+15-1251.00,Computer Programmers,74.2,92230.0,23,8.5,every close neighbour is about as exposed
+15-1211.01,Health Informatics Specialists,74.0,519530.0,22,8.0,every close neighbour is about as exposed
+15-1253.00,Software Quality Assurance Analysts and Testers,73.7,186740.0,31,8.0,every close neighbour is about as exposed
+15-1211.00,Computer Systems Analysts,73.6,519530.0,27,7.9,every close neighbour is about as exposed
+15-1255.01,Video Game Designers,73.1,113330.0,15,5.3,every close neighbour is about as exposed
+15-1299.01,Web Administrators,72.5,435370.0,30,6.8,every close neighbour is about as exposed
+15-2031.00,Operations Research Analysts,72.0,108510.0,21,6.3,every close neighbour is about as exposed
+15-1299.07,Blockchain Engineers,70.6,435370.0,20,4.6,every close neighbour is about as exposed
+41-4011.00,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",70.3,284800.0,2,2.1,every close neighbour is about as exposed
+15-1252.00,Software Developers,69.8,1687890.0,21,4.1,every close neighbour is about as exposed
+15-1299.08,Computer Systems Engineers/Architects,69.8,435370.0,33,4.1,every close neighbour is about as exposed
+19-2041.01,Climate Change Policy Analysts,69.7,89250.0,8,9.4,every close neighbour is about as exposed
+15-1212.00,Information Security Analysts,68.8,190650.0,19,3.1,every close neighbour is about as exposed
+15-1299.06,Digital Forensics Analysts,68.7,435370.0,7,2.7,every close neighbour is about as exposed
+15-1232.00,Computer User Support Specialists,68.5,717190.0,26,2.8,every close neighbour is about as exposed
+41-9031.00,Sales Engineers,68.5,51790.0,2,0.3,every close neighbour is about as exposed
+29-2099.08,Patient Representatives,68.3,182610.0,1,-6.3,every close neighbour is about as exposed
+15-1244.00,Network and Computer Systems Administrators,68.2,314340.0,25,2.5,every close neighbour is about as exposed
+41-4011.07,Solar Sales Representatives and Assessors,68.2,284800.0,2,-0.3,every close neighbour is about as exposed
+25-1063.00,"Economics Teachers, Postsecondary",67.9,11560.0,21,7.0,every close neighbour is about as exposed
+15-1241.00,Computer Network Architects,67.8,179740.0,28,2.1,every close neighbour is about as exposed
+15-1231.00,Computer Network Support Specialists,67.6,146190.0,23,1.9,every close neighbour is about as exposed
+25-1031.00,"Architecture Teachers, Postsecondary",67.5,7700.0,21,6.6,every close neighbour is about as exposed
+25-1032.00,"Engineering Teachers, Postsecondary",67.5,40270.0,21,6.6,every close neighbour is about as exposed
+25-1065.00,"Political Science Teachers, Postsecondary",67.5,16970.0,21,6.6,every close neighbour is about as exposed
+25-1051.00,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",67.3,9900.0,21,6.4,every close neighbour is about as exposed
+25-1062.00,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",67.3,11300.0,21,6.4,every close neighbour is about as exposed
+25-1022.00,"Mathematical Science Teachers, Postsecondary",67.2,47670.0,21,6.3,every close neighbour is about as exposed
+25-1043.00,"Forestry and Conservation Science Teachers, Postsecondary",67.2,1520.0,21,6.3,every close neighbour is about as exposed
+15-1241.01,Telecommunications Engineering Specialists,67.1,179740.0,26,1.4,every close neighbour is about as exposed
+25-1053.00,"Environmental Science Teachers, Postsecondary",67.1,6690.0,21,6.2,every close neighbour is about as exposed
+19-1011.00,Animal Scientists,67.0,3100.0,1,-1.5,every close neighbour is about as exposed
+25-1064.00,"Geography Teachers, Postsecondary",66.6,3330.0,21,5.7,every close neighbour is about as exposed
+25-1067.00,"Sociology Teachers, Postsecondary",66.6,11850.0,21,5.7,every close neighbour is about as exposed
+25-1041.00,"Agricultural Sciences Teachers, Postsecondary",66.5,8920.0,21,5.6,every close neighbour is about as exposed
+25-1061.00,"Anthropology and Archeology Teachers, Postsecondary",66.5,5240.0,22,9.0,every close neighbour is about as exposed
+25-1071.00,"Health Specialties Teachers, Postsecondary",66.3,221270.0,21,5.4,every close neighbour is about as exposed
+15-1299.05,Information Security Engineers,66.0,435370.0,24,0.1,every close neighbour is about as exposed
+11-9121.01,Clinical Research Coordinators,65.9,108690.0,4,5.9,every close neighbour is about as exposed
+15-1299.09,Information Technology Project Managers,65.9,435370.0,21,0.2,every close neighbour is about as exposed
+17-3013.00,Mechanical Drafters,65.9,39960.0,8,7.9,every close neighbour is about as exposed
+25-1042.00,"Biological Science Teachers, Postsecondary",65.9,50190.0,21,5.0,every close neighbour is about as exposed
+11-3021.00,Computer and Information Systems Managers,65.8,670570.0,5,5.8,every close neighbour is about as exposed
+15-1221.00,Computer and Information Research Scientists,65.7,37200.0,20,-0.2,every close neighbour is about as exposed
+25-1054.00,"Physics Teachers, Postsecondary",65.7,13090.0,21,4.8,every close neighbour is about as exposed
+25-1021.00,"Computer Science Teachers, Postsecondary",65.5,35480.0,21,4.6,every close neighbour is about as exposed
+25-1066.00,"Psychology Teachers, Postsecondary",65.2,41530.0,21,4.3,every close neighbour is about as exposed
+25-1072.00,"Nursing Instructors and Teachers, Postsecondary",65.1,77960.0,22,5.4,every close neighbour is about as exposed
+25-1052.00,"Chemistry Teachers, Postsecondary",64.7,19980.0,21,3.8,every close neighbour is about as exposed
+17-2199.03,"Energy Engineers, Except Wind and Solar",64.3,154070.0,19,6.4,every close neighbour is about as exposed
+17-2111.02,Fire-Prevention and Protection Engineers,64.0,21450.0,10,9.4,every close neighbour is about as exposed
+17-3012.00,Electrical and Electronics Drafters,63.6,17920.0,37,10.0,every close neighbour is about as exposed
+19-2011.00,Astronomers,63.3,2120.0,40,11.2,every close neighbour is about as exposed
+11-9121.02,Water Resource Specialists,63.1,108690.0,2,3.1,every close neighbour is about as exposed
+17-1012.00,Landscape Architects,63.1,19600.0,27,8.5,every close neighbour is about as exposed
+17-1022.01,Geodetic Surveyors,63.1,50830.0,19,8.5,every close neighbour is about as exposed
+17-3022.00,Civil Engineering Technologists and Technicians,63.0,68520.0,21,8.4,every close neighbour is about as exposed
+19-2032.00,Materials Scientists,62.2,8470.0,13,8.9,every close neighbour is about as exposed
+17-2151.00,"Mining and Geological Engineers, Including Mining Safety Engineers",61.8,6080.0,38,7.2,every close neighbour is about as exposed
+11-9121.00,Natural Sciences Managers,61.6,108690.0,6,1.6,every close neighbour is about as exposed
+17-2199.06,Microsystems Engineers,61.6,154070.0,44,11.5,every close neighbour is about as exposed
+17-2141.01,Fuel Cell Engineers,61.5,296810.0,41,11.4,every close neighbour is about as exposed
+19-3092.00,Geographers,61.5,1400.0,9,7.8,every close neighbour is about as exposed
+11-9111.00,Medical and Health Services Managers,61.4,597080.0,6,1.4,every close neighbour is about as exposed
+19-1031.03,Park Naturalists,61.4,25950.0,7,7.7,every close neighbour is about as exposed
+15-2011.00,Actuaries,61.1,26670.0,3,-0.5,every close neighbour is about as exposed
+17-2081.00,Environmental Engineers,61.1,38340.0,39,11.0,every close neighbour is about as exposed
+17-1011.00,"Architects, Except Landscape and Naval",61.0,106770.0,27,6.4,every close neighbour is about as exposed
+17-2141.00,Mechanical Engineers,61.0,296810.0,48,10.9,every close neighbour is about as exposed
+17-2112.01,Human Factors Engineers and Ergonomists,60.9,365740.0,42,10.8,every close neighbour is about as exposed
+17-3023.00,Electrical and Electronic Engineering Technologists and Technicians,60.9,95130.0,43,10.8,every close neighbour is about as exposed
+19-1023.00,Zoologists and Wildlife Biologists,60.9,18120.0,24,10.8,every close neighbour is about as exposed
+17-2199.05,Mechatronics Engineers,60.7,154070.0,43,10.6,every close neighbour is about as exposed
+17-2051.01,Transportation Engineers,60.6,367840.0,35,6.0,every close neighbour is about as exposed
+19-1013.00,Soil and Plant Scientists,60.5,15730.0,26,10.6,every close neighbour is about as exposed
+17-2041.00,Chemical Engineers,60.3,21070.0,18,4.5,every close neighbour is about as exposed
+17-2199.11,Solar Energy Systems Engineers,60.3,154070.0,20,4.5,every close neighbour is about as exposed
+17-2161.00,Nuclear Engineers,60.1,15280.0,35,10.0,every close neighbour is about as exposed
+11-9041.00,Architectural and Engineering Managers,60.0,220260.0,5,-1.4,every close neighbour is about as exposed
+17-2011.00,Aerospace Engineers,59.8,67710.0,20,7.1,every close neighbour is about as exposed
+17-2131.00,Materials Engineers,59.8,22770.0,39,9.7,every close neighbour is about as exposed
+19-3034.00,School Psychologists,59.7,63940.0,13,8.6,every close neighbour is about as exposed
+17-2121.00,Marine Engineers and Naval Architects,59.3,8250.0,46,9.2,every close neighbour is about as exposed
+17-2199.09,Nanosystems Engineers,59.2,154070.0,30,9.1,every close neighbour is about as exposed
+17-2199.10,Wind Energy Engineers,59.0,154070.0,13,8.9,every close neighbour is about as exposed
+17-2021.00,Agricultural Engineers,58.6,1480.0,32,3.9,every close neighbour is about as exposed
+19-1029.02,Molecular and Cellular Biologists,58.1,55850.0,33,11.2,every close neighbour is about as exposed
+17-2071.00,Electrical Engineers,58.0,198750.0,37,4.4,every close neighbour is about as exposed
+17-3026.00,Industrial Engineering Technologists and Technicians,58.0,75570.0,42,7.9,every close neighbour is about as exposed
+17-2171.00,Petroleum Engineers,57.9,18060.0,43,5.1,every close neighbour is about as exposed
+17-3028.00,Calibration Technologists and Technicians,57.9,16540.0,17,7.8,every close neighbour is about as exposed
+19-1012.00,Food Scientists and Technologists,57.7,13060.0,4,7.3,every close neighbour is about as exposed
+17-3027.01,Automotive Engineering Technicians,57.6,36190.0,28,7.5,every close neighbour is about as exposed
+17-1021.00,Cartographers and Photogrammetrists,57.5,14260.0,6,1.7,every close neighbour is about as exposed
+19-3091.00,Anthropologists and Archeologists,57.5,8990.0,37,10.6,every close neighbour is about as exposed
+19-1031.00,Conservation Scientists,57.1,25950.0,24,8.0,every close neighbour is about as exposed
+17-3031.00,Surveying and Mapping Technicians,56.7,58010.0,16,6.8,every close neighbour is about as exposed
+17-1022.00,Surveyors,56.6,50830.0,8,-0.1,every close neighbour is about as exposed
+17-3025.00,Environmental Engineering Technologists and Technicians,55.9,12190.0,39,5.8,every close neighbour is about as exposed
+17-3024.00,Electro-Mechanical and Mechatronics Technologists and Technicians,55.8,15520.0,43,5.7,every close neighbour is about as exposed
+19-1031.02,Range Managers,55.8,25950.0,8,5.7,every close neighbour is about as exposed
+11-9041.01,Biofuels/Biodiesel Technology and Product Development Managers,55.7,220260.0,0,,no neighbours above the overlap floor
+17-2051.00,Civil Engineers,55.6,367840.0,23,-2.4,every close neighbour is about as exposed
+19-3033.00,Clinical and Counseling Psychologists,55.0,75990.0,19,3.9,every close neighbour is about as exposed
+17-3026.01,Nanotechnology Engineering Technologists and Technicians,54.7,75570.0,33,4.6,every close neighbour is about as exposed
+17-2111.00,"Health and Safety Engineers, Except Mining Safety Engineers and Inspectors",54.6,21450.0,33,4.5,every close neighbour is about as exposed
+19-4021.00,Biological Technicians,54.2,69620.0,17,7.3,every close neighbour is about as exposed
+19-4043.00,"Geological Technicians, Except Hydrologic Technicians",53.7,6980.0,30,6.8,every close neighbour is about as exposed
+17-3021.00,Aerospace Engineering and Operations Technologists and Technicians,53.6,11280.0,26,3.5,every close neighbour is about as exposed
+19-3039.02,Neuropsychologists,53.6,18820.0,14,2.5,every close neighbour is about as exposed
+19-2031.00,Chemists,53.3,82770.0,21,6.4,every close neighbour is about as exposed
+19-1022.00,Microbiologists,53.2,18940.0,17,6.3,every close neighbour is about as exposed
+19-1032.00,Foresters,53.1,10430.0,12,3.2,every close neighbour is about as exposed
+17-3029.01,Non-Destructive Testing Specialists,52.8,59930.0,18,2.7,every close neighbour is about as exposed
+17-3024.01,Robotics Technicians,52.7,15520.0,24,2.6,every close neighbour is about as exposed
+19-4042.00,"Environmental Science and Protection Technicians, Including Health",52.6,34670.0,38,5.1,every close neighbour is about as exposed
+19-4031.00,Chemical Technicians,52.1,57540.0,27,5.2,every close neighbour is about as exposed
+19-3039.03,Clinical Neuropsychologists,51.1,18820.0,14,-2.5,every close neighbour is about as exposed
+19-4013.00,Food Science Technicians,50.4,14600.0,11,3.5,every close neighbour is about as exposed
+29-1299.02,Orthoptists,50.3,28630.0,60,11.6,every close neighbour is about as exposed
+17-3029.08,Photonics Technicians,50.1,59930.0,35,-2.6,every close neighbour is about as exposed
+19-4012.00,Agricultural Technicians,50.1,15130.0,31,3.2,every close neighbour is about as exposed
+19-4071.00,Forest and Conservation Technicians,49.9,30410.0,25,0.8,every close neighbour is about as exposed
+19-4051.02,Nuclear Monitoring Technicians,49.1,6470.0,19,2.2,every close neighbour is about as exposed
+29-1131.00,Veterinarians,47.7,83900.0,68,11.9,every close neighbour is about as exposed
+19-4051.00,Nuclear Technicians,47.5,6470.0,5,-1.6,every close neighbour is about as exposed
+19-4092.00,Forensic Science Technicians,46.9,19120.0,25,-2.2,every close neighbour is about as exposed
+29-1212.00,Cardiologists,46.6,17290.0,73,16.1,every close neighbour is about as exposed
+29-1229.03,Urologists,45.3,342720.0,63,9.5,every close neighbour is about as exposed
+29-1291.00,Acupuncturists,42.3,7830.0,44,0.9,every close neighbour is about as exposed
+29-1151.00,Nurse Anesthetists,41.7,51840.0,79,11.9,every close neighbour is about as exposed
+29-2011.04,Histotechnologists,41.4,332940.0,10,6.8,every close neighbour is about as exposed
+29-2053.00,Psychiatric Technicians,41.4,156960.0,66,10.9,every close neighbour is about as exposed
+29-2042.00,Emergency Medical Technicians,41.0,180510.0,55,11.2,every close neighbour is about as exposed
+29-2099.05,Ophthalmic Medical Technologists,39.2,182610.0,66,8.7,every close neighbour is about as exposed
+29-2043.00,Paramedics,38.7,100610.0,61,8.9,every close neighbour is about as exposed
+29-2056.00,Veterinary Technologists and Technicians,38.7,129140.0,64,8.9,every close neighbour is about as exposed
+29-2092.00,Hearing Aid Specialists,38.7,11270.0,24,2.2,every close neighbour is about as exposed
+29-2055.00,Surgical Technologists,38.6,117460.0,32,8.1,every close neighbour is about as exposed
+29-2057.00,Ophthalmic Medical Technicians,36.7,71010.0,40,6.2,every close neighbour is about as exposed
+29-1021.00,"Dentists, General",36.5,124390.0,45,6.7,every close neighbour is about as exposed
+29-1071.01,Anesthesiologist Assistants,35.8,162150.0,62,5.3,every close neighbour is about as exposed
+29-2012.01,Histology Technicians,34.6,332940.0,5,-6.8,every close neighbour is about as exposed
+29-9093.00,Surgical Assistants,30.5,22270.0,52,0.7,every close neighbour is about as exposed
+29-1024.00,Prosthodontists,30.2,870.0,5,0.4,every close neighbour is about as exposed
+29-1022.00,Oral and Maxillofacial Surgeons,29.8,4910.0,31,-0.4,every close neighbour is about as exposed

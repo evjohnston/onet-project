@@ -239,3 +239,78 @@ def log_report(results: list[dict[str, Any]]) -> int:
             log.error("        %-34s data %-10s document %s",
                       row["figure"], row["data"], row["document"])
     return failed
+
+
+# --------------------------------------------------------------------------- #
+# Rewriting the tables from the data
+# --------------------------------------------------------------------------- #
+# The audit catches a stale figure; fixing it by hand was becoming toil, and
+# hand-editing a table of thirty numbers is its own source of error. These
+# regenerate the three tables whose every cell comes from a report file. The
+# prose around them is left alone: it carries interpretation, which no script
+# should be rewriting.
+
+def _rewrite_scenarios(md: str, out: Path) -> str:
+    rep = _json(out, "scenarios_report").get("scenarios", {})
+    if not rep:
+        return md
+    desc = {"modest": "68th pct exposure, anchoring under the 32nd",
+            "substantial": "47th pct exposure, anchoring under the 68th",
+            "extreme": "31st pct exposure, anchoring under the 94th"}
+    rows = [f"| {k.capitalize()} | {desc[k]} | {rep[k]['automated']:,} "
+            f"({round(100 * rep[k]['share_automated'])}%) |"
+            for k in ("modest", "substantial", "extreme") if k in rep]
+    return re.sub(r"\| Modest \|[^\n]*\n\| Substantial \|[^\n]*\n\| Extreme \|[^\n]*\n",
+                  "\n".join(rows) + "\n", md, count=1)
+
+
+def _rewrite_security(md: str, out: Path) -> str:
+    from .security import OCTANTS, severity
+    rep = _json(out, "security_report").get("scenarios", {})
+    if not rep:
+        return md
+    rows = []
+    for name, _ in sorted(OCTANTS.values(), key=lambda nb: -severity(nb[0])):
+        cells = [f"{rep[k]['by_octant'][name]['occupations']} / "
+                 f"{100 * rep[k]['by_octant'][name]['share_employment']:.1f}%"
+                 for k in ("modest", "substantial", "extreme")]
+        rows.append(f"| {name} | " + " | ".join(cells) + " |")
+    return re.sub(r"\| Strategic trap \|.*?\| Low stakes \|[^\n]*\n",
+                  "\n".join(rows) + "\n", md, count=1, flags=re.S)
+
+
+def _rewrite_benchmarks(md: str, out: Path) -> str:
+    ev = _json(out, "external_validation")
+    by = {r["measure"]: r for r in ev.get("susceptibility_vs", [])}
+    if not by:
+        return md
+    spec = [("**Human expert ratings, γ**", "human_gamma", True),
+            ("**Human expert ratings, β**", "human_beta", True),
+            ("Human expert ratings, α (no tools)", "human_alpha", False),
+            ("GPT-4, β", "gpt4_beta", False),
+            ("Frey & Osborne (2017)", "frey_osborne", False),
+            ("Felten, Raj & Seamans", "felten_raj_seamans", False),
+            ("Brynjolfsson/Mitchell/Rock SML", "brynjolfsson_sml", False)]
+    rows = []
+    for label, key, bold in spec:
+        r = by.get(key)
+        if not r:
+            continue
+        v = f"{r['pearson']:.3f}".replace("-", "\u2212")
+        rows.append(f"| {label} | {'**' + v + '**' if bold else v} | {r['n']} |")
+    return re.sub(r"\| \*\*Human expert ratings, γ\*\*.*?SML \|[^\n]*\n",
+                  "\n".join(rows) + "\n", md, count=1, flags=re.S)
+
+
+REWRITERS = (_rewrite_scenarios, _rewrite_security, _rewrite_benchmarks)
+
+
+def refresh(md_path: Path, out_dir: Path) -> bool:
+    """Regenerate the registered tables. Returns True if anything changed."""
+    before = md_path.read_text()
+    after = before
+    for fn in REWRITERS:
+        after = fn(after, out_dir)
+    if after != before:
+        md_path.write_text(after)
+    return after != before

@@ -7,6 +7,7 @@ structure fails here rather than silently emptying a column.
 
 from __future__ import annotations
 
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -605,3 +606,54 @@ class TestDocFigureAudit(unittest.TestCase):
         self.assertGreaterEqual(len(CHECKS), 5)
         names = [c[0] for c in CHECKS]
         self.assertEqual(len(names), len(set(names)))
+
+
+class TestFigureRefresh(unittest.TestCase):
+    """The audit's fix mode."""
+
+    def test_refresh_makes_a_stale_document_pass(self):
+        import shutil, tempfile
+        from pathlib import Path
+        from onet_scraper.validate_doc import refresh, validate_doc
+        if not Path("data/out/scenarios_report.json").exists():
+            self.skipTest("no dataset")
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "M.md"
+            shutil.copy("METHODOLOGY.md", p)
+            # break every registered table
+            s = p.read_text()
+            s = re.sub(r"\| Modest \|([^|]*)\|[^|]*\|", r"| Modest |\1| 999 (99%) |", s, count=1)
+            p.write_text(s)
+            self.assertTrue(any(r["rows"] for r in validate_doc(p, Path("data/out"))))
+            refresh(p, Path("data/out"))
+            self.assertFalse(any(r["rows"] for r in validate_doc(p, Path("data/out"))))
+
+    def test_refresh_is_a_no_op_on_a_current_document(self):
+        """It must not churn the file on every run."""
+        import shutil, tempfile
+        from pathlib import Path
+        from onet_scraper.validate_doc import refresh
+        if not Path("data/out/scenarios_report.json").exists():
+            self.skipTest("no dataset")
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "M.md"
+            shutil.copy("METHODOLOGY.md", p)
+            self.assertFalse(refresh(p, Path("data/out")))
+
+    def test_refresh_leaves_prose_alone(self):
+        """Only the tables are generated. The prose carries interpretation."""
+        import shutil, tempfile
+        from pathlib import Path
+        from onet_scraper.validate_doc import refresh
+        if not Path("data/out/scenarios_report.json").exists():
+            self.skipTest("no dataset")
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "M.md"
+            shutil.copy("METHODOLOGY.md", p)
+            marker = "Not weak agreement"
+            before = p.read_text()
+            refresh(p, Path("data/out"))
+            after = p.read_text()
+            if marker in before:
+                self.assertIn(marker, after)
+            self.assertEqual(before.count("## "), after.count("## "))

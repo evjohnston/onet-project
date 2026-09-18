@@ -116,6 +116,9 @@ def build_parser() -> argparse.ArgumentParser:
                         help="comma-separated top-level STEM page ids (default: all). "
                              f"Valid: {','.join(TOP_LEVEL_CATEGORIES)}. Sub-disciplines "
                              "are sections of these pages and are captured automatically.")
+    parser.add_argument("--fix-figures", action="store_true",
+                        help="with the validate-doc stage, regenerate the "
+                             "registered tables from the data before checking")
     parser.add_argument("--retest-label", default="",
                         help="name for this retest pass; defaults to the model "
                              "name. A second run of the same model needs its "
@@ -241,7 +244,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if stage == "validate-doc":
-        run_validate_doc(settings)
+        run_validate_doc(settings, fix=args.fix_figures)
         return 0
 
     if stage == "smoke":

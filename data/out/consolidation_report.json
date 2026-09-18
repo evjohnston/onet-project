@@ -1,10 +1,13 @@
 {
   "subtasks": 963,
-  "scored_by_two": 963,
+  "by_rater_count": {
+    "3": 963
+  },
+  "scored_by_multiple": 963,
   "scored_by_one": 0,
-  "median_disagreement": 7.6,
-  "p90_disagreement": 11.9,
-  "max_disagreement": 22.9,
-  "above_15_points": 17,
-  "share_above_15": 0.0177
+  "median_disagreement": 6.2,
+  "p90_disagreement": 9.0,
+  "max_disagreement": 17.0,
+  "above_15_points": 1,
+  "share_above_15": 0.001
 }

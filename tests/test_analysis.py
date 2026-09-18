@@ -1642,7 +1642,9 @@ class TestConsolidation(unittest.TestCase):
         b = [self._row(i, llm_exposure=50.0) for i in range(10)]
         b[0]["llm_exposure"] = 100.0     # one wild disagreement
         rep = consolidation_summary(consolidate(a, b))
-        self.assertEqual(rep["scored_by_two"], 10)
+        # renamed from scored_by_two when consolidation went to N raters
+        self.assertEqual(rep["scored_by_multiple"], 10)
+        self.assertEqual(rep["by_rater_count"], {2: 10})
         self.assertEqual(rep["above_15_points"], 0)   # 50/7 = 7.1, under 15
         self.assertGreater(rep["max_disagreement"], rep["median_disagreement"])
 

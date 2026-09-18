@@ -969,8 +969,10 @@ def run_consolidate(settings: Settings) -> dict[str, Any]:
         json.dumps(summary, indent=2))
 
     log.info("-" * 72)
-    log.info("consolidated %d subtasks: %d scored by two raters, %d by one",
-             summary["subtasks"], summary["scored_by_two"], summary["scored_by_one"])
+    log.info("consolidated %d subtasks by rater count: %s",
+             summary["subtasks"],
+             ", ".join(f"{n} rater(s) x {c}"
+                       for n, c in summary["by_rater_count"].items()))
     log.info("  disagreement: median %.1f · p90 %.1f · max %.1f points",
              summary["median_disagreement"] or 0, summary["p90_disagreement"] or 0,
              summary["max_disagreement"] or 0)
@@ -981,13 +983,20 @@ def run_consolidate(settings: Settings) -> dict[str, Any]:
     return summary
 
 
-def run_validate_doc(settings: Settings) -> dict[str, Any]:
-    """Check METHODOLOGY.md's figures against the data they describe."""
-    from .validate_doc import log_report, validate_doc
+def run_validate_doc(settings: Settings, *, fix: bool = False) -> dict[str, Any]:
+    """Check METHODOLOGY.md's figures against the data they describe.
+
+    With fix=True, regenerate the registered tables first. Only the tables whose
+    every cell comes from a report file - the prose around them carries
+    interpretation and no script should be rewriting that.
+    """
+    from .validate_doc import log_report, refresh, validate_doc
 
     md = Path(__file__).resolve().parents[1] / "METHODOLOGY.md"
     if not md.exists():
         raise SystemExit(f"{md} not found")
+    if fix and refresh(md, settings.out_dir):
+        log.info("regenerated the registered tables in %s", md.name)
     results = validate_doc(md, settings.out_dir)
     stale = log_report(results)
     (settings.out_dir / "validation_doc.json").write_text(json.dumps(results, indent=2))
