@@ -142,5 +142,17 @@
     "assertion": "heading rules inked",
     "passed": true,
     "detail": ""
+  },
+  {
+    "page": "story.html",
+    "assertion": "sankey ribbons built",
+    "passed": true,
+    "detail": ""
+  },
+  {
+    "page": "story.html",
+    "assertion": "motion is gated on scroll",
+    "passed": true,
+    "detail": ""
   }
 ]

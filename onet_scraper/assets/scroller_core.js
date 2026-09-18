@@ -577,6 +577,130 @@ requestAnimationFrame(loop);
    does not advance rAF under a virtual clock, so there is no way to capture a
    scene mid-story from the CLI. This drives every scene to a given progress
    directly, which is also how the still figures are exported. */
+/* ============================================================
+   SANKEY: hand-drawn ribbons, and dots that travel along them
+   ============================================================ */
+
+/* A ribbon between two vertical edges.
+
+   Not a stroked line of variable width - a filled band whose top and bottom
+   edges are separate cubic curves, so the width can differ at each end the way
+   a Sankey needs. Both edges are pushed through roughPts before being drawn, so
+   the band has the same wobble as every other mark on the page rather than
+   arriving as the one piece of clean vector geometry in the story.
+
+   Returns the centreline too, because the dots have to travel down the middle
+   of the band and recomputing it from the edges is fiddlier than keeping it. */
+function ribbonPath(x0, y0, h0, x1, y1, h1, seed, samples){
+  samples = samples || 26;
+  const r = prng(seed);
+  const ease = t => t*t*(3-2*t);                 /* smoothstep, so it leaves and
+                                                    arrives horizontally */
+  const top = [], bot = [], mid = [];
+  for(let i=0;i<=samples;i++){
+    const t = i/samples, e = ease(t);
+    const x = x0 + (x1-x0)*t;
+    const yt = (y0) + ((y1) - (y0))*e;
+    const yb = (y0+h0) + ((y1+h1) - (y0+h0))*e;
+    const j = (r()-0.5)*1.6;                     /* the pen is not a plotter */
+    top.push([x, yt + j]);
+    bot.push([x, yb + j]);
+    mid.push([x, (yt+yb)/2 + j*0.4]);
+  }
+  /* Top edge forward, straight cap, bottom edge back, straight cap.
+
+     Two earlier attempts got this wrong in opposite directions. Stitching the
+     two curve strings by stripping the second one's leading M left the path
+     starting mid-command and collapsed every band to a hairline. Passing the
+     whole loop to smoothD as a CLOSED curve fixed the width but then ran a
+     Catmull-Rom through the end caps, which overshoots: the tall band grew
+     horns above the node it was supposed to start flush against.
+
+     Turning only the leading M of the return edge into an L is all that was
+     needed - the caps stay straight and vertical, the long edges stay curved. */
+  const back = bot.slice().reverse();
+  const d = smoothD(top, false) + smoothD(back, false).replace(/^M/, 'L') + 'Z';
+  return {d: d, mid: mid, top: top, bot: bot};
+}
+
+function Ribbon(parent, x0, y0, h0, x1, y1, h1, cls, seed){
+  const g = S('g', {filter:'url(#grain)'}, parent);
+  const tone = (String(cls).match(/\b(coral|acid|blue|violet|soft|ghost)\b/) || [,''])[1];
+  let geo = ribbonPath(x0, y0, h0, x1, y1, h1, seed);
+  const band = S('path', {d: geo.d, class: 'ribbon' + (tone ? ' ' + tone : '')}, g);
+  let dots = null, dotN = 0;
+
+  return {
+    g: g,
+    mid: function(){ return geo.mid; },
+    setGeom: function(nx0, ny0, nh0, nx1, ny1, nh1){
+      geo = ribbonPath(nx0, ny0, nh0, nx1, ny1, nh1, seed);
+      band.setAttribute('d', geo.d);
+      if(dots) this.dots(dotN);          /* the path moved, so must the dots */
+    },
+    recolor: function(c){
+      const t = (String(c).match(/\b(coral|acid|blue|violet|soft|ghost)\b/) || [,''])[1];
+      band.setAttribute('class', 'ribbon' + (t ? ' ' + t : ''));
+      if(dots) dots.setAttribute('class', 'sankey-dots' + (t ? ' ' + t : ''));
+    },
+    opacity: function(v){ g.style.opacity = v; },
+
+    /* Dots travelling the length of the ribbon.
+
+       CSS offset-path rather than rAF or SMIL: the browser interpolates along
+       the path on the compositor, so a hundred dots cost about what one does,
+       and the stagger is just an animation-delay. The path is the ribbon's own
+       centreline, so a dot cannot leave its band even as the layout changes. */
+    dots: function(n, opt){
+      opt = opt || {};
+      dotN = n;
+      if(dots) dots.remove();
+      dots = null;
+      if(!AMBIENT || n <= 0) return;
+      dots = S('g', {class: 'sankey-dots' + (tone ? ' ' + tone : '')}, parent);
+      const path = smoothD(geo.mid, false);
+      const dur = opt.dur != null ? opt.dur : 6.5;
+      for(let i=0;i<n;i++){
+        const c = S('circle', {r: f2(opt.r != null ? opt.r : 3.4),
+                               class: 'sankey-dot'}, dots);
+        c.style.offsetPath = 'path("' + path + '")';
+        c.style.animationDuration = f2(dur) + 's';
+        /* spread the stagger across one full traverse so the stream is even */
+        c.style.animationDelay = f2(-(i / n) * dur) + 's';
+      }
+      return dots;
+    }
+  };
+}
+
+/* Motion only runs where it can be seen.
+
+   Ambient drift, breathing and the travelling ink were animating in every one
+   of the fourteen figures at once, the whole way down the page, whether or not
+   the reader was anywhere near them. That is both wasteful and the wrong
+   behaviour: the animation should start when a figure arrives.
+
+   Implemented with animation-play-state rather than by adding and removing the
+   animation, so a figure scrolled past and returned to picks up its phase
+   instead of snapping back to the first frame. The CSS pauses by default and
+   only an onscreen section runs. */
+function gateMotionOnScroll(){
+  const sections = document.querySelectorAll('.scene, .hero, .coda, .quote, .ending');
+  if(!sections.length) return;
+  if(!('IntersectionObserver' in window)){
+    sections.forEach(function(s){ s.dataset.live = '1'; });
+    return;
+  }
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.dataset.live = '1';
+      else delete e.target.dataset.live;
+    });
+  }, {rootMargin: '12% 0px'});
+  sections.forEach(function(s){ io.observe(s); });
+}
+gateMotionOnScroll();
+
 /* Hand-inked rules under the headings.
 
    The story's whole visual argument is that it was drawn rather than rendered,

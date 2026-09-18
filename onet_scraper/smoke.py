@@ -136,6 +136,13 @@ PAGES: dict[str, Sequence[Assertion]] = {
         ("stage viewbox is fitted, not fixed",
          lambda d: 'viewBox="0 0 1600 900"' not in d),
         ("heading rules inked", lambda d: _count(r'class="headrule"')(d) >= 10),
+        # The Sankey's ribbons are built at scene-build time, so they are in the
+        # DOM before any scrolling. The dots are not - they appear once the
+        # scene reaches the progress that reveals each band - so only the
+        # ribbons can be asserted from a static dump.
+        ("sankey ribbons built", lambda d: _count(r'class="ribbon')(d) >= 3),
+        ("motion is gated on scroll",
+         lambda d: "animation-play-state:paused" in d.replace(" ", "")),
     ),
 }
 

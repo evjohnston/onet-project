@@ -1136,37 +1136,46 @@ BUILD.taskgrid = function(ctx){
 BUILD.flows = function(ctx){
   const g = S('g', null, ctx.svg);
   scenarioBar(document.getElementById('fl-scen'));
-  const LX = 330, RX = 1010, W = 210, TOP = 190, H = 470;
 
-  const whole = Block(g, LX, TOP, W, H, 'ink soft', 13001);
-  const wholeN = Txt(g, LX - 24, TOP + H/2 - 4, '', {cls:'big', anchor:'end', op:0});
-  const wholeK = Txt(g, LX - 24, TOP + H/2 + 26, 'ALL STEM WORKERS',
-                     {cls:'sm dim', anchor:'end', op:0});
+  /* A Sankey rather than two columns of bars joined by flat strips. The story
+     this chapter tells is one population dividing, and a ribbon whose width is
+     the share carries that; a 6px connector between two rectangles does not.
+     Dots travel each ribbon so the division reads as movement rather than as a
+     static partition - the number of dots is the share, so the busiest stream
+     is visibly the busiest. */
+    /* A wider gap between the outputs is what gives the ribbons somewhere to go.
+     At 26 the three bands ran nearly parallel and the figure read as three
+     stacked bars with dots on them rather than as a population dividing. */
+  const LX = 286, NODEW = 62, RX = 1046, TOP = 168, H = 536, GAP = 58;
 
-  const segs = [
-    {key:'kept',  cls:'ink soft',   label:'LITTLE CHANGE'},
-    {key:'moved', cls:'ink violet', label:'COULD MOVE TO SAFER WORK'},
-    {key:'stuck', cls:'ink coral',  label:'NOWHERE ADJACENT TO GO'},
+  const source = Block(g, LX, TOP, NODEW, H, 'ink soft', 13001);
+  const sourceN = Txt(g, LX - 22, TOP + H/2 - 6, '', {cls:'big', anchor:'end', op:0});
+  const sourceK = Txt(g, LX - 22, TOP + H/2 + 24, 'ALL STEM WORKERS',
+                      {cls:'sm dim', anchor:'end', op:0});
+
+  const SEGS = [
+    {key:'kept',  cls:'ink soft',   tone:'soft',   label:'LITTLE CHANGE'},
+    {key:'moved', cls:'ink violet', tone:'violet', label:'COULD MOVE TO SAFER WORK'},
+    {key:'stuck', cls:'ink coral',  tone:'coral',  label:'NOWHERE ADJACENT TO GO'},
   ].map(function(d, i){
     return {
-      key: d.key, label: d.label,
-      box: Block(g, RX, TOP, W, 10, d.cls, 13100 + i*37),
-      /* a thin band from the left column to this segment, so the split reads as
-         one population dividing rather than three unrelated bars */
-      link: Block(g, LX + W, TOP, RX - LX - W, 6, d.cls, 13200 + i*37),
-      n: Txt(g, RX + W + 22, TOP, '', {cls:'big', op:0}),
-      k: Txt(g, RX + W + 22, TOP, d.label, {cls:'sm dim', op:0}),
-      i: i,
+      key: d.key, label: d.label, cls: d.cls, tone: d.tone, i: i,
+      ribbon: Ribbon(g, LX + NODEW, TOP, 10, RX, TOP, 10, d.cls, 14000 + i*131),
+      node: Block(g, RX, TOP, NODEW, 10, d.cls, 13100 + i*37),
+      n: Txt(g, RX + NODEW + 20, TOP, '', {cls:'big', op:0}),
+      k: Txt(g, RX + NODEW + 20, TOP, d.label, {cls:'sm dim', op:0}),
+      dotsOn: -1,
     };
   });
 
-  const head = Txt(g, RX + W/2, TOP - 34, 'UNDER THIS SCENARIO',
+  const head = Txt(g, RX + NODEW/2, TOP - 34, 'UNDER THIS SCENARIO',
                    {cls:'sm', anchor:'middle', op:0});
-  const note = Txt(g, 800, 730, '', {cls:'sm', anchor:'middle', op:0});
-  const caveat = Txt(g, 800, 766,
+  const note = Txt(g, 800, 742, '', {cls:'sm', anchor:'middle', op:0});
+  const caveat = Txt(g, 800, 778,
     'SCENARIOS ARE ASSUMPTION SETS ABOUT HANDING OVER ACCOUNTABILITY \u2014 NOT FORECASTS, AND UNDATED',
     {cls:'sm dim', anchor:'middle', op:0});
 
+  let lastKey = '';
   return function(p, idx){
     const fl = (D.scen.flows || {})[SCEN] || {};
     const share = {
@@ -1175,28 +1184,54 @@ BUILD.flows = function(ctx){
       stuck: fl.share_stranded || 0,
     };
     const pct = v => (v*100).toFixed(1) + '%';
-    wholeN.textContent = ((fl.workers || 0)/1e6).toFixed(1) + 'M';
+    sourceN.textContent = ((fl.workers || 0)/1e6).toFixed(1) + 'M';
 
-    let y = TOP;
-    segs.forEach(function(sg){
-      const h = Math.max(7, H * share[sg.key]);
-      sg.box.setRect(RX, y, W, h);
-      sg.link.setRect(LX + W, y + h/2 - 3, RX - LX - W, 6);
-      sg.n.setAttribute('y', y + h/2 + 2);
+    /* Both ends of every ribbon: the left edge is the population in order, the
+       right edge is the same three quantities spaced apart. */
+    const total = share.kept + share.moved + share.stuck || 1;
+    const avail = H - GAP * (SEGS.length - 1);
+    let ly = TOP, ry = TOP;
+    SEGS.forEach(function(sg){
+      const frac = share[sg.key] / total;
+      const lh = Math.max(3, H * frac);
+      const rh = Math.max(7, avail * frac);
+      sg.ribbon.setGeom(LX + NODEW, ly, lh, RX, ry, rh);
+      sg.node.setRect(RX, ry, NODEW, rh);
+      sg.n.setAttribute('y', ry + rh/2 + 2);
       sg.n.textContent = pct(share[sg.key]);
-      sg.k.setAttribute('y', y + h/2 + 28);
-      y += h + 10;
+      sg.k.setAttribute('y', ry + rh/2 + 26);
+      ly += lh;
+      ry += rh + GAP;
+      sg.h = rh;
     });
 
-    whole.draw(eo(clamp((p-0.02)/0.10,0,1)));
-    wholeN.style.opacity = eo(clamp((p-0.06)/0.08,0,1));
-    wholeK.style.opacity = eo(clamp((p-0.08)/0.08,0,1))*.75;
+    source.draw(eo(clamp((p-0.02)/0.10,0,1)));
+    sourceN.style.opacity = eo(clamp((p-0.06)/0.08,0,1));
+    sourceK.style.opacity = eo(clamp((p-0.08)/0.08,0,1))*.75;
     head.style.opacity = eo(clamp((p-0.20)/0.08,0,1));
-    segs.forEach(function(sg){
-      const t = eo(clamp((p - 0.24 - sg.i*0.17)/0.12, 0, 1));
-      sg.link.draw(t*0.5); sg.box.draw(t);
+
+    SEGS.forEach(function(sg){
+      const t = eo(clamp((p - 0.24 - sg.i*0.15)/0.13, 0, 1));
+      sg.ribbon.opacity(t);
+      sg.node.draw(t);
       sg.n.style.opacity = t; sg.k.style.opacity = t*.75;
+      /* Dot count is the share, so the widest ribbon is also the busiest. Only
+         re-seeded when the count actually changes - rebuilding a hundred
+         offset-path animations every frame would restart them all. */
+      const want = t > 0.92 ? Math.max(3, Math.round(share[sg.key] * 46)) : 0;
+      if(want !== sg.dotsOn){
+        sg.dotsOn = want;
+        sg.ribbon.dots(want, {dur: 5.2 + sg.i * 1.6, r: 3.2});
+      }
     });
+
+    /* A scenario change moves every quantity, so the streams have to be rebuilt
+       against the new widths. */
+    if(SCEN !== lastKey){
+      lastKey = SCEN;
+      SEGS.forEach(function(sg){ sg.dotsOn = -1; });
+    }
+
     note.textContent = D.scen.meta[SCEN].label.toUpperCase() + ' \u2014 ' +
       (fl.occupations_reshaped||0) + ' OF 195 OCCUPATIONS RESHAPED, ' +
       Math.round((fl.mean_task_share_automated||0)*100) +

@@ -138,6 +138,36 @@ button{color:inherit;font:inherit}
 .headrule .mk{fill:var(--coral)}
 [data-rule]{position:relative}
 
+/* --- Sankey --- */
+/* The band is a fill, not a stroke, so its tone comes from fill and it carries
+   a faint edge of the same ink to keep the drawn feel at low opacity. */
+/* A wash of ink, not a tint. At .12 the fill was imperceptible against paper
+   and only the 1.2px edge showed, so every ribbon read as an empty outline. */
+.ribbon{
+  fill:var(--stroke); fill-opacity:.30;
+  stroke:var(--stroke); stroke-width:1.3; stroke-opacity:.45;
+}
+.ribbon.coral{fill:var(--coral); stroke:var(--coral)}
+.ribbon.violet{fill:var(--violet); stroke:var(--violet)}
+.ribbon.blue{fill:var(--blue); stroke:var(--blue)}
+.ribbon.acid{fill:var(--acid); stroke:var(--acid)}
+.ribbon.soft{fill-opacity:.17; stroke-opacity:.30}
+
+@keyframes sankeyrun{
+  from{offset-distance:0%}
+  to{offset-distance:100%}
+}
+.sankey-dot{
+  fill:var(--stroke); fill-opacity:.85;
+  animation:sankeyrun linear infinite;
+  offset-rotate:0deg;
+}
+.sankey-dots.coral .sankey-dot{fill:var(--coral)}
+.sankey-dots.violet .sankey-dot{fill:var(--violet)}
+.sankey-dots.blue .sankey-dot{fill:var(--blue)}
+.sankey-dots.acid .sankey-dot{fill:var(--acid)}
+.sankey-dots.soft .sankey-dot{fill:var(--stroke); fill-opacity:.5}
+
 /* Ink travelling along a mark. The dash slides the length of one dash+gap and
    repeats, so the loop is seamless; the animation is on dash-offset, which the
    compositor handles without touching layout. */
@@ -163,6 +193,12 @@ button{color:inherit;font:inherit}
   50%{transform:translate(var(--dx,0px),var(--dy,0px))}
 }
 .drift{animation:drift var(--dur,8s) ease-in-out infinite; animation-delay:var(--del,0s)}
+/* Paused until the section holding it is on screen. play-state rather than
+   toggling the animation, so returning to a figure resumes its phase instead of
+   restarting every mark from frame one. */
+.drift,.breathe,.inkflow,.sankey-dot{animation-play-state:paused}
+[data-live] .drift,[data-live] .breathe,
+[data-live] .inkflow,[data-live] .sankey-dot{animation-play-state:running}
 /* A mark tagged with both wanders and breathes. Declaring them separately would
    have the second rule's shorthand overwrite the first, so the pair is spelled
    out once - and the wander runs slower than the breath so they do not beat
