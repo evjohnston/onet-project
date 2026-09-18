@@ -180,38 +180,52 @@ def log_report(rep: dict[str, Any]) -> None:
 # independent raters is a per-subtask error bar, and the subtasks where they
 # disagree are precisely the ones whose scores should not be leaned on.
 
-def consolidate(first: Sequence[dict[str, Any]], second: Sequence[dict[str, Any]],
+def consolidate(*passes: Sequence[dict[str, Any]],
                 key: str = "dwa_id") -> list[dict[str, Any]]:
-    """Merge two scoring passes into one canonical set of scores.
+    """Merge any number of scoring passes into one canonical set of scores.
 
-    A subtask scored by both raters takes the mean of each dimension and carries
-    the mean absolute disagreement. A subtask only one rater reached keeps that
-    rater's score and a null disagreement - which is honest, and distinguishable
-    from a measured agreement of zero.
+    Was fixed at two, which stopped being right the moment a third pass was
+    worth running: a second pass of the SAME model measures sampling noise,
+    where a different model measures whether the rubric or the model is doing
+    the work, and there is no reason to choose. Averaging over k raters lifts
+    reliability further - Spearman-Brown gives kr/(1+(k-1)r), so three raters at
+    r = 0.934 reach 0.977.
+
+    One caveat that number does not carry: two passes of the same model are not
+    independent the way two different models are, since they share whatever bias
+    the model has. Treating them as k independent raters overstates the gain.
+    The scores still improve; the reliability figure is an upper bound.
+
+    A subtask reached by only some passes takes the mean of those, with n_raters
+    recording how many. Disagreement is the mean pairwise absolute difference,
+    and is null for a subtask only one pass reached - honest, and
+    distinguishable from a measured agreement of zero.
     """
-    a = {r[key]: r for r in first if r.get(key)}
-    b = {r[key]: r for r in second if r.get(key)}
-    out: list[dict[str, Any]] = []
+    sets = [{r[key]: r for r in p if r.get(key)} for p in passes if p]
+    if not sets:
+        return []
+    everything: set[str] = set()
+    for s in sets:
+        everything |= set(s)
 
-    for k in sorted(set(a) | set(b)):
-        ra, rb = a.get(k), b.get(k)
-        base = dict(ra or rb or {})
-        if ra and rb:
-            diffs = []
-            for dim in DIMENSIONS:
-                x, y = _f(ra, dim), _f(rb, dim)
-                if x is None or y is None:
-                    continue
-                base[dim] = round((x + y) / 2, 1)
-                diffs.append(abs(x - y))
-            base["n_raters"] = 2
-            base["score_disagreement"] = round(statistics.fmean(diffs), 1) if diffs else None
-            base["raters"] = ";".join(sorted(
-                {str(ra.get("model", "?")), str(rb.get("model", "?"))}))
-        else:
-            base["n_raters"] = 1
-            base["score_disagreement"] = None
-            base["raters"] = str(base.get("model", "?"))
+    out: list[dict[str, Any]] = []
+    for k in sorted(everything):
+        rows = [s[k] for s in sets if k in s]
+        base = dict(rows[0])
+        spreads: list[float] = []
+        for dim in DIMENSIONS:
+            vals = [v for v in (_f(r, dim) for r in rows) if v is not None]
+            if not vals:
+                continue
+            base[dim] = round(statistics.fmean(vals), 1)
+            if len(vals) > 1:
+                pairs = [abs(a - b) for i, a in enumerate(vals)
+                         for b in vals[i + 1:]]
+                spreads.append(statistics.fmean(pairs))
+        base["n_raters"] = len(rows)
+        base["raters"] = ";".join(sorted({str(r.get("model", "?")) for r in rows}))
+        base["score_disagreement"] = (round(statistics.fmean(spreads), 1)
+                                      if spreads else None)
         out.append(base)
     return out
 

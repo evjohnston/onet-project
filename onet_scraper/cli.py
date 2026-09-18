@@ -116,6 +116,10 @@ def build_parser() -> argparse.ArgumentParser:
                         help="comma-separated top-level STEM page ids (default: all). "
                              f"Valid: {','.join(TOP_LEVEL_CATEGORIES)}. Sub-disciplines "
                              "are sections of these pages and are captured automatically.")
+    parser.add_argument("--retest-label", default="",
+                        help="name for this retest pass; defaults to the model "
+                             "name. A second run of the same model needs its "
+                             "own label or it would overwrite the first")
     parser.add_argument("--retest-model", default="claude-sonnet-5",
                         help="model for the retest stage. A different model from "
                              "the one that produced the first pass measures "
@@ -252,7 +256,8 @@ def main(argv: list[str] | None = None) -> int:
         report = run_retest(settings, model=args.retest_model,
                             chunk_size=(args.score_chunk_size
                                         if "--score-chunk-size" in sys.argv else 0),
-                            workers=args.score_workers, budget_usd=args.budget)
+                            workers=args.score_workers, budget_usd=args.budget,
+                            label=args.retest_label)
         return 1 if report.get("failures") else 0
 
     if stage == "pathways":

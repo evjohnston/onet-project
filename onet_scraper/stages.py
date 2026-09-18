@@ -801,7 +801,7 @@ def run_smoke(settings: Settings, *, chrome: str | None = None,
 
 def run_retest(settings: Settings, *, model: str = "claude-sonnet-5",
                chunk_size: int = 0, workers: int = 4,
-               budget_usd: float = 4.0) -> dict[str, Any]:
+               budget_usd: float = 4.0, label: str = "") -> dict[str, Any]:
     """Score the catalogue a second time and report agreement with the first.
 
     Writes into its own checkpoint directory so the original pass is never
@@ -819,6 +819,7 @@ def run_retest(settings: Settings, *, model: str = "claude-sonnet-5",
     # and $2.53 for the same 963 subtasks. The retest defaults to the larger
     # chunk rather than inheriting the scoring default.
     chunk_size = chunk_size or 25
+    label = label or model
     links = read_table(settings.out_dir, "task_subtasks")
     hierarchy = read_table(settings.out_dir, "subtask_hierarchy")
     if not links:
@@ -841,7 +842,22 @@ def run_retest(settings: Settings, *, model: str = "claude-sonnet-5",
             f"estimated ${est['est_cost_usd']:.2f} exceeds the ${budget_usd:.2f} "
             f"budget for this run; pass --budget to raise it deliberately")
 
-    retest_dir = settings.raw_dir / "retest"
+    # One directory per pass, named for the pass rather than shared.
+    #
+    # It was a single fixed "retest" directory, which was fine for one extra
+    # pass and actively destructive for a second: score_subtasks checkpoints by
+    # dwa_id, so an Opus run would have overwritten the Sonnet scores key by key
+    # and the cross-model comparison they were bought for would have quietly
+    # become opus-against-opus. Refusing to reuse a populated slot is the point.
+    retest_dir = settings.raw_dir / "retest" / label
+    if retest_dir.exists() and (retest_dir / "subtask_scores.jsonl").exists():
+        existing = load_scores(retest_dir)
+        if existing:
+            raise SystemExit(
+                f"{retest_dir} already holds {len(existing)} scores. Pass "
+                f"--retest-label to name this pass something else (a second run "
+                f"of the same model needs its own slot), or delete that "
+                f"directory to redo it.")
     retest_dir.mkdir(parents=True, exist_ok=True)
     scores, failures = score_subtasks(catalogue, retest_dir, model=model,
                                       chunk_size=chunk_size, workers=workers)
@@ -897,13 +913,26 @@ def run_consolidate(settings: Settings) -> dict[str, Any]:
     from .score import load_scores
 
     first = load_scores(settings.raw_dir)
-    second = load_scores(settings.raw_dir / "retest")
     if not first:
         raise SystemExit("no first pass; run the score stage first")
-    if not second:
-        raise SystemExit("no second pass; run the retest stage first")
 
-    rows = consolidate(list(first.values()), list(second.values()))
+    # Every pass under data/raw/retest/, discovered rather than named, so a
+    # third run needs no code change to be included.
+    retests = []
+    root = settings.raw_dir / "retest"
+    for d in sorted(root.iterdir()) if root.exists() else []:
+        if d.is_dir():
+            scores = load_scores(d)
+            if scores:
+                retests.append((d.name, scores))
+    if not retests:
+        raise SystemExit("no retest passes under data/raw/retest/; run the "
+                         "retest stage first")
+
+    log.info("consolidating %d pass(es): %s", 1 + len(retests),
+             ", ".join(["base"] + [n for n, _ in retests]))
+    rows = consolidate(list(first.values()),
+                       *[list(s.values()) for _, s in retests])
     summary = consolidation_summary(rows)
 
     existing = read_table(settings.out_dir, "subtask_automation_scores")

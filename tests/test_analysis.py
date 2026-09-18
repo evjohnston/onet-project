@@ -1700,3 +1700,58 @@ class TestScenarioCalibration(unittest.TestCase):
                          "automated")
         self.assertEqual(fate({"exposure": 20.0, "anchoring": 10.0}, "modest"),
                          "unchanged")
+
+
+class TestMultiRaterConsolidation(unittest.TestCase):
+    """Consolidation over more than two passes."""
+
+    def _row(self, i, val, model):
+        from onet_scraper.reliability import DIMENSIONS
+        r = {"dwa_id": f"d{i}", "model": model}
+        r.update({d: val for d in DIMENSIONS})
+        return r
+
+    def test_three_passes_are_averaged(self):
+        from onet_scraper.reliability import consolidate
+        out = consolidate([self._row(1, 30.0, "a")],
+                          [self._row(1, 60.0, "b")],
+                          [self._row(1, 90.0, "c")])
+        self.assertEqual(out[0]["llm_exposure"], 60.0)
+        self.assertEqual(out[0]["n_raters"], 3)
+        self.assertEqual(out[0]["raters"], "a;b;c")
+
+    def test_disagreement_is_the_mean_pairwise_difference(self):
+        """With three raters there are three pairs, not one difference."""
+        from onet_scraper.reliability import consolidate
+        out = consolidate([self._row(1, 30.0, "a")],
+                          [self._row(1, 60.0, "b")],
+                          [self._row(1, 90.0, "c")])
+        # pairs are 30, 60, 30 -> mean 40
+        self.assertAlmostEqual(out[0]["score_disagreement"], 40.0, places=1)
+
+    def test_a_subtask_missing_from_one_pass_uses_the_others(self):
+        from onet_scraper.reliability import consolidate
+        out = {r["dwa_id"]: r for r in consolidate(
+            [self._row(1, 40.0, "a"), self._row(2, 40.0, "a")],
+            [self._row(1, 60.0, "b")],
+            [self._row(1, 80.0, "c")])}
+        self.assertEqual(out["d1"]["n_raters"], 3)
+        self.assertEqual(out["d2"]["n_raters"], 1)
+        self.assertIsNone(out["d2"]["score_disagreement"])
+
+    def test_a_single_pass_is_a_no_op_not_an_error(self):
+        from onet_scraper.reliability import consolidate
+        out = consolidate([self._row(1, 50.0, "a")])
+        self.assertEqual(out[0]["n_raters"], 1)
+        self.assertEqual(out[0]["llm_exposure"], 50.0)
+
+    def test_no_passes_returns_nothing(self):
+        from onet_scraper.reliability import consolidate
+        self.assertEqual(consolidate(), [])
+
+    def test_two_passes_still_behave_as_before(self):
+        """The migration to N raters must not move the existing result."""
+        from onet_scraper.reliability import consolidate
+        out = consolidate([self._row(1, 80.0, "a")], [self._row(1, 60.0, "b")])
+        self.assertEqual(out[0]["llm_exposure"], 70.0)
+        self.assertAlmostEqual(out[0]["score_disagreement"], 20.0, places=1)
