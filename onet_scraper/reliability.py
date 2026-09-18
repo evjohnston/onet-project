@@ -261,3 +261,27 @@ def consolidation_summary(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
         "share_above_15": round(sum(1 for v in spread if v > 15) / len(spread), 4)
         if spread else None,
     }
+
+
+def cohen_kappa(a: Sequence[bool], b: Sequence[bool]) -> float | None:
+    """Agreement on a binary judgment, corrected for chance.
+
+    Pearson's r on a boolean is not meaningful, and raw percent agreement is
+    misleading when the classes are unbalanced: if 90% of tasks are decisions,
+    two raters who both say "yes" to everything agree 90% of the time and have
+    told you nothing. Kappa subtracts the agreement expected by chance.
+
+    Needed because the decision rubric's gate is a boolean, and a boolean is
+    exactly the shape of measurement this project has most often mis-handled.
+    """
+    n = len(a)
+    if n == 0 or n != len(b):
+        return None
+    both = sum(1 for x, y in zip(a, b) if x and y)
+    neither = sum(1 for x, y in zip(a, b) if not x and not y)
+    observed = (both + neither) / n
+    pa, pb = sum(a) / n, sum(b) / n
+    expected = pa * pb + (1 - pa) * (1 - pb)
+    if expected >= 1.0:
+        return None          # one rater was constant; kappa is undefined
+    return (observed - expected) / (1 - expected)

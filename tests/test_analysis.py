@@ -1757,3 +1757,33 @@ class TestMultiRaterConsolidation(unittest.TestCase):
         out = consolidate([self._row(1, 80.0, "a")], [self._row(1, 60.0, "b")])
         self.assertEqual(out[0]["llm_exposure"], 70.0)
         self.assertAlmostEqual(out[0]["score_disagreement"], 20.0, places=1)
+
+
+class TestCohenKappa(unittest.TestCase):
+    """Binary agreement, corrected for chance."""
+
+    def test_perfect_agreement(self):
+        from onet_scraper.reliability import cohen_kappa
+        self.assertAlmostEqual(cohen_kappa([1,0,1,1,0],[1,0,1,1,0]), 1.0, places=6)
+
+    def test_a_constant_rater_is_undefined_not_perfect(self):
+        """Two raters who say yes to everything agree 100% of the time and have
+        said nothing. Percent agreement would call that perfect."""
+        from onet_scraper.reliability import cohen_kappa
+        self.assertIsNone(cohen_kappa([1,1,1,1],[1,1,1,1]))
+
+    def test_chance_agreement_is_discounted(self):
+        """With 90% of one class, 90% raw agreement is barely better than
+        chance, and kappa has to say so."""
+        from onet_scraper.reliability import cohen_kappa
+        k = cohen_kappa([1]*9+[0], [1]*8+[0,1])
+        self.assertLess(k, 0.5)
+
+    def test_systematic_disagreement_is_negative(self):
+        from onet_scraper.reliability import cohen_kappa
+        self.assertLess(cohen_kappa([1,1,0,0],[0,0,1,1]), 0)
+
+    def test_mismatched_lengths_return_none(self):
+        from onet_scraper.reliability import cohen_kappa
+        self.assertIsNone(cohen_kappa([1,0],[1]))
+        self.assertIsNone(cohen_kappa([],[]))
