@@ -34,15 +34,15 @@
   },
   "transitions": {
     "occupations": 268,
-    "with_a_destination": 107,
-    "stranded": 161,
-    "stranded_share": 0.601,
-    "stranded_workers": 20952100,
-    "exposed_and_stranded": 59,
-    "exposed_and_stranded_workers": 11457920,
-    "real_moves": 98,
+    "with_a_destination": 111,
+    "stranded": 157,
+    "stranded_share": 0.586,
+    "stranded_workers": 20051800,
+    "exposed_and_stranded": 55,
+    "exposed_and_stranded_workers": 11168860,
+    "real_moves": 102,
     "carries_exposure": 9,
-    "median_relief": 15.1,
+    "median_relief": 14.9,
     "thresholds": {
       "min_overlap": 0.12,
       "min_relief": 12.0
@@ -51,65 +51,65 @@
       {
         "min_overlap": 0.08,
         "min_relief": 8.0,
-        "stranded": 105,
-        "stranded_share": 0.392,
+        "stranded": 108,
+        "stranded_share": 0.403,
+        "real_moves": 140
+      },
+      {
+        "min_overlap": 0.08,
+        "min_relief": 12.0,
+        "stranded": 156,
+        "stranded_share": 0.582,
+        "real_moves": 103
+      },
+      {
+        "min_overlap": 0.08,
+        "min_relief": 18.0,
+        "stranded": 231,
+        "stranded_share": 0.862,
+        "real_moves": 32
+      },
+      {
+        "min_overlap": 0.12,
+        "min_relief": 8.0,
+        "stranded": 110,
+        "stranded_share": 0.41,
         "real_moves": 138
       },
       {
-        "min_overlap": 0.08,
-        "min_relief": 12.0,
-        "stranded": 160,
-        "stranded_share": 0.597,
-        "real_moves": 99
-      },
-      {
-        "min_overlap": 0.08,
-        "min_relief": 18.0,
-        "stranded": 225,
-        "stranded_share": 0.84,
-        "real_moves": 36
-      },
-      {
-        "min_overlap": 0.12,
-        "min_relief": 8.0,
-        "stranded": 107,
-        "stranded_share": 0.399,
-        "real_moves": 136
-      },
-      {
         "min_overlap": 0.12,
         "min_relief": 12.0,
-        "stranded": 161,
-        "stranded_share": 0.601,
-        "real_moves": 98
+        "stranded": 157,
+        "stranded_share": 0.586,
+        "real_moves": 102
       },
       {
         "min_overlap": 0.12,
         "min_relief": 18.0,
-        "stranded": 228,
-        "stranded_share": 0.851,
-        "real_moves": 33
+        "stranded": 234,
+        "stranded_share": 0.873,
+        "real_moves": 29
       },
       {
         "min_overlap": 0.18,
         "min_relief": 8.0,
-        "stranded": 124,
-        "stranded_share": 0.463,
-        "real_moves": 123
+        "stranded": 129,
+        "stranded_share": 0.481,
+        "real_moves": 124
       },
       {
         "min_overlap": 0.18,
         "min_relief": 12.0,
-        "stranded": 183,
-        "stranded_share": 0.683,
-        "real_moves": 79
+        "stranded": 181,
+        "stranded_share": 0.675,
+        "real_moves": 81
       },
       {
         "min_overlap": 0.18,
         "min_relief": 18.0,
-        "stranded": 240,
-        "stranded_share": 0.896,
-        "real_moves": 25
+        "stranded": 244,
+        "stranded_share": 0.91,
+        "real_moves": 22
       }
     ]
   }

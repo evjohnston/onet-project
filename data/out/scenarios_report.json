@@ -11,11 +11,11 @@
         "auto_anchoring_max": 38.0,
         "augment_exposure": 60.0
       },
-      "automated": 1193,
-      "augmented": 2577,
-      "unchanged": 1842,
-      "share_automated": 0.2126,
-      "occupations_reshaped": 27
+      "automated": 1215,
+      "augmented": 2614,
+      "unchanged": 1783,
+      "share_automated": 0.2165,
+      "occupations_reshaped": 23
     },
     "substantial": {
       "label": "Substantial",
@@ -25,11 +25,11 @@
         "auto_anchoring_max": 52.0,
         "augment_exposure": 50.0
       },
-      "automated": 2522,
-      "augmented": 1809,
-      "unchanged": 1281,
-      "share_automated": 0.4494,
-      "occupations_reshaped": 113
+      "automated": 2650,
+      "augmented": 1699,
+      "unchanged": 1263,
+      "share_automated": 0.4722,
+      "occupations_reshaped": 125
     },
     "extreme": {
       "label": "Extreme",
@@ -39,50 +39,50 @@
         "auto_anchoring_max": 70.0,
         "augment_exposure": 40.0
       },
-      "automated": 3852,
+      "automated": 3864,
       "augmented": 868,
-      "unchanged": 892,
-      "share_automated": 0.6864,
-      "occupations_reshaped": 204
+      "unchanged": 880,
+      "share_automated": 0.6885,
+      "occupations_reshaped": 209
     }
   },
   "note": "Scenarios are assumption sets about willingness to hand over accountability, not forecasts. They carry no dates. New tasks are observed from O*NET's emerging_tasks file, not modelled.",
   "flows": {
     "modest": {
       "workers": 21523100,
-      "in_reshaped_occupations": 2498580,
-      "share_reshaped": 0.1161,
+      "in_reshaped_occupations": 3125340,
+      "share_reshaped": 0.1452,
       "reshaped_with_a_destination": 498220,
       "share_with_destination": 0.0231,
-      "reshaped_and_stranded": 2000360,
-      "share_stranded": 0.0929,
+      "reshaped_and_stranded": 2627120,
+      "share_stranded": 0.1221,
       "soc_codes": 195,
-      "occupations_reshaped": 16,
-      "mean_task_share_automated": 0.2123
+      "occupations_reshaped": 14,
+      "mean_task_share_automated": 0.2254
     },
     "substantial": {
       "workers": 21523100,
-      "in_reshaped_occupations": 9422370,
-      "share_reshaped": 0.4378,
-      "reshaped_with_a_destination": 2643410,
-      "share_with_destination": 0.1228,
-      "reshaped_and_stranded": 6778960,
+      "in_reshaped_occupations": 9772500,
+      "share_reshaped": 0.454,
+      "reshaped_with_a_destination": 2992410,
+      "share_with_destination": 0.139,
+      "reshaped_and_stranded": 6780090,
       "share_stranded": 0.315,
       "soc_codes": 195,
-      "occupations_reshaped": 81,
-      "mean_task_share_automated": 0.4413
+      "occupations_reshaped": 89,
+      "mean_task_share_automated": 0.4589
     },
     "extreme": {
       "workers": 21523100,
-      "in_reshaped_occupations": 17940250,
-      "share_reshaped": 0.8335,
-      "reshaped_with_a_destination": 9467940,
-      "share_with_destination": 0.4399,
-      "reshaped_and_stranded": 8472310,
-      "share_stranded": 0.3936,
+      "in_reshaped_occupations": 17951440,
+      "share_reshaped": 0.8341,
+      "reshaped_with_a_destination": 9508160,
+      "share_with_destination": 0.4418,
+      "reshaped_and_stranded": 8443280,
+      "share_stranded": 0.3923,
       "soc_codes": 195,
-      "occupations_reshaped": 150,
-      "mean_task_share_automated": 0.683
+      "occupations_reshaped": 153,
+      "mean_task_share_automated": 0.6877
     }
   }
 }

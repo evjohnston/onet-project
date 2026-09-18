@@ -1,805 +1,805 @@
 onet_soc_code,title,scenario,tasks,automated,augmented,unchanged,new_tasks,share_automated,reshaped,total_employment,has_destination
 15-1299.03,Document Management Specialists,extreme,23,23,0,0,0,1.0,1,435370.0,0
+15-1211.00,Computer Systems Analysts,extreme,22,22,0,0,1,1.0,1,519530.0,0
 15-1242.00,Database Administrators,extreme,18,18,0,0,0,1.0,1,69990.0,0
+15-1255.00,Web and Digital Interface Designers,extreme,30,30,0,0,1,1.0,1,113330.0,0
 15-2031.00,Operations Research Analysts,extreme,17,17,0,0,0,1.0,1,108510.0,0
+15-1299.02,Geographic Information Systems Technologists and Technicians,extreme,29,29,0,0,1,1.0,1,435370.0,1
+15-2021.00,Mathematicians,extreme,12,12,0,0,0,1.0,1,2030.0,1
+15-2041.01,Biostatisticians,extreme,25,25,0,0,0,1.0,1,29030.0,1
+15-2051.00,Data Scientists,extreme,16,16,0,0,1,1.0,1,262440.0,0
+15-1299.07,Blockchain Engineers,extreme,17,17,0,0,1,1.0,1,435370.0,0
+15-1255.01,Video Game Designers,extreme,24,24,0,0,0,1.0,1,113330.0,0
+15-2051.01,Business Intelligence Analysts,extreme,17,17,0,0,0,1.0,1,262440.0,1
 15-1211.01,Health Informatics Specialists,extreme,17,17,0,0,0,1.0,1,519530.0,0
 15-1212.00,Information Security Analysts,extreme,11,11,0,0,0,1.0,1,190650.0,0
-15-1251.00,Computer Programmers,extreme,17,17,0,0,0,1.0,1,92230.0,0
-15-1299.02,Geographic Information Systems Technologists and Technicians,extreme,29,29,0,0,1,1.0,1,435370.0,1
-15-2041.01,Biostatisticians,extreme,25,25,0,0,0,1.0,1,29030.0,1
 15-1243.01,Data Warehousing Specialists,extreme,18,18,0,0,0,1.0,1,67140.0,0
-15-1299.07,Blockchain Engineers,extreme,17,17,0,0,1,1.0,1,435370.0,0
-15-2051.01,Business Intelligence Analysts,extreme,17,17,0,0,0,1.0,1,262440.0,1
-15-1255.00,Web and Digital Interface Designers,extreme,30,30,0,0,1,1.0,1,113330.0,0
-15-2021.00,Mathematicians,extreme,12,12,0,0,0,1.0,1,2030.0,1
-15-2051.00,Data Scientists,extreme,16,16,0,0,1,1.0,1,262440.0,0
+15-1251.00,Computer Programmers,extreme,17,17,0,0,0,1.0,1,92230.0,0
 19-2041.01,Climate Change Policy Analysts,extreme,14,14,0,0,0,1.0,1,89250.0,0
 19-2041.03,Industrial Ecologists,extreme,38,37,1,0,1,0.974,1,89250.0,1
 15-1299.01,Web Administrators,extreme,35,34,0,1,0,0.971,1,435370.0,0
 15-1299.08,Computer Systems Engineers/Architects,extreme,28,27,0,1,0,0.964,1,435370.0,0
 17-2051.02,Water/Wastewater Engineers,extreme,28,27,1,0,0,0.964,1,367840.0,1
-25-1051.00,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",extreme,26,25,1,0,1,0.962,1,9900.0,0
-25-1043.00,"Forestry and Conservation Science Teachers, Postsecondary",extreme,25,24,1,0,1,0.96,1,1520.0,0
-25-1053.00,"Environmental Science Teachers, Postsecondary",extreme,25,24,1,0,0,0.96,1,6690.0,0
-25-1064.00,"Geography Teachers, Postsecondary",extreme,25,24,1,0,0,0.96,1,3330.0,0
 15-1243.00,Database Architects,extreme,25,24,1,0,0,0.96,1,67140.0,0
-25-1067.00,"Sociology Teachers, Postsecondary",extreme,24,23,1,0,3,0.958,1,11850.0,0
-15-1255.01,Video Game Designers,extreme,24,23,1,0,0,0.958,1,113330.0,0
-25-1022.00,"Mathematical Science Teachers, Postsecondary",extreme,23,22,1,0,1,0.957,1,47670.0,0
-25-1041.00,"Agricultural Sciences Teachers, Postsecondary",extreme,23,22,1,0,0,0.957,1,8920.0,0
-25-1062.00,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",extreme,23,22,1,0,0,0.957,1,11300.0,0
-15-1211.00,Computer Systems Analysts,extreme,22,21,1,0,1,0.955,1,519530.0,0
-25-1031.00,"Architecture Teachers, Postsecondary",extreme,22,21,1,0,0,0.955,1,7700.0,0
-25-1063.00,"Economics Teachers, Postsecondary",extreme,22,21,1,0,0,0.955,1,11560.0,0
-25-1065.00,"Political Science Teachers, Postsecondary",extreme,22,21,1,0,0,0.955,1,16970.0,0
 15-2051.02,Clinical Data Managers,extreme,21,20,1,0,0,0.952,1,262440.0,0
 15-1299.06,Digital Forensics Analysts,extreme,20,19,0,1,0,0.95,1,435370.0,0
+15-1244.00,Network and Computer Systems Administrators,extreme,20,19,0,1,0,0.95,1,314340.0,0
 19-3011.01,Environmental Economists,extreme,20,19,1,0,0,0.95,1,17790.0,1
+15-1299.05,Information Security Engineers,extreme,20,19,1,0,0,0.95,1,435370.0,0
 15-2041.00,Statisticians,extreme,19,18,1,0,0,0.947,1,29030.0,0
-11-3021.00,Computer and Information Systems Managers,extreme,17,16,1,0,0,0.941,1,670570.0,0
-41-4011.00,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",extreme,33,31,1,1,0,0.939,1,284800.0,0
+15-1252.00,Software Developers,extreme,17,16,1,0,0,0.941,1,1687890.0,0
+41-4011.00,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",extreme,33,31,0,2,0,0.939,1,284800.0,0
+17-3013.00,Mechanical Drafters,extreme,16,15,1,0,1,0.938,1,39960.0,0
+19-3022.00,Survey Researchers,extreme,16,15,1,0,0,0.938,1,8290.0,1
+15-1221.00,Computer and Information Research Scientists,extreme,15,14,1,0,0,0.933,1,37200.0,0
 15-1253.00,Software Quality Assurance Analysts and Testers,extreme,30,28,2,0,0,0.933,1,186740.0,0
 19-3041.00,Sociologists,extreme,15,14,1,0,2,0.933,1,2260.0,1
-25-1072.00,"Nursing Instructors and Teachers, Postsecondary",extreme,29,27,2,0,0,0.931,1,77960.0,0
 15-1254.00,Web Developers,extreme,29,27,2,0,0,0.931,1,70190.0,0
 19-3094.00,Political Scientists,extreme,14,13,1,0,0,0.929,1,5540.0,1
-25-1061.00,"Anthropology and Archeology Teachers, Postsecondary",extreme,27,25,2,0,0,0.926,1,5240.0,0
-41-4011.07,Solar Sales Representatives and Assessors,extreme,13,12,1,0,1,0.923,1,284800.0,0
-25-1032.00,"Engineering Teachers, Postsecondary",extreme,24,22,2,0,0,0.917,1,40270.0,0
-25-1071.00,"Health Specialties Teachers, Postsecondary",extreme,22,20,2,0,0,0.909,1,221270.0,0
-11-9121.01,Clinical Research Coordinators,extreme,33,30,3,0,0,0.909,1,108690.0,0
+41-4011.07,Solar Sales Representatives and Assessors,extreme,13,12,0,1,1,0.923,1,284800.0,0
+17-2112.03,Manufacturing Engineers,extreme,24,22,1,1,0,0.917,1,365740.0,1
+15-1299.04,Penetration Testers,extreme,22,20,2,0,0,0.909,1,435370.0,1
 15-1241.00,Computer Network Architects,extreme,33,30,3,0,0,0.909,1,179740.0,0
+11-9121.01,Clinical Research Coordinators,extreme,33,30,3,0,0,0.909,1,108690.0,0
 19-3099.01,Transportation Planners,extreme,22,20,2,0,0,0.909,1,37100.0,1
 19-2041.00,"Environmental Scientists and Specialists, Including Health",extreme,22,20,2,0,0,0.909,1,89250.0,1
 19-1029.01,Bioinformatics Scientists,extreme,20,18,2,0,0,0.9,1,55850.0,1
-15-1244.00,Network and Computer Systems Administrators,extreme,20,18,1,1,0,0.9,1,314340.0,0
-15-1299.05,Information Security Engineers,extreme,20,18,2,0,0,0.9,1,435370.0,0
-25-1066.00,"Psychology Teachers, Postsecondary",extreme,29,26,3,0,1,0.897,1,41530.0,0
+17-2031.00,Bioengineers and Biomedical Engineers,extreme,30,27,3,0,0,0.9,1,23480.0,1
 15-2099.01,Bioinformatics Technicians,extreme,19,17,2,0,1,0.895,1,3720.0,0
 29-9092.00,Genetic Counselors,extreme,19,17,2,0,0,0.895,1,3740.0,1
-25-1042.00,"Biological Science Teachers, Postsecondary",extreme,27,24,2,1,1,0.889,1,50190.0,0
-19-1011.00,Animal Scientists,extreme,9,8,0,1,0,0.889,1,3100.0,0
-19-1013.00,Soil and Plant Scientists,extreme,27,24,2,1,0,0.889,1,15730.0,0
-25-1021.00,"Computer Science Teachers, Postsecondary",extreme,26,23,2,1,0,0.885,1,35480.0,0
+11-9111.00,Medical and Health Services Managers,extreme,18,16,2,0,0,0.889,1,597080.0,0
+15-1241.01,Telecommunications Engineering Specialists,extreme,26,23,3,0,0,0.885,1,179740.0,0
+17-3011.00,Architectural and Civil Drafters,extreme,26,23,1,2,1,0.885,1,103700.0,1
 17-2112.01,Human Factors Engineers and Ergonomists,extreme,26,23,2,1,1,0.885,1,365740.0,0
-15-1252.00,Software Developers,extreme,17,15,2,0,0,0.882,1,1687890.0,0
+11-3021.00,Computer and Information Systems Managers,extreme,17,15,2,0,0,0.882,1,670570.0,0
 19-3051.00,Urban and Regional Planners,extreme,25,22,3,0,0,0.88,1,44230.0,1
-25-1054.00,"Physics Teachers, Postsecondary",extreme,24,21,2,1,1,0.875,1,13090.0,0
-19-3022.00,Survey Researchers,extreme,16,14,2,0,0,0.875,1,8290.0,1
-19-2041.02,Environmental Restoration Planners,extreme,23,20,3,0,0,0.87,1,89250.0,1
-15-1221.00,Computer and Information Research Scientists,extreme,15,13,2,0,0,0.867,1,37200.0,0
+29-2072.00,Medical Records Specialists,extreme,16,14,1,1,0,0.875,1,194720.0,1
+17-2199.08,Robotics Engineers,extreme,24,21,2,1,0,0.875,1,154070.0,1
+11-9121.00,Natural Sciences Managers,extreme,16,14,2,0,0,0.875,1,108690.0,0
+19-2012.00,Physicists,extreme,16,14,1,1,0,0.875,1,20430.0,1
+25-1062.00,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",extreme,23,20,3,0,0,0.87,1,11300.0,0
+19-2041.02,Environmental Restoration Planners,extreme,23,20,2,1,0,0.87,1,89250.0,1
 15-2011.00,Actuaries,extreme,15,13,2,0,1,0.867,1,26670.0,0
-17-2031.00,Bioengineers and Biomedical Engineers,extreme,30,26,4,0,0,0.867,1,23480.0,1
-29-1229.05,Preventive Medicine Physicians,extreme,15,13,1,1,0,0.867,1,342720.0,1
-15-1299.04,Penetration Testers,extreme,22,19,3,0,0,0.864,1,435370.0,1
-19-1029.04,Biologists,extreme,22,19,1,2,1,0.864,1,55850.0,1
-25-1052.00,"Chemistry Teachers, Postsecondary",extreme,28,24,3,1,0,0.857,1,19980.0,0
-19-3011.00,Economists,extreme,14,12,1,1,3,0.857,1,17790.0,1
+25-1031.00,"Architecture Teachers, Postsecondary",extreme,22,19,3,0,0,0.864,1,7700.0,0
+25-1063.00,"Economics Teachers, Postsecondary",extreme,22,19,3,0,0,0.864,1,11560.0,0
+25-1065.00,"Political Science Teachers, Postsecondary",extreme,22,19,3,0,0,0.864,1,16970.0,0
+19-3011.00,Economists,extreme,14,12,2,0,3,0.857,1,17790.0,1
+15-1299.09,Information Technology Project Managers,extreme,21,18,3,0,0,0.857,1,435370.0,0
 17-2111.02,Fire-Prevention and Protection Engineers,extreme,14,12,2,0,3,0.857,1,21450.0,0
 17-2041.00,Chemical Engineers,extreme,14,12,2,0,2,0.857,1,21070.0,0
-15-1241.01,Telecommunications Engineering Specialists,extreme,26,22,4,0,0,0.846,1,179740.0,0
-29-2099.08,Patient Representatives,extreme,13,11,1,1,1,0.846,1,182610.0,0
-29-2051.00,Dietetic Technicians,extreme,13,11,2,0,0,0.846,1,31560.0,1
-19-2042.00,"Geoscientists, Except Hydrologists and Geographers",extreme,32,27,3,2,0,0.844,1,23470.0,1
-11-9041.00,Architectural and Engineering Managers,extreme,19,16,3,0,0,0.842,1,220260.0,0
+19-2021.00,Atmospheric and Space Scientists,extreme,27,23,1,3,0,0.852,1,10000.0,1
+17-2112.00,Industrial Engineers,extreme,20,17,3,0,0,0.85,1,365740.0,1
+25-1051.00,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",extreme,26,22,4,0,1,0.846,1,9900.0,0
+29-2099.08,Patient Representatives,extreme,13,11,2,0,1,0.846,1,182610.0,0
+19-2042.00,"Geoscientists, Except Hydrologists and Geographers",extreme,32,27,1,4,0,0.844,1,23470.0,1
+17-1012.00,Landscape Architects,extreme,19,16,3,0,3,0.842,1,19600.0,0
+25-1043.00,"Forestry and Conservation Science Teachers, Postsecondary",extreme,25,21,4,0,1,0.84,1,1520.0,0
+25-1053.00,"Environmental Science Teachers, Postsecondary",extreme,25,21,4,0,0,0.84,1,6690.0,0
+25-1064.00,"Geography Teachers, Postsecondary",extreme,25,21,4,0,0,0.84,1,3330.0,0
 41-9031.00,Sales Engineers,extreme,25,21,2,2,0,0.84,1,51790.0,0
+17-1011.00,"Architects, Except Landscape and Naval",extreme,25,21,3,1,0,0.84,1,106770.0,0
+25-1032.00,"Engineering Teachers, Postsecondary",extreme,24,20,4,0,0,0.833,1,40270.0,0
+25-1067.00,"Sociology Teachers, Postsecondary",extreme,24,20,4,0,3,0.833,1,11850.0,0
+19-1029.03,Geneticists,extreme,24,20,3,1,0,0.833,1,55850.0,1
 17-2151.00,"Mining and Geological Engineers, Including Mining Safety Engineers",extreme,18,15,2,1,1,0.833,1,6080.0,0
-17-2112.03,Manufacturing Engineers,extreme,24,20,3,1,0,0.833,1,365740.0,1
-29-1031.00,Dietitians and Nutritionists,extreme,28,23,4,1,0,0.821,1,77570.0,1
+25-1072.00,"Nursing Instructors and Teachers, Postsecondary",extreme,29,24,5,0,0,0.828,1,77960.0,0
+25-1022.00,"Mathematical Science Teachers, Postsecondary",extreme,23,19,4,0,1,0.826,1,47670.0,0
+25-1041.00,"Agricultural Sciences Teachers, Postsecondary",extreme,23,19,4,0,0,0.826,1,8920.0,0
+17-2199.05,Mechatronics Engineers,extreme,23,19,4,0,0,0.826,1,154070.0,0
+25-1071.00,"Health Specialties Teachers, Postsecondary",extreme,22,18,4,0,0,0.818,1,221270.0,0
 19-4061.00,Social Science Research Assistants,extreme,22,18,4,0,1,0.818,1,30640.0,1
-19-2021.00,Atmospheric and Space Scientists,extreme,27,22,2,3,0,0.815,1,10000.0,1
+19-1029.04,Biologists,extreme,22,18,3,1,1,0.818,1,55850.0,1
+25-1042.00,"Biological Science Teachers, Postsecondary",extreme,27,22,4,1,1,0.815,1,50190.0,0
+25-1061.00,"Anthropology and Archeology Teachers, Postsecondary",extreme,27,22,5,0,0,0.815,1,5240.0,0
 29-9021.00,Health Information Technologists and Medical Registrars,extreme,16,13,2,1,0,0.812,1,38100.0,1
 15-1232.00,Computer User Support Specialists,extreme,16,13,1,2,0,0.812,1,717190.0,0
-29-2072.00,Medical Records Specialists,extreme,16,13,2,1,0,0.812,1,194720.0,1
-11-9121.00,Natural Sciences Managers,extreme,16,13,3,0,0,0.812,1,108690.0,0
-19-2012.00,Physicists,extreme,16,13,2,1,0,0.812,1,20430.0,1
-15-1299.09,Information Technology Project Managers,extreme,21,17,4,0,0,0.81,1,435370.0,0
-17-2199.03,"Energy Engineers, Except Wind and Solar",extreme,21,17,3,1,0,0.81,1,154070.0,0
+19-1041.00,Epidemiologists,extreme,16,13,3,0,1,0.812,1,12090.0,1
+19-2032.00,Materials Scientists,extreme,16,13,0,3,2,0.812,1,8470.0,0
 11-9121.02,Water Resource Specialists,extreme,21,17,4,0,0,0.81,1,108690.0,0
-29-1051.00,Pharmacists,extreme,21,17,1,3,0,0.81,1,321970.0,1
+29-1051.00,Pharmacists,extreme,21,17,2,2,0,0.81,1,321970.0,1
+25-1021.00,"Computer Science Teachers, Postsecondary",extreme,26,21,5,0,0,0.808,1,35480.0,0
+17-2051.01,Transportation Engineers,extreme,26,21,4,1,1,0.808,1,367840.0,0
 17-2199.06,Microsystems Engineers,extreme,31,25,4,2,0,0.806,1,154070.0,0
 19-3032.00,Industrial-Organizational Psychologists,extreme,25,20,5,0,2,0.8,1,790.0,1
-17-2112.00,Industrial Engineers,extreme,20,16,4,0,0,0.8,1,365740.0,1
+17-2141.02,Automotive Engineers,extreme,25,20,4,1,0,0.8,1,296810.0,1
+29-1229.05,Preventive Medicine Physicians,extreme,15,12,3,0,0,0.8,1,342720.0,1
 17-2072.00,"Electronics Engineers, Except Computer",extreme,20,16,2,2,0,0.8,1,96900.0,1
-19-1029.03,Geneticists,extreme,24,19,4,1,0,0.792,1,55850.0,1
+25-1066.00,"Psychology Teachers, Postsecondary",extreme,29,23,6,0,1,0.793,1,41530.0,0
+25-1054.00,"Physics Teachers, Postsecondary",extreme,24,19,4,1,1,0.792,1,13090.0,0
 19-3034.00,School Psychologists,extreme,19,15,3,1,2,0.789,1,63940.0,0
+11-9041.00,Architectural and Engineering Managers,extreme,19,15,4,0,0,0.789,1,220260.0,0
+25-1052.00,"Chemistry Teachers, Postsecondary",extreme,28,22,5,1,0,0.786,1,19980.0,0
+17-3022.00,Civil Engineering Technologists and Technicians,extreme,14,11,1,2,1,0.786,1,68520.0,0
 19-1042.00,"Medical Scientists, Except Epidemiologists",extreme,14,11,2,1,0,0.786,1,172340.0,1
-11-9111.00,Medical and Health Services Managers,extreme,18,14,4,0,0,0.778,1,597080.0,0
+17-2011.00,Aerospace Engineers,extreme,14,11,2,1,1,0.786,1,67710.0,0
+17-2021.00,Agricultural Engineers,extreme,14,11,2,1,2,0.786,1,1480.0,0
+19-1011.00,Animal Scientists,extreme,9,7,1,1,0,0.778,1,3100.0,0
 19-4012.01,Precision Agriculture Technicians,extreme,22,17,2,3,1,0.773,1,15130.0,1
 19-1012.00,Food Scientists and Technologists,extreme,13,10,0,3,1,0.769,1,13060.0,0
 15-1231.00,Computer Network Support Specialists,extreme,26,20,4,2,0,0.769,1,146190.0,0
-17-2141.01,Fuel Cell Engineers,extreme,26,20,4,2,0,0.769,1,296810.0,0
 17-2199.07,Photonics Engineers,extreme,26,20,3,3,0,0.769,1,154070.0,1
-29-1141.04,Clinical Nurse Specialists,extreme,30,23,4,3,1,0.767,1,3379720.0,1
+17-2199.11,Solar Energy Systems Engineers,extreme,13,10,1,2,0,0.769,1,154070.0,0
+17-3027.00,Mechanical Engineering Technologists and Technicians,extreme,30,23,1,6,0,0.767,1,36190.0,1
+19-3091.00,Anthropologists and Archeologists,extreme,30,23,3,4,1,0.767,1,8990.0,0
+17-2199.03,"Energy Engineers, Except Wind and Solar",extreme,21,16,4,1,0,0.762,1,154070.0,0
 17-2131.00,Materials Engineers,extreme,21,16,3,2,0,0.762,1,22770.0,0
-17-1011.00,"Architects, Except Landscape and Naval",extreme,25,19,5,1,0,0.76,1,106770.0,0
 17-2081.00,Environmental Engineers,extreme,29,22,6,1,0,0.759,1,38340.0,0
-17-2199.08,Robotics Engineers,extreme,24,18,5,1,0,0.75,1,154070.0,0
+19-2099.01,Remote Sensing Scientists and Technologists,extreme,24,18,3,3,1,0.75,1,22300.0,1
 17-2161.00,Nuclear Engineers,extreme,20,15,4,1,1,0.75,1,15280.0,0
-19-2032.00,Materials Scientists,extreme,16,12,1,3,2,0.75,1,8470.0,0
 19-4044.00,Hydrologic Technicians,extreme,16,12,0,4,0,0.75,1,2840.0,1
-19-1041.00,Epidemiologists,extreme,16,12,4,0,1,0.75,1,12090.0,1
+19-1021.00,Biochemists and Biophysicists,extreme,24,18,3,3,1,0.75,1,33830.0,1
+19-3092.00,Geographers,extreme,12,9,1,2,0,0.75,1,1400.0,0
 29-1223.00,Psychiatrists,extreme,12,9,2,1,2,0.75,1,27980.0,1
-29-1215.00,Family Medicine Physicians,extreme,12,9,2,1,0,0.75,1,107510.0,1
-29-1229.06,Sports Medicine Physicians,extreme,27,20,6,1,2,0.741,1,342720.0,1
-17-1012.00,Landscape Architects,extreme,19,14,5,0,3,0.737,1,19600.0,0
-29-1218.00,Obstetricians and Gynecologists,extreme,15,11,1,3,0,0.733,1,21260.0,1
-19-1031.00,Conservation Scientists,extreme,30,22,6,2,0,0.733,1,25950.0,0
+17-2051.00,Civil Engineers,extreme,16,12,1,3,1,0.75,1,367840.0,0
+19-1013.00,Soil and Plant Scientists,extreme,27,20,6,1,0,0.741,1,15730.0,0
+29-1127.00,Speech-Language Pathologists,extreme,23,17,5,1,0,0.739,1,183390.0,1
+17-3012.00,Electrical and Electronics Drafters,extreme,30,22,4,4,0,0.733,1,17920.0,0
+19-1031.00,Conservation Scientists,extreme,30,22,4,4,0,0.733,1,25950.0,0
+17-2141.01,Fuel Cell Engineers,extreme,26,19,5,2,0,0.731,1,296810.0,0
+29-1125.00,Recreational Therapists,extreme,11,8,3,0,0,0.727,1,14930.0,1
 17-2061.00,Computer Hardware Engineers,extreme,18,13,3,2,0,0.722,1,76660.0,1
-19-1031.02,Range Managers,extreme,18,13,3,2,0,0.722,1,25950.0,0
 19-2043.00,Hydrologists,extreme,25,18,3,4,1,0.72,1,5850.0,1
-29-1129.01,Art Therapists,extreme,25,18,3,4,2,0.72,1,22640.0,1
+29-1129.01,Art Therapists,extreme,25,18,4,3,2,0.72,1,22640.0,1
 19-1023.00,Zoologists and Wildlife Biologists,extreme,14,10,1,3,1,0.714,1,18120.0,0
 19-4099.03,Remote Sensing Technicians,extreme,21,15,1,5,1,0.714,1,73910.0,1
-17-3022.00,Civil Engineering Technologists and Technicians,extreme,14,10,2,2,1,0.714,1,68520.0,0
 17-2072.01,Radio Frequency Identification Device Specialists,extreme,21,15,1,5,0,0.714,1,96900.0,1
-17-2011.00,Aerospace Engineers,extreme,14,10,3,1,1,0.714,1,67710.0,0
-29-1229.02,Hospitalists,extreme,14,10,3,1,0,0.714,1,342720.0,1
-17-2021.00,Agricultural Engineers,extreme,14,10,3,1,2,0.714,1,1480.0,0
-19-2099.01,Remote Sensing Scientists and Technologists,extreme,24,17,4,3,1,0.708,1,22300.0,1
-19-1021.00,Biochemists and Biophysicists,extreme,24,17,4,3,1,0.708,1,33830.0,1
+17-2141.00,Mechanical Engineers,extreme,28,20,5,3,1,0.714,1,296810.0,0
+29-1229.02,Hospitalists,extreme,14,10,4,0,0,0.714,1,342720.0,1
+29-1031.00,Dietitians and Nutritionists,extreme,28,20,7,1,0,0.714,1,77570.0,1
 29-1217.00,Neurologists,extreme,24,17,5,2,0,0.708,1,10590.0,1
 19-2011.00,Astronomers,extreme,17,12,4,1,1,0.706,1,2120.0,0
-29-1221.00,"Pediatricians, General",extreme,17,12,2,3,0,0.706,1,39390.0,1
-29-1214.00,Emergency Medicine Physicians,extreme,17,12,1,4,2,0.706,1,32880.0,1
+29-1171.00,Nurse Practitioners,extreme,27,19,6,2,0,0.704,1,323040.0,1
+29-1229.06,Sports Medicine Physicians,extreme,27,19,6,2,2,0.704,1,342720.0,1
 19-1031.03,Park Naturalists,extreme,20,14,1,5,0,0.7,1,25950.0,0
-17-3027.00,Mechanical Engineering Technologists and Technicians,extreme,30,21,2,7,0,0.7,1,36190.0,0
-29-1129.02,Music Therapists,extreme,30,21,4,5,0,0.7,1,22640.0,1
+29-1129.02,Music Therapists,extreme,30,21,5,4,0,0.7,1,22640.0,1
+29-1141.04,Clinical Nurse Specialists,extreme,30,21,9,0,1,0.7,1,3379720.0,1
+17-2171.00,Petroleum Engineers,extreme,23,16,4,3,1,0.696,1,18060.0,0
 19-4099.01,Quality Control Analysts,extreme,26,18,2,6,0,0.692,1,73910.0,1
-17-2051.01,Transportation Engineers,extreme,26,18,7,1,1,0.692,1,367840.0,0
-17-2199.11,Solar Energy Systems Engineers,extreme,13,9,2,2,0,0.692,1,154070.0,0
+29-2051.00,Dietetic Technicians,extreme,13,9,4,0,0,0.692,1,31560.0,1
 29-1229.01,Allergists and Immunologists,extreme,16,11,4,1,0,0.688,1,342720.0,1
-29-1216.00,General Internal Medicine Physicians,extreme,19,13,3,3,0,0.684,1,67150.0,1
-17-2141.02,Automotive Engineers,extreme,25,17,7,1,0,0.68,1,296810.0,1
+17-2199.10,Wind Energy Engineers,extreme,16,11,5,0,4,0.688,1,154070.0,0
 17-3023.00,Electrical and Electronic Engineering Technologists and Technicians,extreme,28,19,3,6,0,0.679,1,95130.0,0
-17-2141.00,Mechanical Engineers,extreme,28,19,5,4,1,0.679,1,296810.0,0
-17-3012.00,Electrical and Electronics Drafters,extreme,30,20,6,4,0,0.667,1,17920.0,0
-29-1171.00,Nurse Practitioners,extreme,27,18,5,4,0,0.667,1,323040.0,1
-29-1224.00,Radiologists,extreme,30,20,6,4,0,0.667,1,26770.0,1
-29-1071.00,Physician Assistants,extreme,12,8,0,4,1,0.667,1,162150.0,1
+17-2121.00,Marine Engineers and Naval Architects,extreme,30,20,5,5,1,0.667,1,8250.0,0
+29-1123.00,Physical Therapists,extreme,24,16,5,3,0,0.667,1,267330.0,1
+29-1215.00,Family Medicine Physicians,extreme,12,8,4,0,0,0.667,1,107510.0,1
+29-1071.00,Physician Assistants,extreme,12,8,1,3,1,0.667,1,162150.0,1
 29-1161.00,Nurse Midwives,extreme,21,14,0,7,2,0.667,1,7920.0,1
-17-2171.00,Petroleum Engineers,extreme,23,15,5,3,1,0.652,1,18060.0,0
 29-9091.00,Athletic Trainers,extreme,23,15,0,8,1,0.652,1,30500.0,1
-29-1127.00,Speech-Language Pathologists,extreme,23,15,7,1,0,0.652,1,183390.0,1
 29-1122.00,Occupational Therapists,extreme,17,11,3,3,1,0.647,1,162450.0,1
+19-1029.02,Molecular and Cellular Biologists,extreme,22,14,6,2,0,0.636,1,55850.0,0
 29-1181.00,Audiologists,extreme,22,14,5,3,0,0.636,1,13660.0,1
-29-1125.00,Recreational Therapists,extreme,11,7,4,0,0,0.636,1,14930.0,1
+17-3026.00,Industrial Engineering Technologists and Technicians,extreme,30,19,8,3,0,0.633,1,75570.0,0
+29-1224.00,Radiologists,extreme,30,19,8,3,0,0.633,1,26770.0,1
 17-2111.00,"Health and Safety Engineers, Except Mining Safety Engineers and Inspectors",extreme,27,17,6,4,0,0.63,1,21450.0,0
-29-1123.00,Physical Therapists,extreme,24,15,6,3,0,0.625,1,267330.0,1
-17-2051.00,Civil Engineers,extreme,16,10,3,3,1,0.625,1,367840.0,0
-17-2112.02,Validation Engineers,extreme,21,13,6,2,0,0.619,1,365740.0,1
-29-1011.00,Chiropractors,extreme,13,8,3,2,0,0.615,1,39630.0,1
+29-1122.01,"Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists",extreme,21,13,7,1,0,0.619,1,162450.0,1
+29-1011.00,Chiropractors,extreme,13,8,2,3,0,0.615,1,39630.0,1
+19-1031.02,Range Managers,extreme,18,11,5,2,0,0.611,1,25950.0,0
 29-1213.00,Dermatologists,extreme,18,11,4,3,0,0.611,1,11370.0,1
 29-1241.00,"Ophthalmologists, Except Pediatric",extreme,18,11,4,3,0,0.611,1,8950.0,1
 17-3025.00,Environmental Engineering Technologists and Technicians,extreme,23,14,3,6,0,0.609,1,12190.0,0
-17-2199.09,Nanosystems Engineers,extreme,25,15,7,3,0,0.6,1,154070.0,0
-19-3091.00,Anthropologists and Archeologists,extreme,30,18,8,4,1,0.6,1,8990.0,0
+19-3033.00,Clinical and Counseling Psychologists,extreme,30,18,12,0,0,0.6,1,75990.0,0
+17-2199.09,Nanosystems Engineers,extreme,25,15,8,2,0,0.6,1,154070.0,0
 29-1299.01,Naturopathic Physicians,extreme,20,12,2,6,0,0.6,1,28630.0,1
+29-1218.00,Obstetricians and Gynecologists,extreme,15,9,4,2,0,0.6,1,21260.0,1
 29-1141.01,Acute Care Nurses,extreme,27,16,4,7,0,0.593,1,3379720.0,1
-19-1029.02,Molecular and Cellular Biologists,extreme,22,13,7,2,0,0.591,1,55850.0,0
-17-2071.00,Electrical Engineers,extreme,22,13,6,3,0,0.591,1,198750.0,0
-19-3092.00,Geographers,extreme,12,7,3,2,0,0.583,1,1400.0,0
-29-1141.02,Advanced Practice Psychiatric Nurses,extreme,24,14,6,4,1,0.583,1,3379720.0,1
-29-1222.00,"Physicians, Pathologists",extreme,19,11,7,1,0,0.579,1,11110.0,1
-29-2036.00,Medical Dosimetrists,extreme,19,11,3,5,0,0.579,1,3410.0,1
-17-1021.00,Cartographers and Photogrammetrists,extreme,14,8,1,5,2,0.571,1,14260.0,0
-19-3033.00,Clinical and Counseling Psychologists,extreme,30,17,12,1,0,0.567,1,75990.0,0
-17-3026.00,Industrial Engineering Technologists and Technicians,extreme,30,17,10,3,0,0.567,1,75570.0,0
-17-2199.05,Mechatronics Engineers,extreme,23,13,10,0,0,0.565,1,154070.0,0
+17-2071.00,Electrical Engineers,extreme,22,13,7,2,0,0.591,1,198750.0,0
+29-1221.00,"Pediatricians, General",extreme,17,10,5,2,0,0.588,1,39390.0,1
+29-1214.00,Emergency Medicine Physicians,extreme,17,10,4,3,2,0.588,1,32880.0,1
+29-2036.00,Medical Dosimetrists,extreme,19,11,1,7,0,0.579,1,3410.0,1
+29-1216.00,General Internal Medicine Physicians,extreme,19,11,6,2,0,0.579,1,67150.0,1
+17-2112.02,Validation Engineers,extreme,21,12,7,2,0,0.571,1,365740.0,0
+17-3028.00,Calibration Technologists and Technicians,extreme,14,8,0,6,0,0.571,1,16540.0,0
 17-1022.01,Geodetic Surveyors,extreme,16,9,4,3,1,0.562,1,50830.0,0
-17-2199.10,Wind Energy Engineers,extreme,16,9,7,0,4,0.562,1,154070.0,0
-29-1299.02,Orthoptists,extreme,16,9,3,4,0,0.562,1,28630.0,1
-29-1212.00,Cardiologists,extreme,25,14,3,8,0,0.56,1,17290.0,0
-29-1128.00,Exercise Physiologists,extreme,25,14,5,6,3,0.56,1,8560.0,1
-19-1032.00,Foresters,extreme,25,14,9,2,0,0.56,1,10430.0,0
-29-1141.00,Registered Nurses,extreme,27,15,6,6,0,0.556,1,3379720.0,1
-29-1243.00,Pediatric Surgeons,extreme,18,10,2,6,0,0.556,1,1190.0,1
+29-1299.02,Orthoptists,extreme,16,9,3,4,0,0.562,1,28630.0,0
+29-1128.00,Exercise Physiologists,extreme,25,14,4,7,3,0.56,1,8560.0,1
 29-1081.00,Podiatrists,extreme,11,6,2,3,0,0.545,1,9680.0,0
-17-3011.00,Architectural and Civil Drafters,extreme,26,14,10,2,1,0.538,1,103700.0,1
+29-1141.02,Advanced Practice Psychiatric Nurses,extreme,24,13,7,4,1,0.542,1,3379720.0,1
+29-9099.01,Midwives,extreme,36,19,3,14,1,0.528,1,35010.0,1
+29-1222.00,"Physicians, Pathologists",extreme,19,10,8,1,0,0.526,1,11110.0,1
 29-2052.00,Pharmacy Technicians,extreme,21,11,4,6,0,0.524,1,471680.0,1
-29-1131.00,Veterinarians,extreme,21,11,4,6,0,0.524,1,83900.0,0
-17-3028.00,Calibration Technologists and Technicians,extreme,14,7,2,5,0,0.5,1,16540.0,0
+29-1212.00,Cardiologists,extreme,25,13,5,7,0,0.52,1,17290.0,0
+29-1141.00,Registered Nurses,extreme,27,14,6,7,0,0.519,1,3379720.0,1
+17-3024.00,Electro-Mechanical and Mechatronics Technologists and Technicians,extreme,28,14,4,10,1,0.5,1,15520.0,0
 17-3027.01,Automotive Engineering Technicians,extreme,18,9,2,7,0,0.5,1,36190.0,0
-29-9099.01,Midwives,extreme,36,18,6,12,1,0.5,1,35010.0,1
-29-1211.00,Anesthesiologists,extreme,20,10,4,6,0,0.5,1,38760.0,1
+19-1022.00,Microbiologists,extreme,14,7,5,2,1,0.5,1,18940.0,0
+19-3039.02,Neuropsychologists,extreme,14,7,6,1,0,0.5,1,18820.0,0
+29-2011.01,Cytogenetic Technologists,extreme,30,15,4,11,0,0.5,1,332940.0,1
+17-1021.00,Cartographers and Photogrammetrists,extreme,14,7,2,5,2,0.5,1,14260.0,0
 19-2031.00,Chemists,extreme,12,6,4,2,0,0.5,1,82770.0,0
-19-4042.00,"Environmental Science and Protection Technicians, Including Health",extreme,25,12,6,7,0,0.48,0,34670.0,0
-29-1122.01,"Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists",extreme,21,10,7,4,0,0.476,0,162450.0,1
-29-2081.00,"Opticians, Dispensing",extreme,21,10,1,10,0,0.476,0,73530.0,0
-17-2121.00,Marine Engineers and Naval Architects,extreme,30,14,10,6,1,0.467,0,8250.0,0
-17-3031.00,Surveying and Mapping Technicians,extreme,30,14,5,11,2,0.467,0,58010.0,0
-29-2011.01,Cytogenetic Technologists,extreme,30,14,7,9,0,0.467,0,332940.0,1
-29-1229.04,Physical Medicine and Rehabilitation Physicians,extreme,15,7,6,2,1,0.467,0,342720.0,1
-29-1242.00,"Orthopedic Surgeons, Except Pediatric",extreme,15,7,3,5,0,0.467,0,14100.0,1
-17-3024.00,Electro-Mechanical and Mechatronics Technologists and Technicians,extreme,28,13,4,11,1,0.464,0,15520.0,0
+29-1243.00,Pediatric Surgeons,extreme,18,9,5,4,0,0.5,1,1190.0,1
+29-1041.00,Optometrists,extreme,10,5,4,1,0,0.5,1,42790.0,1
+19-4043.00,"Geological Technicians, Except Hydrologic Technicians",extreme,29,14,5,10,0,0.483,0,6980.0,0
+19-1032.00,Foresters,extreme,25,12,10,3,0,0.48,0,10430.0,0
+29-2081.00,"Opticians, Dispensing",extreme,21,10,3,8,0,0.476,0,73530.0,1
+29-1131.00,Veterinarians,extreme,21,10,5,6,0,0.476,0,83900.0,1
+29-1242.00,"Orthopedic Surgeons, Except Pediatric",extreme,15,7,5,3,0,0.467,0,14100.0,1
 17-1022.00,Surveyors,extreme,24,11,7,6,0,0.458,0,50830.0,0
+17-3024.01,Robotics Technicians,extreme,22,10,4,8,0,0.455,0,15520.0,0
 29-1023.00,Orthodontists,extreme,11,5,2,4,0,0.455,0,6210.0,1
-17-3021.00,Aerospace Engineering and Operations Technologists and Technicians,extreme,11,5,0,6,1,0.455,0,11280.0,0
-19-4043.00,"Geological Technicians, Except Hydrologic Technicians",extreme,29,13,6,10,0,0.448,0,6980.0,0
+29-1211.00,Anesthesiologists,extreme,20,9,6,5,0,0.45,0,38760.0,1
+29-1291.00,Acupuncturists,extreme,18,8,2,8,0,0.444,0,7830.0,0
 17-3026.01,Nanotechnology Engineering Technologists and Technicians,extreme,25,11,3,11,0,0.44,0,75570.0,0
-17-3013.00,Mechanical Drafters,extreme,16,7,9,0,1,0.438,0,39960.0,0
-29-2099.01,Neurodiagnostic Technologists,extreme,16,7,4,5,0,0.438,0,182610.0,1
-19-3039.02,Neuropsychologists,extreme,14,6,7,1,0,0.429,0,18820.0,0
+19-4042.00,"Environmental Science and Protection Technicians, Including Health",extreme,25,11,7,7,0,0.44,0,34670.0,0
+19-4031.00,Chemical Technicians,extreme,16,7,3,6,0,0.438,0,57540.0,0
+29-2099.01,Neurodiagnostic Technologists,extreme,16,7,1,8,0,0.438,0,182610.0,1
+17-3031.00,Surveying and Mapping Technicians,extreme,30,13,7,10,2,0.433,0,58010.0,0
 29-1229.03,Urologists,extreme,14,6,4,4,0,0.429,0,342720.0,0
-29-1141.03,Critical Care Nurses,extreme,29,12,5,12,0,0.414,0,3379720.0,1
-17-3024.01,Robotics Technicians,extreme,22,9,5,8,0,0.409,0,15520.0,0
-29-2034.00,Radiologic Technologists and Technicians,extreme,30,12,5,13,0,0.4,0,230490.0,1
-29-1041.00,Optometrists,extreme,10,4,5,1,0,0.4,0,42790.0,1
-29-1291.00,Acupuncturists,extreme,18,7,1,10,0,0.389,0,7830.0,0
-19-4051.02,Nuclear Monitoring Technicians,extreme,16,6,2,8,4,0.375,0,6470.0,0
-17-3029.08,Photonics Technicians,extreme,24,9,0,15,0,0.375,0,59930.0,0
-29-2032.00,Diagnostic Medical Sonographers,extreme,19,7,5,7,0,0.368,0,90160.0,1
-19-1022.00,Microbiologists,extreme,14,5,7,2,1,0.357,0,18940.0,0
+29-1229.04,Physical Medicine and Rehabilitation Physicians,extreme,15,6,6,3,1,0.4,0,342720.0,1
+19-3039.03,Clinical Neuropsychologists,extreme,18,7,10,1,1,0.389,0,18820.0,0
+19-4051.00,Nuclear Technicians,extreme,18,7,3,8,0,0.389,0,6470.0,0
+19-4051.02,Nuclear Monitoring Technicians,extreme,16,6,1,9,4,0.375,0,6470.0,0
+17-3029.08,Photonics Technicians,extreme,24,9,1,14,0,0.375,0,59930.0,0
+29-2053.00,Psychiatric Technicians,extreme,16,6,5,5,0,0.375,0,156960.0,0
+29-2032.00,Diagnostic Medical Sonographers,extreme,19,7,3,9,0,0.368,0,90160.0,1
+29-2034.00,Radiologic Technologists and Technicians,extreme,30,11,7,12,0,0.367,0,230490.0,1
+17-3021.00,Aerospace Engineering and Operations Technologists and Technicians,extreme,11,4,1,6,1,0.364,0,11280.0,0
+29-1126.00,Respiratory Therapists,extreme,23,8,6,9,0,0.348,0,139790.0,1
+29-1141.03,Critical Care Nurses,extreme,29,10,7,12,0,0.345,0,3379720.0,1
 19-4021.00,Biological Technicians,extreme,18,6,7,5,0,0.333,0,69620.0,0
-29-1151.00,Nurse Anesthetists,extreme,24,8,4,12,0,0.333,0,51840.0,1
-19-3039.03,Clinical Neuropsychologists,extreme,18,6,11,1,1,0.333,0,18820.0,0
-29-2091.00,Orthotists and Prosthetists,extreme,15,5,4,6,0,0.333,0,9390.0,1
+29-2011.00,Medical and Clinical Laboratory Technologists,extreme,15,5,3,7,1,0.333,0,332940.0,1
 29-2042.00,Emergency Medical Technicians,extreme,12,4,1,7,0,0.333,0,180510.0,0
-19-4051.00,Nuclear Technicians,extreme,18,6,4,8,0,0.333,0,6470.0,0
-29-2011.00,Medical and Clinical Laboratory Technologists,extreme,15,5,3,7,1,0.333,0,332940.0,0
-29-2061.00,Licensed Practical and Licensed Vocational Nurses,extreme,22,7,4,11,0,0.318,0,648410.0,1
-19-4031.00,Chemical Technicians,extreme,16,5,6,5,0,0.312,0,57540.0,0
-17-3029.01,Non-Destructive Testing Specialists,extreme,16,5,2,9,1,0.312,0,59930.0,0
+29-2091.00,Orthotists and Prosthetists,extreme,15,5,4,6,0,0.333,0,9390.0,1
 29-1292.00,Dental Hygienists,extreme,16,5,2,9,0,0.312,0,222740.0,1
-29-2053.00,Psychiatric Technicians,extreme,16,5,5,6,0,0.312,0,156960.0,0
-19-4013.00,Food Science Technicians,extreme,16,5,4,7,0,0.312,0,14600.0,0
+17-3029.01,Non-Destructive Testing Specialists,extreme,16,5,1,10,1,0.312,0,59930.0,0
 19-4012.00,Agricultural Technicians,extreme,26,8,6,12,0,0.308,0,15130.0,0
-29-2011.02,Cytotechnologists,extreme,13,4,5,4,0,0.308,0,332940.0,0
+29-2011.02,Cytotechnologists,extreme,13,4,4,5,0,0.308,0,332940.0,1
 29-2043.00,Paramedics,extreme,13,4,2,7,1,0.308,0,100610.0,0
-29-1126.00,Respiratory Therapists,extreme,23,7,6,10,0,0.304,0,139790.0,1
-29-1021.00,"Dentists, General",extreme,20,6,1,13,1,0.3,0,124390.0,0
-29-2033.00,Nuclear Medicine Technologists,extreme,17,5,5,7,1,0.294,0,17080.0,1
-29-2035.00,Magnetic Resonance Imaging Technologists,extreme,24,7,7,10,0,0.292,0,43390.0,1
-29-2031.00,Cardiovascular Technologists and Technicians,extreme,21,6,5,10,1,0.286,0,62960.0,1
-29-2012.00,Medical and Clinical Laboratory Technicians,extreme,14,4,4,6,0,0.286,0,332940.0,0
+29-1021.00,"Dentists, General",extreme,20,6,2,12,1,0.3,0,124390.0,0
+29-2033.00,Nuclear Medicine Technologists,extreme,17,5,4,8,1,0.294,0,17080.0,1
+29-1151.00,Nurse Anesthetists,extreme,24,7,5,12,0,0.292,0,51840.0,0
+29-2035.00,Magnetic Resonance Imaging Technologists,extreme,24,7,6,11,0,0.292,0,43390.0,1
+29-2031.00,Cardiovascular Technologists and Technicians,extreme,21,6,3,12,1,0.286,0,62960.0,1
+29-2012.00,Medical and Clinical Laboratory Technicians,extreme,14,4,3,7,0,0.286,0,332940.0,1
 11-9041.01,Biofuels/Biodiesel Technology and Product Development Managers,extreme,18,5,13,0,0,0.278,0,220260.0,0
-29-1124.00,Radiation Therapists,extreme,22,6,6,10,0,0.273,0,17070.0,1
+29-1124.00,Radiation Therapists,extreme,22,6,4,12,0,0.273,0,17070.0,1
+29-2061.00,Licensed Practical and Licensed Vocational Nurses,extreme,22,6,6,10,0,0.273,0,648410.0,1
 19-4071.00,Forest and Conservation Technicians,extreme,20,5,9,6,4,0.25,0,30410.0,0
-29-2056.00,Veterinary Technologists and Technicians,extreme,31,7,5,19,0,0.226,0,129140.0,0
-19-4092.00,Forensic Science Technicians,extreme,24,5,12,7,2,0.208,0,19120.0,0
+29-2056.00,Veterinary Technologists and Technicians,extreme,31,7,3,21,0,0.226,0,129140.0,0
+19-4092.00,Forensic Science Technicians,extreme,24,5,13,6,2,0.208,0,19120.0,0
 29-1071.01,Anesthesiologist Assistants,extreme,16,3,2,11,0,0.188,0,162150.0,0
-29-2011.04,Histotechnologists,extreme,16,3,3,10,2,0.188,0,332940.0,0
-29-2092.00,Hearing Aid Specialists,extreme,11,2,1,8,0,0.182,0,11270.0,0
+29-2011.04,Histotechnologists,extreme,16,3,2,11,2,0.188,0,332940.0,0
+19-4013.00,Food Science Technicians,extreme,16,3,6,7,0,0.188,0,14600.0,0
+29-2092.00,Hearing Aid Specialists,extreme,11,2,3,6,0,0.182,0,11270.0,0
 29-2055.00,Surgical Technologists,extreme,18,3,4,11,0,0.167,0,117460.0,0
-29-2099.05,Ophthalmic Medical Technologists,extreme,31,5,3,23,0,0.161,0,182610.0,0
-29-2057.00,Ophthalmic Medical Technicians,extreme,20,3,1,16,2,0.15,0,71010.0,0
+29-2099.05,Ophthalmic Medical Technologists,extreme,31,4,4,23,0,0.129,0,182610.0,0
+29-2057.00,Ophthalmic Medical Technicians,extreme,20,2,4,14,2,0.1,0,71010.0,0
 29-1022.00,Oral and Maxillofacial Surgeons,extreme,15,1,5,9,1,0.067,0,4910.0,0
-29-9093.00,Surgical Assistants,extreme,28,1,6,21,0,0.036,0,22270.0,0
-29-1024.00,Prosthodontists,extreme,12,0,3,9,2,0.0,0,870.0,0
+29-9093.00,Surgical Assistants,extreme,28,1,5,22,0,0.036,0,22270.0,0
+29-1024.00,Prosthodontists,extreme,12,0,2,10,2,0.0,0,870.0,0
 29-2012.01,Histology Technicians,extreme,8,0,0,8,1,0.0,0,332940.0,0
 15-2051.01,Business Intelligence Analysts,modest,17,17,0,0,0,1.0,1,262440.0,1
-15-1243.01,Data Warehousing Specialists,modest,18,15,3,0,0,0.833,1,67140.0,0
-15-1299.03,Document Management Specialists,modest,23,19,4,0,0,0.826,1,435370.0,0
-15-2051.00,Data Scientists,modest,16,13,3,0,1,0.812,1,262440.0,0
-15-1255.00,Web and Digital Interface Designers,modest,30,23,7,0,1,0.767,1,113330.0,0
+15-1299.03,Document Management Specialists,modest,23,18,5,0,0,0.783,1,435370.0,0
+15-1243.01,Data Warehousing Specialists,modest,18,14,4,0,0,0.778,1,67140.0,0
 15-2051.02,Clinical Data Managers,modest,21,16,4,1,0,0.762,1,262440.0,0
 15-1243.00,Database Architects,modest,25,19,5,1,0,0.76,1,67140.0,0
 15-1299.02,Geographic Information Systems Technologists and Technicians,modest,29,22,7,0,1,0.759,1,435370.0,1
-15-2021.00,Mathematicians,modest,12,9,3,0,0,0.75,1,2030.0,1
-15-1254.00,Web Developers,modest,29,20,7,2,0,0.69,1,70190.0,0
+15-2051.00,Data Scientists,modest,16,12,4,0,1,0.75,1,262440.0,0
+15-1255.00,Web and Digital Interface Designers,modest,30,22,8,0,1,0.733,1,113330.0,0
+15-1242.00,Database Administrators,modest,18,13,5,0,0,0.722,1,69990.0,0
 15-2099.01,Bioinformatics Technicians,modest,19,13,4,2,1,0.684,1,3720.0,0
-15-2041.01,Biostatisticians,modest,25,17,8,0,0,0.68,1,29030.0,1
-15-1242.00,Database Administrators,modest,18,12,6,0,0,0.667,1,69990.0,0
-15-1251.00,Computer Programmers,modest,17,11,5,1,0,0.647,1,92230.0,0
-15-1253.00,Software Quality Assurance Analysts and Testers,modest,30,19,9,2,0,0.633,1,186740.0,0
+15-2021.00,Mathematicians,modest,12,8,4,0,0,0.667,1,2030.0,1
+29-2072.00,Medical Records Specialists,modest,16,10,4,2,0,0.625,1,194720.0,1
 29-2099.08,Patient Representatives,modest,13,8,3,2,1,0.615,1,182610.0,0
-15-1211.00,Computer Systems Analysts,modest,22,13,8,1,1,0.591,1,519530.0,0
-15-2031.00,Operations Research Analysts,modest,17,10,7,0,0,0.588,1,108510.0,0
+15-1211.00,Computer Systems Analysts,modest,22,13,9,0,1,0.591,1,519530.0,0
+15-1251.00,Computer Programmers,modest,17,10,7,0,0,0.588,1,92230.0,0
+15-1254.00,Web Developers,modest,29,17,10,2,0,0.586,1,70190.0,0
 15-2041.00,Statisticians,modest,19,11,7,1,0,0.579,1,29030.0,0
+15-2041.01,Biostatisticians,modest,25,14,11,0,0,0.56,1,29030.0,1
+19-1011.00,Animal Scientists,modest,9,5,2,2,0,0.556,1,3100.0,0
 19-1029.01,Bioinformatics Scientists,modest,20,11,7,2,0,0.55,1,55850.0,1
-15-1299.01,Web Administrators,modest,35,19,15,1,0,0.543,1,435370.0,0
-15-1255.01,Video Game Designers,modest,24,13,10,1,0,0.542,1,113330.0,0
 15-1211.01,Health Informatics Specialists,modest,17,9,8,0,0,0.529,1,519530.0,0
-41-9031.00,Sales Engineers,modest,25,13,8,4,0,0.52,1,51790.0,0
-19-2021.00,Atmospheric and Space Scientists,modest,27,14,8,5,0,0.519,1,10000.0,1
-15-1232.00,Computer User Support Specialists,modest,16,8,5,3,0,0.5,1,717190.0,0
-29-2072.00,Medical Records Specialists,modest,16,8,5,3,0,0.5,1,194720.0,1
-19-2011.00,Astronomers,modest,17,8,3,6,1,0.471,0,2120.0,0
-15-1252.00,Software Developers,modest,17,8,7,2,0,0.471,0,1687890.0,0
-19-2012.00,Physicists,modest,16,7,6,3,0,0.438,0,20430.0,1
-19-3094.00,Political Scientists,modest,14,6,7,1,0,0.429,0,5540.0,1
-41-4011.00,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",modest,33,14,17,2,0,0.424,0,284800.0,0
-15-1299.04,Penetration Testers,modest,22,9,10,3,0,0.409,0,435370.0,1
-19-3099.01,Transportation Planners,modest,22,9,11,2,0,0.409,0,37100.0,1
-25-1043.00,"Forestry and Conservation Science Teachers, Postsecondary",modest,25,10,11,4,1,0.4,0,1520.0,0
-25-1053.00,"Environmental Science Teachers, Postsecondary",modest,25,10,11,4,0,0.4,0,6690.0,0
-15-1299.08,Computer Systems Engineers/Architects,modest,28,11,16,1,0,0.393,0,435370.0,0
-25-1051.00,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",modest,26,10,12,4,1,0.385,0,9900.0,0
-15-1299.09,Information Technology Project Managers,modest,21,8,9,4,0,0.381,0,435370.0,0
-25-1066.00,"Psychology Teachers, Postsecondary",modest,29,11,13,5,1,0.379,0,41530.0,0
-25-1032.00,"Engineering Teachers, Postsecondary",modest,24,9,11,4,0,0.375,0,40270.0,0
+15-1252.00,Software Developers,modest,17,9,6,2,0,0.529,1,1687890.0,0
+19-2021.00,Atmospheric and Space Scientists,modest,27,14,9,4,0,0.519,1,10000.0,1
+15-1299.01,Web Administrators,modest,35,17,17,1,0,0.486,0,435370.0,0
+41-4011.00,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",modest,33,16,12,5,0,0.485,0,284800.0,0
+41-9031.00,Sales Engineers,modest,25,12,8,5,0,0.48,0,51790.0,0
+15-2031.00,Operations Research Analysts,modest,17,8,9,0,0,0.471,0,108510.0,0
+15-1299.08,Computer Systems Engineers/Architects,modest,28,13,13,2,0,0.464,0,435370.0,0
+15-1255.01,Video Game Designers,modest,24,11,13,0,0,0.458,0,113330.0,0
+15-1232.00,Computer User Support Specialists,modest,16,7,5,4,0,0.438,0,717190.0,0
+19-2041.01,Climate Change Policy Analysts,modest,14,6,8,0,0,0.429,0,89250.0,0
+19-2011.00,Astronomers,modest,17,7,5,5,1,0.412,0,2120.0,0
+15-1253.00,Software Quality Assurance Analysts and Testers,modest,30,12,15,3,0,0.4,0,186740.0,0
+15-1299.06,Digital Forensics Analysts,modest,20,8,11,1,0,0.4,0,435370.0,0
+19-1031.03,Park Naturalists,modest,20,8,5,7,0,0.4,0,25950.0,0
+25-1022.00,"Mathematical Science Teachers, Postsecondary",modest,23,9,9,5,1,0.391,0,47670.0,0
+41-4011.07,Solar Sales Representatives and Assessors,modest,13,5,7,1,1,0.385,0,284800.0,0
+19-4099.03,Remote Sensing Technicians,modest,21,8,7,6,1,0.381,0,73910.0,1
+25-1032.00,"Engineering Teachers, Postsecondary",modest,24,9,10,5,0,0.375,0,40270.0,0
 29-9021.00,Health Information Technologists and Medical Registrars,modest,16,6,7,3,0,0.375,0,38100.0,1
-19-4044.00,Hydrologic Technicians,modest,16,6,6,4,0,0.375,0,2840.0,1
-25-1061.00,"Anthropology and Archeology Teachers, Postsecondary",modest,27,10,12,5,0,0.37,0,5240.0,0
-25-1031.00,"Architecture Teachers, Postsecondary",modest,22,8,11,3,0,0.364,0,7700.0,0
-25-1063.00,"Economics Teachers, Postsecondary",modest,22,8,11,3,0,0.364,0,11560.0,0
-25-1065.00,"Political Science Teachers, Postsecondary",modest,22,8,11,3,0,0.364,0,16970.0,0
-25-1071.00,"Health Specialties Teachers, Postsecondary",modest,22,8,10,4,0,0.364,0,221270.0,0
-15-1212.00,Information Security Analysts,modest,11,4,7,0,0,0.364,0,190650.0,0
-19-4061.00,Social Science Research Assistants,modest,22,8,10,4,1,0.364,0,30640.0,1
-17-3022.00,Civil Engineering Technologists and Technicians,modest,14,5,4,5,1,0.357,0,68520.0,0
-15-1299.06,Digital Forensics Analysts,modest,20,7,12,1,0,0.35,0,435370.0,0
+25-1031.00,"Architecture Teachers, Postsecondary",modest,22,8,10,4,0,0.364,0,7700.0,0
+25-1063.00,"Economics Teachers, Postsecondary",modest,22,8,10,4,0,0.364,0,11560.0,0
+25-1065.00,"Political Science Teachers, Postsecondary",modest,22,8,10,4,0,0.364,0,16970.0,0
+25-1071.00,"Health Specialties Teachers, Postsecondary",modest,22,8,9,5,0,0.364,0,221270.0,0
+19-4061.00,Social Science Research Assistants,modest,22,8,9,5,1,0.364,0,30640.0,1
+25-1043.00,"Forestry and Conservation Science Teachers, Postsecondary",modest,25,9,11,5,1,0.36,0,1520.0,0
+25-1053.00,"Environmental Science Teachers, Postsecondary",modest,25,9,11,5,0,0.36,0,6690.0,0
+25-1052.00,"Chemistry Teachers, Postsecondary",modest,28,10,11,7,0,0.357,0,19980.0,0
+19-3094.00,Political Scientists,modest,14,5,8,1,0,0.357,0,5540.0,1
+17-3022.00,Civil Engineering Technologists and Technicians,modest,14,5,5,4,1,0.357,0,68520.0,0
 17-2161.00,Nuclear Engineers,modest,20,7,8,5,1,0.35,0,15280.0,0
-19-1031.03,Park Naturalists,modest,20,7,7,6,0,0.35,0,25950.0,0
-19-3011.01,Environmental Economists,modest,20,7,12,1,0,0.35,0,17790.0,1
-25-1022.00,"Mathematical Science Teachers, Postsecondary",modest,23,8,12,3,1,0.348,0,47670.0,0
-25-1041.00,"Agricultural Sciences Teachers, Postsecondary",modest,23,8,11,4,0,0.348,0,8920.0,0
-25-1062.00,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",modest,23,8,12,3,0,0.348,0,11300.0,0
+15-1244.00,Network and Computer Systems Administrators,modest,20,7,9,4,0,0.35,0,314340.0,0
+25-1041.00,"Agricultural Sciences Teachers, Postsecondary",modest,23,8,10,5,0,0.348,0,8920.0,0
+25-1062.00,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",modest,23,8,11,4,0,0.348,0,11300.0,0
 25-1021.00,"Computer Science Teachers, Postsecondary",modest,26,9,12,5,0,0.346,0,35480.0,0
+25-1051.00,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",modest,26,9,12,5,1,0.346,0,9900.0,0
+15-1231.00,Computer Network Support Specialists,modest,26,9,11,6,0,0.346,0,146190.0,0
+15-1241.01,Telecommunications Engineering Specialists,modest,26,9,13,4,0,0.346,0,179740.0,0
 19-4099.01,Quality Control Analysts,modest,26,9,9,8,0,0.346,0,73910.0,1
-25-1042.00,"Biological Science Teachers, Postsecondary",modest,27,9,13,5,1,0.333,0,50190.0,0
-25-1054.00,"Physics Teachers, Postsecondary",modest,24,8,11,5,1,0.333,0,13090.0,0
-25-1067.00,"Sociology Teachers, Postsecondary",modest,24,8,12,4,3,0.333,0,11850.0,0
-19-4099.03,Remote Sensing Technicians,modest,21,7,8,6,1,0.333,0,73910.0,1
-17-2061.00,Computer Hardware Engineers,modest,18,6,7,5,0,0.333,0,76660.0,1
+25-1066.00,"Psychology Teachers, Postsecondary",modest,29,10,12,7,1,0.345,0,41530.0,0
+25-1054.00,"Physics Teachers, Postsecondary",modest,24,8,10,6,1,0.333,0,13090.0,0
+25-1061.00,"Anthropology and Archeology Teachers, Postsecondary",modest,27,9,12,6,0,0.333,0,5240.0,0
+25-1067.00,"Sociology Teachers, Postsecondary",modest,24,8,11,5,3,0.333,0,11850.0,0
 17-2072.01,Radio Frequency Identification Device Specialists,modest,21,7,8,6,0,0.333,0,96900.0,1
-25-1064.00,"Geography Teachers, Postsecondary",modest,25,8,13,4,0,0.32,0,3330.0,0
-19-3022.00,Survey Researchers,modest,16,5,9,2,0,0.312,0,8290.0,1
-19-2032.00,Materials Scientists,modest,16,5,7,4,2,0.312,0,8470.0,0
-15-1231.00,Computer Network Support Specialists,modest,26,8,12,6,0,0.308,0,146190.0,0
-15-1241.01,Telecommunications Engineering Specialists,modest,26,8,14,4,0,0.308,0,179740.0,0
-17-2199.07,Photonics Engineers,modest,26,8,12,6,0,0.308,0,154070.0,1
-41-4011.07,Solar Sales Representatives and Assessors,modest,13,4,8,1,1,0.308,0,284800.0,0
-11-9121.01,Clinical Research Coordinators,modest,33,10,20,3,0,0.303,0,108690.0,0
-15-1244.00,Network and Computer Systems Administrators,modest,20,6,12,2,0,0.3,0,314340.0,0
-17-2112.00,Industrial Engineers,modest,20,6,10,4,0,0.3,0,365740.0,1
-17-2072.00,"Electronics Engineers, Except Computer",modest,20,6,10,4,0,0.3,0,96900.0,1
+17-2061.00,Computer Hardware Engineers,modest,18,6,7,5,0,0.333,0,76660.0,1
+25-1064.00,"Geography Teachers, Postsecondary",modest,25,8,12,5,0,0.32,0,3330.0,0
+15-1299.04,Penetration Testers,modest,22,7,12,3,0,0.318,0,435370.0,1
+19-4012.01,Precision Agriculture Technicians,modest,22,7,10,5,1,0.318,0,15130.0,1
+19-3099.01,Transportation Planners,modest,22,7,13,2,0,0.318,0,37100.0,1
+19-1029.04,Biologists,modest,22,7,11,4,1,0.318,0,55850.0,1
+19-3022.00,Survey Researchers,modest,16,5,8,3,0,0.312,0,8290.0,1
+19-4044.00,Hydrologic Technicians,modest,16,5,7,4,0,0.312,0,2840.0,1
+19-2012.00,Physicists,modest,16,5,9,2,0,0.312,0,20430.0,1
+17-2112.00,Industrial Engineers,modest,20,6,11,3,0,0.3,0,365740.0,1
+25-1042.00,"Biological Science Teachers, Postsecondary",modest,27,8,13,6,1,0.296,0,50190.0,0
+19-1013.00,Soil and Plant Scientists,modest,27,8,12,7,0,0.296,0,15730.0,0
 15-1299.07,Blockchain Engineers,modest,17,5,12,0,1,0.294,0,435370.0,0
-25-1052.00,"Chemistry Teachers, Postsecondary",modest,28,8,14,6,0,0.286,0,19980.0,0
 19-3011.00,Economists,modest,14,4,8,2,3,0.286,0,17790.0,1
-29-2052.00,Pharmacy Technicians,modest,21,6,5,10,0,0.286,0,471680.0,1
+15-1299.09,Information Technology Project Managers,modest,21,6,12,3,0,0.286,0,435370.0,0
 17-2111.02,Fire-Prevention and Protection Engineers,modest,14,4,8,2,3,0.286,0,21450.0,0
-17-2199.03,"Energy Engineers, Except Wind and Solar",modest,21,6,11,4,0,0.286,0,154070.0,0
-17-3028.00,Calibration Technologists and Technicians,modest,14,4,3,7,0,0.286,0,16540.0,0
-25-1072.00,"Nursing Instructors and Teachers, Postsecondary",modest,29,8,16,5,0,0.276,0,77960.0,0
-19-4012.01,Precision Agriculture Technicians,modest,22,6,10,6,1,0.273,0,15130.0,1
-17-3011.00,Architectural and Civil Drafters,modest,26,7,6,13,1,0.269,0,103700.0,1
-19-3041.00,Sociologists,modest,15,4,10,1,2,0.267,0,2260.0,1
+17-3028.00,Calibration Technologists and Technicians,modest,14,4,4,6,0,0.286,0,16540.0,0
+17-1011.00,"Architects, Except Landscape and Naval",modest,25,7,14,4,0,0.28,0,106770.0,0
+17-2151.00,"Mining and Geological Engineers, Including Mining Safety Engineers",modest,18,5,9,4,1,0.278,0,6080.0,0
+25-1072.00,"Nursing Instructors and Teachers, Postsecondary",modest,29,8,14,7,0,0.276,0,77960.0,0
+15-1212.00,Information Security Analysts,modest,11,3,8,0,0,0.273,0,190650.0,0
+15-1241.00,Computer Network Architects,modest,33,9,21,3,0,0.273,0,179740.0,0
+11-9121.01,Clinical Research Coordinators,modest,33,9,21,3,0,0.273,0,108690.0,0
+17-2199.07,Photonics Engineers,modest,26,7,13,6,0,0.269,0,154070.0,1
+17-3011.00,Architectural and Civil Drafters,modest,26,7,13,6,1,0.269,0,103700.0,1
+19-3041.00,Sociologists,modest,15,4,8,3,2,0.267,0,2260.0,1
+17-2141.00,Mechanical Engineers,modest,28,7,13,8,1,0.25,0,296810.0,0
 17-1022.01,Geodetic Surveyors,modest,16,4,5,7,1,0.25,0,50830.0,0
-17-2141.00,Mechanical Engineers,modest,28,7,11,10,1,0.25,0,296810.0,0
-19-3092.00,Geographers,modest,12,3,4,5,0,0.25,0,1400.0,0
-19-1041.00,Epidemiologists,modest,16,4,8,4,1,0.25,0,12090.0,1
-15-1241.00,Computer Network Architects,modest,33,8,22,3,0,0.242,0,179740.0,0
-19-3032.00,Industrial-Organizational Psychologists,modest,25,6,14,5,2,0.24,0,790.0,1
+19-2032.00,Materials Scientists,modest,16,4,8,4,2,0.25,0,8470.0,0
+19-3092.00,Geographers,modest,12,3,6,3,0,0.25,0,1400.0,0
+19-3011.01,Environmental Economists,modest,20,5,14,1,0,0.25,0,17790.0,1
+17-2072.00,"Electronics Engineers, Except Computer",modest,20,5,10,5,0,0.25,0,96900.0,1
 17-3026.01,Nanotechnology Engineering Technologists and Technicians,modest,25,6,5,14,0,0.24,0,75570.0,0
-17-1011.00,"Architects, Except Landscape and Naval",modest,25,6,12,7,0,0.24,0,106770.0,0
-17-2112.02,Validation Engineers,modest,21,5,8,8,0,0.238,0,365740.0,1
-11-3021.00,Computer and Information Systems Managers,modest,17,4,12,1,0,0.235,0,670570.0,0
+17-2199.09,Nanosystems Engineers,modest,25,6,9,10,0,0.24,0,154070.0,0
+17-2112.02,Validation Engineers,modest,21,5,7,9,0,0.238,0,365740.0,0
+17-2199.03,"Energy Engineers, Except Wind and Solar",modest,21,5,9,7,0,0.238,0,154070.0,0
+29-2052.00,Pharmacy Technicians,modest,21,5,6,10,0,0.238,0,471680.0,1
+11-3021.00,Computer and Information Systems Managers,modest,17,4,11,2,0,0.235,0,670570.0,0
 17-2031.00,Bioengineers and Biomedical Engineers,modest,30,7,19,4,0,0.233,0,23480.0,1
-19-1029.04,Biologists,modest,22,5,14,3,1,0.227,0,55850.0,1
-17-2151.00,"Mining and Geological Engineers, Including Mining Safety Engineers",modest,18,4,9,5,1,0.222,0,6080.0,0
+19-4012.00,Agricultural Technicians,modest,26,6,2,18,0,0.231,0,15130.0,0
+17-2199.06,Microsystems Engineers,modest,31,7,18,6,0,0.226,0,154070.0,0
 19-2041.02,Environmental Restoration Planners,modest,23,5,15,3,0,0.217,0,89250.0,1
-19-2041.01,Climate Change Policy Analysts,modest,14,3,11,0,0,0.214,0,89250.0,0
-19-2041.03,Industrial Ecologists,modest,38,8,29,1,1,0.211,0,89250.0,1
-17-1012.00,Landscape Architects,modest,19,4,9,6,3,0.211,0,19600.0,0
-19-1029.03,Geneticists,modest,24,5,14,5,0,0.208,0,55850.0,1
-19-3051.00,Urban and Regional Planners,modest,25,5,17,3,0,0.2,0,44230.0,1
-15-2011.00,Actuaries,modest,15,3,10,2,1,0.2,0,26670.0,0
-19-2043.00,Hydrologists,modest,25,5,13,7,1,0.2,0,5850.0,1
-17-2199.09,Nanosystems Engineers,modest,25,5,9,11,0,0.2,0,154070.0,0
-17-2199.06,Microsystems Engineers,modest,31,6,14,11,0,0.194,0,154070.0,0
-17-2051.01,Transportation Engineers,modest,26,5,12,9,1,0.192,0,367840.0,0
-11-9121.02,Water Resource Specialists,modest,21,4,13,4,0,0.19,0,108690.0,0
+29-1229.02,Hospitalists,modest,14,3,7,4,0,0.214,0,342720.0,1
+19-1042.00,"Medical Scientists, Except Epidemiologists",modest,14,3,8,3,0,0.214,0,172340.0,1
+17-1012.00,Landscape Architects,modest,19,4,12,3,3,0.211,0,19600.0,0
+19-1029.03,Geneticists,modest,24,5,15,4,0,0.208,0,55850.0,1
+19-3051.00,Urban and Regional Planners,modest,25,5,16,4,0,0.2,0,44230.0,1
+15-1221.00,Computer and Information Research Scientists,modest,15,3,11,1,0,0.2,0,37200.0,0
+17-3027.00,Mechanical Engineering Technologists and Technicians,modest,30,6,17,7,0,0.2,0,36190.0,1
+29-1299.01,Naturopathic Physicians,modest,20,4,8,8,0,0.2,0,28630.0,1
+17-2141.01,Fuel Cell Engineers,modest,26,5,14,7,0,0.192,0,296810.0,0
+17-2051.01,Transportation Engineers,modest,26,5,13,8,1,0.192,0,367840.0,0
+17-2131.00,Materials Engineers,modest,21,4,12,5,0,0.19,0,22770.0,0
 19-2042.00,"Geoscientists, Except Hydrologists and Geographers",modest,32,6,21,5,0,0.188,0,23470.0,1
+17-3013.00,Mechanical Drafters,modest,16,3,12,1,1,0.188,0,39960.0,0
 11-9121.00,Natural Sciences Managers,modest,16,3,10,3,0,0.188,0,108690.0,0
-17-3023.00,Electrical and Electronic Engineering Technologists and Technicians,modest,28,5,13,10,0,0.179,0,95130.0,0
-29-2033.00,Nuclear Medicine Technologists,modest,17,3,2,12,1,0.176,0,17080.0,1
-17-2081.00,Environmental Engineers,modest,29,5,16,8,0,0.172,0,38340.0,0
+29-1171.00,Nurse Practitioners,modest,27,5,14,8,0,0.185,0,323040.0,1
+19-2041.03,Industrial Ecologists,modest,38,7,30,1,1,0.184,0,89250.0,1
+19-1029.02,Molecular and Cellular Biologists,modest,22,4,10,8,0,0.182,0,55850.0,0
 19-2099.01,Remote Sensing Scientists and Technologists,modest,24,4,13,7,1,0.167,0,22300.0,1
-17-3012.00,Electrical and Electronics Drafters,modest,30,5,14,11,0,0.167,0,17920.0,0
-17-2112.03,Manufacturing Engineers,modest,24,4,16,4,0,0.167,0,365740.0,1
-17-2199.08,Robotics Engineers,modest,24,4,13,7,0,0.167,0,154070.0,0
-11-9111.00,Medical and Health Services Managers,modest,18,3,11,4,0,0.167,0,597080.0,0
-17-1022.00,Surveyors,modest,24,4,5,15,0,0.167,0,50830.0,0
-11-9041.01,Biofuels/Biodiesel Technology and Product Development Managers,modest,18,3,2,13,0,0.167,0,220260.0,0
-17-3027.00,Mechanical Engineering Technologists and Technicians,modest,30,5,14,11,0,0.167,0,36190.0,0
+17-2121.00,Marine Engineers and Naval Architects,modest,30,5,12,13,1,0.167,0,8250.0,0
+17-3012.00,Electrical and Electronics Drafters,modest,30,5,17,8,0,0.167,0,17920.0,0
+17-2199.08,Robotics Engineers,modest,24,4,16,4,0,0.167,0,154070.0,1
+17-2112.03,Manufacturing Engineers,modest,24,4,18,2,0,0.167,0,365740.0,1
+11-9111.00,Medical and Health Services Managers,modest,18,3,13,2,0,0.167,0,597080.0,0
+17-1022.00,Surveyors,modest,24,4,7,13,0,0.167,0,50830.0,0
 17-3027.01,Automotive Engineering Technicians,modest,18,3,6,9,0,0.167,0,36190.0,0
-29-1223.00,Psychiatrists,modest,12,2,7,3,2,0.167,0,27980.0,1
-17-2141.02,Automotive Engineers,modest,25,4,13,8,0,0.16,0,296810.0,1
+17-3029.08,Photonics Technicians,modest,24,4,5,15,0,0.167,0,59930.0,0
+11-9041.01,Biofuels/Biodiesel Technology and Product Development Managers,modest,18,3,2,13,0,0.167,0,220260.0,0
+29-1223.00,Psychiatrists,modest,12,2,8,2,2,0.167,0,27980.0,1
+19-1031.02,Range Managers,modest,18,3,8,7,0,0.167,0,25950.0,0
+19-3032.00,Industrial-Organizational Psychologists,modest,25,4,13,8,2,0.16,0,790.0,1
+17-2141.02,Automotive Engineers,modest,25,4,15,6,0,0.16,0,296810.0,1
+19-2043.00,Hydrologists,modest,25,4,14,7,1,0.16,0,5850.0,1
 29-9092.00,Genetic Counselors,modest,19,3,14,2,0,0.158,0,3740.0,1
 11-9041.00,Architectural and Engineering Managers,modest,19,3,12,4,0,0.158,0,220260.0,0
+17-2199.11,Solar Energy Systems Engineers,modest,13,2,8,3,0,0.154,0,154070.0,0
 15-1299.05,Information Security Engineers,modest,20,3,15,2,0,0.15,0,435370.0,0
-29-1299.01,Naturopathic Physicians,modest,20,3,9,8,0,0.15,0,28630.0,1
 19-1023.00,Zoologists and Wildlife Biologists,modest,14,2,8,4,1,0.143,0,18120.0,0
+17-3023.00,Electrical and Electronic Engineering Technologists and Technicians,modest,28,4,15,9,0,0.143,0,95130.0,0
+29-2031.00,Cardiovascular Technologists and Technicians,modest,21,3,3,15,1,0.143,0,62960.0,1
 17-2051.02,Water/Wastewater Engineers,modest,28,4,23,1,0,0.143,0,367840.0,1
-17-2131.00,Materials Engineers,modest,21,3,12,6,0,0.143,0,22770.0,0
-17-3024.00,Electro-Mechanical and Mechatronics Technologists and Technicians,modest,28,4,9,15,1,0.143,0,15520.0,0
-19-1042.00,"Medical Scientists, Except Epidemiologists",modest,14,2,9,3,0,0.143,0,172340.0,1
-19-1029.02,Molecular and Cellular Biologists,modest,22,3,10,9,0,0.136,0,55850.0,0
+11-9121.02,Water Resource Specialists,modest,21,3,14,4,0,0.143,0,108690.0,0
+17-2081.00,Environmental Engineers,modest,29,4,18,7,0,0.138,0,38340.0,0
+17-2071.00,Electrical Engineers,modest,22,3,10,9,0,0.136,0,198750.0,0
 19-2041.00,"Environmental Scientists and Specialists, Including Health",modest,22,3,17,2,0,0.136,0,89250.0,1
-19-3033.00,Clinical and Counseling Psychologists,modest,30,4,14,12,0,0.133,0,75990.0,0
-17-2121.00,Marine Engineers and Naval Architects,modest,30,4,10,16,1,0.133,0,8250.0,0
-15-1221.00,Computer and Information Research Scientists,modest,15,2,11,2,0,0.133,0,37200.0,0
-29-1229.05,Preventive Medicine Physicians,modest,15,2,11,2,0,0.133,0,342720.0,1
-17-3025.00,Environmental Engineering Technologists and Technicians,modest,23,3,10,10,0,0.13,0,12190.0,0
-17-2199.05,Mechatronics Engineers,modest,23,3,9,11,0,0.13,0,154070.0,0
-29-9091.00,Athletic Trainers,modest,23,3,12,8,1,0.13,0,30500.0,1
-17-3013.00,Mechanical Drafters,modest,16,2,5,9,1,0.125,0,39960.0,0
+19-3033.00,Clinical and Counseling Psychologists,modest,30,4,12,14,0,0.133,0,75990.0,0
+17-3031.00,Surveying and Mapping Technicians,modest,30,4,9,17,2,0.133,0,58010.0,0
+29-1229.05,Preventive Medicine Physicians,modest,15,2,10,3,0,0.133,0,342720.0,1
 19-4051.02,Nuclear Monitoring Technicians,modest,16,2,4,10,4,0.125,0,6470.0,0
-17-3029.08,Photonics Technicians,modest,24,3,6,15,0,0.125,0,59930.0,0
-19-1021.00,Biochemists and Biophysicists,modest,24,3,14,7,1,0.125,0,33830.0,1
-19-4031.00,Chemical Technicians,modest,16,2,3,11,0,0.125,0,57540.0,0
-17-2199.10,Wind Energy Engineers,modest,16,2,7,7,4,0.125,0,154070.0,0
-17-3029.01,Non-Destructive Testing Specialists,modest,16,2,3,11,1,0.125,0,59930.0,0
-17-2141.01,Fuel Cell Engineers,modest,26,3,14,9,0,0.115,0,296810.0,0
+29-1151.00,Nurse Anesthetists,modest,24,3,4,17,0,0.125,0,51840.0,0
+19-1041.00,Epidemiologists,modest,16,2,11,3,1,0.125,0,12090.0,1
+19-1021.00,Biochemists and Biophysicists,modest,24,3,15,6,1,0.125,0,33830.0,1
+19-4031.00,Chemical Technicians,modest,16,2,5,9,0,0.125,0,57540.0,0
+17-2051.00,Civil Engineers,modest,16,2,9,5,1,0.125,0,367840.0,0
+29-2033.00,Nuclear Medicine Technologists,modest,17,2,3,12,1,0.118,0,17080.0,1
 17-2112.01,Human Factors Engineers and Ergonomists,modest,26,3,20,3,1,0.115,0,365740.0,0
-19-4012.00,Agricultural Technicians,modest,26,3,5,18,0,0.115,0,15130.0,0
-19-1011.00,Animal Scientists,modest,9,1,6,2,0,0.111,0,3100.0,0
-29-1031.00,Dietitians and Nutritionists,modest,28,3,19,6,0,0.107,0,77570.0,1
-29-2036.00,Medical Dosimetrists,modest,19,2,8,9,0,0.105,0,3410.0,1
-17-3026.00,Industrial Engineering Technologists and Technicians,modest,30,3,13,14,0,0.1,0,75570.0,0
-17-3031.00,Surveying and Mapping Technicians,modest,30,3,7,20,2,0.1,0,58010.0,0
-19-3091.00,Anthropologists and Archeologists,modest,30,3,14,13,1,0.1,0,8990.0,0
-19-4071.00,Forest and Conservation Technicians,modest,20,2,3,15,4,0.1,0,30410.0,0
+29-1141.01,Acute Care Nurses,modest,27,3,15,9,0,0.111,0,3379720.0,1
+19-4021.00,Biological Technicians,modest,18,2,4,12,0,0.111,0,69620.0,0
+17-3024.00,Electro-Mechanical and Mechatronics Technologists and Technicians,modest,28,3,10,15,1,0.107,0,15520.0,0
+29-1031.00,Dietitians and Nutritionists,modest,28,3,17,8,0,0.107,0,77570.0,1
+29-2036.00,Medical Dosimetrists,modest,19,2,9,8,0,0.105,0,3410.0,1
+17-3026.00,Industrial Engineering Technologists and Technicians,modest,30,3,16,11,0,0.1,0,75570.0,0
+19-3091.00,Anthropologists and Archeologists,modest,30,3,18,9,1,0.1,0,8990.0,0
+29-1129.02,Music Therapists,modest,30,3,19,8,0,0.1,0,22640.0,1
 29-2011.01,Cytogenetic Technologists,modest,30,3,11,16,0,0.1,0,332940.0,1
-29-2031.00,Cardiovascular Technologists and Technicians,modest,21,2,4,15,1,0.095,0,62960.0,1
+19-4071.00,Forest and Conservation Technicians,modest,20,2,3,15,4,0.1,0,30410.0,0
 29-1051.00,Pharmacists,modest,21,2,15,4,0,0.095,0,321970.0,1
-29-1122.01,"Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists",modest,21,2,12,7,0,0.095,0,162450.0,1
-29-2081.00,"Opticians, Dispensing",modest,21,2,8,11,0,0.095,0,73530.0,0
-17-2071.00,Electrical Engineers,modest,22,2,9,11,0,0.091,0,198750.0,0
-17-2171.00,Petroleum Engineers,modest,23,2,10,11,1,0.087,0,18060.0,0
-29-1151.00,Nurse Anesthetists,modest,24,2,6,16,0,0.083,0,51840.0,1
+29-1122.01,"Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists",modest,21,2,8,11,0,0.095,0,162450.0,1
+29-2081.00,"Opticians, Dispensing",modest,21,2,8,11,0,0.095,0,73530.0,1
+29-1131.00,Veterinarians,modest,21,2,8,11,0,0.095,0,83900.0,1
+29-1124.00,Radiation Therapists,modest,22,2,4,16,0,0.091,0,17070.0,1
+29-2061.00,Licensed Practical and Licensed Vocational Nurses,modest,22,2,4,16,0,0.091,0,648410.0,1
+29-1181.00,Audiologists,modest,22,2,11,9,0,0.091,0,13660.0,1
+29-2092.00,Hearing Aid Specialists,modest,11,1,2,8,0,0.091,0,11270.0,0
+17-2171.00,Petroleum Engineers,modest,23,2,14,7,1,0.087,0,18060.0,0
+17-2199.05,Mechatronics Engineers,modest,23,2,17,4,0,0.087,0,154070.0,0
+17-3025.00,Environmental Engineering Technologists and Technicians,modest,23,2,12,9,0,0.087,0,12190.0,0
+29-9091.00,Athletic Trainers,modest,23,2,13,8,1,0.087,0,30500.0,1
+29-1127.00,Speech-Language Pathologists,modest,23,2,12,9,0,0.087,0,183390.0,1
 19-4092.00,Forensic Science Technicians,modest,24,2,2,20,2,0.083,0,19120.0,0
-29-1071.00,Physician Assistants,modest,12,1,7,4,1,0.083,0,162150.0,1
 29-1215.00,Family Medicine Physicians,modest,12,1,8,3,0,0.083,0,107510.0,1
-19-4042.00,"Environmental Science and Protection Technicians, Including Health",modest,25,2,10,13,0,0.08,0,34670.0,0
-29-1128.00,Exercise Physiologists,modest,25,2,13,10,3,0.08,0,8560.0,1
-29-1129.01,Art Therapists,modest,25,2,16,7,2,0.08,0,22640.0,1
+29-2042.00,Emergency Medical Technicians,modest,12,1,4,7,0,0.083,0,180510.0,0
+29-1129.01,Art Therapists,modest,25,2,17,6,2,0.08,0,22640.0,1
+19-4042.00,"Environmental Science and Protection Technicians, Including Health",modest,25,2,9,14,0,0.08,0,34670.0,0
 19-1012.00,Food Scientists and Technologists,modest,13,1,9,3,1,0.077,0,13060.0,0
-17-2199.11,Solar Energy Systems Engineers,modest,13,1,6,6,0,0.077,0,154070.0,0
+29-2011.02,Cytotechnologists,modest,13,1,3,9,0,0.077,0,332940.0,1
+29-2043.00,Paramedics,modest,13,1,5,7,1,0.077,0,100610.0,0
+29-1011.00,Chiropractors,modest,13,1,7,5,0,0.077,0,39630.0,1
 17-2111.00,"Health and Safety Engineers, Except Mining Safety Engineers and Inspectors",modest,27,2,15,10,0,0.074,0,21450.0,0
-29-1141.01,Acute Care Nurses,modest,27,2,14,11,0,0.074,0,3379720.0,1
-19-1013.00,Soil and Plant Scientists,modest,27,2,18,7,0,0.074,0,15730.0,0
-17-2011.00,Aerospace Engineers,modest,14,1,7,6,1,0.071,0,67710.0,0
-17-2041.00,Chemical Engineers,modest,14,1,11,2,2,0.071,0,21070.0,0
-29-1229.02,Hospitalists,modest,14,1,10,3,0,0.071,0,342720.0,1
-19-1022.00,Microbiologists,modest,14,1,4,9,1,0.071,0,18940.0,0
+19-1022.00,Microbiologists,modest,14,1,6,7,1,0.071,0,18940.0,0
 19-3039.02,Neuropsychologists,modest,14,1,8,5,0,0.071,0,18820.0,0
-17-2021.00,Agricultural Engineers,modest,14,1,8,5,2,0.071,0,1480.0,0
-29-1218.00,Obstetricians and Gynecologists,modest,15,1,9,5,0,0.067,0,21260.0,1
-29-2011.00,Medical and Clinical Laboratory Technologists,modest,15,1,4,10,1,0.067,0,332940.0,0
-29-1299.02,Orthoptists,modest,16,1,9,6,0,0.062,0,28630.0,1
-29-2099.01,Neurodiagnostic Technologists,modest,16,1,6,9,0,0.062,0,182610.0,1
-17-2051.00,Civil Engineers,modest,16,1,8,7,1,0.062,0,367840.0,0
-29-2053.00,Psychiatric Technicians,modest,16,1,4,11,0,0.062,0,156960.0,0
-29-1221.00,"Pediatricians, General",modest,17,1,10,6,0,0.059,0,39390.0,1
-19-4021.00,Biological Technicians,modest,18,1,5,12,0,0.056,0,69620.0,0
+17-2011.00,Aerospace Engineers,modest,14,1,10,3,1,0.071,0,67710.0,0
+17-2041.00,Chemical Engineers,modest,14,1,10,3,2,0.071,0,21070.0,0
+17-2021.00,Agricultural Engineers,modest,14,1,10,3,2,0.071,0,1480.0,0
+15-2011.00,Actuaries,modest,15,1,12,2,1,0.067,0,26670.0,0
+29-2011.00,Medical and Clinical Laboratory Technologists,modest,15,1,4,10,1,0.067,0,332940.0,1
+29-2034.00,Radiologic Technologists and Technicians,modest,30,2,10,18,0,0.067,0,230490.0,1
+29-1218.00,Obstetricians and Gynecologists,modest,15,1,8,6,0,0.067,0,21260.0,1
+29-2091.00,Orthotists and Prosthetists,modest,15,1,5,9,0,0.067,0,9390.0,1
+29-2056.00,Veterinary Technologists and Technicians,modest,31,2,5,24,0,0.065,0,129140.0,0
+29-1292.00,Dental Hygienists,modest,16,1,4,11,0,0.062,0,222740.0,1
+29-2053.00,Psychiatric Technicians,modest,16,1,5,10,0,0.062,0,156960.0,0
+29-1071.01,Anesthesiologist Assistants,modest,16,1,2,13,0,0.062,0,162150.0,0
+29-1229.01,Allergists and Immunologists,modest,16,1,12,3,0,0.062,0,342720.0,1
+17-2199.10,Wind Energy Engineers,modest,16,1,10,5,4,0.062,0,154070.0,0
+29-1221.00,"Pediatricians, General",modest,17,1,9,7,0,0.059,0,39390.0,1
 19-3039.03,Clinical Neuropsychologists,modest,18,1,10,7,1,0.056,0,18820.0,0
-29-9099.01,Midwives,modest,36,2,16,18,1,0.056,0,35010.0,1
+29-9099.01,Midwives,modest,36,2,17,17,1,0.056,0,35010.0,1
 29-2055.00,Surgical Technologists,modest,18,1,2,15,0,0.056,0,117460.0,0
+29-1213.00,Dermatologists,modest,18,1,12,5,0,0.056,0,11370.0,1
 19-4051.00,Nuclear Technicians,modest,18,1,5,12,0,0.056,0,6470.0,0
-19-3034.00,School Psychologists,modest,19,1,14,4,2,0.053,0,63940.0,0
+19-3034.00,School Psychologists,modest,19,1,13,5,2,0.053,0,63940.0,0
 29-1222.00,"Physicians, Pathologists",modest,19,1,10,8,0,0.053,0,11110.0,1
-29-1216.00,General Internal Medicine Physicians,modest,19,1,12,6,0,0.053,0,67150.0,1
+29-2032.00,Diagnostic Medical Sonographers,modest,19,1,6,12,0,0.053,0,90160.0,1
+29-1216.00,General Internal Medicine Physicians,modest,19,1,11,7,0,0.053,0,67150.0,1
 29-1021.00,"Dentists, General",modest,20,1,5,14,1,0.05,0,124390.0,0
-17-3024.01,Robotics Technicians,modest,22,1,8,13,0,0.045,0,15520.0,0
-29-1124.00,Radiation Therapists,modest,22,1,5,16,0,0.045,0,17070.0,1
-29-2061.00,Licensed Practical and Licensed Vocational Nurses,modest,22,1,6,15,0,0.045,0,648410.0,1
-29-1181.00,Audiologists,modest,22,1,15,6,0,0.045,0,13660.0,1
-29-1127.00,Speech-Language Pathologists,modest,23,1,17,5,0,0.043,0,183390.0,1
-29-1126.00,Respiratory Therapists,modest,23,1,7,15,0,0.043,0,139790.0,1
+29-1161.00,Nurse Midwives,modest,21,1,13,7,2,0.048,0,7920.0,1
+17-3024.01,Robotics Technicians,modest,22,1,9,12,0,0.045,0,15520.0,0
 29-1123.00,Physical Therapists,modest,24,1,15,8,0,0.042,0,267330.0,1
-29-2035.00,Magnetic Resonance Imaging Technologists,modest,24,1,6,17,0,0.042,0,43390.0,1
-29-1212.00,Cardiologists,modest,25,1,13,11,0,0.04,0,17290.0,0
-29-1171.00,Nurse Practitioners,modest,27,1,20,6,0,0.037,0,323040.0,1
-29-1129.02,Music Therapists,modest,30,1,20,9,0,0.033,0,22640.0,1
-29-1141.04,Clinical Nurse Specialists,modest,30,1,22,7,1,0.033,0,3379720.0,1
+29-2035.00,Magnetic Resonance Imaging Technologists,modest,24,1,7,16,0,0.042,0,43390.0,1
+29-1141.02,Advanced Practice Psychiatric Nurses,modest,24,1,15,8,1,0.042,0,3379720.0,1
+29-1217.00,Neurologists,modest,24,1,18,5,0,0.042,0,10590.0,1
+29-1212.00,Cardiologists,modest,25,1,12,12,0,0.04,0,17290.0,0
+29-1128.00,Exercise Physiologists,modest,25,1,12,12,3,0.04,0,8560.0,1
+19-1032.00,Foresters,modest,25,1,11,13,0,0.04,0,10430.0,0
+29-1229.06,Sports Medicine Physicians,modest,27,1,20,6,2,0.037,0,342720.0,1
+29-1141.03,Critical Care Nurses,modest,29,1,9,19,0,0.034,0,3379720.0,1
+19-1031.00,Conservation Scientists,modest,30,1,21,8,0,0.033,0,25950.0,0
+29-1141.04,Clinical Nurse Specialists,modest,30,1,20,9,1,0.033,0,3379720.0,1
 29-1224.00,Radiologists,modest,30,1,19,10,0,0.033,0,26770.0,1
-29-2034.00,Radiologic Technologists and Technicians,modest,30,1,11,18,0,0.033,0,230490.0,1
 29-2099.05,Ophthalmic Medical Technologists,modest,31,1,3,27,0,0.032,0,182610.0,0
-19-4043.00,"Geological Technicians, Except Hydrologic Technicians",modest,29,0,13,16,0,0.0,0,6980.0,0
-29-1292.00,Dental Hygienists,modest,16,0,5,11,0,0.0,0,222740.0,1
-29-1071.01,Anesthesiologist Assistants,modest,16,0,3,13,0,0.0,0,162150.0,0
-29-1229.03,Urologists,modest,14,0,6,8,0,0.0,0,342720.0,0
-29-2032.00,Diagnostic Medical Sonographers,modest,19,0,7,12,0,0.0,0,90160.0,1
-19-1031.00,Conservation Scientists,modest,30,0,21,9,0,0.0,0,25950.0,0
-29-1011.00,Chiropractors,modest,13,0,8,5,0,0.0,0,39630.0,1
-29-1023.00,Orthodontists,modest,11,0,5,6,0,0.0,0,6210.0,1
-29-1122.00,Occupational Therapists,modest,17,0,11,6,1,0.0,0,162450.0,1
+19-4043.00,"Geological Technicians, Except Hydrologic Technicians",modest,29,0,14,15,0,0.0,0,6980.0,0
+29-1299.02,Orthoptists,modest,16,0,11,5,0,0.0,0,28630.0,0
+29-2099.01,Neurodiagnostic Technologists,modest,16,0,7,9,0,0.0,0,182610.0,1
+29-1126.00,Respiratory Therapists,modest,23,0,7,16,0,0.0,0,139790.0,1
 29-1141.00,Registered Nurses,modest,27,0,15,12,0,0.0,0,3379720.0,1
-29-1141.02,Advanced Practice Psychiatric Nurses,modest,24,0,14,10,1,0.0,0,3379720.0,1
-29-1141.03,Critical Care Nurses,modest,29,0,11,18,0,0.0,0,3379720.0,1
-29-1161.00,Nurse Midwives,modest,21,0,14,7,2,0.0,0,7920.0,1
-29-1211.00,Anesthesiologists,modest,20,0,10,10,0,0.0,0,38760.0,1
-29-1213.00,Dermatologists,modest,18,0,13,5,0,0.0,0,11370.0,1
-29-1217.00,Neurologists,modest,24,0,18,6,0,0.0,0,10590.0,1
-29-1229.01,Allergists and Immunologists,modest,16,0,12,4,0,0.0,0,342720.0,1
-29-1229.04,Physical Medicine and Rehabilitation Physicians,modest,15,0,8,7,1,0.0,0,342720.0,1
-29-1229.06,Sports Medicine Physicians,modest,27,0,21,6,2,0.0,0,342720.0,1
-29-1241.00,"Ophthalmologists, Except Pediatric",modest,18,0,12,6,0,0.0,0,8950.0,1
-29-1242.00,"Orthopedic Surgeons, Except Pediatric",modest,15,0,8,7,0,0.0,0,14100.0,1
-29-1243.00,Pediatric Surgeons,modest,18,0,10,8,0,0.0,0,1190.0,1
-29-1291.00,Acupuncturists,modest,18,0,8,10,0,0.0,0,7830.0,0
-29-2091.00,Orthotists and Prosthetists,modest,15,0,5,10,0,0.0,0,9390.0,1
-17-3021.00,Aerospace Engineering and Operations Technologists and Technicians,modest,11,0,5,6,1,0.0,0,11280.0,0
-29-1131.00,Veterinarians,modest,21,0,11,10,0,0.0,0,83900.0,0
-29-2011.02,Cytotechnologists,modest,13,0,4,9,0,0.0,0,332940.0,0
-29-2042.00,Emergency Medical Technicians,modest,12,0,4,8,0,0.0,0,180510.0,0
-29-2043.00,Paramedics,modest,13,0,4,9,1,0.0,0,100610.0,0
-29-2092.00,Hearing Aid Specialists,modest,11,0,3,8,0,0.0,0,11270.0,0
-29-2051.00,Dietetic Technicians,modest,13,0,11,2,0,0.0,0,31560.0,1
-19-1032.00,Foresters,modest,25,0,12,13,0,0.0,0,10430.0,0
-29-2011.04,Histotechnologists,modest,16,0,3,13,2,0.0,0,332940.0,0
-19-1031.02,Range Managers,modest,18,0,11,7,0,0.0,0,25950.0,0
+29-1071.00,Physician Assistants,modest,12,0,8,4,1,0.0,0,162150.0,1
 29-1081.00,Podiatrists,modest,11,0,6,5,0,0.0,0,9680.0,0
-29-2056.00,Veterinary Technologists and Technicians,modest,31,0,7,24,0,0.0,0,129140.0,0
-17-1021.00,Cartographers and Photogrammetrists,modest,14,0,4,10,2,0.0,0,14260.0,0
+29-2051.00,Dietetic Technicians,modest,13,0,10,3,0,0.0,0,31560.0,1
+17-3029.01,Non-Destructive Testing Specialists,modest,16,0,5,11,1,0.0,0,59930.0,0
+17-1021.00,Cartographers and Photogrammetrists,modest,14,0,7,7,2,0.0,0,14260.0,0
+17-3021.00,Aerospace Engineering and Operations Technologists and Technicians,modest,11,0,4,7,1,0.0,0,11280.0,0
+29-2011.04,Histotechnologists,modest,16,0,3,13,2,0.0,0,332940.0,0
+29-2012.00,Medical and Clinical Laboratory Technicians,modest,14,0,4,10,0,0.0,0,332940.0,1
+29-1211.00,Anesthesiologists,modest,20,0,11,9,0,0.0,0,38760.0,1
 19-2031.00,Chemists,modest,12,0,6,6,0,0.0,0,82770.0,0
-29-2012.00,Medical and Clinical Laboratory Technicians,modest,14,0,4,10,0,0.0,0,332940.0,0
-29-1214.00,Emergency Medicine Physicians,modest,17,0,11,6,2,0.0,0,32880.0,1
-19-4013.00,Food Science Technicians,modest,16,0,5,11,0,0.0,0,14600.0,0
+29-1214.00,Emergency Medicine Physicians,modest,17,0,10,7,2,0.0,0,32880.0,1
+29-1243.00,Pediatric Surgeons,modest,18,0,9,9,0,0.0,0,1190.0,1
+29-1291.00,Acupuncturists,modest,18,0,7,11,0,0.0,0,7830.0,0
+29-1023.00,Orthodontists,modest,11,0,6,5,0,0.0,0,6210.0,1
+29-1122.00,Occupational Therapists,modest,17,0,12,5,1,0.0,0,162450.0,1
+29-1229.03,Urologists,modest,14,0,6,8,0,0.0,0,342720.0,0
+29-1229.04,Physical Medicine and Rehabilitation Physicians,modest,15,0,9,6,1,0.0,0,342720.0,1
+29-1241.00,"Ophthalmologists, Except Pediatric",modest,18,0,13,5,0,0.0,0,8950.0,1
+29-1242.00,"Orthopedic Surgeons, Except Pediatric",modest,15,0,8,7,0,0.0,0,14100.0,1
 29-1125.00,Recreational Therapists,modest,11,0,8,3,0,0.0,0,14930.0,1
+29-1022.00,Oral and Maxillofacial Surgeons,modest,15,0,2,13,1,0.0,0,4910.0,0
+19-4013.00,Food Science Technicians,modest,16,0,3,13,0,0.0,0,14600.0,0
+29-9093.00,Surgical Assistants,modest,28,0,3,25,0,0.0,0,22270.0,0
+29-1041.00,Optometrists,modest,10,0,4,6,0,0.0,0,42790.0,1
 29-2057.00,Ophthalmic Medical Technicians,modest,20,0,2,18,2,0.0,0,71010.0,0
-29-1022.00,Oral and Maxillofacial Surgeons,modest,15,0,1,14,1,0.0,0,4910.0,0
-29-1041.00,Optometrists,modest,10,0,5,5,0,0.0,0,42790.0,1
-29-9093.00,Surgical Assistants,modest,28,0,1,27,0,0.0,0,22270.0,0
-29-1024.00,Prosthodontists,modest,12,0,0,12,2,0.0,0,870.0,0
+29-1024.00,Prosthodontists,modest,12,0,1,11,2,0.0,0,870.0,0
 29-2012.01,Histology Technicians,modest,8,0,0,8,1,0.0,0,332940.0,0
-15-1211.01,Health Informatics Specialists,substantial,17,17,0,0,0,1.0,1,519530.0,0
-15-1212.00,Information Security Analysts,substantial,11,11,0,0,0,1.0,1,190650.0,0
+15-1255.00,Web and Digital Interface Designers,substantial,30,30,0,0,1,1.0,1,113330.0,0
 15-1299.02,Geographic Information Systems Technologists and Technicians,substantial,29,29,0,0,1,1.0,1,435370.0,1
-15-1243.01,Data Warehousing Specialists,substantial,18,18,0,0,0,1.0,1,67140.0,0
+15-2021.00,Mathematicians,substantial,12,12,0,0,0,1.0,1,2030.0,1
 15-2051.01,Business Intelligence Analysts,substantial,17,17,0,0,0,1.0,1,262440.0,1
-15-1255.00,Web and Digital Interface Designers,substantial,30,29,1,0,1,0.967,1,113330.0,0
+15-1211.01,Health Informatics Specialists,substantial,17,17,0,0,0,1.0,1,519530.0,0
+15-1243.01,Data Warehousing Specialists,substantial,18,18,0,0,0,1.0,1,67140.0,0
+15-2041.01,Biostatisticians,substantial,25,24,1,0,0,0.96,1,29030.0,1
 15-1255.01,Video Game Designers,substantial,24,23,1,0,0,0.958,1,113330.0,0
 15-1299.03,Document Management Specialists,substantial,23,22,1,0,0,0.957,1,435370.0,0
 19-3011.01,Environmental Economists,substantial,20,19,0,1,0,0.95,1,17790.0,1
 15-1242.00,Database Administrators,substantial,18,17,1,0,0,0.944,1,69990.0,0
 15-1299.01,Web Administrators,substantial,35,33,1,1,0,0.943,1,435370.0,0
-15-1251.00,Computer Programmers,substantial,17,16,1,0,0,0.941,1,92230.0,0
-15-1299.07,Blockchain Engineers,substantial,17,16,1,0,1,0.941,1,435370.0,0
 15-2051.00,Data Scientists,substantial,16,15,1,0,1,0.938,1,262440.0,0
 15-1254.00,Web Developers,substantial,29,27,0,2,0,0.931,1,70190.0,0
+19-2041.01,Climate Change Policy Analysts,substantial,14,13,1,0,0,0.929,1,89250.0,0
 15-1243.00,Database Architects,substantial,25,23,1,1,0,0.92,1,67140.0,0
-15-2041.01,Biostatisticians,substantial,25,23,2,0,0,0.92,1,29030.0,1
-15-2021.00,Mathematicians,substantial,12,11,1,0,0,0.917,1,2030.0,1
 15-1211.00,Computer Systems Analysts,substantial,22,20,2,0,1,0.909,1,519530.0,0
-15-1253.00,Software Quality Assurance Analysts and Testers,substantial,30,27,3,0,0,0.9,1,186740.0,0
-15-1299.06,Digital Forensics Analysts,substantial,20,18,1,1,0,0.9,1,435370.0,0
-15-2041.00,Statisticians,substantial,19,17,1,1,0,0.895,1,29030.0,0
+15-1212.00,Information Security Analysts,substantial,11,10,1,0,0,0.909,1,190650.0,0
+15-2051.02,Clinical Data Managers,substantial,21,19,2,0,0,0.905,1,262440.0,0
+15-2041.00,Statisticians,substantial,19,17,2,0,0,0.895,1,29030.0,0
 15-2031.00,Operations Research Analysts,substantial,17,15,2,0,0,0.882,1,108510.0,0
+15-1241.00,Computer Network Architects,substantial,33,29,3,1,0,0.879,1,179740.0,0
 19-2041.03,Industrial Ecologists,substantial,38,33,5,0,1,0.868,1,89250.0,1
-15-2051.02,Clinical Data Managers,substantial,21,18,2,1,0,0.857,1,262440.0,0
-19-2041.01,Climate Change Policy Analysts,substantial,14,12,2,0,0,0.857,1,89250.0,0
-19-1029.01,Bioinformatics Scientists,substantial,20,17,1,2,0,0.85,1,55850.0,1
+15-1299.05,Information Security Engineers,substantial,20,17,3,0,0,0.85,1,435370.0,0
 41-4011.07,Solar Sales Representatives and Assessors,substantial,13,11,1,1,1,0.846,1,284800.0,0
-15-1299.04,Penetration Testers,substantial,22,18,4,0,0,0.818,1,435370.0,1
+15-1253.00,Software Quality Assurance Analysts and Testers,substantial,30,25,3,2,0,0.833,1,186740.0,0
+15-1299.07,Blockchain Engineers,substantial,17,14,3,0,1,0.824,1,435370.0,0
+15-1251.00,Computer Programmers,substantial,17,14,3,0,0,0.824,1,92230.0,0
+29-2072.00,Medical Records Specialists,substantial,16,13,2,1,0,0.812,1,194720.0,1
+19-1029.01,Bioinformatics Scientists,substantial,20,16,2,2,0,0.8,1,55850.0,1
 19-3051.00,Urban and Regional Planners,substantial,25,20,4,1,0,0.8,1,44230.0,1
-15-2099.01,Bioinformatics Technicians,substantial,19,15,2,2,1,0.789,1,3720.0,0
-41-4011.00,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",substantial,33,26,5,2,0,0.788,1,284800.0,0
-15-1241.00,Computer Network Architects,substantial,33,26,5,2,0,0.788,1,179740.0,0
-19-3094.00,Political Scientists,substantial,14,11,2,1,0,0.786,1,5540.0,1
+15-1221.00,Computer and Information Research Scientists,substantial,15,12,3,0,0,0.8,1,37200.0,0
+15-1299.06,Digital Forensics Analysts,substantial,20,16,3,1,0,0.8,1,435370.0,0
 15-1299.08,Computer Systems Engineers/Architects,substantial,28,22,5,1,0,0.786,1,435370.0,0
 19-1011.00,Animal Scientists,substantial,9,7,1,1,0,0.778,1,3100.0,0
-17-2031.00,Bioengineers and Biomedical Engineers,substantial,30,23,6,1,0,0.767,1,23480.0,1
-15-1252.00,Software Developers,substantial,17,13,3,1,0,0.765,1,1687890.0,0
+15-1299.04,Penetration Testers,substantial,22,17,5,0,0,0.773,1,435370.0,1
+15-1252.00,Software Developers,substantial,17,13,4,0,0,0.765,1,1687890.0,0
+15-1299.09,Information Technology Project Managers,substantial,21,16,5,0,0,0.762,1,435370.0,0
+41-4011.00,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",substantial,33,25,6,2,0,0.758,1,284800.0,0
+15-1232.00,Computer User Support Specialists,substantial,16,12,2,2,0,0.75,1,717190.0,0
 15-1244.00,Network and Computer Systems Administrators,substantial,20,15,4,1,0,0.75,1,314340.0,0
-15-1232.00,Computer User Support Specialists,substantial,16,12,1,3,0,0.75,1,717190.0,0
-29-2072.00,Medical Records Specialists,substantial,16,12,3,1,0,0.75,1,194720.0,1
-19-2021.00,Atmospheric and Space Scientists,substantial,27,20,3,4,0,0.741,1,10000.0,1
+17-2112.00,Industrial Engineers,substantial,20,15,4,1,0,0.75,1,365740.0,1
+17-2072.00,"Electronics Engineers, Except Computer",substantial,20,15,2,3,0,0.75,1,96900.0,1
+19-2021.00,Atmospheric and Space Scientists,substantial,27,20,4,3,0,0.741,1,10000.0,1
+15-2099.01,Bioinformatics Technicians,substantial,19,14,5,0,1,0.737,1,3720.0,0
+17-1012.00,Landscape Architects,substantial,19,14,2,3,3,0.737,1,19600.0,0
+17-2031.00,Bioengineers and Biomedical Engineers,substantial,30,22,7,1,0,0.733,1,23480.0,1
 15-1241.01,Telecommunications Engineering Specialists,substantial,26,19,4,3,0,0.731,1,179740.0,0
-19-3099.01,Transportation Planners,substantial,22,16,4,2,0,0.727,1,37100.0,1
-17-2199.03,"Energy Engineers, Except Wind and Solar",substantial,21,15,5,1,0,0.714,1,154070.0,0
-15-1299.05,Information Security Engineers,substantial,20,14,6,0,0,0.7,1,435370.0,0
+17-3011.00,Architectural and Civil Drafters,substantial,26,19,4,3,1,0.731,1,103700.0,1
+19-4061.00,Social Science Research Assistants,substantial,22,16,5,1,1,0.727,1,30640.0,1
+19-4012.01,Precision Agriculture Technicians,substantial,22,16,3,3,1,0.727,1,15130.0,1
+19-3099.01,Transportation Planners,substantial,22,16,5,1,0,0.727,1,37100.0,1
+41-9031.00,Sales Engineers,substantial,25,18,5,2,0,0.72,1,51790.0,0
+19-3094.00,Political Scientists,substantial,14,10,3,1,0,0.714,1,5540.0,1
+11-3021.00,Computer and Information Systems Managers,substantial,17,12,5,0,0,0.706,1,670570.0,0
 25-1062.00,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",substantial,23,16,6,1,0,0.696,1,11300.0,0
-25-1021.00,"Computer Science Teachers, Postsecondary",substantial,26,18,6,2,0,0.692,1,35480.0,0
-25-1051.00,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",substantial,26,18,7,1,1,0.692,1,9900.0,0
-15-1231.00,Computer Network Support Specialists,substantial,26,18,3,5,0,0.692,1,146190.0,0
+29-9021.00,Health Information Technologists and Medical Registrars,substantial,16,11,3,2,0,0.688,1,38100.0,1
 19-4044.00,Hydrologic Technicians,substantial,16,11,1,4,0,0.688,1,2840.0,1
+19-2012.00,Physicists,substantial,16,11,3,2,0,0.688,1,20430.0,1
 25-1031.00,"Architecture Teachers, Postsecondary",substantial,22,15,6,1,0,0.682,1,7700.0,0
 25-1063.00,"Economics Teachers, Postsecondary",substantial,22,15,6,1,0,0.682,1,11560.0,0
 25-1065.00,"Political Science Teachers, Postsecondary",substantial,22,15,6,1,0,0.682,1,16970.0,0
 25-1043.00,"Forestry and Conservation Science Teachers, Postsecondary",substantial,25,17,7,1,1,0.68,1,1520.0,0
 25-1053.00,"Environmental Science Teachers, Postsecondary",substantial,25,17,7,1,0,0.68,1,6690.0,0
-25-1064.00,"Geography Teachers, Postsecondary",substantial,25,17,7,1,0,0.68,1,3330.0,0
-41-9031.00,Sales Engineers,substantial,25,17,6,2,0,0.68,1,51790.0,0
 25-1032.00,"Engineering Teachers, Postsecondary",substantial,24,16,7,1,0,0.667,1,40270.0,0
 25-1042.00,"Biological Science Teachers, Postsecondary",substantial,27,18,7,2,1,0.667,1,50190.0,0
 25-1061.00,"Anthropology and Archeology Teachers, Postsecondary",substantial,27,18,7,2,0,0.667,1,5240.0,0
 25-1067.00,"Sociology Teachers, Postsecondary",substantial,24,16,7,1,3,0.667,1,11850.0,0
-15-1221.00,Computer and Information Research Scientists,substantial,15,10,5,0,0,0.667,1,37200.0,0
+19-4099.03,Remote Sensing Technicians,substantial,21,14,2,5,1,0.667,1,73910.0,1
+17-2061.00,Computer Hardware Engineers,substantial,18,12,2,4,0,0.667,1,76660.0,1
+11-9121.01,Clinical Research Coordinators,substantial,33,22,10,1,0,0.667,1,108690.0,0
+25-1021.00,"Computer Science Teachers, Postsecondary",substantial,26,17,7,2,0,0.654,1,35480.0,0
+25-1051.00,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",substantial,26,17,8,1,1,0.654,1,9900.0,0
+15-1231.00,Computer Network Support Specialists,substantial,26,17,3,6,0,0.654,1,146190.0,0
+17-2199.07,Photonics Engineers,substantial,26,17,5,4,0,0.654,1,154070.0,1
 25-1022.00,"Mathematical Science Teachers, Postsecondary",substantial,23,15,7,1,1,0.652,1,47670.0,0
 25-1041.00,"Agricultural Sciences Teachers, Postsecondary",substantial,23,15,7,1,0,0.652,1,8920.0,0
-11-3021.00,Computer and Information Systems Managers,substantial,17,11,5,1,0,0.647,1,670570.0,0
 25-1052.00,"Chemistry Teachers, Postsecondary",substantial,28,18,7,3,0,0.643,1,19980.0,0
-19-3011.00,Economists,substantial,14,9,3,2,3,0.643,1,17790.0,1
+25-1064.00,"Geography Teachers, Postsecondary",substantial,25,16,8,1,0,0.64,1,3330.0,0
 17-2141.02,Automotive Engineers,substantial,25,16,7,2,0,0.64,1,296810.0,1
 25-1071.00,"Health Specialties Teachers, Postsecondary",substantial,22,14,7,1,0,0.636,1,221270.0,0
-17-1012.00,Landscape Architects,substantial,19,12,4,3,3,0.632,1,19600.0,0
+19-1029.04,Biologists,substantial,22,14,5,3,1,0.636,1,55850.0,1
 25-1054.00,"Physics Teachers, Postsecondary",substantial,24,15,7,2,1,0.625,1,13090.0,0
-29-9021.00,Health Information Technologists and Medical Registrars,substantial,16,10,5,1,0,0.625,1,38100.0,1
+19-2099.01,Remote Sensing Scientists and Technologists,substantial,24,15,6,3,1,0.625,1,22300.0,1
+17-2112.03,Manufacturing Engineers,substantial,24,15,7,2,0,0.625,1,365740.0,1
+19-1021.00,Biochemists and Biophysicists,substantial,24,15,3,6,1,0.625,1,33830.0,1
 25-1066.00,"Psychology Teachers, Postsecondary",substantial,29,18,9,2,1,0.621,1,41530.0,0
 25-1072.00,"Nursing Instructors and Teachers, Postsecondary",substantial,29,18,10,1,0,0.621,1,77960.0,0
-15-1299.09,Information Technology Project Managers,substantial,21,13,7,1,0,0.619,1,435370.0,0
+17-2199.03,"Energy Engineers, Except Wind and Solar",substantial,21,13,4,4,0,0.619,1,154070.0,0
 29-2099.08,Patient Representatives,substantial,13,8,4,1,1,0.615,1,182610.0,0
-17-2061.00,Computer Hardware Engineers,substantial,18,11,4,3,0,0.611,1,76660.0,1
-11-9121.01,Clinical Research Coordinators,substantial,33,20,10,3,0,0.606,1,108690.0,0
 19-3032.00,Industrial-Organizational Psychologists,substantial,25,15,8,2,2,0.6,1,790.0,1
-17-2112.00,Industrial Engineers,substantial,20,12,7,1,0,0.6,1,365740.0,1
-17-2072.00,"Electronics Engineers, Except Computer",substantial,20,12,5,3,0,0.6,1,96900.0,1
-19-4012.01,Precision Agriculture Technicians,substantial,22,13,6,3,1,0.591,1,15130.0,1
-19-4061.00,Social Science Research Assistants,substantial,22,13,8,1,1,0.591,1,30640.0,1
-19-1029.04,Biologists,substantial,22,13,6,3,1,0.591,1,55850.0,1
+19-2043.00,Hydrologists,substantial,25,15,4,6,1,0.6,1,5850.0,1
+19-1031.03,Park Naturalists,substantial,20,12,3,5,0,0.6,1,25950.0,0
+17-1011.00,"Architects, Except Landscape and Naval",substantial,25,15,6,4,0,0.6,1,106770.0,0
 19-2041.00,"Environmental Scientists and Specialists, Including Health",substantial,22,13,8,1,0,0.591,1,89250.0,1
-19-2099.01,Remote Sensing Scientists and Technologists,substantial,24,14,5,5,1,0.583,1,22300.0,1
-19-4099.03,Remote Sensing Technicians,substantial,21,12,4,5,1,0.571,1,73910.0,1
-17-3022.00,Civil Engineering Technologists and Technicians,substantial,14,8,2,4,1,0.571,1,68520.0,0
-17-2011.00,Aerospace Engineers,substantial,14,8,4,2,1,0.571,1,67710.0,0
+19-3011.00,Economists,substantial,14,8,4,2,3,0.571,1,17790.0,1
+17-2072.01,Radio Frequency Identification Device Specialists,substantial,21,12,3,6,0,0.571,1,96900.0,1
+17-2141.00,Mechanical Engineers,substantial,28,16,6,6,1,0.571,1,296810.0,0
+17-2111.02,Fire-Prevention and Protection Engineers,substantial,14,8,4,2,3,0.571,1,21450.0,0
+17-3022.00,Civil Engineering Technologists and Technicians,substantial,14,8,3,3,1,0.571,1,68520.0,0
+17-2051.02,Water/Wastewater Engineers,substantial,28,16,12,0,0,0.571,1,367840.0,1
+17-2041.00,Chemical Engineers,substantial,14,8,5,1,2,0.571,1,21070.0,0
+17-3027.00,Mechanical Engineering Technologists and Technicians,substantial,30,17,6,7,0,0.567,1,36190.0,1
+19-2041.02,Environmental Restoration Planners,substantial,23,13,8,2,0,0.565,1,89250.0,1
 19-3022.00,Survey Researchers,substantial,16,9,6,1,0,0.562,1,8290.0,1
-19-2012.00,Physicists,substantial,16,9,5,2,0,0.562,1,20430.0,1
 19-2032.00,Materials Scientists,substantial,16,9,4,3,2,0.562,1,8470.0,0
-19-2043.00,Hydrologists,substantial,25,14,5,6,1,0.56,1,5850.0,1
-17-2081.00,Environmental Engineers,substantial,29,16,10,3,0,0.552,1,38340.0,0
 19-1029.03,Geneticists,substantial,24,13,8,3,0,0.542,1,55850.0,1
-17-2112.03,Manufacturing Engineers,substantial,24,13,9,2,0,0.542,1,365740.0,1
+17-2141.01,Fuel Cell Engineers,substantial,26,14,8,4,0,0.538,1,296810.0,0
 19-4099.01,Quality Control Analysts,substantial,26,14,5,7,0,0.538,1,73910.0,1
-17-2141.01,Fuel Cell Engineers,substantial,26,14,9,3,0,0.538,1,296810.0,0
-17-2141.00,Mechanical Engineers,substantial,28,15,7,6,1,0.536,1,296810.0,0
-19-3041.00,Sociologists,substantial,15,8,6,1,2,0.533,1,2260.0,1
-19-2041.02,Environmental Restoration Planners,substantial,23,12,9,2,0,0.522,1,89250.0,1
-17-1011.00,"Architects, Except Landscape and Naval",substantial,25,13,8,4,0,0.52,1,106770.0,0
-17-1022.01,Geodetic Surveyors,substantial,16,8,4,4,1,0.5,1,50830.0,0
-17-2111.02,Fire-Prevention and Protection Engineers,substantial,14,7,5,2,3,0.5,1,21450.0,0
+17-2199.11,Solar Energy Systems Engineers,substantial,13,7,3,3,0,0.538,1,154070.0,0
+11-9121.02,Water Resource Specialists,substantial,21,11,7,3,0,0.524,1,108690.0,0
+19-1013.00,Soil and Plant Scientists,substantial,27,14,11,2,0,0.519,1,15730.0,0
+17-2081.00,Environmental Engineers,substantial,29,15,11,3,0,0.517,1,38340.0,0
+19-2042.00,"Geoscientists, Except Hydrologists and Geographers",substantial,32,16,11,5,0,0.5,1,23470.0,1
+17-2151.00,"Mining and Geological Engineers, Including Mining Safety Engineers",substantial,18,9,7,2,1,0.5,1,6080.0,0
+17-3012.00,Electrical and Electronics Drafters,substantial,30,15,9,6,0,0.5,1,17920.0,0
+17-2199.08,Robotics Engineers,substantial,24,12,10,2,0,0.5,1,154070.0,1
 17-3023.00,Electrical and Electronic Engineering Technologists and Technicians,substantial,28,14,7,7,0,0.5,1,95130.0,0
-17-2112.01,Human Factors Engineers and Ergonomists,substantial,26,13,10,3,1,0.5,1,365740.0,0
-19-1031.03,Park Naturalists,substantial,20,10,5,5,0,0.5,1,25950.0,0
-11-9121.00,Natural Sciences Managers,substantial,16,8,8,0,0,0.5,1,108690.0,0
-17-2051.01,Transportation Engineers,substantial,26,13,7,6,1,0.5,1,367840.0,0
-17-2051.02,Water/Wastewater Engineers,substantial,28,14,14,0,0,0.5,1,367840.0,1
+17-2051.01,Transportation Engineers,substantial,26,13,8,5,1,0.5,1,367840.0,0
+11-9121.00,Natural Sciences Managers,substantial,16,8,7,1,0,0.5,1,108690.0,0
 19-1041.00,Epidemiologists,substantial,16,8,5,3,1,0.5,1,12090.0,1
-17-3027.00,Mechanical Engineering Technologists and Technicians,substantial,30,15,7,8,0,0.5,1,36190.0,0
-19-1013.00,Soil and Plant Scientists,substantial,27,13,12,2,0,0.481,0,15730.0,0
+17-2112.01,Human Factors Engineers and Ergonomists,substantial,26,13,10,3,1,0.5,1,365740.0,0
+19-3092.00,Geographers,substantial,12,6,3,3,0,0.5,1,1400.0,0
+17-2011.00,Aerospace Engineers,substantial,14,7,5,2,1,0.5,1,67710.0,0
+19-1031.00,Conservation Scientists,substantial,30,15,9,6,0,0.5,1,25950.0,0
 17-3025.00,Environmental Engineering Technologists and Technicians,substantial,23,11,4,8,0,0.478,0,12190.0,0
-11-9121.02,Water Resource Specialists,substantial,21,10,9,2,0,0.476,0,108690.0,0
+17-2112.02,Validation Engineers,substantial,21,10,6,5,0,0.476,0,365740.0,0
 17-2131.00,Materials Engineers,substantial,21,10,7,4,0,0.476,0,22770.0,0
-19-2011.00,Astronomers,substantial,17,8,5,4,1,0.471,0,2120.0,0
-17-2199.11,Solar Energy Systems Engineers,substantial,13,6,3,4,0,0.462,0,154070.0,0
-17-2161.00,Nuclear Engineers,substantial,20,9,8,3,1,0.45,0,15280.0,0
-17-2151.00,"Mining and Geological Engineers, Including Mining Safety Engineers",substantial,18,8,8,2,1,0.444,0,6080.0,0
+19-2011.00,Astronomers,substantial,17,8,7,2,1,0.471,0,2120.0,0
+19-3041.00,Sociologists,substantial,15,7,7,1,2,0.467,0,2260.0,1
+29-1229.05,Preventive Medicine Physicians,substantial,15,7,7,1,0,0.467,0,342720.0,1
+19-1029.02,Molecular and Cellular Biologists,substantial,22,10,6,6,0,0.455,0,55850.0,0
+17-2199.06,Microsystems Engineers,substantial,31,14,13,4,0,0.452,0,154070.0,0
+17-2161.00,Nuclear Engineers,substantial,20,9,7,4,1,0.45,0,15280.0,0
+11-9111.00,Medical and Health Services Managers,substantial,18,8,8,2,0,0.444,0,597080.0,0
 17-3027.01,Automotive Engineering Technicians,substantial,18,8,2,8,0,0.444,0,36190.0,0
-19-2042.00,"Geoscientists, Except Hydrologists and Geographers",substantial,32,14,13,5,0,0.438,0,23470.0,1
-17-3013.00,Mechanical Drafters,substantial,16,7,1,8,1,0.438,0,39960.0,0
+17-3013.00,Mechanical Drafters,substantial,16,7,8,1,1,0.438,0,39960.0,0
+17-1022.01,Geodetic Surveyors,substantial,16,7,5,4,1,0.438,0,50830.0,0
 17-2199.10,Wind Energy Engineers,substantial,16,7,5,4,4,0.438,0,154070.0,0
-17-2199.05,Mechatronics Engineers,substantial,23,10,9,4,0,0.435,0,154070.0,0
-17-3012.00,Electrical and Electronics Drafters,substantial,30,13,11,6,0,0.433,0,17920.0,0
 19-1023.00,Zoologists and Wildlife Biologists,substantial,14,6,5,3,1,0.429,0,18120.0,0
-17-2072.01,Radio Frequency Identification Device Specialists,substantial,21,9,7,5,0,0.429,0,96900.0,1
-17-2112.02,Validation Engineers,substantial,21,9,10,2,0,0.429,0,365740.0,1
-17-2041.00,Chemical Engineers,substantial,14,6,7,1,2,0.429,0,21070.0,0
-17-3011.00,Architectural and Civil Drafters,substantial,26,11,9,6,1,0.423,0,103700.0,1
-19-3034.00,School Psychologists,substantial,19,8,9,2,2,0.421,0,63940.0,0
-11-9041.00,Architectural and Engineering Managers,substantial,19,8,9,2,0,0.421,0,220260.0,0
-19-3092.00,Geographers,substantial,12,5,4,3,0,0.417,0,1400.0,0
+17-3028.00,Calibration Technologists and Technicians,substantial,14,6,2,6,0,0.429,0,16540.0,0
+17-2021.00,Agricultural Engineers,substantial,14,6,5,3,2,0.429,0,1480.0,0
+29-9092.00,Genetic Counselors,substantial,19,8,10,1,0,0.421,0,3740.0,1
+11-9041.00,Architectural and Engineering Managers,substantial,19,8,10,1,0,0.421,0,220260.0,0
 29-1223.00,Psychiatrists,substantial,12,5,5,2,2,0.417,0,27980.0,1
 15-2011.00,Actuaries,substantial,15,6,7,2,1,0.4,0,26670.0,0
-29-1229.05,Preventive Medicine Physicians,substantial,15,6,8,1,0,0.4,0,342720.0,1
-19-1031.00,Conservation Scientists,substantial,30,12,12,6,0,0.4,0,25950.0,0
-17-2171.00,Petroleum Engineers,substantial,23,9,9,5,1,0.391,0,18060.0,0
-17-2199.06,Microsystems Engineers,substantial,31,12,16,3,0,0.387,0,154070.0,0
+17-2121.00,Marine Engineers and Naval Architects,substantial,30,12,11,7,1,0.4,0,8250.0,0
+17-2199.05,Mechatronics Engineers,substantial,23,9,11,3,0,0.391,0,154070.0,0
 29-2052.00,Pharmacy Technicians,substantial,21,8,4,9,0,0.381,0,471680.0,1
-17-2199.08,Robotics Engineers,substantial,24,9,12,3,0,0.375,0,154070.0,0
-17-2051.00,Civil Engineers,substantial,16,6,5,5,1,0.375,0,367840.0,0
-29-9092.00,Genetic Counselors,substantial,19,7,11,1,0,0.368,0,3740.0,1
+17-2051.00,Civil Engineers,substantial,16,6,6,4,1,0.375,0,367840.0,0
+19-3034.00,School Psychologists,substantial,19,7,10,2,2,0.368,0,63940.0,0
 17-3021.00,Aerospace Engineering and Operations Technologists and Technicians,substantial,11,4,1,6,1,0.364,0,11280.0,0
-17-3028.00,Calibration Technologists and Technicians,substantial,14,5,2,7,0,0.357,0,16540.0,0
 29-1229.02,Hospitalists,substantial,14,5,8,1,0,0.357,0,342720.0,1
 19-1042.00,"Medical Scientists, Except Epidemiologists",substantial,14,5,6,3,0,0.357,0,172340.0,1
-17-2021.00,Agricultural Engineers,substantial,14,5,5,4,2,0.357,0,1480.0,0
-29-1299.01,Naturopathic Physicians,substantial,20,7,7,6,0,0.35,0,28630.0,1
-17-2199.07,Photonics Engineers,substantial,26,9,12,5,0,0.346,0,154070.0,1
-17-2121.00,Marine Engineers and Naval Architects,substantial,30,10,13,7,1,0.333,0,8250.0,0
-11-9111.00,Medical and Health Services Managers,substantial,18,6,11,1,0,0.333,0,597080.0,0
-17-1022.00,Surveyors,substantial,24,8,7,9,0,0.333,0,50830.0,0
+29-1031.00,Dietitians and Nutritionists,substantial,28,10,17,1,0,0.357,0,77570.0,1
+17-2171.00,Petroleum Engineers,substantial,23,8,9,6,1,0.348,0,18060.0,0
 17-2111.00,"Health and Safety Engineers, Except Mining Safety Engineers and Inspectors",substantial,27,9,8,10,0,0.333,0,21450.0,0
-19-3091.00,Anthropologists and Archeologists,substantial,30,10,15,5,1,0.333,0,8990.0,0
-29-1071.00,Physician Assistants,substantial,12,4,4,4,1,0.333,0,162150.0,1
-29-1031.00,Dietitians and Nutritionists,substantial,28,9,18,1,0,0.321,0,77570.0,1
-17-3026.01,Nanotechnology Engineering Technologists and Technicians,substantial,25,8,6,11,0,0.32,0,75570.0,0
+17-1022.00,Surveyors,substantial,24,8,7,9,0,0.333,0,50830.0,0
+29-1229.06,Sports Medicine Physicians,substantial,27,9,13,5,2,0.333,0,342720.0,1
+17-3024.00,Electro-Mechanical and Mechatronics Technologists and Technicians,substantial,28,9,8,11,1,0.321,0,15520.0,0
 17-2199.09,Nanosystems Engineers,substantial,25,8,13,4,0,0.32,0,154070.0,0
-19-4042.00,"Environmental Science and Protection Technicians, Including Health",substantial,25,8,6,11,0,0.32,0,34670.0,0
-19-1029.02,Molecular and Cellular Biologists,substantial,22,7,8,7,0,0.318,0,55850.0,0
-17-2071.00,Electrical Engineers,substantial,22,7,11,4,0,0.318,0,198750.0,0
-29-2032.00,Diagnostic Medical Sonographers,substantial,19,6,3,10,0,0.316,0,90160.0,1
+19-4042.00,"Environmental Science and Protection Technicians, Including Health",substantial,25,8,7,10,0,0.32,0,34670.0,0
+17-2071.00,Electrical Engineers,substantial,22,7,9,6,0,0.318,0,198750.0,0
 17-3029.01,Non-Destructive Testing Specialists,substantial,16,5,0,11,1,0.312,0,59930.0,0
 19-1012.00,Food Scientists and Technologists,substantial,13,4,6,3,1,0.308,0,13060.0,0
 29-1011.00,Chiropractors,substantial,13,4,4,5,0,0.308,0,39630.0,1
 29-9091.00,Athletic Trainers,substantial,23,7,8,8,1,0.304,0,30500.0,1
-29-1229.06,Sports Medicine Physicians,substantial,27,8,15,4,2,0.296,0,342720.0,1
-19-1021.00,Biochemists and Biophysicists,substantial,24,7,11,6,1,0.292,0,33830.0,1
+17-3026.00,Industrial Engineering Technologists and Technicians,substantial,30,9,14,7,0,0.3,0,75570.0,0
+19-3091.00,Anthropologists and Archeologists,substantial,30,9,17,4,1,0.3,0,8990.0,0
+29-1299.01,Naturopathic Physicians,substantial,20,6,7,7,0,0.3,0,28630.0,1
+19-1022.00,Microbiologists,substantial,14,4,5,5,1,0.286,0,18940.0,0
+29-1051.00,Pharmacists,substantial,21,6,12,3,0,0.286,0,321970.0,1
+29-1131.00,Veterinarians,substantial,21,6,7,8,0,0.286,0,83900.0,1
 29-1161.00,Nurse Midwives,substantial,21,6,8,7,2,0.286,0,7920.0,1
+17-3026.01,Nanotechnology Engineering Technologists and Technicians,substantial,25,7,7,11,0,0.28,0,75570.0,0
 29-1128.00,Exercise Physiologists,substantial,25,7,8,10,3,0.28,0,8560.0,1
-29-1129.01,Art Therapists,substantial,25,7,13,5,2,0.28,0,22640.0,1
-29-1213.00,Dermatologists,substantial,18,5,10,3,0,0.278,0,11370.0,1
+29-1129.01,Art Therapists,substantial,25,7,14,4,2,0.28,0,22640.0,1
+11-9041.01,Biofuels/Biodiesel Technology and Product Development Managers,substantial,18,5,7,6,0,0.278,0,220260.0,0
 19-1031.02,Range Managers,substantial,18,5,10,3,0,0.278,0,25950.0,0
+17-3024.01,Robotics Technicians,substantial,22,6,7,9,0,0.273,0,15520.0,0
 19-4012.00,Agricultural Technicians,substantial,26,7,5,14,0,0.269,0,15130.0,0
-17-3026.00,Industrial Engineering Technologists and Technicians,substantial,30,8,17,5,0,0.267,0,75570.0,0
+17-3031.00,Surveying and Mapping Technicians,substantial,30,8,10,12,2,0.267,0,58010.0,0
+29-1129.02,Music Therapists,substantial,30,8,16,6,0,0.267,0,22640.0,1
+29-1218.00,Obstetricians and Gynecologists,substantial,15,4,8,3,0,0.267,0,21260.0,1
+29-1242.00,"Orthopedic Surgeons, Except Pediatric",substantial,15,4,5,6,0,0.267,0,14100.0,1
+29-1222.00,"Physicians, Pathologists",substantial,19,5,9,5,0,0.263,0,11110.0,1
+29-2032.00,Diagnostic Medical Sonographers,substantial,19,5,3,11,0,0.263,0,90160.0,1
 29-1171.00,Nurse Practitioners,substantial,27,7,15,5,0,0.259,0,323040.0,1
 19-4051.02,Nuclear Monitoring Technicians,substantial,16,4,3,9,4,0.25,0,6470.0,0
-17-3024.00,Electro-Mechanical and Mechatronics Technologists and Technicians,substantial,28,7,9,12,1,0.25,0,15520.0,0
+17-3029.08,Photonics Technicians,substantial,24,6,3,15,0,0.25,0,59930.0,0
 29-1215.00,Family Medicine Physicians,substantial,12,3,8,1,0,0.25,0,107510.0,1
+29-1071.00,Physician Assistants,substantial,12,3,5,4,1,0.25,0,162150.0,1
 29-1229.01,Allergists and Immunologists,substantial,16,4,11,1,0,0.25,0,342720.0,1
+19-2031.00,Chemists,substantial,12,3,5,4,0,0.25,0,82770.0,0
+19-4043.00,"Geological Technicians, Except Hydrologic Technicians",substantial,29,7,9,13,0,0.241,0,6980.0,0
 29-2031.00,Cardiovascular Technologists and Technicians,substantial,21,5,3,13,1,0.238,0,62960.0,1
-29-2081.00,"Opticians, Dispensing",substantial,21,5,6,10,0,0.238,0,73530.0,0
+29-2081.00,"Opticians, Dispensing",substantial,21,5,5,11,0,0.238,0,73530.0,1
 19-3033.00,Clinical and Counseling Psychologists,substantial,30,7,20,3,0,0.233,0,75990.0,0
-17-3031.00,Surveying and Mapping Technicians,substantial,30,7,11,12,2,0.233,0,58010.0,0
-29-1129.02,Music Therapists,substantial,30,7,17,6,0,0.233,0,22640.0,1
-29-2011.02,Cytotechnologists,substantial,13,3,1,9,0,0.231,0,332940.0,0
+29-2011.01,Cytogenetic Technologists,substantial,30,7,8,15,0,0.233,0,332940.0,1
+29-2011.02,Cytotechnologists,substantial,13,3,2,8,0,0.231,0,332940.0,1
 29-2051.00,Dietetic Technicians,substantial,13,3,9,1,0,0.231,0,31560.0,1
 29-1181.00,Audiologists,substantial,22,5,14,3,0,0.227,0,13660.0,1
-11-9041.01,Biofuels/Biodiesel Technology and Product Development Managers,substantial,18,4,2,12,0,0.222,0,220260.0,0
 29-1141.01,Acute Care Nurses,substantial,27,6,13,8,0,0.222,0,3379720.0,1
-29-2012.00,Medical and Clinical Laboratory Technicians,substantial,14,3,3,8,0,0.214,0,332940.0,0
-29-1222.00,"Physicians, Pathologists",substantial,19,4,10,5,0,0.211,0,11110.0,1
+29-1141.00,Registered Nurses,substantial,27,6,10,11,0,0.222,0,3379720.0,1
+29-1213.00,Dermatologists,substantial,18,4,11,3,0,0.222,0,11370.0,1
+29-1243.00,Pediatric Surgeons,substantial,18,4,7,7,0,0.222,0,1190.0,1
+17-1021.00,Cartographers and Photogrammetrists,substantial,14,3,6,5,2,0.214,0,14260.0,0
+29-2012.00,Medical and Clinical Laboratory Technicians,substantial,14,3,3,8,0,0.214,0,332940.0,1
 29-2036.00,Medical Dosimetrists,substantial,19,4,8,7,0,0.211,0,3410.0,1
-17-3029.08,Photonics Technicians,substantial,24,5,4,15,0,0.208,0,59930.0,0
-29-1123.00,Physical Therapists,substantial,24,5,14,5,0,0.208,0,267330.0,1
+29-1216.00,General Internal Medicine Physicians,substantial,19,4,12,3,0,0.211,0,67150.0,1
+29-1123.00,Physical Therapists,substantial,24,5,13,6,0,0.208,0,267330.0,1
 29-1141.02,Advanced Practice Psychiatric Nurses,substantial,24,5,13,6,1,0.208,0,3379720.0,1
-29-1141.03,Critical Care Nurses,substantial,29,6,8,15,0,0.207,0,3379720.0,1
-29-1212.00,Cardiologists,substantial,25,5,11,9,0,0.2,0,17290.0,0
-19-4071.00,Forest and Conservation Technicians,substantial,20,4,4,12,4,0.2,0,30410.0,0
-29-1141.04,Clinical Nurse Specialists,substantial,30,6,20,4,1,0.2,0,3379720.0,1
-29-2011.01,Cytogenetic Technologists,substantial,30,6,10,14,0,0.2,0,332940.0,1
-29-1218.00,Obstetricians and Gynecologists,substantial,15,3,9,3,0,0.2,0,21260.0,1
-29-1242.00,"Orthopedic Surgeons, Except Pediatric",substantial,15,3,6,6,0,0.2,0,14100.0,1
+29-1217.00,Neurologists,substantial,24,5,15,4,0,0.208,0,10590.0,1
+29-1212.00,Cardiologists,substantial,25,5,10,10,0,0.2,0,17290.0,0
 19-1032.00,Foresters,substantial,25,5,13,7,0,0.2,0,10430.0,0
-29-1131.00,Veterinarians,substantial,21,4,10,7,0,0.19,0,83900.0,0
-29-2099.01,Neurodiagnostic Technologists,substantial,16,3,4,9,0,0.188,0,182610.0,1
+19-4071.00,Forest and Conservation Technicians,substantial,20,4,4,12,4,0.2,0,30410.0,0
+29-1141.04,Clinical Nurse Specialists,substantial,30,6,19,5,1,0.2,0,3379720.0,1
+29-2091.00,Orthotists and Prosthetists,substantial,15,3,5,7,0,0.2,0,9390.0,1
+19-4031.00,Chemical Technicians,substantial,16,3,5,8,0,0.188,0,57540.0,0
 29-1292.00,Dental Hygienists,substantial,16,3,4,9,0,0.188,0,222740.0,1
+29-1299.02,Orthoptists,substantial,16,3,9,4,0,0.188,0,28630.0,0
+29-2099.01,Neurodiagnostic Technologists,substantial,16,3,4,9,0,0.188,0,182610.0,1
 29-1081.00,Podiatrists,substantial,11,2,6,3,0,0.182,0,9680.0,0
 29-1125.00,Recreational Therapists,substantial,11,2,8,1,0,0.182,0,14930.0,1
 29-2033.00,Nuclear Medicine Technologists,substantial,17,3,5,9,1,0.176,0,17080.0,1
+29-1221.00,"Pediatricians, General",substantial,17,3,11,3,0,0.176,0,39390.0,1
 29-1122.00,Occupational Therapists,substantial,17,3,10,4,1,0.176,0,162450.0,1
-19-4021.00,Biological Technicians,substantial,18,3,8,7,0,0.167,0,69620.0,0
-29-2055.00,Surgical Technologists,substantial,18,3,1,14,0,0.167,0,117460.0,0
-29-1217.00,Neurologists,substantial,24,4,17,3,0,0.167,0,10590.0,1
-29-1243.00,Pediatric Surgeons,substantial,18,3,8,7,0,0.167,0,1190.0,1
-19-2031.00,Chemists,substantial,12,2,6,4,0,0.167,0,82770.0,0
-29-1216.00,General Internal Medicine Physicians,substantial,19,3,13,3,0,0.158,0,67150.0,1
-29-1141.00,Registered Nurses,substantial,27,4,13,10,0,0.148,0,3379720.0,1
-19-1022.00,Microbiologists,substantial,14,2,7,5,1,0.143,0,18940.0,0
+29-1141.03,Critical Care Nurses,substantial,29,5,9,15,0,0.172,0,3379720.0,1
+29-2055.00,Surgical Technologists,substantial,18,3,0,15,0,0.167,0,117460.0,0
+19-4021.00,Biological Technicians,substantial,18,3,9,6,0,0.167,0,69620.0,0
+29-2034.00,Radiologic Technologists and Technicians,substantial,30,5,11,14,0,0.167,0,230490.0,1
+29-1224.00,Radiologists,substantial,30,5,19,6,0,0.167,0,26770.0,1
+29-1241.00,"Ophthalmologists, Except Pediatric",substantial,18,3,10,5,0,0.167,0,8950.0,1
+29-1211.00,Anesthesiologists,substantial,20,3,10,7,0,0.15,0,38760.0,1
 19-3039.02,Neuropsychologists,substantial,14,2,10,2,0,0.143,0,18820.0,0
-29-1051.00,Pharmacists,substantial,21,3,15,3,0,0.143,0,321970.0,1
 29-1122.01,"Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists",substantial,21,3,13,5,0,0.143,0,162450.0,1
-29-1229.03,Urologists,substantial,14,2,7,5,0,0.143,0,342720.0,0
-17-1021.00,Cartographers and Photogrammetrists,substantial,14,2,7,5,2,0.143,0,14260.0,0
-29-2061.00,Licensed Practical and Licensed Vocational Nurses,substantial,22,3,8,11,0,0.136,0,648410.0,1
-29-1224.00,Radiologists,substantial,30,4,19,7,0,0.133,0,26770.0,1
-29-2091.00,Orthotists and Prosthetists,substantial,15,2,6,7,0,0.133,0,9390.0,1
-29-2011.00,Medical and Clinical Laboratory Technologists,substantial,15,2,4,9,1,0.133,0,332940.0,0
-29-1127.00,Speech-Language Pathologists,substantial,23,3,16,4,0,0.13,0,183390.0,1
-29-1151.00,Nurse Anesthetists,substantial,24,3,7,14,0,0.125,0,51840.0,1
-19-4031.00,Chemical Technicians,substantial,16,2,6,8,0,0.125,0,57540.0,0
-19-4092.00,Forensic Science Technicians,substantial,24,3,3,18,2,0.125,0,19120.0,0
-29-1299.02,Orthoptists,substantial,16,2,10,4,0,0.125,0,28630.0,1
+29-1229.03,Urologists,substantial,14,2,6,6,0,0.143,0,342720.0,0
+29-9099.01,Midwives,substantial,36,5,16,15,1,0.139,0,35010.0,1
+29-1124.00,Radiation Therapists,substantial,22,3,7,12,0,0.136,0,17070.0,1
+29-2061.00,Licensed Practical and Licensed Vocational Nurses,substantial,22,3,5,14,0,0.136,0,648410.0,1
+29-2011.00,Medical and Clinical Laboratory Technologists,substantial,15,2,4,9,1,0.133,0,332940.0,1
+29-1127.00,Speech-Language Pathologists,substantial,23,3,15,5,0,0.13,0,183390.0,1
+29-1126.00,Respiratory Therapists,substantial,23,3,8,12,0,0.13,0,139790.0,1
+29-2056.00,Veterinary Technologists and Technicians,substantial,31,4,4,23,0,0.129,0,129140.0,0
+29-1151.00,Nurse Anesthetists,substantial,24,3,6,15,0,0.125,0,51840.0,0
+19-4092.00,Forensic Science Technicians,substantial,24,3,12,9,2,0.125,0,19120.0,0
+29-2053.00,Psychiatric Technicians,substantial,16,2,5,9,0,0.125,0,156960.0,0
+29-2035.00,Magnetic Resonance Imaging Technologists,substantial,24,3,8,13,0,0.125,0,43390.0,1
 29-1071.01,Anesthesiologist Assistants,substantial,16,2,2,12,0,0.125,0,162150.0,0
-29-2053.00,Psychiatric Technicians,substantial,16,2,7,7,0,0.125,0,156960.0,0
-29-2011.04,Histotechnologists,substantial,16,2,1,13,2,0.125,0,332940.0,0
-29-1221.00,"Pediatricians, General",substantial,17,2,12,3,0,0.118,0,39390.0,1
 29-1214.00,Emergency Medicine Physicians,substantial,17,2,10,5,2,0.118,0,32880.0,1
-19-3039.03,Clinical Neuropsychologists,substantial,18,2,14,2,1,0.111,0,18820.0,0
-29-9099.01,Midwives,substantial,36,4,17,15,1,0.111,0,35010.0,1
-29-1241.00,"Ophthalmologists, Except Pediatric",substantial,18,2,12,4,0,0.111,0,8950.0,1
-29-1291.00,Acupuncturists,substantial,18,2,6,10,0,0.111,0,7830.0,0
 19-4051.00,Nuclear Technicians,substantial,18,2,6,10,0,0.111,0,6470.0,0
-19-4043.00,"Geological Technicians, Except Hydrologic Technicians",substantial,29,3,13,13,0,0.103,0,6980.0,0
+29-1291.00,Acupuncturists,substantial,18,2,6,10,0,0.111,0,7830.0,0
 29-1021.00,"Dentists, General",substantial,20,2,4,14,1,0.1,0,124390.0,0
-29-2034.00,Radiologic Technologists and Technicians,substantial,30,3,12,15,0,0.1,0,230490.0,1
-29-1211.00,Anesthesiologists,substantial,20,2,11,7,0,0.1,0,38760.0,1
-17-3024.01,Robotics Technicians,substantial,22,2,10,10,0,0.091,0,15520.0,0
-29-1124.00,Radiation Therapists,substantial,22,2,8,12,0,0.091,0,17070.0,1
-29-1023.00,Orthodontists,substantial,11,1,6,4,0,0.091,0,6210.0,1
 29-2092.00,Hearing Aid Specialists,substantial,11,1,2,8,0,0.091,0,11270.0,0
-29-1126.00,Respiratory Therapists,substantial,23,2,9,12,0,0.087,0,139790.0,1
-29-2035.00,Magnetic Resonance Imaging Technologists,substantial,24,2,9,13,0,0.083,0,43390.0,1
+29-1023.00,Orthodontists,substantial,11,1,6,4,0,0.091,0,6210.0,1
 29-2042.00,Emergency Medical Technicians,substantial,12,1,4,7,0,0.083,0,180510.0,0
 29-2043.00,Paramedics,substantial,13,1,5,7,1,0.077,0,100610.0,0
 29-1229.04,Physical Medicine and Rehabilitation Physicians,substantial,15,1,10,4,1,0.067,0,342720.0,1
 29-2099.05,Ophthalmic Medical Technologists,substantial,31,2,4,25,0,0.065,0,182610.0,0
-29-2056.00,Veterinary Technologists and Technicians,substantial,31,2,6,23,0,0.065,0,129140.0,0
+29-2011.04,Histotechnologists,substantial,16,1,2,13,2,0.062,0,332940.0,0
+19-4013.00,Food Science Technicians,substantial,16,1,8,7,0,0.062,0,14600.0,0
+19-3039.03,Clinical Neuropsychologists,substantial,18,1,14,3,1,0.056,0,18820.0,0
 29-2057.00,Ophthalmic Medical Technicians,substantial,20,1,2,17,2,0.05,0,71010.0,0
-19-4013.00,Food Science Technicians,substantial,16,0,9,7,0,0.0,0,14600.0,0
 29-1022.00,Oral and Maxillofacial Surgeons,substantial,15,0,5,10,1,0.0,0,4910.0,0
-29-1041.00,Optometrists,substantial,10,0,7,3,0,0.0,0,42790.0,1
 29-9093.00,Surgical Assistants,substantial,28,0,4,24,0,0.0,0,22270.0,0
+29-1041.00,Optometrists,substantial,10,0,7,3,0,0.0,0,42790.0,1
 29-1024.00,Prosthodontists,substantial,12,0,2,10,2,0.0,0,870.0,0
 29-2012.01,Histology Technicians,substantial,8,0,0,8,1,0.0,0,332940.0,0

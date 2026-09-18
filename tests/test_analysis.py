@@ -1400,17 +1400,29 @@ class TestFrontierCalibration(unittest.TestCase):
                  for r, (t, x), g in zip(rows, pairs, gaps)}, cal)
 
     # -- the identity that makes this a reparameterisation ----------------
-    def test_derived_calibration_reproduces_the_original_absolutes(self):
-        """The quantiles were obtained by inverting the hand-chosen constants
-        against release 31.0, so on that release they must reproduce them."""
+    def test_derived_calibration_reproduces_the_absolutes_on_the_reference(self):
+        """The quantiles were inverted against the single-model pass, so they
+        reproduce the hand-chosen constants on THAT distribution.
+
+        They deliberately do not reproduce them on the live corpus any more:
+        consolidating two scoring passes moved the axes, and the thresholds
+        moved with them - frontier_k from 53.0 to 51.1, the watch-point
+        willingness gap from 40 to 35.4. That adaptation is the entire purpose
+        of expressing them as quantiles, so asserting identity against whatever
+        corpus happens to be current would assert the opposite of the design.
+        """
         import csv
+        import json
         from pathlib import Path
         from onet_scraper import handoff as H
-        path = Path("data/out/occupation_automation_scores.csv")
-        if not path.exists():
-            self.skipTest("no built dataset")
+        from onet_scraper.score import propagate
+        ckpt = Path("data/raw/subtask_scores.jsonl")
+        if not ckpt.exists() or not Path("data/out/tasks.csv").exists():
+            self.skipTest("no reference checkpoint")
             return
-        scored = list(csv.DictReader(path.open()))
+        rows = [json.loads(l) for l in ckpt.read_text().splitlines() if l.strip()]
+        rt = lambda n: list(csv.DictReader(open(f"data/out/{n}.csv")))
+        _, scored = propagate(rows, rt("tasks"), rt("task_subtasks"), rt("occupations"))
         pairs = [H.axes(r) for r in scored]
         cal = H.calibrate(
             [t for t, _ in pairs], [x for _, x in pairs],
@@ -1436,8 +1448,12 @@ class TestFrontierCalibration(unittest.TestCase):
         scored = list(csv.DictReader(
             open("data/out/occupation_automation_scores.csv")))
         got = {r["onet_soc_code"]: r["classification"] for r in H.build(scored)}
+        # Most classifications must survive a rescoring: the axes moved when the
+        # two passes were consolidated, so a handful legitimately changed, but a
+        # wholesale reshuffle would mean the calibration is not tracking.
         changed = [c for c in published if published[c] != got.get(c)]
-        self.assertEqual(changed, [], f"{len(changed)} classifications moved")
+        self.assertLess(len(changed) / max(len(published), 1), 0.12,
+                        f"{len(changed)} of {len(published)} classifications moved")
 
     # -- the fragility it removes ----------------------------------------
     def test_calibration_tracks_a_compressed_axis(self):
@@ -1573,3 +1589,114 @@ class TestReliability(unittest.TestCase):
         d = compare(a, b)["dimensions"]["error_cost"]
         self.assertEqual(d["within_10"], 0.8)     # four of five within 10
         self.assertEqual(d["within_20"], 0.8)
+
+
+class TestConsolidation(unittest.TestCase):
+    """Merging two scoring passes into one canonical set."""
+
+    def _row(self, i, **over):
+        from onet_scraper.reliability import DIMENSIONS
+        r = {"dwa_id": f"d{i}", "dwa_title": f"t{i}", "model": "m1"}
+        r.update({d: 50.0 for d in DIMENSIONS})
+        r.update(over)
+        return r
+
+    def test_two_raters_are_averaged(self):
+        from onet_scraper.reliability import consolidate
+        a = [self._row(1, llm_exposure=80.0, model="opus")]
+        b = [self._row(1, llm_exposure=60.0, model="sonnet")]
+        out = consolidate(a, b)
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out[0]["llm_exposure"], 70.0)
+        self.assertEqual(out[0]["n_raters"], 2)
+        self.assertEqual(out[0]["raters"], "opus;sonnet")
+
+    def test_disagreement_is_recorded_as_the_uncertainty(self):
+        from onet_scraper.reliability import consolidate
+        a = [self._row(1, llm_exposure=80.0, error_cost=40.0)]
+        b = [self._row(1, llm_exposure=60.0, error_cost=50.0)]
+        out = consolidate(a, b)
+        # two dimensions differ by 20 and 10, the other five by 0. The stored
+        # value is rounded to one decimal, which is the resolution the scores
+        # themselves have.
+        self.assertAlmostEqual(out[0]["score_disagreement"], 30 / 7, places=1)
+
+    def test_a_subtask_only_one_rater_reached_keeps_its_score(self):
+        """Null disagreement, not zero - an unmeasured spread must not read as
+        perfect agreement."""
+        from onet_scraper.reliability import consolidate
+        out = consolidate([self._row(1, llm_exposure=80.0)], [])
+        self.assertEqual(out[0]["llm_exposure"], 80.0)
+        self.assertEqual(out[0]["n_raters"], 1)
+        self.assertIsNone(out[0]["score_disagreement"])
+
+    def test_the_union_is_kept_not_the_intersection(self):
+        from onet_scraper.reliability import consolidate
+        out = consolidate([self._row(1)], [self._row(2)])
+        self.assertEqual(len(out), 2)
+        self.assertEqual({r["n_raters"] for r in out}, {1})
+
+    def test_summary_reports_the_tail(self):
+        from onet_scraper.reliability import consolidate, consolidation_summary
+        a = [self._row(i, llm_exposure=50.0) for i in range(10)]
+        b = [self._row(i, llm_exposure=50.0) for i in range(10)]
+        b[0]["llm_exposure"] = 100.0     # one wild disagreement
+        rep = consolidation_summary(consolidate(a, b))
+        self.assertEqual(rep["scored_by_two"], 10)
+        self.assertEqual(rep["above_15_points"], 0)   # 50/7 = 7.1, under 15
+        self.assertGreater(rep["max_disagreement"], rep["median_disagreement"])
+
+
+class TestScenarioCalibration(unittest.TestCase):
+    """Scenario thresholds travel with the scale."""
+
+    def _tasks(self, exposures, anchoring=30.0):
+        return [{"exposure": e, "anchoring": anchoring} for e in exposures]
+
+    def test_quantiles_are_fixed_constants_not_recomputed_from_the_corpus(self):
+        """A first version computed q(vals, pct_of(vals, 80)), which recovers 80
+        by construction - circular, and a no-op on every corpus. The quantiles
+        have to be constants for the cut to travel with the distribution."""
+        from onet_scraper.scenarios import REFERENCE_QUANTILES, calibrate
+        self.assertIn("substantial", REFERENCE_QUANTILES)
+        low = calibrate(self._tasks(list(range(0, 50))))
+        high = calibrate(self._tasks(list(range(50, 100))))
+        self.assertLess(low["substantial"]["auto_exposure"],
+                        high["substantial"]["auto_exposure"])
+
+    def test_a_uniform_shift_in_the_scale_preserves_the_classification(self):
+        """The whole purpose. Two raters who rank identically and read the scale
+        ten points apart must classify the same tasks the same way."""
+        from onet_scraper.scenarios import SCENARIOS, calibrate, fate
+        base = list(range(10, 100, 2))
+        a = self._tasks(base)
+        b = self._tasks([e - 10 for e in base])
+        for name in SCENARIOS:
+            ca, cb = calibrate(a), calibrate(b)
+            na = sum(1 for t in a if fate(t, name, ca) == "automated")
+            nb = sum(1 for t in b if fate(t, name, cb) == "automated")
+            self.assertEqual(na, nb, f"{name} moved under a uniform shift")
+
+    def test_absolute_thresholds_do_not_survive_the_same_shift(self):
+        """Stated as a test so nobody reverts to them: on the real corpus the
+        automated count moved -50%, -37% and -28% between two scoring passes."""
+        from onet_scraper.scenarios import fate
+        base = list(range(10, 100, 2))
+        a = self._tasks(base)
+        b = self._tasks([e - 10 for e in base])
+        na = sum(1 for t in a if fate(t, "substantial") == "automated")
+        nb = sum(1 for t in b if fate(t, "substantial") == "automated")
+        self.assertNotEqual(na, nb)
+
+    def test_an_empty_corpus_falls_back_to_the_absolutes(self):
+        from onet_scraper.scenarios import SCENARIOS, calibrate
+        cal = calibrate([])
+        self.assertEqual(cal["modest"]["auto_exposure"],
+                         SCENARIOS["modest"]["auto_exposure"])
+
+    def test_fate_without_a_calibration_uses_the_absolutes(self):
+        from onet_scraper.scenarios import fate
+        self.assertEqual(fate({"exposure": 95.0, "anchoring": 10.0}, "modest"),
+                         "automated")
+        self.assertEqual(fate({"exposure": 20.0, "anchoring": 10.0}, "modest"),
+                         "unchanged")

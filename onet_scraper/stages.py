@@ -869,3 +869,73 @@ def run_retest(settings: Settings, *, model: str = "claude-sonnet-5",
         write_csv(settings.out_dir / "subtask_scores_retest.csv", scores,
                   COLUMNS["subtask_scores_retest"])
     return report
+
+
+def run_consolidate(settings: Settings) -> dict[str, Any]:
+    """Replace the single-pass subtask scores with the mean of both passes.
+
+    Everything downstream reads the subtask_automation_scores table, so writing
+    the consolidated scores there propagates through the task and occupation
+    indices, the scenarios, the handoff axes and the security matrix without
+    any of them needing to know two passes exist.
+
+    Both checkpoints are left untouched in data/raw, so this is reversible: the
+    single-pass tables can be regenerated from them at any time.
+    """
+    from .reliability import consolidate, consolidation_summary
+    from .score import load_scores
+
+    first = load_scores(settings.raw_dir)
+    second = load_scores(settings.raw_dir / "retest")
+    if not first:
+        raise SystemExit("no first pass; run the score stage first")
+    if not second:
+        raise SystemExit("no second pass; run the retest stage first")
+
+    rows = consolidate(list(first.values()), list(second.values()))
+    summary = consolidation_summary(rows)
+
+    existing = read_table(settings.out_dir, "subtask_automation_scores")
+    cols = tuple(existing[0].keys()) if existing else tuple(rows[0].keys())
+    for extra in ("n_raters", "score_disagreement", "raters"):
+        if extra not in cols:
+            cols = cols + (extra,)
+    COLUMNS["subtask_automation_scores"] = cols
+    write_csv(settings.out_dir / "subtask_automation_scores.csv", rows, cols)
+
+    # Rewriting the subtask table is not enough. The task- and
+    # occupation-level tables are a PROPAGATION of it, written by the score
+    # stage, and the susceptibility build reads all three - so leaving them
+    # stale meant the consolidated scores changed nothing downstream and every
+    # figure came out byte-identical, which is exactly what a silent no-op
+    # looks like. Re-propagate from the consolidated subtask scores.
+    from .score import propagate
+    task_scores, occ_scores = propagate(
+        rows,
+        read_table(settings.out_dir, "tasks"),
+        read_table(settings.out_dir, "task_subtasks"),
+        read_table(settings.out_dir, "occupations"),
+    )
+    append_sqlite(settings.out_dir / "onet_stem.sqlite",
+                  {"subtask_automation_scores": rows,
+                   "task_automation_scores": task_scores,
+                   "occupation_automation_scores": occ_scores})
+    for name, table in (("task_automation_scores", task_scores),
+                        ("occupation_automation_scores", occ_scores)):
+        write_csv(settings.out_dir / f"{name}.csv", table, COLUMNS[name])
+    log.info("re-propagated to %d tasks and %d occupations",
+             len(task_scores), len(occ_scores))
+    (settings.out_dir / "consolidation_report.json").write_text(
+        json.dumps(summary, indent=2))
+
+    log.info("-" * 72)
+    log.info("consolidated %d subtasks: %d scored by two raters, %d by one",
+             summary["subtasks"], summary["scored_by_two"], summary["scored_by_one"])
+    log.info("  disagreement: median %.1f · p90 %.1f · max %.1f points",
+             summary["median_disagreement"] or 0, summary["p90_disagreement"] or 0,
+             summary["max_disagreement"] or 0)
+    log.info("  %d subtasks (%.1f%%) differ by more than 15 points and should "
+             "carry a caveat wherever cited",
+             summary["above_15_points"], 100 * (summary["share_above_15"] or 0))
+    log.info("  re-run the report stage to propagate these into every index")
+    return summary

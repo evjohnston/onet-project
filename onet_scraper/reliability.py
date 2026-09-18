@@ -165,3 +165,77 @@ def log_report(rep: dict[str, Any]) -> None:
     log.info("-" * 78)
     log.info("mean r %.3f · mean ICC %.3f · mean absolute difference %.1f points",
              rep["mean_pearson"] or 0, rep["mean_icc"] or 0, rep["mean_abs_diff"] or 0)
+
+
+# --------------------------------------------------------------------------- #
+# Consolidation
+# --------------------------------------------------------------------------- #
+# Averaging two raters raises reliability by the Spearman-Brown relation:
+# r_2 = 2r / (1 + r). At the measured r = 0.934 that is 0.966, so the mean of
+# the two passes is a better estimate than either alone. This is the one thing
+# the second pass buys permanently rather than as a one-off report.
+#
+# It also finally gives the project an uncertainty measure. Every score until
+# now was a point estimate with nothing attached; the spread between two
+# independent raters is a per-subtask error bar, and the subtasks where they
+# disagree are precisely the ones whose scores should not be leaned on.
+
+def consolidate(first: Sequence[dict[str, Any]], second: Sequence[dict[str, Any]],
+                key: str = "dwa_id") -> list[dict[str, Any]]:
+    """Merge two scoring passes into one canonical set of scores.
+
+    A subtask scored by both raters takes the mean of each dimension and carries
+    the mean absolute disagreement. A subtask only one rater reached keeps that
+    rater's score and a null disagreement - which is honest, and distinguishable
+    from a measured agreement of zero.
+    """
+    a = {r[key]: r for r in first if r.get(key)}
+    b = {r[key]: r for r in second if r.get(key)}
+    out: list[dict[str, Any]] = []
+
+    for k in sorted(set(a) | set(b)):
+        ra, rb = a.get(k), b.get(k)
+        base = dict(ra or rb or {})
+        if ra and rb:
+            diffs = []
+            for dim in DIMENSIONS:
+                x, y = _f(ra, dim), _f(rb, dim)
+                if x is None or y is None:
+                    continue
+                base[dim] = round((x + y) / 2, 1)
+                diffs.append(abs(x - y))
+            base["n_raters"] = 2
+            base["score_disagreement"] = round(statistics.fmean(diffs), 1) if diffs else None
+            base["raters"] = ";".join(sorted(
+                {str(ra.get("model", "?")), str(rb.get("model", "?"))}))
+        else:
+            base["n_raters"] = 1
+            base["score_disagreement"] = None
+            base["raters"] = str(base.get("model", "?"))
+        out.append(base)
+    return out
+
+
+def consolidation_summary(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
+    both = [r for r in rows if r.get("n_raters") == 2]
+    spread = [r["score_disagreement"] for r in both
+              if r.get("score_disagreement") is not None]
+    spread_sorted = sorted(spread)
+    def pct(p: float) -> float:
+        if not spread_sorted:
+            return 0.0
+        i = min(len(spread_sorted) - 1, int(p * len(spread_sorted)))
+        return spread_sorted[i]
+    return {
+        "subtasks": len(rows),
+        "scored_by_two": len(both),
+        "scored_by_one": len(rows) - len(both),
+        "median_disagreement": round(statistics.median(spread), 1) if spread else None,
+        "p90_disagreement": round(pct(0.9), 1),
+        "max_disagreement": round(max(spread), 1) if spread else None,
+        # the tail is what a reader needs to know about: these are the scores
+        # that should carry a caveat wherever they are cited
+        "above_15_points": sum(1 for v in spread if v > 15),
+        "share_above_15": round(sum(1 for v in spread if v > 15) / len(spread), 4)
+        if spread else None,
+    }

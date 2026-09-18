@@ -68,9 +68,77 @@ def _f(row: dict[str, Any], key: str, default: float = 0.0) -> float:
         return default
 
 
-def fate(task: dict[str, Any], scenario: str) -> str:
-    """automated / augmented / unchanged for one task under one scenario."""
-    s = SCENARIOS[scenario]
+# The thresholds above are absolute points on the 0-100 scales, and the
+# cross-model retest (METHODOLOGY.md 7.4) showed what that costs. Two models
+# scoring the same rubric agreed on the RANKING of exposure at r = 0.935 and
+# disagreed about the LEVEL of the scale by 9.7 points - nearly the same
+# distribution shape (sd 23.9 against 23.4), a different centre (median 68
+# against 55). Absolute cuts cannot survive that: the automated count moved by
+# -51%, -35% and -26% across the three scenarios purely because the second
+# rater read the scale lower.
+#
+# Expressed as quantiles of the corpus's own exposure distribution, the same
+# thresholds move the count by +16%, +14% and +5% instead. The quantiles below
+# were obtained by inverting each absolute threshold against the consolidated
+# corpus, so on that corpus they reproduce the previous cuts and nothing moves;
+# what changes is that a rescoring no longer walks a third of the catalogue
+# across a fixed line.
+#
+# This is the same fix already applied to the handoff frontier in handoff.py,
+# for the same reason, and it was left undone here only because nothing had yet
+# measured the calibration.
+# Each absolute threshold, expressed as its quantile of the REFERENCE corpus -
+# the 5,612 tasks as propagated from the original single-model pass, which is
+# the distribution the numbers above were chosen against. These are fixed
+# constants, which is the whole point: applying them to whatever distribution is
+# present is what makes the cut travel with the scale.
+#
+# A first version computed q(vals, pct_of(vals, 80)) on the live corpus, which
+# recovers 80 by construction - circular, and a no-op on every corpus. The
+# frontier in handoff.py gets this right by hardcoding its quantiles, and this
+# is the same treatment.
+REFERENCE_QUANTILES: dict[str, dict[str, float]] = {
+    "modest":      {"auto_exposure": 0.679615, "auto_anchoring_max": 0.317177,
+                    "augment_exposure": 0.328225},
+    "substantial": {"auto_exposure": 0.467035, "auto_anchoring_max": 0.677299,
+                    "augment_exposure": 0.228261},
+    "extreme":     {"auto_exposure": 0.306664, "auto_anchoring_max": 0.935852,
+                    "augment_exposure": 0.158945},
+}
+
+
+def calibrate(tasks: Sequence[dict[str, Any]]) -> dict[str, dict[str, float]]:
+    """Read each scenario's thresholds off the corpus being classified."""
+    exposure = sorted(v for v in (_f(t, "exposure") for t in tasks) if v is not None)
+    anchoring = sorted(v for v in (_f(t, "anchoring") for t in tasks) if v is not None)
+    if not exposure or not anchoring:
+        return {k: dict(v) for k, v in SCENARIOS.items()}
+
+    def q(vals: list[float], p: float) -> float:
+        pos = p * (len(vals) - 1)
+        lo = int(pos)
+        hi = min(lo + 1, len(vals) - 1)
+        return vals[lo] + (pos - lo) * (vals[hi] - vals[lo])
+
+    return {
+        name: {
+            "auto_exposure": q(exposure, qs["auto_exposure"]),
+            "auto_anchoring_max": q(anchoring, qs["auto_anchoring_max"]),
+            "augment_exposure": q(exposure, qs["augment_exposure"]),
+        }
+        for name, qs in REFERENCE_QUANTILES.items()
+    }
+
+
+def fate(task: dict[str, Any], scenario: str,
+         cal: dict[str, dict[str, float]] | None = None) -> str:
+    """automated / augmented / unchanged for one task under one scenario.
+
+    `cal` comes from calibrate() over the corpus being classified. Passing None
+    falls back to the absolute thresholds, which is right for a single task
+    scored in isolation and wrong for a whole corpus.
+    """
+    s = (cal or {}).get(scenario) or SCENARIOS[scenario]
     exposure, anchoring = _f(task, "exposure"), _f(task, "anchoring")
     if exposure >= s["auto_exposure"] and anchoring < s["auto_anchoring_max"]:
         return "automated"
@@ -80,6 +148,7 @@ def fate(task: dict[str, Any], scenario: str) -> str:
 
 
 def task_fates(tasks: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
+    cal = calibrate(tasks)
     out = []
     for t in tasks:
         row = {
@@ -91,7 +160,7 @@ def task_fates(tasks: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
             "exposure": _f(t, "exposure"),
             "anchoring": _f(t, "anchoring"),
         }
-        row.update({name: fate(t, name) for name in SCENARIOS})
+        row.update({name: fate(t, name, cal) for name in SCENARIOS})
         out.append(row)
     return out
 

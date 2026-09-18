@@ -41,6 +41,7 @@ from .stages import (
     run_validate_derived,
     run_smoke,
     run_retest,
+    run_consolidate,
     run_scroller,
     run_score,
 )
@@ -135,7 +136,7 @@ def build_parser() -> argparse.ArgumentParser:
         default="run",
         choices=["run", "fetch-stem", "fetch-occupations", "fetch-bulk",
                  "fetch-descriptors", "build", "validate", "network", "score",
-                 "report", "employment", "validate-external", "figures", "story", "churn", "pathways", "publish", "scenarios", "security", "validate-derived", "smoke", "retest",
+                 "report", "employment", "validate-external", "figures", "story", "churn", "pathways", "publish", "scenarios", "security", "validate-derived", "smoke", "retest", "consolidate",
                  "clean-cache"],
         help="which stage to run (default: run = all of them)",
     )
@@ -236,6 +237,10 @@ def main(argv: list[str] | None = None) -> int:
 
     if stage == "smoke":
         run_smoke(settings, chrome=args.chrome)
+        return 0
+
+    if stage == "consolidate":
+        run_consolidate(settings)
         return 0
 
     if stage == "retest":

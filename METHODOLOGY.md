@@ -601,13 +601,42 @@ catalogue across a fixed line. **The scenario counts are therefore conditional
 on the scoring model in a way the susceptibility index is not, and should be
 read as such.**
 
-Re-expressing the same thresholds as percentiles of each pass's own exposure
-distribution — the treatment §6.2 already applies to the frontier, for the same
-reason — cuts the disagreement to **+15.9%, +13.8% and +4.8%**. This is the
-identical fragility that was found and fixed on the handoff frontier, left in
-place next door because nothing had yet measured the scale's calibration. The
-fix is not applied here: it would move published figures, and the decision
-belongs to whoever cites them.
+**Both things were then fixed.** The scenario thresholds are now quantiles of
+the corpus's own distribution rather than absolute points, exactly as §6.2 does
+for the frontier. Measured across the two passes at task level, model
+sensitivity falls from −50.5%, −36.6% and −28.0% to **+9.1%, +15.3% and +2.8%**;
+what remains is genuine disagreement about ranking rather than about where the
+scale sits. The quantiles are fixed constants inverted against the single-model
+reference corpus, so on that corpus they reproduce the previous cuts to within
+one task of 5,612.
+
+And the two passes are now **averaged into the canonical scores** rather than
+one being discarded. Averaging two raters raises reliability by the
+Spearman–Brown relation, from r = 0.934 to **0.966**, so the mean is a better
+estimate than either pass alone. `subtask_automation_scores.csv` carries
+`n_raters`, `raters` and `score_disagreement` — the last being the project's
+first per-subtask uncertainty measure: **median 7.6 points, p90 11.9, maximum
+22.9**, with **17 of 963 subtasks (1.8%)** above 15 points. Those seventeen are
+mostly physical patient-care activities, which is where the embodiment bias
+concentrates, and a score there should carry a caveat.
+
+What this moved, with the thresholds now adaptive:
+
+| Figure | Single pass | Two-rater mean |
+| --- | ---: | ---: |
+| Susceptibility, occupation mean | 58.80 | 57.65 |
+| Exposure, occupation mean | 63.82 | 58.47 |
+| Automated tasks — modest | 1,193 | 1,215 |
+| Automated tasks — substantial | 2,522 | 2,650 |
+| Automated tasks — extreme | 3,852 | 3,864 |
+| Handoff: human held / watch / crossing / handed off | 105 / 29 / 98 / 36 | 101 / 32 / 106 / 29 |
+
+The exposure mean drops 5.4 points because it is now an average across two
+differently-calibrated raters, and the scenario counts barely move *because* the
+thresholds absorbed that recalibration. Under the old absolute cuts the same
+change would have moved them by a quarter to a half. The frontier constants
+adapted too — `frontier_k` from 53.0 to 51.1, the watch-point willingness gap
+from 40 to 35.4 — which is why a few occupations changed handoff class.
 
 ## 8. Limitations
 
@@ -653,7 +682,7 @@ The scroller's network layout is seeded, so the drawing is identical on every ru
 
 A full rebuild from scratch is `python -m onet_scraper --refresh` followed by the
 `score`, `report`, `employment`, `validate-external`, `pathways`, `churn`,
-`figures`, `story`, `security` and `publish` stages. 190 tests run in CI on
+`figures`, `story`, `security` and `publish` stages. 200 tests run in CI on
 Python 3.10 and 3.13, and a sixth job opens every published page in headless
 Chrome and asserts it rendered.
 

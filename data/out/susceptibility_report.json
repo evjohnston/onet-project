@@ -1,34 +1,34 @@
 {
   "splits": {
-    "x_split": 65.3,
-    "y_split": 43.5
+    "x_split": 60.2,
+    "y_split": 40.1
   },
   "convergent_validity": {
-    "largely_automatable": 74.9,
-    "augmentable": 65.9,
-    "resistant": 43.6,
-    "human_anchored": 40.3,
+    "largely_automatable": 73.4,
+    "augmentable": 64.9,
+    "resistant": 43.4,
+    "human_anchored": 39.7,
     "monotonic": true
   },
   "handoff": {
     "occupations": 268,
     "by_classification": {
-      "Human held": 105,
-      "Watch point": 29,
-      "Crossing now": 98,
-      "Handed off": 36
+      "Watch point": 32,
+      "Crossing now": 106,
+      "Human held": 101,
+      "Handed off": 29
     },
     "by_current_stage": {
-      "AI informed": 101,
-      "AI recommended": 158,
-      "AI executed, human veto": 8,
+      "AI informed": 108,
+      "AI recommended": 147,
+      "AI executed, human veto": 12,
       "Human only": 1
     },
-    "with_pending_crossing": 179,
-    "at_a_weighty_crossing": 120,
-    "employment_at_weighty_crossing": 15043240.0,
-    "employment_at_watch_points": 7999160.0,
-    "mean_willingness_gap": 31.5
+    "with_pending_crossing": 198,
+    "at_a_weighty_crossing": 111,
+    "employment_at_weighty_crossing": 16076980.0,
+    "employment_at_watch_points": 7743080.0,
+    "mean_willingness_gap": 26.7
   },
   "rows": {
     "subtask_susceptibility": 963,
