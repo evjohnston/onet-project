@@ -168,12 +168,37 @@ def render(md: str) -> str:
 
 
 def toc(md: str) -> str:
-    items = []
+    """Two levels, because one was not enough to reach anything.
+
+    The document has grown to thirty-odd subsections and the sidebar listed only
+    the ten top-level ones, so a reader could not navigate to 4.4 or 7.1 at all -
+    the sections carrying the optional-file provenance and the reliability
+    result. Subsections are nested under their parent and keep their own
+    number, since "7.1" is how the prose cross-references them.
+    """
+    items: list[str] = []
+    open_sub = False
     for line in md.split("\n"):
         s = line.strip()
         if s.startswith("## "):
+            if open_sub:
+                items.append("</ol>")
+                open_sub = False
             text = re.sub(r"<[^>]+>", "", _inline(s[3:].strip()))
             label = re.sub(r"^\d+\.\s*", "", text)   # heading supplies the number
             slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
-            items.append(f'<li><a href="#{slug}">{label}</a></li>')
+            items.append(f'<li><a href="#{slug}">{label}</a>')
+        elif s.startswith("### ") and items:
+            text = re.sub(r"<[^>]+>", "", _inline(s[4:].strip()))
+            slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+            num = re.match(r"^([\d.]+)", text)
+            label = re.sub(r"^[\d.]+\s*", "", text)
+            if not open_sub:
+                items.append("<ol class='sub'>")
+                open_sub = True
+            items.append(f'<li><a href="#{slug}">'
+                         f'<span class="n">{num.group(1) if num else ""}</span>'
+                         f'{label}</a></li>')
+    if open_sub:
+        items.append("</ol>")
     return "<ol class='toc'>" + "".join(items) + "</ol>"

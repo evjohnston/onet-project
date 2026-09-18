@@ -69,7 +69,7 @@ def _f(row: dict[str, Any], key: str, default: float = 0.0) -> float:
 
 
 # The thresholds above are absolute points on the 0-100 scales, and the
-# cross-model retest (METHODOLOGY.md 7.4) showed what that costs. Two models
+# cross-model retest (METHODOLOGY.md 7.1) showed what that costs. Two models
 # scoring the same rubric agreed on the RANKING of exposure at r = 0.935 and
 # disagreed about the LEVEL of the scale by 9.7 points - nearly the same
 # distribution shape (sd 23.9 against 23.4), a different centre (median 68

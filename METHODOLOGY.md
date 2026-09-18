@@ -546,7 +546,7 @@ positive correlation there would have been the warning sign.** These three
 expectations were written down as "moderate positive" before the test and the data
 refuted them; the code records that.
 
-### 7.4 Scoring reliability
+### 7.1 Scoring reliability
 
 Every number in this dataset came from a single scoring pass, so until now none
 of it had a measure of its own stability. `reliability_report.json` closes that.

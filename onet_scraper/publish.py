@@ -311,6 +311,18 @@ ol.toc li::before{content:counter(s) ".";color:var(--muted);font:500 10px var(--
   margin-right:7px;min-width:14px;display:inline-block}
 ol.toc a{text-decoration:none;color:var(--ink)}
 ol.toc a:hover{color:var(--rust)}
+/* Subsections. Numbered from the heading itself because the prose refers to
+   them as 7.1, not as "the fourth item under Validation". METHOD_PAGE is a
+   plain string, not an f-string, so these braces are single: doubling them
+   emitted literal {{ }} and silently invalidated every rule here, which showed
+   up as the top-level counter running 3, 6, 11 because the sub-items were
+   incrementing it. */
+ol.toc ol.sub{list-style:none;margin:6px 0 10px;padding:0 0 0 2px}
+ol.toc ol.sub li{counter-increment:none;margin-bottom:5px;font-size:.92em}
+ol.toc ol.sub li::before{content:none}
+ol.toc ol.sub a{color:var(--muted);display:flex;gap:8px;align-items:baseline}
+ol.toc ol.sub a:hover{color:var(--rust)}
+ol.toc ol.sub .n{font:500 9px var(--mono);opacity:.65;flex:0 0 1.8em}
 article h1{font:400 clamp(2rem,4.4vw,2.9rem)/1.08 var(--serif);letter-spacing:-.022em;
   margin:0 0 10px}
 article h2{font:400 clamp(1.3rem,2.4vw,1.72rem)/1.18 var(--serif);letter-spacing:-.016em;
